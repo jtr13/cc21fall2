@@ -1,4 +1,4 @@
 bookdown::bs4_book:
   repo:
-    base: https://github.com/YOUR_GITHUB/YOUR_REPO
+    base: https://github.com/jtr13/cc21fall2
     branch: main
