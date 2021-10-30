@@ -69,11 +69,11 @@
 <span class="header-section-number">3.2</span> Preparing your <code>.Rmd</code> file<a class="anchor" aria-label="anchor" href="#preparing-your-.rmd-file"><i class="fas fa-link"></i></a>
 </h2>
 <p>You should only submit <strong>ONE</strong> <code>Rmd</code> file.</p>
-<p>After completing these modifications, your <code>.Rmd</code> should look like this <a href="https://github.com/jtr13/cc21/blob/main/sample_project.Rmd" target="_blank">sample <code>.Rmd</code>.</a></p>
+<p>After completing these modifications, your <code>.Rmd</code> should look like this <a href="https://github.com/jtr13/cc21fall2/blob/main/sample_project.Rmd" target="_blank">sample <code>.Rmd</code>.</a></p>
 <ol style="list-style-type: decimal">
-<li><p>Create a concise, descriptive name for your project. For instance, name it <code>base_r_ggplot_graph</code> or something similar if your work is about contrasting/working with base R graphics and <strong>ggplot2</strong> graphics. Check the <code>.Rmd</code> filenames in <a href="https://github.com/jtr13/cc21" target="_blank">the project repo</a> to make sure your name isn’t already taken. Your project name should be words only and joined with underscores, <strong>no white space</strong>. Use <code>.Rmd</code> not <code>.rmd</code>. In addition, all letters must be <strong>lowercase</strong>. Create a copy of your <code>.Rmd</code> file with the new name.</p></li>
+<li><p>Create a concise, descriptive name for your project. For instance, name it <code>base_r_ggplot_graph</code> or something similar if your work is about contrasting/working with base R graphics and <strong>ggplot2</strong> graphics. Check the <code>.Rmd</code> filenames in <a href="https://github.com/jtr13/cc21fall2/blob/main/_bookdown.yml" target="_blank">this file</a> to make sure your name isn’t already taken. Your project name should be words only and joined with underscores, <strong>no white space</strong>. Use <code>.Rmd</code> not <code>.rmd</code>. In addition, all letters must be <strong>lowercase</strong>. Create a copy of your <code>.Rmd</code> file with the new name.</p></li>
 <li><p>Completely delete the YAML header (the section at the top of the <code>.Rmd</code> that includes name, title, date, output, etc.) including the <code>---</code> line.</p></li>
-<li><p>Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents – look at examples in the 2020 EDAV rendered book of community contributions <a href="https://jtr13.github.io/cc20/" target="_blank">https://jtr13.github.io/cc20</a>. Capitalize the first letter only (“sentence case”). On the first line of your document, enter a single hashtag, <strong>followed by a single whitespace</strong>, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single <code>#</code> headers anywhere else in the document. Note: if your chapter is the first in a section, a second <code>#</code> header and section description will be requested during the pull-request and merge phase.</p></li>
+<li><p>Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents – look at examples in the panel on the left. Capitalize the first letter only (“sentence case”). On the first line of your document, enter a single hashtag, <strong>followed by a single whitespace</strong>, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single <code>#</code> headers anywhere else in the document.</p></li>
 <li>
 <p>The second line should be blank, followed by your name(s):</p>
 <pre><code># Base R vs. ggplot2
@@ -86,13 +86,13 @@ Your content starts here. </code></pre>
 <p><code>df &lt;- readr::read_csv("https://people.sc.fsu.edu/~jburkardt/data/csv/addresses.csv")</code> <br> If you absolutely must include a data file, please use a small one, as for many reasons it is desirable to keep the repository size as small as possible.</p>
 </li>
 <li>
-<p>If you have included a <code>setup</code> chunk in your <code>Rmd</code> file, please remember to remove the label <code>setup</code> in the chunk, i.e., use:</p>
+<p>If you have included a <code>setup</code> chunk in your <code>.Rmd</code> file, please remember to remove the label <code>setup</code> in the chunk, i.e., use:</p>
 <pre><code>{r, include=FALSE}</code></pre>
 <p>instead of:</p>
 <pre><code>{r setup, include=FALSE}</code></pre>
 </li>
 <li>
-<p>If your project requires libraries to be installed and included in the document, please adhere to the following conventions. Do not evaluate any <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> statements in your document. Consumers of an <code>.Rmd</code> file won’t want packages to get installed when they knit your document. Include any <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> statements at the top of your <code>Rmd</code> file, below the title, name, and <code>setup</code>, but above any content. If your chapter requires the installation of a package from source (is a GitHub installation), <strong>please add a comment identifying it as such. Please mention this as well in your PR.</strong> Here is an example <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> section with install statements that won’t be evaluated:</p>
+<p>If your project requires libraries to be installed and included in the document, please adhere to the following conventions. Do not evaluate any <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> statements in your document. Consumers of an <code>.Rmd</code> file won’t want packages to get installed when they knit your document. Include any <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> statements at the top of your <code>.Rmd</code> file, below the title, name, and <code>setup</code>, but above any content. If your chapter requires the installation of a package from source (is a GitHub installation), <strong>please add a comment identifying it as such. Please mention this as well in your PR.</strong> Here is an example <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> section with install statements that won’t be evaluated:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span> <span class="co"># used for installation from source</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span>
@@ -106,7 +106,7 @@ Your content starts here. </code></pre>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org">"ggplot2"</a></span><span class="op">)</span></code></pre></div>
 </li>
 </ol>
-<p>You could include both sections, or you could just include the second <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> section and trust R users to install any packages themselves. If you developed your <code>Rmd</code> file before moving your <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> statements above the rest of the file content, it is highly recommended to knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior. This common issue is mentioned in the EDAV R Basics <a href="https://edav.info/basics.html">“Functions stop working”</a> section.</p>
+<p>You could include both sections, or you could just include the second <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> section and trust R users to install any packages themselves. If you developed your <code>.Rmd</code> file before moving your <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> statements above the rest of the file content, it is highly recommended that you knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior.</p>
 <ol start="8" style="list-style-type: decimal">
 <li>Your file should not contain <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> / <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> calls (you should never use these in scripts anyway!) nor <code>write</code> statements.</li>
 </ol>
@@ -116,16 +116,16 @@ Your content starts here. </code></pre>
 <h2>
 <span class="header-section-number">3.3</span> Submission steps<a class="anchor" aria-label="anchor" href="#submission-steps"><i class="fas fa-link"></i></a>
 </h2>
-<p>To submit your work, we will be following “Workflow #4” – that is submitting a pull request to someone else’s repository to which you do not have write access. Instructions are available in <a href="https://edav.info/github.html#st-pr-on-another-repo-with-branching" target="_blank">this tutorial</a>. They are repeated below in abbreviated form, with specific instructions on naming conventions, content information, and other important details.</p>
+<p>To submit your work, we will be following “Workflow #4” – that is submitting a pull request to someone else’s repository to which you do not have write access. Instructions are available in lecture slides on this topic as well as in <a href="https://edav.info/github.html#st-pr-on-another-repo-with-branching" target="_blank">this tutorial</a>. They are repeated below in abbreviated form, with specific instructions on naming conventions, content information, and other important details.</p>
 <ol style="list-style-type: decimal">
-<li><p>Fork <a href="https://github.com/jtr13/cc21" target="_blank">cc21 repo (this repo)</a> to your GitHub account.</p></li>
+<li><p>Fork the <a href="https://github.com/jtr13/cc21fall21" target="_blank">cc21fall21 repo (this repo)</a> to your GitHub account.</p></li>
 <li><p>Clone/download the forked repo to your local computer.</p></li>
 <li><p>Create a new branch and name it with your project name, in our case <code>sample_project</code>. <strong>Do not skip this step. We will not merge your PR if it doesn’t come from a branch.</strong> If you already forgot to do this, check <a href="https://edav.info/github.html#fixing-mistakes">this tutorial</a> for how to fix it.</p></li>
 <li><p>Copy your modified <code>.Rmd</code> file with the same name into the root directory on the branch. In our example, it is <a href="sample_project.Rmd" target="_blank"><code>sample_project.Rmd</code></a>.</p></li>
 <li><p>Do not include an <code>.html</code> file. (In order for the <strong>bookdown</strong> package to work, all <code>.Rmd</code> files will be rendered behind the scenes.)</p></li>
 <li>
 <p>[OPTIONAL] If you have other resources (such as images) included in your project, create a folder under <code>resources/</code>. In our example, it is <a href="resources/sample_project" target="_blank"><code>resources/sample_project/</code></a>. Put the resources files there. Be sure to change all the links in your <code>.Rmd</code> to include <code>resources/.../</code>, for example:</p>
-<p><code>![Test Photo](resources/sample_project/election.jpg)</code></p>
+<p><code>![Test Photo](resources/sample_project/pumpkins.jpg)</code></p>
 </li>
 <li><p>When you are ready to submit your project, push your branch to your remote repo. Follow <a href="https://help.github.com/en/articles/creating-a-pull-request-from-a-fork">this tutorial</a> to create a pull request.</p></li>
 <li><p>At this point a back and forth will begin with the team managing the pull requests. If you are asked to make changes, simply make the changes on your local branch, save, commit, and push to GitHub. The new commits will be added to your pull request; <strong>you do not need to, and should not, create a new pull request.</strong> (If, based on the circumstances, it does make sense to close the pull request and start a new one, we will tell you.)</p></li>
@@ -175,7 +175,7 @@ Your content starts here. </code></pre>
 <h3>
 <span class="header-section-number">3.5.4</span> Other questions<a class="anchor" aria-label="anchor" href="#other-questions"><i class="fas fa-link"></i></a>
 </h3>
-<p>If you encounter other problems, please <a href="https://github.com/jtr13/cc21/issues" target="_blank">submit an issue</a> and we will look into it.</p>
+<p>If you encounter other problems, please <a href="https://github.com/jtr13/cc21fall21/issues" target="_blank">submit an issue</a> and we will look into it.</p>
 <p>Thank you for your contributions!</p>
 
 </div>
