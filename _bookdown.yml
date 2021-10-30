@@ -1,0 +1,30 @@
+book_filename: "cc"
+new_session: true
+before_chapter_script: _common.R
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+
+
+# Chapter ordering
+rmd_files: [
+  # Part: Introduction
+  'index.Rmd', # must be first chapter
+  'assignment.Rmd',
+  'instructions.Rmd',
+  'sample_project.Rmd',
+
+  # Part: Cheatsheets
+
+  # Part: Translation
+ 
+  # Part: Tutorials
+  
+  # Part: Topical Discussions
+
+  # Part: Appendices
+  'appendix_initial_setup.Rmd', # contains PART header
+  'appendix_pull_request_tutorial.Rmd'
+
+]

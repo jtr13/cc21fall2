@@ -1,0 +1,4 @@
+bookdown::bs4_book:
+  repo:
+    base: https://github.com/YOUR_GITHUB/YOUR_REPO
+    branch: main
