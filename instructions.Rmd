@@ -98,11 +98,11 @@ To submit your work, we will be following "Workflow #4" -- that is submitting a 
 
 ### What should I expect after creating a pull request? 
 
-1. Within a week after you create a pull request, we will apply a label to it and assign an administrator who will review all the files you submit to see if they meet the requirements. 
+1. Within a week after you create a pull request, we will apply a label to it and assign a classmate "PR merger" who will review all the files you submit to see if they meet the requirements. 
 
-2. It will take some time before we can process all the pull requests, so as long as you see your pull request has been labeled and assigned to an admin, don't worry. 
+2. It will take some time before we can process all the pull requests, so as long as you see your pull request in the repo, don't worry. 
 
-3. However, if the admin contacts you regarding the pull request, that usually means your files fail to meet some requirements. The admin will clearly state what is wrong, so please fix them as soon as possible. 
+3. If the PR merger contacts you regarding the pull request, that usually means your files fail to meet some requirements. They explain what is wrong, so please fix them as soon as possible. 
 
 ### What if I catch mistakes before my pull request is merged?
 
@@ -114,6 +114,6 @@ You may submit additional pull requests to fix material on the site. If the edit
 
 ### Other questions
 
-If you encounter other problems, please [submit an issue](https://github.com/jtr13/cc21fall21/issues){target="_blank"} and we will look into it. 
+If you have additional questions, please [ask in the Discussions section](https://github.com/jtr13/cc21fall21/discussions){target="_blank"} and we will respond. 
 
 Thank you for your contributions!
