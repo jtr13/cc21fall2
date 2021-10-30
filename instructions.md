@@ -64,7 +64,7 @@ Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
 
 To submit your work, we will be following "Workflow #4" -- that is submitting a pull request to someone else's repository to which you do not have write access. Instructions are available in lecture slides on this topic as well as in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching){target="_blank"}. They are repeated below in abbreviated form, with specific instructions on naming conventions, content information, and other important details.
 
-1. Fork the [cc21fall21 repo (this repo)](https://github.com/jtr13/cc21fall21){target="_blank"} to your GitHub account.
+1. Fork the [cc21fall2 repo (this repo)](https://github.com/jtr13/cc21fall2){target="_blank"} to your GitHub account.
 
 2. Clone/download the forked repo to your local computer.
 
