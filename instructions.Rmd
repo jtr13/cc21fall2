@@ -49,21 +49,11 @@ After completing these modifications, your `.Rmd` should look like this [sample 
 7. If your project requires libraries to be installed and included in the document, please adhere to the following conventions. Do not evaluate any `install.packages()` statements in your document. Consumers of an `.Rmd` file won't want packages to get installed when they knit your document. Include any `library()` statements at the top of your `.Rmd` file, below the title, name, and `setup`, but above any content. If your chapter requires the installation of a package from source (is a GitHub installation), **please add a comment identifying it as such. Please mention this as well in your PR.** Here is an example `library()` section with install statements that won't be evaluated:
 
    ```{r, eval=FALSE}
-   install.packages("devtools") # used for installation from source
-   install.packages("dplyr")
-   install.packages("ggplot2")
-
-   library("devtools")
-   devtools::install_github("twitter/AnomalyDetection")
-   ```
-
-   ```{r, eval=FALSE}
+   # remotes::install_github("twitter/AnomalyDetection")
    library("AnomalyDetection") # must be installed from source
-   library("dplyr")
-   library("ggplot2")
    ```
-
- You could include both sections, or you could just include the second `library()` section and trust R users to install any packages themselves. If you developed your `.Rmd` file before moving your `library()` statements above the rest of the file content, it is highly recommended that you knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior.
+   
+If you developed your `.Rmd` file before moving your `library()` statements above the rest of the file content, it is highly recommended that you knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior.
  
 8. Your file should not contain `getwd()` / `setwd()` calls (you should never use these in scripts anyway!) nor `write` statements.
 
