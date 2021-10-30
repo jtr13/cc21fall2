@@ -12,13 +12,13 @@ If your community contribution is in a different format, then create a short `.R
 
 You should only submit **ONE** `Rmd` file. 
 
-After completing these modifications, your `.Rmd` should look like this [sample `.Rmd`.](https://github.com/jtr13/cc21/blob/main/sample_project.Rmd){target="_blank"}
+After completing these modifications, your `.Rmd` should look like this [sample `.Rmd`.](https://github.com/jtr13/cc21fall2/blob/main/sample_project.Rmd){target="_blank"}
 
-1. Create a concise, descriptive name for your project. For instance, name it `base_r_ggplot_graph` or something similar if your work is about contrasting/working with base R graphics and **ggplot2** graphics. Check the `.Rmd` filenames in [the project repo](https://github.com/jtr13/cc21){target="_blank"} to make sure your name isn't already taken. Your project name should be words only and joined with underscores, **no white space**. Use `.Rmd` not `.rmd`. In addition, all letters must be **lowercase**. Create a copy of your `.Rmd` file with the new name. 
+1. Create a concise, descriptive name for your project. For instance, name it `base_r_ggplot_graph` or something similar if your work is about contrasting/working with base R graphics and **ggplot2** graphics. Check the `.Rmd` filenames in [this file](https://github.com/jtr13/cc21fall2/blob/main/_bookdown.yml){target="_blank"} to make sure your name isn't already taken. Your project name should be words only and joined with underscores, **no white space**. Use `.Rmd` not `.rmd`. In addition, all letters must be **lowercase**. Create a copy of your `.Rmd` file with the new name. 
 
 2. Completely delete the YAML header (the section at the top of the `.Rmd` that includes name, title, date, output, etc.) including the `---` line.
     
-3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the 2020 EDAV rendered book of community contributions [https://jtr13.github.io/cc20](https://jtr13.github.io/cc20/){target="_blank"}. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, **followed by a single whitespace**, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single `#` headers anywhere else in the document. Note: if your chapter is the first in a section, a second `#` header and section description will be requested during the pull-request and merge phase.
+3. Choose a short, descriptive, human readable title for your project as your title will show up in the table of contents -- look at examples in the panel on the left. Capitalize the first letter only ("sentence case"). On the first line of your document, enter a single hashtag, **followed by a single whitespace**, and then your title. It is important to follow this format so that bookdown renders your title as a header. Do not use single `#` headers anywhere else in the document. 
     
 4. The second line should be blank, followed by your name(s):
     
@@ -33,7 +33,7 @@ After completing these modifications, your `.Rmd` should look like this [sample 
 
    `df <- readr::read_csv("https://people.sc.fsu.edu/~jburkardt/data/csv/addresses.csv")` <br> If you absolutely must include a data file, please use a small one, as for many reasons it is desirable to keep the repository size as small as possible.
     
-6. If you have included a `setup` chunk in your `Rmd` file, please remember to remove the label `setup` in the chunk, i.e., use:
+6. If you have included a `setup` chunk in your `.Rmd` file, please remember to remove the label `setup` in the chunk, i.e., use:
 
    ```
    {r, include=FALSE}
@@ -45,7 +45,7 @@ After completing these modifications, your `.Rmd` should look like this [sample 
    {r setup, include=FALSE}
    ```
 
-7. If your project requires libraries to be installed and included in the document, please adhere to the following conventions. Do not evaluate any `install.packages()` statements in your document. Consumers of an `.Rmd` file won't want packages to get installed when they knit your document. Include any `library()` statements at the top of your `Rmd` file, below the title, name, and `setup`, but above any content. If your chapter requires the installation of a package from source (is a GitHub installation), **please add a comment identifying it as such. Please mention this as well in your PR.** Here is an example `library()` section with install statements that won't be evaluated:
+7. If your project requires libraries to be installed and included in the document, please adhere to the following conventions. Do not evaluate any `install.packages()` statements in your document. Consumers of an `.Rmd` file won't want packages to get installed when they knit your document. Include any `library()` statements at the top of your `.Rmd` file, below the title, name, and `setup`, but above any content. If your chapter requires the installation of a package from source (is a GitHub installation), **please add a comment identifying it as such. Please mention this as well in your PR.** Here is an example `library()` section with install statements that won't be evaluated:
 
    ```{r, eval=FALSE}
    install.packages("devtools") # used for installation from source
@@ -62,7 +62,7 @@ After completing these modifications, your `.Rmd` should look like this [sample 
    library("ggplot2")
    ```
 
- You could include both sections, or you could just include the second `library()` section and trust R users to install any packages themselves. If you developed your `Rmd` file before moving your `library()` statements above the rest of the file content, it is highly recommended to knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior. This common issue is mentioned in the EDAV R Basics ["Functions stop working"](https://edav.info/basics.html) section.
+ You could include both sections, or you could just include the second `library()` section and trust R users to install any packages themselves. If you developed your `.Rmd` file before moving your `library()` statements above the rest of the file content, it is highly recommended that you knit and review your document again. This may change the namespace that was available in each section of your code during development, causing a function not to work or to exhibit unexpected behavior.
  
 8. Your file should not contain `getwd()` / `setwd()` calls (you should never use these in scripts anyway!) nor `write` statements.
 
@@ -70,9 +70,9 @@ Want to get fancy? See the [optional tweaks](#optional-tweaks) section below.
 
 ## Submission steps
 
-To submit your work, we will be following "Workflow #4" -- that is submitting a pull request to someone else's repository to which you do not have write access. Instructions are available in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching){target="_blank"}. They are repeated below in abbreviated form, with specific instructions on naming conventions, content information, and other important details.
+To submit your work, we will be following "Workflow #4" -- that is submitting a pull request to someone else's repository to which you do not have write access. Instructions are available in lecture slides on this topic as well as in [this tutorial](https://edav.info/github.html#st-pr-on-another-repo-with-branching){target="_blank"}. They are repeated below in abbreviated form, with specific instructions on naming conventions, content information, and other important details.
 
-1. Fork [cc21 repo (this repo)](https://github.com/jtr13/cc21){target="_blank"} to your GitHub account.
+1. Fork the [cc21fall21 repo (this repo)](https://github.com/jtr13/cc21fall21){target="_blank"} to your GitHub account.
 
 2. Clone/download the forked repo to your local computer.
 
@@ -84,7 +84,7 @@ To submit your work, we will be following "Workflow #4" -- that is submitting a 
 
 6. [OPTIONAL] If you have other resources (such as images) included in your project, create a folder under `resources/`. In our example, it is [`resources/sample_project/`](resources/sample_project){target="_blank"}. Put the resources files there. Be sure to change all the links in your `.Rmd` to include `resources/.../`, for example:
 
-    `![Test Photo](resources/sample_project/election.jpg)`
+    `![Test Photo](resources/sample_project/pumpkins.jpg)`
 
 7. When you are ready to submit your project, push your branch to your remote repo. Follow [this tutorial](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) to create a pull request. 
 
@@ -123,6 +123,6 @@ You may submit additional pull requests to fix material on the site. If the edit
 
 ### Other questions
 
-If you encounter other problems, please [submit an issue](https://github.com/jtr13/cc21/issues){target="_blank"} and we will look into it. 
+If you encounter other problems, please [submit an issue](https://github.com/jtr13/cc21fall21/issues){target="_blank"} and we will look into it. 
 
 Thank you for your contributions!
