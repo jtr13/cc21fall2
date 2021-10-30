@@ -1,4 +1,4 @@
-book_filename: "cc"
+book_filename: "cc21fall2"
 new_session: true
 before_chapter_script: _common.R
 delete_merged_file: true
