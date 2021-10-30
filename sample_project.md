@@ -1,7 +1,5 @@
 # Sample project
 
-Joe Biden and Donald Trump
+## HAPPY HALLOWEEN!
 
-This chapter gives a sample layout of your `Rmd` file. 
-
-![Test Photo](resources/sample_project/election.jpg)
+![Test Photo](resources/sample_project/pumpkins.jpg)

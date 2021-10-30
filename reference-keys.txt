@@ -14,6 +14,7 @@ what-if-i-catch-mistakes-before-my-pull-request-is-merged
 what-if-i-catch-mistakes-after-my-pull-request-is-merged
 other-questions
 sample-project
+happy-halloween
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
