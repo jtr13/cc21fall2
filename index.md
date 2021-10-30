@@ -1,9 +1,9 @@
 ---
-title: "Community Contributions for ..."
+title: "EDAV Fall 2021 Tues / Thurs Community Contributions"
 date: "2021-10-30"
 site: bookdown::bookdown_site
-github-repo: YOUR_USER_NAME/YOUR_REPO
-description: "This book contains community contributions for ..."
+github-repo: jtr13/cc21fall2
+description: "This book contains community contributions for Fall 2021 EDAV Tues/Thurs class at Columbia University."
 ---
 
 # Welcome!
