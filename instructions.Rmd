@@ -26,6 +26,7 @@ After completing these modifications, your `.Rmd` should look like this [sample 
    # Base R vs. ggplot2
  
    Aaron Burr and Alexander Hamilton
+   
    Your content starts here. 
    ```
 
