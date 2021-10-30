@@ -16,12 +16,10 @@ rmd_files: [
   'sample_project.Rmd',
 
   # Part: Cheatsheets
-
-  # Part: Translation
  
   # Part: Tutorials
   
-  # Part: Topical Discussions
+  # Part: Workshops
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
