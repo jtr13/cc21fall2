@@ -1,5 +1,5 @@
 ---
-title: "EDAV Fall 2021 Tues / Thurs Community Contributions"
+title: "EDAV Fall 2021 Tues/Thurs Community Contributions"
 date: "2021-10-31"
 site: bookdown::bookdown_site
 github-repo: jtr13/cc21fall2
