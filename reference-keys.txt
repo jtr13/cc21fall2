@@ -1,8 +1,10 @@
 welcome
-community-contribution-assignment
-logistics
+community-contribution
+important-logistics
 groups
+what-to-submit
 submitting-your-assignment
+grading
 github-submission-instructions
 background
 preparing-your-.rmd-file
