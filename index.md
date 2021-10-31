@@ -12,4 +12,4 @@ Everyone: let's add some content to the welcome page.
 
 Please [edit this file](https://github.com/jtr13/cc21fall2/edit/main/index.Rmd) and then submit a pull request to do so.
 
-<img alt="artwork by Allison Horst" src="tuesthurs.jpeg" width="500"></img>
+<img alt="artwork by Allison Horst" src="tuesthurs.jpeg" width="700"></img>
