@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 6 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Julia Wang  6.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that is...">
+<title>Chapter 7 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Julia Wang  7.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that is...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 6 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 7 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Julia Wang  6.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that is...">
+<meta property="og:description" content="Julia Wang  7.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that is...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 6 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Julia Wang  6.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that is...">
+<meta name="twitter:title" content="Chapter 7 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Julia Wang  7.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that is...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -42,11 +42,12 @@
 <li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
 <li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
 <li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">5</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="active" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">6</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">6</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="active" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">7</span> How to Integrate R with PostgreSQL</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">7</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">8</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">8</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">9</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -56,19 +57,19 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="how-to-integrate-r-with-postgresql" class="section level1">
 <h1>
-<span class="header-section-number">6</span> How to Integrate R with PostgreSQL<a class="anchor" aria-label="anchor" href="#how-to-integrate-r-with-postgresql"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7</span> How to Integrate R with PostgreSQL<a class="anchor" aria-label="anchor" href="#how-to-integrate-r-with-postgresql"><i class="fas fa-link"></i></a>
 </h1>
 <p>Julia Wang</p>
 <div id="motivation" class="section level2">
 <h2>
-<span class="header-section-number">6.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
 </h2>
 <p>This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that is free to download. Once we have become familiar with connecting to our PostgreSQL instance, we will perform a quick Linear Regression on some sample data, store the data in your PostgreSQL database, and then reuse that LR model to make a prediction.</p>
 <p>Note: instance and database will be used interchangeably in this guide, but mean the same thing.</p>
 </div>
 <div id="how-to-integrate-r-with-postgresql-1" class="section level2">
 <h2>
-<span class="header-section-number">6.2</span> How to Integrate R with PostgreSQL<a class="anchor" aria-label="anchor" href="#how-to-integrate-r-with-postgresql-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.2</span> How to Integrate R with PostgreSQL<a class="anchor" aria-label="anchor" href="#how-to-integrate-r-with-postgresql-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you haven’t already, you will have to [download PostgreSQL]((<a href="https://www.postgresql.org/download/" class="uri">https://www.postgresql.org/download/</a>){target="_blank"} and setup pgAdmin 4. You should note down is the user and password that you create in this process, as well as make a note of what port and host you used to set up PostgreSQL (the defaults for this are localhost and 5432). You will need this information later to establish a connection between RStudio and your PostgreSQL instance.</p>
 <p>Once you have set up PostgreSQL and were able to connect to pgAdmin 4, now in RStudio, we want to install and use the relevant RPostgreSQL packages. You can do so by running the following commands.</p>
@@ -79,7 +80,7 @@
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></code></pre></div>
 <div id="create-your-connection" class="section level3">
 <h3>
-<span class="header-section-number">6.2.1</span> Create your connection<a class="anchor" aria-label="anchor" href="#create-your-connection"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.2.1</span> Create your connection<a class="anchor" aria-label="anchor" href="#create-your-connection"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the case you want to use a separate dummy/admin user, you can create a user by going to Servers &gt; PostgreSQL &gt; Databases &gt; <database name> &gt; Login &gt; right click Create &gt; Login/Group Role. The name will be the user name and set the password in Definition to whatever you want. It should have the priviledge to login at the bare minimum. In the following R block, we are going to setup a connection to our PostgreSQL instance. One question you might have reading the following block is what the drv (driver) does. A driver in this context is a tool that allows applications to access data in your database in other systems, similar to how printer drivers allow you to talk to your printer and print things. We pass a driver and relevant information about your database and a database user to create a connection, which we are able to use to then run R commands, such as dbListTables, which list all of the tables in your database.</database></p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
@@ -101,7 +102,7 @@
 </div>
 <div id="basic-sql-commands" class="section level3">
 <h3>
-<span class="header-section-number">6.2.2</span> Basic SQL commands<a class="anchor" aria-label="anchor" href="#basic-sql-commands"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.2.2</span> Basic SQL commands<a class="anchor" aria-label="anchor" href="#basic-sql-commands"><i class="fas fa-link"></i></a>
 </h3>
 <p>In addition to the two commands that I showed above, there are a few more basic commands that are built into the RPostgres library, which will allow you to read and write from your database. The following block will show you how to write a dataframe into a table in your instance, as well as query it afterwards.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
@@ -172,7 +173,7 @@
 </div>
 <div id="sources-1" class="section level2">
 <h2>
-<span class="header-section-number">6.3</span> Sources<a class="anchor" aria-label="anchor" href="#sources-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.3</span> Sources<a class="anchor" aria-label="anchor" href="#sources-1"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li><a href="https://www.datacareer.de/blog/connect-to-postgresql-with-r-a-step-by-step-example/" class="uri">https://www.datacareer.de/blog/connect-to-postgresql-with-r-a-step-by-step-example/</a></li>
@@ -184,20 +185,20 @@
 
 
 <div class="chapter-nav">
-<div class="prev"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">5</span> Tutorial on Cluster Analysis</a></div>
-<div class="next"><a href="github-initial-setup.html"><span class="header-section-number">7</span> Github initial setup</a></div>
+<div class="prev"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">6</span> Tutorial on Cluster Analysis</a></div>
+<div class="next"><a href="github-initial-setup.html"><span class="header-section-number">8</span> Github initial setup</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#how-to-integrate-r-with-postgresql"><span class="header-section-number">6</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="nav-link" href="#motivation"><span class="header-section-number">6.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#how-to-integrate-r-with-postgresql"><span class="header-section-number">7</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="nav-link" href="#motivation"><span class="header-section-number">7.1</span> Motivation</a></li>
 <li>
-<a class="nav-link" href="#how-to-integrate-r-with-postgresql-1"><span class="header-section-number">6.2</span> How to Integrate R with PostgreSQL</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#create-your-connection"><span class="header-section-number">6.2.1</span> Create your connection</a></li>
-<li><a class="nav-link" href="#basic-sql-commands"><span class="header-section-number">6.2.2</span> Basic SQL commands</a></li>
+<a class="nav-link" href="#how-to-integrate-r-with-postgresql-1"><span class="header-section-number">7.2</span> How to Integrate R with PostgreSQL</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#create-your-connection"><span class="header-section-number">7.2.1</span> Create your connection</a></li>
+<li><a class="nav-link" href="#basic-sql-commands"><span class="header-section-number">7.2.2</span> Basic SQL commands</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#sources-1"><span class="header-section-number">6.3</span> Sources</a></li>
+<li><a class="nav-link" href="#sources-1"><span class="header-section-number">7.3</span> Sources</a></li>
 </ul>
 
       <div class="book-extra">
