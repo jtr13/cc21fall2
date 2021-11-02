@@ -6,5 +6,5 @@ Suggests:
     bookdown,
     bslib,
     downlit,
-    withR,
+    withr,
     xml2
