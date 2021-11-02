@@ -10,7 +10,8 @@ Imports:
     reshape2,
     pheatmap,
     factoextra,
-    knitr
+    knitr,
+    RPostgres
 Suggests:
     bookdown,
     bslib,
