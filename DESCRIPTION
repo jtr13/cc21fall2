@@ -6,4 +6,5 @@ Suggests:
     bookdown,
     bslib,
     downlit,
+    withR,
     xml2
