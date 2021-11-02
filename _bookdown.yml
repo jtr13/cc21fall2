@@ -14,7 +14,7 @@ rmd_files: [
   'index.Rmd', # must be first chapter
   'assignment.Rmd',
   'instructions.Rmd',
-  'sample_project.Rmd',
+ # 'sample_project.Rmd',
 
   # Part: Cheatsheets
  
