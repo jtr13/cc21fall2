@@ -8,6 +8,6 @@ In order to accomplish the goal of this project, we will design its content as f
 
 Overall, we have learned that, when plotting a dataset, it is essential to understand the variables and the values, so that we can correctly determine the type of variables that we need to draw. Next, we will need to think about how to sort the data and the plots according to the type of the data, and the type of the plot.
 
-Video (Login to LionMail to access): https://drive.google.com/file/d/17VXq-7Gxs8y5HR0NLfKpAJKeVdD7UzAN/view?usp=sharing
-
-Slides: https://docs.google.com/presentation/d/1zGLlxb0RyeVdo-GdhT4hg3Xide3tPG5pg9LXnlZc4WY/edit?usp=sharing
+Links:
+[Video](https://drive.google.com/file/d/17VXq-7Gxs8y5HR0NLfKpAJKeVdD7UzAN/view?usp=sharing),
+[Slides](https://docs.google.com/presentation/d/1zGLlxb0RyeVdo-GdhT4hg3Xide3tPG5pg9LXnlZc4WY/edit?usp=sharing)
