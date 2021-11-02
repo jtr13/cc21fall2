@@ -11,7 +11,10 @@ Imports:
     pheatmap,
     factoextra,
     knitr,
-    RPostgres
+    RPostgres,
+    xts,
+    dygraphs,
+    RColorBrewer
 Suggests:
     bookdown,
     bslib,
