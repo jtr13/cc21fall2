@@ -1,0 +1,6 @@
+# Apply function in r
+
+Tianmai Jiao
+
+https://youtu.be/GVoa_zwYGzs  
+Here is my tutorial video of apply function in R. In this video, I firstly introduce the components of apply function, then I give some examples regarding how to use mean,max,percentile,plot function in apply(). Finally, I  write a function in hand, then apply it in apply function.
