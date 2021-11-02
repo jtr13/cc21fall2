@@ -4,9 +4,9 @@ Ruopu Fan
 
 `dygraphs` is a very useful package for visualizing time series data. This audience-friendly visualization package takes `xts` data and gives interactive graphs where users can easily look at data of a particular date they are interested in. The various highlighting, annotation and other graphing choices also make it easier for authors to display data differently with their own emphases.
 
-# Before you plot
+## Before you plot
 
-## Set up
+### Set up
 
 ```{r message=FALSE, warning=FALSE}
 library(xts)
@@ -15,7 +15,7 @@ library(tidyverse)
 library(RColorBrewer)
 ```
 
-## Data processing
+### Data processing
 
 In this tutorial, I will use the *COVID-19 Daily Counts* dataset retrieved from [NYC OpenData](https://data.cityofnewyork.us/Health/COVID-19-Daily-Counts-of-Cases-Hospitalizations-an/rc75-m7u3) as an example. Here, I will only look at daily case counts in NYC as a whole and cases in Manhattan from Aug 1st to Oct 24th, 2021. Remember that we have to transfer the form of data to `xts` first:
 
@@ -30,9 +30,9 @@ covid = covid_data %>%
 covid = xts(x = covid[,2:3], order.by = covid$DATE)
 ```
 
-# Creating your own plot
+## Creating your own plot
 
-## A base graph
+### A base graph
 
 The `dygraph` function returns a basic interactive time series plot. When you place mouse on the graph, it will show exact values of the series for a certain day. Each circle representing a data point will move along your mouse movement. Please knit to a `html` file to interact with the graphs!
 
@@ -40,7 +40,7 @@ The `dygraph` function returns a basic interactive time series plot. When you pl
 dygraph(covid)
 ```
 
-## Series
+### Series
 
 The above plot automatically draws two lines, but if you want to change the default, there are many alternates. 
 
@@ -87,7 +87,7 @@ dygraph(covid) %>%
   dySeries("MN_CASE_COUNT", stepPlot = TRUE, fillGraph = TRUE)
 ```
 
-## Title, axis, label & legends
+### Title, axis, label & legends
 
 Once we have the series, we can start adding details to it. A title can be added directly in the `dygraph` function. To change the display of axes, we can use `dyAxis` or `dyOptions`:
 
@@ -116,7 +116,7 @@ dygraph(covid) %>%
   dyLegend(show = "follow", width = 280)
 ```
 
-## Range selector
+### Range selector
 
 We can add a time range selector for users to choose the time they want to observe closely.
 
@@ -125,7 +125,7 @@ dygraph(covid) %>%
   dyRangeSelector(height = 30, strokeColor = "")
 ```
 
-## Hightlight, annotation & shadings
+### Hightlight, annotation & shadings
 
 The `dyHighlight` function provides users with more interaction when they place mouse on the graph. Here is an example with a fading of non-highlighted series and larger circles for point highlighting:
 
@@ -145,7 +145,7 @@ dygraph(covid) %>%
 ```
 
 
-## Colors
+### Colors
 
 You can change colors of the series using `RColorBrewer` or colors of your choice.
 
@@ -166,7 +166,7 @@ dygraph(covid, main = "COVID Counts in NYC") %>%
   dyOptions(axisLineColor = "navy", gridLineColor = "lightgrey")
 ```
 
-# References
+## References
 
 - Original data: [COVID-19 Daily Counts of Cases, Hospitalizations, and Deaths](https://data.cityofnewyork.us/Health/COVID-19-Daily-Counts-of-Cases-Hospitalizations-an/rc75-m7u3)
 
