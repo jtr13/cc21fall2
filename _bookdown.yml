@@ -20,6 +20,7 @@ rmd_files: [
  
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd',
+  'postgresql_r.Rmd',
   
   # Part: Workshops
 
