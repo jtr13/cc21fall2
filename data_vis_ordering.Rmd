@@ -1,0 +1,13 @@
+# Data Visulization Ordering
+
+Anshuo Wu and Shengdi Chen
+
+For our community contribution, we decided to give a presentation about Data Ordering in Different Plots. Until now, we have seen many various kinds of data plots. For each of those graphs, and for different kinds of data, there usually exists various ways to order them so that the audience can best visualize and analyze the information. The importance of analyzing the order within the data does not only allow the audience to better catch the key information from the data, but it also helps data analysts to create appropriate figures for different kinds of data and illustrate them with the most effective ordering techniques. Therefore, our goal for this presentation is to let people with the need of designing graphs organize data visualization in a more clear and perceivable way. 
+
+In order to accomplish the goal of this project, we will design its content as follows. First, we will introduce different kinds of data and plots, and give a succinct explanation of how the data or the plot can be used in different circumstances. By following the functionality of the type of the data and plots, we will start telling the audience how we should order the data or the plots so that the clarity and practicability can be maximized. We included a few typical ordering examples of data types, including the order of categorical data, continuous data, ordinal data, and numerical data that either has numerical means or ordinal means. For ordering within the plots, we include the examples of the single histogram, multiple histograms faceted by a single variable, heatmap, mosaic plot, scatter plots, box plots, and ridgeline plots. After we introduce all these various data and plots, we will summarize some suggestions and techniques for data ordering in plots by learning from the orders we have provided. 
+
+Overall, we have learned that, when plotting a dataset, it is essential to understand the variables and the values, so that we can correctly determine the type of variables that we need to draw. Next, we will need to think about how to sort the data and the plots according to the type of the data, and the type of the plot.
+
+Video (Login to LionMail to access): https://drive.google.com/file/d/17VXq-7Gxs8y5HR0NLfKpAJKeVdD7UzAN/view?usp=sharing
+
+Slides: https://docs.google.com/presentation/d/1zGLlxb0RyeVdo-GdhT4hg3Xide3tPG5pg9LXnlZc4WY/edit?usp=sharing
