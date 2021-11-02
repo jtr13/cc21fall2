@@ -2,8 +2,19 @@ Package: placeholder
 Type: Book
 Title: Does not matter
 Version: 0.0.0.9000
+Imports:
+    tibble,
+    tidyverse,
+    corrplot,
+    NbClust,
+    reshape2,
+    pheatmap,
+    factoextra,
+    knitr,
+    RPostgres
 Suggests:
     bookdown,
     bslib,
     downlit,
+    withr,
     xml2

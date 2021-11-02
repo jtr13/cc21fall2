@@ -7,5 +7,30 @@ language:
     chapter_name: "Chapter "
 
 
-'statistics_in_r_vs_python.Rmd',
+
+
+
+
+# Chapter ordering
+
+rmd_files: [
+  # Part: Introduction
+  'index.Rmd', # must be first chapter
+  'assignment.Rmd',
+  'instructions.Rmd',
+  'sample_project.Rmd',
+
+  # Part: Cheatsheets
+ 'statistics_in_r_vs_python.Rmd',
+  # Part: Tutorials
+  'clustering_analysis_tutorial.Rmd',
+  'postgresql_r.Rmd',
+  
+  # Part: Workshops
+
+  # Part: Appendices
+  'appendix_initial_setup.Rmd', # contains PART header
+  'appendix_pull_request_tutorial.Rmd'
+
+]
 
