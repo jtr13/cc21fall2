@@ -15,4 +15,5 @@ Suggests:
     bookdown,
     bslib,
     downlit,
+    withr,
     xml2
