@@ -1,4 +1,4 @@
-# R vs Python in stats
+# Statistics in R vs Python
 
 Weiyi Jiang and Sicheng Li
 
