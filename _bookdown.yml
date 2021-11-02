@@ -7,6 +7,10 @@ language:
     chapter_name: "Chapter "
 
 
+
+
+
+
 # Chapter ordering
 
 rmd_files: [
@@ -17,7 +21,7 @@ rmd_files: [
   'sample_project.Rmd',
 
   # Part: Cheatsheets
- 
+ 'statistics_in_r_vs_python.Rmd',
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd',
   'postgresql_r.Rmd',
@@ -29,3 +33,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
