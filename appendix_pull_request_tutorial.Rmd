@@ -46,8 +46,8 @@ If PR was submitted from the **main** branch, provide these instructions on how 
 ## Check `.Rmd` file contents
 
 - The file should **not** contain a YAML header nor a `---` line.
-- The second line should be blank, followed by the author name(s).
 - The first line should start with a **single hashtag `#`**, followed by a **single whitespace**, and then the title.
+- The second line should be blank, followed by the author name(s).
 - There should be no additional single hashtag headers in the chapter. (If there are, new chapters will be created.)
 - Other hashtag headers should **not** be followed by numbers since the hashtags will create numbered subheadings. Correct: `## Subheading`. Incorrect: `## 3. Subheading`.
 - If the file contains a setup chunk in `.Rmd` file, it should **not** contain a `setup` label. (The bookdown render will fail if there are duplicate chunk labels.)
