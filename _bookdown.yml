@@ -7,9 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-
-
-
 # Chapter ordering
 
 rmd_files: [
@@ -21,6 +18,7 @@ rmd_files: [
 
   # Part: Cheatsheets
   'statistics_in_r_vs_python.Rmd', # contains PART header
+  "python_seaborn_cheatsheet.Rmd",
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
