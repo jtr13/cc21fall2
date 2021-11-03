@@ -43,6 +43,7 @@ how-to-integrate-r-with-postgresql-1
 create-your-connection
 basic-sql-commands
 sources-1
+apply-function-in-r
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
