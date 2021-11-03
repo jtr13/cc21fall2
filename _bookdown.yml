@@ -7,6 +7,9 @@ language:
     chapter_name: "Chapter "
 
 
+
+
+
 # Chapter ordering
 
 rmd_files: [
@@ -23,6 +26,7 @@ rmd_files: [
   'clustering_analysis_tutorial.Rmd', # contains PART header
   'postgresql_r.Rmd',
   'apply_function_in_r.Rmd',
+  'introdution_interative_graphs_in_r.Rmd',
   
   # Part: Workshops
   
