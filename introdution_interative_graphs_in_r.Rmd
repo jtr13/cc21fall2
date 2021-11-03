@@ -40,7 +40,7 @@ Thus, in section 4&5 the graph cannot be shown in html file but it work in the r
 
 If possible, I may go further in the future to give a more detailed explanation of these packages.
 
-## 1 networkD3
+## networkD3
 
 ```{r}
 library(networkD3)
@@ -48,7 +48,7 @@ library(networkD3)
 
 In the field of data visualization, the visualization of relational network data has always been a topic of widespread concern. For example, we can clearly understand the relationship between different characters from such kinds of pictures. However, such static pictures cannot meet our deep-seated needs, such as: How to quickly find a character (node)? These functions cannot be achieved by static network diagrams, which usually require the introduction of JavaScript to implement interactive functions. Here, networkD3 works.(The majority of examples below are from <http://christophergandrud.github.io/networkD3/> but all of them have been slightly modified to adopt to the documentation)
 
-### 1.1 simplenetwork
+### simplenetwork
 
 We will start from a simple network.
 
@@ -65,7 +65,7 @@ simpleNetwork(networkData)
 
 ```
 
-### 1.2 forceNetwork
+### forceNetwork
 
 Then we come to the **forceNetwork** where we can have more parameters to define what the network looks like. Here I used the same data to draw graphs while in the second graph, more parameters were set like *zoom* which helped to zoom in and out as well as change the position of pictures to have more details.
 
@@ -89,7 +89,7 @@ forceNetwork(Links = MisLinks, Nodes = MisNodes,
              zoom = TRUE)
 ```
 
-### 1.3 sankeyNetwork
+### sankeyNetwork
 
 Sankey diagrams, also known as Sankey energy flow diagrams, are a form of flow chart, usually used to show changes or relationships in the "flow" of data. Famous for Matthew Henry Phineas Riall Sankey's 1898 "diagram of the energy efficiency of the Steam Engine," it has since been named the Sankey Diagram after him. Sankey diagrams, in which lines represent the flow from one node to another, are better suited for visualizing "energy diversion" features that cannot be compared with conventional bar charts or pie charts. At the same time, the width of the line is proportional to the flow, and the larger the width is, the larger the flow will be. Important flows can be identified intuitively. In addition, the connection level not only reflects the traffic value but also shows information about the structure and distribution of the defined system. With these characteristics, Sankey diagrams are widely used in visualization analysis of natural and social sciences.
 
@@ -106,7 +106,7 @@ sankeyNetwork(Links = Energy$links, Nodes = Energy$nodes, Source = "source",
              units = "TWh", fontSize = 12, nodeWidth = 30)
 ```
 
-## 2 visNetwork
+## visNetwork
 
 visNetwork has every similar usage to networkD3. Thus, only one example will be displayed here. But from my perspective, they have their own advantages. For example, when it comes to drawing Sankey diagram, I would prefer networkD3. However, when visualizing the decision tree model is required, visNetowrk will be my first choice.
 
@@ -166,7 +166,7 @@ visNetwork(Newnodes, Newedages, height = "600px", width = "100%",
 
 ```
 
-## 3 dygraphs
+## dygraphs
 
 ```{r}
 library(dygraphs)
@@ -197,7 +197,7 @@ Since time series is really import in finance and sales volume forecasting, quit
 
 More detailed information can be found [here.](https://github.com/rstudio/dygraphs)
 
-## 4 plotly
+## plotly
 
 Plotly is an interactive visualization library. The official website provides Python, R, Matlab, JavaScript, and Excel interfaces, so you can easily call Plotly in these software to achieve interactive visualization.Plotly supports facet, but when facet shapes exceed 9, a bug appears in legend.\
 There are three main functions:
@@ -242,7 +242,7 @@ p <- layout(p,
 
 I do believe Plotly is one of the most useful package among all of this since it can directly work with ggplot which we are quite familar with. Examples for this will shown in section3.2.
 
-### 4.1 Direct Usage
+### Direct Usage
 
 ```{r}
 library(plotly)
@@ -251,7 +251,7 @@ p <- plot_ly(iris, x = ~PetalLength, y = ~PetalWidth, color = ~Species, colors =
 p
 ```
 
-### 4.2 Combining with gglot
+### Combining with gglot
 
 ```{r}
 library(ggplot2)
@@ -273,7 +273,7 @@ p <- ggplot(data=lattice::singer,aes(x=height,fill=voice.part))+
 (gg <- ggplotly(p))
 ```
 
-## 5 rCharts
+## rCharts
 
 ```{r}
 # devtools::install_github('ramnathv/rCharts',force = TRUE)
@@ -286,7 +286,7 @@ library(knitr)
 
 **rCharts** may be the most famous or popular package for interactive diagrams. It is an R package to create, customize and publish interactive javascript visualizations from R using a familiar lattice style plotting interface(Cited from <https://ramnathv.github.io/rCharts/>). And the way to use its functions are quite straightforward - type is used to define the specific diagram type, formulation and data is used to specify which data to use and how to use.
 
-### 5.1 rPlot
+### rPlot
 
 ```{r eval=FALSE, message=TRUE}
 library(rCharts)
@@ -296,7 +296,7 @@ p <- rPlot(PetalWidth ~ PetalLength, data = iris, color = 'Species', type = 'poi
 p
 ```
 
-### 5.2 hPlot
+### hPlot
 
 Highcharts is a pure Javascript library for charting, supporting most types of charts: line charts, graphs, region charts, region charts, bar charts, pie charts, scatter charts, etc. The hPlot function is provided in the rCharts package to achieve this. Below is an example where I plotted bubble plots of student height and pulse beats per minute, using the age as a variable to adjust bubble size.
 
@@ -310,7 +310,7 @@ a$exporting(enabled = T)
 a
 ```
 
-### 5.3 nPlot
+### nPlot
 
 ```{r eval=FALSE, message=TRUE}
 library(rCharts)
@@ -324,7 +324,7 @@ n1
 
 More detailed tutorials and examples can be found here.<http://ramnathv.github.io/rCharts/>/<https://github.com/ramnathv/rCharts/tree/master/demo>
 
-## 6 reCharts
+## reCharts
 
 ```{r}
 # devtools::install_github('madlogos/recharts',force = TRUE)
@@ -360,7 +360,7 @@ p
 More detailed tutorials and examples can be found here.<https://recharts.org/en-US/>
 
 
-## 7 highcharter
+## highcharter
 
 ```{r}
 library(highcharter)
