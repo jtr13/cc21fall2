@@ -25,6 +25,8 @@ rmd_files: [
   'apply_function_in_r.Rmd',
   
   # Part: Workshops
+  
+  # Part: Custom R packages
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
