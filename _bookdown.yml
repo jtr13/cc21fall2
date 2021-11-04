@@ -26,6 +26,7 @@ rmd_files: [
   'postgresql_r.Rmd',
   'apply_function_in_r.Rmd',
   'introdution_interative_graphs_in_r.Rmd',
+  'stock_analysis.Rmd',
   
   # Part: Workshops
   
