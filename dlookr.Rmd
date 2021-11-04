@@ -1,0 +1,292 @@
+# Dlookr package
+
+Mridul Gupta
+
+```{r, include=FALSE}
+options(scipen=5)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r Library_installation, include=FALSE}
+
+#libraries for reading data
+library(readxl)
+# Libraries for data munging
+library(dplyr) 
+library(tidyverse)
+library(dlookr)
+# Libraries for visualization
+library(ggplot2)
+library(qqplotr)
+#remotes::install_github("cran/DMwR")
+library(DMwR) #must be installed from source
+library(gridExtra) # for arranging plots in grid
+
+```
+
+
+## Introduction
+
+In this tutorial, we are going to learn about the basics of `dlookr' package, how to use it on a dataset and why it is an important and relevant package for all he data scientist, statistician out there.
+
+## What is dlookr?
+
+According to Cran, dlookr is a collection of tools that support data diagnosis, exploration, and transformation. Data diagnostics provides information and visualization of missing values and outliers and unique and negative values to help us understand the distribution and quality of our data. Data exploration provides information and visualization of the descriptive statistics of univariate variables, normality tests and outliers, correlation of two variables, and relationship between target variable and predictor. Data transformation supports binning for categorizing continuous variables, imputates missing values and outliers, resolving skewness. And it creates automated reports that support these three tasks.
+
+## Why is it important?
+
+Well the description above is sufficient enough to convience someone of its importance but in simpler words I believe there are 3 reasons as to why I believe learning this package is worth putting your time into:
+
+- One package has functions to help us diagnose data, explore and transform it and even reporting our findings. This makes it easier for us to remember the important functions otherwise we would also have to remember the packages which allows us to do this stuff.
+
+- It can easily be integrated and used with dplyr & tidyverse which is something that has now become ubiquitous in the indistry.
+
+- Instead of writing longer codes, this package generally has functions that give lot of information about data without much transformation.
+
+## Usecase
+
+To help us understand its use, let us use a dataset. I am using Rolling sales data for Manhattan.
+https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page
+
+```{r Reading}
+#Reading data
+manhattan <- read_excel("rollingsales_manhattan.xlsx", skip = 4)
+dim(manhattan)
+```
+
+### Data Diagnosis
+
+#### Overall Diagnosis
+
+```{r Diagnosis}
+# Get missing and unique count for each column
+diagnose(manhattan)
+```
+```{r Diagnosis dplyr}
+# Using with dplyr and finding columns with missing data
+diagnose(manhattan)
+
+manhattan %>%
+  diagnose() %>%
+  select(-unique_count, -unique_rate) %>% 
+  filter(missing_count > 0) %>% 
+  arrange(desc(missing_count))
+```
+
+We easily get the columns where we have data missing.
+
+Now lets look at different features/columns in data.
+
+#### Numerical data diagnosis
+
+```{r Diagnosis numerical}
+# Looking at numerical data
+diagnose_numeric(manhattan)
+
+```
+One function directly gives quantiles,mean, zeros, negative values and outliers for all the numeric values.
+
+```{r Diagnosis numerical dplyr}
+# Using with dplyr and finding colums with zero values
+diagnose_numeric(manhattan) %>% 
+  filter(zero > 0) 
+
+```
+#### Categorical data diagnosis
+
+```{r Diagnosis categorical}
+# Looking at categorical data
+diagnose_category(manhattan)
+
+```
+This directly gives us all the levels for all the categorical columns and their frequency as well.
+
+```{r Diagnosis categorical dplyr}
+# Filtering categories with NA levels
+
+diagnose_category(manhattan) %>% 
+  filter(is.na(levels))
+```
+
+#### Outlier diagnosis
+
+```{r Outlier diagnosis}
+# Diagnose outlier for each numerical column/feature
+
+diagnose_outlier(manhattan) 
+```
+This tells us the number of outliers are there in each numerical column. If we look at with_mean and without_mean column it also helps us analyse the effect of outlier on data.We can even plot outliers:
+
+Here we use diagnose_outlier(), plot_outlier(), and dplyr packages to visualize all numerical variables with an outlier ratio of 0.5% or higher.
+
+```{r Outlier Diagnosis dplyr}
+# Diagnose outlier for each numerical column/feature
+manhattan %>%
+  plot_outlier(diagnose_outlier(manhattan) %>% 
+                 filter(outliers_ratio >= 0.5) %>% 
+                 select(variables) %>% 
+                 unlist())
+```
+
+### EDA
+
+#### Univariate Analysis
+
+```{r EDA}
+# Looking at the numerical data
+describe(manhattan)
+
+```
+This gives very detailed metrics regarding the distribution of numerical variables. Along with basic metrics like mean, standard deviation it also gives metrics like skewness, kurtosis, percentiles, IQR etc.
+
+```{r normality}
+# Looking at the numerical data
+normality(manhattan)
+
+```
+```{r plot normality}
+# Looking at the numerical data
+plot_normality(manhattan)
+
+```
+```{r plot normality dplyr}
+# Looking at the numerical data
+manhattan %>%
+  filter(NEIGHBORHOOD == "MIDTOWN EAST") %>%
+  group_by(`ZIP_CODE`) %>%
+  plot_normality(`SALE_PRICE`)
+
+```
+
+###Bivariate Analysis
+
+```{r Bivariate EDA}
+# Looking at the numerical data
+correlate(manhattan)
+
+```
+```{r Correlate}
+# Looking at the numerical data
+correlate(manhattan, `SALE_PRICE`,`YEAR_BUILT`,`LAND_SQUARE_FEET`)
+
+```
+```{r plot Correlate, fig.height=8, fig.width=8}
+# Looking at the numerical data
+plot_correlate(manhattan)
+
+```
+```{r plot Correlate specific columns}
+# Looking at the numerical data
+plot_correlate(manhattan, `SALE_PRICE`,`YEAR_BUILT`,`LAND_SQUARE_FEET`)
+
+```
+
+### EDA on Target Variable
+
+```{r EDA_Tareget_variable}
+# Imputing Tax class at time of sale column
+num <- target_by(manhattan,`SALE_PRICE`)
+num_num <- relate(num,`LAND_SQUARE_FEET`)
+num_num
+```
+
+```{r EDA_Target_variable_summary}
+# Imputing Tax class at time of sale column
+summary(num_num)
+```
+
+```{r plot_EDA_Target_variable, fig.height=6, fig.width=10}
+# Imputing Tax class at time of sale column
+plot(num_num)
+```
+
+### Data Transformation
+
+#### Missing value Imputation
+
+```{r Data_imputation}
+# Imputing Tax class at time of sale column
+land_square_feet <- imputate_na(manhattan,`LAND_SQUARE_FEET`,SALE_PRICE, method = "mice")
+
+```
+
+```{r Data_imputation_summary}
+# Imputing outliers in zip code
+summary(land_square_feet)
+```
+
+```{r Data_imputation_plot}
+# Imputing outliers in zip code
+plot(land_square_feet)
+```
+#### Outlier value Imputation
+
+```{r Data_imputation_outlier}
+# Imputing outliers in year built
+year_built <- imputate_outlier(manhattan, YEAR_BUILT, method = "capping")
+
+```
+
+```{r Data_imputation_outlier_summary}
+# Imputing outliers in year built
+summary(year_built)
+```
+
+```{r Data_imputation_outlier_plot1}
+# Imputing outliers in year built
+plot(year_built)
+```
+```{r Data_imputation_outlier_plot}
+# Imputing outliers in zip code
+
+plot_outlier(manhattan)
+```
+#### Standardization and Resolving Skewness
+
+```{r standardization}
+manhattan %>% 
+  mutate(SALE_PRICE_MINMAX = transform(manhattan$SALE_PRICE, method = "minmax")) %>% 
+  select(SALE_PRICE_MINMAX) %>% 
+  boxplot()
+```
+```{r skewness}
+find_skewness(manhattan, value = TRUE, thres = 0.1)
+```
+
+```{r plot normality1}
+# Looking at the numerical data
+plot_normality(manhattan)
+
+```
+```{r transform_skewed_variable}
+# Looking at the numerical data
+gross_square_feet_log = transform(manhattan$GROSS_SQUARE_FEET, method = "log")
+summary(gross_square_feet_log)
+```
+
+```{r transform_skewed_plot}
+# Looking at the numerical data
+plot(gross_square_feet_log)
+```
+### Reporting tools
+
+#### Diagnosis report
+
+```{r diagnosis report, echo=FALSE}
+manhattan %>%
+  diagnose_web_report(subtitle = "manhattan", output_dir = "./", 
+                      output_file = "Diagn.html", theme = "blue")
+```
+
+```{r diagnosis_report_pdf, echo=FALSE}
+manhattan %>%
+  diagnose_paged_report(subtitle = "manhattan", output_dir = "./",
+                        output_file = "Diagn.pdf", theme = "blue")
+
+```
+
+### References
+
+1. https://github.com/choonghyunryu/dlookr
+
+2. https://cran.r-project.org/web/packages/dlookr/index.html
