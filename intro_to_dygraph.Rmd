@@ -12,11 +12,30 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 ***Data Source: FRED, https://fred.stlouisfed.org/categories/9?t=cpi&ob=pv&od=desc#***
 
+
 ```{r library}
 library(readxl)
 library(dygraphs)
 library(dplyr)
 ```
+
+
+### 0. Project Description
+The main motivation of this project is the ubiquity of time series data. One thing I 
+noticed in my past internship and project experience is that the need for exploratory 
+analysis and visualization of such data is high, but people are less familiar with it than 
+other types of data. Moreover, the r package dygraphs provides much easier and 
+intuitive functionality to draw time series data when compared to ggplot or plotly (which 
+were introduced in class), and it additionally has interactive features that are useful for 
+long-term time series data. I personally think the video tutorial and example codes are 
+organized and rendered in a clean and friendly way that anyone with some r 
+background would understand and learn. During the making process, I’ve also
+benefitted a lot from exploring this package, especially plotting prediction range and 
+actual data in such a quick and easy way. However, what I might do differently next 
+time is to pay more attention to the best practices of visualizing time series data, such 
+as not filling the area. 
+
+
 ### 1. The Basic
 
 ```{r intro}
@@ -39,6 +58,8 @@ dygraph(us_cpi, main = "CPI, not seasonally adjusted: All Items for United State
   dyRangeSelector(height = 20) %>%
   dyLegend(show = "follow")
 ```
+
+
 ### 2.Multiple Series
 ```{r multilple}
 cpi <- ts(cpi_data[,-1], frequency=12, start=c(1999,9))
