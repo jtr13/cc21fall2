@@ -20,6 +20,7 @@ happy-halloween
 statistics-in-r-vs-python
 data-visualization-with-searborn
 rchess-package-cheatsheet
+hypothesis-testing-cheatsheet
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
