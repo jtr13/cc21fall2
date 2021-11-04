@@ -8,4 +8,33 @@ language:
 
 
 # Chapter ordering
-  'hypothesis_testing_cheatsheet.Rmd'
+
+rmd_files: [
+  # Part: Introduction
+  'index.Rmd', # must be first chapter
+  'assignment.Rmd',
+  'instructions.Rmd',
+  'sample_project.Rmd',
+
+  # Part: Cheatsheets
+  'statistics_in_r_vs_python.Rmd', # contains PART header
+  "python_seaborn_cheatsheet.Rmd",
+  'rchess_package_cheatsheet.Rmd',
+  'hypothesis_testing_cheatsheet.Rmd',
+  
+  # Part: Tutorials
+  'clustering_analysis_tutorial.Rmd', # contains PART header
+  'postgresql_r.Rmd',
+  'apply_function_in_r.Rmd',
+  'introdution_interative_graphs_in_r.Rmd',
+  'stock_analysis.Rmd',
+  
+  # Part: Workshops
+  
+  # Part: Custom R packages
+
+  # Part: Appendices
+  'appendix_initial_setup.Rmd', # contains PART header
+  'appendix_pull_request_tutorial.Rmd'
+
+]
