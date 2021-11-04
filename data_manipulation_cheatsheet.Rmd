@@ -1,0 +1,266 @@
+# Data manipulation in R
+
+Junhao Zhang
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(openintro)
+```
+
+### Overview
+This cheat sheet is particularly made for people who don't experience with R and it briefly talks about the necessary tools and packages used in our programming assignments that can help manipulate the dataset before doing the visualization. Two packages will be mainly focused here: "dplyr" and "tidyr".
+
+### Environment Set Up
+Before using those packages, we need to install them into our computer. To do that, we can simply install the tidyverse package and import it use library() function, which includes dplyr, tidyr and some other useful packages.
+
+### Part1: Data Import 
+In this part, three most commonly used ways of importing data will be showed.\
+1.<b>Direct Import from R Package</b>\
+2.<b>Import Using URL </b>\
+3.<b>Import from local computer</b>\
+
+#### 1 Import from Package
+One greatest thing about R is that it has a R dataset package which contains a variety of datasets that we can use.
+To use those datasets, we just need to import the package into R.
+eg If we want to use fastfood dataset from the openintro packaage, we just need to import openintro
+```{r,message=FALSE}
+library(openintro)
+fastfood
+```
+If there are other dataset called fastfood, to avoid confusion, we can specify it clearly with the package name
+```{r,message=FALSE}
+openintro::fastfood
+```
+
+#### 2 Import Using URL
+(a) We can also import dataset direcly from online sources. To achieve that, we will be using the read_csv function.
+eg import the crime dataset from government official website.
+```{r,message=FALSE}
+read_csv("https://data.ny.gov/api/views/ca8h-8gjq/rows.csv")
+```
+(b) We can alsp import dataset direcly from the github.\
+1.Go to the github repository link where you have the CSV file\
+2.Click on the raw option present on the top right of the data\
+3.Copy the URL and put into the read_csv function\
+eg read dataset from the github
+```{r,message=FALSE}
+read_csv("https://raw.githubusercontent.com/curran/data/gh-pages/dataSoup/datasets.csv")
+```
+
+#### 3 Import from the local computer
+If the file is already in you computer, then you can simple import it by finding its path and read it.\
+eg read the state_wl.csv file from the computer.\
+1. Find the location of state_wl.csv in your computer.\
+2. Use read_csv to read it: read_csv(file path).\
+
+### Missing Values
+Before we talk about data transformation packages, I want to first address the missing values problem. In reality, most data set will not be tidy, especially data set from online sources.The most common issue in any given data set is the missing value. Sometimes missing values are just meaningless errors, but sometimes they are important. It's up to you to decide whether to include those missing values or not. This part will show how to detect, recode and exclude missing values.\
+
+#### Detecting missing values
+The is.na() function will help test whether missing values exist or not by returning a logical vector with either TRUE or FALSE
+```{r}
+x <- c(1:4, NA, 6:7, NA)
+x
+is.na(x)
+```
+To identify the location or the number of NAs in a vector, we can use which() and sum()
+```{r}
+# identify the location of NA
+which(is.na(x))
+# coun the number of NA
+sum(is.na(x))
+```
+#### Recode missing values
+Not all missing values are meaningless. Some missing values are caused by human error and thus we can correct them by recoding missing values.
+```{r}
+# original x
+x
+# replace NA in x by other numbers
+x[is.na(x)] <- mean(x, na.rm = TRUE) 
+round(x,2)
+```
+
+#### Exclude missing values
+If we are sure that missing values are meaningless, then we can remove it from the dataset because any arithmetic calculation involving NA results in NA.
+```{r}
+y <- c(1,2,NA,3)
+mean(y) 
+mean(y, na.rm=TRUE) 
+```
+Another way to remove all NA from a dataframe is by using na.omit().
+```{r}
+df <- data.frame(col1 = c(1:3, NA),
+                 col2 = c("this", NA,"is", "text"), 
+                 col3 = c(TRUE, FALSE, TRUE, TRUE), 
+                 col4 = c(2.5, 4.2, 3.2, NA),
+                 stringsAsFactors = FALSE)
+df
+na.omit(df)
+```
+
+### Part2: dylyr
+There are 7 key functions that help transform dataset.\
+1.<b>filter</b>: subset a data frame where all columns in the subset satisfy certain conditions.\
+2.<b>select</b>: select columns by their names.\
+3.<b>mutate</b>: adds news columns at the end of dataset and preserves the existing ones.\
+4.<b>arrange</b>: change the order of rows in a data frame.\
+5.<b>summarise/summarize</b>: reduces multiple values down to a single value and usually used on grouped data.\
+6.<b>group_by</b>: group the whole dataset by one or more variables \
+7.<b>rename</b>: rename column names.\
+
+We will be using mtcars dataset in r to illustrate the above key functions.\
+
+#### filter() 
+We can use this function to get columns based on their values.\
+eg find all cars that has 6 cylinders 
+```{r,message=FALSE}
+filter(mtcars,cyl==6)
+```
+We can also use c() to filter more than more columns\
+eg find all information of cars that have number of foward gears is 3 or 5
+```{r,message=FALSE}
+filter(mtcars,gear %in% c(3,5))
+```
+We can also put complex conditions 
+eg find all cars have more than 6 cylinders and fuel consumption less than 20 mpg.
+```{r,message=FALSE}
+filter(mtcars,cyl>6 & mpg<20)
+```
+
+#### select()
+we can use select to pick up certain columns by their names, especially when you have a really long dataframe, select allows you to select only columns you need.\
+
+eg select car information containing information of miles per gallon and number of cylinders
+```{r,message=FALSE}
+select(mtcars,mpg,cyl)
+```
+
+We can select several columns using index ":"
+eg select car information from displacement to weight
+```{r,message=FALSE}
+select(mtcars,disp:wt)
+```
+
+We could add a minus sign in front of the column name to not select them.
+eg select all information of car except Rear axle ration and number of carburetors
+```{r,message=FALSE}
+select(mtcars,-drat,-carb)
+```
+
+eg Don't select information between displacement and weight
+```{r,message=FALSE}
+select(mtcars,-(disp:wt))
+```
+
+#### mutate()
+We can use this function to add new variables and adding it at the end of dataset and preserves the existing columns.\
+
+eg we can calculate the displacement per cylinder for each car with mpg greater than 20 by using mutate
+```{r,message=FALSE}
+mtcars %>%
+  filter(mpg>20) %>%
+  mutate(capacity=disp/cyl)
+```
+#### arrange()
+We can use this function to sort all rows by the value of columns. The default order is ascending. Use desc() to sort it in descending order.\
+
+eg we sort all the cars by the fuel consumption (mpg) in acending and decending order
+```{r,message=FALSE}
+arrange(mtcars,mpg)
+arrange(mtcars,desc(mpg))
+```
+
+We can also sort the dataframe using more than one column values 
+eg sort all the cars by cylinder number in descending order and if cars have the same culinder number then sort by weight in ascending order
+```{r,message=FALSE}
+arrange(mtcars,desc(cyl),wt)
+```
+
+#### summarise()/summarize()
+#### group_by()
+In most cases, summarise() and group_by() functions are used together when transforming the data. Summarise() creates a new dataframe which contains one column for each grouping variable and one column for each summary statistics.\
+
+eg summarize the mean and count statistics of fuel consumption for cars without grouping
+```{r,message=FALSE}
+summarise(mtcars,mean=mean(mpg),count=n())
+```
+
+eg first group by the number of cylinders then summarize the mean and count statistics of fuel consumption for cars
+```{r,message=FALSE}
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(mean=mean(mpg),count=n())
+```
+
+we can also group by more than one variables\
+eg gourp by number of cylinders and weight and then summarize the mean and count statistics of fuel consumption for cars.
+```{r,message=FALSE}
+mtcars %>%
+  group_by(cyl,wt) %>%
+  summarise(mean=mean(mpg),count=n())
+```
+If we want to perform operations on ungrouped data, use ungroup()
+
+#### rename()
+we can use this function to change the column names.\
+eg change the qsec to acceleration
+```{r,message=FALSE}
+rename(mtcars,acceleration=qsec)
+```
+
+### Part3: tidyr
+There are 2 key functions that help transform dataset.\
+1.<b>pivot_longer</b>: Increase the number of rows and decrease the number of columns\
+2.<b>pivot_wider</b>: The opposite of pivot_longer.\
+
+#### pivot_longer()
+One of the most commom problem with dataset is that the some column names are not the variable names, but values of a variable. To deal with this case, we use pivot_longer to transform the dataset.\
+eg in table4a, the column "1999" and "2000" are not variables but they are values of variable "year, so we use pivot_longer to change it.
+```{r,warning=FALSE,message=FALSE}
+table4a
+pivot_longer(table4a,c(`1999`, `2000`), names_to = "year", values_to = "cases")
+```
+
+#### Pivot_wider()
+This function is the opposite of pivot_longer. Instead of increasing the number of rows, it decreases the number of rows but increases the number of columns. We normally use it when an observation is scattered across multiple rows.\
+eg in table2, an observation is a county in a year, but each observation across two row,and we want to transform it such at each county in a year only has one row.
+```{r,message=FALSE}
+table2
+pivot_wider(table2,names_from = type,values_from = count)
+```
+#### Note: 
+pivot_longer makes dataframe narrower and longer, while pivot_wider makes dataframe wider and shorter, so they are actually complements.
+
+### Part4: Example
+In this part, we will use an example to show how those functions really work in transforming the dataset.\
+The dataset we will be using is seattlepets in the openintro package.\
+The goal is to find the dog names and cat names and decide which names are more popular for dogs and for cats.
+```{r,message=FALSE}
+dogcat <- seattlepets %>%
+  filter(species %in% c("Dog","Cat")) %>%
+  count(animal_name,species,name='total') %>%
+  pivot_wider(id_cols=animal_name,names_from = species,values_from = total) %>%
+  rowwise() %>%
+  mutate(total=sum(Cat,Dog,na.rm = TRUE),proportion=Dog/total,ratio=Dog/Cat) %>%
+  ungroup() %>%
+  arrange(desc(total))
+dogcat
+```
+#### Explanation:
+1. use the filter function to find all animal names whose species are dog or cat.\
+2. find the total number for each animal name using the count function.\
+3. use pivot_wider to expand the dataframe to get the count of each name for dog and cat.\
+4. add new columns total,proportion and raio using mutate().\
+5. reorder the datafram by total in descending order using arrange().\
+6. notice that there are some NAs in dog and cat columns. We can use na.rm to avoid it.
+
+### Summary
+The motivation of this project is to create a guide to future 5702 students who don't have much experience with R. I personally don't have much experience with R before taking this class, so when I was doing the problem sets, I kind struggled a little bit. I want to create this cheat sheet so it can help future students get familiar with R. In this project, I mainly talk about three parts. The first part is about importing data. I discussed three most common ways that people use to import data: package, online website, github. The second part is dplyr package. This is one of the most useful packages in R. It contains a variety of functions that help transform the data. I illustrate 7 key functions in the package by giving some simple examples. I'm not giving complicated examples because this cheat sheet is for students who don't have much experience with R. The last part is another package "tidyr", also one of the most important packages in R. It allows to create tidy data. Two functions are mainly talked about in this part. Finally, I give an example step by step using the previous functions to show how to use them in analyzing a real problem. Apparently, this cheat sheet is only for R beginners because the stuff it covers is really simple. I only talk about packages and functions I used before. Of course, there are more useful functions and packages not covered in this cheat sheet. For people who want to know more information, please refer to the following links in the preferences. If I will do it again next time, I will add more details and more advanced uses of the previous stuff.
+
+### References 
+https://r4ds.had.co.nz/transform.html \
+https://dplyr.tidyverse.org/ \
+https://r4ds.had.co.nz/tidy-data.html#tidy-data-1 \
+https://tidyr.tidyverse.org/
+
