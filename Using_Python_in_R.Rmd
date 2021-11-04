@@ -1,4 +1,4 @@
-# Using Python in R
+# Using python in r
 
 Xingyu Lu
 
