@@ -1,0 +1,359 @@
+# Tidyverse Cheatsheet
+
+Huaizhi Ge
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+## 1.Introduction
+
+Usually, before we plot the data, we need to preprocess the data first. And we use tidyverse to process data commonly. And I find myself can not remember all the tidyverse functions to deal with the data. So I create a cheat sheet that includes some commonly used functions in tidyverse to process the data. 
+
+reference:
+https://www.rdocumentation.org/,
+https://dplyr.tidyverse.org/index.html
+
+
+## 2.select()
+
+To select some columns in the data, we only need to add the names of columns to the Select() function.
+(Use dataset "mpg" as an example dataset.)
+```{r}
+mpg %>% 
+  select(year,manufacturer,model)
+```
+
+Also, we can use start_col:end_col.
+```{r}
+mpg %>% 
+  select(year:drv)
+```
+
+We can select columns that have the same structure using starts_with(),end_with() or contains().
+
+```{r}
+mpg %>% 
+  select(starts_with("m"),contains("c"),ends_with("y"))
+```
+
+select_if() can be used to select columns that have a specific data type. For example, select_if(is.character) can select all the character type columns. Similarly, we can use is.numeric, is.integer, is.factor and so on.
+
+```{r}
+mpg %>% 
+  select_if(is.numeric)
+```
+
+select_if() can select the columns that meet some conditions.
+
+```{r}
+mpg %>% select(where(is.numeric)) %>% 
+  select(where(~mean(.)<100))
+```
+
+## 3.filter()
+
+We can use filter() to choose certain rows.
+
+```{r}
+mpg %>% 
+  filter(year==1999)
+```
+
+```{r}
+mpg %>% 
+  filter(year!=1999)
+```
+
+filter(condition1,condition2) will return the rows that meet the two conditions.
+
+```{r}
+mpg %>% 
+  filter(year==1999,cyl==4)
+```
+
+filter(condition1|condition2) will return the rows that meet condition1 or condition2.
+
+```{r}
+mpg %>% 
+  filter(year==1999|cyl==4)
+```
+
+filter(xor(condition1,condition2)) will return rows that only meet one condition.
+
+```{r}
+mpg %>% 
+  filter(xor(year==1999,cyl==4))
+```
+
+filter_all() will filter all the columns.
+
+```{r}
+mpg %>% 
+  filter_all(any_vars(.==4))
+```
+
+filter_if() first find the columns that meet some condition then filter.
+
+```{r}
+mpg %>% 
+  filter_if(is.character,any_vars(.==4))
+```
+
+filter_at() need to select columns in vars().
+
+```{r}
+mpg %>% 
+  filter_at(vars(displ),all_vars(.>3))
+```
+
+## 4.mutate()
+
+mutate() can add a new column based on the existing column.
+
+```{r}
+mpg %>% 
+  select(manufacturer,model,year) %>% 
+  mutate(year2=year-2000)
+```
+
+We can use ifelse() to choose data.
+
+```{r}
+mpg %>% 
+  select(manufacturer,model,year) %>% 
+  mutate(year2=ifelse(year>2000,0,NA))
+```
+
+mutate_all() can change all the columns.
+
+```{r}
+mpg %>% 
+  mutate_all(toupper)
+```
+
+mutate_if() can select certain columns and mutate.
+
+```{r}
+mpg %>% 
+  mutate_if(is.numeric,round)
+```
+
+mutate_at() need to select columns in vars().
+
+```{r}
+mpg %>% 
+  select(manufacturer,model,displ,cyl) %>% 
+  mutate_at(vars(displ,cyl),~(.*2))
+```
+
+case_when() can create categorical data.
+
+```{r}
+mpg %>% 
+  select(manufacturer,model,year) %>% 
+  mutate(year2=case_when(
+    year<2000~"very old",
+    year<2005~"old",
+    TRUE~"new"
+  ))
+```
+
+## 5.rowwise()
+
+rowwise() can process data by row.
+
+```{r}
+mpg %>% 
+  select_if(is.numeric) %>% 
+  rowwise() %>% 
+  mutate(mean = mean(c_across(displ:hwy)))
+```
+
+Or, we can do this by another way.
+
+```{r}
+mpg %>% 
+  rowwise() %>% 
+  mutate(mean=rowMeans(across(where(is.numeric))))
+```
+
+We can use rowwise() to get the max/min/sum/sd too.
+
+```{r}
+mpg %>% 
+  rowwise() %>% 
+  mutate(sum=sum(across(where(is.numeric))))
+```
+
+## 6.arrange()
+
+arrange() can sort the data.
+
+```{r}
+mpg %>% 
+  arrange(displ)
+```
+
+desc() can help sort data by descending order.
+
+```{r}
+mpg %>% 
+  arrange(desc(displ))
+```
+
+## 7.distinct()
+
+distinct() can help delete the duplicate rows.
+
+```{r}
+df <- tibble(
+  x=sample(5,20,rep=TRUE),
+  y=sample(5,20,rep=TRUE)
+)
+df %>% 
+  distinct()
+```
+
+## 8.rename()
+
+rename() can change the column name.
+
+```{r}
+mpg %>% 
+  rename(YEAR=year)
+```
+
+## 9.relocate()
+
+relocate() can help change the order of the columns.
+
+```{r}
+mpg %>% 
+  relocate(year)
+```
+
+```{r}
+mpg %>% 
+  relocate(year,.after = manufacturer)
+```
+
+```{r}
+mpg %>% 
+  relocate(year,.before = displ)
+```
+
+## 10.drop_na()
+
+drop_na can help drop the missing value.
+
+```{r}
+df <- tibble(
+  x=c(1,NA,2,3),
+  y=c(4,5,NA,6)
+)
+df %>% 
+  drop_na()
+```
+
+## 11.pull()
+
+pull() can help get a single column.
+
+```{r}
+mpg %>% 
+  pull(year)
+```
+
+## 12.unite()
+
+unite() can help unite the columns.
+
+```{r}
+mpg %>% 
+  unite(col="newcolumn",manufacturer:model,sep=",")->newdf
+
+newdf
+```
+
+## 13.separate()
+
+separate() can help separate one column to several columns.
+
+```{r}
+newdf %>% 
+  separate("newcolumn",into=c("manufacturer","model"),sep=",")
+```
+
+## 14.pivot_longer()
+
+pivot_longer() "lengthens" data, increasing the number of rows and decreasing the number of columns.
+
+```{r}
+df <- tibble(index=c(1,2),x=c('a','b'),y=c('c','d'),z=c('e','f'))
+df
+```
+
+```{r}
+df2 <- df %>% 
+  pivot_longer(cols=!index,names_to="key",values_to="val")
+df2
+```
+
+## 15.pivot_wider()
+
+pivot_wider() "widens" data, increasing the number of columns and decreasing the number of rows.
+
+```{r}
+df2 %>% 
+  pivot_wider(names_from=key,values_from=val)
+```
+
+## 16.count()
+
+count() can count the number of occurences.
+
+```{r}
+mpg %>% 
+  count(model,sort=TRUE)
+```
+
+## 17.summarize()
+
+summarise() is typically used on grouped data created by group_by(). The output will have one row for each group.
+
+```{r}
+mpg %>% 
+  group_by(model) %>% 
+  summarise(count=n(),averagedispl=mean(displ),maxdispl=max(displ))
+```
+
+summarise_all() applies the functions to all (non-grouping) columns.
+
+```{r}
+mpg %>% 
+  group_by(model) %>% 
+  select_if(is.numeric) %>% 
+  summarise_all(mean)
+```
+
+summarise_if() operate on columns for which a predicate returns TRUE.
+
+```{r}
+mpg %>% 
+  group_by(model) %>% 
+  summarise_if(is.numeric,mean)
+```
+
+summarise_at() allow you to select columns.
+
+```{r}
+mpg %>% 
+  group_by(model) %>% 
+  summarise_at(vars(displ,cyl),mean)
+```
+
