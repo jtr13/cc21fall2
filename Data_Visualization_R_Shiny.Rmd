@@ -1,0 +1,77 @@
+#Building a Dashboard in R for Data Analysis and Visualization using shiny package
+
+Srividya Inampudi
+
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I have written a blog on medium regarding the shiny package in R for my Community Contribution assignment. Please find the link attached below
+
+
+link: https://medium.com/@isrivi/building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package-5d864732563f
+
+This Blog will go through the basic steps of creating a Dashboard using shiny package in R. This Dashboard can be used to Visualize and Analyze different Datasets.
+
+```{r, include=FALSE}
+#R file to run the application
+
+#install.packages("shiny")
+#install.packages("shinydashboard")
+library(shiny)
+library(shinydashboard) 
+
+#install.packages("DT")
+library(DT)
+
+#install.packages("shinythemes")
+library(shinythemes)
+
+ui <- dashboardPage(
+  dashboardHeader(title = "Datasets"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Iris", tabName = "iris", icon = icon("tree")),
+      menuItem("Cars", tabName = "cars", icon = icon("car"))
+    )
+    
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem("iris",
+              box(plotOutput("correlation_plot"), width = 6),
+              box(
+                selectInput("features", "Features:",
+                            c("Sepal.Width", "Petal.length", "Petal.Width")), width = 4
+              )
+                 
+         ),
+        tabItem("cars",
+                fluidPage( theme = shinytheme("journal"),
+                  h1("Cars Dataset"),
+                  dataTableOutput("cars_table")
+                )
+        )
+      )
+  )
+)
+  
+server <- function(input, output){
+  
+  output$correlation_plot <- renderPlot({
+    output$correlation_plot <- renderPlot({
+      plot(iris$Sepal.Length, iris[[input$features]],
+           xlab = "Sepal length", ylab = "Features")
+    })
+  })
+  
+  output$cars_table <- renderDataTable(mtcars)
+  
+}
+
+shinyApp(ui, server)
+
+
+```
+
