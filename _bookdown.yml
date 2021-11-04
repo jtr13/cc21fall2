@@ -20,6 +20,7 @@ rmd_files: [
   'statistics_in_r_vs_python.Rmd', # contains PART header
   "python_seaborn_cheatsheet.Rmd",
   'rchess_package_cheatsheet.Rmd',
+  'hypothesis_testing_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
