@@ -1,0 +1,9 @@
+# RChess package cheatsheet
+
+Ju Hyun Jeon
+
+  How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to help people to use RChess. 
+  RChess is the most approachable and convenient way of processing Chess data with R. Furthermore, it can be used in conjunction with ggplot2 to plot chess positions. This cheatsheet contains all the functions with example positions that will help understand the package. There are 4 major uses of Rchess functions. 1. importing positions, 2. identifying positions, 3. modifying positions, and 4. visualizing positions. Further study can be conducted to derive methods to process annotated PGNs and PGNs with clock time.
+  
+The cheatsheet can be accessed through the following link.
+https://github.com/witchhead/RChessCheatsheet/blob/main/RchessCheatSheet.pdf

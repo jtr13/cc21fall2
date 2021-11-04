@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 9 Apply function in r | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<title>Chapter 10 Apply function in r | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Tianmai Jiao My youtube link: https://youtu.be/GVoa_zwYGzs Here is my tutorial video of apply function in R. In this video, I firstly introduce the components of apply function, then I give some...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 9 Apply function in r | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 10 Apply function in r | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Tianmai Jiao My youtube link: https://youtu.be/GVoa_zwYGzs Here is my tutorial video of apply function in R. In this video, I firstly introduce the components of apply function, then I give some...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 9 Apply function in r | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:title" content="Chapter 10 Apply function in r | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta name="twitter:description" content="Tianmai Jiao My youtube link: https://youtu.be/GVoa_zwYGzs Here is my tutorial video of apply function in R. In this video, I firstly introduce the components of apply function, then I give some...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -50,14 +50,15 @@
 <li class="book-part">Cheatsheets</li>
 <li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
 <li><a class="" href="data-visualization-with-searborn.html"><span class="header-section-number">6</span> Data Visualization with Searborn</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">7</span> RChess package cheatsheet</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">7</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">8</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="active" href="apply-function-in-r.html"><span class="header-section-number">9</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">10</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">8</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">9</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="active" href="apply-function-in-r.html"><span class="header-section-number">10</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">11</span> Introduction to interactive graphs in R</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">11</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">12</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">12</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">13</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -67,7 +68,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="apply-function-in-r" class="section level1">
 <h1>
-<span class="header-section-number">9</span> Apply function in r<a class="anchor" aria-label="anchor" href="#apply-function-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Apply function in r<a class="anchor" aria-label="anchor" href="#apply-function-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Tianmai Jiao</p>
 <p><a href="https://youtu.be/GVoa_zwYGzs">My youtube link: https://youtu.be/GVoa_zwYGzs</a><br>
@@ -75,11 +76,11 @@ Here is my tutorial video of apply function in R. In this video, I firstly intro
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">8</span> How to Integrate R with PostgreSQL</a></div>
-<div class="next"><a href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">10</span> Introduction to interactive graphs in R</a></div>
+<div class="prev"><a href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">9</span> How to Integrate R with PostgreSQL</a></div>
+<div class="next"><a href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">11</span> Introduction to interactive graphs in R</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#apply-function-in-r"><span class="header-section-number">9</span> Apply function in r</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#apply-function-in-r"><span class="header-section-number">10</span> Apply function in r</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
