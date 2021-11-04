@@ -3,7 +3,6 @@
 Xingyu Lu
 
 ```{r, include=FALSE}
-# this prevents package loading message from appearing in the rendered version of your problem set
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
@@ -64,7 +63,6 @@ For example, I want to see the distribution of final status of all the students.
 
 ```{python figure.width=15, figure.height=15}
 import seaborn as sns
-# extract status for all students, one row per student
 df_status = df[['Name', 'Status']].drop_duplicates()
 print(df_status.shape)
 sns.set(font_scale=0.5)
@@ -107,7 +105,6 @@ which loads the preprocessed data to R mode.
 Recall Q3 in HW3. To make the plot, I suffered a lot in preprocessing data in R, and the code I used in my homework is as follows: 
 
 ```{r fig.height=15,fig.width=15}
-# Pure R
 library(ggalluvial)
 library(data.table)
 library(dplyr)
@@ -153,7 +150,6 @@ df_W %>%
 So the data used to plot the figure is actually the `df_W`. There are a lot of preprocessing steps like handling the data type, filling the missing value etc. There must be some fancy and powerful functions in R that allows me to accomplish the task easily. However, it would largely increase my productivity if I could take advantage of my experience in Python. So, I if I could use Python to redo the process, it would be 
 
 ```{python}
-# First preprocess with Python
 df = pd.read_csv('resources/use_python_in_r/stats_wl.csv')
 students = set(df['Name'])
 dates = list(set(df['Date']))
@@ -185,7 +181,6 @@ df_processed = pd.DataFrame(processed, columns=['Name'] + dates)
 which finishes the preprocessing and then  
 
 ```{r fig.height=15,fig.width=15}
-# Then plot using R
 library(naniar)
 df_p <- as.data.frame(py$df_processed)
 df_p %>% 
