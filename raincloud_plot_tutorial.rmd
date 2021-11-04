@@ -183,7 +183,7 @@ axis_unit_scaler_1 <- function(n, digits = 1){
 }
 ```
 
-### 1. Introduction
+## Introduction
 
 Remember every time when you analyze a dataset, you are torn between whether density or boxplot is the right one to go? For my EDAV 2021F fellow, you must have thought about that for a while in the Q5 of our HW1, the one we are asked to compare which the following one is better.
 
@@ -283,7 +283,7 @@ Now, you can not only see the density shape from the ridges, statistics from the
 
 Without further ado, lets break it down and see how it is created!
 
-### 2. Components of raincloud plot.
+##Components of raincloud plot.
 
 In this section, I will use the variable `verified_income` with less cardinality to demonstrate one way to generate raincloud plot:
 
@@ -294,7 +294,7 @@ loans_full_schema %>%
 
 **Essentially, raincloud plot is just a halved `violin` +  jittered `point` + `boxplot` visulization combo.**
 
-#### 2.1 Tailoring out the cloud: halved violin
+### Tailoring out the cloud: halved violin
 
 Remind that violin plot is cool but wasting half the space. Because it is symmetric and both half are saying the same thing! So, the first thing we we’d like to do is to cut it half! The simplest way I know is using [geom_flat_violin](https://rdrr.io/github/samhforbes/PupillometryR/man/geom_flat_violin.html) from the `PupillometryR` pacakge.
 
@@ -322,7 +322,7 @@ ggplot(loans_full_schema) +
 
 Now we have the clustered density curve! I looks like the ‘Not Documented’ Status has a larger density skewmess to the left, indicating that applicants without a verified income are more likely to be approved for a smaller loan amount. But it’s hard to read more information from it!
 
-#### 2.2 Making it rain: jittered points
+### Making it rain: jittered points
 
 Then, creates some "rain".
 
@@ -366,7 +366,7 @@ ggplot(loans_full_schema) +
 
 Now we have the density as well as the raw data that generated the density curve, which allows us to notice the weird parallel dots. But to better understand the median, quartiles, and outliers of our data, lets add some boxplots above the points!
 
-#### 2.3 Adding the box to "collect" the rain: boxplot
+### Adding the box to "collect" the rain: boxplot
 
 ```{r, fig.height=3.5, fig.width=7}
 ggplot(loans_full_schema) +
@@ -398,7 +398,7 @@ ggplot(loans_full_schema) +
 
 Awesome! Then let's apply some magic to it!
 
-#### 2.4 Adjustment
+### Adjustment
 
 There are several parameters we can tune to make rain cloud plot looks good!
 
@@ -498,7 +498,7 @@ Isn’t the data itself is talking in this graph? I know the code is a little bi
 
 
 
-### 3. More Examples
+## More Examples
 
 n this section, I organized codes from some of my previous work to provide you more examples! You can select one as a template to create your own! Typically, you can use raincloud plot if you have:
 
@@ -512,9 +512,10 @@ n this section, I organized codes from some of my previous work to provide you m
 
 Let’s check them out!
 
-#### 3.1 Grouped Categorical X + Numerical Y
+### Grouped Categorical X + Numerical Y
 
-#### 3.1.1 Data preparation
+1. Data preparation
+
 The [Kaggle Walmart sales dataset](https://www.kaggle.com/c/m5-forecasting-accuracy/data) provides us with 30,000+ “time serieses” of unit sales data from 2011 to 2015, organized hierarchically by store, category, and state.
 
 In the following code, we clean it into the monthly total unit sales grouped by 10 stores in 3 states, and store it into a RData file for you to easily reproduce the plot!
@@ -555,7 +556,8 @@ walmart_monthly_sales
 
 - There are 63 months from Jan 2012 to Apr 2016, multiplying by 63 stores give us 630 rows.
 
-#### 3.1.2 Original version
+2. Original version
+
 This is exactly how we created raincloud plot:
 
 ```{r fig.width=8, fig.height=4}
@@ -593,7 +595,7 @@ ggplot(walmart_monthly_sales) +
 
 It looks okay, but note that the color we filled in to the boxplot and density curve is redundant since the store_id is already mapped to the x axis! This is exactly the case that if you find the legend unnecessary, probably the aesthetic it represents as well.
 
-#### 3.1.3 Better prectice
+3. Better prectice
 
 A better way is to map the fill to the “parent” group of `store_id`, the `state_id`!
 
@@ -630,7 +632,7 @@ ggplot() +
 
 - The color contains the state information now!
 
-#### 3.2 Categorical X1 + Numerical X2 + Numerical Y
+### Categorical X1 + Numerical X2 + Numerical Y
 
 The [UCI Bank Marketing dataset](https://archive.ics.uci.edu/ml/datasets/bank+marketing) provides us with population characteristics of the object of a marketing campaign from a Portuguese financial institution, as well as whether it was successful as its binary target label.
 
@@ -699,7 +701,7 @@ Lots of interesting information in this graph, for example:
 
 - ···
 
-#### 3.3 Grouped Numerical X + Grouped Numerical Y
+### Grouped Numerical X + Grouped Numerical Y
 
 Raincloud plots can also be utilized as two additional scatter plot subplots, one to the left of the y axis and one to the bottom of the x axis!
 
@@ -812,10 +814,10 @@ p_price + p_area + p_scatter +
 
 We can observe that the regression line is not as steep as the dashed line in the original figure after splitting houses into three categories. Lower quality houses not only have both house price and area distributed in a lower range (up to 3k in size and 270k in price), but they also have the slowest rate of house price growth along with area, implying the lowest average price per square meter.
 
-### 4. Additional Tips
+## Additional Tips
 Besides the adjustment mentioned inthe 2.4, these tips can also help you create a neat raincloud plot!
 
-#### 4.1 Use a theme without grid
+### Use a theme without grid
 I customized a theme without grid base on `theme_clean()`! So to reproduce my cold, you can run this or simply remove the `+theme_jace`.
 
 ```{r}
@@ -873,7 +875,7 @@ theme_clean() + text_theme + background_theme + empty_theme + theme_legend  -> t
 ```
 
 
-#### 4.2 Adjust the axis
+### Adjust the axis
 
 To quickly read the value from boxplots’ statsitics, density curves’ modality, or the dots concentrated from the raincloud, I often do this:
 
@@ -923,7 +925,7 @@ cat("12,345 now bocomes", axis_unit_scaler(12345),
 , and put it into `scale_y_continuous` like `p + scale_y_continuous(labels = axis_unit_scaler, breaks = pretty_breaks(10))`
 
 
-### Reference
+## Reference
 
 Thank you for taking the time to read this lengthy tutorial! Hope you enjoy this. Now, if you
 
