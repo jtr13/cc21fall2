@@ -16,7 +16,7 @@ library(sparkline)
 library(dygraphs)
 library(plotly)
 library(devtools)
-library(recharts)
+# library(recharts) remove this package for loading error and not being used in file
 library(rCharts)
 library(highcharter)
 library(tidyverse)
