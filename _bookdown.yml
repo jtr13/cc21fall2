@@ -6,7 +6,5 @@ language:
   ui:
     chapter_name: "Chapter "
 
-
-# Chapter ordering
 'Rchess_package_cheatsheet.Rmd',
 
