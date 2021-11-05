@@ -9,7 +9,6 @@ language:
 
 # Chapter ordering
 
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -32,6 +31,7 @@ rmd_files: [
   'stock_analysis.Rmd',
   'data_vis_ordering.Rmd',
   'r_lattice_tutorial.Rmd',
+  'network_visualization_in_r.Rmd',
   
   # Part: Projects
   
@@ -44,4 +44,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
