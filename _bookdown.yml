@@ -9,6 +9,7 @@ language:
 
 # Chapter ordering
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -19,6 +20,7 @@ rmd_files: [
   # Part: Cheatsheets
   'statistics_in_r_vs_python.Rmd', # contains PART header
   "python_seaborn_cheatsheet.Rmd",
+  'make_r_package_cheatsheet.Rmd',
   'rchess_package_cheatsheet.Rmd',
   'hypothesis_testing_cheatsheet.Rmd',
   
