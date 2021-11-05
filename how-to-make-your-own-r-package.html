@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 8 RChess package cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Ju Hyun Jeon How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to...">
+<title>Chapter 7 How to Make Your Own R package | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Yuren Dong In this project I introduced procedures of integrating functions that we create ourselves into our own packages. With this knowledge, we would be able to save time through integrating...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 8 RChess package cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 7 How to Make Your Own R package | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Ju Hyun Jeon How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to...">
+<meta property="og:description" content="Yuren Dong In this project I introduced procedures of integrating functions that we create ourselves into our own packages. With this knowledge, we would be able to save time through integrating...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 8 RChess package cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Ju Hyun Jeon How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to...">
+<meta name="twitter:title" content="Chapter 7 How to Make Your Own R package | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Yuren Dong In this project I introduced procedures of integrating functions that we create ourselves into our own packages. With this knowledge, we would be able to save time through integrating...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -50,8 +50,8 @@
 <li class="book-part">Cheatsheets</li>
 <li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
 <li><a class="" href="data-visualization-with-searborn.html"><span class="header-section-number">6</span> Data Visualization with Searborn</a></li>
-<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
-<li><a class="active" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="active" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
 <li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
 <li class="book-part">Tutorials</li>
 <li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">10</span> Tutorial on Cluster Analysis</a></li>
@@ -72,28 +72,26 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="rchess-package-cheatsheet" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="how-to-make-your-own-r-package" class="section level1">
 <h1>
-<span class="header-section-number">8</span> RChess package cheatsheet<a class="anchor" aria-label="anchor" href="#rchess-package-cheatsheet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7</span> How to Make Your Own R package<a class="anchor" aria-label="anchor" href="#how-to-make-your-own-r-package"><i class="fas fa-link"></i></a>
 </h1>
-<p>Ju Hyun Jeon</p>
-<p>How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to help people to use RChess.
-RChess is the most approachable and convenient way of processing Chess data with R. Furthermore, it can be used in conjunction with ggplot2 to plot chess positions. This cheatsheet contains all the functions with example positions that will help understand the package. There are 4 major uses of Rchess functions. 1. importing positions, 2. identifying positions, 3. modifying positions, and 4. visualizing positions. Further study can be conducted to derive methods to process annotated PGNs and PGNs with clock time.</p>
-<p>The cheatsheet can be accessed through the following link.
-<a href="https://github.com/witchhead/RChessCheatsheet/blob/main/RchessCheatSheet.pdf" class="uri">https://github.com/witchhead/RChessCheatsheet/blob/main/RchessCheatSheet.pdf</a></p>
+<p>Yuren Dong</p>
+<p>In this project I introduced procedures of integrating functions that we create ourselves into our own packages. With this knowledge, we would be able to save time through integrating commonly used data processing workflow into packages,to share analytical pipelines with collaborators. Thus, I think it would be a great opportunity to share with classmates about this strategy.</p>
+<p>link: <a href="https://github.com/yunyuntian/make_r_package_cheatsheet/" class="uri">https://github.com/yunyuntian/make_r_package_cheatsheet/</a></p>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></div>
-<div class="next"><a href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></div>
+<div class="prev"><a href="data-visualization-with-searborn.html"><span class="header-section-number">6</span> Data Visualization with Searborn</a></div>
+<div class="next"><a href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#rchess-package-cheatsheet"><span class="header-section-number">8</span> RChess package cheatsheet</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#how-to-make-your-own-r-package"><span class="header-section-number">7</span> How to Make Your Own R package</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/rchess_package_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/rchess_package_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/make_r_packages.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/make_r_packages.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
