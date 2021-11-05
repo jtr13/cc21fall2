@@ -21,12 +21,17 @@ rmd_files: [
   'statistics_in_r_vs_python.Rmd', # contains PART header
   "python_seaborn_cheatsheet.Rmd",
   'make_r_package_cheatsheet.Rmd',
+  'rchess_package_cheatsheet.Rmd',
+  'hypothesis_testing_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
   'postgresql_r.Rmd',
   'apply_function_in_r.Rmd',
   'introdution_interative_graphs_in_r.Rmd',
+  'stock_analysis.Rmd',
+  
+  # Part: Projects
   
   # Part: Workshops
   
