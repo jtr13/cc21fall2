@@ -19,7 +19,7 @@ rmd_files: [
   # Part: Cheatsheets
   'statistics_in_r_vs_python.Rmd', # contains PART header
   "python_seaborn_cheatsheet.Rmd",
-  'make_r_package_cheatsheet.Rmd',
+  'make_r_packages.Rmd',
   'rchess_package_cheatsheet.Rmd',
   'hypothesis_testing_cheatsheet.Rmd',
   
@@ -32,10 +32,11 @@ rmd_files: [
   'data_vis_ordering.Rmd',
   'r_lattice_tutorial.Rmd',
   'network_visualization_in_r.Rmd',
+  'dplyr_tutorial_in_r.Rmd',
   
-  # Part: Projects
+  # Part: Projects & Workshops
   
-  # Part: Workshops
+  # Part: Data visualizations
   
   # Part: Custom R packages
 
