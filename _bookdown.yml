@@ -22,6 +22,7 @@ rmd_files: [
   'make_r_package_cheatsheet.Rmd',
   'rchess_package_cheatsheet.Rmd',
   'hypothesis_testing_cheatsheet.Rmd',
+  'd3_visualizations_in_r_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
