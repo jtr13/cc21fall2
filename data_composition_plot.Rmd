@@ -1,17 +1,10 @@
----
-title: "cc"
-output: html_document
----
+# Data_Composition_Plot
 
-```{r setup, include=FALSE}
+Xinfu Su and Yihan Wang
+
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r package}
 library(ggplot2)
@@ -78,7 +71,7 @@ data <- data  %>%
   summarise(n = sum(value)) %>%
   mutate(percentage = n / sum(n))
 
-ggplot(data, aes(x=time, y=percentage, fill=group)) + 
+ggplot(data, aes(x=time, y=percentage, fill=employ)) + 
     geom_area()+ 
     geom_area(alpha=0.5, size=0.1, colour="white") +
     scale_fill_viridis(discrete = T)+theme_ipsum()+
