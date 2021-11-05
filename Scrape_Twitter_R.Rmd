@@ -15,7 +15,7 @@ Social media is an emerging field of study for researchers. During the pandemic,
 ## 1.Preparation
 
 
-### 1.1 Apply for developer account
+### Apply for developer account
 To start, we need a Twitter account (and a valid phone number associated).
 
 In order to gain access to Twitter data, we will have to apply for a developer account.
@@ -26,7 +26,7 @@ The applying process requires you to fill in some academic and project informati
 
 <br>
 
-### 1.2 Set up the App and generate tokens
+### Set up the App and generate tokens
 
 After your application goes through, you need to set up your "App". Select **Project & Apps** and choose **Create App**
 
@@ -40,7 +40,7 @@ After successfully creating an App, click on **Keys and tokens**, then **Generat
 
 <br>
 
-### 1.3 Libraries
+### Libraries
 
 We will use the following two libraries: `twitteR` and `rtweet`.
 
@@ -48,7 +48,7 @@ We will use the following two libraries: `twitteR` and `rtweet`.
 
 ## 2. twitteR
 
-### 2.1 Connection
+### Connection
 
 We will first introduce the library `TwitterR`. Note that these keys are revoked after I finished the tutorial, so do not try to use them.
 
@@ -66,7 +66,7 @@ setup_twitter_oauth(API_key,API_secret,Access_token,Access_secret)
 
 <br>
 
-### 2.2 Search 
+### Search 
 
 We will first introduce `searchTwitter`, this is the basic function to find tweets using multiple criteria. For example we set the keyword to be **"Covid-19"** and return three tweets.
 
@@ -103,13 +103,13 @@ For the purpose of tidiness, we only present several noteworthy features. In fac
 
 ## 3. rtweet
 
-### 3.1 Connection
+### Connection
 
 To establish connection, use a function like `search_tweets("Covid-19")`in the console. Then, if you have signed into your Twitter develop account, a page will pop-up, asking you to authorize API usage. Agree and the connection will be established.
 
 <br>
 
-### 3.2 Search
+### Search
 
 The search function for `rtweet` resembles that of `twitteR`, with some changes. We can specify multiple keywords using a blank space. The result will return tweets that contain any of the three words. We can filter out retweets by setting `include_rts` to FALSE. 
 
@@ -121,12 +121,12 @@ covid_df2 <- search_tweets("Covid-19 vaccine flu",n=50, include_rts=FALSE, lang=
 You can observe that the returning data frame actually has 90 features compared to 16 features from `twitteR` data frame. The text feature did not seem to be complete because some parts did not show up due to the display length. We can write our data frame into a csv file and observe that the text feature is complete.
 
 ```{r}
-write_as_csv(covid_df2, "covid_df", na ="NA")
+#write_as_csv(covid_df2, "covid_df", na ="NA")
 ```
 
 <br>
 
-### 3.3 Streaming
+### Streaming
 
 The search function has limitations. For `search_tweets`, it only returns results from the past 6-9 days. We resort to the streaming function to collect real-time tweets. 
 
@@ -142,12 +142,12 @@ You can not specify language and the results display multiple languages.
 
 You can also specify keywords and write the data into a json file. For data collection purpose, this is recommended method. You can set`timeout=FALSE` to collect for a continuous period. The collected data will be in "covid.json".
 ```{r}
-covid_tweet <- stream_tweets("Covid-19", timeout=3, file_name = "covid.json", langangue="en")
+#covid_tweet <- stream_tweets("Covid-19", timeout=3, file_name = "covid.json", langangue="en")
 ```
 
 <br>
 
-### 3.4 Other functions
+### Other functions
 
 You can use `get_timeline` to retreive tweets posted by target users.
 
@@ -182,14 +182,14 @@ There are other functions that allow you to manipulate your own Twitter status, 
 
 ## 4. Wrap up
 
-### 4.1 API limitations
+### API limitations
 
 Both the libraries are actually built up based on the Twitter API, and Twitter standard API poses some fundamental restrictions.
 For example, `search` generally allows you to search back only seven days. For this reason, I suggest always using streaming method if you want to collect a large amount of data. For other limits, you can refer to: https://developer.twitter.com/en/docs/twitter-api/early-access.
 
 <br> 
 
-### 4.2 Python equivalent library
+### Python equivalent library
 
 You can also refer to the `Tweepy` library in Python, which has the same functionality in collecting tweets, at https://docs.tweepy.org/en/stable/.
 
