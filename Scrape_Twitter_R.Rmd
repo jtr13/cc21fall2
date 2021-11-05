@@ -12,7 +12,7 @@ library(rtweet)
 
 Social media is an emerging field of study for researchers. During the pandemic, lots of studies carried out analysis using Twitter data. In this tutorial, I want to introduce the basics of scraping Twitter data using R. I will introduce two libraries `rtweet` and `twitteR`. Note that these two libraries do not complement each other. `rtweet` actually contains all functionality in `twitteR` and more. It is updated and maintained more recently, and I would always suggest using `rtweet` for collecting Twitter data. However, for this tutorial, I will still introduce `twitteR`.
 
-## 1.Preparation
+## Preparation
 
 
 ### Apply for developer account
@@ -46,7 +46,7 @@ We will use the following two libraries: `twitteR` and `rtweet`.
 
 <br>
 
-## 2. twitteR
+## twitteR
 
 ### Connection
 
@@ -101,7 +101,7 @@ For the purpose of tidiness, we only present several noteworthy features. In fac
 
 <br>
 
-## 3. rtweet
+## rtweet
 
 ### Connection
 
@@ -180,7 +180,7 @@ There are other functions that allow you to manipulate your own Twitter status, 
 
 <br>
 
-## 4. Wrap up
+## Wrap up
 
 ### API limitations
 
@@ -195,7 +195,7 @@ You can also refer to the `Tweepy` library in Python, which has the same functio
 
 <br>
 
-## 5. Reference
+## Reference
 
 https://www.rdocumentation.org/packages/rtweet/versions/0.7.0
 
