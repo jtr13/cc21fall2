@@ -15,7 +15,6 @@ I spent time searching for documentation about similar plot functions in both la
 
 Due to the space restriction, I did not add much details on how to use these functions. Next time, I might add more details about differences between them and parameters we could adjust inside these parentheses.
 
-Click the following link to check out the cheatsheet: https://drive.google.com/file/d/1FDsnWfHHC7Gb7UfR0uakwLRCWq-sYGty/view?usp=sharing
-
+Click the following link to check out the [cheatsheet](resources/ggplot_Matplotlib_cheatsheet/ggplot_Matplotlib_cheatsheet.pdf)
 ```
 
