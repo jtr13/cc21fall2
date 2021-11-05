@@ -1,4 +1,4 @@
-# Dylpr tutorial in R
+# Dplyr tutorial in R
 
 Pinyi Yang
 
