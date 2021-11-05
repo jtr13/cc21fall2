@@ -1,0 +1,115 @@
+---
+title: "community contribution"
+author: "zezhong fan"
+date: "10/29/2021"
+output: html_document
+---
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+library(tidyr)
+```
+***Bar Chart***
+
+From the comparision of two graphs, we can find that in ggplot2, the background is grey and have grids to make users  visualize the scales more clearly. Besides, the title and labels are lighter that normal plots in R itself. From the perspectives of codes, we can say the coding style is different between ggplot2 and R. In ggplot2, we can see that the code is divided into different components and then the codes is linked by '+'. However, in normal R, we use the function in R and set the parameters and labels we need inside the funtion itself. 
+```{r}
+data = data.frame(sex = factor(c('Male','Female'),levels = c('Male','Female')), height = c(175.26,162.56))
+ggplot(data = data,aes(x = sex, y = height))+
+  geom_bar(colour = 'black',fill = '#AFC0CB',stat = 'identity')+
+  xlab('Sex')+ylab('Mean Height in US')+
+  ggtitle('GGPlot: Mean Height between Sex in US')
+```
+```{r}
+barplot(data$height, names.arg = data$sex, col = '#DD8888', main = 'RPlot:Mean Height between Sex in US' )
+```
+
+***Boxplot***
+we can also see that in the ggplot, the background is grey and have grids to make users  visualize the scales more clearly. Another big difference is the breaks in the y scale. The default breaks are different between ggplot and normal r. The code style is also different. In ggplot2, we can see that the code is divided into different components and then the codes is linked by '+'. However, in normal R, we use the function in R and set the parameters and labels we need inside the funtion itself. 
+ggplot
+```{r}
+x <- rnorm(1000)
+y <- runif(1000)                                             
+z <- rpois(1000, 3)
+data <- data.frame(values = c(x, y, z),                     
+                   group = c(rep("x", 1000),
+                             rep("y", 1000),
+                             rep("z", 1000)))
+boxplot(values ~ group, data, main = 'normal r boxplot')  
+```
+```{r}
+ggplot(data,aes(x = group, y = values))+
+  geom_boxplot(fill = 'blue')+
+  ggtitle('ggplot: boxplot')
+```
+
+***Piechart:***
+First, the coding style is also different. In ggplot, the plot is divided into different components including the xlab and ylab and title and the pie chart. In normal r plot, we just use funtion called 'pie'. One interesting thing in ggplot is we first use geom_col and then covert the bar plot into a pie chart. The looking of the graphs is also different. The default colours and the sequence of groups are also different. In ggplot, we can  find the scale around the pie chart and we can discover the percentage of each group from the piechart. 
+```{r}
+df <- data.frame(
+  group = c("Male", "Female", "Child"),
+  value = c(25, 25, 50))
+ggplot(df, aes(x="", y=value, fill=group))+
+  geom_col()+
+  coord_polar(theta = 'y')+
+  ggtitle('ggplot: piechart')
+```
+```{r}
+slices  = df$value
+pie(slices,labels = df$group, main = 'normal r plot: piechart' )
+```
+
+***Multiple Variables***
+For code part, in ggplot, we just need to use components in ggplot packages and use function called geom bar to visualize more than 2 variables, and set parameter 'fill'. However, in normal r plot, we need to first convert our dataframe into a matrix and then apply function called 'barplot'. The graph made by ggplot is more clear. The default colour is not grey and black and we can see the labees in x direction and we also have legends by default. However, the graph made by normal r packages doesn't have default legends and x lablels. 
+ggplot2
+```{r}
+data <- data.frame(
+  sex = factor(c("Female","Female","Female","Male","Male","Male")),
+  time = factor(c("Breakfast","Lunch","Dinner","Breakfast","Lunch","Dinner")),
+  total_bill = c(13.53, 16.81,18.91, 16.24, 17.42,21.56))
+ggplot(data = data, aes(x= time, y = total_bill, fill = sex))+
+  geom_bar(stat = 'identity',colour = 'black',position=position_dodge())+
+  ggtitle('ggplot2: multiple variables')
+
+```
+```{r}
+datamat <- matrix( data$total_bill,
+                   nrow = 2,
+                   byrow=TRUE,
+                   dimnames = list(c("Female", "Male"), c("Breakfast","Lunch", "Dinner"))
+                   )
+
+barplot(datamat,beside = TRUE, border = NA, main = 'normal r plot: multiple variables.')
+```
+
+
+***Facet***
+In ggplot, we can just use function 'facet_grid' to draw multiple graphs based on the variables, however, in normal R, we should do a for-loop to loop over different levels of the variables we want to compare and then do the plot wihich is much more complex than ggplot2. The looking of the graphs are also different. The default y-scale is different. The y-scale in gg-plot is the same however,the scales in the graph in normal r is different. Besides, there are also grid in the backgroud in ggplot which makes us see the scale more straight-forward.
+ggplot2
+```{r}
+x <- rnorm(100)
+y <- runif(100)                                             
+z <- rpois(100, 3)
+data <- data.frame(values = c(x, y, z),  
+                   values2 = c(x+1,y+1,z+1),
+                   group = c(rep("x", 100),
+                             rep("y", 100),
+                             rep("z", 100)))
+ggplot(data, aes(x=values, y=values2))+
+  geom_point(shape=1)+facet_grid(. ~ group)+
+  ggtitle('ggplot: facet')
+
+
+```
+normal R
+```{r}
+par(mfrow=c(1,3))
+groups <- unique(data$group)
+groups
+for (i in 1:length(groups)) {
+  curdata = data[data$group == groups[i],]
+  plot(curdata$values,curdata$values2,
+    main=groups[i])
+}
+
+```
