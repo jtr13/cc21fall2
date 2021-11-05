@@ -1,5 +1,3 @@
-# (PART) Cheatsheets {-}
-
 # draw graphs using python and R
 
 Shuyue Xu
