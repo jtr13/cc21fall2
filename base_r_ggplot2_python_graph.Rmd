@@ -281,7 +281,7 @@ plot(X, Y, type = "n") # "n" for no plotting
 ```
 
 There are many parameters that you can change within `plot` function to adjust the appearance of a plot. For example, different `pch` values give different shapes of points as shown in the figure.
-![](resources/base_r_ggplot2_python_graph/symbol_image.jpg)
+![](resources/base_r_ggplot2_python_graph/symbol_image.png)
 
 ```{r, plot function aesthetics}
 plot(X, Y, type = "p",
