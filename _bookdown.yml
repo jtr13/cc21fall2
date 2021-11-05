@@ -32,6 +32,7 @@ rmd_files: [
   'data_vis_ordering.Rmd',
   'r_lattice_tutorial.Rmd',
   'network_visualization_in_r.Rmd',
+  'dplyr_tutorial_in_r.Rmd',
   
   # Part: Projects & Workshops
   
