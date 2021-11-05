@@ -33,9 +33,9 @@ rmd_files: [
   'r_lattice_tutorial.Rmd',
   'network_visualization_in_r.Rmd',
   
-  # Part: Projects
+  # Part: Projects & Workshops
   
-  # Part: Workshops
+  # Part: Data visualizations
   
   # Part: Custom R packages
 
