@@ -1,0 +1,145 @@
+---
+title: "Introduction to Plotly"
+author: "Siqi He"
+date: "10/25/2021"
+output: html_document
+---
+
+
+There is the link to my cheatsheet: https://github.com/siqihe41099/CheatSheet_plotly
+
+
+```{r}
+# Load R packages
+library(plotly)
+```
+
+
+
+An explanation of the motivation for the project, the need it addresses, and your own evaluation of the project including what you learned/what you might do differently next time: \
+In this semester, we learned how to use basic R and ggplot2 to draw graphs. They are useful to show the pattern of data and convey information embedded in the dataset. However, sometimes it is not convenient to check the exact value of data points directly in the graphs. For example, when I amd interested in the count number in each interval, if I use basic R or ggplot2 to draw a histogram, graphs cannot refelct the exact value of each bar. But if I use plotly instead, the values will show up when I point to the bars. Besides, plotly can have many traces in one graph. We can choose to show all of them, partial of them or only one of them in the graph just by clicking the legend. It means that sometimes when we have to draw several graphs using basic R or ggplot2, we only need one graph using plotly. In this project I learned how to draw different types of graphs, such as histogram, bar chart, pie chart and etc, by using plotly. Also, I learned how to adjust the axis and legend of the graphs. In this prject, I do not include the chorepleth map part, since it is complicated and I think it is better to use one project to deeply explore it. So next time, I may introduce how to draw interactive chorepleth map. In many websites, they use chorepleth map to show the COVID-19 infection and death numbers. I can also introduce how to draw that.
+
+
+
+
+
+1. Histogram
+We use plot_ly() to initialize the visualization. alpha controls the transparency of the color used in the graph. The default setting is 0.5. We can use add_histogram() to draw an interactive histogram. Set x=exp(100), randomly simulate 100 data points following a standard normal distribution. In this way, we can create an interactive histogram: when the cursor points to one bar, it will show the interval and the count of data in that interval. \
+Basic Histogram:
+```{r}
+fig1 <- plot_ly(x = ~rexp(100),alpha=0.5,type="histogram")
+fig1
+```
+
+
+
+
+Also, if we want to show two histograms in one graph. We can use add_histogram() and layout() to make a overlaid histogram. To change the legend, we can set the legend name using add_histogram().
+```{r}
+fig3 <- fig1 %>% add_histogram(x = ~rexp(100) + 1,name="rnorm+1")
+fig3 <-fig3 %>% layout(barmode = "overlay")
+fig3
+```
+
+
+We can use the legend to control which histogram we would like to present. For example, clicking the trace 0 at the upper right legend, we can decide whether the histogram of rexp(100) shows or not. It is convenient. Rather than using three separate graphs: one for rexp(100), one for rexp(100)+1 and one for the overlaying histogram, we use plot_ly() to include all those information in just one graph and we can also check the counts in each interval. 
+
+Stack histogram can also be drawn by setting barmode = "stack".
+```{r}
+fig4 <- fig1 %>% add_histogram(x = ~rexp(50))
+fig4 <-fig4 %>% layout(barmode = "stack")
+fig4
+```
+
+
+2. Bar Chart \
+Basic bar chart: \
+Here I will use food_world_cup from package fivethrityeight as an example. I mainly use the education column and count the number of people in each education level. \
+```{r}
+library(fivethirtyeight)
+library(dplyr)
+data <- food_world_cup[,1:12] %>% select(education) %>%group_by(education) %>%summarise(n=n())
+plot_ly(x=data$education,y=data$n,type="bar")
+```
+
+It will show the level of education and the number of people in that level. \
+
+```{r}
+mdata <- food_world_cup[,1:12] %>%filter(gender=="Male")%>%group_by(education) %>%summarise(n=n())
+fdata <- food_world_cup[,1:12] %>%filter(gender=="Female")%>%group_by(education) %>%summarise(n=n())
+p1<-plot_ly(x=mdata$education,y=mdata$n,type='bar',name="male")
+p2<-p1%>%add_trace(x=fdata$education,y=fdata$n,name="female")
+p2<-p2%>%layout(barmode = "stack") 
+p2
+```
+
+
+Group bar chart:
+```{r}
+mdata <- food_world_cup[,1:12] %>%filter(gender=="Male")%>%group_by(education) %>%summarise(n=n())
+fdata <- food_world_cup[,1:12] %>%filter(gender=="Female")%>%group_by(education) %>%summarise(n=n())
+p1<-plot_ly(x=mdata$education,y=mdata$n,type='bar',name="male")
+p2<-p1%>%add_trace(x=fdata$education,y=fdata$n,name="female")
+p2<-p2%>%layout(barmode = "group") 
+p2
+```
+
+
+3. Scatter plot \
+The scatterplot can show the exact x and y value of each data point. \
+```{r}
+set.seed(4399)
+x=1:100
+y=rnorm(100)
+data=as.data.frame(cbind(x,y))
+plot_ly(x=data$x,y=data$y,type="scatter")
+```
+
+
+
+We can draw the line plot.
+```{r}
+plot_ly(x=data$x,y=data$y,type="scatter",mode="lines")
+```
+
+
+Keep both lines and points
+```{r}
+plot_ly(x=data$x,y=data$y,type="scatter",mode="lines+markers")
+```
+
+4. Pie Chart
+Here I will use food_world_cup from package fivethrityeight as an example. I mainly use the education column and count the number of people in each education level. 
+
+```{r}
+data <- food_world_cup[,1:12] %>% select(education) %>%group_by(education) %>%summarise(n=n())
+plot_ly(data, labels = ~education, values = ~n, type = 'pie') %>% layout(title = 'Education Level')
+```
+
+
+In this pie chart, we can clearly see the value and the percentage of each area when our cursor points to the pie chart. Also we can choose which levels we would like to present. For example, we can choose to high High school degree part by clicking it in the legend, then the pie chart will only show other 5 levels and recalculate the percentage of each degree. If we want to add a title to the graph, we can add that by using layout().
+
+5.Bubble Chart
+```{r}
+x=1:5
+y=rnorm(5)
+data=as.data.frame(cbind(x,y))
+
+fig <- plot_ly(data, x = ~data$x, y = ~data$y, type = 'scatter', mode = 'markers',marker = list(size = c(10,20,30,40,50), opacity = 0.5))
+fig
+```
+
+
+We can assign the size of bubble by change the size arguments. \
+
+Boxplot:
+```{r}
+plot_ly (y = rnorm(50) , type = 'box' ) 
+```
+
+Heatmap:
+```{r}
+plot_ly(z=volcano,typpe="heatmap")
+```
+
+
