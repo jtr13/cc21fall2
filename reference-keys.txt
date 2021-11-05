@@ -22,6 +22,7 @@ data-visualization-with-searborn
 how-to-make-your-own-r-package
 rchess-package-cheatsheet
 hypothesis-testing-cheatsheet
+interactive-web-visualizations-for-r-cheatsheet
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist

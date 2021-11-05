@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 6 Data Visualization with Searborn | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Xinyu Huang (xh2511) I created a cheat sheet for data visualization with Seaborn, a package in python. Including data preparation, plot aesthetics, categorical data plotting, statistical...">
+<title>Chapter 10 Interactive web visualizations for R cheatsheet" | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Tianhang Cui The content is a cheatsheet for interactive web visualizations in R, in the form of PDF. It includes how to make and adjust general type of interactive web visualization with plotly,...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 6 Data Visualization with Searborn | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 10 Interactive web visualizations for R cheatsheet" edav fall tues community contributions>
 <meta property="og:type" content="book">
-<meta property="og:description" content="Xinyu Huang (xh2511) I created a cheat sheet for data visualization with Seaborn, a package in python. Including data preparation, plot aesthetics, categorical data plotting, statistical...">
+<meta property="og:description" content="Tianhang Cui The content is a cheatsheet for interactive web visualizations in R, in the form of PDF. It includes how to make and adjust general type of interactive web visualization with plotly,...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 6 Data Visualization with Searborn | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Xinyu Huang (xh2511) I created a cheat sheet for data visualization with Seaborn, a package in python. Including data preparation, plot aesthetics, categorical data plotting, statistical...">
+<meta name="twitter:title" content="Chapter 10 Interactive web visualizations for R cheatsheet" edav fall tues community contributions>
+<meta name="twitter:description" content="Tianhang Cui The content is a cheatsheet for interactive web visualizations in R, in the form of PDF. It includes how to make and adjust general type of interactive web visualization with plotly,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -49,11 +49,11 @@
 <li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
 <li class="book-part">Cheatsheets</li>
 <li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
-<li><a class="active" href="data-visualization-with-searborn.html"><span class="header-section-number">6</span> Data Visualization with Searborn</a></li>
+<li><a class="" href="data-visualization-with-searborn.html"><span class="header-section-number">6</span> Data Visualization with Searborn</a></li>
 <li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
 <li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
 <li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
-<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="active" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
 <li class="book-part">Tutorials</li>
 <li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">11</span> Tutorial on Cluster Analysis</a></li>
 <li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">12</span> How to Integrate R with PostgreSQL</a></li>
@@ -74,26 +74,38 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-visualization-with-searborn" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="interactive-web-visualizations-for-r-cheatsheet" class="section level1">
 <h1>
-<span class="header-section-number">6</span> Data Visualization with Searborn<a class="anchor" aria-label="anchor" href="#data-visualization-with-searborn"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"<a class="anchor" aria-label="anchor" href="#interactive-web-visualizations-for-r-cheatsheet"><i class="fas fa-link"></i></a>
 </h1>
-<p>Xinyu Huang (xh2511)</p>
-<p>I created a cheat sheet for data visualization with Seaborn, a package in python. Including data preparation, plot aesthetics, categorical data plotting, statistical relationships plotting and further customizations.</p>
-<p>See the two pdf files in ‘<a href="https://github.com/Elliot1h/EDAV-cc" class="uri">https://github.com/Elliot1h/EDAV-cc</a>’ for cheat sheet and citations. They can also be found in ‘resources/python_seaborn_cheatsheet’.</p>
+<p>Tianhang Cui</p>
+<p>The content is a cheatsheet for interactive web visualizations in R, in the form of PDF. It includes how to make and adjust general type of interactive web visualization with plotly, and how create special types of visualization.</p>
+<p>There are many libraries can be used in R to make useful and nice-looking interactive visualization. However, the easiest or the best tools for different purposes are often not in the same library (<a href="example:3D" class="uri">example:3D</a> scatterplot can be done in the ‘plotly’ but using ‘threejs’ would be much easier and more effective), and we have to search the internet to see which package is commonly used for different kinds of interactive visualization. There are some cheat sheets on the internet for some specific packages in very detail, but none of them contains all the commonly used packages for interactive visualization. Thus, I think it would be helpful to have a cheat sheet to include most of the commonly used packages, so that the statisticians/programmers can easily use them when there are needs to make interactive visualization based on their purposes.</p>
+<p>It addresses the need that statisticians/programmers want to quickly check how to make an interactive visualization for their data for a given requirement. As statistics/programmers often just need the simple use to make the interactive graph (such as tooltips, mouse-click events, etc.) and most of the interactive visualization packages contains this function in default, we would only need to include the basic use and which package is used. If more functions needed, the user can also quickly find the ways to do them by checking the package document.</p>
+<div class="figure">
+<img src="resources/interactive_web_visualizations_for_r_cheatsheet/page1.jpg" alt=""><p class="caption">Page1</p>
+</div>
+<div class="figure">
+<img src="resources/interactive_web_visualizations_for_r_cheatsheet/page2.jpg" alt=""><p class="caption">Page2</p>
+</div>
+<p>To check out the cheatsheet in the pdf form, click the link below:
+<a href="http://tianhangcui.com/cheatsheet_vis_for_R/Cheatsheet_Interactive_web_visualizations_for_R.pdf" class="uri">http://tianhangcui.com/cheatsheet_vis_for_R/Cheatsheet_Interactive_web_visualizations_for_R.pdf</a></p>
 
 </div>
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></div>
-<div class="next"><a href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></div>
+<div class="prev"><a href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></div>
+<div class="next"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">11</span> Tutorial on Cluster Analysis</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#data-visualization-with-searborn"><span class="header-section-number">6</span> Data Visualization with Searborn</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#interactive-web-visualizations-for-r-cheatsheet"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/python_seaborn_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/python_seaborn_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/interactive_web_visualizations_for_r_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/interactive_web_visualizations_for_r_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
