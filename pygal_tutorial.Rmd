@@ -1,6 +1,6 @@
 # pygal tutorial
 
-Huanyu Jiang hj2593
+Huanyu Jiang (UNI: hj2593)
 
 There are lots of tools out there for us to visualize data. In my tutorial, I showed how to use the Python API Pygal. Pygal is designed to draw various kinds of charts to display data. I drew Line charts, bar graphs, pie graphs as examples to show my audience how to use pygal. I think my tutorial is very helpful as I formatted it in a straightforward way: I showed very specific examples along with the code, and I also added audio to explain the code. During the process, I got my self more familiar with pygal and I got to know how to explain something in a clear and concise way. Next time, I would show my audience with more applications of pygal and more customized styles for different type of data.
 
