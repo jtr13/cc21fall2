@@ -39,7 +39,7 @@ as not filling the area.
 ### The Basic
 
 ```{r intro}
-cpi_data <- read_excel("cpi.xlsx", col_types = c("date", 
+cpi_data <- read_excel("resources/intro_to_dygraph/cpi.xlsx", col_types = c("date", 
     "numeric", "numeric"))
 colnames(cpi_data) <- c("date","us","china")
 us_cpi <- ts(cpi_data$us, frequency=12, start=c(1999,9))
