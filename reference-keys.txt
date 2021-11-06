@@ -46,6 +46,20 @@ example
 references
 statistical-tests-and-parameter-estimations-in-r-cheatsheet
 ggalluvial-cheat-sheet
+introduction-to-plotly
+introduction-1
+prepare-install-load
+comparision
+comparing-over-items-bar-charts
+comparing-over-time-line-charts-area-plots
+distribution
+relationship
+between-two-continuous-variables
+multiple-variables
+composition
+changing-over-time
+static
+references-1
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
@@ -109,7 +123,7 @@ citations
 data-visulization-ordering
 tutorial-on-lattice-package-in-r
 overview
-introduction-1
+introduction-2
 common-graph_function
 common-formula-format
 scatter-plot-matrix
@@ -126,7 +140,7 @@ split
 position
 sources-2
 network-visualization-in-r
-introduction-2
+introduction-3
 installation-1
 dataframe
 nodes
@@ -149,7 +163,7 @@ centrality-measurement
 external-resource
 dplyr-tutorial-in-r
 environment-setup
-introduction-3
+introduction-4
 data
 column-and-row-manipulation
 column-deselection
@@ -214,7 +228,7 @@ overlaying-routes
 recommended-reading
 sources-3
 comparison-among-base-r-tidyverse-and-datatable
-introduction-4
+introduction-5
 reading-data
 data.frame
 tibble
