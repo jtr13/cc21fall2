@@ -61,6 +61,7 @@ Imports:
     heatmaply,
     hexbin,
     highcharter,
+    HiveR,
     hrbrthemes,
     httr,
     igraph,
