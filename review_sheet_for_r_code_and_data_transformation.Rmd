@@ -1,0 +1,376 @@
+# review sheet for r code and data transformation
+
+Mengchen Xu
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library("ggplot2")
+library("tidyverse")
+library("dplyr")
+library("tidyr")
+library("GGally")
+library("vcd")
+library("RColorBrewer")
+library("ggalluvial")
+```
+
+
+
+### Contribution Explaination
+
+As a student with not many experiences in R, I found it difficult to write R code. In the way of learning EDVA, I spent a lot of time searching useful R code online to deal with problems such as data transformation, data cleaning, and etc. Thus, I wanted to make a review sheet for me and for everyone that included the useful functions that are helpful for learning the materials in this Course. These are the materials that I think are important for learning the course. I want to make a review sheet, not only for others but also for myself to review in the future. For this review sheet, I wrote all the R code and explanations by myself by using datasets that we did not use for Problem Set. By using a new dataset, I practiced my ability to write R code in different situations which helps me know the course material better. I also added some personal thoughts about graphs and some course concepts in this review sheet. I am glad that I chose to make a review sheet for the Class Contribution assignment because I learned some new knowledge on the way of writing this review sheet. For example, there are some R functions that I think I have a good command of them, however, when I was writing this review sheet, I found that the same R functions can be used differently in different situations (Pivot_longer and pivot_wider are better to use for variables with categorical data). The use of the R functions really depends on the features of the dataset ("str_detect" are for variables with string types, so different functions should be chose when filtering out rows of string type variables, and integer type variables). Some R functions are better for categorical data, and some functions are better for numerical data.
+
+Also, I reviewed all the lecture slides from the first one to the most recent one for this assignment. On the way of reviewing all the lectures notes, I reflected on what I have learned and tried to find out a way to present some important concepts in this assignment. For example, I decided to compare graphs created by using different R functions in this sheet so that others and myself can understand exactly how the functions work.
+
+I had a better command on the types of graphs we learned, such as mosaic plot, and alluvial plot, by doing this assignment. I might choose to do a review sheet or cheatsheet next time as well since I found that I can learn much from doing a review sheet. However, I probably will focus more on course concepts instead of on R code next time.
+(All the code in this review sheet are written by myself, and the datasets used are R built-in datasets "mtcars" and "Titanic")
+
+
+
+### Section one: Important types of graphs we learned in EDVA.
+(use mtcars dataset for example)
+
+#### (a) Histograms:
+
+(1) When creating a frequency Histograms in R by using ggplot2 package, the function we need to use is          "geom_histogram()", we only need to specify the variable used for X-axis, R will figure out the frequency on Y-axis. We can specify the binwidth and the center for histogram. I highly encouraged everyone to use "color" and "fill" parameters when drawing histograms, because it will makes the graph clear. "Color" specifies the outline color, and "fill" specifies the   actual color of the histgram bins. For example: (Note, the "0" on X-axis disappears in this case, thus, avoid situations like this example in the real practice)
+
+
+```{r}
+mtcars %>% 
+    ggplot(aes(x = disp)) + 
+    geom_histogram(color = "black", fill = "lightblue",
+                   binwidth = 100, center = 100)
+```
+
+
+
+
+
+
+(2)"binwidth" means the width of the bins in histgram, and the parameter "center" means which values you want the center of the bins to lay in the graph. For the exmaple above, the center is 100, and the values 100,200,300, and etc. are on the center of the bins on the X-axis. For the example below, when "center" is 50, the values 50,150,250, and etc. are on the center of the bins on the X-axis. These two parameters help locate the position of the histgram graph on the canvas.
+
+```{r}
+mtcars %>% 
+    ggplot(aes(x = disp)) + 
+    geom_histogram(color = "black", fill = "lightblue",
+                   binwidth = 100, center = 50)
+```
+
+
+
+
+
+
+
+(3) "scale_x_continuous(breaks = seq(start, end, step)) and "scale_y_continuous(breaks = seq(start, end, step))" are two useful functions as well. For example, "scale_x_continuous(breaks = seq(0, 500,50))" will set the X limits with breaks 0,50, 100, ... 500. However, R will show a x_tick on X=25 with no x label as well. If you do not want the x_tick = 100 to show up, you can add the line "theme(panel.grid.minor = element_blank())" to eliminate the minor x_ticks lines in the graph.
+```{r}
+mtcars %>% 
+    ggplot(aes(x = disp)) + 
+    geom_histogram(color = "black", fill = "lightblue",
+                   binwidth = 100, center = 50) +
+  scale_x_continuous(breaks = seq(0, 500, 50))
+```
+
+
+
+
+
+
+
+(4)However, R will show a x_tick on X=100 with no x label as well. If you do not want the x_tick = 100 to show up, you can add the line "theme(panel.grid.minor = element_blank())" to eliminate the minor x_ticks lines in the graph. For example:
+```{r}
+mtcars %>% 
+    ggplot(aes(x = disp)) + 
+    geom_histogram(color = "black", fill = "lightblue",
+                   binwidth = 100, center = 50) +
+  scale_x_continuous(breaks = seq(0, 500, 50)) +
+  theme(panel.grid.minor = element_blank())
+```
+
+
+
+
+
+
+
+#### (b) boxplot:
+  (use mtcars dataset for example)
+(1) When drawing a boxplot, we need to specify the x-axis and the y-axis. We can add x,y and cubtitles by using "labs()". Also, we can adjust the positions of the labs by using "theme()". "hjust = 0.5" will move the subtitle to the center. For example:
+  
+```{r}
+mtcars %>%
+ggplot(aes(x=as.factor(cyl), y=mpg)) + 
+    geom_boxplot() +
+    labs(x = "CYL", y = "MPG", 
+    subtitle = "Boxplots of MPG vs CYL")+
+    theme(axis.text.x   = element_text(size = 12),
+        axis.text.y   = element_text(size = 12),
+        plot.subtitle = element_text(size = 15, face = "bold", hjust = 0.5))
+```
+
+
+
+
+
+
+
+(2) We can reorder the boxplots by specific conditions. For example, we can reorder the above graph by the median of each CYL level by the median value of MPG. We can reorder the graph by mean, or other values as well. 
+```{r}
+mtcars %>%
+ggplot(aes(x=reorder(as.factor(cyl),mpg,median), y=mpg)) + 
+    geom_boxplot() +
+    labs(x = "CYL", y = "MPG", 
+    subtitle = "Boxplots of MPG vs CYL")+
+    theme(axis.text.x   = element_text(size = 12),
+        axis.text.y   = element_text(size = 12),
+        plot.subtitle = element_text(size = 15, face = "bold", hjust = 0.5))
+```
+
+
+
+
+
+
+
+
+(3) An easy way to flip the coordinates is to use "coord_flip()". For example:
+  
+```{r}
+mtcars %>%
+ggplot(aes(x=reorder(as.factor(cyl),mpg,median), y=mpg)) + 
+    geom_boxplot() +
+    labs(x = "CYL", y = "MPG", 
+    subtitle = "Boxplots of CYL vs MPG")+
+    theme(axis.text.x   = element_text(size = 11),
+        axis.text.y   = element_text(size = 11),
+        plot.subtitle = element_text(size = 15, face = "bold", hjust = 0.5)) +
+        coord_flip()
+```
+
+
+
+
+
+
+#### (c) Bar Plot
+
+(1) When drawing a frequency bar plot in ggplot2, we only need to specify the dataset, and the x-axis. 
+```{r}
+mtcars %>%
+ggplot(aes(x=as.factor(cyl))) + 
+  labs(x = "Number of Cylinders") +
+  geom_bar(fill="lightblue",color="black")
+```
+
+
+
+
+
+
+
+
+
+
+(2)Sometimes, the meaning of the values in X-axis are not very clear (see the example above, 4,6,8 could not make much sense when we look at them), therefore, we need to rename the values into something understandable, but not leave the category names as numbers. We can use the "fct_recode" to solve the problem. See the example below:
+      
+```{r}
+
+mtcars_new <- mtcars
+mtcars_new$cyl <- factor(mtcars_new$cyl, levels = c(4,6,8))
+mtcars_new$cyl <- fct_recode(mtcars_new$cyl,"Car Models with 4 Cylinders" = "4", "Car Models with 6 Cylinders" = "6","Car Models with 8 Cylinders" = "8")
+mtcars_new %>%
+ggplot(aes(x=as.factor(cyl))) + 
+  labs(x = "Number of Cylinders") +
+  geom_bar(fill="lightblue",color="black")
+
+```
+   
+  
+  
+  
+   
+      
+#### (d) Parallel Coordinates Plot
+(Use the moderndive dataset for examples)
+
+
+(1) We can use the mtcars dataset to draw a parallel coordinate graph. When drawing the graph, we can modify the parameters to create the best graph for analyzing. The lines direction can show the corelation bewteen variables. For example, if the lines between two variables have twists, the two variables are negatively correlated. If the lines between two variables are parallel, no matter the slope of the lines are negative or positive, the two variables are positively correlated (In the graph below, cyl and disp are positively correlated.)
+    
+```{r}
+mtcars_new_1 <- mtcars
+ggparcoord(mtcars_new_1,columns=1:5,scale='globalminmax')
+```
+
+
+
+
+
+
+
+(2) We can make changes to the parallel coordinates plot, to make the graph more clear. We can use "scale" to rescale the graph "globalminmax" or "uniminmax". When the data for different variable varies too much, rescaling can help us by see the lines in the graph more clearly. Also, we can see a more smmoth graph by changing "splineFactor" to different numbers. We can also add a title to the graph by simply add "title = ..." in the function.
+  
+```{r}
+ggparcoord(mtcars_new_1,columns=1:5,scale='uniminmax',alphaLines=.3, splineFactor=10,title='mtcars parallel coordinates')
+```
+    
+    
+    
+    
+    
+    
+    
+    
+#### (e) Mosaic Plot
+
+
+(1) For the mosaic plot, we can find the correlation of different variables as well. If the proportion of one variable distributed evenly on different levels of the other varaible, we say these two variables are nor correlated, since the change of levels of one variable do not influence the other variable. Note, we need to put the dependent variable to the leftside of "~", and independent variables on the right side. Also, we need to split the dependent variable horizontally.
+    
+```{r}
+mosaic(cyl~gear,direction = c("v", "h") ,mtcars,highlighting_fill=brewer.pal(3,'Blues'))
+```
+    
+    
+    
+    
+    
+    
+    
+    
+#### (f) Alluvial
+    
+(1) We can draw an alluvial to find the data flow. Take the Titanic dataset as an example, We can found out people's personal identity, and the result that they are survived or not. It is a good way to track the data. I think this data is good when the data size is not large, and when we want to know the data flow.I personally think Alluvial is very interesting. It is fun that the graph can track the flow of the data.
+
+
+```{r}
+ggplot(as.data.frame(Titanic),
+       aes(axis1 = Class,axis3 = Age,axis2 = Sex, axis4 = Survived)) +
+  geom_alluvium(aes(fill = Class),color='blue') +
+  geom_stratum() +
+  geom_text(stat = "stratum", aes(label = after_stat(stratum))) +
+  scale_x_continuous(breaks = 1:4, labels = c("Class", "Sex", "Age","Survived")) +
+  ggtitle("Titanic Alluvial")
+```
+
+
+
+
+
+
+
+
+
+
+
+### Section Two: Data Transformation Skills
+
+Data transformation is important when doing data visualization. In the reality, the dataset is always too messy for us to visualize. Almost all the times, we need to change the data in order for us to visualize it easily. Here are some useful method that I think is useful when doing data transformation. It is good for us to remember all these method in the mind. (I will use the "mtcars" dataset and the "Titanic" dataset for the examples below.)
+
+
+#### (a) mutate
+
+(a)"mutate" works as adding a new column in the dataset. We can add a column to the dateset by using some conditions for it to do data visualization later.We can also add a column to the data set by using filter and mutate, I will talk about it later.
+```{r}
+mtcars_modified <- mtcars %>% 
+  mutate(disAndCyl = disp/cyl)
+
+mtcars_modified
+```
+  
+You can see a column called "disAndCyl" has been added to the dataset.  
+  
+  
+  
+  
+  
+#### (b) filter
+
+Filter means select with conditions. For example, if we only want some rows of a dataset, we can use "filter". We can use boolean expressions, such as "XOR" to select the data we want. After filtering out the data we want, we can create a new column to store the filtered data. For example:
+  
+```{r}
+mtcars_modified <- mtcars %>% 
+  filter(xor(cyl==6,mpg==21.0)) %>% 
+  mutate(carType = "new type")
+
+mtcars_modified
+```
+
+
+
+
+
+  
+#### (c) fct_grid
+"fct_grid" is useful when we need to create plots for a variable by its different levels so that we can compare if different levels of a variable have different data features.
+  
+```{r}
+mtcars %>%
+  ggplot(aes(x = mpg)) +
+  geom_histogram(color = "black", fill = "lightblue") +
+  facet_grid(~ cyl)
+```
+
+
+
+
+
+
+#### (d) sapply
+Sapply is commonly used by myself. When it comes to data visualization, we always need to check the data type of the variables. "sapply" can list all the variables names and all the levels within a variable in a dataset. It is very useful.
+  
+```{r}
+titanic <-as.data.frame(Titanic)
+titanic %>% 
+     sapply(levels)
+```
+
+
+
+
+
+
+#### (e)pivot_wider
+Pivot_wider is useful when we need to transform a dataset into a "wider" form. For example, for the Titanic dataset, pivot_wider can extract the levels in a variable, such as Sex, and turns all the levels into the columns of the dataset. If is extremely useful when visualize the frequency of different levels of a vriable in a dataset.
+  
+```{r}
+titanic
+```
+  
+  
+```{r}
+titanic_new <- titanic %>% 
+  count(Class,Sex,sort = TRUE,name ="Freq") %>%
+  pivot_wider(id_cols = Class, names_from = Sex,values_from = Freq) %>%
+  rowwise() 
+
+titanic_new
+```
+
+
+
+
+
+
+
+#### (f)pivot_longer
+  
+Similar to pivot_wider, pivot_longer can transform a dataset into a "longer" form. For example, for the Titanic dataset, pivot_longer can combine several columns of the dataset together into one column, which makes the dateset "longer". You can compare the dataset of the original Titanic, titanic_new, and titanic_new_1 to see how pivot_longer and pivot_wider work.
+```{r}
+titanic_new_1<-titanic_new %>% 
+    pivot_longer(cols = !Class,names_to = "Sex",values_to = "frequency")
+titanic_new_1
+```
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
