@@ -11,6 +11,7 @@ language:
 
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -51,7 +52,8 @@ rmd_files: [
   'streamlit_tutorial.rmd',
   'hive_plots_ggraph_hiver.Rmd',
   'introduction_to_xai_in_r.Rmd',
-  'tutorial_gg_cleveland.Rmd', 
+  'tutorial_gg_cleveland.Rmd',
+  'neuralnet_r_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
