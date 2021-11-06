@@ -27,6 +27,7 @@ rmd_files: [
   'gganimate_cheatsheat.Rmd',
   'statistical_tests_and_parameter_estimations_in_r.Rmd',
   'ggalluvial_cheatsheet.Rmd',
+  'cc_plotly_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
