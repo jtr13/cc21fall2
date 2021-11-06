@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 11 ggforce | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Rona Xu ggforce is a ‘ggplot2’ extension that aims to aid in data visualization. The cheat sheet I created includes several major features in the package and a few functions that I found helpful....">
+<title>Chapter 14 ggalluvial-cheat-sheet | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Qingyi Zhang (qz2419) I have chosen ggalluvial package as my topic. First, I described what ggalluvial is and what its function is. Then I introduced it from two aspect since there are two Format...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 11 ggforce | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 14 ggalluvial-cheat-sheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Rona Xu ggforce is a ‘ggplot2’ extension that aims to aid in data visualization. The cheat sheet I created includes several major features in the package and a few functions that I found helpful....">
+<meta property="og:description" content="Qingyi Zhang (qz2419) I have chosen ggalluvial package as my topic. First, I described what ggalluvial is and what its function is. Then I introduced it from two aspect since there are two Format...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 11 ggforce | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Rona Xu ggforce is a ‘ggplot2’ extension that aims to aid in data visualization. The cheat sheet I created includes several major features in the package and a few functions that I found helpful....">
+<meta name="twitter:title" content="Chapter 14 ggalluvial-cheat-sheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Qingyi Zhang (qz2419) I have chosen ggalluvial package as my topic. First, I described what ggalluvial is and what its function is. Then I introduced it from two aspect since there are two Format...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -54,10 +54,10 @@
 <li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
 <li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
 <li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
-<li><a class="active" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
 <li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
 <li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
-<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="active" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
 <li class="book-part">Tutorials</li>
 <li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">15</span> Tutorial on Cluster Analysis</a></li>
 <li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">16</span> How to Integrate R with PostgreSQL</a></li>
@@ -81,27 +81,33 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ggforce" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ggalluvial-cheat-sheet" class="section level1">
 <h1>
-<span class="header-section-number">11</span> ggforce<a class="anchor" aria-label="anchor" href="#ggforce"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14</span> ggalluvial-cheat-sheet<a class="anchor" aria-label="anchor" href="#ggalluvial-cheat-sheet"><i class="fas fa-link"></i></a>
 </h1>
-<p>Rona Xu</p>
-<p>ggforce is a ‘ggplot2’ extension that aims to aid in data visualization. The cheat sheet I created includes several major features
-in the package and a few functions that I found helpful.</p>
-<p>Link: <a href="https://github.com/rona-x/ggforce_cheatsheet.git" class="uri">https://github.com/rona-x/ggforce_cheatsheet.git</a></p>
+<p>Qingyi Zhang (qz2419)</p>
+<p>I have chosen ggalluvial package as my topic.</p>
+<p>First, I described what ggalluvial is and what its function is.</p>
+<p>Then I introduced it from two aspect since there are two Format of alluvial graph: Wide format and Lodes(Long) Format.</p>
+<p>After introducing the basic information and code, I also make some changes to the basic graph which can help analyst more efficiently analyze the data from different aspects.</p>
+<p>cheat sheet link: <a href="https://github.com/Seleven711/ggalluvial-cheat-sheet/blob/5bcefce6b22d94e6877ca74726312d4d4d334e77/qz2419cc.pdf" class="uri">https://github.com/Seleven711/ggalluvial-cheat-sheet/blob/5bcefce6b22d94e6877ca74726312d4d4d334e77/qz2419cc.pdf</a></p>
+<p>if the above link does not work, use this link instead: <a href="https://cheatography.com//seleven/cheat-sheets/ggalluvial/pdf/" class="uri">https://cheatography.com//seleven/cheat-sheets/ggalluvial/pdf/</a></p>
 
 </div>
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></div>
-<div class="next"><a href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></div>
+<div class="prev"><a href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></div>
+<div class="next"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">15</span> Tutorial on Cluster Analysis</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#ggforce"><span class="header-section-number">11</span> ggforce</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#ggalluvial-cheat-sheet"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/ggforce.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/ggforce.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/ggalluvial_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/ggalluvial_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

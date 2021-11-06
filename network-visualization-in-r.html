@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 21 Network Visualization in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Yunze Pan  21.1 Introduction visNetwork is a powerful tool in R to help us describe networks and explore the structure visually. It is extremely useful for us to obtain valuable information from...">
+<title>Chapter 22 Network Visualization in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Yunze Pan  22.1 Introduction visNetwork is a powerful tool in R to help us describe networks and explore the structure visually. It is extremely useful for us to obtain valuable information from...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 21 Network Visualization in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 22 Network Visualization in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Yunze Pan  21.1 Introduction visNetwork is a powerful tool in R to help us describe networks and explore the structure visually. It is extremely useful for us to obtain valuable information from...">
+<meta property="og:description" content="Yunze Pan  22.1 Introduction visNetwork is a powerful tool in R to help us describe networks and explore the structure visually. It is extremely useful for us to obtain valuable information from...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 21 Network Visualization in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Yunze Pan  21.1 Introduction visNetwork is a powerful tool in R to help us describe networks and explore the structure visually. It is extremely useful for us to obtain valuable information from...">
+<meta name="twitter:title" content="Chapter 22 Network Visualization in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Yunze Pan  22.1 Introduction visNetwork is a powerful tool in R to help us describe networks and explore the structure visually. It is extremely useful for us to obtain valuable information from...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -57,21 +57,23 @@
 <li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
 <li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
 <li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">14</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">15</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">16</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">17</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">18</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">19</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">20</span> Tutorial on lattice package in R</a></li>
-<li><a class="active" href="network-visualization-in-r.html"><span class="header-section-number">21</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">22</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">23</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">24</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">15</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">16</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">17</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">18</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">19</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">20</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">21</span> Tutorial on lattice package in R</a></li>
+<li><a class="active" href="network-visualization-in-r.html"><span class="header-section-number">22</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">23</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">24</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">25</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">26</span> Comparison among base R, tidyverse, and datatable</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">25</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">26</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">27</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">28</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -81,18 +83,18 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="network-visualization-in-r" class="section level1">
 <h1>
-<span class="header-section-number">21</span> Network Visualization in R<a class="anchor" aria-label="anchor" href="#network-visualization-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22</span> Network Visualization in R<a class="anchor" aria-label="anchor" href="#network-visualization-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Yunze Pan</p>
 <div id="introduction-2" class="section level2">
 <h2>
-<span class="header-section-number">21.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-2"><i class="fas fa-link"></i></a>
 </h2>
 <p><code>visNetwork</code> is a powerful tool in R to help us describe networks and explore the structure visually. It is extremely useful for us to obtain valuable information from an interactive network graph. In this tutorial, we will offer a quick introduction for newcomers to learn concepts of creating networks in R. Hope you will enjoy!</p>
 </div>
 <div id="installation-1" class="section level2">
 <h2>
-<span class="header-section-number">21.2</span> Installation<a class="anchor" aria-label="anchor" href="#installation-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.2</span> Installation<a class="anchor" aria-label="anchor" href="#installation-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>The main packages we are going to use for network visualization in R are <code>visNetwork</code> and <code>igraph</code>. They can be installed with install.packages(“visNetwork”) and install.packages(“igraph”).</p>
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
@@ -101,12 +103,12 @@
 </div>
 <div id="dataframe" class="section level2">
 <h2>
-<span class="header-section-number">21.3</span> Dataframe<a class="anchor" aria-label="anchor" href="#dataframe"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.3</span> Dataframe<a class="anchor" aria-label="anchor" href="#dataframe"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this section we will create a small network that simulates student interactions on campus. Our objective is to get you familiar with using <code>visNetwork</code> as quickly as as possible. In order to visualize interactive networks, we will first read two datasets (a nodes data.frame and an edges data.frame). Then, we can explore the various layout options by adding different variables on our nodes data.frame and edges data.frame.</p>
 <div id="nodes" class="section level3">
 <h3>
-<span class="header-section-number">21.3.1</span> Nodes<a class="anchor" aria-label="anchor" href="#nodes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.3.1</span> Nodes<a class="anchor" aria-label="anchor" href="#nodes"><i class="fas fa-link"></i></a>
 </h3>
 <p>A nodes data.frame must include a <code>id</code> column. Each <code>id</code> represents the node we want to display in our graph. Other optional columns can also be added into our nodes data.frame. They can help us to distinguish nodes in our graph. For example, each node is a student with a unique assigned <code>id</code>, his/her <code>name</code>, <code>major</code>, and <code>major.type</code>.</p>
 <div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
@@ -126,7 +128,7 @@
 </div>
 <div id="edges" class="section level3">
 <h3>
-<span class="header-section-number">21.3.2</span> Edges<a class="anchor" aria-label="anchor" href="#edges"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.3.2</span> Edges<a class="anchor" aria-label="anchor" href="#edges"><i class="fas fa-link"></i></a>
 </h3>
 <p>An edges data.frame must include a <code>from</code> column and a <code>to</code> column denoting the starting node and ending node of each edge. We use <code>id</code> to represent the starting node and ending node. We also add a <code>weight</code> column on our edges data.frame to describe the frequency of interactions between two nodes. For example, in the first row, we know <code>student 1</code> reached out to <code>student 2</code> once.</p>
 <div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
@@ -147,12 +149,12 @@
 </div>
 <div id="visualiztion" class="section level2">
 <h2>
-<span class="header-section-number">21.4</span> Visualiztion<a class="anchor" aria-label="anchor" href="#visualiztion"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4</span> Visualiztion<a class="anchor" aria-label="anchor" href="#visualiztion"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now we can visualize our student interaction network using <code>visNetwork</code>. Examples are showed as below. We will start from the default setting and then move on to customize our network for a better interactive visualization.</p>
 <div id="minimal-example" class="section level3">
 <h3>
-<span class="header-section-number">21.4.1</span> Minimal Example<a class="anchor" aria-label="anchor" href="#minimal-example"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.1</span> Minimal Example<a class="anchor" aria-label="anchor" href="#minimal-example"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork.html">visNetwork</a></span><span class="op">(</span><span class="va">nodes</span>, <span class="va">edges</span><span class="op">)</span></code></pre></div>
@@ -161,7 +163,7 @@
 </div>
 <div id="customize-node" class="section level3">
 <h3>
-<span class="header-section-number">21.4.2</span> Customize Node<a class="anchor" aria-label="anchor" href="#customize-node"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.2</span> Customize Node<a class="anchor" aria-label="anchor" href="#customize-node"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span><span class="op">(</span><span class="fu">brewer.pal</span><span class="op">(</span><span class="fl">3</span>, <span class="st">"RdBu"</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span> <span class="co"># use three colors to distinguish students by their majors</span>
@@ -182,7 +184,7 @@
 </div>
 <div id="customize-edge" class="section level3">
 <h3>
-<span class="header-section-number">21.4.3</span> Customize Edge<a class="anchor" aria-label="anchor" href="#customize-edge"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.3</span> Customize Edge<a class="anchor" aria-label="anchor" href="#customize-edge"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">edges</span> <span class="op">&lt;-</span> <span class="va">edges</span> <span class="op"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork-exports.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>width<span class="op">=</span><span class="va">weight</span><span class="op">*</span><span class="fl">3</span>, <span class="co"># "width" variable: set width of each edge</span>
@@ -196,7 +198,7 @@
 </div>
 <div id="add-legend-based-on-groups" class="section level3">
 <h3>
-<span class="header-section-number">21.4.4</span> Add Legend Based on Groups<a class="anchor" aria-label="anchor" href="#add-legend-based-on-groups"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.4</span> Add Legend Based on Groups<a class="anchor" aria-label="anchor" href="#add-legend-based-on-groups"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">nodes</span> <span class="op">&lt;-</span> <span class="va">nodes</span> <span class="op"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork-exports.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group<span class="op">=</span><span class="va">major</span><span class="op">)</span> <span class="co"># add a "group" column on node data.frame and add groups on nodes</span>
@@ -211,7 +213,7 @@
 </div>
 <div id="select-by-node" class="section level3">
 <h3>
-<span class="header-section-number">21.4.5</span> Select by Node<a class="anchor" aria-label="anchor" href="#select-by-node"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.5</span> Select by Node<a class="anchor" aria-label="anchor" href="#select-by-node"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">nodes</span> <span class="op">&lt;-</span> <span class="va">nodes</span> <span class="op"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork-exports.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">group</span><span class="op">)</span> <span class="co"># remove "group" column because we don't want to show legend this time</span>
@@ -225,7 +227,7 @@
 </div>
 <div id="highlight-nearest-nodes" class="section level3">
 <h3>
-<span class="header-section-number">21.4.6</span> Highlight Nearest Nodes<a class="anchor" aria-label="anchor" href="#highlight-nearest-nodes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.6</span> Highlight Nearest Nodes<a class="anchor" aria-label="anchor" href="#highlight-nearest-nodes"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork.html">visNetwork</a></span><span class="op">(</span><span class="va">nodes</span>, <span class="va">edges</span>, width<span class="op">=</span><span class="st">"100%"</span>, main<span class="op">=</span><span class="st">"Student Interaction Network"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork-exports.html">%&gt;%</a></span> 
@@ -237,7 +239,7 @@
 </div>
 <div id="edit-network" class="section level3">
 <h3>
-<span class="header-section-number">21.4.7</span> Edit Network<a class="anchor" aria-label="anchor" href="#edit-network"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.7</span> Edit Network<a class="anchor" aria-label="anchor" href="#edit-network"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork.html">visNetwork</a></span><span class="op">(</span><span class="va">nodes</span>, <span class="va">edges</span>, width<span class="op">=</span><span class="st">"100%"</span>, main<span class="op">=</span><span class="st">"Student Interaction Network"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork-exports.html">%&gt;%</a></span>
@@ -252,7 +254,7 @@
 </div>
 <div id="add-navigation-buttons-and-control-interactions" class="section level3">
 <h3>
-<span class="header-section-number">21.4.8</span> Add Navigation Buttons and Control Interactions<a class="anchor" aria-label="anchor" href="#add-navigation-buttons-and-control-interactions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.4.8</span> Add Navigation Buttons and Control Interactions<a class="anchor" aria-label="anchor" href="#add-navigation-buttons-and-control-interactions"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork.html">visNetwork</a></span><span class="op">(</span><span class="va">nodes</span>, <span class="va">edges</span>, width<span class="op">=</span><span class="st">"100%"</span>, main<span class="op">=</span><span class="st">"Student Interaction Network"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/visNetwork/man/visNetwork-exports.html">%&gt;%</a></span>
@@ -272,7 +274,7 @@
 </div>
 <div id="export" class="section level2">
 <h2>
-<span class="header-section-number">21.5</span> Export<a class="anchor" aria-label="anchor" href="#export"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.5</span> Export<a class="anchor" aria-label="anchor" href="#export"><i class="fas fa-link"></i></a>
 </h2>
 <p>Finally, we use <code><a href="https://rdrr.io/pkg/visNetwork/man/visSave.html">visSave()</a></code> to save network in html file.</p>
 <div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
@@ -281,7 +283,7 @@
 </div>
 <div id="help" class="section level2">
 <h2>
-<span class="header-section-number">21.6</span> Help?<a class="anchor" aria-label="anchor" href="#help"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.6</span> Help?<a class="anchor" aria-label="anchor" href="#help"><i class="fas fa-link"></i></a>
 </h2>
 <p>More information about <code>visNetwork</code>.</p>
 <div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
@@ -294,12 +296,12 @@
 </div>
 <div id="social-network-analysis" class="section level2">
 <h2>
-<span class="header-section-number">21.7</span> Social Network Analysis<a class="anchor" aria-label="anchor" href="#social-network-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.7</span> Social Network Analysis<a class="anchor" aria-label="anchor" href="#social-network-analysis"><i class="fas fa-link"></i></a>
 </h2>
 <p>We have already learned how to visualize the interactive network. To help you better understand its application, we will use <code>visNetwork</code> and <code>igraph</code> to perform our social network analysis.</p>
 <div id="dataset" class="section level3">
 <h3>
-<span class="header-section-number">21.7.1</span> Dataset<a class="anchor" aria-label="anchor" href="#dataset"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.7.1</span> Dataset<a class="anchor" aria-label="anchor" href="#dataset"><i class="fas fa-link"></i></a>
 </h3>
 <p>We will investigate interactions in the movie <strong>Star Wars Episode IV</strong>. First, we import two csv files (“nodes.csv” and “edges.csv”). Each node in “nodes.csv” is a character and each edge in “edges.csv” tells whether two characters appeared together in a scene of the movie. Thus, edges are undirected. Since characters may appear in multiple scenes together, each edge has a <code>weight</code>.</p>
 <div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
@@ -362,7 +364,7 @@
 </div>
 <div id="visualization" class="section level3">
 <h3>
-<span class="header-section-number">21.7.2</span> Visualization<a class="anchor" aria-label="anchor" href="#visualization"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.7.2</span> Visualization<a class="anchor" aria-label="anchor" href="#visualization"><i class="fas fa-link"></i></a>
 </h3>
 <p>Alternatively, we can show a heat map of our adjacency matrix. The number in each square equals to the weight of one edge. We observe LUKE is a very popular character.</p>
 <div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
@@ -433,7 +435,7 @@
 </div>
 <div id="centrality-measurement" class="section level3">
 <h3>
-<span class="header-section-number">21.7.3</span> Centrality Measurement<a class="anchor" aria-label="anchor" href="#centrality-measurement"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.7.3</span> Centrality Measurement<a class="anchor" aria-label="anchor" href="#centrality-measurement"><i class="fas fa-link"></i></a>
 </h3>
 <p>Degree centrality is deﬁned as the number of adjacent edges to each node. After ranking the degree centrality, we find LUKE has the greatest value. It implies that LUKE is interacting with a great amount of unique characters. We color each node based on its degree centrality value. The node with the greatest value has the warmest color.</p>
 <div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
@@ -479,7 +481,7 @@
 </div>
 <div id="external-resource" class="section level2">
 <h2>
-<span class="header-section-number">21.8</span> External Resource<a class="anchor" aria-label="anchor" href="#external-resource"><i class="fas fa-link"></i></a>
+<span class="header-section-number">22.8</span> External Resource<a class="anchor" aria-label="anchor" href="#external-resource"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>
@@ -491,42 +493,42 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">20</span> Tutorial on lattice package in R</a></div>
-<div class="next"><a href="dplyr-tutorial-in-r.html"><span class="header-section-number">22</span> Dplyr tutorial in R</a></div>
+<div class="prev"><a href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">21</span> Tutorial on lattice package in R</a></div>
+<div class="next"><a href="dplyr-tutorial-in-r.html"><span class="header-section-number">23</span> Dplyr tutorial in R</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#network-visualization-in-r"><span class="header-section-number">21</span> Network Visualization in R</a></li>
-<li><a class="nav-link" href="#introduction-2"><span class="header-section-number">21.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#installation-1"><span class="header-section-number">21.2</span> Installation</a></li>
+<li><a class="nav-link" href="#network-visualization-in-r"><span class="header-section-number">22</span> Network Visualization in R</a></li>
+<li><a class="nav-link" href="#introduction-2"><span class="header-section-number">22.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#installation-1"><span class="header-section-number">22.2</span> Installation</a></li>
 <li>
-<a class="nav-link" href="#dataframe"><span class="header-section-number">21.3</span> Dataframe</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#nodes"><span class="header-section-number">21.3.1</span> Nodes</a></li>
-<li><a class="nav-link" href="#edges"><span class="header-section-number">21.3.2</span> Edges</a></li>
+<a class="nav-link" href="#dataframe"><span class="header-section-number">22.3</span> Dataframe</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#nodes"><span class="header-section-number">22.3.1</span> Nodes</a></li>
+<li><a class="nav-link" href="#edges"><span class="header-section-number">22.3.2</span> Edges</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#visualiztion"><span class="header-section-number">21.4</span> Visualiztion</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#minimal-example"><span class="header-section-number">21.4.1</span> Minimal Example</a></li>
-<li><a class="nav-link" href="#customize-node"><span class="header-section-number">21.4.2</span> Customize Node</a></li>
-<li><a class="nav-link" href="#customize-edge"><span class="header-section-number">21.4.3</span> Customize Edge</a></li>
-<li><a class="nav-link" href="#add-legend-based-on-groups"><span class="header-section-number">21.4.4</span> Add Legend Based on Groups</a></li>
-<li><a class="nav-link" href="#select-by-node"><span class="header-section-number">21.4.5</span> Select by Node</a></li>
-<li><a class="nav-link" href="#highlight-nearest-nodes"><span class="header-section-number">21.4.6</span> Highlight Nearest Nodes</a></li>
-<li><a class="nav-link" href="#edit-network"><span class="header-section-number">21.4.7</span> Edit Network</a></li>
-<li><a class="nav-link" href="#add-navigation-buttons-and-control-interactions"><span class="header-section-number">21.4.8</span> Add Navigation Buttons and Control Interactions</a></li>
+<a class="nav-link" href="#visualiztion"><span class="header-section-number">22.4</span> Visualiztion</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#minimal-example"><span class="header-section-number">22.4.1</span> Minimal Example</a></li>
+<li><a class="nav-link" href="#customize-node"><span class="header-section-number">22.4.2</span> Customize Node</a></li>
+<li><a class="nav-link" href="#customize-edge"><span class="header-section-number">22.4.3</span> Customize Edge</a></li>
+<li><a class="nav-link" href="#add-legend-based-on-groups"><span class="header-section-number">22.4.4</span> Add Legend Based on Groups</a></li>
+<li><a class="nav-link" href="#select-by-node"><span class="header-section-number">22.4.5</span> Select by Node</a></li>
+<li><a class="nav-link" href="#highlight-nearest-nodes"><span class="header-section-number">22.4.6</span> Highlight Nearest Nodes</a></li>
+<li><a class="nav-link" href="#edit-network"><span class="header-section-number">22.4.7</span> Edit Network</a></li>
+<li><a class="nav-link" href="#add-navigation-buttons-and-control-interactions"><span class="header-section-number">22.4.8</span> Add Navigation Buttons and Control Interactions</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#export"><span class="header-section-number">21.5</span> Export</a></li>
-<li><a class="nav-link" href="#help"><span class="header-section-number">21.6</span> Help?</a></li>
+<li><a class="nav-link" href="#export"><span class="header-section-number">22.5</span> Export</a></li>
+<li><a class="nav-link" href="#help"><span class="header-section-number">22.6</span> Help?</a></li>
 <li>
-<a class="nav-link" href="#social-network-analysis"><span class="header-section-number">21.7</span> Social Network Analysis</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dataset"><span class="header-section-number">21.7.1</span> Dataset</a></li>
-<li><a class="nav-link" href="#visualization"><span class="header-section-number">21.7.2</span> Visualization</a></li>
-<li><a class="nav-link" href="#centrality-measurement"><span class="header-section-number">21.7.3</span> Centrality Measurement</a></li>
+<a class="nav-link" href="#social-network-analysis"><span class="header-section-number">22.7</span> Social Network Analysis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dataset"><span class="header-section-number">22.7.1</span> Dataset</a></li>
+<li><a class="nav-link" href="#visualization"><span class="header-section-number">22.7.2</span> Visualization</a></li>
+<li><a class="nav-link" href="#centrality-measurement"><span class="header-section-number">22.7.3</span> Centrality Measurement</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#external-resource"><span class="header-section-number">21.8</span> External Resource</a></li>
+<li><a class="nav-link" href="#external-resource"><span class="header-section-number">22.8</span> External Resource</a></li>
 </ul>
 
       <div class="book-extra">
