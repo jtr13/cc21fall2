@@ -43,7 +43,7 @@ rmd_files: [
   'downloading_files.Rmd',
   'intro_to_maps_with_ggmap.Rmd',
   'base_r_tidyverse_data_table.Rmd',
-  'raincloud_plot_tutorial.Rmd',
+  'raincloud_plot_tutorial.rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
