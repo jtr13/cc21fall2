@@ -6,8 +6,6 @@ language:
   ui:
     chapter_name: "Chapter "
 
-
-
 # Chapter ordering
 rmd_files: [
   # Part: Introduction
@@ -39,6 +37,7 @@ rmd_files: [
   'dplyr_tutorial_in_r.Rmd',
   'downloading_files.Rmd',
   'intro_to_maps_with_ggmap.Rmd',
+  'base_r_tidyverse_data_table.Rmd',
   
   # Part: Projects & Workshops
   
