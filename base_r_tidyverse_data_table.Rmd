@@ -1,4 +1,4 @@
-# Comparison among base R, tidyverse, and data.table
+# Comparison among base R, tidyverse, and datatable
 
 Siyue Han
 
