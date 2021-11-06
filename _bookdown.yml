@@ -10,6 +10,7 @@ language:
 # Chapter ordering
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -47,6 +48,7 @@ rmd_files: [
   'raincloud_plot_tutorial.rmd',
   'intro_to_dygraph.Rmd',
   'streamlit_tutorial.rmd',
+  'hive_plots_ggraph_hiver.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
