@@ -20,7 +20,7 @@ library(dplyr)
 ```
 
 
-### 0. Project Description
+### Project Description
 The main motivation of this project is the ubiquity of time series data. One thing I 
 noticed in my past internship and project experience is that the need for exploratory 
 analysis and visualization of such data is high, but people are less familiar with it than 
@@ -36,7 +36,7 @@ time is to pay more attention to the best practices of visualizing time series d
 as not filling the area. 
 
 
-### 1. The Basic
+### The Basic
 
 ```{r intro}
 cpi_data <- read_excel("cpi.xlsx", col_types = c("date", 
@@ -60,7 +60,7 @@ dygraph(us_cpi, main = "CPI, not seasonally adjusted: All Items for United State
 ```
 
 
-### 2.Multiple Series
+### Multiple Series
 ```{r multilple}
 cpi <- ts(cpi_data[,-1], frequency=12, start=c(1999,9))
 dygraph(cpi)
@@ -74,7 +74,7 @@ dygraph(cpi,main="CPI, not Seasonally Adjusted: All Items") %>%
   dyRangeSelector(height = 20)
 ```
 
-### 3.Events
+### Events
 
 **Note**: In the video, drawing event line along with shaded region is demonstrated. Another option is to draw annotation along with shaded region, which is demonstrated below.
 
@@ -90,7 +90,7 @@ dygraph(cpi, main="CPI, not Seasonally Adjusted: All Items") %>%
 ```
 
 
-### 4.Prediction
+### Prediction
 ```{r upper/lower}
 china_cpi <- ts(cpi_data$china, frequency=12, start=c(1999,9))
 hw <- HoltWinters(china_cpi)
