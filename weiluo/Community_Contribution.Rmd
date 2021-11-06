@@ -1,10 +1,6 @@
----
-title: "Using PostgreSQL Databse in R with MacOS Environment"
-output:
-  html_document: default
----
 
-
+#Using PostgreSQL Databse in R with MacOS Environment
+wl2824 Wei Luo
 
 ### 1. Requirements
 
