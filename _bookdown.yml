@@ -7,4 +7,4 @@ language:
     chapter_name: "Chapter "
 
 
-'raincloud_plot_tutorial',
+'raincloud_plot_tutorial.Rmd',
