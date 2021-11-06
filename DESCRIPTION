@@ -67,6 +67,7 @@ Imports:
     httr,
     igraph,
     igraphdata,
+    iml,
     ISLR,
     jsonlite,
     knitr,
