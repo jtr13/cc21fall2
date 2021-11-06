@@ -22,6 +22,7 @@ Imports:
     DescTools,
     devtools,
     dlookr,
+    doParallel,
     dplyr,
     dygraphs,
     egg,
