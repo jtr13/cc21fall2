@@ -7,8 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-# Chapter ordering
-
 
 
 rmd_files: [
@@ -31,6 +29,7 @@ rmd_files: [
   'ggalluvial_cheatsheet.Rmd',
   'cc_plotly_cheatsheet.Rmd',
   'concept_r_python_cheatsheet.Rmd',
+  'data_visualization_packages_in_r.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
