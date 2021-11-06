@@ -6,10 +6,10 @@ Shuyue Xu
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ## things that need to be done before fitting models
-##### 1.check unique of the values
-##### 2.check null values, consider to drop values or adding a missing indicator
-##### 3.normalize numerical features
-##### 4.handle categorical feature using Label encoding or OneHotencoding or other...
+##### check unique of the values
+##### check null values, consider to drop values or adding a missing indicator
+##### normalize numerical features
+##### handle categorical feature using Label encoding or OneHotencoding or other...
 
 <br/> 
 
@@ -18,15 +18,15 @@ we always care about asymmetry, outliers, multimodality, gaps, heaping, errors
 <br/> 
 
 ### Graphs that usually used for continuous Variables:
-#### 1.Histograms: R base code:hist(x, …)
-##### 1.different bin boundaries different graphs.
-##### 2.shape: 
+#### Histograms: R base code:hist(x, …)
+##### different bin boundaries different graphs.
+##### shape: 
                skew to left means mean < median < mode
                skew to right means mean > median > mode
 
-#### 2.Boxplot: R base code: boxplot(x, data=),       
-##### 1.multiple boxplots usually reorder by median from high to low
-##### 2.will show outliers on the graph. outliers are 
+#### Boxplot: R base code: boxplot(x, data=),       
+##### multiple boxplots usually reorder by median from high to low
+##### will show outliers on the graph. outliers are 
                1.5 x hinge or fourth spread above upper-hinge
                1.5 x hinge or fourth spread below lower-hinge<br/> 
 
@@ -52,20 +52,20 @@ we always care about asymmetry, outliers, multimodality, gaps, heaping, errors
 <br/>
 ### Frequency
 #### Bar plot Basic R code: barplot(x)
-##### 1. Sort in logical order of the categories (level1, level2, lever3..)(Ordinal data)
-##### 2. Sort from highest to lowest count (Nominal data)
+##### Sort in logical order of the categories (level1, level2, lever3..)(Ordinal data)
+##### Sort from highest to lowest count (Nominal data)
 <br/>
 
 #### Cleveland dot plot 
 
 #### R codes for factor data
-##### 1.don't use" "levels(x) =  ", only use "level(x)"
-##### 2.use "fct_reorder()" to assign new factor levels
-##### 3.use "fct_inorder()" to set level order to row order
-##### 4.use "fct_relevel()" to move levels to beginning to change the level order
-##### 5.use "fct_infreq()" to order the levels by decreasing frequency
-##### 6.use "fct_rev()" to reverse the order of factor levels 
-##### 7.use "fct_explicit_na()" to turn NAs into a real factor level
+##### don't use" "levels(x) =  ", only use "level(x)"
+##### use "fct_reorder()" to assign new factor levels
+##### use "fct_inorder()" to set level order to row order
+##### use "fct_relevel()" to move levels to beginning to change the level order
+##### use "fct_infreq()" to order the levels by decreasing frequency
+##### use "fct_rev()" to reverse the order of factor levels 
+##### use "fct_explicit_na()" to turn NAs into a real factor level
 <br/>
 ###Proportion / Association 
 #### Mosaic plots Code: mosaic(y~x)
