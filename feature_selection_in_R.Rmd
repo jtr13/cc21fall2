@@ -9,7 +9,7 @@ library(randomForest)
 library(gam)
 ```
 
-## 0. Introduction
+## Introduction
 
 Feature selection is one of the most important tasks to boost performance of machine learning models. Some of the benefits of doing feature selections include:
 
@@ -21,7 +21,7 @@ Feature selection is one of the most important tasks to boost performance of mac
 
 In this tutorial, I will introduce some of the intuitive and popular methods in R for feature selection.
 
-## 1. Correlation Matrix
+## Correlation Matrix
 
 Correlation matrix is a popular method for feature selection. By using correlation matrix, we can see the correlation for each pair of numerical variables. we not only can filter out variables with low correlation to the dependent variable, but also can remove redundant variables by identifying highly correlated independent variables.
 
@@ -40,7 +40,7 @@ cor_matrix <- data.frame(cor(winequality))
 cor_matrix
 ```
 
-## 1.1 heat map for correlation matrix
+### heat map for correlation matrix
 
 You can also draw a quick heat map to visualize the correlation with ggcorrplot library.
 
@@ -50,7 +50,7 @@ We can see free.Sulfur.dioxide and citric.acid have very small correlations with
 ggcorrplot(cor_matrix)
 ```
 
-## 1.2 function to find redundant variables
+### function to find redundant variables
 
 Besides from using graph to identify redundant variables, you can also use the findCorrelation function in caret library. It outputs the index of variables we need to delete. If two variables have a higher correlation than the cutoff, the function removes the variable with the largest mean absolute correlation.
 
@@ -60,11 +60,11 @@ In our case, the function finds out that density is highly correlated to other v
 findCorrelation(cor(winequality), cutoff=0.75)
 ```
 
-## 2. Variable Importance
+## Variable Importance
 
 There are some functions in caret library to evaluate variable importance. Typically, variable importance evaluation can be separated into two categories: the ones that use model information and the ones that do not.
 
-## 2.1 calculate feature importance without models
+### calculate feature importance without models
 
 If you don't want to use specific model to evaluate features, you can use the filterVarImp() function in Caret library.
 
@@ -84,7 +84,7 @@ roc_imp$score <- as.double(roc_imp$score)
 roc_imp[order(roc_imp$score,decreasing = TRUE),]
 ```
 
-## 2.2 calculate feature importance with models
+### calculate feature importance with models
 
 The advantage for using model-specific evaluation is that the feature scores are specific linked to model performance and using them to filter features may help improve performance for that specific model.
 
@@ -126,7 +126,7 @@ ggplot(var_imp_df, aes(x=reorder(variable, score), y=score)) +
   coord_flip()
 ```
 
-## 3. Univariate Feature Selection
+## Univariate Feature Selection
 
 Univariate tests are tests which involve only one dependent variable, including chi-sqaure test, analysis of variance, linear regressions and t-tests of means.
 
@@ -144,11 +144,12 @@ rfWithFilter <- sbf(x= winequality[,1:11],y= winequality[,12], sbfControl = filt
 rfWithFilter
 ```
 
-## 4. Recursive Feature **elimination**
+## Recursive Feature **elimination**
 
 Recursive Feature elimination(RFE) is a popular method to choose a subset of features. It starts with all the features and removes feature with lowest score at each iteration. It trains with smaller and smaller subset of features and find the best set of features.
 
 It will also take several minutes to run.
+
 ```{r}
 filterCtrl <- rfeControl(functions=rfFuncs, method="cv", number=3)
 results <- rfe(x= winequality[,1:11],y= winequality[,12], sizes=c(1:11), rfeControl=filterCtrl)
