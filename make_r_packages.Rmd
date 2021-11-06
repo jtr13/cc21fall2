@@ -1,0 +1,7 @@
+# How to Make Your Own R package
+
+Yuren Dong
+
+In this project I introduced procedures of integrating functions that we create ourselves into our own packages. With this knowledge, we would be able to save time through integrating commonly used data processing workflow into packages,to share analytical pipelines with collaborators. Thus, I think it would be a great opportunity to share with classmates about this strategy. 
+
+link: https://github.com/yunyuntian/make_r_package_cheatsheet/
