@@ -9,6 +9,8 @@ language:
 
 
 
+
+
 # Chapter ordering
 
 
@@ -58,6 +60,7 @@ rmd_files: [
   'tutorial_gg_cleveland.Rmd',
   'neuralnet_r_tutorial.Rmd',
   'from_dplyr_to_pandas_and_back.Rmd',
+  'readable_plots.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
