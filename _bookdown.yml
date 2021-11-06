@@ -7,7 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-
 # Chapter ordering
 
 
@@ -52,6 +51,7 @@ rmd_files: [
   'streamlit_tutorial.rmd',
   'hive_plots_ggraph_hiver.Rmd',
   'introduction_to_xai_in_r.Rmd',
+  'tutorial_gg_cleveland.Rmd', 
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
@@ -64,6 +64,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
-
 
