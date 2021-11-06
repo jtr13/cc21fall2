@@ -22,7 +22,7 @@ rmd_files: [
   'rchess_package_cheatsheet.Rmd',
   'hypothesis_testing_cheatsheet.Rmd',
   'interactive_web_visualizations_for_r_cheatsheet.Rmd',
-  'rona-x:ggforce',
+  'ggforce.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
