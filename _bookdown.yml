@@ -34,6 +34,7 @@ rmd_files: [
   'r_lattice_tutorial.Rmd',
   'network_visualization_in_r.Rmd',
   'dplyr_tutorial_in_r.Rmd',
+  'downloading_files.Rmd',
   
   # Part: Projects & Workshops
   
