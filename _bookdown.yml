@@ -7,6 +7,7 @@ language:
     chapter_name: "Chapter "
 
 
+
 # Chapter ordering
 rmd_files: [
   # Part: Introduction
@@ -23,6 +24,7 @@ rmd_files: [
   'hypothesis_testing_cheatsheet.Rmd',
   'interactive_web_visualizations_for_r_cheatsheet.Rmd',
   'ggforce.Rmd',
+  'gganimate_cheatsheat.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -47,3 +49,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
