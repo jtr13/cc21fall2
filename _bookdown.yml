@@ -8,6 +8,9 @@ language:
 
 
 
+# Chapter ordering
+
+
 
 rmd_files: [
   # Part: Introduction
@@ -48,6 +51,7 @@ rmd_files: [
   'intro_to_dygraph.Rmd',
   'streamlit_tutorial.rmd',
   'hive_plots_ggraph_hiver.Rmd',
+  'introduction_to_xai_in_r.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
