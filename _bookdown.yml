@@ -7,6 +7,8 @@ language:
     chapter_name: "Chapter "
 
 
+
+
 # Chapter ordering
 
 
@@ -55,6 +57,7 @@ rmd_files: [
   'introduction_to_xai_in_r.Rmd',
   'tutorial_gg_cleveland.Rmd',
   'neuralnet_r_tutorial.Rmd',
+  'from_dplyr_to_pandas_and_back.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
