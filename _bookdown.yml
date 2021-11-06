@@ -7,6 +7,7 @@ language:
     chapter_name: "Chapter "
 
 
+
 # Chapter ordering
 
 rmd_files: [
@@ -42,6 +43,7 @@ rmd_files: [
   'downloading_files.Rmd',
   'intro_to_maps_with_ggmap.Rmd',
   'base_r_tidyverse_data_table.Rmd',
+  'raincloud_plot_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
@@ -54,5 +56,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
 
