@@ -8,6 +8,7 @@ language:
 
 
 # Chapter ordering
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -42,7 +43,7 @@ rmd_files: [
   'base_r_tidyverse_data_table.Rmd',
   
   # Part: Projects & Workshops
-  
+  'analytics_consulting_intro.Rmd',
   # Part: Data visualizations
   
   # Part: Custom R packages
@@ -52,4 +53,5 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
 
