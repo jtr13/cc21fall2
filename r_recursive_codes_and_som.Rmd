@@ -17,7 +17,7 @@ In this article, I introduce (A) how to develop recursive codes with R in order 
 
 ## To conduct all analyses with R -- Write recursive code with R
 
-### Motication
+### Motivation
 
 In practice, I believe that one of the annoying workflows is to go around and among many pieces of software such as using python for data cleaning, developing statistical analysis using R, visualizing them in Excel, etc. It typically makes the folder messy and bothers a successor once current stuff leaves the role. Hence, if we employ datavis tools in R, we also want to develop other analyses with R. However, in order for us to do so, we have to learn many types of analyses with R. In fact, R is an advanced language and can do many things by their own. Here, I introduce recursive coding in R as an illustration.
 
