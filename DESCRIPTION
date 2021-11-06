@@ -102,6 +102,7 @@ Imports:
     r2d3,
     randomForest,
     raster,
+    rCharts,
     RColorBrewer,
     RCurl,
     readr,
@@ -157,7 +158,9 @@ Imports:
 Remotes:
     robinlovelace/geocompr,
     ricardo-bion/ggradar,
-    AntoninVidon/goyav
+    AntoninVidon/goyav,
+    ramnathv/rCharts,
+    madlogos/recharts
 Suggests:
     bookdown,
     bslib,

@@ -1,0 +1,373 @@
+# Network Visualization in R
+
+Yunze Pan
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(visNetwork)
+library(igraph)
+library(ggplot2)
+library(tidyr)
+library(plotly)
+library(RColorBrewer)
+library(reshape2)
+```
+
+## Introduction
+
+`visNetwork` is a powerful tool in R to help us describe networks and explore the structure visually. It is extremely useful for us to obtain valuable information from an interactive network graph. In this tutorial, we will offer a quick introduction for newcomers to learn concepts of creating networks in R. Hope you will enjoy!
+
+## Installation
+
+The main packages we are going to use for network visualization in R are `visNetwork` and `igraph`. They can be installed with install.packages("visNetwork") and install.packages("igraph").
+
+```{r, eval=FALSE}
+library(visNetwork)
+library(igraph)
+```
+
+## Dataframe
+
+In this section we will create a small network that simulates student interactions on campus. Our objective is to get you familiar with using `visNetwork` as quickly as as possible. In order to visualize interactive networks, we will first read two datasets (a nodes data.frame and an edges data.frame). Then, we can explore the various layout options by adding different variables on our nodes data.frame and edges data.frame.
+
+### Nodes
+
+A nodes data.frame must include a `id` column. Each `id` represents the node we want to display in our graph. Other optional columns can also be added into our nodes data.frame. They can help us to distinguish nodes in our graph. For example, each node is a student with a unique assigned `id`, his/her `name`, `major`, and `major.type`.
+
+```{r}
+nodes <- data.frame(id=1:7, # id column (must be called id)
+                    name=c("Asher","Bella","Chloe","Daniel","Emma","Frank","Gabriel"), # student names
+                    major=c("CS","CS","CS","STAT","DS","DS","DS"), # CS: computer science major, STAT: statistics major, DS: data science major
+                    major.type=c(1,1,1,2,3,3,3)) # 1: CS, 2: STAT, 3: DS
+data.frame(nodes)
+```
+
+### Edges
+
+An edges data.frame must include a `from` column and a `to` column denoting the starting node and ending node of each edge. We use `id` to represent the starting node and ending node. We also add a `weight` column on our edges data.frame to describe the frequency of interactions between two nodes. For example, in the first row, we know `student 1` reached out to `student 2` once.
+
+```{r}
+edges <- data.frame(from=c(1,1,2,3,5,5,6,7),
+                    to=c(2,4,3,1,4,6,7,5),
+                    weight=c(1,1,1,1,1,1,1,1))
+data.frame(edges)
+```
+
+## Visualiztion
+
+Now we can visualize our student interaction network using `visNetwork`. Examples are showed as below. We will start from the default setting and then move on to customize our network for a better interactive visualization.
+
+### Minimal Example
+
+```{r, fig.height=3, fig.width=9}
+visNetwork(nodes, edges)
+```
+
+### Customize Node
+
+```{r, fig.height=3, fig.width=9}
+colors <- colorRampPalette(brewer.pal(3, "RdBu"))(3) # use three colors to distinguish students by their majors
+nodes <- nodes %>% mutate(shape="dot", # "shape" variable: customize shape of nodes ("dot", "square", "triangle")
+                          shadow=TRUE, # "shadow" variable: include/exclude shadow of nodes
+                          title=major, # "title" variable: tooltip (html or character), when the mouse is above
+                          label=name, # "label" variable: add labels on nodes
+                          size=20, # "size" variable: set size of nodes
+                          borderWidth=1, # "borderWidth" variable: set border width of nodes
+                          color.background=colors[major.type], # "color.background" variable: set color of nodes
+                          color.border="grey", # "color.border" variable: set frame color
+                          color.highlight.background="yellow", # "color.highlight.background" variable: set color of the selected node
+                          color.highlight.border="black") # "color.highlight.border" variable: set frame color of the selected node
+visNetwork(nodes, edges, width="100%", main="Student Interaction Network") %>% # "main" variable: add a title
+  visLayout(randomSeed=4) # give a random seed manually so that the layout will be the same every time
+```
+
+### Customize Edge
+
+```{r, fig.height=3, fig.width=9}
+edges <- edges %>% mutate(width=weight*3, # "width" variable: set width of each edge
+                          color="lightgrey", # "color" variable: set color of edges
+                          arrows="to", # "arrows" variable: set arrow for each edge ("to", "middle", "from ")
+                          smooth=TRUE) # "smooth" variable: each edge to be curved or not
+visNetwork(nodes, edges, width="100%", main="Student Interaction Network") %>% 
+  visLayout(randomSeed=4)
+```
+
+### Add Legend Based on Groups
+
+```{r, fig.height=3, fig.width=9}
+nodes <- nodes %>% mutate(group=major) # add a "group" column on node data.frame and add groups on nodes
+visNetwork(nodes, edges, width="100%", main="Student Interaction Network") %>%
+  visLayout(randomSeed=4) %>% 
+  visGroups(groupname="CS", color=colors[1]) %>% # color "colors[1]" for "CS" group 
+  visGroups(groupname="STAT", color=colors[2]) %>%
+  visGroups(groupname="DS", color=colors[3]) %>%
+  visLegend(width=0.1, position="right", main="Academic Major") # "position" variable: set position ("left", "right") 
+```
+
+### Select by Node
+
+```{r, fig.height=3, fig.width=9}
+nodes <- nodes %>% select(-group) # remove "group" column because we don't want to show legend this time
+visNetwork(nodes, edges, width="100%", main="Student Interaction Network") %>%
+  visLayout(randomSeed=4) %>% 
+  visOptions(nodesIdSelection=TRUE, # "nodesIdSelection" variable: select a node by id
+             selectedBy="major") %>% # "selectedBy" variable: select a node by the values of a column such as "major" column
+  visLegend()
+```
+
+### Highlight Nearest Nodes
+
+```{r, fig.height=3, fig.width=9}
+visNetwork(nodes, edges, width="100%", main="Student Interaction Network") %>% 
+  visLayout(randomSeed=4) %>% 
+  visOptions(highlightNearest = list(enabled = TRUE, # "enabled" variable: highlight nearest nodes and edges by clicking on a node
+                                     degree = 2)) # "degree" variable: set degree of depth
+```
+
+### Edit Network
+
+```{r, fig.height=3, fig.width=9}
+visNetwork(nodes, edges, width="100%", main="Student Interaction Network") %>%
+  visLayout(randomSeed=4) %>% 
+  visOptions(highlightNearest=TRUE, # degree of depth = 1
+             nodesIdSelection=TRUE,
+             selectedBy="major",
+             manipulation=TRUE) %>%  # "manipulation" variable: add/delete nodes/edges or change edges
+  visLegend()
+```
+
+### Add Navigation Buttons and Control Interactions
+
+```{r, fig.height=3, fig.width=9}
+visNetwork(nodes, edges, width="100%", main="Student Interaction Network") %>%
+  visLayout(randomSeed=4) %>%
+  visOptions(highlightNearest=TRUE,
+             nodesIdSelection=TRUE,
+             selectedBy="major") %>% 
+  visInteraction(hideEdgesOnDrag=TRUE, # "hideEdgesOnDrag" variable: hide edges when dragging the view
+                 dragNodes=TRUE, # "dragNodes" variable: hide nodes when dragging the view
+                 dragView=TRUE, # "dragView" variable: enable or not the movement of the full network
+                 zoomView=TRUE, # "zoomView" variable: enable or not the zoom (use mouse scroll)
+                 navigationButtons=TRUE) %>% # "navigationButtons" variable: show navigation buttons
+  visLegend()
+```
+
+## Export
+
+Finally, we use `visSave()` to save network in html file.
+
+```{r}
+our_network <- visNetwork(nodes, edges)
+visSave(our_network, file = "Student Interaction Network.html", background="white")
+```
+
+## Help?
+
+More information about `visNetwork`.
+
+```{r}
+?visNodes
+?visEdges
+?visOptions
+?visGroups
+?visLegend
+?visLayout
+```
+
+## Social Network Analysis
+
+We have already learned how to visualize the interactive network. To help you better understand its application, we will use `visNetwork` and `igraph` to perform our social network analysis.
+
+### Dataset
+
+We will investigate interactions in the movie **Star Wars Episode IV**. First, we import two csv files ("nodes.csv" and "edges.csv"). Each node in "nodes.csv" is a character and each edge in "edges.csv" tells whether two characters appeared together in a scene of the movie. Thus, edges are undirected. Since characters may appear in multiple scenes together, each edge has a `weight`.
+
+```{r}
+sw_nodes <- read.csv("https://raw.githubusercontent.com/pablobarbera/data-science-workshop/master/sna/data/star-wars-network-nodes.csv")
+head(sw_nodes)
+```
+
+```{r}
+sw_edges <- read.csv("https://raw.githubusercontent.com/pablobarbera/data-science-workshop/master/sna/data/star-wars-network-edges.csv")
+head(sw_edges)
+```
+
+We group our characters ("dark side" or "light side" or "other").
+
+```{r}
+dark_side <- c("DARTH VADER", "MOTTI", "TARKIN")
+light_side <- c("R2-D2", "CHEWBACCA", "C-3PO", "LUKE", "CAMIE", "BIGGS", "LEIA", "BERU", "OWEN", "OBI-WAN", "HAN", "DODONNA", "GOLD LEADER", "WEDGE", "RED LEADER", "RED TEN", "GOLD FIVE")
+other <- c("GREEDO", "JABBA")
+sw_nodes$group <- NA
+sw_nodes$group[sw_nodes$name %in% dark_side] <- "dark side"
+sw_nodes$group[sw_nodes$name %in% light_side] <- "light side"
+sw_nodes$group[sw_nodes$name %in% other] <- "other"
+```
+
+Let's try another network package called `igraph` to explore the network.
+
+First, we use the `graph_from_data_frame` function, which needs two arguments: `d` and `vertices`. The `igraph` object `g` indicates that there are 22 nodes and 66 edges.
+
+```{r}
+g <- graph_from_data_frame(d=sw_edges, vertices=sw_nodes, directed=FALSE) # an undirected graph
+g
+```
+
+Next, we output a portion of the adjacency matrix for our network.
+
+```{r}
+g[1:6, 1:6] # the first six rows and columns
+```
+
+### Visualization
+
+Alternatively, we can show a heat map of our adjacency matrix. The number in each square equals to the weight of one edge. We observe LUKE is a very popular character.
+
+```{r, fig.height=13, fig.width=15}
+sw_matrix <- as.matrix(g[])
+sw_matrix <- sw_matrix[order(rownames(sw_matrix)), order(colnames(sw_matrix))]
+melted_sw_matrix <- melt(sw_matrix)
+ggplot(melted_sw_matrix, aes(x=Var1, y=Var2, fill=value)) + 
+  geom_tile() +
+  geom_text(aes(label=value), color="red") +
+  scale_fill_gradient(low="white", high="black") +
+  xlab("characters") + ylab("characters") +
+  theme(axis.text.x=element_text(angle=45)) +
+  labs(fill="weight")
+```
+
+We also compute characters' importance using `strength()` function based on the number of scenes they appear in and rank the importance in a descending order. The goal of `strength()` function is to sum up the edge weights of the adjacent edges for each node.
+
+```{r}
+importance <- strength(g)
+sw_nodes$importance <- importance
+head(arrange(sw_nodes, -importance))
+```
+
+Again, we use `visNetwork` to visualize.
+
+```{r, fig.height=8, fig.width=15}
+sw_colors <- colorRampPalette(brewer.pal(3, "RdBu"))(3)
+sw_nodes$group.type <- NA
+sw_nodes$group.type[sw_nodes$group=="dark side"] <- sw_colors[1]
+sw_nodes$group.type[sw_nodes$group=="other"] <- sw_colors[2]
+sw_nodes$group.type[sw_nodes$group=="light side"] <- sw_colors[3]
+sw_nodes <- sw_nodes %>% select(-id) %>%
+  mutate(id=name,
+         shape="dot",
+         shadow=TRUE,
+         title=group,
+         label=name,
+         size=log((importance+3)^5), # adjust size with respect to a node's importance
+         borderWidth=1,
+         color.background=group.type,
+         color.border="grey",
+         color.highlight.background="yellow",
+         color.highlight.border="black") %>% 
+  arrange(id)
+sw_edges <- sw_edges %>% mutate(from=source,
+                                to=target,
+                                width=log((weight+3)^1.5), # adjust width with respect to an edge's weight
+                                color="lightgrey",
+                                smooth=FALSE)
+visNetwork(sw_nodes, sw_edges, width="100%", main="Star Wars Episode IV Network") %>%
+  visLayout(randomSeed=21) %>% 
+  visGroups(groupname="dark side", color=sw_colors[1]) %>%
+  visGroups(groupname="other", color=sw_colors[2]) %>%
+  visGroups(groupname="light side", color=sw_colors[3]) %>%
+  visLegend(width=0.1, position="right", main="Group") %>%
+  visOptions(highlightNearest=TRUE,
+             nodesIdSelection=TRUE,
+             selectedBy="group") %>% 
+  visInteraction(hideEdgesOnDrag=TRUE,
+                 dragNodes=TRUE,
+                 dragView=TRUE,
+                 zoomView=TRUE,
+                 navigationButtons=TRUE)
+```
+
+You may wonder how important a character is in our Star Wars network. Therefore, we want to utilize three proposed measures (**degree centrality**, **betweenness centrality**, and **closeness centrality**) to quantify each node's importance in a network and visualize how its importance is different from others.
+
+### Centrality Measurement
+
+Degree centrality is deﬁned as the number of adjacent edges to each node. After ranking the degree centrality, we find LUKE has the greatest value. It implies that LUKE is interacting with a great amount of unique characters. We color each node based on its degree centrality value. The node with the greatest value has the warmest color.
+
+```{r}
+degree_centrality <- degree(g)
+sw_nodes$degree_centrality <- degree_centrality[as.character(sw_nodes$name)]
+head(sort(degree_centrality, decreasing=TRUE))
+```
+
+```{r, fig.height=2, fig.width=15}
+sw_colors_centrality <- rev(colorRampPalette(brewer.pal(9, "Oranges"))(22))
+sw_nodes <- sw_nodes %>% mutate(degree_rank=23-floor(rank(degree_centrality)),
+                                color.background=sw_colors_centrality[degree_rank])
+network_degree <- visNetwork(sw_nodes, sw_edges, height='350px', width="100%", main="Degree Centrality") %>%
+  visLayout(randomSeed=21) %>% 
+  visOptions(highlightNearest=TRUE,
+             nodesIdSelection=TRUE,
+             selectedBy="degree_rank") %>% 
+  visInteraction(hideEdgesOnDrag=TRUE,
+                 dragNodes=TRUE,
+                 dragView=TRUE,
+                 zoomView=TRUE,
+                 navigationButtons=TRUE)
+```
+
+Betweenness centrality is deﬁned as the number of shortest paths between nodes that pass through a particular node. After ranking the betweenness centrality, we find LEIA has the greatest value. It implies that LEIA tends to be very critical to the communication process. We color each node based on its betweenness centrality value. The node with the greatest value has the warmest color.
+
+```{r}
+betweenness_centrality <- betweenness(g)
+sw_nodes$betweenness_centrality <- betweenness_centrality[as.character(sw_nodes$name)]
+head(sort(betweenness_centrality, decreasing=TRUE))
+```
+
+```{r, include=FALSE}
+sw_nodes <- sw_nodes %>% mutate(betweenness_rank=23-floor(rank(betweenness_centrality)),
+                                color.background=sw_colors_centrality[betweenness_rank])
+network_betweenness <- visNetwork(sw_nodes, sw_edges, height='350px', width="100%", main="Betweenness Centrality") %>%
+  visLayout(randomSeed=21) %>% 
+  visOptions(highlightNearest=TRUE,
+             nodesIdSelection=TRUE,
+             selectedBy="betweenness_rank") %>% 
+  visInteraction(hideEdgesOnDrag=TRUE,
+                 dragNodes=TRUE,
+                 dragView=TRUE,
+                 zoomView=TRUE,
+                 navigationButtons=TRUE)
+```
+
+Closeness centrality is deﬁned as the number of steps required to access every other node from a given node. After ranking the closeness centrality, we find BIGGS has the greatest value. It implies that BIGGS is close to many other characters. We color each node based on its closeness centrality value. The node with the greatest value has the warmest color.
+
+```{r}
+closeness_centrality <- closeness(g, normalized=TRUE)
+sw_nodes$closeness_centrality <- closeness_centrality[as.character(sw_nodes$name)]
+head(sort(closeness_centrality, decreasing=TRUE))
+```
+
+```{r, include=FALSE}
+sw_nodes <- sw_nodes %>% mutate(closeness_rank=23-floor(rank(closeness_centrality)),
+                                color.background=sw_colors_centrality[closeness_rank])
+network_closeness <- visNetwork(sw_nodes, sw_edges, height='350px', width="100%", main="Closeness Centrality") %>%
+  visLayout(randomSeed=21) %>% 
+  visOptions(highlightNearest=TRUE,
+             nodesIdSelection=TRUE,
+             selectedBy="closeness_rank") %>% 
+  visInteraction(hideEdgesOnDrag=TRUE,
+                 dragNodes=TRUE,
+                 dragView=TRUE,
+                 zoomView=TRUE,
+                 navigationButtons=TRUE)
+```
+
+Lastly, we output our network and find discrepancies among three measurements.
+
+```{r, echo=FALSE}
+network_degree
+network_betweenness
+network_closeness
+```
+
+## External Resource
+1. [visNetwork](https://datastorm-open.github.io/visNetwork/more.html) package;   
+2. [star-wars-network](https://github.com/pablobarbera/data-science-workshop.git).
