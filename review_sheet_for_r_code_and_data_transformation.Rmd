@@ -1,4 +1,4 @@
-#Review Sheet for R Code and Data Transformation
+# review sheet for r code and data transformation
 
 Mengchen Xu
 
@@ -243,7 +243,6 @@ mosaic(cyl~gear,direction = c("v", "h") ,mtcars,highlighting_fill=brewer.pal(3,'
 
 
 ```{r}
-library(ggalluvial)
 ggplot(as.data.frame(Titanic),
        aes(axis1 = Class,axis3 = Age,axis2 = Sex, axis4 = Survived)) +
   geom_alluvium(aes(fill = Class),color='blue') +
@@ -276,8 +275,8 @@ mtcars_modified <- mtcars %>%
   mutate(disAndCyl = disp/cyl)
 
 mtcars_modified
-# You can see a column called "disAndCyl" has been added to the dataset.
 ```
+You can see a column called "disAndCyl" has been added to the dataset.
   
   
   
