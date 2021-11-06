@@ -12,6 +12,7 @@ language:
 
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -58,6 +59,7 @@ rmd_files: [
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
   # Part: Data visualizations
+  'introduction_to_pyecharts_package.Rmd',
   
   # Part: Custom R packages
 
