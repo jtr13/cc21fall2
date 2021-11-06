@@ -2,11 +2,12 @@
 
 Yuki Ikeda
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+```{r}
 library(tidyverse)
-library(ggplot2)
-library(formatR)
 library(kohonen)
 library(openintro)
 library(datasets)
@@ -24,8 +25,6 @@ We sometimes use recursive functions (we will give one frequent example later). 
 
 ### An illustration of recursive code: Levenshtein distance
 
-#### How we use Levenshtein distance?
-
 Here, I introduce how to define a recursive function in R by using an example of the Levenshtein distance. 
 In practice, there is often the case that we want to connect A and B that are supposed to be the same. For example, at a commercial bank, we often have to connect our corporate debtor data and external information of these companies using the company name as the only available key.
 However, it is also often the case that one data have a company name as "XXX, plc" and the other one has as just "xxx," or one has as "XXX, plc, YYY brunch" and the other as "XXX, plc."
@@ -35,7 +34,7 @@ In my past job, we used this distance to quantify the difference of words in two
 
 The Levenshtein distance is useful for the reason above, however, computing the distance requires us to define recursive functions for this. Please see [1] or the definition written in https://en.wikipedia.org/wiki/Levenshtein_distance. Hence, we have to define a recursive function in R.
 
-#### Naive coding
+### Naive coding
 
 One naive way to do so is just using "recall" function which orders to compute recursively:
 
@@ -69,7 +68,7 @@ LD_naive("kitten","sitting")
 
 However, this takes much time when the length between strings gets longer since it computes the value of the distance between the same partial strings of x and y again and again.
 
-#### Better coding using DP table
+### Better coding using DP table
 
 Therefore, a better coding would be to prepare the Dynamic Programming table to preserve the distance of all partial strings beginning at the first and ending at some point in x and y:
 
@@ -108,7 +107,7 @@ LD0("kitten","sitting")
 
 However, even if x and y are identical, this code computes the distance of every pair of partial strings beginning at the first and ending at some point in x and y. Clearly in such a case, we only need to compute $LD(x[1:i],y[1:i])$ for each $i$. So, this code is a little redundant. 
 
-#### Recursive coding using global variable
+### Recursive coding using global variable
 
 The next code is more efficient in the sense that it only computes distances they need.
 
