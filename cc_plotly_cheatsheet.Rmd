@@ -1,0 +1,366 @@
+# Introduction to plotly
+
+Moya Zhu and Yunshu Cai
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(plotly)
+library(dplyr)
+library(vcd)
+```
+
+## Introduction
+
+This is a cheat sheet to help you find the proper visualization with your demostration purpose using plotly. The plots are interactive and documented with variable types. The package we will use is 'Plotly', 'dplyr'
+
+### Prepare: Install & Load
+
+```{r }
+# After install
+library(plotly)
+```
+
+### Comparision
+
+#### Comparing over items -- Bar Charts
+
+Bar charts are aimed to show the distribution of data points and to see how a specific group of values behave comparing against other groups.
+
+**Vertical bar charts**
+
+```{r}
+fig <- plot_ly(
+  x = c("giraffes", "orangutans", "monkeys"),
+  y = c(20, 14, 23),
+  name = "SF Zoo",
+  type = "bar"
+)
+
+fig
+```
+
+**Horizontal bar charts**
+
+```{r}
+fig <- plot_ly(x = c(20, 14, 23), y = c('giraffes', 'orangutans', 'monkeys'), type = 'bar', orientation = 'h')
+
+fig
+```
+
+**Customizing Individual Bar Widths** for pictorial representation of grouped data
+
+```{r}
+x= c(1, 2, 3, 5.5, 10)
+y= c(10, 8, 6, 4, 2)
+width = c(0.8, 0.8, 0.8, 3.5, 4)
+data <- data.frame(x, y, width)
+
+fig <- plot_ly(data)
+fig <- fig %>% add_bars(
+    x= ~x,
+    y= ~y,
+    width = ~width
+  )
+
+fig
+```
+
+**Customizing Individual Bar Colors** for focusing at a particular item and comparing to others
+
+```{r}
+x <- c('item A', 'item B', 'item C', 'item D', 'item E')
+y <- c(5, 17, 20, 12, 15)
+data <- data.frame(x, y)
+
+fig <- plot_ly(data, x = ~x, y = ~y, type = 'bar',
+        marker = list(color = c('rgba(204,204,204,1)', 'rgba(204,204,204,1)',
+                                'rgba(204,204,204,1)', 'rgba(199,77,120,0.8)',
+                                'rgba(204,204,204,1)')))
+fig <- fig %>% layout(title = "Least Used Features",
+         xaxis = list(title = ""),
+         yaxis = list(title = ""))
+
+fig
+```
+
+**Customizing Individual Bar Base** for comparing groups having relatively opposite values (ex. income and expense, restocking and sales)
+
+```{r}
+fig <- plot_ly()
+fig <- fig %>% add_bars(
+    x = c("2016", "2017", "2018"),
+    y = c(500,600,700),
+    base = c(-500,-600,-700),
+    marker = list(
+      color = 'lightpink'
+    ),
+    name = 'expenses'
+  )
+fig <- fig %>% add_bars(
+    x = c("2016", "2017", "2018"),
+    y = c(300,400,700),
+    base = 0,
+    marker = list(
+      color = 'lightblue'
+    ),
+    name = 'revenue'
+  )
+
+fig
+```
+
+#### Comparing over time -- Line Charts, Area Plots
+
+Line charts are aimed to show the changes of data over either short or long periods of time, and to compare the trend of different groups of data.
+
+Area charts are aimed to also indicate the total value or to compare differences among variables.
+
+**Line chart with single variable**
+
+```{r}
+x <- c(1:100)
+random_y <- rnorm(100, mean = 0)
+data <- data.frame(x, random_y)
+
+fig <- plot_ly(data, x = ~x, y = ~random_y, type = 'scatter', mode = 'lines')
+
+fig
+```
+
+**(Styled) Line chart with more than one variables**
+
+```{r}
+month <- c('January', 'February', 'March', 'April', 'May', 'June', 'July',
+         'August', 'September', 'October', 'November', 'December')
+high_2000 <- c(32.5, 37.6, 49.9, 53.0, 69.1, 75.4, 76.5, 76.6, 70.7, 60.6, 45.1, 29.3)
+low_2000 <- c(13.8, 22.3, 32.5, 37.2, 49.9, 56.1, 57.7, 58.3, 51.2, 42.8, 31.6, 15.9)
+high_2007 <- c(36.5, 26.6, 43.6, 52.3, 71.5, 81.4, 80.5, 82.2, 76.0, 67.3, 46.1, 35.0)
+low_2007 <- c(23.6, 14.0, 27.0, 36.8, 47.6, 57.7, 58.9, 61.2, 53.3, 48.5, 31.0, 23.6)
+high_2014 <- c(28.8, 28.5, 37.0, 56.8, 69.7, 79.7, 78.5, 77.8, 74.1, 62.6, 45.3, 39.9)
+low_2014 <- c(12.7, 14.3, 18.6, 35.5, 49.9, 58.0, 60.0, 58.6, 51.7, 45.2, 32.2, 29.1)
+
+data <- data.frame(month, high_2000, low_2000, high_2007, low_2007, high_2014, low_2014)
+
+#The default order will be alphabetized unless specified as below:
+data$month <- factor(data$month, levels = data[["month"]])
+
+fig <- plot_ly(data, x = ~month, y = ~high_2014, name = 'High 2014', type = 'scatter', mode = 'lines',
+        line = list(color = 'rgb(205, 12, 24)', width = 4)) 
+fig <- fig %>% add_trace(y = ~low_2014, name = 'Low 2014', line = list(color = 'rgb(22, 96, 167)', width = 4)) 
+fig <- fig %>% add_trace(y = ~high_2007, name = 'High 2007', line = list(color = 'rgb(205, 12, 24)', width = 4, dash = 'dash')) 
+fig <- fig %>% add_trace(y = ~low_2007, name = 'Low 2007', line = list(color = 'rgb(22, 96, 167)', width = 4, dash = 'dash')) 
+fig <- fig %>% add_trace(y = ~high_2000, name = 'High 2000', line = list(color = 'rgb(205, 12, 24)', width = 4, dash = 'dot')) 
+fig <- fig %>% add_trace(y = ~low_2000, name = 'Low 2000', line = list(color = 'rgb(22, 96, 167)', width = 4, dash = 'dot')) 
+fig <- fig %>% layout(title = "Average High and Low Temperatures in New York",
+         xaxis = list(title = "Months"),
+         yaxis = list (title = "Temperature (degrees F)"))
+
+fig
+```
+
+**Area chart with single variable**
+
+```{r}
+density <- density(diamonds$carat)
+
+fig <- plot_ly(x = ~density$x, y = ~density$y, type = 'scatter', mode = 'lines', fill = 'tozeroy')
+fig <- fig %>% layout(xaxis = list(title = 'Carat'),
+         yaxis = list(title = 'Density'))
+
+fig
+
+```
+
+
+**(Custom colored) Area chart with more than one variables**
+
+```{r}
+diamonds1 <- diamonds[which(diamonds$cut == "Fair"),]
+density1 <- density(diamonds1$carat)
+
+diamonds2 <- diamonds[which(diamonds$cut == "Ideal"),]
+density2 <- density(diamonds2$carat)
+
+fig <- plot_ly(x = ~density1$x, y = ~density1$y, type = 'scatter', mode = 'lines', name = 'Fair cut', fill = 'tozeroy',
+        fillcolor = 'rgba(168, 216, 234, 0.5)',
+        line = list(width = 0.5))
+fig <- fig %>% add_trace(x = ~density2$x, y = ~density2$y, name = 'Ideal cut', fill = 'tozeroy',
+            fillcolor = 'rgba(255, 212, 96, 0.5)')
+fig <- fig %>% layout(xaxis = list(title = 'Carat'),
+         yaxis = list(title = 'Density'))
+
+fig
+```
+
+**(Stacked) Area chart with more than one variables** is suitable for displaying part-to-whole relations by showing the constituent parts of a whole one over the other.
+
+```{r}
+data <- t(USPersonalExpenditure)
+data <- data.frame("year"=rownames(data), data)
+
+fig <- plot_ly(data, x = ~year, y = ~Food.and.Tobacco, name = 'Food and Tobacco', type = 'scatter', mode = 'none', stackgroup = 'one', fillcolor = '#F5FF8D')
+fig <- fig %>% add_trace(y = ~Household.Operation, name = 'Household Operation', fillcolor = '#50CB86')
+fig <- fig %>% add_trace(y = ~Medical.and.Health, name = 'Medical and Health', fillcolor = '#4C74C9')
+fig <- fig %>% add_trace(y = ~Personal.Care, name = 'Personal Care', fillcolor = '#700961')
+fig <- fig %>% add_trace(y = ~Private.Education, name = 'Private Education', fillcolor = '#312F44')
+fig <- fig %>% layout(title = 'United States Personal Expenditures by Categories',
+         xaxis = list(title = "",
+                      showgrid = FALSE),
+         yaxis = list(title = "Expenditures (in billions of dollars)",
+                      showgrid = FALSE))
+
+fig
+```
+
+### Distribution
+**One coutinuous variable** histogram:
+```{r}
+fig <- plot_ly(data = iris, x = ~Sepal.Length,type="histogram")
+fig
+```
+**One continuous variable** histogram with density line:
+```{r}
+dens<-density(iris$Sepal.Length)
+
+fig <- plot_ly(data = iris,x = ~Sepal.Length,type="histogram", name = "Histogram")%>%
+  add_trace(x=dens$x,y=dens$y,mode = "lines",type='scatter', fill = "tozeroy", yaxis = "y2", name = "Density") %>% 
+  layout(yaxis2 = list(overlaying = "y", side = "right"))
+fig
+```
+**multi-continuous variable** histogram overlaid:
+
+```{r}
+fig <- plot_ly(data=iris,alpha = 0.6)
+fig <- fig %>% add_histogram(x = ~Sepal.Length,name='sepal length')
+fig <- fig %>% add_histogram(x = ~Petal.Length,name='petalvlength')
+fig <- fig %>% add_histogram(x = ~Petal.Width,name='petal width')
+fig <- fig %>% layout(barmode = "overlay")
+
+fig
+```
+### Relationship 
+
+#### Between two continuous variables:
+Scatter plot
+```{r}
+fig <- plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length)
+fig
+#with color:
+fig_color <- plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length, color = ~Species)
+fig_color
+```
+#### Multiple variables:
+Bubble size scatter plot indicating relationship of 3 variables with text hover
+```{r}
+data <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/school_earnings.csv")
+
+fig <- plot_ly(data, x = ~Women, y = ~Men, text = ~School, type = 'scatter', mode = 'markers',
+        marker = list(size = ~Gap, opacity = 0.5, color = 'rgb(255, 65, 54)'))
+fig <- fig %>% layout(title = 'Gender Gap in Earnings per University',
+         xaxis = list(showgrid = FALSE),
+         yaxis = list(showgrid = FALSE))
+fig
+
+```
+### Composition
+#### Changing over time
+**Cumulative values:**
+Stacked area chart 
+```{r}
+
+data <- t(USPersonalExpenditure)
+data <- data.frame("year"=rownames(data), data)
+
+fig <- plot_ly(data, x = ~year, y = ~Food.and.Tobacco, name = 'Food and Tobacco', type = 'scatter', mode = 'none', stackgroup = 'one', groupnorm = 'percent', fillcolor = '#F5FF8D')
+fig <- fig %>% add_trace(y = ~Household.Operation, name = 'Household Operation', fillcolor = '#50CB86')
+fig <- fig %>% add_trace(y = ~Medical.and.Health, name = 'Medical and Health', fillcolor = '#4C74C9')
+fig <- fig %>% add_trace(y = ~Personal.Care, name = 'Personal Care', fillcolor = '#700961')
+fig <- fig %>% add_trace(y = ~Private.Education, name = 'Private Education', fillcolor = '#312F44')
+fig <- fig %>% layout(title = 'United States Personal Expenditures by Categories',
+         xaxis = list(title = "",
+                      showgrid = FALSE),
+         yaxis = list(title = "Proportion from the Total Expenditures",
+                      showgrid = FALSE,
+                      ticksuffix = '%'))
+
+fig
+```
+
+
+
+#### Static
+**Single categorical variable:**
+pie chart:
+```{r}
+fig <- plot_ly()
+fig <- fig %>% add_pie(data = count(iris,Species), labels = ~Species, values = ~n,
+                         name = "Species", domain = list(row = 0, column = 0))
+fig
+```
+**Multi-categorical variables:**
+Stacked bar plot:
+```{r}
+data(Arthritis)
+uniq<-unique(Arthritis$Treatment)
+Arthritis%>% group_by(Treatment) %>%arrange(Improved)%>%
+  plot_ly( x = ~Treatment, y = ~Improved,color = ~ Improved,type = 'bar')%>%
+layout(yaxis = list(title = 'value'), barmode = 'stack')
+
+```
+
+
+**Hierarchical data:**
+Multi-categorical:
+Tree map displays hierarchical data as sets of nested rectangles. It represent branches of the dimension of the data.
+```{r}
+df1 = read.csv('https://raw.githubusercontent.com/plotly/datasets/718417069ead87650b90472464c7565dc8c2cb1c/sunburst-coffee-flavors-complete.csv')
+
+fig <- plot_ly(
+  type='treemap',
+  ids=df1$ids,
+  labels=df1$labels,
+  parents=df1$parents,
+  domain=list(column=0))
+fig
+```
+
+**sequential data**
+waterfall chart helps in understanding the cumulative effect of sequential values. It represent the accumulation or subtraction of total. It's a great representation for lots of the financial data.
+
+```{r}
+x= list("Sales", "Consulting", "Net revenue", "Purchases", "Other expenses", "Profit before tax")
+measure= c("relative", "relative", "total", "relative", "relative", "total")
+text= c("+60", "+80", "", "-40", "-20", "Total")
+y= c(60, 80, 0, -40, -20, 0)
+data = data.frame(x=factor(x,levels=x),measure,text,y)
+
+fig <- plot_ly(
+  data, name = "20", type = "waterfall", measure = ~measure,
+  x = ~x, textposition = "outside", y= ~y, text =~text,
+  connector = list(line = list(color= "rgb(63, 63, 63)"))) 
+fig <- fig %>%
+  layout(title = "Profit and loss statement 2018",
+        xaxis = list(title = ""),
+        yaxis = list(title = ""),
+        autosize = TRUE,
+        showlegend = TRUE)
+
+fig
+
+```
+## References
+https://plotly.com/r/bar-charts/
+https://plotly.com/r/horizontal-bar-charts/
+https://plotly.com/r/line-charts/
+https://www.fusioncharts.com/blog/line-charts-vs-area-charts/
+https://plotly.com/r/filled-area-plots/
+https://plotly.com/r/treemaps/
+https://plotly.com/python/waterfall-charts/
+https://plotly.com/r/histograms/
+https://www.qlik.com/blog/third-pillar-of-mapping-data-to-visualizations-usage
+
+
+
