@@ -7,8 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-
-
 # Chapter ordering
 
 
@@ -36,6 +34,7 @@ rmd_files: [
   'cc_plotly_cheatsheet.Rmd',
   'concept_r_python_cheatsheet.Rmd',
   'data_visualization_packages_in_r.Rmd',
+  'esquisse_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -73,5 +72,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
 
