@@ -75,6 +75,7 @@ rmd_files: [
   # Part: Data visualizations
   'introduction_to_pyecharts_package.Rmd',
   'r_vs_python_plots.Rmd',
+  'plots_python_seaborn_matplotlib.Rmd',
   
   # Part: Custom R packages
 
