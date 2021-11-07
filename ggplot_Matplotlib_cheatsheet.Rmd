@@ -1,11 +1,4 @@
----
-title: "ggplot_Matplotlib_cheatsheet"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Header
 
 Binghong Yu(by2325)
 
