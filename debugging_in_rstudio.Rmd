@@ -8,7 +8,7 @@ knitr::opts_chunk$set(warning = FALSE,
                       message = FALSE)
 ```
 
-## 1. Introduction
+## Introduction
 In the first assignment we were asked to find out how `hist()` in baseR determines the number of bins. Many students including me got confused because the return of the function is not the same as described in its documentation. I'd like to share how I solved the problem. 
 
 The tutorial mainly consists of three parts: how to use `help()`, how to find the source code of a function using `methods()`, and how to debug in RStudio. Hopefully this can help other people like me when they encounter similar problems in the future. 
@@ -19,8 +19,8 @@ library('tidyverse')
 library(dplyr)
 ```
 
-## 2. First Choice: help()
-### 2.1 how to use help()
+## First Choice: help()
+### how to use help()
 When you want to find out how a new function works, trying `help()` is always the first step. It will returns the official documentation of the function. Usually a detailed documentation will answer most of your questions. Take `hist()` for example:
 ```{r}
 help(hist)
@@ -35,7 +35,7 @@ knitr::include_graphics("resources/debugging_in_rstudio/1.png")
 
 There is also a function `example(hist)`, which will return an interactive result where you can run some examples of the function. 
 
-### 2.2 understand the documentation
+### understand the documentation
 The R documentation typically consists of several parts: *Description*, *Usage*, *Arguments*, *Details*, *Value*, *Examples* and so on. In *Usage* you can find the arguments and their default values. In *Arguments* there are explanations of these arguments. *Value* is the return value of the function. For example, `hist()` returns an object that has 6 attributes:
 
 ```{r}
@@ -43,7 +43,7 @@ x <- hist(mtl$asubic, plot=F)
 str(x)
 ```
 
-### 2.3 not enough
+### not enough
 However, R documentation cannot answers all the questions. In our case, the documentation of `hist()` only says that it uses *Sturges' algorithm*, and uses it as a suggestion to `pretty()`. 
 
 ```{r echo=FALSE, fig.cap="", out.width = '60%',fig.align='center'}
@@ -58,7 +58,7 @@ pretty(mtl$asubic)
 To totally understand how a function works, the best way is to read 
 
 
-## 3. Source code: methods()
+## Source code: methods()
 To totally understand how a function works, the best way is to read its source code. Since it is not include in the documentation, where should we find it?
 
 Sometimes you can just type the name of the function. It will return the source code:
@@ -87,12 +87,12 @@ However, it still doesn't solve our problem: the function is too long! It has 12
 
 This is when we should use the debugging tools built in RStudio. 
 
-## 4. Debugging in RStudio
+## Debugging in RStudio
 Debugging is a very useful tool to understand the how your code behaves when it is actually running, or to find out why the code is not running as you expected. You can set a breakpoint before the line you are interested in, then when the code is running, it will stop at the breakpoint. Then you can run the code step by step to walk through it.
 
 Now let's see how to use debugging to find out how `hist()` works.
 
-### 4.1 set the breakpoint
+### set the breakpoint
 Firstly we need to set a breakpoint. To do this, you must create a R script file (you can't do this in R markdown file). Then set a breakpoint by clicking on the left area of the line number. It looks like this:
 
 ```{r echo=FALSE, fig.cap="", out.width = '60%',fig.align='center'}
@@ -101,7 +101,7 @@ knitr::include_graphics("resources/debugging_in_rstudio/5.png")
 
 It means that it will stop after it runs line 1 and before it runs line 2. 
 
-### 4.2 run the script
+### run the script
 Save the script and run it through `Code -> Run Region -> Run All`:
 
 ```{r echo=FALSE, fig.cap="", out.width = '60%',fig.align='center'}
@@ -110,7 +110,7 @@ knitr::include_graphics("resources/debugging_in_rstudio/6.png")
 
 Since you have set a breakpoint in step 1, it will automatically stop at that point!
 
-### 4.3 debug
+### debug
 When it stops, it will go into debug mode and looks like this:
 
 ```{r echo=FALSE, fig.cap="", out.width = '80%',fig.align='center'}
@@ -156,7 +156,7 @@ Finally we get the result of `breaks`:
 knitr::include_graphics("resources/debugging_in_rstudio/11.png")
 ```  
 
-### 4.4 summary
+### summary
 After we debug the script, we can understand how `hist()` determines breaks:
 ```{r}
 breaks <- pretty(range(mtl$asubic), n = nclass.Sturges(mtl$asubic), min.n = 1)
