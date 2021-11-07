@@ -57,6 +57,7 @@ rmd_files: [
   'readable_plots.Rmd',
   'spatial_data_analysis.Rmd',
   'python_vs_r_graph.Rmd',
+  'base_r_tutorial.Rmd ',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
