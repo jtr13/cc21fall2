@@ -62,6 +62,7 @@ rmd_files: [
   'python_altair_tutorial.Rmd',
   'r_to_python_plot_tutorial.Rmd',
   'models_and_prediction_evaluation.Rmd',
+  'interactive_dygraphs.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
@@ -76,3 +77,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
