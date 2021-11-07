@@ -8,42 +8,4 @@ language:
 
 
 # Chapter ordering
-rmd_files: [
-  # Part: Introduction
-  'index.Rmd', # must be first chapter
-  'assignment.Rmd',
-  'instructions.Rmd',
-  'sample_project.Rmd',
-
-  # Part: Cheatsheets
-  'statistics_in_r_vs_python.Rmd', # contains PART header
-  "python_seaborn_cheatsheet.Rmd",
-  'make_r_packages.Rmd',
-  'rchess_package_cheatsheet.Rmd',
-  'hypothesis_testing_cheatsheet.Rmd',
-  'interactive_web_visualizations_for_r_cheatsheet.Rmd',
-  'ggforce.Rmd',
-  
-  # Part: Tutorials
-  'clustering_analysis_tutorial.Rmd', # contains PART header
-  'postgresql_r.Rmd',
-  'apply_function_in_r.Rmd',
-  'introdution_interative_graphs_in_r.Rmd',
-  'stock_analysis.Rmd',
-  'data_vis_ordering.Rmd',
-  'r_lattice_tutorial.Rmd',
-  'network_visualization_in_r.Rmd',
-  'dplyr_tutorial_in_r.Rmd',
-  'downloading_files.Rmd',
-  
-  # Part: Projects & Workshops
-  
-  # Part: Data visualizations
-  
-  # Part: Custom R packages
-
-  # Part: Appendices
-  'appendix_initial_setup.Rmd', # contains PART header
-  'appendix_pull_request_tutorial.Rmd'
-
-]
+'mtemplates_mj3038.rmd',
