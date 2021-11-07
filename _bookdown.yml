@@ -35,6 +35,7 @@ rmd_files: [
   'scrape_twitter_r.Rmd',
   'r_note_and_maths_in_rmd.Rmd',
   'edav_cc.Rmd',
+  'ggplot2_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
