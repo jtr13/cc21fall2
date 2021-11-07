@@ -1,8 +1,8 @@
-#Brief Introduction of ggpubr
+# Brief Introduction of ggpubr
 
 Hanlin Yan
 
-### 1. Introduction
+### Introduction
 ggplot2, by Hadley Wickham, is an excellent and flexible package for elegant data visualization in R. However the default generated plots requires some formatting before we can send them for publication. Furthermore, to customize a ggplot, the syntax is opaque and this raises the level of difficulty for researchers with no advanced R programming skills.
 
 The ‘ggpubr’ package provides some easy-to-use functions for creating and customizing ‘ggplot2’- based publication ready plots. It have features as follows:
@@ -12,7 +12,7 @@ The ‘ggpubr’ package provides some easy-to-use functions for creating and cu
   Makes it easy to arrange and annotate multiple plots on the same page.
   Makes it easy to change grahical parameters such as colors and labels.
 
-### 2. Installation
+### Installation
 From CRAN:
 ```{r}
 #install.packages("ggpubr")
@@ -29,7 +29,7 @@ library(ggpubr)
 ```
 
 
-### 3.Histogram
+### Histogram
 Create a dataset with attributes sex and height where there are 500 people for each sex and values of height are in inches.
 ```{r}
 set.seed(2000)
@@ -46,7 +46,7 @@ gghistogram(heightdata, x = "height",
    color = "sex", fill = 'sex', bins= 15)
 ```
 
-### 4.Density plot
+### Density plot
 We still use the above data to plot the corresponding two-dimensional density plot. Here we add the mean lines and marginal rug.
 ```{r}
 ggdensity(heightdata, x = "height",
@@ -64,7 +64,7 @@ gghistogram(heightdata, x = "height",
 
 
 
-### 5. Qq plot
+### Qq plot
 Here is the qqplot example.
 ```{r}
 set.seed(1234)
@@ -75,7 +75,7 @@ wdata = data.frame(
 ggqqplot(wdata, x = "weight")
 ```
 
-### 6.Line plot
+### Line plot
 Use ggline to create a line plot.
 ```{r}
 df2 <- data.frame(supp=rep(c("VC", "OJ"), each=3),
@@ -86,7 +86,7 @@ ggline(df2, "dose", "len",
   linetype = "supp", shape = "supp", color =  "supp")
 ```
 
-### 7. Pie chart
+### Pie chart
 ggpie is the tool to make a pie plot. 
 ```{r}
 df <- data.frame(
@@ -102,7 +102,7 @@ ggpie(df, "value", label = labs,
 
 
 
-### 8.Box plot
+### Box plot
 We use the ToothGrowth dataset to show the example of Box Plot.
 ```{r}
 data("ToothGrowth")
@@ -125,7 +125,7 @@ pbox + stat_compare_means(comparisons = my_comparisons)+ # Add pairwise comparis
 ```
 
 
-### 9.Violin plot
+### Violin plot
 We still use the first 100 rows of fastfood dataset. This time, we draw a violin plot regarding calories variable with boxplots inside. And we can also compare means with this plot. Just like the boxplot we have above, we can have the p-value of ANOVA on the violin plot as well.
 ```{r, warning=FALSE}
 ggviolin(df, x = "dose", y = "len", fill = "dose",
@@ -134,7 +134,7 @@ ggviolin(df, x = "dose", y = "len", fill = "dose",
    stat_compare_means(label.y = 50)
 ```
 
-### 10.Bar plot
+### Bar plot
 We use the mtcars dataset and convert the gear variable to a factor. And we add the name columns.
 ```{r}
 data(mtcars)
@@ -210,7 +210,7 @@ ggbarplot(cars, x="name", y="hp_z",
           ggtheme = theme_minimal())
 ```
 
-### 11.Cleveland dot plot
+### Cleveland dot plot
 We still use mtcars dataset to draw a Cleveland dot plot.
 ```{r}
 ggdotchart(cars, x = "name", y = "hp",
@@ -241,7 +241,7 @@ ggdotchart(cars, x = "name", y = "hp",
   theme_cleveland()      
 ```
 
-### 12.Mix Multiple Graphs
+### Mix Multiple Graphs
 To arrange multiple graphs on one single page, we’ll use the function ggarrange()[in ggpubr]. Compared to the standard function plot_grid(), ggarange() can arrange multiple ggplots over multiple pages.
 Create a box plot and a dot plot:
 ```{r}
@@ -273,7 +273,7 @@ ggarrange(bxp, dp, sp,
 
 ```
 
-### 13. Conclusion
+### Conclusion
 As we can see, it’s much easier to plot required graphs using ggpubr without learning much about layers of ggplot2, which makes graphing less difficult for people who are not familiar with R programming.
 
 source:
