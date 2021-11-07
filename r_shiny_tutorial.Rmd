@@ -50,7 +50,7 @@ Input is the variable the app developer ask users to put in.
 
 ![](resources/r_shiny_tutorial/6.png)
 
-Shiny supports many ways of input, the following is a quick snapshot of them and you can also discover more yourself on the [official website](https://shiny.rstudio.com/reference/shiny/1.7.0/).
+Shiny supports many ways of input, the following is a quick snapshot of them and you can also discover more yourself on the ![official website](https://shiny.rstudio.com/reference/shiny/1.7.0/).
 
 ![](resources/r_shiny_tutorial/4.png)
 
@@ -207,8 +207,8 @@ After building your shiny app, how to share it with others? Since we know that s
 
 1.  Use **shinyapps.io**
 
-    [shinyapp.io](https://www.shinyapps.io/?_ga=2.2153465.873887661.1635283797-1271348492.1635283797) is a maintained by Rstudio, which is free. It's is secure and scalable.
+    ![shinyapp.io](https://www.shinyapps.io/?_ga=2.2153465.873887661.1635283797-1271348492.1635283797) is a maintained by Rstudio, which is free. It's is secure and scalable.
 
 2.  Use a **shiny server**
 
-    [shiny server](https://www.rstudio.com/products/shiny/shiny-server/?_ga=2.237632457.873887661.1635283797-1271348492.1635283797) can be more customized, users can build their our server tailor for their own need base on Linux. They can also monitor the usage and the performance of it.
+    ![shiny server](https://www.rstudio.com/products/shiny/shiny-server/?_ga=2.237632457.873887661.1635283797-1271348492.1635283797) can be more customized, users can build their our server tailor for their own need base on Linux. They can also monitor the usage and the performance of it.
