@@ -61,6 +61,7 @@ rmd_files: [
   'base_r_tutorial.Rmd',
   'python_altair_tutorial.Rmd',
   'r_to_python_plot_tutorial.Rmd',
+  'models_and_prediction_evaluation.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
