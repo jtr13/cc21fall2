@@ -9,6 +9,7 @@ language:
 
 # Chapter ordering
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -72,6 +73,7 @@ rmd_files: [
   'python_visualization_tutorial.Rmd',
   'intro_to_gganimate.Rmd',
   'nbastatr_tutorial.Rmd',
+  'mtemplates_mj3038.rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
