@@ -9,6 +9,7 @@ language:
 
 # Chapter ordering
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -69,6 +70,8 @@ rmd_files: [
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
+  'map_of_r_world.Rmd',
+  
   # Part: Data visualizations
   'introduction_to_pyecharts_package.Rmd',
   'r_vs_python_plots.Rmd',
@@ -80,3 +83,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
