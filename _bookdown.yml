@@ -9,6 +9,7 @@ language:
 
 # Chapter ordering
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -74,6 +75,7 @@ rmd_files: [
   'nbastatr_tutorial.Rmd',
   'mtemplates_mj3038.rmd',
   'introduction_to_time_series_analysis_in_r.Rmd',
+  'storytelling_with_data.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
