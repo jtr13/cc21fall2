@@ -9,6 +9,7 @@ language:
 
 # Chapter ordering
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -57,8 +58,9 @@ rmd_files: [
   'readable_plots.Rmd',
   'spatial_data_analysis.Rmd',
   'python_vs_r_graph.Rmd',
-  'base_r_tutorial.Rmd ',
+  'base_r_tutorial.Rmd',
   'python_altair_tutorial.Rmd',
+  'r_to_python_plot_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
