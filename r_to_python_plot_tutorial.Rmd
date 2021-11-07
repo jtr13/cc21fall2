@@ -1,0 +1,5 @@
+# R to python easy plot
+
+Sandy Chen and Yixuan Liu
+
+Our notebook discusses the way to generate all graphs in the class in python. During this process, we learned a lot of Python commands that allow us to produce similar graphs we learned in class. For instance, we explored functions like facet_wrap in Python. We also explored how to plot histograms, dot plot, box plot, density Plot, qq plot and ridgeplot in the Python. Here is the link for the notebook itself and the rendered pdf: https://github.com/yixual5/R-to-Python-Plot-Tutorial
