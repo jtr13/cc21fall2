@@ -58,6 +58,7 @@ rmd_files: [
   'spatial_data_analysis.Rmd',
   'python_vs_r_graph.Rmd',
   'base_r_tutorial.Rmd ',
+  'python_altair_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
