@@ -63,6 +63,7 @@ rmd_files: [
   'r_to_python_plot_tutorial.Rmd',
   'models_and_prediction_evaluation.Rmd',
   'interactive_dygraphs.Rmd',
+  'r_with_python.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
