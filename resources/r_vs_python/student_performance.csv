@@ -1,0 +1,1001 @@
+,race/ethnicity,parental level of education,lunch,test preparation course,math percentage,reading score percentage,writing score percentage,sex
+0,group B,bachelor's degree,standard,none,0.72,0.72,0.74,F
+1,group C,some college,standard,completed,0.69,0.9,0.88,F
+2,group B,master's degree,standard,none,0.9,0.95,0.93,F
+3,group A,associate's degree,free/reduced,none,0.47,0.57,0.44,M
+4,group C,some college,standard,none,0.76,0.78,0.75,M
+5,group B,associate's degree,standard,none,0.71,0.83,0.78,F
+6,group B,some college,standard,completed,0.88,0.95,0.92,F
+7,group B,some college,free/reduced,none,0.4,0.43,0.39,M
+8,group D,high school,free/reduced,completed,0.64,0.64,0.67,M
+9,group B,high school,free/reduced,none,0.38,0.6,0.5,F
+10,group C,associate's degree,standard,none,0.58,0.54,0.52,M
+11,group D,associate's degree,standard,none,0.4,0.52,0.43,M
+12,group B,high school,standard,none,0.65,0.81,0.73,F
+13,group A,some college,standard,completed,0.78,0.72,0.7,M
+14,group A,master's degree,standard,none,0.5,0.53,0.58,F
+15,group C,some high school,standard,none,0.69,0.75,0.78,F
+16,group C,high school,standard,none,0.88,0.89,0.86,M
+17,group B,some high school,free/reduced,none,0.18,0.32,0.28,F
+18,group C,master's degree,free/reduced,completed,0.46,0.42,0.46,M
+19,group C,associate's degree,free/reduced,none,0.54,0.58,0.61,F
+20,group D,high school,standard,none,0.66,0.69,0.63,M
+21,group B,some college,free/reduced,completed,0.65,0.75,0.7,F
+22,group D,some college,standard,none,0.44,0.54,0.53,M
+23,group C,some high school,standard,none,0.69,0.73,0.73,F
+24,group D,bachelor's degree,free/reduced,completed,0.74,0.71,0.8,M
+25,group A,master's degree,free/reduced,none,0.73,0.74,0.72,M
+26,group B,some college,standard,none,0.69,0.54,0.55,M
+27,group C,bachelor's degree,standard,none,0.67,0.69,0.75,F
+28,group C,high school,standard,none,0.7,0.7,0.65,M
+29,group D,master's degree,standard,none,0.62,0.7,0.75,F
+30,group D,some college,standard,none,0.69,0.74,0.74,F
+31,group B,some college,standard,none,0.63,0.65,0.61,F
+32,group E,master's degree,free/reduced,none,0.56,0.72,0.65,F
+33,group D,some college,standard,none,0.4,0.42,0.38,M
+34,group E,some college,standard,none,0.97,0.87,0.82,M
+35,group E,associate's degree,standard,completed,0.81,0.81,0.79,M
+36,group D,associate's degree,standard,none,0.74,0.81,0.83,F
+37,group D,some high school,free/reduced,none,0.5,0.64,0.59,F
+38,group D,associate's degree,free/reduced,completed,0.75,0.9,0.88,F
+39,group B,associate's degree,free/reduced,none,0.57,0.56,0.57,M
+40,group C,associate's degree,free/reduced,none,0.55,0.61,0.54,M
+41,group C,associate's degree,standard,none,0.58,0.73,0.68,F
+42,group B,associate's degree,standard,none,0.53,0.58,0.65,F
+43,group B,some college,free/reduced,completed,0.59,0.65,0.66,M
+44,group E,associate's degree,free/reduced,none,0.5,0.56,0.54,F
+45,group B,associate's degree,standard,none,0.65,0.54,0.57,M
+46,group A,associate's degree,standard,completed,0.55,0.65,0.62,F
+47,group C,high school,standard,none,0.66,0.71,0.76,F
+48,group D,associate's degree,free/reduced,completed,0.57,0.74,0.76,F
+49,group C,high school,standard,completed,0.82,0.84,0.82,M
+50,group E,some college,standard,none,0.53,0.55,0.48,M
+51,group E,associate's degree,free/reduced,completed,0.77,0.69,0.68,M
+52,group C,some college,standard,none,0.53,0.44,0.42,M
+53,group D,high school,standard,none,0.88,0.78,0.75,M
+54,group C,some high school,free/reduced,completed,0.71,0.84,0.87,F
+55,group C,high school,free/reduced,none,0.33,0.41,0.43,F
+56,group E,associate's degree,standard,completed,0.82,0.85,0.86,F
+57,group D,associate's degree,standard,none,0.52,0.55,0.49,M
+58,group D,some college,standard,completed,0.58,0.59,0.58,M
+59,group C,some high school,free/reduced,none,0.0,0.17,0.1,F
+60,group E,bachelor's degree,free/reduced,completed,0.79,0.74,0.72,M
+61,group A,some high school,free/reduced,none,0.39,0.39,0.34,M
+62,group A,associate's degree,free/reduced,none,0.62,0.61,0.55,M
+63,group C,associate's degree,standard,none,0.69,0.8,0.71,F
+64,group D,some high school,standard,none,0.59,0.58,0.59,F
+65,group B,some high school,standard,none,0.67,0.64,0.61,M
+66,group D,some high school,free/reduced,none,0.45,0.37,0.37,M
+67,group C,some college,standard,none,0.6,0.72,0.74,F
+68,group B,associate's degree,free/reduced,none,0.61,0.58,0.56,M
+69,group C,associate's degree,standard,none,0.39,0.64,0.57,F
+70,group D,some college,free/reduced,completed,0.58,0.63,0.73,F
+71,group D,some college,standard,completed,0.63,0.55,0.63,M
+72,group A,associate's degree,free/reduced,none,0.41,0.51,0.48,F
+73,group C,some high school,free/reduced,none,0.61,0.57,0.56,M
+74,group C,some high school,standard,none,0.49,0.49,0.41,M
+75,group B,associate's degree,free/reduced,none,0.44,0.41,0.38,M
+76,group E,some high school,standard,none,0.3,0.26,0.22,M
+77,group A,bachelor's degree,standard,completed,0.8,0.78,0.81,M
+78,group D,some high school,standard,completed,0.61,0.74,0.72,F
+79,group E,master's degree,standard,none,0.62,0.68,0.68,F
+80,group B,associate's degree,standard,none,0.47,0.49,0.5,F
+81,group B,high school,free/reduced,none,0.49,0.45,0.45,M
+82,group A,some college,free/reduced,completed,0.5,0.47,0.54,M
+83,group E,associate's degree,standard,none,0.72,0.64,0.63,M
+84,group D,high school,free/reduced,none,0.42,0.39,0.34,M
+85,group C,some college,standard,none,0.73,0.8,0.82,F
+86,group C,some college,free/reduced,none,0.76,0.83,0.88,F
+87,group D,associate's degree,standard,none,0.71,0.71,0.74,F
+88,group A,some college,standard,none,0.58,0.7,0.67,F
+89,group D,some high school,standard,none,0.73,0.86,0.82,F
+90,group C,bachelor's degree,standard,none,0.65,0.72,0.74,F
+91,group C,high school,free/reduced,none,0.27,0.34,0.36,M
+92,group C,high school,standard,none,0.71,0.79,0.71,M
+93,group C,associate's degree,free/reduced,completed,0.43,0.45,0.5,M
+94,group B,some college,standard,none,0.79,0.86,0.92,F
+95,group C,associate's degree,free/reduced,completed,0.78,0.81,0.82,M
+96,group B,some high school,standard,completed,0.65,0.66,0.62,M
+97,group E,some college,standard,completed,0.63,0.72,0.7,F
+98,group D,some college,free/reduced,none,0.58,0.67,0.62,F
+99,group D,bachelor's degree,standard,none,0.65,0.67,0.62,F
+100,group B,some college,standard,none,0.79,0.67,0.67,M
+101,group D,bachelor's degree,standard,completed,0.68,0.74,0.74,M
+102,group D,associate's degree,standard,none,0.85,0.91,0.89,F
+103,group B,high school,standard,completed,0.6,0.44,0.47,M
+104,group C,some college,standard,completed,0.98,0.86,0.9,M
+105,group C,some college,standard,none,0.58,0.67,0.72,F
+106,group D,master's degree,standard,none,0.87,1.0,1.0,F
+107,group E,associate's degree,standard,completed,0.66,0.63,0.64,M
+108,group B,associate's degree,free/reduced,none,0.52,0.76,0.7,F
+109,group B,some high school,standard,none,0.7,0.64,0.72,F
+110,group D,associate's degree,free/reduced,completed,0.77,0.89,0.98,F
+111,group C,high school,standard,none,0.62,0.55,0.49,M
+112,group A,associate's degree,standard,none,0.54,0.53,0.47,M
+113,group D,some college,standard,none,0.51,0.58,0.54,F
+114,group E,bachelor's degree,standard,completed,0.99,1.0,1.0,F
+115,group C,high school,standard,none,0.84,0.77,0.74,M
+116,group B,bachelor's degree,free/reduced,none,0.75,0.85,0.82,F
+117,group D,bachelor's degree,standard,none,0.78,0.82,0.79,F
+118,group D,some high school,standard,none,0.51,0.63,0.61,F
+119,group C,some college,standard,none,0.55,0.69,0.65,F
+120,group C,bachelor's degree,standard,completed,0.79,0.92,0.89,F
+121,group B,associate's degree,standard,completed,0.91,0.89,0.92,M
+122,group C,some college,standard,completed,0.88,0.93,0.93,F
+123,group D,high school,free/reduced,none,0.63,0.57,0.56,M
+124,group E,some college,standard,none,0.83,0.8,0.73,M
+125,group B,high school,standard,none,0.87,0.95,0.86,F
+126,group B,some high school,standard,none,0.72,0.68,0.67,M
+127,group D,some college,standard,completed,0.65,0.77,0.74,M
+128,group D,master's degree,standard,none,0.82,0.82,0.74,M
+129,group A,bachelor's degree,standard,none,0.51,0.49,0.51,F
+130,group D,master's degree,standard,none,0.89,0.84,0.82,M
+131,group C,some high school,free/reduced,completed,0.53,0.37,0.4,M
+132,group E,some college,free/reduced,completed,0.87,0.74,0.7,M
+133,group C,some college,standard,completed,0.75,0.81,0.84,F
+134,group D,bachelor's degree,free/reduced,completed,0.74,0.79,0.75,M
+135,group C,bachelor's degree,standard,none,0.58,0.55,0.48,M
+136,group B,some high school,standard,completed,0.51,0.54,0.41,M
+137,group E,high school,standard,none,0.7,0.55,0.56,M
+138,group C,associate's degree,standard,none,0.59,0.66,0.67,F
+139,group D,some college,standard,completed,0.71,0.61,0.69,M
+140,group D,some high school,standard,none,0.76,0.72,0.71,F
+141,group C,some college,free/reduced,none,0.59,0.62,0.64,F
+142,group E,some college,free/reduced,completed,0.42,0.55,0.54,F
+143,group A,high school,standard,none,0.57,0.43,0.47,M
+144,group D,some college,standard,none,0.88,0.73,0.78,M
+145,group C,some college,free/reduced,none,0.22,0.39,0.33,F
+146,group B,some high school,standard,none,0.88,0.84,0.75,M
+147,group C,associate's degree,free/reduced,none,0.73,0.68,0.66,M
+148,group D,bachelor's degree,standard,completed,0.68,0.75,0.81,F
+149,group E,associate's degree,free/reduced,completed,1.0,1.0,0.93,M
+150,group A,some high school,standard,completed,0.62,0.67,0.69,M
+151,group A,bachelor's degree,standard,none,0.77,0.67,0.68,M
+152,group B,associate's degree,standard,completed,0.59,0.7,0.66,F
+153,group D,bachelor's degree,standard,none,0.54,0.49,0.47,M
+154,group D,some high school,standard,none,0.62,0.67,0.61,M
+155,group C,some college,standard,completed,0.7,0.89,0.88,F
+156,group E,high school,free/reduced,completed,0.66,0.74,0.78,F
+157,group B,some college,free/reduced,none,0.6,0.6,0.6,M
+158,group B,associate's degree,standard,completed,0.61,0.86,0.87,F
+159,group D,associate's degree,free/reduced,none,0.66,0.62,0.64,M
+160,group B,associate's degree,free/reduced,completed,0.82,0.78,0.74,M
+161,group E,some college,free/reduced,completed,0.75,0.88,0.85,F
+162,group B,master's degree,free/reduced,none,0.49,0.53,0.52,M
+163,group C,high school,standard,none,0.52,0.53,0.49,M
+164,group E,master's degree,standard,none,0.81,0.92,0.91,F
+165,group C,bachelor's degree,standard,completed,0.96,1.0,1.0,F
+166,group C,high school,free/reduced,completed,0.53,0.51,0.51,M
+167,group B,master's degree,free/reduced,completed,0.58,0.76,0.78,F
+168,group B,high school,standard,completed,0.68,0.83,0.78,F
+169,group C,some college,free/reduced,completed,0.67,0.75,0.7,F
+170,group A,high school,standard,completed,0.72,0.73,0.74,M
+171,group E,some high school,standard,none,0.94,0.88,0.78,M
+172,group D,some college,standard,none,0.79,0.86,0.81,F
+173,group C,associate's degree,standard,none,0.63,0.67,0.7,F
+174,group C,bachelor's degree,free/reduced,completed,0.43,0.51,0.54,F
+175,group C,master's degree,standard,completed,0.81,0.91,0.87,F
+176,group B,high school,free/reduced,completed,0.46,0.54,0.58,F
+177,group C,associate's degree,standard,completed,0.71,0.77,0.77,F
+178,group B,master's degree,free/reduced,completed,0.52,0.7,0.62,F
+179,group D,some high school,standard,completed,0.97,1.0,1.0,F
+180,group C,master's degree,free/reduced,completed,0.62,0.68,0.75,M
+181,group C,some college,free/reduced,none,0.46,0.64,0.66,F
+182,group E,high school,standard,none,0.5,0.5,0.47,F
+183,group D,associate's degree,standard,none,0.65,0.69,0.7,F
+184,group C,some high school,free/reduced,completed,0.45,0.52,0.49,M
+185,group C,associate's degree,free/reduced,completed,0.65,0.67,0.65,M
+186,group E,high school,standard,none,0.8,0.76,0.65,M
+187,group D,some high school,standard,completed,0.62,0.66,0.68,M
+188,group B,some high school,free/reduced,none,0.48,0.52,0.45,M
+189,group C,bachelor's degree,standard,none,0.77,0.88,0.87,F
+190,group E,associate's degree,standard,none,0.66,0.65,0.69,F
+191,group D,some college,standard,completed,0.76,0.83,0.79,M
+192,group B,some high school,standard,none,0.62,0.64,0.66,F
+193,group D,some college,standard,completed,0.77,0.62,0.62,M
+194,group C,master's degree,standard,completed,0.69,0.84,0.85,F
+195,group D,associate's degree,standard,none,0.61,0.55,0.52,M
+196,group C,some high school,free/reduced,completed,0.59,0.69,0.65,M
+197,group E,high school,free/reduced,none,0.55,0.56,0.51,M
+198,group B,some college,free/reduced,none,0.45,0.53,0.55,F
+199,group B,bachelor's degree,free/reduced,none,0.78,0.79,0.76,F
+200,group C,associate's degree,standard,completed,0.67,0.84,0.86,F
+201,group D,some college,free/reduced,none,0.65,0.81,0.77,F
+202,group C,associate's degree,standard,none,0.69,0.77,0.69,M
+203,group B,associate's degree,standard,none,0.57,0.69,0.68,F
+204,group C,some college,standard,none,0.59,0.41,0.42,M
+205,group D,some high school,standard,completed,0.74,0.71,0.78,M
+206,group E,bachelor's degree,standard,none,0.82,0.62,0.62,M
+207,group E,high school,standard,completed,0.81,0.8,0.76,M
+208,group B,some college,free/reduced,none,0.74,0.81,0.76,F
+209,group B,some college,free/reduced,none,0.58,0.61,0.66,F
+210,group D,some high school,free/reduced,completed,0.8,0.79,0.79,M
+211,group C,some college,free/reduced,none,0.35,0.28,0.27,M
+212,group C,high school,free/reduced,none,0.42,0.62,0.6,F
+213,group C,associate's degree,free/reduced,completed,0.6,0.51,0.56,M
+214,group E,high school,standard,completed,0.87,0.91,0.81,M
+215,group B,some high school,standard,completed,0.84,0.83,0.75,M
+216,group E,associate's degree,free/reduced,completed,0.83,0.86,0.88,F
+217,group C,high school,free/reduced,none,0.34,0.42,0.39,F
+218,group B,high school,free/reduced,none,0.66,0.77,0.7,M
+219,group B,some high school,standard,completed,0.61,0.56,0.56,M
+220,group D,high school,standard,completed,0.56,0.68,0.74,F
+221,group B,associate's degree,standard,none,0.87,0.85,0.73,M
+222,group C,some high school,free/reduced,none,0.55,0.65,0.62,F
+223,group D,some high school,standard,none,0.86,0.8,0.75,M
+224,group B,associate's degree,standard,completed,0.52,0.66,0.73,F
+225,group E,master's degree,free/reduced,none,0.45,0.56,0.54,F
+226,group C,some college,standard,none,0.72,0.72,0.71,F
+227,group D,high school,standard,none,0.57,0.5,0.54,M
+228,group A,some high school,free/reduced,none,0.68,0.72,0.64,M
+229,group C,some college,standard,completed,0.88,0.95,0.94,F
+230,group D,some college,standard,none,0.76,0.64,0.66,M
+231,group C,associate's degree,standard,none,0.46,0.43,0.42,M
+232,group B,bachelor's degree,standard,none,0.67,0.86,0.83,F
+233,group E,some high school,standard,none,0.92,0.87,0.78,M
+234,group C,bachelor's degree,standard,completed,0.83,0.82,0.84,M
+235,group D,associate's degree,standard,none,0.8,0.75,0.77,M
+236,group D,bachelor's degree,free/reduced,none,0.63,0.66,0.67,M
+237,group D,some high school,standard,completed,0.64,0.6,0.74,F
+238,group B,some college,standard,none,0.54,0.52,0.51,M
+239,group C,associate's degree,standard,none,0.84,0.8,0.8,M
+240,group D,high school,free/reduced,completed,0.73,0.68,0.66,M
+241,group E,bachelor's degree,standard,none,0.8,0.83,0.83,F
+242,group D,high school,standard,none,0.56,0.52,0.55,F
+243,group E,some college,standard,none,0.59,0.51,0.43,M
+244,group D,some high school,standard,none,0.75,0.74,0.69,M
+245,group C,associate's degree,standard,none,0.85,0.76,0.71,M
+246,group E,associate's degree,standard,none,0.89,0.76,0.74,M
+247,group B,high school,standard,completed,0.58,0.7,0.68,F
+248,group B,high school,standard,none,0.65,0.64,0.62,F
+249,group C,high school,standard,none,0.68,0.6,0.53,M
+250,group A,some high school,standard,completed,0.47,0.49,0.49,M
+251,group D,some college,free/reduced,none,0.71,0.83,0.83,F
+252,group B,some high school,standard,completed,0.6,0.7,0.7,F
+253,group D,master's degree,standard,none,0.8,0.8,0.72,M
+254,group D,high school,standard,none,0.54,0.52,0.52,M
+255,group E,some college,standard,none,0.62,0.73,0.7,F
+256,group C,associate's degree,free/reduced,none,0.64,0.73,0.68,F
+257,group C,associate's degree,standard,completed,0.78,0.77,0.77,M
+258,group B,some college,standard,none,0.7,0.75,0.78,F
+259,group C,master's degree,free/reduced,completed,0.65,0.81,0.81,F
+260,group C,some high school,free/reduced,completed,0.64,0.79,0.77,F
+261,group C,some college,standard,completed,0.79,0.79,0.78,M
+262,group C,some high school,free/reduced,none,0.44,0.5,0.51,F
+263,group E,high school,standard,none,0.99,0.93,0.9,F
+264,group D,high school,standard,none,0.76,0.73,0.68,M
+265,group D,some high school,free/reduced,none,0.59,0.42,0.41,M
+266,group C,bachelor's degree,standard,none,0.63,0.75,0.81,F
+267,group D,high school,standard,none,0.69,0.72,0.77,F
+268,group D,associate's degree,standard,completed,0.88,0.92,0.95,F
+269,group E,some college,free/reduced,none,0.71,0.76,0.7,F
+270,group C,bachelor's degree,standard,none,0.69,0.63,0.61,M
+271,group C,some college,standard,none,0.58,0.49,0.42,M
+272,group D,associate's degree,free/reduced,none,0.47,0.53,0.58,F
+273,group D,some college,standard,none,0.65,0.7,0.71,F
+274,group B,some college,standard,completed,0.88,0.85,0.76,M
+275,group C,bachelor's degree,standard,none,0.83,0.78,0.73,M
+276,group C,some high school,standard,completed,0.85,0.92,0.93,F
+277,group E,high school,standard,completed,0.59,0.63,0.75,F
+278,group C,some high school,free/reduced,none,0.65,0.86,0.8,F
+279,group B,bachelor's degree,free/reduced,none,0.73,0.56,0.57,M
+280,group D,high school,standard,none,0.53,0.52,0.42,M
+281,group D,high school,standard,none,0.45,0.48,0.46,M
+282,group D,bachelor's degree,free/reduced,none,0.73,0.79,0.84,F
+283,group D,some college,free/reduced,completed,0.7,0.78,0.78,F
+284,group B,some high school,standard,none,0.37,0.46,0.46,F
+285,group B,associate's degree,standard,completed,0.81,0.82,0.82,M
+286,group E,associate's degree,standard,completed,0.97,0.82,0.88,M
+287,group B,some high school,standard,none,0.67,0.89,0.82,F
+288,group B,bachelor's degree,free/reduced,none,0.88,0.75,0.76,M
+289,group E,some high school,standard,completed,0.77,0.76,0.77,M
+290,group C,associate's degree,standard,none,0.76,0.7,0.68,M
+291,group D,some high school,standard,none,0.86,0.73,0.7,M
+292,group C,some high school,standard,completed,0.63,0.6,0.57,M
+293,group E,bachelor's degree,standard,none,0.65,0.73,0.75,F
+294,group D,high school,free/reduced,completed,0.78,0.77,0.8,M
+295,group B,associate's degree,free/reduced,none,0.67,0.62,0.6,M
+296,group A,some high school,standard,completed,0.46,0.41,0.43,M
+297,group E,associate's degree,standard,completed,0.71,0.74,0.68,M
+298,group C,high school,free/reduced,completed,0.4,0.46,0.5,M
+299,group D,associate's degree,free/reduced,none,0.9,0.87,0.75,M
+300,group A,some college,free/reduced,completed,0.81,0.78,0.81,M
+301,group D,some high school,free/reduced,none,0.56,0.54,0.52,M
+302,group C,associate's degree,standard,completed,0.67,0.84,0.81,F
+303,group B,associate's degree,standard,none,0.8,0.76,0.64,M
+304,group C,associate's degree,standard,completed,0.74,0.75,0.83,F
+305,group A,some college,standard,none,0.69,0.67,0.69,M
+306,group E,some college,standard,completed,0.99,0.87,0.81,M
+307,group C,some high school,standard,none,0.51,0.52,0.44,M
+308,group B,associate's degree,free/reduced,none,0.53,0.71,0.67,F
+309,group D,high school,free/reduced,none,0.49,0.57,0.52,F
+310,group B,associate's degree,standard,none,0.73,0.76,0.8,F
+311,group B,bachelor's degree,standard,none,0.66,0.6,0.57,M
+312,group D,bachelor's degree,standard,completed,0.67,0.61,0.68,M
+313,group C,associate's degree,free/reduced,completed,0.68,0.67,0.69,F
+314,group C,bachelor's degree,standard,completed,0.59,0.64,0.75,F
+315,group C,high school,standard,none,0.71,0.66,0.65,M
+316,group D,master's degree,standard,completed,0.77,0.82,0.91,F
+317,group C,associate's degree,standard,none,0.83,0.72,0.78,M
+318,group B,bachelor's degree,standard,none,0.63,0.71,0.69,M
+319,group D,associate's degree,free/reduced,none,0.56,0.65,0.63,F
+320,group C,high school,free/reduced,completed,0.67,0.79,0.84,F
+321,group E,high school,standard,none,0.75,0.86,0.79,F
+322,group C,some college,standard,none,0.71,0.81,0.8,F
+323,group C,some high school,free/reduced,none,0.43,0.53,0.53,F
+324,group C,high school,free/reduced,none,0.41,0.46,0.43,F
+325,group C,some college,standard,none,0.82,0.9,0.94,F
+326,group C,some college,standard,none,0.61,0.61,0.62,M
+327,group A,some college,free/reduced,none,0.28,0.23,0.19,M
+328,group C,associate's degree,standard,completed,0.82,0.75,0.77,M
+329,group B,some high school,standard,none,0.41,0.55,0.51,F
+330,group C,high school,standard,none,0.71,0.6,0.61,M
+331,group C,associate's degree,standard,none,0.47,0.37,0.35,M
+332,group E,associate's degree,standard,completed,0.62,0.56,0.53,M
+333,group B,associate's degree,standard,none,0.9,0.78,0.81,M
+334,group C,bachelor's degree,standard,none,0.83,0.93,0.95,F
+335,group B,some college,free/reduced,none,0.61,0.68,0.66,F
+336,group D,some high school,standard,completed,0.76,0.7,0.69,M
+337,group C,associate's degree,standard,none,0.49,0.51,0.43,M
+338,group B,some high school,free/reduced,none,0.24,0.38,0.27,F
+339,group D,some high school,free/reduced,completed,0.35,0.55,0.6,F
+340,group C,high school,free/reduced,none,0.58,0.61,0.52,M
+341,group C,high school,standard,none,0.61,0.73,0.63,F
+342,group B,high school,standard,completed,0.69,0.76,0.74,F
+343,group D,associate's degree,standard,completed,0.67,0.72,0.67,M
+344,group D,some college,standard,none,0.79,0.73,0.67,M
+345,group C,high school,standard,none,0.72,0.8,0.75,F
+346,group B,some college,standard,none,0.62,0.61,0.57,M
+347,group C,bachelor's degree,standard,completed,0.77,0.94,0.95,F
+348,group D,high school,free/reduced,none,0.75,0.74,0.66,M
+349,group E,associate's degree,standard,none,0.87,0.74,0.76,M
+350,group B,bachelor's degree,standard,none,0.52,0.65,0.69,F
+351,group E,some college,standard,none,0.66,0.57,0.52,M
+352,group C,some college,standard,completed,0.63,0.78,0.8,F
+353,group C,associate's degree,standard,none,0.46,0.58,0.57,F
+354,group C,some college,standard,none,0.59,0.71,0.7,F
+355,group B,bachelor's degree,standard,none,0.61,0.72,0.7,F
+356,group A,associate's degree,standard,none,0.63,0.61,0.61,M
+357,group C,some college,free/reduced,completed,0.42,0.66,0.69,F
+358,group D,some college,free/reduced,none,0.59,0.62,0.61,M
+359,group D,some college,standard,none,0.8,0.9,0.89,F
+360,group B,high school,standard,none,0.58,0.62,0.59,F
+361,group B,some high school,standard,completed,0.85,0.84,0.78,M
+362,group C,some college,standard,none,0.52,0.58,0.58,F
+363,group D,some high school,free/reduced,none,0.27,0.34,0.32,F
+364,group C,some college,standard,none,0.59,0.6,0.58,M
+365,group A,bachelor's degree,free/reduced,completed,0.49,0.58,0.6,M
+366,group C,high school,standard,completed,0.69,0.58,0.53,M
+367,group C,bachelor's degree,free/reduced,none,0.61,0.66,0.61,M
+368,group A,some high school,free/reduced,none,0.44,0.64,0.58,F
+369,group D,some high school,standard,none,0.73,0.84,0.85,F
+370,group E,some college,standard,none,0.84,0.77,0.71,M
+371,group C,some college,free/reduced,completed,0.45,0.73,0.7,F
+372,group D,some high school,standard,none,0.74,0.74,0.72,M
+373,group D,some college,standard,completed,0.82,0.97,0.96,F
+374,group D,bachelor's degree,standard,none,0.59,0.7,0.73,F
+375,group E,associate's degree,free/reduced,none,0.46,0.43,0.41,M
+376,group D,some high school,standard,none,0.8,0.9,0.82,F
+377,group D,master's degree,free/reduced,completed,0.85,0.95,1.0,F
+378,group A,some high school,standard,none,0.71,0.83,0.77,F
+379,group A,bachelor's degree,standard,none,0.66,0.64,0.62,M
+380,group B,associate's degree,standard,none,0.8,0.86,0.83,F
+381,group C,associate's degree,standard,completed,0.87,1.0,0.95,M
+382,group C,master's degree,free/reduced,none,0.79,0.81,0.71,M
+383,group E,some high school,free/reduced,none,0.38,0.49,0.45,F
+384,group A,some high school,free/reduced,none,0.38,0.43,0.43,F
+385,group E,some college,standard,none,0.67,0.76,0.75,F
+386,group E,bachelor's degree,standard,none,0.64,0.73,0.7,F
+387,group C,associate's degree,free/reduced,none,0.57,0.78,0.67,F
+388,group D,high school,standard,none,0.62,0.64,0.64,F
+389,group D,master's degree,standard,none,0.73,0.7,0.75,M
+390,group E,some high school,free/reduced,completed,0.73,0.67,0.59,M
+391,group D,some college,standard,none,0.77,0.68,0.77,F
+392,group E,some college,standard,none,0.76,0.67,0.67,M
+393,group C,associate's degree,standard,completed,0.57,0.54,0.56,M
+394,group C,some high school,standard,completed,0.65,0.74,0.77,F
+395,group A,high school,free/reduced,none,0.48,0.45,0.41,M
+396,group B,high school,free/reduced,none,0.5,0.67,0.63,F
+397,group C,associate's degree,standard,none,0.85,0.89,0.95,F
+398,group B,some high school,standard,none,0.74,0.63,0.57,M
+399,group D,some high school,standard,none,0.6,0.59,0.54,M
+400,group C,some high school,standard,completed,0.59,0.54,0.67,F
+401,group A,some college,standard,none,0.53,0.43,0.43,M
+402,group A,some college,free/reduced,none,0.49,0.65,0.55,F
+403,group D,high school,standard,completed,0.88,0.99,1.0,F
+404,group C,high school,standard,none,0.54,0.59,0.62,F
+405,group C,some high school,standard,none,0.63,0.73,0.68,F
+406,group B,associate's degree,standard,completed,0.65,0.65,0.63,M
+407,group B,associate's degree,standard,none,0.82,0.8,0.77,F
+408,group D,high school,free/reduced,completed,0.52,0.57,0.56,F
+409,group D,associate's degree,standard,completed,0.87,0.84,0.85,M
+410,group D,master's degree,standard,completed,0.7,0.71,0.74,F
+411,group E,some college,standard,completed,0.84,0.83,0.78,M
+412,group D,associate's degree,standard,none,0.71,0.66,0.6,M
+413,group B,some high school,standard,completed,0.63,0.67,0.67,M
+414,group C,bachelor's degree,free/reduced,completed,0.51,0.72,0.79,F
+415,group E,high school,standard,none,0.84,0.73,0.69,M
+416,group C,bachelor's degree,standard,completed,0.71,0.74,0.68,M
+417,group C,associate's degree,standard,none,0.74,0.73,0.67,M
+418,group D,some college,standard,none,0.68,0.59,0.62,M
+419,group E,high school,free/reduced,completed,0.57,0.56,0.54,M
+420,group C,associate's degree,free/reduced,completed,0.82,0.93,0.93,F
+421,group D,high school,standard,completed,0.57,0.58,0.64,F
+422,group D,master's degree,free/reduced,completed,0.47,0.58,0.67,F
+423,group A,some high school,standard,completed,0.59,0.85,0.8,F
+424,group B,some college,free/reduced,none,0.41,0.39,0.34,M
+425,group C,some college,free/reduced,none,0.62,0.67,0.62,F
+426,group C,bachelor's degree,standard,none,0.86,0.83,0.86,M
+427,group C,some high school,free/reduced,none,0.69,0.71,0.65,M
+428,group A,some high school,free/reduced,none,0.65,0.59,0.53,M
+429,group C,some high school,free/reduced,none,0.68,0.63,0.54,M
+430,group C,associate's degree,free/reduced,none,0.64,0.66,0.59,M
+431,group C,high school,standard,none,0.61,0.72,0.7,F
+432,group C,high school,standard,none,0.61,0.56,0.55,M
+433,group A,some high school,free/reduced,none,0.47,0.59,0.5,F
+434,group C,some high school,standard,none,0.73,0.66,0.66,M
+435,group C,some college,free/reduced,completed,0.5,0.48,0.53,M
+436,group D,associate's degree,standard,none,0.75,0.68,0.64,M
+437,group D,associate's degree,free/reduced,none,0.75,0.66,0.73,M
+438,group C,high school,standard,none,0.7,0.56,0.51,M
+439,group D,some high school,standard,completed,0.89,0.88,0.82,M
+440,group C,some college,standard,completed,0.67,0.81,0.79,F
+441,group D,high school,standard,none,0.78,0.81,0.8,F
+442,group A,some high school,free/reduced,none,0.59,0.73,0.69,F
+443,group B,associate's degree,standard,none,0.73,0.83,0.76,F
+444,group A,some high school,free/reduced,none,0.79,0.82,0.73,M
+445,group C,some high school,standard,completed,0.67,0.74,0.77,F
+446,group D,some college,free/reduced,none,0.69,0.66,0.6,M
+447,group C,high school,standard,completed,0.86,0.81,0.8,M
+448,group B,high school,standard,none,0.47,0.46,0.42,M
+449,group B,associate's degree,standard,none,0.81,0.73,0.72,M
+450,group C,some college,free/reduced,completed,0.64,0.85,0.85,F
+451,group E,some college,standard,none,1.0,0.92,0.97,F
+452,group C,associate's degree,free/reduced,none,0.65,0.77,0.74,F
+453,group C,some college,free/reduced,none,0.65,0.58,0.49,M
+454,group C,associate's degree,free/reduced,none,0.53,0.61,0.62,F
+455,group C,bachelor's degree,free/reduced,none,0.37,0.56,0.47,M
+456,group D,bachelor's degree,standard,none,0.79,0.89,0.89,F
+457,group D,associate's degree,free/reduced,none,0.53,0.54,0.48,M
+458,group E,bachelor's degree,standard,none,1.0,1.0,1.0,F
+459,group B,high school,standard,completed,0.72,0.65,0.68,M
+460,group C,bachelor's degree,free/reduced,none,0.53,0.58,0.55,M
+461,group B,some college,free/reduced,none,0.54,0.54,0.45,M
+462,group E,some college,standard,none,0.71,0.7,0.76,F
+463,group C,some college,free/reduced,none,0.77,0.9,0.91,F
+464,group A,bachelor's degree,standard,completed,0.75,0.58,0.62,M
+465,group C,some college,standard,none,0.84,0.87,0.91,F
+466,group D,associate's degree,free/reduced,none,0.26,0.31,0.38,F
+467,group A,high school,free/reduced,completed,0.72,0.67,0.65,M
+468,group A,high school,free/reduced,completed,0.77,0.88,0.85,F
+469,group C,some college,standard,none,0.91,0.74,0.76,M
+470,group C,associate's degree,standard,completed,0.83,0.85,0.9,F
+471,group C,high school,standard,none,0.63,0.69,0.74,F
+472,group C,associate's degree,standard,completed,0.68,0.86,0.84,F
+473,group D,some high school,standard,none,0.59,0.67,0.61,F
+474,group B,associate's degree,standard,completed,0.9,0.9,0.91,F
+475,group D,bachelor's degree,standard,completed,0.71,0.76,0.83,F
+476,group E,bachelor's degree,standard,completed,0.76,0.62,0.66,M
+477,group D,associate's degree,standard,none,0.8,0.68,0.72,M
+478,group D,master's degree,standard,none,0.55,0.64,0.7,F
+479,group E,associate's degree,standard,none,0.76,0.71,0.67,M
+480,group B,high school,standard,completed,0.73,0.71,0.68,M
+481,group D,associate's degree,free/reduced,none,0.52,0.59,0.56,F
+482,group C,some college,free/reduced,none,0.68,0.68,0.61,M
+483,group A,high school,standard,none,0.59,0.52,0.46,M
+484,group B,associate's degree,standard,none,0.49,0.52,0.54,F
+485,group C,high school,standard,none,0.7,0.74,0.71,M
+486,group D,some college,free/reduced,none,0.61,0.47,0.56,M
+487,group C,associate's degree,free/reduced,none,0.6,0.75,0.74,F
+488,group B,some high school,standard,completed,0.64,0.53,0.57,M
+489,group A,associate's degree,free/reduced,completed,0.79,0.82,0.82,M
+490,group A,associate's degree,free/reduced,none,0.65,0.85,0.76,F
+491,group C,associate's degree,standard,none,0.64,0.64,0.7,F
+492,group C,some college,standard,none,0.83,0.83,0.9,F
+493,group C,bachelor's degree,standard,none,0.81,0.88,0.9,F
+494,group B,high school,standard,none,0.54,0.64,0.68,F
+495,group D,high school,standard,completed,0.68,0.64,0.66,M
+496,group C,some college,standard,none,0.54,0.48,0.52,F
+497,group D,some college,free/reduced,completed,0.59,0.78,0.76,F
+498,group B,some high school,standard,none,0.66,0.69,0.68,F
+499,group E,some college,standard,none,0.76,0.71,0.72,M
+500,group D,master's degree,standard,none,0.74,0.79,0.82,F
+501,group B,associate's degree,standard,completed,0.94,0.87,0.92,F
+502,group C,some college,free/reduced,none,0.63,0.61,0.54,M
+503,group E,associate's degree,standard,completed,0.95,0.89,0.92,F
+504,group D,master's degree,free/reduced,none,0.4,0.59,0.54,F
+505,group B,some high school,standard,none,0.82,0.82,0.8,F
+506,group A,high school,standard,none,0.68,0.7,0.66,M
+507,group B,bachelor's degree,free/reduced,none,0.55,0.59,0.54,M
+508,group C,master's degree,standard,none,0.79,0.78,0.77,M
+509,group C,bachelor's degree,standard,none,0.86,0.92,0.87,F
+510,group D,some college,standard,none,0.76,0.71,0.73,M
+511,group A,some high school,standard,none,0.64,0.5,0.43,M
+512,group D,some high school,free/reduced,none,0.62,0.49,0.52,M
+513,group B,some high school,standard,completed,0.54,0.61,0.62,F
+514,group B,master's degree,free/reduced,completed,0.77,0.97,0.94,F
+515,group C,some high school,standard,completed,0.76,0.87,0.85,F
+516,group D,some college,standard,none,0.74,0.89,0.84,F
+517,group E,some college,standard,completed,0.66,0.74,0.73,F
+518,group D,some high school,standard,completed,0.66,0.78,0.78,F
+519,group B,high school,free/reduced,completed,0.67,0.78,0.79,F
+520,group D,some college,standard,none,0.71,0.49,0.52,M
+521,group C,associate's degree,standard,none,0.91,0.86,0.84,F
+522,group D,bachelor's degree,standard,none,0.69,0.58,0.57,M
+523,group C,master's degree,free/reduced,none,0.54,0.59,0.5,M
+524,group C,high school,standard,completed,0.53,0.52,0.49,M
+525,group E,some college,standard,none,0.68,0.6,0.59,M
+526,group C,some high school,free/reduced,completed,0.56,0.61,0.6,M
+527,group C,high school,free/reduced,none,0.36,0.53,0.43,F
+528,group D,bachelor's degree,free/reduced,none,0.29,0.41,0.47,F
+529,group C,associate's degree,standard,none,0.62,0.74,0.7,F
+530,group C,associate's degree,standard,completed,0.68,0.67,0.73,F
+531,group C,some high school,standard,none,0.47,0.54,0.53,F
+532,group E,associate's degree,standard,completed,0.62,0.61,0.58,M
+533,group E,associate's degree,standard,completed,0.79,0.88,0.94,F
+534,group B,high school,standard,completed,0.73,0.69,0.68,M
+535,group C,bachelor's degree,free/reduced,completed,0.66,0.83,0.83,F
+536,group C,associate's degree,standard,completed,0.51,0.6,0.58,M
+537,group D,high school,standard,none,0.51,0.66,0.62,F
+538,group E,bachelor's degree,standard,completed,0.85,0.66,0.71,M
+539,group A,associate's degree,standard,completed,0.97,0.92,0.86,M
+540,group C,high school,standard,completed,0.75,0.69,0.68,M
+541,group D,associate's degree,free/reduced,completed,0.79,0.82,0.8,M
+542,group C,associate's degree,standard,none,0.81,0.77,0.79,F
+543,group D,associate's degree,standard,none,0.82,0.95,0.89,F
+544,group D,master's degree,standard,none,0.64,0.63,0.66,F
+545,group E,some high school,free/reduced,completed,0.78,0.83,0.8,M
+546,group A,some high school,standard,completed,0.92,1.0,0.97,F
+547,group C,high school,standard,completed,0.72,0.67,0.64,M
+548,group C,high school,free/reduced,none,0.62,0.67,0.64,F
+549,group C,master's degree,standard,none,0.79,0.72,0.69,M
+550,group C,some high school,free/reduced,none,0.79,0.76,0.65,M
+551,group B,bachelor's degree,free/reduced,completed,0.87,0.9,0.88,M
+552,group B,associate's degree,standard,none,0.4,0.48,0.5,F
+553,group D,some college,free/reduced,none,0.77,0.62,0.64,M
+554,group E,associate's degree,standard,none,0.53,0.45,0.4,M
+555,group C,some college,free/reduced,none,0.32,0.39,0.33,F
+556,group C,associate's degree,standard,completed,0.55,0.72,0.79,F
+557,group C,master's degree,free/reduced,none,0.61,0.67,0.66,M
+558,group B,associate's degree,free/reduced,none,0.53,0.7,0.7,F
+559,group D,some high school,standard,none,0.73,0.66,0.62,M
+560,group D,some college,standard,completed,0.74,0.75,0.79,F
+561,group C,some college,standard,none,0.63,0.74,0.74,F
+562,group C,bachelor's degree,standard,completed,0.96,0.9,0.92,M
+563,group D,some college,free/reduced,completed,0.63,0.8,0.8,F
+564,group B,bachelor's degree,free/reduced,none,0.48,0.51,0.46,M
+565,group B,associate's degree,standard,none,0.48,0.43,0.45,M
+566,group E,bachelor's degree,free/reduced,completed,0.92,1.0,1.0,F
+567,group D,master's degree,free/reduced,completed,0.61,0.71,0.78,F
+568,group B,high school,free/reduced,none,0.63,0.48,0.47,M
+569,group D,bachelor's degree,free/reduced,none,0.68,0.68,0.67,M
+570,group B,some college,standard,completed,0.71,0.75,0.7,M
+571,group A,bachelor's degree,standard,none,0.91,0.96,0.92,M
+572,group C,some college,standard,none,0.53,0.62,0.56,F
+573,group C,high school,free/reduced,completed,0.5,0.66,0.64,F
+574,group E,high school,standard,none,0.74,0.81,0.71,F
+575,group A,associate's degree,free/reduced,completed,0.4,0.55,0.53,M
+576,group A,some college,standard,completed,0.61,0.51,0.52,M
+577,group B,high school,standard,none,0.81,0.91,0.89,F
+578,group B,some college,free/reduced,completed,0.48,0.56,0.58,F
+579,group D,master's degree,standard,none,0.53,0.61,0.68,F
+580,group D,some high school,standard,none,0.81,0.97,0.96,F
+581,group E,some high school,standard,none,0.77,0.79,0.8,F
+582,group D,bachelor's degree,free/reduced,none,0.63,0.73,0.78,F
+583,group D,associate's degree,standard,completed,0.73,0.75,0.8,F
+584,group D,some college,standard,none,0.69,0.77,0.77,F
+585,group C,associate's degree,standard,none,0.65,0.76,0.76,F
+586,group A,high school,standard,none,0.55,0.73,0.73,F
+587,group C,bachelor's degree,free/reduced,none,0.44,0.63,0.62,F
+588,group C,some college,standard,none,0.54,0.64,0.65,F
+589,group A,some high school,standard,none,0.48,0.66,0.65,F
+590,group C,some college,free/reduced,none,0.58,0.57,0.54,M
+591,group A,some high school,standard,none,0.71,0.62,0.5,M
+592,group E,bachelor's degree,standard,none,0.68,0.68,0.64,M
+593,group E,high school,standard,none,0.74,0.76,0.73,F
+594,group C,bachelor's degree,standard,completed,0.92,1.0,0.99,F
+595,group C,bachelor's degree,standard,completed,0.56,0.79,0.72,F
+596,group B,high school,free/reduced,none,0.3,0.24,0.15,M
+597,group A,some high school,standard,none,0.53,0.54,0.48,M
+598,group D,high school,standard,none,0.69,0.77,0.73,F
+599,group D,some high school,standard,none,0.65,0.82,0.81,F
+600,group D,master's degree,standard,none,0.54,0.6,0.63,F
+601,group C,high school,standard,none,0.29,0.29,0.3,F
+602,group E,some college,standard,none,0.76,0.78,0.8,F
+603,group D,high school,free/reduced,none,0.6,0.57,0.51,M
+604,group D,master's degree,free/reduced,completed,0.84,0.89,0.9,M
+605,group C,some high school,standard,none,0.75,0.72,0.62,M
+606,group C,associate's degree,standard,none,0.85,0.84,0.82,F
+607,group C,master's degree,free/reduced,none,0.4,0.58,0.54,F
+608,group E,some college,standard,none,0.61,0.64,0.62,F
+609,group B,associate's degree,standard,none,0.58,0.63,0.65,F
+610,group D,some college,free/reduced,completed,0.69,0.6,0.63,M
+611,group C,some college,standard,none,0.58,0.59,0.66,F
+612,group C,bachelor's degree,standard,completed,0.94,0.9,0.91,M
+613,group C,associate's degree,standard,none,0.65,0.77,0.74,F
+614,group A,associate's degree,standard,none,0.82,0.93,0.93,F
+615,group C,high school,standard,none,0.6,0.68,0.72,F
+616,group E,bachelor's degree,standard,none,0.37,0.45,0.38,F
+617,group D,bachelor's degree,standard,none,0.88,0.78,0.83,M
+618,group D,master's degree,standard,none,0.95,0.81,0.84,M
+619,group C,associate's degree,free/reduced,completed,0.65,0.73,0.68,M
+620,group C,high school,free/reduced,none,0.35,0.61,0.54,F
+621,group B,bachelor's degree,free/reduced,none,0.62,0.63,0.56,M
+622,group C,high school,free/reduced,completed,0.58,0.51,0.52,M
+623,group A,some college,standard,completed,1.0,0.96,0.86,M
+624,group E,bachelor's degree,free/reduced,none,0.61,0.58,0.62,F
+625,group D,some college,standard,completed,1.0,0.97,0.99,M
+626,group B,associate's degree,free/reduced,completed,0.69,0.7,0.63,M
+627,group D,associate's degree,standard,none,0.61,0.48,0.46,M
+628,group D,some college,free/reduced,none,0.49,0.57,0.46,M
+629,group C,some high school,standard,completed,0.44,0.51,0.55,F
+630,group D,some college,standard,none,0.67,0.64,0.7,M
+631,group B,high school,standard,none,0.79,0.6,0.65,M
+632,group B,bachelor's degree,standard,completed,0.66,0.74,0.81,F
+633,group C,high school,standard,none,0.75,0.88,0.85,F
+634,group D,some high school,standard,none,0.84,0.84,0.8,M
+635,group A,high school,standard,none,0.71,0.74,0.64,M
+636,group B,high school,free/reduced,completed,0.67,0.8,0.81,F
+637,group D,some high school,standard,completed,0.8,0.92,0.88,F
+638,group E,some college,standard,none,0.86,0.76,0.74,M
+639,group D,associate's degree,standard,none,0.76,0.74,0.73,F
+640,group D,high school,standard,none,0.41,0.52,0.51,M
+641,group D,associate's degree,free/reduced,completed,0.74,0.88,0.9,F
+642,group B,some high school,free/reduced,none,0.72,0.81,0.79,F
+643,group E,high school,standard,completed,0.74,0.79,0.8,F
+644,group B,high school,standard,none,0.7,0.65,0.6,M
+645,group B,bachelor's degree,standard,completed,0.65,0.81,0.81,F
+646,group D,associate's degree,standard,none,0.59,0.7,0.65,F
+647,group E,high school,free/reduced,none,0.64,0.62,0.68,F
+648,group B,high school,standard,none,0.5,0.53,0.55,F
+649,group D,some college,standard,completed,0.69,0.79,0.81,F
+650,group C,some high school,free/reduced,completed,0.51,0.56,0.53,M
+651,group A,high school,standard,completed,0.68,0.8,0.76,F
+652,group D,some college,standard,completed,0.85,0.86,0.98,F
+653,group A,associate's degree,standard,completed,0.65,0.7,0.74,F
+654,group B,some high school,standard,none,0.73,0.79,0.79,F
+655,group B,some college,standard,none,0.62,0.67,0.67,F
+656,group C,associate's degree,free/reduced,none,0.77,0.67,0.64,M
+657,group D,some high school,standard,none,0.69,0.66,0.61,M
+658,group D,associate's degree,free/reduced,none,0.43,0.6,0.58,F
+659,group D,associate's degree,standard,none,0.9,0.87,0.85,M
+660,group C,some college,free/reduced,none,0.74,0.77,0.73,M
+661,group C,some high school,standard,none,0.73,0.66,0.63,M
+662,group D,some college,free/reduced,none,0.55,0.71,0.69,F
+663,group C,high school,standard,none,0.65,0.69,0.67,F
+664,group D,associate's degree,standard,none,0.8,0.63,0.63,M
+665,group C,some high school,free/reduced,completed,0.5,0.6,0.6,F
+666,group C,some college,free/reduced,completed,0.63,0.73,0.71,F
+667,group B,bachelor's degree,free/reduced,none,0.77,0.85,0.87,F
+668,group C,some college,standard,none,0.73,0.74,0.61,M
+669,group D,associate's degree,standard,completed,0.81,0.72,0.77,M
+670,group C,high school,free/reduced,none,0.66,0.76,0.68,F
+671,group D,associate's degree,free/reduced,none,0.52,0.57,0.5,M
+672,group C,some college,standard,none,0.69,0.78,0.76,F
+673,group C,associate's degree,standard,completed,0.65,0.84,0.84,F
+674,group D,high school,standard,completed,0.69,0.77,0.78,F
+675,group B,some college,standard,completed,0.5,0.64,0.66,F
+676,group E,some college,standard,completed,0.73,0.78,0.76,F
+677,group C,some high school,standard,completed,0.7,0.82,0.76,F
+678,group D,associate's degree,free/reduced,none,0.81,0.75,0.78,M
+679,group D,some college,free/reduced,none,0.63,0.61,0.6,M
+680,group D,high school,standard,none,0.67,0.72,0.74,F
+681,group B,high school,standard,none,0.6,0.68,0.6,M
+682,group B,high school,standard,none,0.62,0.55,0.54,M
+683,group C,some high school,free/reduced,completed,0.29,0.4,0.44,F
+684,group B,some college,standard,completed,0.62,0.66,0.68,M
+685,group E,master's degree,standard,completed,0.94,0.99,1.0,F
+686,group E,some college,standard,completed,0.85,0.75,0.68,M
+687,group D,associate's degree,free/reduced,none,0.77,0.78,0.73,M
+688,group A,high school,free/reduced,none,0.53,0.58,0.44,M
+689,group E,some college,free/reduced,none,0.93,0.9,0.83,M
+690,group C,associate's degree,standard,none,0.49,0.53,0.53,F
+691,group E,associate's degree,free/reduced,none,0.73,0.76,0.78,F
+692,group C,bachelor's degree,free/reduced,completed,0.66,0.74,0.81,F
+693,group D,associate's degree,standard,none,0.77,0.77,0.73,F
+694,group C,some high school,standard,none,0.49,0.63,0.56,F
+695,group D,some college,free/reduced,none,0.79,0.89,0.86,F
+696,group C,associate's degree,standard,completed,0.75,0.82,0.9,F
+697,group A,bachelor's degree,standard,none,0.59,0.72,0.7,F
+698,group D,associate's degree,standard,completed,0.57,0.78,0.79,F
+699,group C,high school,free/reduced,none,0.66,0.66,0.59,M
+700,group E,bachelor's degree,standard,completed,0.79,0.81,0.82,F
+701,group B,some high school,standard,none,0.57,0.67,0.72,F
+702,group A,bachelor's degree,standard,completed,0.87,0.84,0.87,M
+703,group D,some college,standard,none,0.63,0.64,0.67,F
+704,group B,some high school,free/reduced,completed,0.59,0.63,0.64,F
+705,group A,bachelor's degree,free/reduced,none,0.62,0.72,0.65,M
+706,group D,high school,standard,none,0.46,0.34,0.36,M
+707,group C,some college,standard,none,0.66,0.59,0.52,M
+708,group D,high school,standard,none,0.89,0.87,0.79,M
+709,group D,associate's degree,free/reduced,completed,0.42,0.61,0.58,F
+710,group C,some college,standard,completed,0.93,0.84,0.9,M
+711,group E,some high school,standard,completed,0.8,0.85,0.85,F
+712,group D,some college,standard,none,0.98,1.0,0.99,F
+713,group D,master's degree,standard,none,0.81,0.81,0.84,M
+714,group B,some high school,standard,completed,0.6,0.7,0.74,F
+715,group B,associate's degree,free/reduced,completed,0.76,0.94,0.87,F
+716,group C,associate's degree,standard,completed,0.73,0.78,0.72,M
+717,group C,associate's degree,standard,completed,0.96,0.96,0.99,F
+718,group C,high school,standard,none,0.76,0.76,0.74,F
+719,group E,associate's degree,free/reduced,completed,0.91,0.73,0.8,M
+720,group C,some college,free/reduced,none,0.62,0.72,0.7,F
+721,group D,some high school,free/reduced,completed,0.55,0.59,0.59,M
+722,group B,some high school,free/reduced,completed,0.74,0.9,0.88,F
+723,group C,high school,standard,none,0.5,0.48,0.42,M
+724,group B,some college,standard,none,0.47,0.43,0.41,M
+725,group E,some college,standard,completed,0.81,0.74,0.71,M
+726,group E,associate's degree,standard,completed,0.65,0.75,0.77,F
+727,group E,some high school,standard,completed,0.68,0.51,0.57,M
+728,group D,high school,free/reduced,none,0.73,0.92,0.84,F
+729,group C,some college,standard,none,0.53,0.39,0.37,M
+730,group B,associate's degree,free/reduced,completed,0.68,0.77,0.8,F
+731,group A,some high school,free/reduced,none,0.55,0.46,0.43,M
+732,group C,some college,standard,completed,0.87,0.89,0.94,F
+733,group D,some high school,standard,none,0.55,0.47,0.44,M
+734,group E,some college,free/reduced,none,0.53,0.58,0.57,F
+735,group C,master's degree,standard,none,0.67,0.57,0.59,M
+736,group C,associate's degree,standard,none,0.92,0.79,0.84,M
+737,group B,some college,free/reduced,completed,0.53,0.66,0.73,F
+738,group D,associate's degree,standard,none,0.81,0.71,0.73,M
+739,group C,high school,free/reduced,none,0.61,0.6,0.55,M
+740,group D,bachelor's degree,standard,none,0.8,0.73,0.72,M
+741,group A,associate's degree,free/reduced,none,0.37,0.57,0.56,F
+742,group C,high school,standard,none,0.81,0.84,0.82,F
+743,group C,associate's degree,standard,completed,0.59,0.73,0.72,F
+744,group B,some college,free/reduced,none,0.55,0.55,0.47,M
+745,group D,associate's degree,standard,none,0.72,0.79,0.74,M
+746,group D,high school,standard,none,0.69,0.75,0.71,M
+747,group C,some college,standard,none,0.69,0.64,0.68,M
+748,group C,bachelor's degree,free/reduced,none,0.5,0.6,0.59,F
+749,group B,some college,standard,completed,0.87,0.84,0.86,M
+750,group D,some high school,standard,completed,0.71,0.69,0.68,M
+751,group E,some college,standard,none,0.68,0.72,0.65,M
+752,group C,master's degree,free/reduced,completed,0.79,0.77,0.75,M
+753,group C,some high school,standard,completed,0.77,0.9,0.85,F
+754,group C,associate's degree,free/reduced,none,0.58,0.55,0.53,M
+755,group E,associate's degree,standard,none,0.84,0.95,0.92,F
+756,group D,some college,standard,none,0.55,0.58,0.52,M
+757,group E,bachelor's degree,free/reduced,completed,0.7,0.68,0.72,M
+758,group D,some college,free/reduced,completed,0.52,0.59,0.65,F
+759,group B,some college,standard,completed,0.69,0.77,0.77,M
+760,group C,high school,free/reduced,none,0.53,0.72,0.64,F
+761,group D,some high school,standard,none,0.48,0.58,0.54,F
+762,group D,some high school,standard,completed,0.78,0.81,0.86,M
+763,group B,high school,standard,none,0.62,0.62,0.63,F
+764,group D,some college,standard,none,0.6,0.63,0.59,M
+765,group B,high school,standard,none,0.74,0.72,0.72,F
+766,group C,high school,standard,completed,0.58,0.75,0.77,F
+767,group B,high school,standard,completed,0.76,0.62,0.6,M
+768,group D,some high school,standard,none,0.68,0.71,0.75,F
+769,group A,some college,free/reduced,none,0.58,0.6,0.57,M
+770,group B,high school,standard,none,0.52,0.48,0.49,M
+771,group D,bachelor's degree,standard,none,0.75,0.73,0.74,M
+772,group B,some high school,free/reduced,completed,0.52,0.67,0.72,F
+773,group C,bachelor's degree,free/reduced,none,0.62,0.78,0.79,F
+774,group B,some college,standard,none,0.66,0.65,0.6,M
+775,group B,some high school,free/reduced,none,0.49,0.58,0.55,F
+776,group B,high school,standard,none,0.66,0.72,0.7,F
+777,group C,some college,free/reduced,none,0.35,0.44,0.43,F
+778,group A,some college,standard,completed,0.72,0.79,0.82,F
+779,group E,associate's degree,standard,completed,0.94,0.85,0.82,M
+780,group D,associate's degree,free/reduced,none,0.46,0.56,0.57,F
+781,group B,master's degree,standard,none,0.77,0.9,0.84,F
+782,group B,high school,free/reduced,completed,0.76,0.85,0.82,F
+783,group C,associate's degree,standard,completed,0.52,0.59,0.62,F
+784,group C,bachelor's degree,standard,completed,0.91,0.81,0.79,M
+785,group B,some high school,standard,completed,0.32,0.51,0.44,F
+786,group E,some high school,free/reduced,none,0.72,0.79,0.77,F
+787,group B,some college,standard,none,0.19,0.38,0.32,F
+788,group C,associate's degree,free/reduced,none,0.68,0.65,0.61,M
+789,group C,master's degree,free/reduced,none,0.52,0.65,0.61,F
+790,group B,high school,standard,none,0.48,0.62,0.6,F
+791,group D,some college,free/reduced,none,0.6,0.66,0.7,F
+792,group D,high school,free/reduced,none,0.66,0.74,0.69,M
+793,group E,some high school,standard,completed,0.89,0.84,0.77,M
+794,group B,high school,standard,none,0.42,0.52,0.51,F
+795,group E,associate's degree,free/reduced,completed,0.57,0.68,0.73,F
+796,group D,high school,standard,none,0.7,0.7,0.7,M
+797,group E,associate's degree,free/reduced,none,0.7,0.84,0.81,F
+798,group E,some college,standard,none,0.69,0.6,0.54,M
+799,group C,associate's degree,standard,none,0.52,0.55,0.57,F
+800,group C,some high school,standard,completed,0.67,0.73,0.68,M
+801,group C,some high school,standard,completed,0.76,0.8,0.73,M
+802,group E,associate's degree,standard,none,0.87,0.94,0.95,F
+803,group B,some college,standard,none,0.82,0.85,0.87,F
+804,group C,some college,standard,none,0.73,0.76,0.78,F
+805,group A,some college,free/reduced,none,0.75,0.81,0.74,M
+806,group D,some college,free/reduced,none,0.64,0.74,0.75,F
+807,group E,high school,free/reduced,none,0.41,0.45,0.4,F
+808,group C,high school,standard,none,0.9,0.75,0.69,M
+809,group B,bachelor's degree,standard,none,0.59,0.54,0.51,M
+810,group A,some high school,standard,none,0.51,0.31,0.36,M
+811,group A,high school,free/reduced,none,0.45,0.47,0.49,M
+812,group C,master's degree,standard,completed,0.54,0.64,0.67,F
+813,group E,some high school,standard,completed,0.87,0.84,0.76,M
+814,group C,high school,standard,none,0.72,0.8,0.83,F
+815,group B,some high school,standard,completed,0.94,0.86,0.87,M
+816,group A,bachelor's degree,standard,none,0.45,0.59,0.64,F
+817,group D,bachelor's degree,free/reduced,completed,0.61,0.7,0.76,M
+818,group B,high school,free/reduced,none,0.6,0.72,0.68,F
+819,group C,some high school,standard,none,0.77,0.91,0.88,F
+820,group A,some high school,standard,completed,0.85,0.9,0.92,F
+821,group D,bachelor's degree,free/reduced,none,0.78,0.9,0.93,F
+822,group E,some college,free/reduced,completed,0.49,0.52,0.51,M
+823,group B,high school,free/reduced,none,0.71,0.87,0.82,F
+824,group C,some high school,free/reduced,none,0.48,0.58,0.52,F
+825,group C,high school,standard,none,0.62,0.67,0.58,M
+826,group C,associate's degree,free/reduced,completed,0.56,0.68,0.7,F
+827,group C,some high school,standard,none,0.65,0.69,0.76,F
+828,group D,some high school,free/reduced,completed,0.69,0.86,0.81,F
+829,group B,some high school,standard,none,0.68,0.54,0.53,M
+830,group A,some college,free/reduced,none,0.61,0.6,0.57,F
+831,group C,bachelor's degree,free/reduced,completed,0.74,0.86,0.89,F
+832,group A,bachelor's degree,standard,none,0.64,0.6,0.58,M
+833,group B,high school,standard,completed,0.77,0.82,0.89,F
+834,group B,some college,standard,none,0.58,0.5,0.45,M
+835,group C,high school,standard,completed,0.6,0.64,0.74,F
+836,group E,high school,standard,none,0.73,0.64,0.57,M
+837,group A,high school,standard,completed,0.75,0.82,0.79,F
+838,group B,associate's degree,free/reduced,completed,0.58,0.57,0.53,M
+839,group C,associate's degree,standard,none,0.66,0.77,0.73,F
+840,group D,high school,free/reduced,none,0.39,0.52,0.46,F
+841,group C,some high school,standard,none,0.64,0.58,0.51,M
+842,group B,high school,free/reduced,completed,0.23,0.44,0.36,F
+843,group B,some college,free/reduced,completed,0.74,0.77,0.76,M
+844,group D,some high school,free/reduced,completed,0.4,0.65,0.64,F
+845,group E,master's degree,standard,none,0.9,0.85,0.84,M
+846,group C,master's degree,standard,completed,0.91,0.85,0.85,M
+847,group D,high school,standard,none,0.64,0.54,0.5,M
+848,group C,high school,standard,none,0.59,0.72,0.68,F
+849,group D,associate's degree,standard,none,0.8,0.75,0.69,M
+850,group C,master's degree,standard,none,0.71,0.67,0.67,M
+851,group A,high school,standard,none,0.61,0.68,0.63,F
+852,group E,some college,standard,none,0.87,0.85,0.93,F
+853,group E,some high school,standard,none,0.82,0.67,0.61,M
+854,group C,some high school,standard,none,0.62,0.64,0.55,M
+855,group B,bachelor's degree,standard,none,0.97,0.97,0.96,F
+856,group B,some college,free/reduced,none,0.75,0.68,0.65,M
+857,group C,bachelor's degree,standard,none,0.65,0.79,0.81,F
+858,group B,high school,standard,completed,0.52,0.49,0.46,M
+859,group C,associate's degree,free/reduced,none,0.87,0.73,0.72,M
+860,group C,associate's degree,standard,none,0.53,0.62,0.53,F
+861,group E,master's degree,free/reduced,none,0.81,0.86,0.87,F
+862,group D,bachelor's degree,free/reduced,completed,0.39,0.42,0.38,M
+863,group C,some college,standard,completed,0.71,0.71,0.8,F
+864,group C,associate's degree,standard,none,0.97,0.93,0.91,M
+865,group D,some college,standard,completed,0.82,0.82,0.88,M
+866,group C,high school,free/reduced,none,0.59,0.53,0.52,M
+867,group B,associate's degree,standard,none,0.61,0.42,0.41,M
+868,group E,associate's degree,free/reduced,completed,0.78,0.74,0.72,M
+869,group C,associate's degree,free/reduced,none,0.49,0.51,0.51,M
+870,group B,high school,standard,none,0.59,0.58,0.47,M
+871,group C,some college,standard,completed,0.7,0.72,0.76,F
+872,group B,associate's degree,standard,completed,0.82,0.84,0.78,M
+873,group E,associate's degree,free/reduced,none,0.9,0.9,0.82,M
+874,group C,bachelor's degree,free/reduced,none,0.43,0.62,0.61,F
+875,group C,some college,free/reduced,none,0.8,0.64,0.66,M
+876,group D,some college,standard,none,0.81,0.82,0.84,M
+877,group C,some high school,standard,none,0.57,0.61,0.54,M
+878,group D,some high school,standard,none,0.59,0.72,0.8,F
+879,group D,associate's degree,standard,none,0.64,0.76,0.74,F
+880,group C,bachelor's degree,standard,completed,0.63,0.64,0.66,M
+881,group E,bachelor's degree,standard,completed,0.71,0.7,0.7,F
+882,group B,high school,free/reduced,none,0.64,0.73,0.71,F
+883,group D,bachelor's degree,free/reduced,none,0.55,0.46,0.44,M
+884,group E,associate's degree,standard,none,0.51,0.51,0.54,F
+885,group C,associate's degree,standard,completed,0.62,0.76,0.8,F
+886,group E,associate's degree,standard,completed,0.93,1.0,0.95,F
+887,group C,high school,free/reduced,none,0.54,0.72,0.59,M
+888,group D,some college,free/reduced,none,0.69,0.65,0.74,F
+889,group D,high school,free/reduced,none,0.44,0.51,0.48,M
+890,group E,some college,standard,completed,0.86,0.85,0.91,F
+891,group E,associate's degree,standard,none,0.85,0.92,0.85,F
+892,group A,master's degree,free/reduced,none,0.5,0.67,0.73,F
+893,group D,some high school,standard,completed,0.88,0.74,0.75,M
+894,group E,associate's degree,standard,none,0.59,0.62,0.69,F
+895,group E,some high school,free/reduced,none,0.32,0.34,0.38,F
+896,group B,high school,free/reduced,none,0.36,0.29,0.27,M
+897,group B,some high school,free/reduced,completed,0.63,0.78,0.79,F
+898,group D,associate's degree,standard,completed,0.67,0.54,0.63,M
+899,group D,some high school,standard,completed,0.65,0.78,0.82,F
+900,group D,master's degree,standard,none,0.85,0.84,0.89,M
+901,group C,master's degree,standard,none,0.73,0.78,0.74,F
+902,group A,high school,free/reduced,completed,0.34,0.48,0.41,F
+903,group D,bachelor's degree,free/reduced,completed,0.93,1.0,1.0,F
+904,group D,some high school,free/reduced,none,0.67,0.84,0.84,F
+905,group D,some college,standard,none,0.88,0.77,0.77,M
+906,group B,high school,standard,none,0.57,0.48,0.51,M
+907,group D,some college,standard,completed,0.79,0.84,0.91,F
+908,group C,bachelor's degree,free/reduced,none,0.67,0.75,0.72,F
+909,group E,bachelor's degree,standard,completed,0.7,0.64,0.7,M
+910,group D,bachelor's degree,free/reduced,none,0.5,0.42,0.48,M
+911,group A,some college,standard,none,0.69,0.84,0.82,F
+912,group C,bachelor's degree,standard,completed,0.52,0.61,0.66,F
+913,group C,bachelor's degree,free/reduced,completed,0.47,0.62,0.66,F
+914,group B,associate's degree,free/reduced,none,0.46,0.61,0.55,F
+915,group E,some college,standard,none,0.68,0.7,0.66,F
+916,group E,bachelor's degree,standard,completed,1.0,1.0,1.0,M
+917,group C,high school,standard,none,0.44,0.61,0.52,F
+918,group C,associate's degree,standard,completed,0.57,0.77,0.8,F
+919,group B,some college,standard,completed,0.91,0.96,0.91,M
+920,group D,high school,free/reduced,none,0.69,0.7,0.67,M
+921,group C,high school,free/reduced,none,0.35,0.53,0.46,F
+922,group D,high school,standard,none,0.72,0.66,0.66,M
+923,group B,associate's degree,free/reduced,none,0.54,0.65,0.65,F
+924,group D,high school,free/reduced,none,0.74,0.7,0.69,M
+925,group E,some high school,standard,completed,0.74,0.64,0.6,M
+926,group E,associate's degree,free/reduced,none,0.64,0.56,0.52,M
+927,group D,high school,free/reduced,completed,0.65,0.61,0.71,F
+928,group E,associate's degree,free/reduced,completed,0.46,0.43,0.44,M
+929,group C,some high school,free/reduced,none,0.48,0.56,0.51,F
+930,group C,some college,free/reduced,completed,0.67,0.74,0.7,M
+931,group D,some college,free/reduced,none,0.62,0.57,0.62,M
+932,group D,associate's degree,free/reduced,completed,0.61,0.71,0.73,M
+933,group C,bachelor's degree,free/reduced,completed,0.7,0.75,0.74,M
+934,group C,associate's degree,standard,completed,0.98,0.87,0.9,M
+935,group D,some college,free/reduced,none,0.7,0.63,0.58,M
+936,group A,associate's degree,standard,none,0.67,0.57,0.53,M
+937,group E,high school,free/reduced,none,0.57,0.58,0.57,F
+938,group D,some college,standard,completed,0.85,0.81,0.85,M
+939,group D,some high school,standard,completed,0.77,0.68,0.69,M
+940,group C,master's degree,free/reduced,completed,0.72,0.66,0.72,M
+941,group D,master's degree,standard,none,0.78,0.91,0.96,F
+942,group C,high school,standard,none,0.81,0.66,0.64,M
+943,group A,some high school,free/reduced,completed,0.61,0.62,0.61,M
+944,group B,high school,standard,none,0.58,0.68,0.61,F
+945,group C,associate's degree,standard,none,0.54,0.61,0.58,F
+946,group B,high school,standard,none,0.82,0.82,0.8,M
+947,group D,some college,free/reduced,none,0.49,0.58,0.6,F
+948,group B,some high school,free/reduced,completed,0.49,0.5,0.52,M
+949,group E,high school,free/reduced,completed,0.57,0.75,0.73,F
+950,group E,high school,standard,none,0.94,0.73,0.71,M
+951,group D,some college,standard,completed,0.75,0.77,0.83,F
+952,group E,some high school,free/reduced,none,0.74,0.74,0.72,F
+953,group C,high school,standard,completed,0.58,0.52,0.54,M
+954,group C,some college,standard,none,0.62,0.69,0.69,F
+955,group E,associate's degree,standard,none,0.72,0.57,0.62,M
+956,group C,some college,standard,none,0.84,0.87,0.81,M
+957,group D,master's degree,standard,none,0.92,1.0,1.0,F
+958,group D,high school,standard,none,0.45,0.63,0.59,F
+959,group C,high school,standard,none,0.75,0.81,0.71,M
+960,group A,some college,standard,none,0.56,0.58,0.64,F
+961,group D,some high school,free/reduced,none,0.48,0.54,0.53,F
+962,group E,associate's degree,standard,none,1.0,1.0,1.0,F
+963,group C,some high school,free/reduced,completed,0.65,0.76,0.75,F
+964,group D,some college,standard,none,0.72,0.57,0.58,M
+965,group D,some college,standard,none,0.62,0.7,0.72,F
+966,group A,some high school,standard,completed,0.66,0.68,0.64,M
+967,group C,some college,standard,none,0.63,0.63,0.6,M
+968,group E,associate's degree,standard,none,0.68,0.76,0.67,F
+969,group B,bachelor's degree,standard,none,0.75,0.84,0.8,F
+970,group D,bachelor's degree,standard,none,0.89,1.0,1.0,F
+971,group C,some high school,standard,completed,0.78,0.72,0.69,M
+972,group A,high school,free/reduced,completed,0.53,0.5,0.6,F
+973,group D,some college,free/reduced,none,0.49,0.65,0.61,F
+974,group A,some college,standard,none,0.54,0.63,0.67,F
+975,group C,some college,standard,completed,0.64,0.82,0.77,F
+976,group B,some college,free/reduced,completed,0.6,0.62,0.6,M
+977,group C,associate's degree,standard,none,0.62,0.65,0.58,M
+978,group D,high school,standard,completed,0.55,0.41,0.48,M
+979,group C,associate's degree,standard,none,0.91,0.95,0.94,F
+980,group B,high school,free/reduced,none,0.08,0.24,0.23,F
+981,group D,some high school,standard,none,0.81,0.78,0.78,M
+982,group B,some high school,standard,completed,0.79,0.85,0.86,M
+983,group A,some college,standard,completed,0.78,0.87,0.91,F
+984,group C,some high school,standard,none,0.74,0.75,0.82,F
+985,group A,high school,standard,none,0.57,0.51,0.54,M
+986,group C,associate's degree,standard,none,0.4,0.59,0.51,F
+987,group E,some high school,standard,completed,0.81,0.75,0.76,M
+988,group A,some high school,free/reduced,none,0.44,0.45,0.45,F
+989,group D,some college,free/reduced,completed,0.67,0.86,0.83,F
+990,group E,high school,free/reduced,completed,0.86,0.81,0.75,M
+991,group B,some high school,standard,completed,0.65,0.82,0.78,F
+992,group D,associate's degree,free/reduced,none,0.55,0.76,0.76,F
+993,group D,bachelor's degree,free/reduced,none,0.62,0.72,0.74,F
+994,group A,high school,standard,none,0.63,0.63,0.62,M
+995,group E,master's degree,standard,completed,0.88,0.99,0.95,F
+996,group C,high school,free/reduced,none,0.62,0.55,0.55,M
+997,group C,high school,free/reduced,completed,0.59,0.71,0.65,F
+998,group D,some college,standard,completed,0.68,0.78,0.77,F
+999,group D,some college,free/reduced,none,0.77,0.86,0.86,F
