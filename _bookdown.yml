@@ -36,6 +36,7 @@ rmd_files: [
   'edav_cc.Rmd',
   'ggplot2_cheatsheet.Rmd',
   'rstudio_cheatsheet.Rmd',
+  'd3_visualizations_in_r_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
