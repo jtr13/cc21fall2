@@ -68,6 +68,7 @@ rmd_files: [
   'r_with_python.Rmd',
   'python_visualization_tutorial.Rmd',
   'intro_to_gganimate.Rmd',
+  'nbastatr_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
