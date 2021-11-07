@@ -67,6 +67,7 @@ rmd_files: [
   'interactive_dygraphs.Rmd',
   'r_with_python.Rmd',
   'python_visualization_tutorial.Rmd',
+  'intro_to_gganimate.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
