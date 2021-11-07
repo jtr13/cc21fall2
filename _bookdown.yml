@@ -74,12 +74,12 @@ rmd_files: [
   'nbastatr_tutorial.Rmd',
   
   # Part: Projects & Workshops
-  'analytics_consulting_intro.Rmd',
+  'analytics_consulting_intro.Rmd', # contains PART header
   'map_of_r_world.Rmd',
   'alluvial_diagrams_and_their_implementation_in_r.Rmd',
   
   # Part: Data visualizations
-  'introduction_to_pyecharts_package.Rmd',
+  'introduction_to_pyecharts_package.Rmd', # contains PART header
   'r_vs_python_plots.Rmd',
   'plots_python_seaborn_matplotlib.Rmd',
   
