@@ -9,7 +9,6 @@ language:
 
 # Chapter ordering
 
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -33,6 +32,7 @@ rmd_files: [
   'data_visualization_packages_in_r.Rmd',
   'esquisse_cheatsheet.Rmd',
   'review_sheet_for_r_code_and_data_transformation.Rmd',
+  'scrape_twitter_r.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -78,4 +78,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
