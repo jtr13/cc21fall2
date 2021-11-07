@@ -3,16 +3,16 @@
 Zihan Wang
 
 
-#### 1. Introduction
+## Introduction
 
 `ggformat` (https://github.com/jtr13/ggformat) is an add-in tool to clean up and style ggplot2 code, and it is very useful to tidy up a single sentence when writing `R` code. 
 
 However, `ggformat` is not perfect -- although it works well for a single `ggplot2` sentence, it's power is limited because it cannot handle multiple sentences, long sentences and comments. Therefore, I propose `ggformat++` that can solve the aforementioned drawbacks of `ggformat`. The Github Repo of `ggformat++` is: (https://github.com/hannawong/super_ggformat)
 
 
-#### 2. How it differs from `ggformat`
+## How it differs from `ggformat`
 
-##### 2.1  Handle Multiple Sentences
+### Handle Multiple Sentences
 
 The most salient difference from `ggformat` is that `ggformat++`deals with multiple sentences. 
 
@@ -60,7 +60,7 @@ parcoords(data=sel_df_,brushMode='1D-axes',color=list(colorBy="Region"),queue=TR
 
 In the source code, I use function `def prologue(full_str)`, `def parse_sentences(str_collapse)`,`def parse_small_sentences(large_sentence)` to split sentences according to  `\n` , `<-` , and right parenthesis `)`. Then I use function `def arrange_sentence_order(atom_sentences)` to rearrange `library()` sentence to the top of the code block.
 
-##### 2.2 Handle Comments
+### Handle Comments
 
 `ggformat` has trouble handling comments, for example:
 ```{r}
@@ -96,7 +96,7 @@ dt<-seattlepets%>%###aaaaa
 	ungroup()
 ```
 
-##### 2.3 Wrapping Long Sentences
+### Wrapping Long Sentences
 
 In the github of `ggformat`, it says that `ggformat` has trouble wrapping long sentences.
 
@@ -160,7 +160,7 @@ ggplot()+
 	ylab('density')
 ```
 
-#### 3. Ways to improve `ggformat++`
+## Ways to improve `ggformat++`
 
 Only using hand-crafted rules would definitely results in some bad cases. The most reliable way to format code is to build a compiler, with which we could know the roles of each token (e.g. identifier, function, operators, comments...). Therefore, the code can format themselves according to their roles. 
 
