@@ -2,15 +2,15 @@
 
 Weiwei Jiang
 
-## 1.Introduction 
+## Introduction 
 
 **Python** and **R** are important tools in Data Science. Sometimes you may be more familiar with a problem solution in one tool rather than the other. Sometimes you may have already developed a well-defined pipeline model or data analytic procedure in one of *Python* or *R*. It's tedious and time-consuming to rewrite the code in another form. Thus, it will bring lots of benefits if we can combine *Python* and *R*. This documents will foucs on how to run python code in R environment. There are  packages enable you to run R scripts in Python environment. rpy2 is one of the packages that are still keeping updating and the official documents will be a good start tutorial, as I put the link in Reference.
 
-## 2. Runing Python code in R scripts
+##  Runing Python code in R scripts
 
 If you are searching a way to call *Python* from *R*, there exists an convenient CRAN package called "reticulate". This package enables you to easily transform between *R* and *Python* data type,using library from *Python*, source *Python* scripts and switch between different versions of *Python*.
 
-### 2.1 Installation  
+###  Installation  
 
 "reticualte" is included in CRAN, so you can simply install and use the package as follows.
 ```{r}
@@ -18,7 +18,7 @@ If you are searching a way to call *Python* from *R*, there exists an convenient
 library(reticulate)
 ```
 
-### 2.2 Python version 
+###  Python version 
 The default python version is the version declared in `PATH`. And this package is compatible with all version of *Python* >= 2.7.  You can either change the default python version or call functions to change python version when you need. 
 
 The way to change default python version is to change the default python version in the `Rproj` or simply run this scripts `Sys.setenv(RETICULATE_PYTHON = PATH)`. The `PATH` value is the specific path that you want to use.
@@ -40,7 +40,7 @@ There also exists a function called `py_config()` to show the current *Python* v
 py_config()
 ```
 
-### 2.3 Data Transformation Between R and Python
+### Data Transformation Between R and Python
 
 One important thing you need to bear in mind is the data type consistence when you calling another programming language in current programming environment. Luckily, the *reticluate* package automatically convert the python data types to their equivalent R data types when you calling *Python* in *R*. You can convert Between *Python* and *R* data by calling `py_to_r` or `r_to_py`. Here is a simple example. 
 
@@ -84,7 +84,7 @@ One important thing you need to bear in mind is that Arrays in R and Python are 
 (y <- py_to_r(x))
 ```
 
-### 2.4 Running python in R 
+### Running python in R 
 There are several ways you can do to call Python in R. 
 
 1. Running in R Markdown cells and refers to the data by using `py$`
@@ -92,7 +92,7 @@ There are several ways you can do to call Python in R.
 3. Executing python code with functions.
 4. Create an interaction Python console in R by Calling `repl_python()` function.
 
-#### 2.4.1 Running in R Markdown cells
+####  Running in R Markdown cells
 The reticulate packages includes a Python engine for R Markdown. Thus, you can simply write your python code in R Markdown.
 ```{python}
 import numpy as np
@@ -149,7 +149,7 @@ ames
 ```{python}
 print(r.ames.head())
 ```
-#### 2.4.2 Source exists Python scripts 
+#### Source exists Python scripts 
 You can simply source an exist Python script and using Python code in R cells. Here is an example.
 This is the content of plot Script
 ```
@@ -176,7 +176,7 @@ plot_with_image(ames[1:10,]$area, ames[1:10,]$price)
 ```
 
 ![](resources/r_with_python/Rplot.png)
-### 2.4.3 Executing python code with functions.
+###  Executing python code with functions.
 There are two functions called `py_run_file` and `py_run_string()`. These two functions can help you to execute python in R scripts. Here is an example
 
 ```{r}
@@ -195,12 +195,12 @@ np <- import("numpy", convert = TRUE)
 np1 <- np$array(c(1:10))
 np1
 ```
-### 2.4.4 Executing python code with functions.
+###  Executing python code with functions.
 Create an interaction Python console in R by Calling `repl_python()` function. If you wish to write your python code in the console, you can call the `repl_python()` function. The the console of RStudio will change to Python engine. You can reach your python variable simply by adding the prefix `py$`.
 
 
 
-## 3. Reference 
+## Reference 
 [https://rstudio.github.io/reticulate/](https://rstudio.github.io/reticulate/)
 
 [https://anderfernandez.com/en/blog/how-to-use-python-in-r/](https://anderfernandez.com/en/blog/how-to-use-python-in-r/)
