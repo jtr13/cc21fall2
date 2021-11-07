@@ -1,11 +1,6 @@
----
-title: "5702 Community Contribution"
-author: "Yanbing Chen"
-date: "10/25/2021"
-output: html_document
----
+# Get NBA dataset in R
 
-# Tutorial for package 'nbastatR' in R
+Yanbing Chen
 
 ## Motivation
 
