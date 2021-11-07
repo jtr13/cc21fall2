@@ -6,6 +6,7 @@ language:
   ui:
     chapter_name: "Chapter "
 
+
 # Chapter ordering
 
 rmd_files: [
