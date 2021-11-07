@@ -9,6 +9,7 @@ language:
 
 # Chapter ordering
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -64,6 +65,7 @@ rmd_files: [
   'models_and_prediction_evaluation.Rmd',
   'interactive_dygraphs.Rmd',
   'r_with_python.Rmd',
+  'python_visualization_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd',
