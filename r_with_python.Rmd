@@ -2,8 +2,8 @@
 
 Weiwei Jiang
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE, cache=FALSE)
+```{r, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
 ```
 
 ## Introduction 
