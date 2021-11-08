@@ -5,7 +5,8 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
-
+    
+'r_recursive_codes_and_som.Rmd',
 
 # Chapter ordering
 
