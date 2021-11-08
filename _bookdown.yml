@@ -78,6 +78,7 @@ rmd_files: [
   'introduction_to_time_series_analysis_in_r.Rmd',
   'storytelling_with_data.Rmd',
   "r_torch_tutorial.Rmd",
+  'correlogram_calendar_heatmap_slopegram_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
