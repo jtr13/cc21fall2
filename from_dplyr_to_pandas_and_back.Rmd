@@ -4,9 +4,9 @@ Yujia Xie
 \
 \
 
-```{r, include=FALSE}
+```{r, include=FALSE, cache=FALSE}
 # this prevents package loading message from appearing in the rendered version of your problem set
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE, cache=FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE)
 
 ```
 
