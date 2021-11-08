@@ -152,6 +152,7 @@ textbook-notes
 ggplot2-cheatsheet
 rstudio-cheatsheet
 d3-visualization-in-r-cheatsheet
+colors
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
@@ -540,7 +541,7 @@ series
 title-axis-label-legends
 range-selector
 hightlight-annotation-shadings
-colors
+colors-1
 references-2
 integrate-r-with-python
 introduction-10

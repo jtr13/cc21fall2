@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 17 Data Visualization Packages in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Hari Prasad Renganathan &amp; Karveandhan Palanisamy Data Visualization Packages in R Herewith we have prepared a cheat sheet to do data visualization using R. Some common packages: ggplot2 Leaflet...">
+<title>Chapter 26 Colors | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Ziheng Ru This is a cheat sheet that introduces color palettes. By browsing this cheatsheet, users could find information that explains coloring functions in creating their desired graphs.">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 17 Data Visualization Packages in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 26 Colors | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Hari Prasad Renganathan &amp; Karveandhan Palanisamy Data Visualization Packages in R Herewith we have prepared a cheat sheet to do data visualization using R. Some common packages: ggplot2 Leaflet...">
+<meta property="og:description" content="Ziheng Ru This is a cheat sheet that introduces color palettes. By browsing this cheatsheet, users could find information that explains coloring functions in creating their desired graphs.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 17 Data Visualization Packages in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Hari Prasad Renganathan &amp; Karveandhan Palanisamy Data Visualization Packages in R Herewith we have prepared a cheat sheet to do data visualization using R. Some common packages: ggplot2 Leaflet...">
+<meta name="twitter:title" content="Chapter 26 Colors | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Ziheng Ru This is a cheat sheet that introduces color palettes. By browsing this cheatsheet, users could find information that explains coloring functions in creating their desired graphs.">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -60,7 +60,7 @@
 <li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
 <li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
 <li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
-<li><a class="active" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
 <li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
 <li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
 <li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
@@ -69,7 +69,7 @@
 <li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
 <li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
 <li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
-<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="active" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
 <li class="book-part">Tutorials</li>
 <li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">27</span> Tutorial on Cluster Analysis</a></li>
 <li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">28</span> How to Integrate R with PostgreSQL</a></li>
@@ -128,40 +128,30 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-visualization-packages-in-r" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="colors" class="section level1">
 <h1>
-<span class="header-section-number">17</span> Data Visualization Packages in R<a class="anchor" aria-label="anchor" href="#data-visualization-packages-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">26</span> Colors<a class="anchor" aria-label="anchor" href="#colors"><i class="fas fa-link"></i></a>
 </h1>
-<p>Hari Prasad Renganathan &amp; Karveandhan Palanisamy</p>
-<div class="figure">
-<img src="resources/data_visualization_packages_in_r/data_visualization_packages_in_r.jpg" alt=""><p class="caption">Data Visualization Packages in R</p>
+<p>Ziheng Ru</p>
+<div class="inline-figure">This is a cheat sheet that introduces color palettes. By browsing this cheatsheet, users could find information that explains coloring functions in creating their desired graphs.
+<img src="resources/colors/colors.jpg" alt="Colors">
 </div>
-<p>Herewith we have prepared a cheat sheet to do data visualization using R.</p>
-<p>Some common packages:</p>
-<ol style="list-style-type: decimal">
-<li>ggplot2</li>
-<li>Leaflet</li>
-<li>Plotly</li>
-<li>Lattice</li>
-<li>RColorBrewer</li>
-<li>Highcharter</li>
-<li>sunburstR</li>
-<li>RGL</li>
-<li>Esquisse</li>
-<li>Dygraphs</li>
-</ol>
+
 </div>
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></div>
-<div class="next"><a href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></div>
+<div class="prev"><a href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></div>
+<div class="next"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">27</span> Tutorial on Cluster Analysis</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#data-visualization-packages-in-r"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#colors"><span class="header-section-number">26</span> Colors</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/data_visualization_packages_in_r.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/data_visualization_packages_in_r.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/colors.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/colors.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
