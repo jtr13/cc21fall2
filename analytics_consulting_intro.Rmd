@@ -1,0 +1,7 @@
+# (PART) Project & Workshops {-}
+
+# Introduction to analytics consulting at Accenture
+
+Gabrielle Nyirjesy
+
+I conducted a zoom session on Analytics Consulting where I shared what I have learned in my 5 years working at Accenture. Some of the topics discussed included the types of Data Science problems, working with real-world data, considerations for delivering solutions, and team structure and career progression. The presentation can be found at the following link: https://drive.google.com/drive/folders/1DH9pn7gAZpjYXgjMJQwFwBbvTYCnan0K?usp=sharing
