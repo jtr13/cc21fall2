@@ -1,0 +1,1001 @@
+duration,credit_amount,savings_status,employment,property_magnitude,age,own_telephone,class
+6,1169,'no known savings','>=7','real estate',67,,good
+48,5951,'<100','1<=X<4','real estate',22,,bad
+12,2096,'<100','4<=X<7','real estate',49,,good
+42,7882,'<100','4<=X<7','life insurance',45,none,good
+24,4870,'<100','1<=X<4','no known property',53,,bad
+36,9055,'no known savings','1<=X<4','no known property',35,,good
+24,,'500<=X<1000','>=7','life insurance',53,,good
+36,,'<100','1<=X<4',car,35,,good
+12,,'>=1000','4<=X<7','real estate',61,,good
+30,,'<100',unemployed,car,28,,bad
+12,,'<100','<1',car,25,,bad
+48,,'<100','<1','life insurance',24,,bad
+12,1567,'<100','1<=X<4',car,22,,good
+24,1199,'<100','>=7',car,60,,bad
+15,1403,'<100','1<=X<4',car,28,,good
+24,1282,'100<=X<500','1<=X<4',car,32,,bad
+24,2424,'no known savings','>=7','life insurance',53,,good
+30,8072,'no known savings','<1',car,25,,good
+24,12579,'<100','>=7','no known property',44,,bad
+24,3430,'500<=X<1000','>=7',car,31,,good
+9,2134,'<100','1<=X<4',car,48,,good
+6,2647,'500<=X<1000','1<=X<4','real estate',44,,good
+10,2241,'<100','<1','real estate',48,,good
+12,1804,'100<=X<500','<1','life insurance',44,,good
+10,2069,'no known savings','1<=X<4',car,26,,good
+6,1374,'<100','1<=X<4','real estate',36,,good
+6,426,'<100','>=7',car,39,,good
+12,409,'>=1000','1<=X<4','real estate',42,,good
+7,2415,'<100','1<=X<4','real estate',34,,good
+60,6836,'<100','>=7','no known property',63,,bad
+18,1913,'>=1000','<1','real estate',36,,good
+24,4020,'<100','1<=X<4',car,27,,good
+18,5866,'100<=X<500','1<=X<4',car,30,,good
+12,1264,'no known savings','>=7','no known property',57,,good
+12,1474,'<100','<1','life insurance',33,,good
+45,4746,'<100','<1','life insurance',25,,bad
+48,6110,'<100','1<=X<4','no known property',31,,good
+18,2100,'<100','1<=X<4','real estate',37,none,bad
+10,1225,'<100','1<=X<4',car,37,,good
+9,458,'<100','1<=X<4','real estate',24,,good
+30,2333,'500<=X<1000','>=7',car,30,,good
+12,1158,'500<=X<1000','1<=X<4',car,26,,good
+18,6204,'<100','1<=X<4','real estate',44,,good
+30,6187,'100<=X<500','4<=X<7',car,24,,good
+48,6143,'<100','>=7','no known property',58,,bad
+11,1393,'<100','<1',car,35,,good
+36,2299,'500<=X<1000','>=7',car,39,,good
+6,1352,'500<=X<1000',unemployed,'life insurance',23,,good
+11,7228,'<100','1<=X<4','life insurance',39,,good
+12,2073,'100<=X<500','1<=X<4','real estate',28,,good
+24,2333,'no known savings','<1','life insurance',29,,good
+27,5965,'<100','>=7',car,30,,good
+12,1262,'<100','1<=X<4',car,25,,good
+18,3378,'no known savings','1<=X<4','life insurance',31,,good
+36,2225,'<100','>=7','no known property',57,,bad
+6,783,'no known savings','1<=X<4','real estate',26,,good
+12,6468,'no known savings',unemployed,'no known property',52,,bad
+36,9566,'<100','1<=X<4',car,31,,good
+18,1961,'<100','>=7',car,23,,good
+36,6229,'<100','<1','no known property',23,,bad
+9,1391,'<100','1<=X<4','real estate',27,,good
+15,1537,'no known savings','>=7','real estate',50,,good
+36,,'<100','>=7','no known property',61,,bad
+48,,'<100','1<=X<4',car,25,,bad
+24,,'<100','<1','life insurance',26,,good
+27,,'no known savings','>=7','life insurance',48,none,good
+12,,'<100','<1',car,29,none,good
+12,1007,'>=1000','1<=X<4','real estate',22,none,good
+36,1819,'<100','1<=X<4','no known property',37,none,bad
+36,2394,'no known savings','1<=X<4',car,25,none,good
+36,8133,'<100','1<=X<4','life insurance',30,,good
+7,730,'no known savings','>=7','life insurance',46,,good
+8,1164,'<100','>=7','no known property',51,,good
+42,5954,'<100','4<=X<7','real estate',41,,good
+36,1977,'no known savings','>=7','no known property',40,,bad
+12,1526,'<100','>=7','no known property',66,,good
+42,3965,'<100','<1',car,34,,bad
+11,4771,'<100','4<=X<7','life insurance',51,,good
+54,9436,'no known savings','1<=X<4','life insurance',39,,good
+30,3832,'<100','<1','life insurance',22,,good
+24,5943,'no known savings','<1',car,44,,bad
+15,1213,'500<=X<1000','>=7','life insurance',47,,good
+18,1568,'100<=X<500','1<=X<4','life insurance',24,,good
+24,1755,'<100','>=7','real estate',58,,good
+10,2315,'<100','>=7','real estate',52,,good
+12,1412,'<100','1<=X<4','real estate',29,,good
+18,1295,'<100','<1','life insurance',27,,good
+36,12612,'100<=X<500','1<=X<4','no known property',47,,bad
+18,2249,'100<=X<500','4<=X<7',car,30,,good
+12,,'<100','4<=X<7','real estate',28,,bad
+12,,'<100','>=7','real estate',56,,good
+12,,'<100','>=7','real estate',54,,good
+12,797,'no known savings','>=7','life insurance',33,,bad
+24,3617,'no known savings','>=7','no known property',20,,good
+12,1318,'>=1000','>=7','real estate',54,,good
+54,15945,'<100','<1','no known property',58,,bad
+12,2012,'no known savings','4<=X<7',car,61,,good
+18,2622,'100<=X<500','1<=X<4',car,34,,good
+36,2337,'<100','>=7','real estate',36,,good
+20,7057,'no known savings','4<=X<7','life insurance',36,,good
+24,1469,'100<=X<500','>=7','real estate',41,,good
+36,2323,'<100','4<=X<7',car,24,,good
+6,932,'<100','1<=X<4','real estate',24,,good
+9,1919,'<100','4<=X<7',car,35,,good
+12,2445,'no known savings','<1',car,26,,good
+24,11938,'<100','1<=X<4',car,39,,bad
+18,6458,'<100','>=7','no known property',39,,bad
+12,6078,'<100','4<=X<7',car,32,,good
+24,7721,'no known savings','<1','life insurance',30,,good
+14,1410,'500<=X<1000','>=7','real estate',35,,good
+6,1449,'100<=X<500','>=7',car,31,,good
+15,392,'<100','<1','life insurance',23,,good
+18,6260,'<100','4<=X<7','real estate',28,,good
+36,7855,'<100','1<=X<4','real estate',25,,bad
+12,1680,'500<=X<1000','>=7','real estate',35,,good
+48,3578,'no known savings','>=7','real estate',47,,good
+42,7174,'no known savings','4<=X<7',car,30,,bad
+10,2132,'no known savings','<1','real estate',27,,good
+33,4281,'500<=X<1000','1<=X<4',car,23,,bad
+12,2366,'500<=X<1000','4<=X<7',car,36,,good
+21,1835,'<100','1<=X<4','real estate',25,,bad
+24,3868,'<100','>=7',car,41,none,good
+12,1768,'<100','1<=X<4','real estate',24,,good
+10,781,'<100','>=7','no known property',63,,good
+18,1924,'no known savings','<1','real estate',27,,bad
+12,2121,'<100','1<=X<4','life insurance',30,,good
+12,701,'<100','1<=X<4','real estate',40,,good
+12,639,'<100','1<=X<4',car,30,,bad
+12,1860,'<100',unemployed,car,34,,good
+12,3499,'<100','1<=X<4','real estate',29,,bad
+48,8487,'no known savings','4<=X<7',car,24,,good
+36,,'<100','1<=X<4','life insurance',29,,bad
+15,,'<100','<1','life insurance',27,,good
+18,,'<100','1<=X<4','no known property',47,,good
+60,,'100<=X<500','4<=X<7','real estate',21,,good
+12,,'no known savings','>=7','real estate',38,yes,good
+27,8613,'>=1000','1<=X<4',car,27,yes,good
+12,766,'500<=X<1000','1<=X<4','real estate',66,yes,bad
+15,2728,'no known savings','4<=X<7','real estate',35,yes,good
+12,1881,'<100','1<=X<4',car,44,,good
+6,709,'>=1000','<1','real estate',27,,good
+36,4795,'<100','<1','no known property',30,,good
+27,3416,'<100','1<=X<4',car,27,,good
+18,2462,'<100','1<=X<4',car,22,,bad
+21,2288,'<100','<1','life insurance',23,,good
+48,3566,'100<=X<500','4<=X<7',car,30,,good
+6,860,'<100','>=7','no known property',39,,good
+12,682,'100<=X<500','4<=X<7',car,51,,good
+36,5371,'<100','1<=X<4','life insurance',28,,good
+18,1582,'>=1000','>=7',car,46,,good
+6,1346,'100<=X<500','>=7','no known property',42,,good
+10,1924,'<100','1<=X<4','life insurance',38,,good
+36,5848,'<100','1<=X<4',car,24,,good
+24,7758,'>=1000','>=7','no known property',29,,good
+24,6967,'100<=X<500','4<=X<7',car,36,,good
+12,1282,'<100','1<=X<4',car,20,,bad
+9,1288,'100<=X<500','>=7','real estate',48,,good
+12,339,'<100','>=7',car,45,,good
+24,3512,'100<=X<500','4<=X<7',car,38,,good
+6,1898,'no known savings','1<=X<4','real estate',34,,good
+24,2872,'100<=X<500','>=7','real estate',36,,good
+18,1055,'<100','<1','life insurance',30,,good
+15,1262,'500<=X<1000','4<=X<7','life insurance',36,,good
+10,7308,'<100',unemployed,'no known property',70,,good
+36,909,'500<=X<1000','>=7','life insurance',36,,good
+6,2978,'500<=X<1000','1<=X<4',car,32,,good
+18,1131,'<100',unemployed,car,33,,bad
+11,1577,'>=1000','<1','real estate',20,,good
+24,3972,'<100','4<=X<7','life insurance',25,,good
+24,1935,'<100','>=7','real estate',31,,bad
+15,950,'<100','>=7',car,33,,bad
+12,763,'<100','1<=X<4','real estate',26,,good
+24,2064,'<100',unemployed,'life insurance',34,,bad
+8,1414,'<100','1<=X<4','real estate',33,,good
+21,3414,'<100','<1','life insurance',26,,bad
+30,7485,'no known savings',unemployed,'real estate',53,,bad
+12,2577,'<100','1<=X<4',car,42,,good
+6,338,'500<=X<1000','>=7',car,52,,good
+12,1963,'<100','4<=X<7',car,31,,good
+21,571,'<100','>=7','real estate',65,,good
+36,9572,'<100','<1',car,28,,bad
+36,4455,'<100','1<=X<4','real estate',30,,bad
+21,1647,'no known savings','1<=X<4','life insurance',40,,bad
+24,3777,'>=1000','1<=X<4','real estate',50,,good
+18,884,'<100','>=7',car,36,,bad
+15,1360,'<100','1<=X<4','life insurance',31,,good
+9,5129,'<100','>=7','no known property',74,,bad
+16,1175,'<100',unemployed,car,68,,good
+12,,'100<=X<500','4<=X<7','life insurance',20,,bad
+18,,'<100','1<=X<4',car,33,,good
+24,,'>=1000','1<=X<4','life insurance',54,,bad
+48,,'100<=X<500','4<=X<7','no known property',34,,bad
+27,,'<100','1<=X<4',car,36,,bad
+6,,'<100','4<=X<7','real estate',29,,good
+45,,'100<=X<500','1<=X<4','life insurance',21,,bad
+9,1501,'<100','>=7',car,34,,bad
+6,1382,'<100','1<=X<4',car,28,,good
+12,951,'100<=X<500','<1',car,27,,bad
+24,2760,'no known savings','>=7','no known property',36,,good
+18,4297,'<100','>=7','no known property',40,,bad
+9,936,'500<=X<1000','>=7',car,52,,good
+12,1168,'<100','1<=X<4','real estate',27,,good
+27,5117,'<100','4<=X<7',car,26,,good
+12,902,'<100','4<=X<7','life insurance',21,,bad
+12,1495,'<100','>=7','real estate',38,,good
+30,10623,'<100','>=7','no known property',38,,good
+12,1935,'<100','>=7','real estate',43,,good
+12,1424,'<100','4<=X<7','life insurance',26,,good
+24,6568,'<100','1<=X<4',car,21,,good
+12,1413,'>=1000','4<=X<7','life insurance',55,,good
+9,3074,'no known savings','1<=X<4','real estate',33,,good
+36,3835,'no known savings','>=7','real estate',45,,good
+27,5293,'<100',unemployed,'life insurance',50,,bad
+30,1908,'<100','>=7','real estate',66,,bad
+36,3342,'no known savings','>=7',car,51,,good
+6,932,'no known savings','4<=X<7','life insurance',39,,good
+18,3104,'<100','4<=X<7','life insurance',31,,good
+36,3913,'<100','1<=X<4','real estate',23,,good
+24,3021,'<100','1<=X<4','real estate',24,,good
+10,1364,'<100','1<=X<4',car,64,,good
+12,625,'<100','<1','real estate',26,,good
+12,1200,'no known savings','1<=X<4','life insurance',23,,good
+12,707,'<100','1<=X<4','real estate',30,,good
+24,2978,'no known savings','1<=X<4','real estate',32,,good
+15,4657,'<100','1<=X<4',car,30,,good
+36,2613,'<100','1<=X<4',car,27,,good
+48,10961,'>=1000','4<=X<7','no known property',27,,bad
+12,7865,'<100','>=7','no known property',53,,bad
+9,1478,'<100','4<=X<7',car,22,,bad
+24,3149,'<100','<1','no known property',22,,good
+36,4210,'<100','1<=X<4',car,26,,bad
+9,2507,'500<=X<1000','>=7','no known property',51,,good
+12,2141,'100<=X<500','4<=X<7','no known property',35,,good
+18,866,'<100','1<=X<4','real estate',25,,good
+4,1544,'<100','4<=X<7','real estate',42,,good
+24,1823,'<100',unemployed,car,30,,bad
+6,14555,'no known savings',unemployed,'life insurance',23,,bad
+21,2767,'100<=X<500','>=7',car,61,,bad
+12,1291,'<100','1<=X<4','life insurance',35,,good
+30,2522,'<100','>=7','life insurance',39,,good
+24,915,'no known savings','>=7',car,29,,bad
+6,1595,'<100','4<=X<7','life insurance',51,,good
+48,4605,'<100','>=7','no known property',24,,bad
+12,1185,'<100','1<=X<4','real estate',27,,good
+12,3447,'500<=X<1000','1<=X<4','real estate',35,,good
+24,1258,'<100','4<=X<7','real estate',25,,good
+12,717,'<100','>=7','real estate',52,,good
+6,1204,'100<=X<500','1<=X<4','no known property',35,,good
+24,1925,'<100','1<=X<4','real estate',26,,good
+18,,'<100',unemployed,'real estate',22,,bad
+6,,'>=1000','4<=X<7','real estate',39,,good
+12,,'<100','1<=X<4',car,46,,good
+30,,'<100','1<=X<4','no known property',24,yes,bad
+24,,'100<=X<500','1<=X<4','life insurance',35,yes,good
+9,,'no known savings','4<=X<7',car,24,yes,good
+60,,'no known savings','1<=X<4','real estate',27,yes,good
+24,,'<100','1<=X<4','real estate',35,yes,good
+12,2149,'<100','1<=X<4','no known property',29,yes,bad
+15,3812,'100<=X<500','<1',car,23,yes,good
+11,1154,'100<=X<500',unemployed,'real estate',57,,good
+12,1657,'<100','1<=X<4','real estate',27,,good
+24,1603,'<100','>=7',car,55,,good
+18,5302,'<100','>=7','no known property',36,,good
+12,2748,'<100','>=7','no known property',57,,good
+10,1231,'<100','>=7','real estate',32,,good
+15,802,'<100','>=7',car,37,,bad
+36,6304,'no known savings','>=7','real estate',36,,good
+24,1533,'<100','<1',car,38,,good
+14,8978,'<100','>=7','life insurance',45,,bad
+24,999,'no known savings','>=7',car,25,,good
+18,2662,'no known savings','4<=X<7','life insurance',32,,good
+12,,'500<=X<1000','4<=X<7',car,37,,good
+48,,'no known savings',unemployed,'no known property',36,,good
+48,,'<100','4<=X<7','real estate',28,,bad
+30,,'<100','<1','no known property',34,,bad
+9,,'<100','1<=X<4','real estate',32,,good
+18,2404,'<100','1<=X<4',car,26,,good
+12,1262,'no known savings','>=7','life insurance',49,,good
+6,4611,'<100','<1','life insurance',32,,bad
+24,1901,'100<=X<500','1<=X<4',car,29,,good
+15,3368,'>=1000','>=7','no known property',23,,good
+12,1574,'<100','1<=X<4','real estate',50,,good
+18,1445,'no known savings','4<=X<7',car,49,,good
+15,1520,'no known savings','>=7','life insurance',63,,good
+24,3878,'100<=X<500','<1',car,37,,good
+47,10722,'<100','<1','real estate',35,,good
+48,4788,'<100','4<=X<7','life insurance',26,,good
+48,7582,'100<=X<500',unemployed,'no known property',31,,good
+12,1092,'<100','1<=X<4','real estate',49,,good
+24,1024,'<100','<1','real estate',48,,bad
+12,1076,'<100','1<=X<4','real estate',26,,good
+36,9398,'<100','<1',car,28,,bad
+24,6419,'<100','>=7','no known property',44,,good
+42,4796,'<100','>=7','no known property',56,,good
+48,7629,'no known savings','>=7',car,46,,good
+48,9960,'<100','<1',car,26,,bad
+12,4675,'no known savings','<1',car,20,,good
+10,1287,'no known savings','>=7','life insurance',45,,good
+18,2515,'<100','1<=X<4','real estate',43,,good
+21,2745,'>=1000','4<=X<7',car,32,,good
+6,672,'<100',unemployed,'real estate',54,,good
+36,3804,'<100','1<=X<4',car,42,,bad
+24,1344,'no known savings','4<=X<7','real estate',37,,bad
+10,1038,'<100','4<=X<7','life insurance',49,,good
+48,10127,'500<=X<1000','1<=X<4','no known property',44,,bad
+6,1543,'>=1000','1<=X<4','real estate',33,,good
+30,4811,'no known savings','4<=X<7','life insurance',24,,good
+12,727,'100<=X<500','<1','no known property',33,,bad
+8,1237,'<100','1<=X<4','real estate',24,,bad
+9,276,'<100','1<=X<4','real estate',22,,good
+48,5381,'no known savings',unemployed,'no known property',40,,good
+24,5511,'100<=X<500','1<=X<4',car,25,,good
+24,3749,'<100','<1',car,26,,good
+12,685,'<100','4<=X<7',car,25,,bad
+4,1494,'no known savings','<1','real estate',29,,good
+36,2746,'<100','>=7',car,31,,bad
+12,708,'<100','1<=X<4','life insurance',38,,good
+24,4351,'no known savings','1<=X<4','life insurance',48,,good
+12,701,'<100','1<=X<4',car,32,,good
+15,3643,'<100','>=7','life insurance',27,,good
+30,4249,'<100',unemployed,car,28,,bad
+24,1938,'<100','<1','life insurance',32,,bad
+24,2910,'<100','4<=X<7','no known property',34,,good
+18,2659,'>=1000','1<=X<4',car,28,,good
+18,1028,'<100','1<=X<4','real estate',36,,good
+8,3398,'<100','4<=X<7','real estate',39,,good
+12,5801,'no known savings','>=7','life insurance',49,,good
+24,1525,'>=1000','4<=X<7',car,34,,good
+36,4473,'<100','>=7',car,31,,good
+6,1068,'<100','>=7',car,28,,good
+24,6615,'<100',unemployed,'no known property',75,,good
+18,1864,'100<=X<500','1<=X<4','real estate',30,,bad
+60,7408,'100<=X<500','<1','life insurance',24,,bad
+48,11590,'100<=X<500','1<=X<4',car,24,,bad
+24,4110,'<100','>=7','no known property',23,,bad
+6,3384,'<100','1<=X<4','real estate',44,,bad
+13,2101,'<100','<1','life insurance',23,,good
+15,1275,'no known savings','1<=X<4',car,24,,bad
+24,4169,'<100','1<=X<4','life insurance',28,,good
+10,1521,'<100','1<=X<4',car,31,,good
+24,5743,'<100','<1','no known property',24,none,good
+21,3599,'<100','4<=X<7',car,26,none,good
+18,,'500<=X<1000','<1','real estate',25,none,good
+18,,'<100','>=7','real estate',33,none,good
+10,,'<100','<1','life insurance',37,none,good
+15,,'<100','1<=X<4',car,43,none,good
+13,,'<100','<1','real estate',23,none,good
+24,,'500<=X<1000',unemployed,'no known property',23,,good
+6,,'100<=X<500','1<=X<4','real estate',34,,good
+9,,'>=1000','>=7','no known property',32,,bad
+9,1236,'<100','<1','real estate',23,,good
+9,959,'<100','1<=X<4',car,29,,bad
+18,3229,'no known savings',unemployed,'no known property',38,,good
+12,6199,'<100','1<=X<4','life insurance',28,,bad
+10,727,'500<=X<1000','>=7','no known property',46,,good
+24,1246,'<100','<1','real estate',23,,bad
+12,2331,'no known savings','>=7','real estate',49,,good
+36,4463,'<100','1<=X<4',car,26,,bad
+12,776,'<100','1<=X<4','real estate',28,,good
+30,2406,'<100','4<=X<7','real estate',23,,bad
+18,1239,'no known savings','1<=X<4','no known property',61,,good
+12,3399,'no known savings','>=7',car,37,,good
+12,2247,'<100','1<=X<4',car,36,,good
+6,1766,'<100','1<=X<4','life insurance',21,,good
+18,2473,'<100',unemployed,car,25,,bad
+12,1542,'<100','4<=X<7',car,36,,good
+18,3850,'<100','4<=X<7',car,27,,good
+18,3650,'<100','<1',car,22,,good
+36,3446,'<100','>=7',car,42,,bad
+18,3001,'<100','4<=X<7','real estate',40,,good
+36,3079,'no known savings','1<=X<4','real estate',36,,good
+18,6070,'<100','>=7',car,33,,good
+10,2146,'<100','<1','real estate',23,,good
+60,13756,'no known savings','>=7','no known property',63,,good
+60,14782,'100<=X<500','>=7','no known property',60,,bad
+48,7685,'<100','4<=X<7',car,37,,bad
+18,2320,'<100',unemployed,'real estate',34,,good
+7,846,'no known savings','>=7','no known property',36,,good
+36,14318,'<100','>=7','no known property',57,,bad
+6,362,'100<=X<500','1<=X<4',car,52,,good
+20,2212,'no known savings','4<=X<7',car,39,,good
+18,12976,'<100',unemployed,'no known property',38,,bad
+22,1283,'no known savings','4<=X<7','life insurance',25,,good
+12,1330,'<100','<1','real estate',26,,good
+30,4272,'100<=X<500','1<=X<4','life insurance',26,,good
+18,2238,'<100','1<=X<4',car,25,,good
+18,1126,'no known savings','<1','real estate',21,,good
+18,7374,'<100',unemployed,'life insurance',40,,good
+15,2326,'500<=X<1000','1<=X<4',car,27,,good
+9,,'<100','4<=X<7',car,27,,good
+18,,'<100','1<=X<4','life insurance',30,,good
+12,,'>=1000','<1','real estate',19,,good
+36,,'<100','4<=X<7','no known property',39,,good
+6,1957,'<100','4<=X<7',car,31,,good
+9,2406,'<100',unemployed,car,31,,good
+39,11760,'100<=X<500','4<=X<7','no known property',32,,good
+12,2578,'<100',unemployed,'no known property',55,,good
+36,2348,'<100','1<=X<4','life insurance',46,,good
+12,1223,'<100','>=7','real estate',46,,bad
+24,1516,'>=1000','1<=X<4','real estate',43,,good
+18,1473,'<100','<1','real estate',39,,good
+18,1887,'no known savings','1<=X<4','real estate',28,,good
+24,8648,'<100','<1',car,27,,bad
+14,802,'<100','1<=X<4',car,27,,good
+18,2899,'no known savings','>=7',car,43,,good
+24,2039,'<100','<1','life insurance',22,,bad
+24,2197,'no known savings','4<=X<7',car,43,,good
+15,1053,'<100','<1','real estate',27,,good
+24,3235,'500<=X<1000','>=7',car,26,,good
+12,939,'500<=X<1000','4<=X<7','real estate',28,,bad
+24,1967,'<100','>=7',car,20,,good
+33,7253,'<100','4<=X<7',car,35,none,good
+12,2292,'<100',unemployed,car,42,none,bad
+10,1597,'500<=X<1000','1<=X<4','no known property',40,none,good
+24,1381,'no known savings','1<=X<4','life insurance',35,,bad
+36,5842,'<100','>=7','life insurance',35,,good
+12,2579,'<100','<1','real estate',33,,bad
+18,8471,'no known savings','1<=X<4',car,23,,good
+21,2782,'500<=X<1000','4<=X<7',car,31,,good
+18,1042,'no known savings','1<=X<4','life insurance',33,,bad
+15,3186,'>=1000','4<=X<7',car,20,,good
+12,2028,'no known savings','1<=X<4',car,30,,good
+12,958,'<100','4<=X<7','real estate',47,,good
+21,1591,'100<=X<500','4<=X<7','real estate',34,,good
+12,2762,'no known savings','>=7','life insurance',25,,bad
+18,2779,'<100','1<=X<4',car,21,,good
+28,2743,'<100','>=7',car,29,,good
+18,1149,'>=1000','1<=X<4','real estate',46,,good
+9,1313,'<100','>=7',car,20,,good
+18,1190,'<100',unemployed,'no known property',55,,bad
+5,3448,'<100','4<=X<7','real estate',74,,good
+24,11328,'<100','1<=X<4',car,29,,bad
+6,1872,'<100',unemployed,'no known property',36,,good
+24,2058,'<100','1<=X<4','real estate',33,,good
+9,2136,'<100','1<=X<4','real estate',25,,good
+12,1484,'no known savings','1<=X<4','real estate',25,,bad
+6,660,'500<=X<1000','4<=X<7','real estate',23,,good
+24,1287,'>=1000','>=7','real estate',37,,good
+42,3394,'<100',unemployed,car,65,,good
+12,609,'<100','<1','real estate',26,,bad
+12,1884,'<100','>=7',car,39,,good
+12,1620,'<100','1<=X<4','life insurance',30,,good
+20,2629,'<100','1<=X<4',car,29,,good
+12,719,'<100','>=7',car,41,,bad
+48,5096,'<100','1<=X<4',car,30,,bad
+9,1244,'no known savings','>=7','life insurance',41,,good
+36,1842,'<100','<1',car,34,,bad
+7,2576,'<100','1<=X<4','real estate',35,,good
+12,1424,'no known savings','>=7','real estate',55,,good
+15,1512,'>=1000','1<=X<4','life insurance',61,,bad
+36,11054,'no known savings','1<=X<4',car,30,,good
+6,518,'<100','1<=X<4','real estate',29,,good
+12,2759,'<100','>=7','life insurance',34,,good
+24,2670,'<100','>=7',car,35,,good
+24,4817,'<100','4<=X<7','life insurance',31,,bad
+24,2679,'<100','<1','no known property',29,,good
+11,3905,'<100','1<=X<4','real estate',36,,good
+12,3386,'<100','>=7','no known property',35,,bad
+6,343,'<100','<1','real estate',27,,good
+18,4594,'<100','<1',car,32,,good
+36,3620,'<100','1<=X<4','life insurance',37,,good
+15,1721,'<100','<1','real estate',36,,good
+12,3017,'<100','<1','real estate',34,,good
+12,754,'no known savings','>=7','life insurance',38,,good
+18,1950,'<100','4<=X<7',car,34,,good
+24,2924,'<100','1<=X<4','no known property',63,,good
+24,1659,'<100','<1',car,29,,bad
+48,7238,'no known savings','>=7',car,32,,good
+33,2764,'<100','1<=X<4',car,26,,good
+24,4679,'<100','4<=X<7',car,35,,good
+24,3092,'100<=X<500','<1',car,22,,bad
+6,448,'<100','<1','life insurance',23,,bad
+9,654,'<100','1<=X<4',car,28,,bad
+6,1238,'no known savings',unemployed,'life insurance',36,,good
+18,1245,'<100','1<=X<4',car,33,,bad
+18,3114,'<100','<1','life insurance',26,none,bad
+39,2569,'500<=X<1000','1<=X<4',car,24,yes,good
+24,5152,'<100','4<=X<7',car,25,yes,good
+12,1037,'100<=X<500','4<=X<7','real estate',39,none,good
+15,1478,'<100','>=7',car,44,none,good
+12,3573,'<100','1<=X<4','real estate',23,,good
+24,1201,'<100','<1','life insurance',26,,good
+30,3622,'>=1000','>=7','life insurance',57,,good
+15,960,'>=1000','4<=X<7','life insurance',30,,good
+12,1163,'500<=X<1000','1<=X<4','real estate',44,,good
+6,1209,'<100',unemployed,'life insurance',47,,bad
+12,3077,'<100','1<=X<4',car,52,,good
+24,3757,'<100','>=7','no known property',62,,good
+10,1418,'100<=X<500','1<=X<4','real estate',35,,good
+6,3518,'<100','1<=X<4','life insurance',26,,good
+12,1934,'<100','>=7','no known property',26,,good
+27,8318,'<100','>=7','no known property',42,,bad
+6,1237,'100<=X<500','1<=X<4','life insurance',27,,good
+6,368,'no known savings','>=7','life insurance',38,,good
+12,,'<100','1<=X<4','real estate',39,,good
+24,,'no known savings','1<=X<4',car,20,,bad
+36,,'100<=X<500','<1','no known property',29,,bad
+24,,'<100','4<=X<7','life insurance',40,,good
+18,1301,'<100','>=7','real estate',32,,good
+6,1323,'100<=X<500','>=7',car,28,,good
+24,3123,'<100','<1','life insurance',27,,bad
+36,5493,'<100','>=7','no known property',42,,good
+9,1126,'100<=X<500','>=7','real estate',49,,good
+24,1216,'100<=X<500','<1','no known property',38,,bad
+24,1207,'<100','<1','life insurance',24,,bad
+10,1309,'no known savings','1<=X<4','life insurance',27,,bad
+15,2360,'500<=X<1000','1<=X<4',car,36,,good
+15,6850,'100<=X<500',unemployed,'life insurance',34,,bad
+24,1413,'<100','1<=X<4','life insurance',28,,good
+39,8588,'100<=X<500','>=7',car,45,,good
+12,759,'<100','4<=X<7','real estate',26,,bad
+36,4686,'<100','1<=X<4','no known property',32,,good
+15,2687,'<100','4<=X<7','life insurance',26,,good
+12,585,'<100','1<=X<4','real estate',20,,good
+24,2255,'no known savings','<1','life insurance',54,,good
+6,609,'<100','4<=X<7','life insurance',37,,good
+6,1361,'<100','<1','real estate',40,,good
+36,7127,'<100','<1','life insurance',23,,bad
+6,1203,'100<=X<500','>=7','life insurance',43,,good
+6,700,'no known savings','>=7','no known property',36,,good
+24,5507,'<100','>=7','no known property',44,,good
+18,3190,'<100','1<=X<4','real estate',24,,bad
+48,7119,'<100','1<=X<4','no known property',53,,bad
+24,3488,'100<=X<500','4<=X<7',car,23,,good
+18,1113,'<100','1<=X<4','real estate',26,,good
+26,7966,'<100','<1',car,30,,good
+15,1532,'100<=X<500','1<=X<4',car,31,,good
+4,1503,'<100','4<=X<7','real estate',42,,good
+36,2302,'<100','1<=X<4',car,31,,bad
+6,662,'<100','<1','real estate',41,,good
+36,2273,'<100','4<=X<7',car,32,,good
+15,2631,'100<=X<500','1<=X<4',car,28,,bad
+12,1503,'<100','1<=X<4','real estate',41,,good
+24,1311,'100<=X<500','4<=X<7','life insurance',26,none,good
+24,3105,'no known savings','<1',car,25,yes,good
+21,2319,'<100','<1',car,33,yes,bad
+6,1374,'no known savings',unemployed,'life insurance',75,none,good
+18,3612,'<100','>=7','life insurance',37,none,good
+48,7763,'<100','>=7','no known property',42,none,bad
+18,3049,'<100','<1','life insurance',45,yes,good
+12,,'<100','<1','real estate',23,yes,bad
+24,2032,'<100','>=7','no known property',60,,good
+30,,'no known savings','>=7','life insurance',31,,bad
+18,2864,'<100','1<=X<4','real estate',34,,bad
+12,1255,'<100','>=7','real estate',61,,good
+24,1333,'<100',unemployed,'real estate',43,,bad
+24,2022,'<100','1<=X<4',car,37,,good
+24,1552,'<100','4<=X<7',car,32,,good
+12,,'<100','1<=X<4','real estate',24,,bad
+48,8858,'no known savings','4<=X<7','no known property',35,,good
+12,996,'no known savings','4<=X<7','real estate',23,,good
+6,1750,'500<=X<1000','>=7','life insurance',45,,good
+48,6999,'<100','4<=X<7','real estate',34,,bad
+12,1995,'100<=X<500','<1',car,27,,good
+9,1199,'<100','4<=X<7','life insurance',67,,good
+12,1331,'<100','<1',car,22,,bad
+18,2278,'100<=X<500','<1',car,28,,bad
+21,5003,'no known savings','1<=X<4','life insurance',29,,bad
+24,3552,'<100','4<=X<7',car,27,,bad
+18,1928,'<100','<1','real estate',31,,bad
+24,2964,'no known savings','>=7','no known property',49,,good
+24,1546,'<100','4<=X<7',car,24,,bad
+6,683,'<100','<1','life insurance',29,,good
+36,12389,'no known savings','1<=X<4','no known property',37,,bad
+24,4712,'no known savings','1<=X<4','life insurance',37,,good
+24,1553,'100<=X<500','4<=X<7','life insurance',23,,good
+12,1372,'<100','4<=X<7',car,36,,bad
+24,2578,'>=1000','>=7',car,34,,good
+48,3979,'no known savings','4<=X<7',car,41,,good
+48,6758,'<100','1<=X<4',car,31,,bad
+24,3234,'<100','<1','real estate',23,,bad
+30,5954,'<100','4<=X<7',car,38,,good
+24,5433,'no known savings',unemployed,'life insurance',26,,good
+15,806,'<100','1<=X<4','life insurance',22,,good
+9,1082,'<100','>=7',car,27,,good
+15,2788,'<100','4<=X<7',car,24,,good
+12,2930,'<100','4<=X<7','real estate',27,,good
+24,1927,'no known savings','1<=X<4',car,33,,good
+36,2820,'<100','<1',car,27,,bad
+24,937,'<100','<1',car,27,,good
+18,1056,'<100','>=7','real estate',30,,bad
+12,3124,'<100','<1','real estate',49,,good
+9,1388,'<100','1<=X<4','real estate',26,,good
+36,2384,'<100','<1','no known property',33,,bad
+12,2133,'no known savings','>=7','no known property',52,,good
+18,2039,'<100','1<=X<4','real estate',20,,bad
+9,2799,'<100','1<=X<4','real estate',36,,good
+12,1289,'<100','1<=X<4','life insurance',21,,good
+18,1217,'<100','1<=X<4','real estate',47,,bad
+12,2246,'<100','>=7','life insurance',60,,bad
+12,385,'<100','4<=X<7','real estate',58,,good
+24,1965,'no known savings','1<=X<4',car,42,,good
+21,1572,'>=1000','>=7','real estate',36,,good
+24,2718,'<100','1<=X<4','life insurance',20,,bad
+24,1358,'no known savings','>=7',car,40,,bad
+6,931,'100<=X<500','<1','life insurance',32,,bad
+24,1442,'<100','4<=X<7',car,23,,bad
+24,4241,'<100','1<=X<4','real estate',36,,bad
+18,2775,'<100','4<=X<7','life insurance',31,,bad
+24,3863,'<100','1<=X<4','no known property',32,,good
+7,2329,'<100','<1','real estate',45,,good
+9,918,'<100','1<=X<4','life insurance',30,,bad
+24,1837,'<100','4<=X<7','no known property',34,,bad
+36,3349,'<100','1<=X<4',car,28,,bad
+10,1275,'<100','<1','life insurance',23,,good
+24,2828,'500<=X<1000','1<=X<4','real estate',22,,good
+24,4526,'<100','1<=X<4','real estate',74,,good
+36,2671,'100<=X<500','1<=X<4','no known property',50,,bad
+18,2051,'<100','<1','real estate',33,,good
+15,1300,'no known savings','>=7','no known property',45,,good
+12,741,'100<=X<500',unemployed,'life insurance',22,,bad
+10,1240,'100<=X<500','>=7','no known property',48,,bad
+21,3357,'>=1000','<1',car,29,,good
+24,3632,'<100','1<=X<4',car,22,,good
+18,1808,'<100','4<=X<7','real estate',22,,bad
+48,12204,'no known savings','1<=X<4',car,48,,good
+60,9157,'no known savings','1<=X<4','no known property',27,,good
+6,3676,'<100','1<=X<4','real estate',37,,good
+30,3441,'100<=X<500','1<=X<4',car,21,,bad
+12,640,'<100','1<=X<4','real estate',49,,good
+21,3652,'<100','4<=X<7','life insurance',27,,good
+18,1530,'<100','1<=X<4','life insurance',32,,bad
+48,3914,'no known savings','1<=X<4','real estate',38,,bad
+12,1858,'<100','<1',car,22,,good
+18,2600,'<100','1<=X<4','no known property',65,,bad
+15,1979,'no known savings','>=7',car,35,,good
+6,2116,'<100','1<=X<4','real estate',41,,good
+9,1437,'100<=X<500','4<=X<7','no known property',29,,bad
+42,4042,'500<=X<1000','1<=X<4','real estate',36,,good
+9,3832,'no known savings','>=7','real estate',64,,good
+24,3660,'<100','1<=X<4',car,28,,good
+18,1553,'<100','1<=X<4',car,44,,bad
+15,1444,'no known savings','<1','life insurance',23,,good
+9,1980,'<100','<1',car,19,,bad
+24,1355,'<100','<1',car,25,,bad
+12,1393,'<100','>=7','life insurance',47,,good
+24,1376,'500<=X<1000','4<=X<7',car,28,,good
+60,15653,'<100','4<=X<7',car,21,,good
+12,1493,'<100','<1',car,34,,good
+42,4370,'<100','4<=X<7','life insurance',26,,bad
+18,750,'<100',unemployed,'real estate',27,,bad
+15,1308,'<100','>=7',car,38,,good
+15,4623,'100<=X<500','1<=X<4','life insurance',40,,bad
+24,1851,'<100','4<=X<7',car,33,,good
+18,1880,'<100','4<=X<7','life insurance',32,,good
+36,7980,'no known savings','<1',car,27,,bad
+30,4583,'<100','1<=X<4','real estate',32,,good
+12,1386,'500<=X<1000','1<=X<4','life insurance',26,,bad
+24,947,'<100','4<=X<7','no known property',38,,bad
+12,684,'<100','1<=X<4',car,40,,bad
+48,7476,'<100','4<=X<7','no known property',50,yes,good
+12,1922,'<100','1<=X<4','life insurance',37,none,bad
+24,2303,'<100','>=7','real estate',45,none,bad
+36,8086,'100<=X<500','>=7',car,42,yes,bad
+24,2346,'<100','4<=X<7',car,35,yes,good
+14,3973,'<100',unemployed,'no known property',22,none,good
+12,888,'<100','>=7',car,41,none,bad
+48,10222,'no known savings','4<=X<7',car,37,yes,good
+30,4221,'<100','1<=X<4',car,28,none,good
+18,6361,'<100','>=7','no known property',41,yes,good
+12,,'<100','1<=X<4','real estate',23,none,good
+12,,'no known savings','1<=X<4',car,23,none,bad
+21,,'<100','>=7','real estate',50,none,good
+6,,'<100',unemployed,'life insurance',35,yes,good
+6,1047,'<100','1<=X<4','life insurance',50,none,good
+24,6314,'<100',unemployed,'no known property',27,yes,good
+30,3496,'>=1000','1<=X<4',car,34,yes,good
+48,3609,'<100','1<=X<4','real estate',27,none,good
+12,4843,'<100','>=7','life insurance',43,yes,bad
+30,3017,'<100','>=7','life insurance',47,none,good
+24,4139,'100<=X<500','1<=X<4','life insurance',27,yes,good
+36,5742,'100<=X<500','4<=X<7',car,31,yes,good
+60,10366,'<100','>=7','life insurance',42,yes,good
+6,2080,'500<=X<1000','1<=X<4',car,24,none,good
+21,2580,'500<=X<1000','<1','real estate',41,none,bad
+30,4530,'<100','4<=X<7',car,26,yes,good
+24,5150,'<100','>=7',car,33,yes,good
+72,5595,'100<=X<500','1<=X<4',car,24,none,bad
+24,2384,'<100','>=7','real estate',64,none,good
+18,1453,'<100','<1','real estate',26,none,good
+6,1538,'<100','<1','no known property',56,none,good
+12,2279,'no known savings','1<=X<4','no known property',37,yes,good
+15,1478,'<100','1<=X<4','real estate',33,none,good
+24,5103,'<100','<1','no known property',47,yes,good
+36,9857,'100<=X<500','4<=X<7','life insurance',31,yes,good
+60,6527,'no known savings','1<=X<4','no known property',34,yes,good
+10,1347,'no known savings','4<=X<7','life insurance',27,yes,good
+36,2862,'100<=X<500','>=7','no known property',30,none,good
+9,2753,'100<=X<500','>=7',car,35,yes,good
+12,3651,'>=1000','1<=X<4','life insurance',31,none,good
+15,975,'<100','1<=X<4','life insurance',25,none,good
+15,2631,'100<=X<500','1<=X<4','real estate',25,none,good
+24,2896,'100<=X<500','<1',car,29,none,good
+6,4716,'no known savings','<1','real estate',44,none,good
+24,2284,'<100','4<=X<7',car,28,yes,good
+6,1236,'500<=X<1000','1<=X<4','life insurance',50,none,good
+12,1103,'<100','4<=X<7','real estate',29,none,good
+12,926,'<100',unemployed,'life insurance',38,none,good
+18,1800,'<100','1<=X<4',car,24,none,good
+15,1905,'<100','>=7',car,40,yes,good
+12,1123,'500<=X<1000','1<=X<4',car,29,none,bad
+48,6331,'<100','>=7','no known property',46,yes,bad
+24,1377,'100<=X<500','>=7','no known property',47,yes,good
+30,2503,'100<=X<500','>=7','life insurance',41,none,good
+27,2528,'<100','<1','life insurance',32,yes,good
+15,5324,'500<=X<1000','>=7','no known property',35,none,good
+48,6560,'100<=X<500','4<=X<7','life insurance',24,none,bad
+12,2969,'<100','<1','life insurance',25,none,bad
+9,1206,'<100','>=7','real estate',25,none,good
+9,2118,'<100','1<=X<4','real estate',37,none,good
+18,629,'500<=X<1000','>=7','life insurance',32,yes,good
+6,1198,'<100','>=7','no known property',35,none,bad
+21,2476,'no known savings','>=7','real estate',46,yes,good
+9,1138,'<100','1<=X<4','real estate',25,none,good
+60,14027,'<100','4<=X<7','no known property',27,yes,bad
+30,7596,'no known savings','>=7',car,63,none,good
+30,3077,'no known savings','>=7',car,40,yes,good
+18,1505,'<100','1<=X<4','no known property',32,yes,good
+24,3148,'no known savings','1<=X<4',car,31,yes,good
+20,6148,'100<=X<500','>=7',car,31,yes,good
+9,1337,'<100','<1',car,34,yes,bad
+6,433,'>=1000','<1','life insurance',24,none,bad
+12,1228,'<100','1<=X<4','real estate',24,none,bad
+9,790,'500<=X<1000','1<=X<4','real estate',66,none,good
+27,2570,'<100','1<=X<4','real estate',21,none,bad
+6,250,'>=1000','1<=X<4','real estate',41,none,good
+15,1316,'500<=X<1000','1<=X<4','life insurance',47,none,good
+18,1882,'<100','1<=X<4',car,25,none,bad
+48,6416,'<100','>=7','no known property',59,none,bad
+24,1275,'>=1000','1<=X<4','real estate',36,yes,good
+24,6403,'<100','<1',car,33,none,good
+24,1987,'<100','1<=X<4','real estate',21,none,bad
+8,760,'<100','4<=X<7','real estate',44,none,good
+24,2603,'>=1000','1<=X<4',car,28,yes,good
+4,3380,'<100','4<=X<7','real estate',37,none,good
+36,3990,'no known savings','<1','no known property',29,none,good
+24,11560,'<100','1<=X<4',car,23,none,bad
+18,4380,'100<=X<500','1<=X<4',car,35,yes,good
+6,6761,'<100','4<=X<7','no known property',45,yes,good
+30,4280,'100<=X<500','1<=X<4',car,26,none,bad
+24,2325,'100<=X<500','4<=X<7',car,32,none,good
+10,1048,'<100','1<=X<4','real estate',23,none,good
+21,3160,'no known savings','>=7','life insurance',41,yes,good
+24,2483,'500<=X<1000','1<=X<4','real estate',22,,good
+39,14179,'no known savings','4<=X<7','life insurance',30,,good
+13,1797,'<100','<1','life insurance',28,,good
+15,2511,'<100',unemployed,car,23,,good
+12,1274,'<100','<1','real estate',37,none,bad
+21,5248,'no known savings','1<=X<4',car,26,none,good
+15,3029,'<100','4<=X<7',car,33,none,good
+6,428,'<100','>=7','life insurance',49,yes,good
+18,976,'<100','<1',car,23,none,bad
+12,841,'100<=X<500','4<=X<7','real estate',23,none,good
+30,5771,'<100','4<=X<7',car,25,none,good
+12,,'>=1000','>=7','no known property',55,none,bad
+24,,'no known savings','4<=X<7','no known property',32,none,bad
+6,,'<100','1<=X<4','real estate',74,none,good
+15,,'no known savings','1<=X<4','no known property',39,yes,bad
+24,1393,'<100','1<=X<4','real estate',31,yes,good
+12,691,'<100','>=7','life insurance',35,none,bad
+15,5045,'no known savings','>=7',car,59,yes,good
+18,2124,'<100','1<=X<4','real estate',24,none,bad
+12,2214,'<100','1<=X<4','life insurance',24,none,good
+21,12680,'no known savings','>=7','no known property',30,yes,bad
+24,2463,'100<=X<500','4<=X<7','life insurance',27,yes,good
+12,1155,'<100','>=7','real estate',40,none,good
+30,3108,'<100','<1','life insurance',31,none,bad
+10,2901,'no known savings','<1','real estate',31,none,good
+12,3617,'<100','>=7',car,28,yes,good
+12,1655,'<100','>=7','real estate',63,yes,good
+24,2812,'no known savings','>=7','real estate',26,none,good
+36,8065,'<100','1<=X<4','no known property',25,yes,bad
+21,3275,'<100','>=7',car,36,yes,good
+24,2223,'100<=X<500','>=7','life insurance',52,none,good
+12,1480,'500<=X<1000',unemployed,'no known property',66,none,good
+24,1371,'no known savings','1<=X<4','real estate',25,none,bad
+36,3535,'<100','4<=X<7',car,37,yes,good
+18,3509,'<100','4<=X<7','real estate',25,none,good
+36,5711,'>=1000','>=7',car,38,yes,good
+18,3872,'<100',unemployed,car,67,yes,good
+39,4933,'<100','4<=X<7','real estate',25,none,bad
+24,1940,'>=1000','>=7','real estate',60,yes,good
+12,1410,'<100','1<=X<4','real estate',31,yes,good
+12,836,'100<=X<500','<1','life insurance',23,none,bad
+20,6468,'no known savings',unemployed,'real estate',60,yes,good
+18,1941,'>=1000','1<=X<4','life insurance',35,yes,good
+22,2675,'500<=X<1000','>=7',car,40,none,good
+48,2751,'no known savings','>=7',car,38,yes,good
+48,6224,'<100','>=7','no known property',50,none,bad
+40,5998,'<100','1<=X<4','no known property',27,yes,bad
+21,1188,'<100','>=7','life insurance',39,none,bad
+24,6313,'no known savings','>=7',car,41,yes,good
+6,1221,'no known savings','1<=X<4','life insurance',27,,good
+24,2892,'<100','>=7','no known property',51,,good
+24,3062,'500<=X<1000','>=7','no known property',32,yes,good
+9,2301,'100<=X<500','<1','life insurance',22,none,good
+18,7511,'no known savings','>=7','life insurance',51,yes,bad
+12,1258,'<100','<1','life insurance',22,none,good
+24,717,'no known savings','>=7',car,54,yes,good
+9,1549,'no known savings','<1','real estate',35,none,good
+24,1597,'<100','>=7','no known property',54,none,good
+18,1795,'<100','>=7','real estate',48,yes,good
+20,4272,'<100','>=7','life insurance',24,none,good
+12,976,'no known savings','>=7',car,35,none,good
+12,7472,'no known savings',unemployed,'real estate',24,none,good
+36,9271,'<100','4<=X<7',car,24,yes,bad
+6,590,'<100','<1','real estate',26,none,good
+12,930,'no known savings','>=7','real estate',65,none,good
+42,9283,'<100',unemployed,'no known property',55,yes,good
+15,1778,'<100','<1','real estate',26,none,bad
+8,907,'<100','<1','real estate',26,yes,good
+6,484,'<100','4<=X<7','real estate',28,none,good
+36,9629,'<100','4<=X<7',car,24,yes,bad
+48,3051,'<100','1<=X<4',car,54,none,bad
+48,3931,'<100','4<=X<7','no known property',46,none,bad
+36,7432,'<100','1<=X<4','life insurance',54,,good
+6,1338,'500<=X<1000','1<=X<4','real estate',62,,good
+6,1554,'<100','4<=X<7',car,24,,good
+36,15857,'<100',unemployed,car,43,,good
+18,1345,'<100','1<=X<4','real estate',26,none,bad
+12,1101,'<100','1<=X<4','real estate',27,yes,good
+12,3016,'<100','1<=X<4',car,24,none,good
+36,2712,'<100','>=7','life insurance',41,none,bad
+8,731,'<100','>=7','real estate',47,none,good
+18,3780,'<100','<1',car,35,yes,good
+21,1602,'<100','>=7',car,30,yes,good
+18,3966,'<100','>=7','real estate',33,yes,bad
+18,4165,'<100','1<=X<4',car,36,none,bad
+36,8335,'no known savings','>=7','no known property',47,none,bad
+48,6681,'no known savings','1<=X<4','no known property',38,yes,good
+24,2375,'500<=X<1000','1<=X<4',car,44,yes,good
+18,1216,'<100','<1',car,23,yes,bad
+45,11816,'<100','>=7',car,29,none,bad
+24,5084,'no known savings','>=7',car,42,yes,good
+15,2327,'<100','<1','real estate',25,none,bad
+12,1082,'<100','1<=X<4',car,48,none,bad
+12,886,'no known savings','1<=X<4',car,21,none,good
+4,601,'<100','<1','real estate',23,none,good
+24,2957,'<100','>=7','life insurance',63,yes,good
+24,2611,'<100','>=7','real estate',46,none,good
+36,5179,'<100','4<=X<7','life insurance',29,none,bad
+21,2993,'<100','1<=X<4','real estate',28,none,good
+18,1943,'<100','<1','real estate',23,none,bad
+24,1559,'<100','4<=X<7',car,50,yes,good
+18,3422,'<100','>=7','life insurance',47,yes,good
+21,3976,'no known savings','4<=X<7',car,35,yes,good
+18,6761,'no known savings','1<=X<4',car,68,,bad
+24,1249,'<100','<1','real estate',28,,good
+9,1364,'<100','4<=X<7','real estate',59,,good
+12,709,'<100','>=7','real estate',57,,bad
+20,2235,'<100','1<=X<4','life insurance',33,,bad
+24,4042,'no known savings','4<=X<7','life insurance',43,,good
+15,1471,'<100','1<=X<4','no known property',35,,good
+18,1442,'<100','4<=X<7','no known property',32,,bad
+36,10875,'<100','>=7',car,45,,good
+24,1474,'100<=X<500','<1','real estate',33,,good
+10,894,'no known savings','4<=X<7','life insurance',40,,good
+15,3343,'<100','1<=X<4','no known property',28,,good
+15,3959,'<100','1<=X<4','life insurance',29,,bad
+9,3577,'100<=X<500','1<=X<4','real estate',26,,good
+24,5804,'>=1000','1<=X<4','real estate',27,,good
+18,2169,'<100','1<=X<4',car,28,,bad
+24,2439,'<100','<1','real estate',35,,bad
+27,4526,'>=1000','<1','real estate',32,,good
+10,2210,'<100','1<=X<4','real estate',25,,bad
+15,2221,'500<=X<1000','1<=X<4',car,20,,good
+18,2389,'<100','<1',car,27,,good
+12,3331,'<100','>=7','life insurance',42,,good
+36,7409,'no known savings','>=7','life insurance',37,,good
+12,652,'<100','>=7','life insurance',24,,good
+36,7678,'500<=X<1000','4<=X<7',car,40,,good
+6,1343,'<100','>=7','real estate',46,,good
+24,1382,'100<=X<500','4<=X<7','real estate',26,,good
+15,874,'no known savings','<1','real estate',24,,good
+12,3590,'<100','1<=X<4','life insurance',29,,good
+11,1322,'>=1000','1<=X<4',car,40,,good
+18,1940,'<100','<1','no known property',36,,good
+36,3595,'<100','>=7',car,28,,good
+9,1422,'<100','<1','no known property',27,,bad
+30,6742,'no known savings','4<=X<7','life insurance',36,,good
+24,7814,'<100','4<=X<7',car,38,,good
+24,9277,'no known savings','1<=X<4','no known property',48,,good
+30,,'no known savings','>=7','real estate',36,,good
+18,,'<100',unemployed,car,65,,good
+24,4057,'<100','4<=X<7',car,43,,bad
+12,795,'<100','<1','life insurance',53,,bad
+24,2825,'no known savings','4<=X<7','no known property',34,,good
+48,15672,'<100','1<=X<4',car,23,,bad
+36,6614,'<100','>=7',car,34,,good
+28,7824,'no known savings','<1','real estate',40,,good
+27,2442,'<100','>=7',car,43,,good
+15,1829,'<100','>=7',car,46,,good
+12,2171,'<100','1<=X<4','life insurance',38,,good
+36,5800,'<100','1<=X<4',car,34,,good
+18,1169,'no known savings','1<=X<4','life insurance',29,,good
+36,8947,'no known savings','4<=X<7',car,31,,good
+21,2606,'<100','<1','life insurance',28,none,good
+12,1592,'>=1000','4<=X<7','life insurance',35,yes,good
+15,2186,'no known savings','4<=X<7','real estate',33,,good
+18,4153,'<100','1<=X<4',car,42,,bad
+16,2625,'<100','>=7','life insurance',43,,bad
+20,3485,'no known savings','<1','real estate',44,,good
+36,10477,'no known savings','>=7','no known property',42,,good
+15,1386,'no known savings','1<=X<4','real estate',40,,good
+24,1278,'<100','>=7','real estate',36,,good
+12,1107,'<100','1<=X<4','real estate',20,,good
+21,3763,'no known savings','4<=X<7','real estate',24,,good
+36,3711,'no known savings','1<=X<4',car,27,,good
+15,3594,'<100','<1','life insurance',46,,good
+9,3195,'no known savings','1<=X<4','real estate',33,,good
+36,4454,'<100','1<=X<4','real estate',34,,good
+24,4736,'<100','<1',car,25,,bad
+30,2991,'no known savings','>=7',car,25,,good
+11,2142,'>=1000','>=7','real estate',28,,good
+24,3161,'<100','1<=X<4','life insurance',31,,bad
+48,18424,'<100','1<=X<4','life insurance',32,,bad
+10,2848,'100<=X<500','1<=X<4','real estate',32,,good
+6,14896,'<100','>=7','no known property',68,,bad
+24,2359,'100<=X<500',unemployed,'life insurance',33,,bad
+24,3345,'<100','>=7','life insurance',39,,bad
+18,1817,'<100','1<=X<4','no known property',28,,good
+48,12749,'500<=X<1000','4<=X<7',car,37,,good
+9,1366,'<100','<1','life insurance',22,,bad
+12,2002,'<100','4<=X<7','life insurance',30,,good
+24,6872,'<100','<1','life insurance',55,,bad
+12,697,'<100','<1',car,46,,bad
+18,1049,'<100','<1','life insurance',21,,good
+48,10297,'<100','4<=X<7','no known property',39,,bad
+30,1867,'no known savings','>=7',car,58,,good
+12,1344,'<100','1<=X<4','real estate',43,,good
+24,1747,'<100','<1','life insurance',24,,good
+9,1670,'<100','<1',car,22,,bad
+9,1224,'<100','1<=X<4','real estate',30,,good
+12,522,'500<=X<1000','>=7','life insurance',42,,good
+12,1498,'<100','1<=X<4',car,23,,good
+30,1919,'100<=X<500','<1','no known property',30,,bad
+9,745,'<100','1<=X<4','real estate',28,,bad
+6,2063,'<100','<1',car,30,,good
+60,6288,'<100','1<=X<4','no known property',42,,bad
+24,6842,'no known savings','1<=X<4','life insurance',46,,good
+12,3527,'no known savings','<1','life insurance',45,,good
+10,1546,'<100','1<=X<4','real estate',31,,good
+24,929,'no known savings','4<=X<7',car,31,,good
+4,1455,'<100','4<=X<7','real estate',42,,good
+15,1845,'<100','<1','life insurance',46,,good
+48,8358,'500<=X<1000','<1',car,30,,good
+24,3349,'500<=X<1000','<1','no known property',30,,bad
+12,2859,'no known savings',unemployed,'no known property',38,,good
+18,1533,'<100','<1','life insurance',43,,bad
+24,3621,'100<=X<500','>=7',car,31,,bad
+18,3590,'<100',unemployed,car,40,,good
+36,2145,'<100','4<=X<7',car,24,,bad
+24,4113,'500<=X<1000','<1',car,28,,bad
+36,10974,'<100',unemployed,car,26,,bad
+12,1893,'<100','1<=X<4','life insurance',29,,good
+24,1231,'>=1000','>=7','life insurance',57,,good
+30,3656,'no known savings','>=7','life insurance',49,,good
+9,1154,'<100','>=7','real estate',37,,good
+28,4006,'<100','1<=X<4',car,45,,bad
+24,3069,'100<=X<500','>=7','no known property',30,,good
+6,1740,'<100','>=7','real estate',30,,good
+21,,'<100','1<=X<4','life insurance',47,,good
+15,,'no known savings','1<=X<4','no known property',29,,good
+24,,'500<=X<1000','>=7',car,35,,bad
+6,,'<100','<1','life insurance',22,,good
+30,,'no known savings','1<=X<4',car,26,,good
+27,2520,'500<=X<1000','1<=X<4','life insurance',23,yes,bad
+15,3568,'<100','>=7',car,54,yes,good
+42,7166,'no known savings','4<=X<7','life insurance',29,yes,good
+11,3939,'<100','1<=X<4','real estate',40,yes,good
+15,1514,'100<=X<500','1<=X<4','real estate',22,,good
+24,7393,'<100','1<=X<4','life insurance',43,,good
+24,1193,'<100',unemployed,'no known property',29,,bad
+60,7297,'<100','>=7','no known property',36,,bad
+30,2831,'<100','1<=X<4',car,33,,good
+24,1258,'500<=X<1000','1<=X<4',car,57,,good
+6,753,'<100','1<=X<4','real estate',64,,good
+18,2427,'no known savings','>=7','life insurance',42,,good
+24,2538,'<100','>=7',car,47,,bad
+15,1264,'100<=X<500','1<=X<4','life insurance',25,,bad
+30,8386,'<100','4<=X<7','life insurance',49,,bad
+48,4844,'<100',unemployed,car,33,,bad
+21,2923,'100<=X<500','1<=X<4',car,28,,good
+36,8229,'<100','1<=X<4','life insurance',26,,bad
+24,2028,'<100','4<=X<7','life insurance',30,,good
+15,1433,'<100','1<=X<4','life insurance',25,,good
+42,6289,'<100','<1','life insurance',33,,good
+13,1409,'100<=X<500',unemployed,'real estate',64,none,good
+24,6579,'<100',unemployed,'no known property',29,none,good
+24,1743,'<100','>=7','life insurance',48,none,good
+12,3565,'no known savings','<1','life insurance',37,none,good
+15,1569,'100<=X<500','>=7',car,34,,good
+18,1936,'no known savings','4<=X<7',car,23,,good
+36,3959,'<100',unemployed,'life insurance',30,,good
+12,2390,'no known savings','>=7',car,50,,good
+12,1736,'<100','4<=X<7','real estate',31,,good
+30,3857,'<100','1<=X<4','life insurance',40,,good
+12,804,'<100','>=7',car,38,none,good
+45,,'<100','1<=X<4','no known property',23,yes,bad
+45,4576,'100<=X<500',unemployed,car,27,none,good
