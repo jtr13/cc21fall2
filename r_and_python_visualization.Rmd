@@ -2,8 +2,8 @@
 
 Gilberto Garcia Perez
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE)
 
 # Python setup
 Sys.setenv(RETICULATE_PYTHON = "~/anaconda3/bin/python3")
