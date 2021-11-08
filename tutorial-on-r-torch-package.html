@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 61 Tutorial on R torch package | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Wenbo Zhao  61.1 Introduction Nowadays, deep learning technique has shown its ability in dealing with data intensive tasks such as image recognition, neural language processing and so on. In...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 61 Tutorial on R torch package | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Wenbo Zhao  61.1 Introduction Nowadays, deep learning technique has shown its ability in dealing with data intensive tasks such as image recognition, neural language processing and so on. In...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 61 Tutorial on R torch package | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Wenbo Zhao  61.1 Introduction Nowadays, deep learning technique has shown its ability in dealing with data intensive tasks such as image recognition, neural language processing and so on. In...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">26</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">27</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">28</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">29</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">30</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">31</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">32</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">33</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">34</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">35</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">36</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">37</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">38</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">39</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">40</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">41</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">42</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">43</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">44</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">45</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">46</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">47</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">48</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">49</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">50</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">51</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">52</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">53</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">54</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">55</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">56</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">57</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">58</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">59</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">60</span> Storytelling with Data</a></li>
+<li><a class="active" href="tutorial-on-r-torch-package.html"><span class="header-section-number">61</span> Tutorial on R torch package</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">62</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">63</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">64</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">65</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">66</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">67</span> Understand data with plots</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">68</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">69</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tutorial-on-r-torch-package" class="section level1">
+<h1>
+<span class="header-section-number">61</span> Tutorial on R torch package<a class="anchor" aria-label="anchor" href="#tutorial-on-r-torch-package"><i class="fas fa-link"></i></a>
+</h1>
+<p>Wenbo Zhao</p>
+<div id="introduction-11" class="section level2">
+<h2>
+<span class="header-section-number">61.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-11"><i class="fas fa-link"></i></a>
+</h2>
+<p>Nowadays, deep learning technique has shown its ability in dealing with data intensive tasks such as image recognition, neural language processing and so on. In python, there are two famous deep learning frameworks: <code>tensorflow</code>[1] and <code>pytorch</code>[2]. While <code>tensorflow</code> provides R accessibility since 2017, <code>torch</code> is not available until the end of 2019[3]. Because of the use-friendliness of <code>pytorch</code> and the strong visualization ability of R, it is cool to combine them together. Here I would like to talk about how to use <code>torch</code> in R.</p>
+<p>The <code>torch</code> ecosystem includes several packages. <code>Torch</code> package is the basic one that includes the basic data structure <code>tensor</code>, an N-d array of numbers, <code>nn_modules</code> that includes trainable weights and <code>nnf_modules</code> that are static ones. <code>Luz</code> package provides compact implementation of training procedure so that we do not need to write loops. <code>Torchvision</code> is a package especially designed for vision tasks that can crop or transform the images into suitable size to feed into the network.</p>
+</div>
+<div id="background-2" class="section level2">
+<h2>
+<span class="header-section-number">61.2</span> Background<a class="anchor" aria-label="anchor" href="#background-2"><i class="fas fa-link"></i></a>
+</h2>
+<div id="deep-learning" class="section level3">
+<h3>
+<span class="header-section-number">61.2.1</span> Deep Learning<a class="anchor" aria-label="anchor" href="#deep-learning"><i class="fas fa-link"></i></a>
+</h3>
+<p>Like linear regression, support vector machine and k-nearest neighbour, deep learning is also a kind of machine learning methods that can help us approximate the output or classify. All of these methods need a training dataset so that they can finetune their parameters and give the result of a new sample. One of the most important benefit of deep learning is the complexity of models that can abstract inner feature of samples and give precise prediction. It is said that with enough parameters, deep learning models can emulate any function between input and output. Of course this will cause overfitting problem and thus the size of model is set to be compatible with the size of input sample.</p>
+<p>However, to present such a large deep learning model and its training process is not an easy task with traditional matrix multiplication. In such context, <code>tensorflow</code> and <code>pytorch</code> appears as an higher level API. With them, we can easily abstract a deep learning block and stacking these blocks together gives the complete network.</p>
+</div>
+<div id="convolution-neural-network" class="section level3">
+<h3>
+<span class="header-section-number">61.2.2</span> Convolution Neural Network<a class="anchor" aria-label="anchor" href="#convolution-neural-network"><i class="fas fa-link"></i></a>
+</h3>
+<p>As is mentioned in the previous paragraph, a deep learning network is consisted of multiple blocks. For image classification task the most frequently used block is convolution neural network (CNN). Suppose we have a input of size <span class="math inline">\((N, C_{\mbox{in}}, H, W)\)</span> and weight <span class="math inline">\(W\)</span> of size <span class="math inline">\((C_{\mbox{out}}, C_{\mbox{in}}, k, k)\)</span> with stride <span class="math inline">\(s\)</span> and padding <span class="math inline">\(p\)</span>, the output size will be <span class="math inline">\((N, C_{\mbox{out}}, H_{\mbox{out}}, W_{\mbox{out}})\)</span> where
+<span class="math display">\[
+  H_{\mbox{out}} = \left\lfloor\frac{H + 2p - k}{s}\right\rfloor + 1 \\
+  W_{\mbox{out}} = \left\lfloor\frac{W + 2p - k}{s}\right\rfloor + 1
+\]</span>
+and
+<span class="math display">\[
+  \mbox{out}[n, j, x, y] = \mbox{bias}_j + \mbox{inner_product}(W[j,:,:,:], \mbox{in}[n, :, 1+(x-1)s:1+(x-1)s+k, 1+(y-1)s:1+(y-1)s+k])
+\]</span>
+<span class="math inline">\(i.e.\)</span> each output value is the inner product result of two 4-d array of size <span class="math inline">\([1,C_\mbox{in}, k, k]\)</span> plus bias. This block is widely used in image tasks has achieved good result and is the basic unit in foundation networks Alexnet[4] and Resnet[5].</p>
+</div>
+</div>
+<div id="implementation" class="section level2">
+<h2>
+<span class="header-section-number">61.3</span> Implementation<a class="anchor" aria-label="anchor" href="#implementation"><i class="fas fa-link"></i></a>
+</h2>
+<div id="installation-4" class="section level3">
+<h3>
+<span class="header-section-number">61.3.1</span> Installation<a class="anchor" aria-label="anchor" href="#installation-4"><i class="fas fa-link"></i></a>
+</h3>
+<p>To install torch in Rstudio, we should first install <code>torch</code> package. In our example, we also need <code>luz</code> and <code>torchvision</code>, therefore we run</p>
+<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"torch"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"torchvision"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"luz"</span><span class="op">)</span></code></pre></div>
+<p>and then run</p>
+<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://torch.mlverse.org/docs">torch</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://torchvision.mlverse.org">torchvision</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mlverse.github.io/luz/">luz</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="fetching-dataset" class="section level3">
+<h3>
+<span class="header-section-number">61.3.2</span> Fetching Dataset<a class="anchor" aria-label="anchor" href="#fetching-dataset"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this example, we would like to identify the digits in the famous hand-written digit dataset <code>MNIST</code> using pure convolution neural network.</p>
+<div class="sourceCode" id="cb749"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dir</span> <span class="op">&lt;-</span> <span class="st">"./dataset/mnist"</span>
+
+<span class="va">train_ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torchvision.mlverse.org/reference/mnist_dataset.html">mnist_dataset</a></span><span class="op">(</span>
+  <span class="va">dir</span>,
+  download <span class="op">=</span> <span class="cn">TRUE</span>,
+  transform <span class="op">=</span> <span class="va">transform_to_tensor</span>
+<span class="op">)</span>
+
+<span class="va">test_ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torchvision.mlverse.org/reference/mnist_dataset.html">mnist_dataset</a></span><span class="op">(</span>
+  <span class="va">dir</span>,
+  train <span class="op">=</span> <span class="cn">FALSE</span>,
+  transform <span class="op">=</span> <span class="va">transform_to_tensor</span>
+<span class="op">)</span>
+
+<span class="va">train_dl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/dataloader.html">dataloader</a></span><span class="op">(</span><span class="va">train_ds</span>, batch_size <span class="op">=</span> <span class="fl">128</span>, shuffle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">test_dl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/dataloader.html">dataloader</a></span><span class="op">(</span><span class="va">test_ds</span>, batch_size <span class="op">=</span> <span class="fl">128</span><span class="op">)</span></code></pre></div>
+<p>The <code>batch_size</code> parameter is the number of inputs that are processed in parallel and its value is decided by the computation capacity of the processor. An example of the input is shown as follow:</p>
+<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">image</span> <span class="op">&lt;-</span> <span class="va">train_ds</span><span class="op">$</span><span class="va">data</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">28</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">28</span><span class="op">]</span>
+<span class="va">image_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reshape/man/melt-24.html">melt</a></span><span class="op">(</span><span class="va">image</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">image_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Var2</span>, y<span class="op">=</span><span class="va">Var1</span>, fill<span class="op">=</span><span class="va">value</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient</a></span><span class="op">(</span>low<span class="op">=</span><span class="st">"white"</span>, high<span class="op">=</span><span class="st">"black"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="r_torch_tutorial_files/figure-html/input-1.png" width="288" style="display: block; margin: auto;"></div>
+</div>
+<div id="building-up-the-network" class="section level3">
+<h3>
+<span class="header-section-number">61.3.3</span> Building up the network<a class="anchor" aria-label="anchor" href="#building-up-the-network"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb751"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nn_module.html">nn_module</a></span><span class="op">(</span>
+  <span class="st">"Net"</span>,
+  
+  initialize <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">self</span><span class="op">$</span><span class="va">conv1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nn_conv2d.html">nn_conv2d</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">32</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>
+    <span class="va">self</span><span class="op">$</span><span class="va">conv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nn_conv2d.html">nn_conv2d</a></span><span class="op">(</span><span class="fl">32</span>, <span class="fl">64</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>
+    <span class="va">self</span><span class="op">$</span><span class="va">dropout1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nn_dropout2d.html">nn_dropout2d</a></span><span class="op">(</span><span class="fl">0.25</span><span class="op">)</span>
+    <span class="va">self</span><span class="op">$</span><span class="va">dropout2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nn_dropout2d.html">nn_dropout2d</a></span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span>
+    <span class="va">self</span><span class="op">$</span><span class="va">fc1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nn_linear.html">nn_linear</a></span><span class="op">(</span><span class="fl">9216</span>, <span class="fl">128</span><span class="op">)</span>
+    <span class="va">self</span><span class="op">$</span><span class="va">fc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nn_linear.html">nn_linear</a></span><span class="op">(</span><span class="fl">128</span>, <span class="fl">10</span><span class="op">)</span>
+  <span class="op">}</span>,
+  
+  forward <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">x</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>                                  <span class="co"># N * 1 * 28 * 28</span>
+      <span class="va">self</span><span class="op">$</span><span class="fu">conv1</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>                     <span class="co"># N * 32 * 26 * 26</span>
+      <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nnf_relu.html">nnf_relu</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>                       
+      <span class="va">self</span><span class="op">$</span><span class="fu">conv2</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>                     <span class="co"># N * 64 * 24 * 24</span>
+      <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nnf_relu.html">nnf_relu</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span> 
+      <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nnf_max_pool2d.html">nnf_max_pool2d</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>                <span class="co"># N * 64 * 12 * 12</span>
+      <span class="va">self</span><span class="op">$</span><span class="fu">dropout1</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span> 
+      <span class="fu"><a href="https://torch.mlverse.org/docs/reference/torch_flatten.html">torch_flatten</a></span><span class="op">(</span>start_dim <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>     <span class="co"># N * 9216</span>
+      <span class="va">self</span><span class="op">$</span><span class="fu">fc1</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>                       <span class="co"># N * 128</span>
+      <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nnf_relu.html">nnf_relu</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span> 
+      <span class="va">self</span><span class="op">$</span><span class="fu">dropout2</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span> 
+      <span class="va">self</span><span class="op">$</span><span class="fu">fc2</span><span class="op">(</span><span class="op">)</span>                           <span class="co"># N * 10</span>
+  <span class="op">}</span>
+<span class="op">)</span></code></pre></div>
+<p>The <code>nn_module</code> function requires 3 variables. A <code>name</code> variable which is an optional name for the module, an <code>initialization</code> function that includes all the accessaries that are needed in the network. In the example, they are all the convolution layers. The parameter of <code>nn_conv2d</code> are input channel <span class="math inline">\(C_\mbox{in}\)</span>, output channel <span class="math inline">\(C_\mbox{out}\)</span>, kernel size <span class="math inline">\(k\)</span> and stride <span class="math inline">\(s\)</span>, which are described in previous sections. The padding <span class="math inline">\(p\)</span> is set to 0 by default.</p>
+<p>As is shown in the comment of the code, disregarding the batch size <span class="math inline">\(N\)</span>, the input size is an 28*28 image with only 1 input channel. After conv1, using the euqation of calculating <span class="math inline">\(H_\mbox{out}\)</span> and <span class="math inline">\(W_\mbox{out}\)</span>, we can see that the size is 26*26 with 32 channels. After conv2, the shape is 24*24 with 64 channels. The <code>max_pool2d(2)</code> function selection the largest one from each 2*2 region to prevent overfit. After that the shape is 12*12 with 64 channels. The <code>flatten</code> function aligns them into a 9216 series and two linear layers finally get 10 values as the network output and the index of the largest one among them decides the output prediction digit.</p>
+</div>
+<div id="training" class="section level3">
+<h3>
+<span class="header-section-number">61.3.4</span> Training<a class="anchor" aria-label="anchor" href="#training"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fitted</span> <span class="op">&lt;-</span> <span class="va">net</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://mlverse.github.io/luz/reference/setup.html">setup</a></span><span class="op">(</span>
+    loss <span class="op">=</span> <span class="fu"><a href="https://torch.mlverse.org/docs/reference/nn_cross_entropy_loss.html">nn_cross_entropy_loss</a></span><span class="op">(</span><span class="op">)</span>,
+    optimizer <span class="op">=</span> <span class="va">optim_adam</span>,
+    metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://mlverse.github.io/luz/reference/luz_metric_accuracy.html">luz_metric_accuracy</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="https://torch.mlverse.org/docs/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://generics.r-lib.org/reference/fit.html">fit</a></span><span class="op">(</span><span class="va">train_dl</span>, epochs <span class="op">=</span> <span class="fl">10</span>, valid_data <span class="op">=</span> <span class="va">test_dl</span><span class="op">)</span></code></pre></div>
+<pre><code>Epoch 1/10
+Train metrics: Loss: 0.2813 - Acc: 0.9146                                                                    
+Valid metrics: Loss: 0.0565 - Acc: 0.982
+Epoch 2/10
+Train metrics: Loss: 0.1055 - Acc: 0.9687                                                                    
+Valid metrics: Loss: 0.0424 - Acc: 0.985
+Epoch 3/10
+Train metrics: Loss: 0.0782 - Acc: 0.9756                                                                    
+Valid metrics: Loss: 0.0359 - Acc: 0.9872
+Epoch 4/10
+Train metrics: Loss: 0.0626 - Acc: 0.9815                                                                    
+Valid metrics: Loss: 0.0364 - Acc: 0.989
+Epoch 5/10
+Train metrics: Loss: 0.0563 - Acc: 0.983                                                                     
+Valid metrics: Loss: 0.0362 - Acc: 0.9889
+Epoch 6/10
+Train metrics: Loss: 0.0522 - Acc: 0.9831                                                                    
+Valid metrics: Loss: 0.0345 - Acc: 0.9892
+Epoch 7/10
+Train metrics: Loss: 0.0448 - Acc: 0.9861                                                                    
+Valid metrics: Loss: 0.029 - Acc: 0.9901
+Epoch 8/10
+Train metrics: Loss: 0.0415 - Acc: 0.9863                                                                    
+Valid metrics: Loss: 0.0307 - Acc: 0.9905
+Epoch 9/10
+Train metrics: Loss: 0.0361 - Acc: 0.9883                                                                    
+Valid metrics: Loss: 0.0289 - Acc: 0.9905
+Epoch 10/10
+Train metrics: Loss: 0.0337 - Acc: 0.9892                                                                    
+Valid metrics: Loss: 0.0286 - Acc: 0.9904</code></pre>
+</div>
+<div id="testing" class="section level3">
+<h3>
+<span class="header-section-number">61.3.5</span> Testing<a class="anchor" aria-label="anchor" href="#testing"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">preds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">fitted</span>, <span class="va">test_dl</span><span class="op">)</span>
+<span class="va">preds</span><span class="op">$</span><span class="va">shape</span></code></pre></div>
+<pre><code>[1] 10000    10</code></pre>
+</div>
+<div id="saving-the-model" class="section level3">
+<h3>
+<span class="header-section-number">61.3.6</span> Saving the model<a class="anchor" aria-label="anchor" href="#saving-the-model"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb756"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://mlverse.github.io/luz/reference/luz_save.html">luz_save</a></span><span class="op">(</span><span class="va">fitted</span>, <span class="st">"mnist-cnn.pt"</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="conclusion-2" class="section level2">
+<h2>
+<span class="header-section-number">61.4</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Traning the model on R can gives us much merit since R can visualize the data easier and prettier than python. For example, we can plot the accuracy curve during the traning to see whether the model has converged, plot the distribution of trained weights to see the distribution difference in each layer, etc. Although some of the visualization method is already implemented with tensorboardX in python, I think it is still a beneficial attempt to train deep learning models on R.</p>
+</div>
+<div id="citation" class="section level2">
+<h2>
+<span class="header-section-number">61.5</span> Citation<a class="anchor" aria-label="anchor" href="#citation"><i class="fas fa-link"></i></a>
+</h2>
+<p>[1] <a href="https://www.tensorflow.org/" class="uri">https://www.tensorflow.org/</a><br>
+[2] <a href="https://pytorch.org/" class="uri">https://pytorch.org/</a><br>
+[3] <a href="https://torch.mlverse.org/" class="uri">https://torch.mlverse.org/</a><br>
+[4] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. “Imagenet classification with deep convolutional neural networks.” Advances in neural information processing systems 25 (2012): 1097-1105.<br>
+[5] He, Kaiming, et al. “Deep residual learning for image recognition.” Proceedings of the IEEE conference on computer vision and pattern recognition. 2016.</p>
+
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="storytelling-with-data.html"><span class="header-section-number">60</span> Storytelling with Data</a></div>
+<div class="next"><a href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">62</span> Introduction to analytics consulting at Accenture</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tutorial-on-r-torch-package"><span class="header-section-number">61</span> Tutorial on R torch package</a></li>
+<li><a class="nav-link" href="#introduction-11"><span class="header-section-number">61.1</span> Introduction</a></li>
+<li>
+<a class="nav-link" href="#background-2"><span class="header-section-number">61.2</span> Background</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#deep-learning"><span class="header-section-number">61.2.1</span> Deep Learning</a></li>
+<li><a class="nav-link" href="#convolution-neural-network"><span class="header-section-number">61.2.2</span> Convolution Neural Network</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#implementation"><span class="header-section-number">61.3</span> Implementation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#installation-4"><span class="header-section-number">61.3.1</span> Installation</a></li>
+<li><a class="nav-link" href="#fetching-dataset"><span class="header-section-number">61.3.2</span> Fetching Dataset</a></li>
+<li><a class="nav-link" href="#building-up-the-network"><span class="header-section-number">61.3.3</span> Building up the network</a></li>
+<li><a class="nav-link" href="#training"><span class="header-section-number">61.3.4</span> Training</a></li>
+<li><a class="nav-link" href="#testing"><span class="header-section-number">61.3.5</span> Testing</a></li>
+<li><a class="nav-link" href="#saving-the-model"><span class="header-section-number">61.3.6</span> Saving the model</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#conclusion-2"><span class="header-section-number">61.4</span> Conclusion</a></li>
+<li><a class="nav-link" href="#citation"><span class="header-section-number">61.5</span> Citation</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/r_torch_tutorial.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/r_torch_tutorial.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

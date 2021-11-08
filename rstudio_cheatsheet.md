@@ -1,0 +1,8 @@
+# RStudio Cheatsheet
+
+Mendel Branover
+
+This document serves as a cheatsheet and guide for using the Studio IDE. It includes brief explanations of useful features in RStudio. 
+The document can be used as an introduction for new Rstudio users. It can also be used as a quick start guide for any RStudio user wanting a brief breakdown and some shortcuts.
+
+The URL for the document is: https://github.com/mbran1/GR5702-EDAV

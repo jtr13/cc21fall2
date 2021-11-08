@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 41 Hive plots with the ggraph and hiver packages | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Ben Zimnick library('ggraph') library('igraph') library('ggplot2') library('tidygraph') library('dplyr') library('HiveR') library('grid')  41.1 Networks  41.1.1 Network Definition A network is a...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 41 Hive plots with the ggraph and hiver packages | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Ben Zimnick library('ggraph') library('igraph') library('ggplot2') library('tidygraph') library('dplyr') library('HiveR') library('grid')  41.1 Networks  41.1.1 Network Definition A network is a...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 41 Hive plots with the ggraph and hiver packages | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Ben Zimnick library('ggraph') library('igraph') library('ggplot2') library('tidygraph') library('dplyr') library('HiveR') library('grid')  41.1 Networks  41.1.1 Network Definition A network is a...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">26</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">27</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">28</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">29</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">30</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">31</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">32</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">33</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">34</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">35</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">36</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">37</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">38</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">39</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">40</span> Streamlit Tutorial</a></li>
+<li><a class="active" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">41</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">42</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">43</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">44</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">45</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">46</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">47</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">48</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">49</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">50</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">51</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">52</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">53</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">54</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">55</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">56</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">57</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">58</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">59</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">60</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">61</span> Tutorial on R torch package</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">62</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">63</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">64</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">65</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">66</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">67</span> Understand data with plots</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">68</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">69</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hive-plots-with-the-ggraph-and-hiver-packages" class="section level1">
+<h1>
+<span class="header-section-number">41</span> Hive plots with the ggraph and hiver packages<a class="anchor" aria-label="anchor" href="#hive-plots-with-the-ggraph-and-hiver-packages"><i class="fas fa-link"></i></a>
+</h1>
+<p>Ben Zimnick</p>
+<div class="sourceCode" id="cb468"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://ggraph.data-imaginist.com">'ggraph'</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://igraph.org">'igraph'</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org">'ggplot2'</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidygraph.data-imaginist.com">'tidygraph'</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">'dplyr'</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/bryanhanson/HiveR">'HiveR'</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">'grid'</span><span class="op">)</span></code></pre></div>
+<div id="networks" class="section level2">
+<h2>
+<span class="header-section-number">41.1</span> Networks<a class="anchor" aria-label="anchor" href="#networks"><i class="fas fa-link"></i></a>
+</h2>
+<div id="network-definition" class="section level3">
+<h3>
+<span class="header-section-number">41.1.1</span> Network Definition<a class="anchor" aria-label="anchor" href="#network-definition"><i class="fas fa-link"></i></a>
+</h3>
+<p>A network is a collection of connected objects. Networks are often called graphs.</p>
+</div>
+<div id="node" class="section level3">
+<h3>
+<span class="header-section-number">41.1.2</span> Node<a class="anchor" aria-label="anchor" href="#node"><i class="fas fa-link"></i></a>
+</h3>
+<p>Nodes are the connected objects in a network. Nodes are often called vertices.</p>
+</div>
+<div id="edge" class="section level3">
+<h3>
+<span class="header-section-number">41.1.3</span> Edge<a class="anchor" aria-label="anchor" href="#edge"><i class="fas fa-link"></i></a>
+</h3>
+<p>Edges are the connections between nodes. Edges are often called links.</p>
+</div>
+<div id="directed-graph" class="section level3">
+<h3>
+<span class="header-section-number">41.1.4</span> Directed Graph<a class="anchor" aria-label="anchor" href="#directed-graph"><i class="fas fa-link"></i></a>
+</h3>
+<p>The edges have directions. If a and b are nodes, they can be connected by an edge from a to b and/or an edge from b to a. Directed edges are often represented with arrows pointing from one node to another.</p>
+</div>
+<div id="undirected-graph" class="section level3">
+<h3>
+<span class="header-section-number">41.1.5</span> Undirected Graph<a class="anchor" aria-label="anchor" href="#undirected-graph"><i class="fas fa-link"></i></a>
+</h3>
+<p>The edges do not have directions; the relationship goes both ways. If a and b are connected nodes, the edge goes from a to b and from b to a.</p>
+</div>
+<div id="degree" class="section level3">
+<h3>
+<span class="header-section-number">41.1.6</span> Degree<a class="anchor" aria-label="anchor" href="#degree"><i class="fas fa-link"></i></a>
+</h3>
+<p>The degree of a node is the number of edges that are incident to the node. In directed graphs, the in-degree is the number of edges going into the node; the out-degree is the number of edges exiting the node.</p>
+</div>
+<div id="general-graph-example" class="section level3">
+<h3>
+<span class="header-section-number">41.1.7</span> General Graph Example<a class="anchor" aria-label="anchor" href="#general-graph-example"><i class="fas fa-link"></i></a>
+</h3>
+<p>The New York City subway system is a network. The stations (nodes) are connected by tunnels (edges). If all of the trains run in both directions, the subway would be an undirected graph. Otherwise, it would be a directed graph.</p>
+</div>
+<div id="directed-graph-example" class="section level3">
+<h3>
+<span class="header-section-number">41.1.8</span> Directed Graph Example<a class="anchor" aria-label="anchor" href="#directed-graph-example"><i class="fas fa-link"></i></a>
+</h3>
+<p>A family tree is a directed graph. The people (nodes) are connected by their relationships to each other (edges). The relationships go from parent to child. While a person could be a parent and a child, she/he would not be a parent and child of the same person.</p>
+</div>
+<div id="undirected-graph-example" class="section level3">
+<h3>
+<span class="header-section-number">41.1.9</span> Undirected Graph Example<a class="anchor" aria-label="anchor" href="#undirected-graph-example"><i class="fas fa-link"></i></a>
+</h3>
+<p>A network of friends is an undirected graph. The friends (nodes) are connected by their relationships to each other (edges). But their relationships do not have an inherent ordering like the relationships between parents and children.</p>
+</div>
+</div>
+<div id="hive-plots" class="section level2">
+<h2>
+<span class="header-section-number">41.2</span> Hive Plots<a class="anchor" aria-label="anchor" href="#hive-plots"><i class="fas fa-link"></i></a>
+</h2>
+<div id="hive-plot-definition" class="section level3">
+<h3>
+<span class="header-section-number">41.2.1</span> Hive Plot Definition<a class="anchor" aria-label="anchor" href="#hive-plot-definition"><i class="fas fa-link"></i></a>
+</h3>
+<p>A hive plot is a method for visualizing networks. The nodes are located on lines that are distributed radially around the center of the plot (like hands on a clock). Edges are represented as curved lines between nodes.</p>
+</div>
+<div id="creating-hive-plots" class="section level3">
+<h3>
+<span class="header-section-number">41.2.2</span> Creating Hive Plots<a class="anchor" aria-label="anchor" href="#creating-hive-plots"><i class="fas fa-link"></i></a>
+</h3>
+<p>There is not a clear method for organizing the nodes. It is up to the person creating the graph to decide what works best for the data. But the nodes are typically ordered by degree on the axes.</p>
+</div>
+<div id="ggraph" class="section level3">
+<h3>
+<span class="header-section-number">41.2.3</span> ggraph<a class="anchor" aria-label="anchor" href="#ggraph"><i class="fas fa-link"></i></a>
+</h3>
+<p>ggraph is the most recent method for creating hive plots in R. The cran documentation was updated on February 23, 2021.</p>
+<p>There are two main ways to create hive plots using ggraph. The first relies on the igraph package; the second relies on the dplyr and tidygraph packages.</p>
+<p>The first example (which I needed to adjust slightly–I included an explanation in the ‘note’ section below) is from r-bloggers.com. The second example is from rdocumentation.org. The sources are in the ‘sources’ section.</p>
+<p>Both examples use the highschool data set, which is built into the ggraph package. The data set shows friendships among high school boys. In 1957 and again in 1958, the boys were asked which other boys they were friends with. In the hive plots, the nodes are boys, and the edges are friendships.</p>
+<p>I used the highschool data set because it is what most resources explaining network plots, including the ggraph cran documentation, use. Additionally, as one of the three data sets built into the ggraph package (the other two are the flare and whigs data sets), the highschool data set is convenient to work with.</p>
+</div>
+<div id="igraph-method" class="section level3">
+<h3>
+<span class="header-section-number">41.2.4</span> igraph method<a class="anchor" aria-label="anchor" href="#igraph-method"><i class="fas fa-link"></i></a>
+</h3>
+<p>This method usses the ggraph and igraph packages.</p>
+<p>The graph_from_data_frame function in the igraph package creates an igraph graph from a data frame.</p>
+<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html">graph_from_data_frame</a></span><span class="op">(</span><span class="va">highschool</span><span class="op">)</span></code></pre></div>
+<p>The degree degree of a node (or vertex) is its number of adjacent edges. For each node, the degree function gives the number of edges going into the node (‘in’), the number of edges going out of the node (‘out’), or the total degree (‘all’).</p>
+<div class="sourceCode" id="cb470"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span><span class="op">$</span><span class="va">friends</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/degree.html">degree</a></span><span class="op">(</span><span class="va">graph</span>, mode <span class="op">=</span> <span class="st">'in'</span><span class="op">)</span></code></pre></div>
+<p>The nodes are going to be located on three axes–few, many, medium–corresponding to the number of edges going into the node. In this example, the nodes are kids; the edges are friendships.</p>
+<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span><span class="op">$</span><span class="va">friends</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span><span class="op">$</span><span class="va">friends</span> <span class="op">&lt;</span> <span class="fl">5</span>, <span class="st">'few'</span>, 
+                           <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span><span class="op">$</span><span class="va">friends</span> <span class="op">&gt;=</span> <span class="fl">15</span>, <span class="st">'many'</span>, <span class="st">'medium'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>ggraph is an extension of ggplot2 that deals with graphs. ggraph sets the type of plot (hive) and the axis variable (friends). ggraph also sorts the nodes by degree.</p>
+<p>geom_edge_hive draws edges between the nodes. colour is one of the many adjustable parameters.</p>
+<p>geom_axis_hive edits the axes.</p>
+<div class="sourceCode" id="cb472"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggraph.data-imaginist.com/reference/ggraph.html">ggraph</a></span><span class="op">(</span><span class="va">graph</span>, <span class="st">'hive'</span>, axis <span class="op">=</span> <span class="va">friends</span>, sort.by <span class="op">=</span> <span class="st">'degree'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_edge_hive.html">geom_edge_hive</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_axis_hive.html">geom_axis_hive</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="va">friends</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span>, label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="hive_plots_ggraph_hiver_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="tidygraph-method" class="section level3">
+<h3>
+<span class="header-section-number">41.2.5</span> tidygraph method<a class="anchor" aria-label="anchor" href="#tidygraph-method"><i class="fas fa-link"></i></a>
+</h3>
+<p>This step uses the ggraph, ggplot2, tidygraph, and dplyr packages.</p>
+<p>as_tbl_graph converts a data set to a tbl_graph, a wrapper that makes it possible to manipulate igraph objects in a tidy API.</p>
+<p>centrality_degree gives the degree of the degree of the node.</p>
+<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidygraph.data-imaginist.com/reference/tbl_graph.html">as_tbl_graph</a></span><span class="op">(</span><span class="va">highschool</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/igraph/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>degree <span class="op">=</span> <span class="fu"><a href="https://tidygraph.data-imaginist.com/reference/centrality.html">centrality_degree</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Create a friends column that divides the nodes (kids) by their degrees (number of friends).</p>
+<div class="sourceCode" id="cb474"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">graph</span> <span class="op">&lt;-</span> <span class="va">graph</span> <span class="op"><a href="https://rdrr.io/pkg/igraph/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>friends <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://tidygraph.data-imaginist.com/reference/centrality.html">centrality_degree</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="st">'in'</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">5</span>, <span class="st">'few'</span>,
+    <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://tidygraph.data-imaginist.com/reference/centrality.html">centrality_degree</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="st">'in'</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">15</span>, <span class="st">'many'</span>, <span class="st">'medium'</span><span class="op">)</span>
+  <span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>ggraph is an extension of ggplot2 that deals with graphs. ggraph sets the type of plot (hive) and the axis variable (friends). ggraph also sorts the nodes by degree. Unlike in the previous example, degree is not in quotes.</p>
+<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggraph.data-imaginist.com/reference/ggraph.html">ggraph</a></span><span class="op">(</span><span class="va">graph</span>, <span class="st">'hive'</span>, axis <span class="op">=</span> <span class="va">friends</span>, sort.by <span class="op">=</span> <span class="va">degree</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_edge_hive.html">geom_edge_hive</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_axis_hive.html">geom_axis_hive</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="va">friends</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span>, label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="hive_plots_ggraph_hiver_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="faceting" class="section level3">
+<h3>
+<span class="header-section-number">41.2.6</span> Faceting<a class="anchor" aria-label="anchor" href="#faceting"><i class="fas fa-link"></i></a>
+</h3>
+<p>facet_edges allows you to split the plots based on edge attributes. The nodes are repeated in every subplot. facet_edges is equivalent to facet_wrap in ggplot.</p>
+<p>facet_nodes allows you to create subplots based on node attributes.</p>
+<div class="sourceCode" id="cb476"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggraph.data-imaginist.com/reference/ggraph.html">ggraph</a></span><span class="op">(</span><span class="va">graph</span>, <span class="st">'hive'</span>, axis <span class="op">=</span> <span class="va">friends</span>, sort.by <span class="op">=</span> <span class="va">degree</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_edge_hive.html">geom_edge_hive</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_axis_hive.html">geom_axis_hive</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="va">friends</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span>, label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/facet_edges.html">facet_edges</a></span><span class="op">(</span><span class="op">~</span><span class="va">year</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="hive_plots_ggraph_hiver_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="note" class="section level3">
+<h3>
+<span class="header-section-number">41.2.7</span> Note<a class="anchor" aria-label="anchor" href="#note"><i class="fas fa-link"></i></a>
+</h3>
+<p>Most resources with the igraph example have quotes around degree in the first line of the ggraph section of the code. I needed to remove the quotes to get the code to work.</p>
+</div>
+</div>
+<div id="hiver" class="section level2">
+<h2>
+<span class="header-section-number">41.3</span> HiveR<a class="anchor" aria-label="anchor" href="#hiver"><i class="fas fa-link"></i></a>
+</h2>
+<p>HiveR is another package for creating hive plots. HiveR does not seem as popular as ggraph. HiveR was first published in 2011; it was updated in 2020.</p>
+<p>HiveR contains two plant-pollinator data sets–Arroyo and Safari– that give the number of visits for each plant-pollinator pair. The data sets were taken from a 2003 paper by Vazquez and Simberloff. The Safari data were taken from an undisturbed area; the Arroyo data were collected in an area that was grazed by cattle.</p>
+<p>I used the Arroyo data for the example.</p>
+<p>This step uses the HiveR and grid packages.</p>
+<p>Load the Arroyo data.</p>
+<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"Arroyo"</span><span class="op">)</span></code></pre></div>
+<p>plotHive creates a hive plot from a HivePlotData object.</p>
+<p>The rank method orders the nodes by degree. bkgnd sets the background color. axLabs sets the axis labels. axLab.pos sets the axis label positions. And axLab.gpar sets features (color, size, etc.) of the labels.</p>
+<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/HiveR/man/plotHive.html">plotHive</a></span><span class="op">(</span><span class="va">Arroyo</span>,
+         method <span class="op">=</span> <span class="st">'rank'</span>, bkgnd <span class="op">=</span> <span class="st">'white'</span>,
+         axLabs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pollinators'</span>,<span class="st">'plants'</span><span class="op">)</span>,
+         axLab.pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">7</span><span class="op">)</span>,
+         axLab.gpar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/gpar.html">gpar</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="hive_plots_ggraph_hiver_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="sources-4" class="section level2">
+<h2>
+<span class="header-section-number">41.4</span> Sources<a class="anchor" aria-label="anchor" href="#sources-4"><i class="fas fa-link"></i></a>
+</h2>
+<div id="networks-1" class="section level3">
+<h3>
+<span class="header-section-number">41.4.1</span> Networks<a class="anchor" aria-label="anchor" href="#networks-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>“Math Insight.” An Introduction to Networks - Math Insight, <a href="https://mathinsight.org/network_introduction" class="uri">https://mathinsight.org/network_introduction</a>.</p></li>
+<li><p>Networks and Graphs. Columbia University, <a href="https://kc.columbiasc.edu/ICS/icsfs/Networks.pdf?target=a96539a9-4cfd-44a5-baf2-fd798e1772ea" class="uri">https://kc.columbiasc.edu/ICS/icsfs/Networks.pdf?target=a96539a9-4cfd-44a5-baf2-fd798e1772ea</a>.</p></li>
+</ul>
+</div>
+<div id="hive-plots-1" class="section level3">
+<h3>
+<span class="header-section-number">41.4.2</span> Hive Plots<a class="anchor" aria-label="anchor" href="#hive-plots-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Krzywinski, Martin. Hive Plots: Rational Network Visualization - A Simple, Informative and Pretty Linear Layout for Network Analytics. <a href="http://www.hiveplot.com/" class="uri">http://www.hiveplot.com/</a>.</li>
+</ul>
+</div>
+<div id="ggraph-1" class="section level3">
+<h3>
+<span class="header-section-number">41.4.3</span> ggraph<a class="anchor" aria-label="anchor" href="#ggraph-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>“GGRAPH.” RDocumentation, <a href="https://www.rdocumentation.org/packages/ggraph/versions/2.0.5" class="uri">https://www.rdocumentation.org/packages/ggraph/versions/2.0.5</a>.</p></li>
+<li><p>Pedersen, Thomas L. Package ‘Ggraph’. CRAN, 23 Feb. 2021, <a href="https://cran.r-project.org/web/packages/ggraph/ggraph.pdf" class="uri">https://cran.r-project.org/web/packages/ggraph/ggraph.pdf</a>.</p></li>
+<li><p>“Introduction to Ggraph: Layouts.” Data Imaginist, 6 Feb. 2017, <a href="https://www.data-imaginist.com/2017/ggraph-introduction-layouts/" class="uri">https://www.data-imaginist.com/2017/ggraph-introduction-layouts/</a>.</p></li>
+<li><p>“Introduction to Ggraph: Layouts: R-Bloggers.” R-Bloggers, 18 Feb. 2017, <a href="https://www.r-bloggers.com/2017/02/introduction-to-ggraph-layouts/" class="uri">https://www.r-bloggers.com/2017/02/introduction-to-ggraph-layouts/</a>.</p></li>
+</ul>
+</div>
+<div id="hiver-1" class="section level3">
+<h3>
+<span class="header-section-number">41.4.4</span> HiveR<a class="anchor" aria-label="anchor" href="#hiver-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Hanson, Bryan A. Package ‘HiveR’. Depauw University, 15 Feb. 2013, <a href="http://www2.uaem.mx/r-mirror/web/packages/HiveR/HiveR.pdf" class="uri">http://www2.uaem.mx/r-mirror/web/packages/HiveR/HiveR.pdf</a>.</p></li>
+<li><p>Hanson, Bryan A. The HiveR Package. Depauw University, 25 June 2012, <a href="http://www2.uaem.mx/r-mirror/web/packages/HiveR/vignettes/HiveR.pdf" class="uri">http://www2.uaem.mx/r-mirror/web/packages/HiveR/vignettes/HiveR.pdf</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="streamlit-tutorial.html"><span class="header-section-number">40</span> Streamlit Tutorial</a></div>
+<div class="next"><a href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">42</span> Introduction to XAI (Explainable AI) in R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#hive-plots-with-the-ggraph-and-hiver-packages"><span class="header-section-number">41</span> Hive plots with the ggraph and hiver packages</a></li>
+<li>
+<a class="nav-link" href="#networks"><span class="header-section-number">41.1</span> Networks</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#network-definition"><span class="header-section-number">41.1.1</span> Network Definition</a></li>
+<li><a class="nav-link" href="#node"><span class="header-section-number">41.1.2</span> Node</a></li>
+<li><a class="nav-link" href="#edge"><span class="header-section-number">41.1.3</span> Edge</a></li>
+<li><a class="nav-link" href="#directed-graph"><span class="header-section-number">41.1.4</span> Directed Graph</a></li>
+<li><a class="nav-link" href="#undirected-graph"><span class="header-section-number">41.1.5</span> Undirected Graph</a></li>
+<li><a class="nav-link" href="#degree"><span class="header-section-number">41.1.6</span> Degree</a></li>
+<li><a class="nav-link" href="#general-graph-example"><span class="header-section-number">41.1.7</span> General Graph Example</a></li>
+<li><a class="nav-link" href="#directed-graph-example"><span class="header-section-number">41.1.8</span> Directed Graph Example</a></li>
+<li><a class="nav-link" href="#undirected-graph-example"><span class="header-section-number">41.1.9</span> Undirected Graph Example</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#hive-plots"><span class="header-section-number">41.2</span> Hive Plots</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#hive-plot-definition"><span class="header-section-number">41.2.1</span> Hive Plot Definition</a></li>
+<li><a class="nav-link" href="#creating-hive-plots"><span class="header-section-number">41.2.2</span> Creating Hive Plots</a></li>
+<li><a class="nav-link" href="#ggraph"><span class="header-section-number">41.2.3</span> ggraph</a></li>
+<li><a class="nav-link" href="#igraph-method"><span class="header-section-number">41.2.4</span> igraph method</a></li>
+<li><a class="nav-link" href="#tidygraph-method"><span class="header-section-number">41.2.5</span> tidygraph method</a></li>
+<li><a class="nav-link" href="#faceting"><span class="header-section-number">41.2.6</span> Faceting</a></li>
+<li><a class="nav-link" href="#note"><span class="header-section-number">41.2.7</span> Note</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#hiver"><span class="header-section-number">41.3</span> HiveR</a></li>
+<li>
+<a class="nav-link" href="#sources-4"><span class="header-section-number">41.4</span> Sources</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#networks-1"><span class="header-section-number">41.4.1</span> Networks</a></li>
+<li><a class="nav-link" href="#hive-plots-1"><span class="header-section-number">41.4.2</span> Hive Plots</a></li>
+<li><a class="nav-link" href="#ggraph-1"><span class="header-section-number">41.4.3</span> ggraph</a></li>
+<li><a class="nav-link" href="#hiver-1"><span class="header-section-number">41.4.4</span> HiveR</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/hive_plots_ggraph_hiver.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/hive_plots_ggraph_hiver.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

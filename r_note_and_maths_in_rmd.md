@@ -1,0 +1,15 @@
+# R note and Mathematics in Rmd cheatsheet
+
+Yuning Ding and Xingcheng Rong
+
+This R note briefly mention the R features that I think are important to keep in mind when I write the R. 
+Also, it covers two main aspects of R, the Basic operation and the mathematical statistics in R. 
+The basic operation includes running and debugging in r, preparing, data processing, data view, drawing, edit.
+As we all know, R is a powerful language to make data analysis, so as an R learner, we also need to learn how to use it to deal with statistics problems. So I also include the mathematical statistics part in R here which covers normal distribution, and some hypothesis tests etc.
+
+Mathematics in Rmd cheatsheet aims to help Rmd user to write mathematical formulas. This cheatsheet can also be used in different document types like Latex. 
+Although in EDAV class, we just analyze graphs. But we find that most of graphs are related to statistical models, and might need to be explained with mathematical formulas to help someone who has mathematical knowledge but is not familiar with statistical models comprehend easily. 
+We think this cheatsheet would be useful, since it is rarely to see this kind of Rmd cheatsheet on the Internet, and it does help user to write beautiful mathematical formulas to deduce the conclusion. After finishing mathematics in Rmd cheatsheet, we are more familiar with writing formulas on Rmd. 
+
+R note link: https://github.com/RubyRong/edav_CC27/blob/master/cc2.pdf
+Mathematics in Rmd cheatsheet link: https://github.com/RubyRong/edav_CC27/blob/master/mathmd_cheatsheet.pdf

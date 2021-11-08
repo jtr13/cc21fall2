@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 59 Introduction to Time Series Analysis in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Chenqi Wang  59.0.1 Overview We introduce fundamental time series models including ARMA, GARCH etc. in R and focus on model definitions, process generations and visualizations.  59.0.2 ARMA...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 59 Introduction to Time Series Analysis in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Chenqi Wang  59.0.1 Overview We introduce fundamental time series models including ARMA, GARCH etc. in R and focus on model definitions, process generations and visualizations.  59.0.2 ARMA...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 59 Introduction to Time Series Analysis in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Chenqi Wang  59.0.1 Overview We introduce fundamental time series models including ARMA, GARCH etc. in R and focus on model definitions, process generations and visualizations.  59.0.2 ARMA...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">26</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">27</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">28</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">29</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">30</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">31</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">32</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">33</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">34</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">35</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">36</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">37</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">38</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">39</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">40</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">41</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">42</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">43</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">44</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">45</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">46</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">47</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">48</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">49</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">50</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">51</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">52</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">53</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">54</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">55</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">56</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">57</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">58</span> Mtemplates</a></li>
+<li><a class="active" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">59</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">60</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">61</span> Tutorial on R torch package</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">62</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">63</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">64</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">65</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">66</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">67</span> Understand data with plots</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">68</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">69</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction-to-time-series-analysis-in-r" class="section level1">
+<h1>
+<span class="header-section-number">59</span> Introduction to Time Series Analysis in R<a class="anchor" aria-label="anchor" href="#introduction-to-time-series-analysis-in-r"><i class="fas fa-link"></i></a>
+</h1>
+<p>Chenqi Wang</p>
+<div id="overview-2" class="section level3">
+<h3>
+<span class="header-section-number">59.0.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>We introduce fundamental time series models including ARMA, GARCH etc. in R and focus on model definitions, process generations and visualizations.</p>
+</div>
+<div id="arma-autoregressive-moving-average" class="section level3">
+<h3>
+<span class="header-section-number">59.0.2</span> ARMA (Autoregressive-moving-average)<a class="anchor" aria-label="anchor" href="#arma-autoregressive-moving-average"><i class="fas fa-link"></i></a>
+</h3>
+<p>ARMA(p, q): <span class="math inline">\(y_t=\alpha+\sum_{i = 1}^p\beta_iy_{t-i}+\epsilon_t+\sum_{i=1}^q\theta_i\epsilon_{t-i}\)</span></p>
+<p>where <span class="math inline">\(y_t\)</span> is the time series, <span class="math inline">\(\alpha\)</span> is the intercept, <span class="math inline">\(\beta_i\)</span> and <span class="math inline">\(\theta_i\)</span> are coefficients, and <span class="math inline">\(\epsilon_t\)</span> is the white noise.</p>
+<div id="white-noise" class="section level4">
+<h4>
+<span class="header-section-number">59.0.2.1</span> White Noise<a class="anchor" aria-label="anchor" href="#white-noise"><i class="fas fa-link"></i></a>
+</h4>
+<p><span class="math inline">\(\epsilon_t\)</span> ~ i.i.d. N(0, <span class="math inline">\(\sigma^2\)</span>) for some <span class="math inline">\(\sigma^2&gt;0\)</span>.</p>
+<div class="sourceCode" id="cb737"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># generate white noise of length n and s.t.d. b</span>
+<span class="va">WN</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">0</span>, <span class="va">b</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html">plot.ts</a></span><span class="op">(</span><span class="va">x</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"white noise of size"</span>, <span class="va">n</span>, <span class="st">"and standard deviation"</span>, <span class="va">b</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">x</span>
+<span class="op">}</span>
+
+<span class="va">e</span> <span class="op">&lt;-</span> <span class="fu">WN</span><span class="op">(</span><span class="fl">500</span>, <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="introduction_to_time_series_analysis_in_r_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="ar-autoregressive" class="section level4">
+<h4>
+<span class="header-section-number">59.0.2.2</span> AR (Autoregressive)<a class="anchor" aria-label="anchor" href="#ar-autoregressive"><i class="fas fa-link"></i></a>
+</h4>
+<p>An ARMA model consists of two parts: AR and MA. Let’s first introduce the AR model:</p>
+<p>AR(p): <span class="math inline">\(y_t=\alpha+\sum_{i = 1}^p\beta_iy_{t-i}+\epsilon_t\)</span></p>
+<p>Then we generate an AR(1) model:</p>
+<div class="sourceCode" id="cb738"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># simulation an AR(1) process y_t = b_0 + b_1 * y_{t-1} + epsilon, with data length n</span>
+<span class="va">AR1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">b0</span>, <span class="va">b1</span>, <span class="va">b2</span>, <span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
+  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">0</span>, <span class="va">b2</span><span class="op">)</span>
+  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+  <span class="va">y</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">b0</span> <span class="op">/</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">b1</span><span class="op">)</span> <span class="op">+</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> 
+  <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span> <span class="op">:</span> <span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">b0</span> <span class="op">+</span> <span class="va">b1</span> <span class="op">*</span> <span class="va">y</span><span class="op">[</span><span class="va">t</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">x</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="op">}</span>
+  
+  <span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html">plot.ts</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"y[t] ="</span>, <span class="va">b0</span>, <span class="st">"+"</span>, <span class="va">b1</span>, <span class="st">"* y[t - 1] + epsilon"</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">y</span>
+<span class="op">}</span>
+
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">AR1</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">500</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="introduction_to_time_series_analysis_in_r_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>An AR(1) model is weakly stationary if <span class="math inline">\(|\beta_1|&lt;1\)</span>, so our generated model <span class="math inline">\(y_t=1+0.5y_{t-1}+\epsilon\)</span> is weakly stationary. And we can also see this from the above plot: the mean of the data roughly remains the same, which is what weak stationarity implies.</p>
+</div>
+<div id="pacf-partial-autocorrelation-function" class="section level4">
+<h4>
+<span class="header-section-number">59.0.2.3</span> PACF (Partial Autocorrelation Function)<a class="anchor" aria-label="anchor" href="#pacf-partial-autocorrelation-function"><i class="fas fa-link"></i></a>
+</h4>
+<p>Given a time series <span class="math inline">\(y_t\)</span> generated by an AR(p) model, to determine the value of p, we can use PACF. The lag-k PACF <span class="math inline">\(\beta_{kk}\)</span> of a weakly stationary time series measures the contribution of adding the term <span class="math inline">\(y_{t-k}\)</span> over an AR(k - 1) model, which can be estimated by the Ordinary Least Squares (OLS) estimator <span class="math inline">\(\hat{\beta_{kk}}\)</span> of the AR(k) model <span class="math inline">\(y_t=\alpha_{k}+\sum_{i = 1}^k\beta_{ki}y_{t-i}+\epsilon_{kt}\)</span>.</p>
+<div class="sourceCode" id="cb739"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/acf.html">pacf</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> </code></pre></div>
+<div class="inline-figure"><img src="introduction_to_time_series_analysis_in_r_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>The above plot indicates that lag <span class="math inline">\(k\geq 2\)</span> has insignificant contribution, so AR(1) model is enough.</p>
+</div>
+<div id="acf-autocorrelation-function" class="section level4">
+<h4>
+<span class="header-section-number">59.0.2.4</span> ACF (Autocorrelation Function)<a class="anchor" aria-label="anchor" href="#acf-autocorrelation-function"><i class="fas fa-link"></i></a>
+</h4>
+<p>lag-k ACf <span class="math inline">\(\gamma(k):=cov(y_t, y_{t+k})\)</span>. Assume the time series <span class="math inline">\(y_t\)</span> is weakly stationary, then <span class="math inline">\(cov(y_t, y_{t+k})\)</span> only depends on k.</p>
+<p>ACF can also be used to determine the value of p in AR(p) model.</p>
+<div class="sourceCode" id="cb740"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/acf.html">acf</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="introduction_to_time_series_analysis_in_r_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>From the above plot we observe that <span class="math inline">\(y_t\)</span> and <span class="math inline">\(y_{t+k},k\geq 2\)</span> has insignificant correlation, so again AR(1) is enough.</p>
+</div>
+<div id="unit-root-process" class="section level4">
+<h4>
+<span class="header-section-number">59.0.2.5</span> Unit Root Process<a class="anchor" aria-label="anchor" href="#unit-root-process"><i class="fas fa-link"></i></a>
+</h4>
+<p>A random walk <span class="math inline">\(y_t=y_{t-1}+\epsilon_t\)</span> is an unit root process, which is not stationary and contains stochastic trend.</p>
+<div class="sourceCode" id="cb741"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># generate the unit root process y[t] = y[t-1] + epsilon</span>
+<span class="va">UR</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
+  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>
+  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+  <span class="va">y</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
+  <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span> <span class="op">:</span> <span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="va">t</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">x</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="op">}</span>
+  
+  <span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html">plot.ts</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"y[t] = y[t - 1] + epsilon"</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">y</span>
+<span class="op">}</span>
+
+<span class="va">y1</span> <span class="op">&lt;-</span> <span class="fu">UR</span><span class="op">(</span><span class="fl">500</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="introduction_to_time_series_analysis_in_r_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>The stochastic trend can be observed in the above plot. Generally the mean of the data goes down, so the time series is not stationary.</p>
+</div>
+<div id="ma-moving-average" class="section level4">
+<h4>
+<span class="header-section-number">59.0.2.6</span> MA (Moving-average)<a class="anchor" aria-label="anchor" href="#ma-moving-average"><i class="fas fa-link"></i></a>
+</h4>
+<p>MA(q): <span class="math inline">\(y_t=\alpha+\epsilon_t+\sum_{i=1}^q\theta_i\epsilon_{t-i}\)</span></p>
+<p>Generate a MA(1) model:</p>
+<div class="sourceCode" id="cb742"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># generate MA(1) model y[t] = a + e[t] + r * e[t-1] with data length n</span>
+<span class="va">MA1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">r</span>, <span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
+  <span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">0</span>, <span class="fl">0.2</span><span class="op">)</span>
+  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">0</span>
+  <span class="va">y</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">e</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
+  <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span> <span class="op">:</span> <span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">e</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">+</span> <span class="va">r</span> <span class="op">*</span> <span class="va">e</span><span class="op">[</span><span class="va">t</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span>
+  <span class="op">}</span>
+  
+  <span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html">plot.ts</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"y[t] ="</span>, <span class="va">a</span>, <span class="st">"+ e[t] +"</span>, <span class="va">r</span>, <span class="st">"* e[t-1]"</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">y</span>
+<span class="op">}</span>
+
+<span class="va">y2</span> <span class="op">&lt;-</span> <span class="fu">MA1</span><span class="op">(</span><span class="fl">1.2</span>, <span class="fl">0.3</span>, <span class="fl">500</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="introduction_to_time_series_analysis_in_r_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>For MA(q) model, <span class="math inline">\(\forall k&gt;q\)</span> ACF <span class="math inline">\(\gamma(k)=0\)</span>. So it’s easy to ACF to determine q.</p>
+<div class="sourceCode" id="cb743"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/acf.html">acf</a></span><span class="op">(</span><span class="va">y2</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="introduction_to_time_series_analysis_in_r_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>We can observe from the above plot that q should be 1.</p>
+</div>
+<div id="arima-autoregressive-integrated-moving-average" class="section level4">
+<h4>
+<span class="header-section-number">59.0.2.7</span> ARIMA (Autoregressive-integrated-moving-average)<a class="anchor" aria-label="anchor" href="#arima-autoregressive-integrated-moving-average"><i class="fas fa-link"></i></a>
+</h4>
+<p>Define the lag operator <span class="math inline">\(Ly_t:=y_{t-1}\)</span>, and <span class="math inline">\((1-L)^d:=(1-L)[(1-L)^{d-1}]\)</span> (i.e. d order difference). If <span class="math inline">\((1-L)^{d-1}y_t\)</span> is not weakly stationary but <span class="math inline">\((1-L)^dy_t\)</span> is weakly stationary for <span class="math inline">\(d&gt;0\)</span>, and <span class="math inline">\((1-L)^dy_t\)</span> is an ARMA(p, q) process, then <span class="math inline">\(y_t\)</span> is called an ARIMA(p, d, q) process.</p>
+<p>We can use arima() in R to estimate an ARIMA model:</p>
+<div class="sourceCode" id="cb744"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/arima.html">arima</a></span><span class="op">(</span><span class="va">y2</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"ML"</span><span class="op">)</span> <span class="co"># MA(1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## arima(x = y2, order = c(0, 0, 1), method = "ML")
+## 
+## Coefficients:
+##          ma1  intercept
+##       0.2244     1.1903
+## s.e.  0.0469     0.0110
+## 
+## sigma^2 estimated as 0.0401:  log likelihood = 94.63,  aic = -183.25</code></pre>
+</div>
+</div>
+<div id="garch-generalized-autoregressive-conditional-heteroskedasticity" class="section level3">
+<h3>
+<span class="header-section-number">59.0.3</span> GARCH (Generalized Autoregressive Conditional Heteroskedasticity)<a class="anchor" aria-label="anchor" href="#garch-generalized-autoregressive-conditional-heteroskedasticity"><i class="fas fa-link"></i></a>
+</h3>
+<p>AR(1) - GARCH(s, m):</p>
+<p><span class="math inline">\(y_t=\phi_0+\phi_{1}y_{t-1}+\epsilon_t\)</span></p>
+<p><span class="math inline">\(\epsilon_t = \sigma_t\eta_t\)</span></p>
+<p><span class="math inline">\(\sigma_t^2=\alpha_0+\sum_{i=1}^s\beta_i\sigma_{t-i}^2+\sum_{i=1}^m\alpha_i\epsilon_{t-i}^2\)</span></p>
+<p>where <span class="math inline">\(var(\epsilon_t|y_{t-1})=\sigma^2(y_{t-1})\)</span> (conditional heteroskedasticity)</p>
+<p>GARCH models the second moment information of a time series, while ARIMA models only the level of it.</p>
+<div class="sourceCode" id="cb746"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># AR(1) - GARCH(1, 1) y[t] = a0 + a1 * y[t - 1] + v * epsilon, v[t]^2 = b0 + b1 + v[t-1]^2 + b2e^2, data length n</span>
+<span class="va">GARCH</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a0</span>, <span class="va">a1</span>, <span class="va">b0</span>, <span class="va">b1</span>, <span class="va">b2</span>, <span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>
+  <span class="va">n</span> <span class="op">=</span> <span class="va">n</span> <span class="op">+</span> <span class="fl">500</span>
+  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span> 
+  <span class="va">y</span> <span class="op">=</span> <span class="fl">0</span>
+  <span class="va">v</span> <span class="op">=</span> <span class="fl">0</span>
+  <span class="va">a</span> <span class="op">=</span> <span class="fl">0</span>
+  <span class="va">v</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">=</span> <span class="va">b0</span> <span class="op">/</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">b1</span> <span class="op">-</span> <span class="va">b2</span><span class="op">)</span>
+  <span class="va">a</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">v</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">*</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
+  <span class="va">y</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">=</span> <span class="va">a0</span> <span class="op">/</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">a1</span><span class="op">)</span> <span class="op">+</span> <span class="va">a</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
+  <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span> <span class="op">:</span> <span class="va">n</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">=</span> <span class="va">b0</span> <span class="op">+</span> <span class="va">b1</span> <span class="op">*</span> <span class="va">v</span><span class="op">[</span><span class="va">t</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">b2</span> <span class="op">*</span> <span class="va">a</span><span class="op">[</span><span class="va">t</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span> <span class="op">^</span> <span class="fl">2</span>
+    <span class="va">a</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">)</span> <span class="op">*</span> <span class="va">x</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+    <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">=</span> <span class="va">a0</span> <span class="op">+</span> <span class="va">a1</span> <span class="op">*</span> <span class="va">y</span><span class="op">[</span><span class="va">t</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">a</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="op">}</span>
+  <span class="va">y</span> <span class="op">=</span> <span class="va">y</span><span class="op">[</span><span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">500</span><span class="op">)</span><span class="op">]</span>
+  <span class="va">v</span> <span class="op">=</span> <span class="va">v</span><span class="op">[</span><span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">500</span><span class="op">)</span><span class="op">]</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/plot.ts.html">plot.ts</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"y[t] ="</span>, <span class="va">a0</span>, <span class="st">"+"</span>, <span class="va">a1</span>, <span class="st">"* y[t - 1] + epsilon"</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">z</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">v</span><span class="op">)</span>
+  <span class="va">z</span>
+<span class="op">}</span>
+
+<span class="va">y3</span> <span class="op">&lt;-</span> <span class="fu">GARCH</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.5</span>, <span class="fl">0.02</span>, <span class="fl">0.6</span>, <span class="fl">0.3</span>, <span class="fl">500</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="introduction_to_time_series_analysis_in_r_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="mtemplates.html"><span class="header-section-number">58</span> Mtemplates</a></div>
+<div class="next"><a href="storytelling-with-data.html"><span class="header-section-number">60</span> Storytelling with Data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li>
+<a class="nav-link" href="#introduction-to-time-series-analysis-in-r"><span class="header-section-number">59</span> Introduction to Time Series Analysis in R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#overview-2"><span class="header-section-number">59.0.1</span> Overview</a></li>
+<li><a class="nav-link" href="#arma-autoregressive-moving-average"><span class="header-section-number">59.0.2</span> ARMA (Autoregressive-moving-average)</a></li>
+<li><a class="nav-link" href="#garch-generalized-autoregressive-conditional-heteroskedasticity"><span class="header-section-number">59.0.3</span> GARCH (Generalized Autoregressive Conditional Heteroskedasticity)</a></li>
+</ul>
+</li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/introduction_to_time_series_analysis_in_r.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/introduction_to_time_series_analysis_in_r.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

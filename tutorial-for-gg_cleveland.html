@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 43 Tutorial for gg_cleveland | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Mingyue Xu Introduction and Tutorials for R-package ggcleveland This is a new R-package for data visualization born in August, 2021, which provides functions to produce the ‘ggplot2’ versions of...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 43 Tutorial for gg_cleveland | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Mingyue Xu Introduction and Tutorials for R-package ggcleveland This is a new R-package for data visualization born in August, 2021, which provides functions to produce the ‘ggplot2’ versions of...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 43 Tutorial for gg_cleveland | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Mingyue Xu Introduction and Tutorials for R-package ggcleveland This is a new R-package for data visualization born in August, 2021, which provides functions to produce the ‘ggplot2’ versions of...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">26</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">27</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">28</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">29</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">30</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">31</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">32</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">33</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">34</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">35</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">36</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">37</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">38</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">39</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">40</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">41</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">42</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="active" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">43</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">44</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">45</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">46</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">47</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">48</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">49</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">50</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">51</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">52</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">53</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">54</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">55</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">56</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">57</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">58</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">59</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">60</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">61</span> Tutorial on R torch package</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">62</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">63</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">64</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">65</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">66</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">67</span> Understand data with plots</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">68</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">69</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tutorial-for-gg_cleveland" class="section level1">
+<h1>
+<span class="header-section-number">43</span> Tutorial for gg_cleveland<a class="anchor" aria-label="anchor" href="#tutorial-for-gg_cleveland"><i class="fas fa-link"></i></a>
+</h1>
+<p>Mingyue Xu</p>
+<p>Introduction and Tutorials for R-package ggcleveland</p>
+<p>
+This is a new R-package for data visualization born in August, 2021, which provides functions to produce the ‘ggplot2’ versions of the visualization tools described in the book of William S. Cleveland, named ‘Visualizing Data’ (Cleveland W. S. (1993). “Visualizing Data”. Hobart Press.). Since this is a brand new package, few documents are produced to illustrate the proper usage of it. In this document, we show the power of this package with necessary explanations for some useful functions and specific examples. More specifically, we use the <em>fastfood</em> dataset to reflect our own understandings of the algorithms in the package. We will have the original book of William S. Cleveland as our main source and also a rough document on CRAN as a reference. Package source can be found here <strong>‘<a href="https://github.com/mpru/ggcleveland" class="uri">https://github.com/mpru/ggcleveland</a>’</strong>. We salute the author Marcos Prunello <a href="mailto:marcosprunello@gmail.com" class="email">marcosprunello@gmail.com</a>.
+We may find the original tutorials are really compact and lack of vivid examples, this is the purpose we would like to give a more specific explanation about <strong>ggcleveland</strong>. Indeed, there are also many useful datasets in this package like <em>fusion</em>, <em>fly</em>, etc. and we will not introduce them in this document.
+</p>
+<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">fastfood</span>, package <span class="op">=</span> <span class="st">"openintro"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">fastfood</span><span class="op">)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li>equal_count</li>
+</ol>
+<p>
+This function applies the equal count algorithm to divide a set of observations into intervals which
+can have certain level of ovelapping. We see the following example for a more intuitive comprehension.
+</p>
+<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">equal_count</span><span class="op">(</span>df<span class="op">=</span><span class="va">fastfood</span>, vble<span class="op">=</span><span class="va">calories</span>, n_int<span class="op">=</span><span class="fl">10</span>, frac<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
+<pre><code>## $intervals
+## # A tibble: 10 × 5
+##        n lower upper count   overlap
+##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;table&gt;   &lt;int&gt;
+##  1     1    15   215 54            6
+##  2     2   205   305 57            7
+##  3     3   295   355 56            0
+##  4     4   355   425 53            7
+##  5     5   415   495 64            8
+##  6     6   485   565 58            6
+##  7     7   555   645 59           10
+##  8     8   635   735 58            7
+##  9     9   725   895 56            1
+## 10    10   885  2435 52           NA
+## 
+## $df_long
+## # A tibble: 567 × 19
+##    restaurant item      calories cal_fat total_fat sat_fat trans_fat cholesterol
+##    &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+##  1 Mcdonalds  Artisan …      380      60         7       2       0            95
+##  2 Mcdonalds  Single B…      840     410        45      17       1.5         130
+##  3 Mcdonalds  Double B…     1130     600        67      27       3           220
+##  4 Mcdonalds  Grilled …      750     280        31      10       0.5         155
+##  5 Mcdonalds  Crispy B…      920     410        45      12       0.5         120
+##  6 Mcdonalds  Big Mac        540     250        28      10       1            80
+##  7 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
+##  8 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
+##  9 Mcdonalds  Classic …      510     210        24       4       0            65
+## 10 Mcdonalds  Double C…      430     190        21      11       1            85
+## # … with 557 more rows, and 11 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;,
+## #   fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;,
+## #   calcium &lt;dbl&gt;, salad &lt;chr&gt;, id &lt;int&gt;, interval &lt;fct&gt;</code></pre>
+<p>
+Inputs: df: dataframe, vble: variable in df that need to be divided, n_int: number of intervals in result, frac: overlapping fraction required in result.
+Outputs: As we can see in the above example, there are two tables, where the first one shows the divided groups of the variable <em>fastfood<span class="math inline">\(calories* with the counts and overlaps (with the next group) of each group. The other shows the corresponding dataframe of the original *fastfood* with two columns added. *id* represents its position in the original daraframe and *intervel* indicates which group it belongs to after division. We may find the size of the dataframe increases from 515 to 567, that is due to those overlapping observations, i.e. each observation appears as many times as the number of intervals in which it belongs. Properties: We may find that the groups divided by the *equal_count* algorithm are in a monotonously increasing order of *fastfood\)</span>calories</em>. Moreover, note that the new dataframe it returns are arranged by the class of <em>fastfood$restaurant</em>. Hence, using this method, we can simply generate a dataframe to show the level of <em>calories</em> for different <em>restaurant</em> by using some skills in the <em>ggplot2</em> package, see
+</p>
+<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">equal_count</span><span class="op">(</span>df<span class="op">=</span><span class="va">fastfood</span>, vble<span class="op">=</span><span class="va">calories</span>, n_int<span class="op">=</span><span class="fl">10</span>, frac<span class="op">=</span><span class="fl">0</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">interval</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"count"</span>, color<span class="op">=</span><span class="st">"blue"</span>, fill<span class="op">=</span><span class="st">"lightblue"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">restaurant</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+Although we may find that the original histogram plot can also reflect the level comparison of <em>calories</em> between different restaurant, this histogram based on <em>equal_count</em> implies more information, e.g. <em>Subway</em> foods are likely to be in two extremes, that is either high-level calories or low-level calories.
+</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>gg_coplot</li>
+</ol>
+<p>
+This function implements conditional plots, which is a particularly powerful visualization tool for studying how a response depends on two or more factors. More concretely, in the following examples, there is a simple coplot example in the first plot. Moreover, We can find the difference between relation plot and conditional relation plot in the next two plots. Given (Conditioning on) the <em>total_fat</em>, <em>sat_fat</em> and <em>trans_fat</em> seem to have no explicitly uniform relation compared to the result in non-conditional plot. Hence, <em>gg_coplot</em> is useful for us to determine the conditional independence between variables.
+</p>
+<div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fastfood</span><span class="op">$</span><span class="va">class</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">fastfood</span><span class="op">$</span><span class="va">restaurant</span><span class="op">)</span>
+<span class="va">fastfood</span><span class="op">$</span><span class="va">class</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">fastfood</span><span class="op">$</span><span class="va">class</span><span class="op">)</span>
+<span class="fu">gg_coplot</span><span class="op">(</span><span class="va">fastfood</span>, x<span class="op">=</span><span class="va">cal_fat</span>, y<span class="op">=</span><span class="va">calories</span>, faceting<span class="op">=</span><span class="va">class</span>, number_bins<span class="op">=</span><span class="fl">8</span>, overlap<span class="op">=</span><span class="fl">0</span>,
+ylabel <span class="op">=</span> <span class="st">"Calories"</span>, xlabel <span class="op">=</span> <span class="st">"Calories from fat"</span>, loess_family <span class="op">=</span> <span class="st">"gaussian"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"><p>
+Here are explanations of some important parameters in the function.
+Inputs: df: dataframe, x: variable for x-axis, y: variable for y-axis, faceting: faceting numeric variable, number_bins: number of groups required to divide the faceting variable, overlap: overlapping fraction required for the faceting variable in result.
+Outputs: a coplot (conditional plot)
+</p>
+<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">fastfood</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">trans_fat</span>, y<span class="op">=</span><span class="va">sat_fat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gg_coplot</span><span class="op">(</span><span class="va">fastfood</span>, x<span class="op">=</span><span class="va">sat_fat</span>, y<span class="op">=</span><span class="va">trans_fat</span>, faceting<span class="op">=</span><span class="va">total_fat</span>, number_bins<span class="op">=</span><span class="fl">9</span>, overlap<span class="op">=</span><span class="fl">0</span>,
+ylabel <span class="op">=</span> <span class="st">"Saturated Fat"</span>, xlabel <span class="op">=</span> <span class="st">"Trans Fat"</span>, loess_family <span class="op">=</span> <span class="st">"gaussian"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-6-2.png" width="672" style="display: block; margin: auto;"><p>
+This plot shows a wealth of information about the dependence of <em>sat_fat</em> on <em>trans_fat</em>. In total, each conditioning on <em>total_fat</em> has a nonlinear pattern. Except for the subplot (2,2) and (3,3), all the patterns seem to have a positive correlation between <em>sat_fat</em> and <em>trans_fat</em> given <em>total_fat</em>. However, both subplots (2,2) and (3,3) fail this conclusion and there is also difference between themselves. Hence, for the most part there is no interaction between the two factors, in other words, there seems to be no uniform effect of <em>sat_fat</em> on <em>trans_fat</em>. For the sake of comparison, let us see an example of conditional dependence as follow.
+</p>
+<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gg_coplot</span><span class="op">(</span><span class="va">fastfood</span>, x<span class="op">=</span><span class="va">cal_fat</span>, y<span class="op">=</span><span class="va">total_fat</span>, faceting<span class="op">=</span><span class="va">calories</span>, number_bins<span class="op">=</span><span class="fl">9</span>, overlap<span class="op">=</span><span class="fl">0</span>,
+ylabel <span class="op">=</span> <span class="st">"Total Fat"</span>, xlabel <span class="op">=</span> <span class="st">"Calories from Fat"</span>, loess_family <span class="op">=</span> <span class="st">"gaussian"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>Coplots intervals must be chosen to compromise between two competing criteria, i.e. the number of points and resolution. On the one side, their lengths must be sufficiently great that the dependence panels have enough points for effects to be seen, if there are too few points on a dependence panel, noise in the data typically prevents points from coalescing into a meaningful pattern. On the other side, the lengths must be small enough to maintain reasonable resolution, if a conditioning interval is too big, there is a risk of a distorted view if the nature of the dependence changes dramatically as the value of the conditioning factor changes within the interval.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>gg_pt</li>
+</ol>
+<p>
+This function returns normal QQ plots for a set of power transformations. Indeed, if we choose the power value to be 1, then it returns exactly a QQ plot, which is shown in the following example.
+</p>
+<div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gg_pt</span><span class="op">(</span>df<span class="op">=</span><span class="va">fastfood</span>, vble<span class="op">=</span><span class="va">calories</span>, taus <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>,
+xlabel <span class="op">=</span> <span class="st">"Calories"</span>, ylabel <span class="op">=</span> <span class="st">"Valores transformados"</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">fastfood</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>sample<span class="op">=</span><span class="va">calories</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">'blue'</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-8-2.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+Inputs: df: dataframe, vble: variable need to do transformation, taus: vector of values for the power transformations. Note that the 0-power transformation is the log transformation, i.e. Power transformations are a class of transformations that includes the logarithm.
+Outputs: corresponding QQ plot after power transformation with given power values.
+The following plots are some examples related to different power transformation values.
+</p>
+<div class="sourceCode" id="cb515"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gg_pt</span><span class="op">(</span>df<span class="op">=</span><span class="va">fastfood</span>, vble<span class="op">=</span><span class="va">calories</span>, taus <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1.2</span><span class="op">)</span>,
+xlabel <span class="op">=</span> <span class="st">"Calories"</span>, ylabel <span class="op">=</span> <span class="st">"Valores transformados"</span>,
+nrow <span class="op">=</span> <span class="fl">2</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+With a simple power transformation applied in the plot, we may find something interesting, for example, we may find the power transformation that brings a distribution the closest to symmetry based on the property of QQ plot. In our <em>fastfood$calories</em> case, this best parameter seems to be in between 0.25 and 0.50, see below.
+</p>
+<div class="sourceCode" id="cb516"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gg_pt</span><span class="op">(</span>df<span class="op">=</span><span class="va">fastfood</span>, vble<span class="op">=</span><span class="va">calories</span>, taus <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">0.75</span>, <span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.25</span>, <span class="fl">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">1</span><span class="op">)</span>,
+xlabel <span class="op">=</span> <span class="st">"Calories"</span>, ylabel <span class="op">=</span> <span class="st">"Valores transformados"</span>,
+nrow <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>gg_rf</li>
+</ol>
+<p>
+<em>gg_rf</em> is one of the most practical functions in the package <strong>gg_cleveland</strong>, which returns a Residual-Fit plot, optionally including centered observed values. As is well-known, fitting data means finding mathematical descriptions of structure in the data. Such structural description of data can be as distributions differ only in location and not in spread or shape, which can be fitted by estimating location, i.e. computing a location measure for each distribution. Simply saying, for the <span class="math inline">\(p^{th}\)</span> part of the data, let <span class="math inline">\(h_{pi}\)</span> be the <span class="math inline">\(i^{th}\)</span> measurement of height and let <span class="math inline">\(\bar{h}_{p}\)</span> be the mean height and also the fitted value for <span class="math inline">\(h_{pi}\)</span>. Then the residuals are the deviations of the heights from the fitted values, i.e. <span class="math inline">\(\hat{\epsilon}_{pi}=h_{pi}-\bar{h}_{p}\)</span>.
+The fitted values account for the variation in the heights attributable to the variable through the fitting process. And the residuals are the remaining variation in the data after the variation due to the shifting means has been removed.
+</p>
+<div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">rfData</span> <span class="op">&lt;-</span>
+<span class="va">fastfood</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>meanFat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">total_fat</span><span class="op">)</span>, res<span class="op">=</span><span class="va">total_fat</span><span class="op">-</span><span class="va">meanFat</span><span class="op">)</span>
+<span class="fu">gg_rf</span><span class="op">(</span>df<span class="op">=</span><span class="va">rfData</span>, vble<span class="op">=</span><span class="va">total_fat</span>, fitted<span class="op">=</span><span class="va">meanFat</span>, res<span class="op">=</span><span class="va">res</span>, color<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"><p>
+Here is a simple example and let us understand what the plot is showing. Since the subtraction of means has removed the effect of individuals, the centered fitted values are zeros. The right residual plots shows the remaining parts after the subtraction of means, i.e. a reflection on the level of variation.
+We can also have another more complicated example based on our <em>fastfood</em> dataset, which seems to have a more compressed residual plot than previous one, but not so obviously and that is because the relation between <em>total_fat</em> and <em>sat_fat</em> is clearly far from linearity.
+</p>
+<div class="sourceCode" id="cb518"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">fastfood</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">sat_fat</span>, y<span class="op">=</span><span class="va">total_fat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">stat_poly_eq</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, 
+               <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">..eq.label..</span>, <span class="va">..rr.label..</span>, sep <span class="op">=</span> <span class="st">"~~~"</span><span class="op">)</span><span class="op">)</span>, 
+               parse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb519"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">newRfData</span> <span class="op">&lt;-</span>
+<span class="va">fastfood</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>meanSF<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sat_fat</span><span class="op">)</span>, res<span class="op">=</span><span class="va">total_fat</span><span class="op">-</span><span class="fl">2.43</span><span class="op">*</span><span class="va">meanSF</span><span class="op">)</span>
+<span class="fu">gg_rf</span><span class="op">(</span>df<span class="op">=</span><span class="va">newRfData</span>, vble<span class="op">=</span><span class="va">total_fat</span>, fitted<span class="op">=</span><span class="fl">2.43</span><span class="op">*</span><span class="va">meanSF</span>, res<span class="op">=</span><span class="va">res</span>, color<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;"></div>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>make_coplot_df</li>
+</ol>
+<p>
+It creates dataframes to be used in coplot, which is pretty useful when we are doing causal inference tasks. We start with a simple example to see what kind of dataset can be derived from this function.
+</p>
+<div class="sourceCode" id="cb520"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dataCoplot</span> <span class="op">&lt;-</span> <span class="fu">make_coplot_df</span><span class="op">(</span>df<span class="op">=</span><span class="va">fastfood</span>, vble<span class="op">=</span><span class="va">calories</span>, number_bins<span class="op">=</span><span class="fl">9</span>, overlap<span class="op">=</span><span class="fl">0</span><span class="op">)</span>
+<span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">dataCoplot</span><span class="op">$</span><span class="va">df_expanded</span>
+<span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">dataCoplot</span><span class="op">$</span><span class="va">intervals</span></code></pre></div>
+<p>
+As we can see, <em>make_coplot_df</em> returns a list of two dataframes. The first dataframe <em>data1</em> is the original <em>fastfood</em> dataset with a new column of grouping intervels added at the end. The other dataframe <em>data2</em> implies the information of grouping. Since the inputs of this function are similar to those previous, we leave this part and show how to use the created dataframes. Note that with such dataframe, we can immediately use the basic <em>coplot</em> function, which leads to the same result of <em>gg_coplot</em>, i.e. the following two plots are exactly the same.
+</p>
+<div class="sourceCode" id="cb521"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/coplot.html">coplot</a></span><span class="op">(</span><span class="va">total_fat</span> <span class="op">~</span> <span class="va">cal_fat</span> <span class="op">|</span> <span class="va">interval</span>, data <span class="op">=</span> <span class="va">data1</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span>
+
+<span class="fu">gg_coplot</span><span class="op">(</span><span class="va">fastfood</span>, x<span class="op">=</span><span class="va">cal_fat</span>, y<span class="op">=</span><span class="va">total_fat</span>, faceting<span class="op">=</span><span class="va">calories</span>, number_bins<span class="op">=</span><span class="fl">9</span>, overlap<span class="op">=</span><span class="fl">0</span>,
+ylabel <span class="op">=</span> <span class="st">"Total Fat"</span>, xlabel <span class="op">=</span> <span class="st">"Calories from Fat"</span>, loess_family <span class="op">=</span> <span class="st">"gaussian"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<p><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-14-2.png" width="672" style="display: block; margin: auto;"></p>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>gg_quantiles</li>
+</ol>
+<p>
+This function returns a quantile-quantile plot to compare any given number of groups. Let us recall the original QQ plot in library <strong>ggplot2</strong>, in the following example, we draw QQ plot with <em>calories</em> data for different restaurants.
+</p>
+<div class="sourceCode" id="cb522"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">fastfood</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>sample<span class="op">=</span><span class="va">calories</span>, color <span class="op">=</span> <span class="va">restaurant</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq_line</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+Does the <em>gg_quantiles</em> function do a similar task as above? The answer is no, as we can see in the definition of <em>gg_quantiles</em>, this function aims to compare any given number of groups with QQ plot, i.e. it focus on the relations and differences between groups. We provide the following example of using <em>gg_quantiles</em> to show how it campares <em>calories</em> between differnet <em>restaurants</em>.
+</p>
+<div class="sourceCode" id="cb523"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gg_quantiles</span><span class="op">(</span>df<span class="op">=</span><span class="va">fastfood</span>, vble<span class="op">=</span><span class="va">calories</span>, group<span class="op">=</span><span class="va">restaurant</span>, color<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.spacing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">2</span>, <span class="st">"lines"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+Indeed, a large amount of information can be derived from the above graph. Clearly, we know that these QQ plots are symmetric along the diagonal. We may find out some closely similar pairs, e.g. (Dairy Queen, Sonic), (Burger King, Subway), … Also, there are some obvious higher calories pairs, e.g. (Dairy Queen, Mcdonalds), (Arbys, Mcdonalds), …
+</p>
+<ol start="7" style="list-style-type: lower-alpha">
+<li>gg_tmd</li>
+</ol>
+<p>
+This function returns a Tukey’s Mean-Difference plot for one-way data. A Tukey mean-difference plot (or simply a m-d plot) can add substantially to our visual assessment of a shift between two distributions. Suppose that we have two variables <span class="math inline">\(b_{i}\)</span> and <span class="math inline">\(t_{i}\)</span> compared in a QQ plot, then in a corresponding m-d plot, the difference <span class="math inline">\(b_{i}-t_{i}\)</span> are graphed against the means <span class="math inline">\(\frac{b_{i}+t_{i}}{2}\)</span>, and the line <span class="math inline">\(b=t\)</span> on the QQ plot becomes the zero line on the m-d plot. A shift is assessed by judging deviations from the zero line. The intuition behind the m-d plot is that this often enhances our perception of effects because we can more readily judge deviations from a horizontal line than from a line with nonzero slope. More concretely, see the following example, which is directly extended from the above QQ plot among <em>restaurants</em>.
+</p>
+<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gg_tmd</span><span class="op">(</span>df<span class="op">=</span><span class="va">fastfood</span>, vble<span class="op">=</span><span class="va">calories</span>, group<span class="op">=</span><span class="va">restaurant</span>, color<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+With such m-d plot, the comparison of the two distributions can be summarized by the simple statement that the distribution of one variable heights is greater or lower than the other one. This is good news since many examples will show that shifts between distributions can be complex.
+</p>
+<p>
+Finally, we provide an interesting example based on <em>environmental</em>, one of the included datasets. A brief description of this dataset can be found in the CRAN document (for <strong>ggcleveland</strong>) as:
+1). These measurements were made on 111 days from May to September of 1973 at sites in the New York City metropolitan region; there is one measurement of each variable on each day.
+2). Solar radiation is the amount from 800 to 1200 in the frequency band 4000A-7700A, and was measured in Central Park, New York City.
+3). Wind speed is the average of values at 700 and 1000, and was measured at LaGuardia Airport, which is about 7 km from Central Park.
+4). Temperature is the daily maximum, and was also measured at LaGuardia.
+5) .Ozone is the cube root of the average of hourly values from 1300 to 1500, and was measured at Roosevelt Island, which is about 2 km from Central Park and 5 km from LaGuardia".
+</p>
+<div class="sourceCode" id="cb525"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"environmental"</span>, package <span class="op">=</span> <span class="st">"ggcleveland"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"environmental"</span><span class="op">)</span></code></pre></div>
+<p>
+It seems like the <em>environmental</em> is a quite simple data, however, many works can be done with the application of <strong>ggcleveland</strong>. The goal in analyzing the <em>environmental</em> data is to determine how ozone depends on the other variables. A simple way to visualize hypervariate data is to graph each pair of variables by a scatterplot, see
+</p>
+<div class="sourceCode" id="cb526"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">spm</span><span class="op">(</span><span class="va">environmental</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, smooth<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+A lot of information contained in this scatterplot matrix (spm) graph. For example, with the subplot (1,3) of <em>Ozone</em> against <em>Solar radiation</em>, we can receive two messages. First, the highest values of <em>Ozone</em> occur when <em>Solar radiation</em> is between 200 and 300 langleys. Second, for the very highest values of <em>Solar radiation</em>, <em>Ozone</em> stays at low levels. However, the spm technique is not what we want to focus on, our goal here is to use the algorithms in <strong>ggcleveland</strong>. The scatterplot matrix of the environmental data shows a strong association between <em>Ozone</em> and <em>Temprature</em> and between <em>Ozone</em> and <em>Wind speed</em>. It seems likely that each of these factors explains variation in the data not explained by the others.
+But there is less evidence that <em>Solar radiation</em> explains variation in <em>Ozone</em> given <em>Temprature</em> and <em>Wind speed</em>. For example, we saw that the upper envelope on the scatterplot of <em>Ozone</em> against <em>Solar radiation</em> was explainable by the behavior of <em>Temprature</em> and <em>Wind speed</em>. But the photochemistry that results in <em>Ozone</em> requires <em>Solar radiation</em>, and the laws of chemistry must be obeyed, so we know in principle that <em>Solar radiation</em> is a causal factor. But this does not mean that for the <em>environmental</em> data, the <em>Solar radiation</em> measurements are good predictors of <em>Ozone</em>. Perhaps only a minimum amount of <em>Solar radiation</em> is needed, and beyond that, production is not sensitive to the amount.
+Hence, we need a way to see the conditional dependence between these variables, i.e. a hypervariate coplot, see
+</p>
+<div class="sourceCode" id="cb527"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">environmental1</span> <span class="op">&lt;-</span> <span class="va">environmental</span>
+<span class="va">environmental1</span><span class="op">$</span><span class="va">ozono</span> <span class="op">&lt;-</span> <span class="va">environmental1</span><span class="op">$</span><span class="va">ozono</span><span class="op">^</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/coplot.html">coplot</a></span><span class="op">(</span><span class="va">ozono</span> <span class="op">~</span> <span class="va">radiacion</span> <span class="op">|</span> <span class="va">temperatura</span> <span class="op">*</span> <span class="va">viento</span>, data<span class="op">=</span><span class="va">environmental1</span>, number<span class="op">=</span><span class="fl">4</span>, overlap<span class="op">=</span><span class="fl">0.4</span>, xlab <span class="op">=</span> <span class="st">"Solar radiation"</span>, ylab <span class="op">=</span> <span class="st">"Cube Root Ozone"</span>, col <span class="op">=</span> <span class="st">"blue"</span>, bg <span class="op">=</span> <span class="st">"pink"</span>, pch<span class="op">=</span><span class="fl">21</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+<span class="math inline">\(\textbf{By refering the source code of *gg_coplot* at **https://github.com/mpru/ggcleveland/blob/master/R/gg_coplot.R**, we have to admit that this function is unable to draw a conditional plot given two variables, which is indeed a shortcoming of this newborn function}\)</span>. Note that the conditioning intervals of the above figure have been chosen using the <em>equal_count</em> method with a target fraction of overlap 0.4, thus, the number of values of the conditioning factor in each interval is roughly constant. These coplots shows rather convincingly that <em>Solar radiation</em> explains variation in the <em>Ozone</em> measurements beyond that explained by <em>Wind speed</em> and <em>Temperature</em>. Clearly, we have three coplots for three factors <em>Solar radiation</em>, <em>Temperature</em> and <em>Wind speed</em>.
+</p>
+<p>
+Fitting is essential to visualizing hypervariate data and the fit here for a hypervariate dataset is a hypervariate surface, a function of three or more variables, a function of <em>Solar radiation</em>, <em>Wind speed</em> and <em>Temperature</em>. The strategy for displaying a fitted hypervariate surface, is exactly to use conditioning. Suppose u is one of the factors. We can assign values to all other factors, and obtain the graph against u given these assigned, or conditioning values. <span class="math inline">\(\textbf{However, certain difficulty arose because *coplot* is unable to add the fitting curve (surface) but *gg_coplot* is able to do so; On the other hand, *coplot* can condition on two variables but *gg_coplot* is unable to do so}\)</span>. In the following example, we address this dilemma by applying the previous mentioned <em>make_coplot_df</em> method.
+</p>
+<div class="sourceCode" id="cb528"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data_coplot</span> <span class="op">&lt;-</span> <span class="fu">make_coplot_df</span><span class="op">(</span>df<span class="op">=</span><span class="va">environmental1</span>, vble<span class="op">=</span><span class="va">temperatura</span>, number_bins<span class="op">=</span><span class="fl">4</span>, overlap<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span>
+<span class="va">df1</span> <span class="op">&lt;-</span> <span class="va">data_coplot</span><span class="op">$</span><span class="va">df_expanded</span>
+<span class="va">df1</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="va">df1</span><span class="op">$</span><span class="va">interval</span>
+<span class="va">data_coplot</span> <span class="op">&lt;-</span> <span class="fu">make_coplot_df</span><span class="op">(</span>df<span class="op">=</span><span class="va">df1</span>, vble<span class="op">=</span><span class="va">viento</span>, number_bins<span class="op">=</span><span class="fl">4</span>,overlap<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span>
+<span class="va">df2</span> <span class="op">&lt;-</span> <span class="va">data_coplot</span><span class="op">$</span><span class="va">df_expanded</span>
+<span class="va">df2</span><span class="op">$</span><span class="va">class1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">df2</span><span class="op">$</span><span class="va">interval</span><span class="op">)</span>
+<span class="va">df2</span><span class="op">$</span><span class="va">class1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">df2</span><span class="op">$</span><span class="va">class1</span><span class="op">)</span>
+<span class="va">df2</span><span class="op">$</span><span class="va">class2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">df2</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+<span class="va">df2</span><span class="op">$</span><span class="va">class2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">df2</span><span class="op">$</span><span class="va">class2</span><span class="op">)</span>
+<span class="va">df2</span><span class="op">$</span><span class="va">class</span> <span class="op">&lt;-</span> <span class="va">df2</span><span class="op">$</span><span class="va">class1</span><span class="op">*</span><span class="fl">10</span><span class="op">+</span><span class="va">df2</span><span class="op">$</span><span class="va">class2</span>
+<span class="va">classDf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>temp_interval<span class="op">=</span><span class="va">df2</span><span class="op">$</span><span class="va">group</span>, wind_interval<span class="op">=</span><span class="va">df2</span><span class="op">$</span><span class="va">interval</span>, class_label<span class="op">=</span><span class="va">df2</span><span class="op">$</span><span class="va">class</span><span class="op">)</span>
+<span class="va">classDf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span><span class="op">(</span><span class="va">classDf</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/methods/show.html">show</a></span><span class="op">(</span><span class="va">classDf</span><span class="op">)</span></code></pre></div>
+<pre><code>##                    temp_interval           wind_interval class_label
+## 1   temperatura = [56.50, 75.50]   viento = [2.05, 8.85]          11
+## 6   temperatura = [68.50, 81.50]   viento = [2.05, 8.85]          12
+## 19  temperatura = [76.50, 86.50]   viento = [2.05, 8.85]          13
+## 38  temperatura = [81.50, 97.50]   viento = [2.05, 8.85]          14
+## 66  temperatura = [56.50, 75.50]  viento = [7.15, 10.55]          21
+## 79  temperatura = [68.50, 81.50]  viento = [7.15, 10.55]          22
+## 97  temperatura = [76.50, 86.50]  viento = [7.15, 10.55]          23
+## 117 temperatura = [81.50, 97.50]  viento = [7.15, 10.55]          24
+## 135 temperatura = [56.50, 75.50]  viento = [8.95, 12.25]          31
+## 157 temperatura = [68.50, 81.50]  viento = [8.95, 12.25]          32
+## 177 temperatura = [76.50, 86.50]  viento = [8.95, 12.25]          33
+## 195 temperatura = [81.50, 97.50]  viento = [8.95, 12.25]          34
+## 206 temperatura = [56.50, 75.50] viento = [10.65, 20.95]          41
+## 231 temperatura = [68.50, 81.50] viento = [10.65, 20.95]          42
+## 251 temperatura = [76.50, 86.50] viento = [10.65, 20.95]          43
+## 266 temperatura = [81.50, 97.50] viento = [10.65, 20.95]          44</code></pre>
+<div class="sourceCode" id="cb530"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gg_coplot</span><span class="op">(</span><span class="va">df2</span>, x<span class="op">=</span><span class="va">radiacion</span>, y<span class="op">=</span><span class="va">ozono</span>, faceting<span class="op">=</span><span class="va">class</span>, number_bins<span class="op">=</span><span class="fl">16</span>, overlap<span class="op">=</span><span class="fl">0</span>, show_intervals <span class="op">=</span> <span class="cn">FALSE</span>,
+ylabel <span class="op">=</span> <span class="st">"Cube Root Ozone"</span>, xlabel <span class="op">=</span> <span class="st">"Solar radiation"</span>, loess_family <span class="op">=</span> <span class="st">"gaussian"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_gg_cleveland_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>
+There are also many other interesting experiments can be conducted based on the <strong>gg_cleveland</strong> package. Visualization is critical to data analysis and tools matter. There are exceptionally powerful visualization tools, and there are also others, some well known, that rarely outperform the best ones. Hope more and more R-packages can be created to be a stage of those powerful Data Visualization methods.
+</p>
+
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">42</span> Introduction to XAI (Explainable AI) in R</a></div>
+<div class="next"><a href="neural-network-tools-in-r.html"><span class="header-section-number">44</span> Neural network tools in R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#tutorial-for-gg_cleveland"><span class="header-section-number">43</span> Tutorial for gg_cleveland</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/tutorial_gg_cleveland.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/tutorial_gg_cleveland.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
