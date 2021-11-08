@@ -13,6 +13,7 @@ language:
 # Chapter ordering
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -42,6 +43,7 @@ rmd_files: [
   'ggplot2_cheatsheet.Rmd',
   'rstudio_cheatsheet.Rmd',
   'd3_visualizations_in_r_cheatsheet.Rmd',
+  'colors.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -101,3 +103,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
