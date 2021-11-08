@@ -2,8 +2,8 @@
 
 Senqi Zhang
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(eval=FALSE, cache=FALSE) # chapter can't render without working API keys
+```{r, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(eval=FALSE) # chapter can't render without working API keys
 ```
 
 ```{r, message=FALSE}
