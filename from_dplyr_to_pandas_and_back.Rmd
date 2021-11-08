@@ -122,7 +122,7 @@ r_df
 ### Dplyr
 Use `readr::read_csv()`
 ```{r}
-r_df <- read_csv("resources/yujia_resources/yellowcab.csv", 
+r_df <- readr::read_csv("resources/yujia_resources/yellowcab.csv", 
                  skip = 1) #second line is the column names
 ```
 
