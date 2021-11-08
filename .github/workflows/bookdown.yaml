@@ -20,7 +20,9 @@ jobs:
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v1            
+      - uses: r-lib/actions/setup-r-dependencies@v1
+        with:
+          cache-version: 3
           
       - name: Cache bookdown results
         uses: actions/cache@v2
@@ -30,6 +32,8 @@ jobs:
           restore-keys: bookdown-      
 
       - name: Build site
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}
         run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
 
       - name: Deploy to GitHub pages 🚀
