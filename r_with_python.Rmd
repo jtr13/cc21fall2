@@ -2,6 +2,10 @@
 
 Weiwei Jiang
 
+```{r, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+``
+
 ## Introduction 
 
 **Python** and **R** are important tools in Data Science. Sometimes you may be more familiar with a problem solution in one tool rather than the other. Sometimes you may have already developed a well-defined pipeline model or data analytic procedure in one of *Python* or *R*. It's tedious and time-consuming to rewrite the code in another form. Thus, it will bring lots of benefits if we can combine *Python* and *R*. This documents will foucs on how to run python code in R environment. There are  packages enable you to run R scripts in Python environment. rpy2 is one of the packages that are still keeping updating and the official documents will be a good start tutorial, as I put the link in Reference.
