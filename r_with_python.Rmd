@@ -4,7 +4,7 @@ Weiwei Jiang
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
-``
+```
 
 ## Introduction 
 
@@ -18,7 +18,7 @@ If you are searching a way to call *Python* from *R*, there exists an convenient
 
 "reticualte" is included in CRAN, so you can simply install and use the package as follows.
 
-```{r, eval=FALSE}
+```{r}
 #install.packages("reticulate")
 library(reticulate)
 ```
