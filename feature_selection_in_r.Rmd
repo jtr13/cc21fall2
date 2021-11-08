@@ -1,4 +1,4 @@
-# Feature selection in R
+# Feature selection in r
 
 Zehui Wu
 
