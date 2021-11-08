@@ -274,7 +274,7 @@ plot_density <- function(x, thr=0, bw="nrd0",
 
 Now we show some examples in which the function would be useful.
 
-### 1) Non-negative data with repetitions
+### Non-negative data with repetitions
 
 Imagine data such as the waiting time of people in a bank branch. In this context there may be observations exactly equal to 0 indicating clients that got attended directly after.
 
@@ -289,7 +289,7 @@ legend("top", legend=c("plot_density", "Usual density"),
 
 In the previous example the data is non-negative and exhibits repetitions in 0. `plot_density` detects such repetitions as statistically significant and displays the proportion as a single dot connected with a black line. The density now doesn't exhibits positive probability in the negative numbers (as opossed to `stats::density` in blue).
 
-### 2) Non-positive data with repetitions
+### Non-positive data with repetitions
 
 We now center our attention to negative data, e.g. credit due. In such cases density in positive values would be counter intuitive.
 ```{r}
@@ -305,7 +305,7 @@ In this case there are two probability mass points at 0 and -1, which may be ass
 
 `plot_density` detects such repetitions and excludes them from the other data giving a broader picture of them, the standard density method gives the impression of having a bimodality around -1 when they are actually two repeated values repeated.
 
-### 3) Real data with repetitions
+### Real data with repetitions
 
 We now center in the case of real data that may have repetitions, e.g. mortgage loan amounts in which it is frequent to observe loans in multiples of $1,000.
 
@@ -320,7 +320,7 @@ legend("topleft", legend=c("plot_density", "Usual density"),
 
 In this case we also had to manually tune the bandwidth by changing the *bw* parameter. Due to the span of the data, the density is lower than the probability mass, however, the lines are still plotted and they let us know there are repetitions by displaying. This helps to avoid the false impression of many values around the first and last modalities displayed by the blue density.
 
-### 4) Real data without repetitions
+### Real data without repetitions
 
 We finally focus on the general case of real data with no repetitions, in which case `plot_density` closely resembles `stats::density`:
 
