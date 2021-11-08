@@ -17,19 +17,19 @@ library(fmsb) # must be installed from source
 options(stringsAsFactors = F)
 ```
 
-## 1 Overview
+## Overview
 Radar chart is a useful chart to display multivariate observations with an arbitrary number of variables. It consists of a sequence of equi-angular spokes, called radii, with each spoke representing one of the variables. The data length of a spoke is proportional to the magnitude of the variable for the data point relative to the maximum magnitude of the variable across all data points. Radar charts are widely used in sports to chart players' strengths and weaknesses.
 
 In this document, we will introduce how to draw a radar charts using package ``ggradar`` and ``fmsb``. For each method, we will give instructions about installation, simple example and parameter usage tutorial. Besides, we explore how to use ``plotly`` to make the radar chart more readable and interactive.
 
 
-## 2 Radar chart using ggradar
+## Radar chart using ggradar
 
 
-### 2.1 Installation
+### Installation
 
 
-#### 2.1.1 Install by devtools
+#### Install by devtools
 &nbsp;
 
 ##### ``ggradar`` is a github package and requires devtools to install it. Run following script to install ``ggradar``.
@@ -39,7 +39,7 @@ devtools::install_github("ricardo-bion/ggradar",dependencies = TRUE,force = T")
 ```
 &nbsp;
 
-#### 2.1.2 Unzip package in the R directory
+#### Unzip package in the R directory
 &nbsp;
 
 ##### Step1: Download the package from github.
@@ -94,7 +94,7 @@ Open the RStudio, Tools -> Install Package and choose install from ``Package Arc
 
 ![](resources/radar_chart_pic/check.png)
 
-### 2.2 Simple Example
+### Simple Example
 
 ``ggradar`` takes the first string column as group name and the rest numeric columns as different axes to plot. We take the columns from 6 to 10 in the ``mtcars`` dataset, and the first column as Group name.
 
@@ -117,9 +117,9 @@ ggradar(mtcars_radar)
 We can find that there are three circle lines in this radar chart, which stand for three bar values. Here are 0%, 50% and 100%. In addition, there are five axes corresponding to the five columns in the data. Each axis is connected with the inner layer with a solid line.
 
 
-### 2.3 Parameters Usage
+### Parameters Usage
 
-#### 2.3.1 Change text size
+#### Change text size
 ``axis.label.size`` is for the axis text.
 ```{r}
 ggradar(mtcars_radar,axis.label.size = 10)
@@ -131,7 +131,7 @@ ggradar(mtcars_radar,axis.label.size = 10)
 ggradar(mtcars_radar,grid.label.size = 10)
 ```
 
-#### 2.3.2 Set the bar value for each grid
+#### Set the bar value for each grid
 ``values.radar`` is for setting the value for each grid. It only takes three values. If provide more than three, only the first three will be taken.
 ```{r}
 ggradar(mtcars_radar,             
@@ -140,7 +140,7 @@ ggradar(mtcars_radar,
         )
 ```
 
-#### 2.3.3 Set the split ratio for each grid
+#### Set the split ratio for each grid
 Three grids will split data by ratio according to ``grid.max``, ``grid.mid`` and ``grid.min``. This should be correspond to ``values.radar``.
 
 ```{r}
@@ -152,7 +152,7 @@ ggradar(mtcars_radar,
         )
 ```
 
-#### 2.3.4 Legend  
+#### Legend  
 If you want to get rid of the legend you can set ``plot.legend = FALSE`` or ``legend.position = "none``.
 
 ```{r}
@@ -165,7 +165,7 @@ ggradar(mtcars_radar,
                 legend.position = "none")
 ```
 
-#### 2.3.5 Background and styles of grid lines.  
+#### Background and styles of grid lines.  
 Use ``background.circle.colour`` to set the background color of the chart. ``gridline.max.colour``, ``gridline.min.colour`` and ``gridline.max.colour`` are for the colors of three grid lines. ``gridline.min.linetype`` can set style of grid line to solid or longdash.
 
 ```{r}
@@ -177,14 +177,14 @@ ggradar(mtcars_radar,
              gridline.min.linetype = 'solid')
 ```
 
-#### 2.3.6 Set the colors of axes. 
+#### Set the colors of axes. 
 ``group.colours`` take a ``c()`` of colors for each group.
 ```{r}
 ggradar(mtcars_radar,
                   group.colours = c('red','blue'))
 ```
 
-#### 2.3.7 Set the size of point
+#### Set the size of point
 ``group.point.size`` only take one value or values of the data size.
 
 ```{r}
@@ -199,7 +199,7 @@ ggradar(mtcars_radar,
         )
 ```
 
-#### 2.3.8 Set the width of line
+#### Set the width of line
 
 ``group.line.width`` only take one value or values of the data size.
 
@@ -215,9 +215,9 @@ ggradar(mtcars_radar,
         )
 ```
 
-## 3 Radar chart using fmsb
+## Radar chart using fmsb
 
-### 3.1 Installation
+### Installation
 
 We can install fmsb package using command below:
 
@@ -227,7 +227,7 @@ install.packages("fmsb")
 &nbsp;
 
 
-### 3.2 Simple Example
+### Simple Example
 
 By default, data frame must include maximum values as row 1 and minimum values as row 2 for each variables to create axis, and actual data should be given as row 3 and lower rows. So we should first modify the data and use ``fmsb::radarchart`` to draw the plot:
 
@@ -245,11 +245,11 @@ fmsb::radarchart(mtcars_radar)
 ```
 
 
-### 3.3 Parameters Usage
+### Parameters Usage
 
 
 
-#### 3.3.1 Change the axistype
+#### Change the axistype
 We can change different ``axistype``
 
 
@@ -278,7 +278,7 @@ radarchart(mtcars_radar, axistype = 3)
 radarchart(mtcars_radar, axistype = 4)
 ```
 
-#### 3.3.2 Change axis segments
+#### Change axis segments
 
 We can modify ``seg`` to change the number of segments for each axis. 
 In the plot below, we can see we set the ``seg`` = 1 and then segments becomes less.
@@ -289,7 +289,7 @@ radarchart(mtcars_radar, axistype = 2)
 radarchart(mtcars_radar, axistype = 2, seg = 1)
 ```
 
-#### 3.3.3 Set Points Symbol
+#### Set Points Symbol
 
 We can modify ``pty`` to change point symbol. If you don't plot data points, it should be 32. And the default value is 16. Besides, there are some other symbol you can try.
 
@@ -305,7 +305,7 @@ radarchart(mtcars_radar, axistype = 2, pty = 18) # square
 
 
 
-#### 3.3.4 Modify Lines' Apperance (color/type/width)
+#### Modify Lines' Apperance (color/type/width)
 a) ``pcol`` : A vector of color codes for plot data
 b) ``plty`` : A vector of line types for plot data
 c) ``plwd`` : A vector of line widths for plot data
@@ -319,7 +319,7 @@ radarchart(mtcars_radar, axistype = 2, plwd = c(0.3,5))
 ```
 
 
-#### 3.3.5 Modify the axislines (color/type/width)
+#### Modify the axislines (color/type/width)
 
 We can change axislines appearance using these parameters:
 
@@ -340,7 +340,7 @@ radarchart(mtcars_radar, axistype = 2, cglty = 1, cglwd = 3, cglcol = '#000000')
 
 
 
-#### 3.3.6 Filling Polygons
+#### Filling Polygons
 
 We can add filling polygons appearance using these parameters:
 
@@ -359,7 +359,7 @@ radarchart(mtcars_radar, axistype = 2,  pfcol = c(NA,'#99999980'), cglty=1)
 
 
 
-# 4 Interactive Radar 
+# Interactive Radar 
 We can use ``plotly`` to draw interactive radar plot. Here is a example:
 we should define the type and add multible trace on it. In the plot we get, we can zoom in and out, see the detailed value and information when we move the mouse to the corresponding position.
 
