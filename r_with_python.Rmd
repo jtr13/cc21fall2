@@ -17,8 +17,9 @@ If you are searching a way to call *Python* from *R*, there exists an convenient
 ###  Installation  
 
 "reticualte" is included in CRAN, so you can simply install and use the package as follows.
-```{r}
-#install.packages("reticulate")#
+
+```{r, eval=FALSE}
+#install.packages("reticulate")
 library(reticulate)
 ```
 
@@ -134,6 +135,7 @@ ax1.set_ylabel('s1 and s2')
 ax1.grid(True)
 plt.show()
 ```
+
 ```{r}
 library(reticulate)
 library(ggplot2)
@@ -153,9 +155,11 @@ ames
 ```{python}
 print(r.ames.head())
 ```
+
 #### Source exists Python scripts 
 You can simply source an exist Python script and using Python code in R cells. Here is an example.
 This is the content of plot Script
+
 ```
 import numpy as np
 import matplotlib.cbook as cbook
@@ -180,25 +184,31 @@ plot_with_image(ames[1:10,]$area, ames[1:10,]$price)
 ```
 
 ![](resources/r_with_python/Rplot.png)
+
 ###  Executing python code with functions.
 There are two functions called `py_run_file` and `py_run_string()`. These two functions can help you to execute python in R scripts. Here is an example
 
 ```{r}
 py_run_string("print('Hello, world! This is a message from Python')")
 ``` 
+
  ![](resources/r_with_python/console1.png)
+
 ```{r}
 #  Content of Hello.py : print('This is a message from Python')
 py_run_file("resources/r_with_python/Hello.py")
 ```
+
 ![](resources/r_with_python/console2.png)
 
 Or you can simply import the Python package in R and use them in the format of R. Here is a simple example.
+
 ```{r}
 np <- import("numpy", convert = TRUE)
 np1 <- np$array(c(1:10))
 np1
 ```
+
 ###  Executing python code with functions.
 Create an interaction Python console in R by Calling `repl_python()` function. If you wish to write your python code in the console, you can call the `repl_python()` function. The the console of RStudio will change to Python engine. You can reach your python variable simply by adding the prefix `py$`.
 
