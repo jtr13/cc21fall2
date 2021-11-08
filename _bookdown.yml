@@ -6,6 +6,7 @@ language:
   ui:
     chapter_name: "Chapter "
 
+'correlogram_calendar_heatmap_slopegram_tutorial.Rmd',
 
 # Chapter ordering
 
