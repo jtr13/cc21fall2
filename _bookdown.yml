@@ -14,6 +14,7 @@ language:
 
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -85,6 +86,7 @@ rmd_files: [
   'correlogram_calendar_heatmap_slopegram_tutorial.Rmd',
   'r_recursive_codes_and_som.Rmd',
   'tutorial_of_three_ggplot2_based_packages.Rmd',
+  'short_guide_for_NLP.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -103,4 +105,5 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
 
