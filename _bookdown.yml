@@ -5,6 +5,7 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+    
 
 
 
@@ -79,6 +80,7 @@ rmd_files: [
   'storytelling_with_data.Rmd',
   "r_torch_tutorial.Rmd",
   'correlogram_calendar_heatmap_slopegram_tutorial.Rmd',
+  'r_recursive_codes_and_som.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
