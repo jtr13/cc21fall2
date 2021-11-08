@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-## 1.Introduction
+## Introduction
 
 Usually, before we plot the data, we need to preprocess the data first. And we use tidyverse to process data commonly. And I find myself can not remember all the tidyverse functions to deal with the data. So I create a cheat sheet that includes some commonly used functions in tidyverse to process the data. 
 
@@ -19,7 +19,7 @@ https://www.rdocumentation.org/,
 https://dplyr.tidyverse.org/index.html
 
 
-## 2.select()
+## select()
 
 To select some columns in the data, we only need to add the names of columns to the Select() function.
 (Use dataset "mpg" as an example dataset.)
@@ -55,7 +55,7 @@ mpg %>% select(where(is.numeric)) %>%
   select(where(~mean(.)<100))
 ```
 
-## 3.filter()
+## filter()
 
 We can use filter() to choose certain rows.
 
@@ -111,7 +111,7 @@ mpg %>%
   filter_at(vars(displ),all_vars(.>3))
 ```
 
-## 4.mutate()
+## mutate()
 
 mutate() can add a new column based on the existing column.
 
@@ -163,7 +163,7 @@ mpg %>%
   ))
 ```
 
-## 5.rowwise()
+## rowwise()
 
 rowwise() can process data by row.
 
@@ -190,7 +190,7 @@ mpg %>%
   mutate(sum=sum(across(where(is.numeric))))
 ```
 
-## 6.arrange()
+## arrange()
 
 arrange() can sort the data.
 
@@ -206,7 +206,7 @@ mpg %>%
   arrange(desc(displ))
 ```
 
-## 7.distinct()
+## distinct()
 
 distinct() can help delete the duplicate rows.
 
@@ -219,7 +219,7 @@ df %>%
   distinct()
 ```
 
-## 8.rename()
+## rename()
 
 rename() can change the column name.
 
@@ -228,7 +228,7 @@ mpg %>%
   rename(YEAR=year)
 ```
 
-## 9.relocate()
+## relocate()
 
 relocate() can help change the order of the columns.
 
@@ -247,7 +247,7 @@ mpg %>%
   relocate(year,.before = displ)
 ```
 
-## 10.drop_na()
+## drop_na()
 
 drop_na can help drop the missing value.
 
@@ -260,7 +260,7 @@ df %>%
   drop_na()
 ```
 
-## 11.pull()
+## pull()
 
 pull() can help get a single column.
 
@@ -269,7 +269,7 @@ mpg %>%
   pull(year)
 ```
 
-## 12.unite()
+## unite()
 
 unite() can help unite the columns.
 
@@ -280,7 +280,7 @@ mpg %>%
 newdf
 ```
 
-## 13.separate()
+## separate()
 
 separate() can help separate one column to several columns.
 
@@ -289,7 +289,7 @@ newdf %>%
   separate("newcolumn",into=c("manufacturer","model"),sep=",")
 ```
 
-## 14.pivot_longer()
+## pivot_longer()
 
 pivot_longer() "lengthens" data, increasing the number of rows and decreasing the number of columns.
 
@@ -304,7 +304,7 @@ df2 <- df %>%
 df2
 ```
 
-## 15.pivot_wider()
+## pivot_wider()
 
 pivot_wider() "widens" data, increasing the number of columns and decreasing the number of rows.
 
@@ -313,7 +313,7 @@ df2 %>%
   pivot_wider(names_from=key,values_from=val)
 ```
 
-## 16.count()
+## count()
 
 count() can count the number of occurences.
 
@@ -322,7 +322,7 @@ mpg %>%
   count(model,sort=TRUE)
 ```
 
-## 17.summarize()
+## summarize()
 
 summarise() is typically used on grouped data created by group_by(). The output will have one row for each group.
 
