@@ -623,6 +623,13 @@ installation-loading-2
 usage-and-contribution-2
 conlusion
 sources-5
+a-step-by-step-tutorial-for-natural-language-processing-in-r
+step-0-exploratory-analysis
+step-1-data-cleaning
+step-2-data-transformation
+step-3-hyperparameter-tuning
+step-4-model-training-evaluation
+citation-httpswww.kaggle.comstefanoleone992rotten-tomatoes-movies-and-critic-reviews-dataset
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
