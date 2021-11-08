@@ -588,6 +588,7 @@ testing
 saving-the-model
 conclusion-2
 citation
+edav-tutorials-correlogram-calendar-heatmap-and-slopegram
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r

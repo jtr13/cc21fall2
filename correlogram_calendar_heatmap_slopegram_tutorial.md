@@ -1,0 +1,17 @@
+# EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram
+
+Yajie Zhang (yz3876)
+
+For my community contribution project, I wish to make something that is both educating for myself but also might be helpful to future students. So I picked 3 data visualizations that haven't been covered in the lectures but I found to be useful in practice. Moreover, I also found them to be aesthetically
+appealing. The 3 visualizations I introduced include correlograms, calendar heatmaps and slopegrams. The datasets I used include the Red Wine Quality dataset, the S&P500 and XOM stock prices dataset from the tidyquant library, and the newcancer dataset from the CGPFunctions library, each reflecting a common use case of each graph I introduced in the tutorials.
+
+For each part of the tutorials, I used ggplot package to realize these visualizations on the use of a dataset of my choice that reflects how it is commonly used. On these graphs, I also explained how to adjust the aesthetic elements to make it look clearer, and how the dataset’s patterns are best reflected by those graphs. In each type of visualization, I then summarized what kind of data is best used in these plots. If I were given more time for this project, I would make some plots that reflect in which cases these graphs fail to convoy a pattern from the data by drawing some not-ideal examples. I think the best way to illustrate the characteristics of a visualization is through showing its pros and cons. By giving both good and bad examples, I would give the future learners a better sense of when to use & not use these visualizations. 
+
+From this project, I spent time exploring online for some visualizations I like and learning how to
+implement them using ggplot and what I learned from this class. I think it’s been a rewarding
+experience. I learned not only how to draw these 3 graphs but also how to independently find
+out how to implement visualizations. I personally find EDAV to be not only a topic essential in building machine learning models but an impressive techniques itself as well. As a data scientist, we need to learn not only how to build models but also present the results, the data and the insights using visualizations frequently. I hope future learners have benefited from my tutorials and be impressed by data visualizations too.
+
+Links to deliverable:
+[Video Tutorial](https://www.youtube.com/watch?v=Vt1TQH24mYU&t=52s&ab_channel=LindseyZhang),
+[Slide Deck](https://docs.google.com/presentation/d/1lOhcAnyZNvt0_XW-HK0TxDIVOegGQI8Th46Zzb-9JhE/edit?usp=sharing)
