@@ -154,6 +154,7 @@ rstudio-cheatsheet
 d3-visualization-in-r-cheatsheet
 colors
 r-data-sets
+introduction-to-plotly-1
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
@@ -726,6 +727,7 @@ introduction-17
 tmap
 ggmap
 plotly-1
+common-git-command-lines-tutorial-when-working-on-studio
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
