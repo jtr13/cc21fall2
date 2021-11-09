@@ -3,7 +3,7 @@
 Pengyu Zou and Nuanyu Shou
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache=FALSE)
 library(dplyr)
 library(scales)
 library(tibble)
