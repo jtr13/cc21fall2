@@ -14,7 +14,6 @@ library(sf) #Support for simple features, a standardized way to encode spatial v
 library(raster) #Reading, writing, manipulating, analyzing and modeling of spatial data.
 library(tidyverse)
 library(spData) # contains spatial datasets 
-library(spDataLarge) # contains spatial datasets 
 library(USAboundaries) # US spacial datasets
 library(maps) # Display of maps
 
