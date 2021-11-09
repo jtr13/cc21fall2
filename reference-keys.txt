@@ -673,6 +673,18 @@ univariate-feature-selection
 recursive-feature-elimination
 section-1
 resources
+debugging-in-rstudio
+introduction-14
+first-choice-help
+how-to-use-help
+understand-the-documentation
+not-enough
+source-code-methods
+debugging-in-rstudio-1
+set-the-breakpoint
+run-the-script
+debug
+summary
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
@@ -689,7 +701,7 @@ heatmap-1
 mosaic-plot-1
 understand-data-with-plots
 r-and-python-visualization
-introduction-14
+introduction-15
 histograms
 boxplots
 q-q-plots
