@@ -226,17 +226,17 @@ var_imp_df[order(var_imp_df$score,decreasing = TRUE),]
 
 ```
 ##                variable    score
-## 11              alcohol 628.8176
-## 8               density 411.1212
-## 2      volatile.acidity 394.0475
-## 6   free.sulfur.dioxide 386.4609
-## 5             chlorides 299.1756
-## 7  total.sulfur.dioxide 295.1860
-## 4        residual.sugar 281.4822
-## 3           citric.acid 256.8979
-## 9                    pH 256.1686
-## 1         fixed.acidity 234.3592
-## 10            sulphates 220.7870
+## 11              alcohol 614.1825
+## 8               density 420.6559
+## 2      volatile.acidity 392.8720
+## 6   free.sulfur.dioxide 386.1611
+## 5             chlorides 306.5278
+## 7  total.sulfur.dioxide 298.4874
+## 4        residual.sugar 280.1159
+## 9                    pH 257.6119
+## 3           citric.acid 253.7064
+## 1         fixed.acidity 232.2419
+## 10            sulphates 221.5637
 ```
 
 We can see that the ranking here is different from the previous one and they are specifically linked to the performance of the random forest model.
@@ -281,7 +281,7 @@ rfWithFilter
 ## Resampling performance:
 ## 
 ##    RMSE Rsquared    MAE  RMSESD RsquaredSD   MAESD
-##  0.5937   0.5595 0.4257 0.03287    0.03497 0.01986
+##  0.5951   0.5578 0.4271 0.02422    0.03461 0.01498
 ## 
 ## Using the training set, 11 variables were selected:
 ##    fixed.acidity, volatile.acidity, citric.acid, residual.sugar, chlorides...
@@ -313,18 +313,18 @@ results
 ## 
 ## Resampling performance over subset size:
 ## 
-##  Variables   RMSE Rsquared    MAE   RMSESD RsquaredSD     MAESD Selected
-##          1 0.8764  0.03179 0.6691 0.001353   0.002896 0.0015838         
-##          2 0.7458  0.29565 0.5701 0.010418   0.022794 0.0031677         
-##          3 0.6817  0.40773 0.5178 0.010291   0.023165 0.0031419         
-##          4 0.6567  0.45338 0.4920 0.012152   0.026861 0.0016766         
-##          5 0.6516  0.46621 0.4862 0.008612   0.021053 0.0019469         
-##          6 0.6377  0.48473 0.4694 0.011089   0.023597 0.0032762         
-##          7 0.6325  0.49468 0.4644 0.008898   0.019949 0.0034421         
-##          8 0.6313  0.49799 0.4629 0.008648   0.020004 0.0014399         
-##          9 0.6264  0.50482 0.4565 0.011145   0.024025 0.0029361         
-##         10 0.6248  0.50764 0.4548 0.011458   0.024662 0.0016732         
-##         11 0.6223  0.51277 0.4531 0.009544   0.021405 0.0008712        *
+##  Variables   RMSE Rsquared    MAE   RMSESD RsquaredSD   MAESD Selected
+##          1 0.8771  0.02983 0.6716 0.008902   0.005228 0.01124         
+##          2 0.7419  0.30221 0.5698 0.024748   0.031039 0.02074         
+##          3 0.6875  0.39769 0.5221 0.029803   0.042278 0.02562         
+##          4 0.6567  0.45364 0.4947 0.027705   0.039877 0.02482         
+##          5 0.6473  0.47384 0.4863 0.025290   0.036250 0.02249         
+##          6 0.6389  0.48270 0.4712 0.025658   0.035250 0.02254         
+##          7 0.6337  0.49326 0.4681 0.028872   0.041554 0.02367         
+##          8 0.6292  0.50149 0.4629 0.027721   0.039958 0.02301         
+##          9 0.6266  0.50448 0.4585 0.028215   0.039576 0.02338         
+##         10 0.6236  0.51015 0.4569 0.026821   0.037238 0.02181         
+##         11 0.6202  0.51706 0.4545 0.026379   0.037467 0.02170        *
 ## 
 ## The top 5 variables (out of 11):
 ##    volatile.acidity, alcohol, free.sulfur.dioxide, residual.sugar, pH
