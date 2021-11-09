@@ -1,0 +1,5 @@
+# ggplot2 cheatsheet
+
+Ruoxi Liu (rl3155) and Ziyu Fang (zf2253)
+
+We have our ggplot2 cheatsheet uploaded to our github, and this is the link: https://github.com/rul124/Stats5702-Community-Contribution
