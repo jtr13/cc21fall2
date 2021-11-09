@@ -8,7 +8,7 @@ language:
 
 
 # Chapter ordering
-
+'tidyverse.Rmd',
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
