@@ -8,7 +8,7 @@ language:
     
 
 
-# Chapter ordering
+
 
 rmd_files: [
   # Part: Introduction
@@ -94,6 +94,7 @@ rmd_files: [
   'map_visualization.Rmd',
   'common_github_commands.Rmd',
   'tutorial_of_radar_chart.Rmd',
+  'r_shiny_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -115,3 +116,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
