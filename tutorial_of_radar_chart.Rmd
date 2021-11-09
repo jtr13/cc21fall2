@@ -10,7 +10,7 @@ library(tibble)
 library(plotly)
 
 # remotes::install_github("ricardo-bion/ggradar")
-library(ggradar) # must be installed from source
+#library(ggradar) # must be installed from source
 
 # install.packages("fmsb")
 library(fmsb) # must be installed from source
