@@ -1,0 +1,18 @@
+# Streamlit Tutorial
+
+Elijah Flomen and Blake Hartung
+
+For our community contribution assignment, we will be providing a tutorial video on how to use an extremely powerful Python package, Streamlit. Streamlit allows for its users to generate interactive dashboards of data analyses and visualizations for other people to use. The key to this package is that it enables people with little-to-no knowledge of Python to conduct their own exploratory analysis of a dataset. Once the package is used properly, by someone with a working knowledge of Python and Streamlit, a dashboard is made that is intuitive to use by anyone with no required technical programming knowledge. Streamlit’s built-in UI is intuitive and clean, making it a tool that would be powerful for anyone who wishes to build rapid prototype of a web application or present interactive data visualizations.
+
+Our tutorial will cover some of the basic functions Streamlit has to offer and to highlight the usefulness of the package. Namely, we will demonstrate some of the data visualization and analysis tools that Streamlit’s dashboards support via the Iris Dataset as well as a dataset including Uber Pickup data in NYC. 
+
+
+Link to video: https://youtu.be/OH2QhK6xovw
+Link to Github repo: https://github.com/blake-hartung/community_contrib_bh_ef.git
+https://github.com/blake-hartung/community_contrib_bh_ef.git
+
+Sources: 
+
+Streamlit documentation (https://docs.streamlit.io/)
+Iris Dataset (https://archive.ics.uci.edu/ml/datasets/iris)
+Uber Pickup Dataset (https://www.kaggle.com/fivethirtyeight/uber-pickups-in-new-york-city)
