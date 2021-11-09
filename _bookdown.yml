@@ -9,6 +9,9 @@ language:
 
 # Chapter ordering
 
+
+
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -105,6 +108,7 @@ rmd_files: [
   'r_and_python_visualization.Rmd',
   
   # Part: Custom R packages
+  'super_ggformat_project.Rmd',
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
