@@ -85,7 +85,7 @@ hist
 ```
 ## function (x, ...) 
 ## UseMethod("hist")
-## <bytecode: 0x560ce8921ad8>
+## <bytecode: 0x55afea69dae8>
 ## <environment: namespace:graphics>
 ```
 This is because that it is a generic function (more specifically, it's a S3 generic function). We can use `methods()`, it will list all available methods for a S3 or S4 generic function:

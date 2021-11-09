@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 22 Textbook Notes | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Xianmeng Wang This is the summary note from course textbook “Graphical Data Analysis”, not from the course EDAV itself. Many contents are overlapped between these two but there are still a number...">
+<title>Chapter 70 R tutorial cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Zhining Qiu This is a tutorial cheatsheet in pdf version include all basic functions to plot and give desired graphs. Click the following link to check out the cheatsheet:...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 22 Textbook Notes | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 70 R tutorial cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Xianmeng Wang This is the summary note from course textbook “Graphical Data Analysis”, not from the course EDAV itself. Many contents are overlapped between these two but there are still a number...">
+<meta property="og:description" content="Zhining Qiu This is a tutorial cheatsheet in pdf version include all basic functions to plot and give desired graphs. Click the following link to check out the cheatsheet:...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 22 Textbook Notes | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Xianmeng Wang This is the summary note from course textbook “Graphical Data Analysis”, not from the course EDAV itself. Many contents are overlapped between these two but there are still a number...">
+<meta name="twitter:title" content="Chapter 70 R tutorial cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Zhining Qiu This is a tutorial cheatsheet in pdf version include all basic functions to plot and give desired graphs. Click the following link to check out the cheatsheet:...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -67,7 +67,7 @@
 <li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
 <li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
 <li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
-<li><a class="active" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
 <li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
 <li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
 <li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
@@ -116,7 +116,7 @@
 <li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">67</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
 <li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">68</span> Feature selection in r</a></li>
 <li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">69</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">70</span> R tutorial cheatsheet</a></li>
+<li><a class="active" href="r-tutorial-cheatsheet.html"><span class="header-section-number">70</span> R tutorial cheatsheet</a></li>
 <li class="book-part">Project &amp; Workshops</li>
 <li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">71</span> Introduction to analytics consulting at Accenture</a></li>
 <li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">72</span> Map of the R world</a></li>
@@ -137,26 +137,30 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="textbook-notes" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-tutorial-cheatsheet" class="section level1">
 <h1>
-<span class="header-section-number">22</span> Textbook Notes<a class="anchor" aria-label="anchor" href="#textbook-notes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">70</span> R tutorial cheatsheet<a class="anchor" aria-label="anchor" href="#r-tutorial-cheatsheet"><i class="fas fa-link"></i></a>
 </h1>
-<p>Xianmeng Wang</p>
-<p>This is the summary note from course textbook “Graphical Data Analysis”, not from the course EDAV itself. Many contents are overlapped between these two but there are still a number of significant difference. This textbook note only covers the contents from Chapter 3 to Chapter 11 since Chapter 1 and 2 are introductions and contents after Chapter 12 are more likely to be summaries and introduction to R, which will not be covered in this file.</p>
-<p>Link:<a href="https://github.com/wxmkevin/edav_cc" class="uri">https://github.com/wxmkevin/edav_cc</a></p>
+<p>Zhining Qiu</p>
+<p>This is a tutorial cheatsheet in pdf version include all basic functions to plot and give desired graphs.</p>
+<p>Click the following link to check out the cheatsheet:
+<a href="https://github.com/zhining4/data_work/blob/master/Colourful_Cheatsheet_R_tutorial.pdf">https://github.com/zhining4/data_work/blob/master/Colourful_Cheatsheet_R_tutorial.pdf</a></p>
 
 </div>
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></div>
-<div class="next"><a href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></div>
+<div class="prev"><a href="debugging-in-rstudio.html"><span class="header-section-number">69</span> Debugging in Rstudio</a></div>
+<div class="next"><a href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">71</span> Introduction to analytics consulting at Accenture</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#textbook-notes"><span class="header-section-number">22</span> Textbook Notes</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#r-tutorial-cheatsheet"><span class="header-section-number">70</span> R tutorial cheatsheet</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/edav_cc.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/edav_cc.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/r_tutorial_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/r_tutorial_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
