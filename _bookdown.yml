@@ -9,7 +9,6 @@ language:
 
 # Chapter ordering
 
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -41,6 +40,7 @@ rmd_files: [
   'd3_visualizations_in_r_cheatsheet.Rmd',
   'colors.Rmd',
   'r_datasets.Rmd',
+  'plotly_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
