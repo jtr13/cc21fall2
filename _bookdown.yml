@@ -9,8 +9,6 @@ language:
 
 # Chapter ordering
 
-
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -87,6 +85,7 @@ rmd_files: [
   'feature_selection_in_r.Rmd',
   'debugging_in_rstudio.Rmd',
   'r_tutorial_cheatsheet.Rmd',
+  'brief_introduction_of_ggpubr.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
