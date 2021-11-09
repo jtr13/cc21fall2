@@ -153,6 +153,7 @@ ggplot2-cheatsheet
 rstudio-cheatsheet
 d3-visualization-in-r-cheatsheet
 colors
+r-data-sets
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
@@ -720,6 +721,11 @@ filter-2
 group_by-1
 summarise
 summarise_at
+r-packages-for-map-visualization
+introduction-17
+tmap
+ggmap
+plotly-1
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
@@ -736,7 +742,7 @@ heatmap-1
 mosaic-plot-1
 understand-data-with-plots
 r-and-python-visualization
-introduction-17
+introduction-18
 histograms-1
 boxplots
 q-q-plots

@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 31 Plot and Analyze Stock Data with R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Yue Zhang and Yue Xiong  31.1 Motivation The idea of this tutorial arise when we did research for our final project which involves a lot of interactions with stock prices. We need to plot the...">
+<title>Chapter 32 Plot and Analyze Stock Data with R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Yue Zhang and Yue Xiong  32.1 Motivation The idea of this tutorial arise when we did research for our final project which involves a lot of interactions with stock prices. We need to plot the...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 31 Plot and Analyze Stock Data with R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 32 Plot and Analyze Stock Data with R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Yue Zhang and Yue Xiong  31.1 Motivation The idea of this tutorial arise when we did research for our final project which involves a lot of interactions with stock prices. We need to plot the...">
+<meta property="og:description" content="Yue Zhang and Yue Xiong  32.1 Motivation The idea of this tutorial arise when we did research for our final project which involves a lot of interactions with stock prices. We need to plot the...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 31 Plot and Analyze Stock Data with R | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Yue Zhang and Yue Xiong  31.1 Motivation The idea of this tutorial arise when we did research for our final project which involves a lot of interactions with stock prices. We need to plot the...">
+<meta name="twitter:title" content="Chapter 32 Plot and Analyze Stock Data with R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Yue Zhang and Yue Xiong  32.1 Motivation The idea of this tutorial arise when we did research for our final project which involves a lot of interactions with stock prices. We need to plot the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -72,66 +72,68 @@
 <li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
 <li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
 <li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">27</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">28</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">29</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">30</span> Introduction to interactive graphs in R</a></li>
-<li><a class="active" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">31</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">32</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">33</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">34</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">35</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">36</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">37</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">38</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">39</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">40</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">41</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">42</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">43</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">44</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">45</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">46</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">47</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">48</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">49</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">50</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">51</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">52</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">53</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">54</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">55</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">56</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">57</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">58</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">59</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">60</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">61</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">62</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">63</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">64</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">65</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">66</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">67</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">68</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">69</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">70</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">71</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">72</span> R based data organization and visualization</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">28</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">29</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">30</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">31</span> Introduction to interactive graphs in R</a></li>
+<li><a class="active" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">32</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">33</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">34</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">35</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">36</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">37</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">38</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">39</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">40</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">41</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">42</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">43</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">44</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">45</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">46</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">47</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">48</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">49</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">50</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">51</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">52</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">53</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">54</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">55</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">56</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">57</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">58</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">59</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">60</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">61</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">62</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">63</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">64</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">65</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">66</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">67</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">68</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">69</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">70</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">71</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">72</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">73</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">74</span> R packages for map Visualization</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">73</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">74</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">75</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">76</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">75</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">76</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">77</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">78</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">77</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">78</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">79</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">80</span> R and Python visualization</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">79</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">80</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">81</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">82</span> R and Python visualization</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">81</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">82</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">83</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">84</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -141,22 +143,22 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="plot-and-analyze-stock-data-with-r" class="section level1">
 <h1>
-<span class="header-section-number">31</span> Plot and Analyze Stock Data with R<a class="anchor" aria-label="anchor" href="#plot-and-analyze-stock-data-with-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32</span> Plot and Analyze Stock Data with R<a class="anchor" aria-label="anchor" href="#plot-and-analyze-stock-data-with-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Yue Zhang and Yue Xiong</p>
 <div id="motivation-1" class="section level2">
 <h2>
-<span class="header-section-number">31.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>The idea of this tutorial arise when we did research for our final project which involves a lot of interactions with stock prices. We need to plot the stock prices, analyze the data to convey the financial information behind the data. Therefore, we gathered all the useful resources we found and our thoughts into this tutorial.</p>
 </div>
 <div id="plot-stock-data" class="section level2">
 <h2>
-<span class="header-section-number">31.2</span> Plot stock data<a class="anchor" aria-label="anchor" href="#plot-stock-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2</span> Plot stock data<a class="anchor" aria-label="anchor" href="#plot-stock-data"><i class="fas fa-link"></i></a>
 </h2>
 <div id="using-ggplot2-to-plot-time-series" class="section level3">
 <h3>
-<span class="header-section-number">31.2.1</span> Using ggplot2 to plot time series<a class="anchor" aria-label="anchor" href="#using-ggplot2-to-plot-time-series"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2.1</span> Using ggplot2 to plot time series<a class="anchor" aria-label="anchor" href="#using-ggplot2-to-plot-time-series"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let’s first look at what we can do with basic R and ggplot2. Stock data are essentially time series, so with the bare minimum, we can plot stock data as time series withe the techniques we learned from class. Let’s use Pfizer data as an illustration of this function. We downloaded 2-year historical data of Pfizer from Yahoo Finance and saved them in a csv file.</p>
 <div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
@@ -171,23 +173,23 @@
 </div>
 <div id="candlestick-chart" class="section level3">
 <h3>
-<span class="header-section-number">31.2.2</span> Candlestick Chart<a class="anchor" aria-label="anchor" href="#candlestick-chart"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2.2</span> Candlestick Chart<a class="anchor" aria-label="anchor" href="#candlestick-chart"><i class="fas fa-link"></i></a>
 </h3>
 <div id="background-history" class="section level4">
 <h4>
-<span class="header-section-number">31.2.2.1</span> Background History<a class="anchor" aria-label="anchor" href="#background-history"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2.2.1</span> Background History<a class="anchor" aria-label="anchor" href="#background-history"><i class="fas fa-link"></i></a>
 </h4>
 <p>Candlestick charts are thought to have been developed in the 18th century by Munehisa Homma, a Japanese rice trader.[4] They were introduced to the Western world by Steve Nison in his book, Japanese Candlestick Charting Techniques. They are often used today in stock analysis along with other analytical tools.</p>
 </div>
 <div id="description" class="section level4">
 <h4>
-<span class="header-section-number">31.2.2.2</span> Description<a class="anchor" aria-label="anchor" href="#description"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2.2.2</span> Description<a class="anchor" aria-label="anchor" href="#description"><i class="fas fa-link"></i></a>
 </h4>
 <p>Each “candlestick” typically shows one day. It is similar to a bar chart in that each candlestick represents all four important pieces of information for that day: open and close in the thick body; high and low in the “candle wick”. If the asset closed higher than it opened, the body is hollow or green colored, with the opening price at the bottom of the body and the closing price at the top. If the asset closed lower than it opened, the body is solid or red colored, with the opening price at the top and the closing price at the bottom. Thus, the color of the candle represents the price movement relative to the prior period’s close and the “fill” (solid or hollow/green or red) of the candle represents the price direction of the period in isolation (solid/red for a higher open and lower close; hollow/green for a lower open and a higher close).</p>
 </div>
 <div id="draw-candlestick-chart-in-r" class="section level4">
 <h4>
-<span class="header-section-number">31.2.2.3</span> Draw Candlestick Chart in R<a class="anchor" aria-label="anchor" href="#draw-candlestick-chart-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2.2.3</span> Draw Candlestick Chart in R<a class="anchor" aria-label="anchor" href="#draw-candlestick-chart-in-r"><i class="fas fa-link"></i></a>
 </h4>
 <p>We are going to use the package <code>quantmod</code> to draw the Candlestick Chart. Quantmod stands for quantitative financial modelling framework. It has three main functions: download data, charting, and technical indicator.</p>
 <p>Instead of going to search each stock’s price in Yahoo Finance and download it into csv files and then read into R, there is a easier way to do that with <code>quantmod</code>, which is to use function <code>getSymbols</code>. This function can help to download the specific stock price directly in r. The default source is ‘finance.yahoo.com’, you can switch to other sources by changing <code>src</code>.</p>
@@ -217,7 +219,7 @@ Because we are plotting two year’s data in one chart, we cannot see each candl
 </div>
 <div id="interactive-plot" class="section level4">
 <h4>
-<span class="header-section-number">31.2.2.4</span> Interactive Plot<a class="anchor" aria-label="anchor" href="#interactive-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.2.2.4</span> Interactive Plot<a class="anchor" aria-label="anchor" href="#interactive-plot"><i class="fas fa-link"></i></a>
 </h4>
 <p>As we see in previous examples, date range deeply impacts the information displayed in the graph. Sometimes we’d like to look at stock’s trend over a long period; sometimes we need to zoom in to focus on a shorter period of time or look at one specific day. It’s hard to accomplish these with the static charts graphed with <code>quantmod</code>. So we are going to introduce <code>plotly</code> to graph interactive plots.</p>
 <div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
@@ -238,11 +240,11 @@ Because we are plotting two year’s data in one chart, we cannot see each candl
 </div>
 <div id="analyze-stock-data" class="section level2">
 <h2>
-<span class="header-section-number">31.3</span> Analyze stock data<a class="anchor" aria-label="anchor" href="#analyze-stock-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3</span> Analyze stock data<a class="anchor" aria-label="anchor" href="#analyze-stock-data"><i class="fas fa-link"></i></a>
 </h2>
 <div id="simple-moving-average" class="section level3">
 <h3>
-<span class="header-section-number">31.3.1</span> Simple Moving Average<a class="anchor" aria-label="anchor" href="#simple-moving-average"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3.1</span> Simple Moving Average<a class="anchor" aria-label="anchor" href="#simple-moving-average"><i class="fas fa-link"></i></a>
 </h3>
 <p>A simple moving average (SMA) calculates the average of a selected range of prices, usually closing prices, by the number of periods in that range. In stock market, simple moving average allows us to ignore the noise of daily price moving but rather focus on the relatively long term trajectory of the stock. We choose n = 5, 30, 200 to represent the average price of short, medium and long term respectively. For example, in the below graph, around March 2021, we can see the 200-day SMA of PFE rose above 30-day SMA, this is an bullish indicator, that suggests the price of PFE will increase. Indeed, we see PFE’s price rises afterwards.</p>
 <div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
@@ -260,7 +262,7 @@ Because we are plotting two year’s data in one chart, we cannot see each candl
 </div>
 <div id="bolinger-band" class="section level3">
 <h3>
-<span class="header-section-number">31.3.2</span> Bolinger Band<a class="anchor" aria-label="anchor" href="#bolinger-band"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3.2</span> Bolinger Band<a class="anchor" aria-label="anchor" href="#bolinger-band"><i class="fas fa-link"></i></a>
 </h3>
 <p>A Bollinger Band is a technical analysis tool defined by a set of trendlines plotted x standard deviations (positively and negatively) away from a simple moving average (SMA) of a security’s price. The upper and lower bands are typically 2 standard deviations +/- from a 20-day simple moving average, but can be modified.
 As the prices move closer to the upper band, the market is more overbought and the price is likely to fall, which is a good time to sell; as the prices move closer to the lower band, the market is more oversold and the price is likely to rise, which is a good time to buy. The below PFE 20-day SMA and 2 standard deviation Bolinger Band during mid May 2021 and mid June 2021 perfectly follows this trend.</p>
@@ -275,7 +277,7 @@ As the prices move closer to the upper band, the market is more overbought and t
 </div>
 <div id="relative-strength-index" class="section level3">
 <h3>
-<span class="header-section-number">31.3.3</span> Relative Strength Index<a class="anchor" aria-label="anchor" href="#relative-strength-index"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3.3</span> Relative Strength Index<a class="anchor" aria-label="anchor" href="#relative-strength-index"><i class="fas fa-link"></i></a>
 </h3>
 <p>The relative strength index (RSI) is a momentum indicator that measures the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of a stock or other asset. The standard is to use 14 periods to calculate the initial RSI value. The RSI value ranges from 0 to 100, normally values above 70 indicate the stock is overbought, which is a good time to sell; values below 30 indicate the stock is oversold, which is a good chance to buy.</p>
 <div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
@@ -289,7 +291,7 @@ As the prices move closer to the upper band, the market is more overbought and t
 </div>
 <div id="sma-and-bolinger-band-in-interactive-graph" class="section level3">
 <h3>
-<span class="header-section-number">31.3.4</span> SMA and Bolinger Band in interactive graph<a class="anchor" aria-label="anchor" href="#sma-and-bolinger-band-in-interactive-graph"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3.4</span> SMA and Bolinger Band in interactive graph<a class="anchor" aria-label="anchor" href="#sma-and-bolinger-band-in-interactive-graph"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can also add SMA and Bolinger Band on top of the interactive graph.</p>
 <div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
@@ -317,7 +319,7 @@ As the prices move closer to the upper band, the market is more overbought and t
 </div>
 <div id="calendar-heatmap" class="section level3">
 <h3>
-<span class="header-section-number">31.3.5</span> Calendar Heatmap<a class="anchor" aria-label="anchor" href="#calendar-heatmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3.5</span> Calendar Heatmap<a class="anchor" aria-label="anchor" href="#calendar-heatmap"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can calculate the aggregated return in percentage by using function <code>periodReturn</code>. The aggregate level can be specified by changing argument <code>period</code>. Here we set the aggregate level to be daily, we can also set to monthly, yearly and etc.</p>
 <div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
@@ -376,7 +378,7 @@ This graph break down the Pfizer’s daily return within each year, month and we
 </div>
 <div id="correlation-graph" class="section level3">
 <h3>
-<span class="header-section-number">31.3.6</span> Correlation Graph<a class="anchor" aria-label="anchor" href="#correlation-graph"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3.6</span> Correlation Graph<a class="anchor" aria-label="anchor" href="#correlation-graph"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now, we will introduce a new useful package trying to plot the correlation graph in r, which is <code>ggcorrplot</code>. Here we are going to examine whether there is correlation between different stock price. Correlation concept is important in finance, one application of the correlation in trading strategy is that by observing the price of correlated stocks in one stock market in different time zone, we can infer the price change of the stock in other stock markets in other time zone.</p>
 <p>We will firstly choose the list of stocks that we would like to find the correlation and get their stock price data since 2015 from Yahoo Finance. Here we store the price of each stock as one column in a dataframe, called tickerPrices. For each row, it shows the closing price of the stock in particular trading day. Here is how the tickerPrice looks like.</p>
@@ -411,7 +413,7 @@ This graph break down the Pfizer’s daily return within each year, month and we
 </div>
 <div id="violin-chart" class="section level3">
 <h3>
-<span class="header-section-number">31.3.7</span> Violin Chart<a class="anchor" aria-label="anchor" href="#violin-chart"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.3.7</span> Violin Chart<a class="anchor" aria-label="anchor" href="#violin-chart"><i class="fas fa-link"></i></a>
 </h3>
 <p>One more graph that is useful in determine the trading strategy is Violin Chart. This graph shows the distribution of the returns of the stock in the past. By understanding what the normal profit range of the particular stock is, we can know if there exists one particular month or two that the stock performs better than usual. For example, there are a concept call Santa Relay and January Effect in trading, which tells us that the stock price usually goes up during Dec and January. Violin Chart allows us to check whether the particular stock follows the above 2 concepts. Again, we will use Pfizer as an example for demonstration.</p>
 <p>Since we want to know the monthly return distribution, for each year, every month only have 1 data point, to make the distribution more reliable, we need to get more historical data to plot the violin chart. The first Initial Public Offering (IPO) of Pfizer was made in 1972, so we try to retrieve the stock price data from 1972.</p>
@@ -441,7 +443,7 @@ This graph break down the Pfizer’s daily return within each year, month and we
 </div>
 <div id="citations" class="section level2">
 <h2>
-<span class="header-section-number">31.4</span> Citations<a class="anchor" aria-label="anchor" href="#citations"><i class="fas fa-link"></i></a>
+<span class="header-section-number">32.4</span> Citations<a class="anchor" aria-label="anchor" href="#citations"><i class="fas fa-link"></i></a>
 </h2>
 <p><a href="https://www.quantmod.com/examples/intro/" class="uri">https://www.quantmod.com/examples/intro/</a></p>
 <p><a href="https://plotly.com/r/candlestick-charts/" class="uri">https://plotly.com/r/candlestick-charts/</a></p>
@@ -453,31 +455,31 @@ This graph break down the Pfizer’s daily return within each year, month and we
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">30</span> Introduction to interactive graphs in R</a></div>
-<div class="next"><a href="data-visulization-ordering.html"><span class="header-section-number">32</span> Data Visulization Ordering</a></div>
+<div class="prev"><a href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">31</span> Introduction to interactive graphs in R</a></div>
+<div class="next"><a href="data-visulization-ordering.html"><span class="header-section-number">33</span> Data Visulization Ordering</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#plot-and-analyze-stock-data-with-r"><span class="header-section-number">31</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="nav-link" href="#motivation-1"><span class="header-section-number">31.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#plot-and-analyze-stock-data-with-r"><span class="header-section-number">32</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="nav-link" href="#motivation-1"><span class="header-section-number">32.1</span> Motivation</a></li>
 <li>
-<a class="nav-link" href="#plot-stock-data"><span class="header-section-number">31.2</span> Plot stock data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#using-ggplot2-to-plot-time-series"><span class="header-section-number">31.2.1</span> Using ggplot2 to plot time series</a></li>
-<li><a class="nav-link" href="#candlestick-chart"><span class="header-section-number">31.2.2</span> Candlestick Chart</a></li>
+<a class="nav-link" href="#plot-stock-data"><span class="header-section-number">32.2</span> Plot stock data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#using-ggplot2-to-plot-time-series"><span class="header-section-number">32.2.1</span> Using ggplot2 to plot time series</a></li>
+<li><a class="nav-link" href="#candlestick-chart"><span class="header-section-number">32.2.2</span> Candlestick Chart</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#analyze-stock-data"><span class="header-section-number">31.3</span> Analyze stock data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#simple-moving-average"><span class="header-section-number">31.3.1</span> Simple Moving Average</a></li>
-<li><a class="nav-link" href="#bolinger-band"><span class="header-section-number">31.3.2</span> Bolinger Band</a></li>
-<li><a class="nav-link" href="#relative-strength-index"><span class="header-section-number">31.3.3</span> Relative Strength Index</a></li>
-<li><a class="nav-link" href="#sma-and-bolinger-band-in-interactive-graph"><span class="header-section-number">31.3.4</span> SMA and Bolinger Band in interactive graph</a></li>
-<li><a class="nav-link" href="#calendar-heatmap"><span class="header-section-number">31.3.5</span> Calendar Heatmap</a></li>
-<li><a class="nav-link" href="#correlation-graph"><span class="header-section-number">31.3.6</span> Correlation Graph</a></li>
-<li><a class="nav-link" href="#violin-chart"><span class="header-section-number">31.3.7</span> Violin Chart</a></li>
+<a class="nav-link" href="#analyze-stock-data"><span class="header-section-number">32.3</span> Analyze stock data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#simple-moving-average"><span class="header-section-number">32.3.1</span> Simple Moving Average</a></li>
+<li><a class="nav-link" href="#bolinger-band"><span class="header-section-number">32.3.2</span> Bolinger Band</a></li>
+<li><a class="nav-link" href="#relative-strength-index"><span class="header-section-number">32.3.3</span> Relative Strength Index</a></li>
+<li><a class="nav-link" href="#sma-and-bolinger-band-in-interactive-graph"><span class="header-section-number">32.3.4</span> SMA and Bolinger Band in interactive graph</a></li>
+<li><a class="nav-link" href="#calendar-heatmap"><span class="header-section-number">32.3.5</span> Calendar Heatmap</a></li>
+<li><a class="nav-link" href="#correlation-graph"><span class="header-section-number">32.3.6</span> Correlation Graph</a></li>
+<li><a class="nav-link" href="#violin-chart"><span class="header-section-number">32.3.7</span> Violin Chart</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#citations"><span class="header-section-number">31.4</span> Citations</a></li>
+<li><a class="nav-link" href="#citations"><span class="header-section-number">32.4</span> Citations</a></li>
 </ul>
 
       <div class="book-extra">
