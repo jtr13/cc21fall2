@@ -11,6 +11,8 @@ language:
 
 
 
+# Chapter ordering
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -103,6 +105,7 @@ rmd_files: [
   'map_of_r_world.Rmd',
   'alluvial_diagrams_and_their_implementation_in_r.Rmd',
   'data_visualization_r_shiny.Rmd',
+  'rgl_package.Rmd',
   
   # Part: Data visualizations
   'introduction_to_pyecharts_package.Rmd', # contains PART header
@@ -118,5 +121,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
 
