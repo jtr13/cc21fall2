@@ -2,6 +2,9 @@
 
 Zihan Wang
 
+```{r, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(eval=FALSE)
+```
 
 ## Introduction
 
@@ -25,7 +28,6 @@ Before:
 library(parcoords)
 library(webshot)
 library(d3r)
-library(dplyr) ## add dplyr to run group_by
 sel_df_<-df %>%filter(Year == 2020) %>%select(County,Region,Murder,Rape,Robbery)%>%group_by(County,Region)
 parcoords(data = sel_df_,brushMode = '1D-axes',color = list(colorBy = "Region"),queue = TRUE,withD3 = TRUE)
 ```
