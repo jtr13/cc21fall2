@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 75 R and Python visualization | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Gilberto Garcia Perez These are the R libraries that we will be using for plotting and intermediate tasks. # Required R packages library(tidyverse) library(ggplot2) library(vcd)...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 75 R and Python visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Gilberto Garcia Perez These are the R libraries that we will be using for plotting and intermediate tasks. # Required R packages library(tidyverse) library(ggplot2) library(vcd)...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 75 R and Python visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Gilberto Garcia Perez These are the R libraries that we will be using for plotting and intermediate tasks. # Required R packages library(tidyverse) library(ggplot2) library(vcd)...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">27</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">28</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">29</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">30</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">31</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">32</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">33</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">34</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">35</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">36</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">37</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">38</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">39</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">40</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">41</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">42</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">43</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">44</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">45</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">46</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">47</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">48</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">49</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">50</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">51</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">52</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">53</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">54</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">55</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">56</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">57</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">58</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">59</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">60</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">61</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">62</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">63</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">64</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">65</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">66</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">67</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">68</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">69</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">70</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">71</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">72</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">73</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">74</span> Understand data with plots</a></li>
+<li><a class="active" href="r-and-python-visualization.html"><span class="header-section-number">75</span> R and Python visualization</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">76</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">77</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-and-python-visualization" class="section level1">
+<h1>
+<span class="header-section-number">75</span> R and Python visualization<a class="anchor" aria-label="anchor" href="#r-and-python-visualization"><i class="fas fa-link"></i></a>
+</h1>
+<p>Gilberto Garcia Perez</p>
+<p>These are the R libraries that we will be using for plotting and intermediate tasks.</p>
+<div class="sourceCode" id="cb848"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Required R packages</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">vcd</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span></code></pre></div>
+<p>Correspondingly, these are the Python packages that we will use for plotting and intermediate tasks.</p>
+<div class="sourceCode" id="cb849"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb849-1"><a href="r-and-python-visualization.html#cb849-1"></a><span class="co"># Required Python libraries</span></span>
+<span id="cb849-2"><a href="r-and-python-visualization.html#cb849-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb849-3"><a href="r-and-python-visualization.html#cb849-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb849-4"><a href="r-and-python-visualization.html#cb849-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb849-5"><a href="r-and-python-visualization.html#cb849-5"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code></pre></div>
+<div id="introduction-13" class="section level2">
+<h2>
+<span class="header-section-number">75.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-13"><i class="fas fa-link"></i></a>
+</h2>
+<p>This document aims to provide a quick reference guide for the different data visualization options available in R and Python, in a way that people familiarized with one of these languages can easily find the right syntax for making a specific kind of plot in the other language. In this manner, I hope experienced programmers may benefit from levering their knowledge in the other language to reduce their learning curve related to syntactic differences, as well as identify the limitations one encounters in the other environment.</p>
+<p>Given the widespread use of the <code>ggplot2</code> library for the R Language, we will focus entirely on it, but the reader should know that the same plots can also be generated in Base R, although probably with a lot more work. In regards to Python, we will be making extensive use of two related packages, <code>matplotlib</code> and <code>seaborn</code>. The former is the most widely package used for plotting in Python, but the latter is improving everyday and it generates nice looking with a few lines of code, just as <code>ggplot2</code> does in the R universe. Nonetheless, <code>matplotlib</code> is more suited for people who wish to control very specific aspects of their charts.</p>
+<p>The list is not meant to be exhaustive, as there are many plots for which libraries do not exist in the other language to generate them. Of course, if needed, one can resort to <code>base R</code> or <code>matplotlib</code> to create them, but that would take many lines of code and it is out of the scope of this reference guide.</p>
+<p>Finally, in order to not clutter much the syntactic aspects of the code, we will refrain from customizing a lot the plots (i.e. adding many labels, titles, colors, and other minor aspects).</p>
+<div id="histograms" class="section level3">
+<h3>
+<span class="header-section-number">75.1.1</span> Histograms<a class="anchor" aria-label="anchor" href="#histograms"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb850"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="co"># set seed for reproducibility purposes</span>
+
+<span class="co"># We generate a normal random sample</span>
+<span class="va">normal_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e3</span>, mean<span class="op">=</span><span class="fl">10</span>, sd<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'x'</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">normal_sample</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, closed<span class="op">=</span><span class="st">'left'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'Normal random sample'</span>,
+       y<span class="op">=</span><span class="st">'Count'</span>,
+       title<span class="op">=</span><span class="st">'Example of histogram'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="co"># Centers title</span></code></pre></div>
+<p>It is worth noting that we can call variables from R to Python and viceversa, a functionality that we will be exploiting to generate the plots in both environments with the same data.</p>
+<div class="sourceCode" id="cb851"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb851-1"><a href="r-and-python-visualization.html#cb851-1"></a><span class="co"># Python code</span></span>
+<span id="cb851-2"><a href="r-and-python-visualization.html#cb851-2"></a>normal_sample <span class="op">=</span> r.normal_sample <span class="co"># converts R dataframe to Python dataframe</span></span>
+<span id="cb851-3"><a href="r-and-python-visualization.html#cb851-3"></a>sns.reset_orig()</span>
+<span id="cb851-4"><a href="r-and-python-visualization.html#cb851-4"></a>plt.clf()</span>
+<span id="cb851-5"><a href="r-and-python-visualization.html#cb851-5"></a>plt.hist(normal_sample[<span class="st">'x'</span>], bins<span class="op">=</span><span class="dv">30</span>)<span class="op">;</span></span>
+<span id="cb851-6"><a href="r-and-python-visualization.html#cb851-6"></a>plt.xlabel(<span class="st">'Normal random sample'</span>)</span>
+<span id="cb851-7"><a href="r-and-python-visualization.html#cb851-7"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb851-8"><a href="r-and-python-visualization.html#cb851-8"></a>plt.title(<span class="st">'Example of histogram'</span>)</span>
+<span id="cb851-9"><a href="r-and-python-visualization.html#cb851-9"></a>plt.show()</span></code></pre></div>
+</div>
+<div id="boxplots" class="section level3">
+<h3>
+<span class="header-section-number">75.1.2</span> Boxplots<a class="anchor" aria-label="anchor" href="#boxplots"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb852"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
+
+<span class="va">mtcars</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span>, y<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'cyl'</span>,
+         y<span class="op">=</span><span class="st">'mpg'</span>,
+         title<span class="op">=</span><span class="st">'Example of boxplots'</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb853"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb853-1"><a href="r-and-python-visualization.html#cb853-1"></a><span class="co"># Python code</span></span>
+<span id="cb853-2"><a href="r-and-python-visualization.html#cb853-2"></a>mtcars <span class="op">=</span> r.mtcars</span>
+<span id="cb853-3"><a href="r-and-python-visualization.html#cb853-3"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
+<span id="cb853-4"><a href="r-and-python-visualization.html#cb853-4"></a>plt.clf()</span>
+<span id="cb853-5"><a href="r-and-python-visualization.html#cb853-5"></a>sns.boxplot(x<span class="op">=</span><span class="st">"cyl"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, data<span class="op">=</span>mtcars)</span>
+<span id="cb853-6"><a href="r-and-python-visualization.html#cb853-6"></a>plt.xlabel(<span class="st">'cyl'</span>)</span>
+<span id="cb853-7"><a href="r-and-python-visualization.html#cb853-7"></a>plt.ylabel(<span class="st">'mpg'</span>)</span>
+<span id="cb853-8"><a href="r-and-python-visualization.html#cb853-8"></a>plt.title(<span class="st">'Example of boxplots'</span>)</span>
+<span id="cb853-9"><a href="r-and-python-visualization.html#cb853-9"></a>plt.show()</span></code></pre></div>
+</div>
+<div id="q-q-plots" class="section level3">
+<h3>
+<span class="header-section-number">75.1.3</span> Q-Q plots<a class="anchor" aria-label="anchor" href="#q-q-plots"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb854"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="va">normal_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e3</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">normal_sample</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">normal_sample</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb855"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb855-1"><a href="r-and-python-visualization.html#cb855-1"></a><span class="co"># Python code</span></span>
+<span id="cb855-2"><a href="r-and-python-visualization.html#cb855-2"></a>normal_sample <span class="op">=</span> np.array(r.normal_sample) <span class="co"># Converts it to numpy array</span></span>
+<span id="cb855-3"><a href="r-and-python-visualization.html#cb855-3"></a>sns.reset_orig()</span>
+<span id="cb855-4"><a href="r-and-python-visualization.html#cb855-4"></a>plt.clf()</span>
+<span id="cb855-5"><a href="r-and-python-visualization.html#cb855-5"></a>sm.qqplot(normal_sample, fit<span class="op">=</span><span class="va">True</span>, line<span class="op">=</span><span class="st">"45"</span>)</span>
+<span id="cb855-6"><a href="r-and-python-visualization.html#cb855-6"></a>plt.title(<span class="st">'Normal Q-Q Plot'</span>)</span>
+<span id="cb855-7"><a href="r-and-python-visualization.html#cb855-7"></a>plt.show()</span></code></pre></div>
+</div>
+<div id="bar-plots" class="section level3">
+<h3>
+<span class="header-section-number">75.1.4</span> Bar plots<a class="anchor" aria-label="anchor" href="#bar-plots"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb856"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"Titanic"</span><span class="op">)</span>
+<span class="va">titanic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">Titanic</span><span class="op">)</span>
+
+<span class="va">titanic</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Class</span>, y <span class="op">=</span> <span class="va">Freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">'Example of bar plot'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="co"># Centers title</span></code></pre></div>
+<p>For the Python plot, we have to summarize the data before because the R routine does it automatically.</p>
+<div class="sourceCode" id="cb857"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb857-1"><a href="r-and-python-visualization.html#cb857-1"></a><span class="co"># Python code</span></span>
+<span id="cb857-2"><a href="r-and-python-visualization.html#cb857-2"></a>titanic <span class="op">=</span> r.titanic</span>
+<span id="cb857-3"><a href="r-and-python-visualization.html#cb857-3"></a>titanic_sum <span class="op">=</span> titanic.groupby(<span class="st">'Class'</span>).<span class="bu">sum</span>().reset_index()</span>
+<span id="cb857-4"><a href="r-and-python-visualization.html#cb857-4"></a></span>
+<span id="cb857-5"><a href="r-and-python-visualization.html#cb857-5"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
+<span id="cb857-6"><a href="r-and-python-visualization.html#cb857-6"></a>plt.clf()</span>
+<span id="cb857-7"><a href="r-and-python-visualization.html#cb857-7"></a>sns.barplot(x<span class="op">=</span><span class="st">"Class"</span>, y<span class="op">=</span><span class="st">"Freq"</span>, data<span class="op">=</span>titanic_sum, ci<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb857-8"><a href="r-and-python-visualization.html#cb857-8"></a>plt.title(<span class="st">'Example of bar plot'</span>)</span>
+<span id="cb857-9"><a href="r-and-python-visualization.html#cb857-9"></a>plt.show()</span></code></pre></div>
+</div>
+<div id="cleveland-dot-plots" class="section level3">
+<h3>
+<span class="header-section-number">75.1.5</span> Cleveland dot plots<a class="anchor" aria-label="anchor" href="#cleveland-dot-plots"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb858"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">seattlepets</span>, package <span class="op">=</span> <span class="st">"openintro"</span><span class="op">)</span>
+<span class="va">seattlepets</span> <span class="op">&lt;-</span> <span class="va">seattlepets</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>species <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Dog"</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>freq <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/top_n.html">top_n</a></span><span class="op">(</span><span class="va">freq</span>, n<span class="op">=</span><span class="fl">20</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">seattlepets</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">freq</span>, y <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">animal_name</span>, <span class="va">freq</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"SteelBlue"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Count"</span>,
+       y <span class="op">=</span> <span class="st">"Name"</span>,
+       title<span class="op">=</span><span class="st">"Example of Cleveland dot plot"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
+        panel.grid.minor.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>To my knowledge, there does not exist a package in the Python universe that generates the Cleveland dot plots just as <code>geom_point</code> does. Fortunately, we can modify the dataframe and use another function of the <code>seaborn</code> package to create the same plots.</p>
+<div class="sourceCode" id="cb859"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb859-1"><a href="r-and-python-visualization.html#cb859-1"></a><span class="co"># Python code</span></span>
+<span id="cb859-2"><a href="r-and-python-visualization.html#cb859-2"></a>seattlepets <span class="op">=</span> r.seattlepets</span>
+<span id="cb859-3"><a href="r-and-python-visualization.html#cb859-3"></a>seattlepets.sort_values(by<span class="op">=</span><span class="st">'freq'</span>, ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb859-4"><a href="r-and-python-visualization.html#cb859-4"></a></span>
+<span id="cb859-5"><a href="r-and-python-visualization.html#cb859-5"></a>plt.clf()</span>
+<span id="cb859-6"><a href="r-and-python-visualization.html#cb859-6"></a>ax <span class="op">=</span> sns.catplot(x<span class="op">=</span><span class="st">"freq"</span>, y<span class="op">=</span><span class="st">"animal_name"</span>, data<span class="op">=</span>seattlepets, color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb859-7"><a href="r-and-python-visualization.html#cb859-7"></a>plt.title(<span class="st">'Example of Cleveland dot plot'</span>)</span>
+<span id="cb859-8"><a href="r-and-python-visualization.html#cb859-8"></a>axes <span class="op">=</span> plt.gca()</span>
+<span id="cb859-9"><a href="r-and-python-visualization.html#cb859-9"></a>axes.yaxis.grid(<span class="va">True</span>)</span>
+<span id="cb859-10"><a href="r-and-python-visualization.html#cb859-10"></a>axes.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb859-11"><a href="r-and-python-visualization.html#cb859-11"></a>plt.tight_layout()</span>
+<span id="cb859-12"><a href="r-and-python-visualization.html#cb859-12"></a>plt.show()</span></code></pre></div>
+</div>
+<div id="scatter-plot-1" class="section level3">
+<h3>
+<span class="header-section-number">75.1.6</span> Scatter plot<a class="anchor" aria-label="anchor" href="#scatter-plot-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb860"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"iris"</span><span class="op">)</span>
+
+<span class="va">scatter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>, y <span class="op">=</span> <span class="va">Sepal.Width</span><span class="op">)</span><span class="op">)</span> 
+<span class="va">scatter</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Sepal Length"</span><span class="op">)</span> <span class="op">+</span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Sepal Width"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb861"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb861-1"><a href="r-and-python-visualization.html#cb861-1"></a><span class="co"># Python code</span></span>
+<span id="cb861-2"><a href="r-and-python-visualization.html#cb861-2"></a>iris <span class="op">=</span> r.iris</span>
+<span id="cb861-3"><a href="r-and-python-visualization.html#cb861-3"></a></span>
+<span id="cb861-4"><a href="r-and-python-visualization.html#cb861-4"></a>plt.clf()</span>
+<span id="cb861-5"><a href="r-and-python-visualization.html#cb861-5"></a>sns.scatterplot(data<span class="op">=</span>iris, x<span class="op">=</span><span class="st">"Sepal.Length"</span>, y<span class="op">=</span><span class="st">"Sepal.Width"</span>, hue<span class="op">=</span><span class="st">"Species"</span>)</span>
+<span id="cb861-6"><a href="r-and-python-visualization.html#cb861-6"></a>plt.title(<span class="st">'Example of scatter plot'</span>)</span>
+<span id="cb861-7"><a href="r-and-python-visualization.html#cb861-7"></a>plt.show()</span></code></pre></div>
+<div id="scatter-plot-with-kernel-density-estimation" class="section level4">
+<h4>
+<span class="header-section-number">75.1.6.1</span> Scatter plot with kernel density estimation<a class="anchor" aria-label="anchor" href="#scatter-plot-with-kernel-density-estimation"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb862"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"faithful"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">eruptions</span>, y <span class="op">=</span> <span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">geom_density_2d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">110</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot with contour lines"</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb863"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb863-1"><a href="r-and-python-visualization.html#cb863-1"></a><span class="co"># Python code</span></span>
+<span id="cb863-2"><a href="r-and-python-visualization.html#cb863-2"></a>faithful <span class="op">=</span> r.faithful</span>
+<span id="cb863-3"><a href="r-and-python-visualization.html#cb863-3"></a></span>
+<span id="cb863-4"><a href="r-and-python-visualization.html#cb863-4"></a>plt.clf()</span>
+<span id="cb863-5"><a href="r-and-python-visualization.html#cb863-5"></a>sns.kdeplot(data<span class="op">=</span>faithful, x<span class="op">=</span><span class="st">"eruptions"</span>, y<span class="op">=</span><span class="st">"waiting"</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb863-6"><a href="r-and-python-visualization.html#cb863-6"></a>plt.scatter(data<span class="op">=</span>faithful, x<span class="op">=</span><span class="st">"eruptions"</span>, y<span class="op">=</span><span class="st">"waiting"</span>)</span>
+<span id="cb863-7"><a href="r-and-python-visualization.html#cb863-7"></a>plt.title(<span class="st">'Example of scatter plot with contour lines'</span>)</span>
+<span id="cb863-8"><a href="r-and-python-visualization.html#cb863-8"></a>plt.show()</span></code></pre></div>
+</div>
+<div id="scatter-plot-with-hex-heatmap" class="section level4">
+<h4>
+<span class="header-section-number">75.1.6.2</span> Scatter plot with hex heatmap<a class="anchor" aria-label="anchor" href="#scatter-plot-with-hex-heatmap"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb864"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"faithful"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">eruptions</span>, y <span class="op">=</span> <span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradientn</a></span><span class="op">(</span>colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">3</span>,<span class="st">"Blues"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot with hex heatmaps"</span><span class="op">)</span> <span class="op">+</span>
+ <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb865"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb865-1"><a href="r-and-python-visualization.html#cb865-1"></a><span class="co"># Python code</span></span>
+<span id="cb865-2"><a href="r-and-python-visualization.html#cb865-2"></a>sns.reset_orig()</span>
+<span id="cb865-3"><a href="r-and-python-visualization.html#cb865-3"></a>plt.clf()</span>
+<span id="cb865-4"><a href="r-and-python-visualization.html#cb865-4"></a>plt.hexbin(faithful[<span class="st">'eruptions'</span>], faithful[<span class="st">'waiting'</span>], gridsize<span class="op">=</span>(<span class="dv">25</span>,<span class="dv">25</span>), cmap<span class="op">=</span>plt.cm.Blues)</span>
+<span id="cb865-5"><a href="r-and-python-visualization.html#cb865-5"></a>plt.xlabel(<span class="st">'eruptions'</span>)</span>
+<span id="cb865-6"><a href="r-and-python-visualization.html#cb865-6"></a>plt.ylabel(<span class="st">'waiting'</span>)</span>
+<span id="cb865-7"><a href="r-and-python-visualization.html#cb865-7"></a>plt.title(<span class="st">'Example of scatter plot with hex heatmaps'</span>)</span>
+<span id="cb865-8"><a href="r-and-python-visualization.html#cb865-8"></a>plt.show()</span></code></pre></div>
+</div>
+</div>
+<div id="scatter-matrix" class="section level3">
+<h3>
+<span class="header-section-number">75.1.7</span> Scatter matrix<a class="anchor" aria-label="anchor" href="#scatter-matrix"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb866"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># R code</span>
+<span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb867"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb867-1"><a href="r-and-python-visualization.html#cb867-1"></a><span class="co"># Python code</span></span>
+<span id="cb867-2"><a href="r-and-python-visualization.html#cb867-2"></a>plt.clf()</span>
+<span id="cb867-3"><a href="r-and-python-visualization.html#cb867-3"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
+<span id="cb867-4"><a href="r-and-python-visualization.html#cb867-4"></a>g <span class="op">=</span> sns.PairGrid(iris, diag_sharey<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
+<span id="cb867-5"><a href="r-and-python-visualization.html#cb867-5"></a>g.map_lower(sns.scatterplot)<span class="op">;</span></span>
+<span id="cb867-6"><a href="r-and-python-visualization.html#cb867-6"></a>g.map_upper(sns.kdeplot)<span class="op">;</span></span>
+<span id="cb867-7"><a href="r-and-python-visualization.html#cb867-7"></a>g.map_diag(sns.kdeplot)<span class="op">;</span></span>
+<span id="cb867-8"><a href="r-and-python-visualization.html#cb867-8"></a>plt.tight_layout()</span>
+<span id="cb867-9"><a href="r-and-python-visualization.html#cb867-9"></a>plt.show()</span></code></pre></div>
+</div>
+<div id="heatmaps-1" class="section level3">
+<h3>
+<span class="header-section-number">75.1.8</span> Heatmaps<a class="anchor" aria-label="anchor" href="#heatmaps-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb868"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/heatmap.html">heatmap</a></span><span class="op">(</span><span class="va">data</span>, Colv <span class="op">=</span> <span class="cn">NA</span>, Rowv <span class="op">=</span> <span class="cn">NA</span>, scale<span class="op">=</span><span class="st">"column"</span>,
+        col<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">10</span>, <span class="st">"Blues"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>The Python function does not include an option to appropriately re-scale the data. Therefore, we are forced to make the changes directly in the dataframe. Additionally, I chose similar colormaps, but not identical, something that is clear from the different coloring of the maps. We can also observe that the Python routine inverted the labels in the y-axis.</p>
+<div class="sourceCode" id="cb869"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb869-1"><a href="r-and-python-visualization.html#cb869-1"></a>plt.clf()</span>
+<span id="cb869-2"><a href="r-and-python-visualization.html#cb869-2"></a>mtcars_norm <span class="op">=</span> (mtcars <span class="op">-</span> mtcars.<span class="bu">min</span>())<span class="op">/</span>(mtcars.<span class="bu">max</span>() <span class="op">-</span> mtcars.<span class="bu">min</span>())</span>
+<span id="cb869-3"><a href="r-and-python-visualization.html#cb869-3"></a>sns.heatmap(mtcars_norm, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
+<span id="cb869-4"><a href="r-and-python-visualization.html#cb869-4"></a>plt.tight_layout()</span>
+<span id="cb869-5"><a href="r-and-python-visualization.html#cb869-5"></a>plt.show()</span></code></pre></div>
+</div>
+</div>
+<div id="final-thoughts" class="section level2">
+<h2>
+<span class="header-section-number">75.2</span> Final thoughts<a class="anchor" aria-label="anchor" href="#final-thoughts"><i class="fas fa-link"></i></a>
+</h2>
+<p>First of all, I learned that integrating Python code into an R Markdown file is not as straightforward as I initially thought. It took me a lot of time to configure the R library in charge of loading the Python kernel. This was due to the fact that it was not loading the correct Python version, and as a consequence I was not able to use all the packages I had already installed in my usual Python environment.</p>
+<p>In spite of this, R Markdown files do a remarkable job at integrating and embedding Python code and graphics into single file. Of particular interest, I learned to call variables between environments, a capability that I will exploit in future projects. One can seamlessly switch the data back and forth between environments, in a way that we can decide to use the library or package that will achieve the best results for a specific task.</p>
+<p>Finally, I consider that the <code>ggplot2</code> library is much more developed than its counterpart in the Python universe, the <code>seaborn</code> package. This is reflected in the quality of the plots we can generate and the different customization availible in <code>ggplot2</code>. However, the Python community is improving the <code>seaborn</code> package rapidly and I think it will increasingly achieve the same capabilities of the <code>ggplot2</code> library.</p>
+
+</div>
+</div>
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="understand-data-with-plots.html"><span class="header-section-number">74</span> Understand data with plots</a></div>
+<div class="next"><a href="github-initial-setup.html"><span class="header-section-number">76</span> Github initial setup</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-and-python-visualization"><span class="header-section-number">75</span> R and Python visualization</a></li>
+<li>
+<a class="nav-link" href="#introduction-13"><span class="header-section-number">75.1</span> Introduction</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#histograms"><span class="header-section-number">75.1.1</span> Histograms</a></li>
+<li><a class="nav-link" href="#boxplots"><span class="header-section-number">75.1.2</span> Boxplots</a></li>
+<li><a class="nav-link" href="#q-q-plots"><span class="header-section-number">75.1.3</span> Q-Q plots</a></li>
+<li><a class="nav-link" href="#bar-plots"><span class="header-section-number">75.1.4</span> Bar plots</a></li>
+<li><a class="nav-link" href="#cleveland-dot-plots"><span class="header-section-number">75.1.5</span> Cleveland dot plots</a></li>
+<li><a class="nav-link" href="#scatter-plot-1"><span class="header-section-number">75.1.6</span> Scatter plot</a></li>
+<li><a class="nav-link" href="#scatter-matrix"><span class="header-section-number">75.1.7</span> Scatter matrix</a></li>
+<li><a class="nav-link" href="#heatmaps-1"><span class="header-section-number">75.1.8</span> Heatmaps</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#final-thoughts"><span class="header-section-number">75.2</span> Final thoughts</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/r_and_python_visualization.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/r_and_python_visualization.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+</div>
+  
+
+  
+
+</div>
+ <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

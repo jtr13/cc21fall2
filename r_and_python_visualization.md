@@ -1,0 +1,326 @@
+# R and Python visualization
+
+Gilberto Garcia Perez
+
+
+
+These are the R libraries that we will be using for plotting and intermediate tasks.
+
+
+```r
+# Required R packages
+library(tidyverse)
+library(ggplot2)
+library(vcd)
+library(RColorBrewer)
+library(GGally)
+```
+
+Correspondingly, these are the Python packages that we will use for plotting and intermediate tasks.
+
+
+```python
+# Required Python libraries
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import statsmodels.api as sm
+```
+
+## Introduction
+
+This document aims to provide a quick reference guide for the different data visualization options available in R and Python, in a way that people familiarized with one of these languages can easily find the right syntax for making a specific kind of plot in the other language. In this manner, I hope experienced programmers may benefit from levering their knowledge in the other language to reduce their learning curve related to syntactic differences, as well as identify the limitations one encounters in the other environment.
+
+Given the widespread use of the `ggplot2` library for the R Language, we will focus entirely on it, but the reader should know that the same plots can also be generated in Base R, although probably with a lot more work. In regards to Python, we will be making extensive use of two related packages, `matplotlib` and `seaborn`. The former is the most widely package used for plotting in Python, but the latter is improving everyday and it generates nice looking with a few lines of code, just as `ggplot2` does in the R universe. Nonetheless, `matplotlib` is more suited for people who wish to control very specific aspects of their charts.
+
+The list is not meant to be exhaustive, as there are many plots for which libraries do not exist in the other language to generate them. Of course, if needed, one can resort to `base R` or `matplotlib` to create them, but that would take many lines of code and it is out of the scope of this reference guide.
+
+Finally, in order to not clutter much the syntactic aspects of the code, we will refrain from customizing a lot the plots (i.e. adding many labels, titles, colors, and other minor aspects).
+
+### Histograms
+
+
+```r
+# R code
+set.seed(5) # set seed for reproducibility purposes
+
+# We generate a normal random sample
+normal_sample <- data.frame(rnorm(1e3, mean=10, sd=2)) %>%
+  setNames(c('x'))
+
+normal_sample %>% 
+  ggplot(aes(x=x)) +
+  geom_histogram(bins = 30, closed='left') +
+  labs(x='Normal random sample',
+       y='Count',
+       title='Example of histogram') +
+  theme(plot.title = element_text(hjust = 0.5)) # Centers title
+```
+
+It is worth noting that we can call variables from R to Python and viceversa, a functionality that we will be exploiting to generate the plots in both environments with the same data.
+
+
+```python
+# Python code
+normal_sample = r.normal_sample # converts R dataframe to Python dataframe
+sns.reset_orig()
+plt.clf()
+plt.hist(normal_sample['x'], bins=30);
+plt.xlabel('Normal random sample')
+plt.ylabel('Count')
+plt.title('Example of histogram')
+plt.show()
+```
+
+### Boxplots
+
+
+```r
+# R code
+data(mtcars)
+
+mtcars %>% 
+  ggplot(aes(x=as.factor(cyl), y=mpg)) + 
+    geom_boxplot() + 
+    labs(x='cyl',
+         y='mpg',
+         title='Example of boxplots') + 
+    theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+```python
+# Python code
+mtcars = r.mtcars
+sns.set_style("darkgrid")
+plt.clf()
+sns.boxplot(x="cyl", y="mpg", data=mtcars)
+plt.xlabel('cyl')
+plt.ylabel('mpg')
+plt.title('Example of boxplots')
+plt.show()
+```
+
+### Q-Q plots
+
+
+```r
+# R code
+normal_sample <- rnorm(1e3, 10, 2)
+qqnorm(normal_sample)
+qqline(normal_sample, col = "red")
+```
+
+
+```python
+# Python code
+normal_sample = np.array(r.normal_sample) # Converts it to numpy array
+sns.reset_orig()
+plt.clf()
+sm.qqplot(normal_sample, fit=True, line="45")
+plt.title('Normal Q-Q Plot')
+plt.show()
+```
+
+### Bar plots
+
+
+```r
+# R code
+data("Titanic")
+titanic <- as.data.frame(Titanic)
+
+titanic %>% 
+  ggplot(aes(x = Class, y = Freq)) + 
+  geom_col() +
+  labs(title='Example of bar plot') + 
+  theme(plot.title = element_text(hjust = 0.5)) # Centers title
+```
+For the Python plot, we have to summarize the data before because the R routine does it automatically.
+
+
+```python
+# Python code
+titanic = r.titanic
+titanic_sum = titanic.groupby('Class').sum().reset_index()
+
+sns.set_style("darkgrid")
+plt.clf()
+sns.barplot(x="Class", y="Freq", data=titanic_sum, ci=None)
+plt.title('Example of bar plot')
+plt.show()
+```
+
+### Cleveland dot plots
+
+
+```r
+# R code
+data(seattlepets, package = "openintro")
+seattlepets <- seattlepets %>%
+  mutate(species = factor(species)) %>%
+  filter(species == "Dog") %>%
+  filter(!is.na(animal_name)) %>%
+  group_by(animal_name) %>%
+  summarize(freq = n()) %>%
+  top_n(freq, n=20) %>%
+  slice(1:20)
+
+ggplot(seattlepets, aes(x = freq, y = fct_reorder(animal_name, freq))) +
+  geom_point(size = 3, color = "SteelBlue") +
+  labs(x="Count",
+       y = "Name",
+       title="Example of Cleveland dot plot") +
+  theme_linedraw() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+To my knowledge, there does not exist a package in the Python universe that generates the Cleveland dot plots just as `geom_point` does. Fortunately, we can modify the dataframe and use another function of the `seaborn` package to create the same plots.
+
+
+```python
+# Python code
+seattlepets = r.seattlepets
+seattlepets.sort_values(by='freq', ascending=False, inplace=True)
+
+plt.clf()
+ax = sns.catplot(x="freq", y="animal_name", data=seattlepets, color='b')
+plt.title('Example of Cleveland dot plot')
+axes = plt.gca()
+axes.yaxis.grid(True)
+axes.xaxis.grid(False)
+plt.tight_layout()
+plt.show()
+```
+
+### Scatter plot
+
+
+```r
+# R code
+data("iris")
+
+scatter <- ggplot(data=iris, aes(x = Sepal.Length, y = Sepal.Width)) 
+scatter + geom_point(aes(color=Species)) +
+  xlab("Sepal Length") +  ylab("Sepal Width") +
+  ggtitle("Example of scatter plot") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+```python
+# Python code
+iris = r.iris
+
+plt.clf()
+sns.scatterplot(data=iris, x="Sepal.Length", y="Sepal.Width", hue="Species")
+plt.title('Example of scatter plot')
+plt.show()
+```
+
+#### Scatter plot with kernel density estimation
+
+
+```r
+# R code
+data("faithful")
+
+ggplot(faithful, aes(x = eruptions, y = waiting)) +
+ geom_point() +
+ geom_density_2d() +
+ xlim(0.5, 6) +
+ ylim(30, 110) +
+ ggtitle("Example of scatter plot with contour lines") +
+ theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+```python
+# Python code
+faithful = r.faithful
+
+plt.clf()
+sns.kdeplot(data=faithful, x="eruptions", y="waiting", color='r')
+plt.scatter(data=faithful, x="eruptions", y="waiting")
+plt.title('Example of scatter plot with contour lines')
+plt.show()
+```
+
+#### Scatter plot with hex heatmap
+
+
+```r
+# R code
+data("faithful")
+
+ggplot(faithful, aes(x = eruptions, y = waiting)) +
+ geom_hex() +
+ scale_fill_gradientn(colors = brewer.pal(3,"Blues")) +
+ ggtitle("Example of scatter plot with hex heatmaps") +
+ theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
+```python
+# Python code
+sns.reset_orig()
+plt.clf()
+plt.hexbin(faithful['eruptions'], faithful['waiting'], gridsize=(25,25), cmap=plt.cm.Blues)
+plt.xlabel('eruptions')
+plt.ylabel('waiting')
+plt.title('Example of scatter plot with hex heatmaps')
+plt.show()
+```
+
+### Scatter matrix
+
+
+```r
+# R code
+ggpairs(iris[,1:4])
+```
+
+
+
+```python
+# Python code
+plt.clf()
+sns.set_style("darkgrid")
+g = sns.PairGrid(iris, diag_sharey=False);
+g.map_lower(sns.scatterplot);
+g.map_upper(sns.kdeplot);
+g.map_diag(sns.kdeplot);
+plt.tight_layout()
+plt.show()
+```
+
+### Heatmaps
+
+
+```r
+data <- as.matrix(mtcars)
+heatmap(data, Colv = NA, Rowv = NA, scale="column",
+        col= colorRampPalette(rev(brewer.pal(10, "Blues")))(25))
+```
+The Python function does not include an option to appropriately re-scale the data. Therefore, we are forced to make the changes directly in the dataframe. Additionally, I chose similar colormaps, but not identical, something that is clear from the different coloring of the maps. We can also observe that the Python routine inverted the labels in the y-axis.
+
+
+```python
+plt.clf()
+mtcars_norm = (mtcars - mtcars.min())/(mtcars.max() - mtcars.min())
+sns.heatmap(mtcars_norm, cmap='Blues')
+plt.tight_layout()
+plt.show()
+```
+
+## Final thoughts
+
+First of all, I learned that integrating Python code into an R Markdown file is not as straightforward as I initially thought. It took me a lot of time to configure the R library in charge of loading the Python kernel. This was due to the fact that it was not loading the correct Python version, and as a consequence I was not able to use all the packages I had already installed in my usual Python environment.
+
+In spite of this, R Markdown files do a remarkable job at integrating and embedding Python code and graphics into single file. Of particular interest, I learned to call variables between environments, a capability that I will exploit in future projects. One can seamlessly switch the data back and forth between environments, in a way that we can decide to use the library or package that will achieve the best results for a specific task.
+
+Finally, I consider that the `ggplot2` library is much more developed than its counterpart in the Python universe, the `seaborn` package. This is reflected in the quality of the plots we can generate and the different customization availible in `ggplot2`. However, the Python community is improving the `seaborn` package rapidly and I think it will increasingly achieve the same capabilities of the `ggplot2` library.
+
+
