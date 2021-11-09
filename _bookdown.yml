@@ -46,6 +46,7 @@ rmd_files: [
   'r_datasets.Rmd',
   'plotly_cheatsheet.Rmd',
   'tidyverse.Rmd',
+  'learn_sql_using_its_r_translation.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -121,4 +122,5 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
 
