@@ -7,6 +7,7 @@ language:
     chapter_name: "Chapter "
     
 
+
 # Chapter ordering
 
 rmd_files: [
@@ -92,6 +93,7 @@ rmd_files: [
   'base_r_data_organization_visualization.Rmd',
   'map_visualization.Rmd',
   'common_github_commands.Rmd',
+  'tutorial_of_radar_chart.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
