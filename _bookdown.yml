@@ -8,8 +8,6 @@ language:
     
 
 
-
-
 # Chapter ordering
 
 
@@ -87,6 +85,7 @@ rmd_files: [
   'tutorial_of_three_ggplot2_based_packages.Rmd',
   'short_guide_for_NLP.Rmd',
   'ggvis_ggplot2_graphs.Rmd',
+  'feature_selection_in_r.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -107,4 +106,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
