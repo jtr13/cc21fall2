@@ -86,6 +86,7 @@ rmd_files: [
   'debugging_in_rstudio.Rmd',
   'r_tutorial_cheatsheet.Rmd',
   'brief_introduction_of_ggpubr.Rmd',
+  'base_r_data_organization_visualization.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
