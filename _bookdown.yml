@@ -7,7 +7,6 @@ language:
     chapter_name: "Chapter "
     
 
-
 # Chapter ordering
 
 
@@ -86,6 +85,7 @@ rmd_files: [
   'short_guide_for_NLP.Rmd',
   'ggvis_ggplot2_graphs.Rmd',
   'feature_selection_in_r.Rmd',
+  'debugging_in_rstudio.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
