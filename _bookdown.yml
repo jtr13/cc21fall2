@@ -9,7 +9,7 @@ language:
 
 # Chapter ordering
 
-
+'super_ggformat_project.Rmd',
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
