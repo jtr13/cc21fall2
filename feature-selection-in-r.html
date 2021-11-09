@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 68 Feature selection in r | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Zehui Wu library(ggcorrplot) library(caret) library(randomForest) library(gam)  68.1 Introduction Feature selection is one of the most important tasks to boost performance of machine learning...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 68 Feature selection in r | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Zehui Wu library(ggcorrplot) library(caret) library(randomForest) library(gam)  68.1 Introduction Feature selection is one of the most important tasks to boost performance of machine learning...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 68 Feature selection in r | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Zehui Wu library(ggcorrplot) library(caret) library(randomForest) library(gam)  68.1 Introduction Feature selection is one of the most important tasks to boost performance of machine learning...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">27</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">28</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">29</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">30</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">31</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">32</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">33</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">34</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">35</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">36</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">37</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">38</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">39</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">40</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">41</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">42</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">43</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">44</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">45</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">46</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">47</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">48</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">49</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">50</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">51</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">52</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">53</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">54</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">55</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">56</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">57</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">58</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">59</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">60</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">61</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">62</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">63</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">64</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">65</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">66</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">67</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="active" href="feature-selection-in-r.html"><span class="header-section-number">68</span> Feature selection in r</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">69</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">70</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">71</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">72</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">73</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">74</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">75</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">76</span> R and Python visualization</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">77</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">78</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="feature-selection-in-r" class="section level1">
+<h1>
+<span class="header-section-number">68</span> Feature selection in r<a class="anchor" aria-label="anchor" href="#feature-selection-in-r"><i class="fas fa-link"></i></a>
+</h1>
+<p>Zehui Wu</p>
+<div class="sourceCode" id="cb836"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/wiki/ggcorrplot">ggcorrplot</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/">randomForest</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gam</span><span class="op">)</span></code></pre></div>
+<div id="introduction-13" class="section level2">
+<h2>
+<span class="header-section-number">68.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-13"><i class="fas fa-link"></i></a>
+</h2>
+<p>Feature selection is one of the most important tasks to boost performance of machine learning models. Some of the benefits of doing feature selections include:</p>
+<ul>
+<li><p>Better Accuracy: removing irrelevant features let the models make decisions only using important features. In my experience, classification models can usually get 5 to 10 percent improvement in accuracy scores after feature selection.</p></li>
+<li><p>Avoid Overfitting: the models will not put weights in irrelevant features.</p></li>
+<li><p>Improve running time: decreasing the dimension of the data makes the models run faster.</p></li>
+</ul>
+<p>In this tutorial, I will introduce some of the intuitive and popular methods in R for feature selection.</p>
+</div>
+<div id="correlation-matrix" class="section level2">
+<h2>
+<span class="header-section-number">68.2</span> Correlation Matrix<a class="anchor" aria-label="anchor" href="#correlation-matrix"><i class="fas fa-link"></i></a>
+</h2>
+<p>Correlation matrix is a popular method for feature selection. By using correlation matrix, we can see the correlation for each pair of numerical variables. we not only can filter out variables with low correlation to the dependent variable, but also can remove redundant variables by identifying highly correlated independent variables.</p>
+<p>To illustrate how to use this method, I use the Winequality regression dataset from UCI.</p>
+<div class="sourceCode" id="cb837"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># load the data</span>
+<span class="va">winequality</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv"</span>, sep <span class="op">=</span> <span class="st">";"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">winequality</span><span class="op">)</span></code></pre></div>
+<pre><code>##   fixed.acidity volatile.acidity citric.acid residual.sugar chlorides
+## 1           7.0             0.27        0.36           20.7     0.045
+## 2           6.3             0.30        0.34            1.6     0.049
+## 3           8.1             0.28        0.40            6.9     0.050
+## 4           7.2             0.23        0.32            8.5     0.058
+## 5           7.2             0.23        0.32            8.5     0.058
+## 6           8.1             0.28        0.40            6.9     0.050
+##   free.sulfur.dioxide total.sulfur.dioxide density   pH sulphates alcohol
+## 1                  45                  170  1.0010 3.00      0.45     8.8
+## 2                  14                  132  0.9940 3.30      0.49     9.5
+## 3                  30                   97  0.9951 3.26      0.44    10.1
+## 4                  47                  186  0.9956 3.19      0.40     9.9
+## 5                  47                  186  0.9956 3.19      0.40     9.9
+## 6                  30                   97  0.9951 3.26      0.44    10.1
+##   quality
+## 1       6
+## 2       6
+## 3       6
+## 4       6
+## 5       6
+## 6       6</code></pre>
+<p>I firstly use the cor() function to calculate correlation matrix.</p>
+<div class="sourceCode" id="cb839"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">cor_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">winequality</span><span class="op">)</span><span class="op">)</span>
+<span class="va">cor_matrix</span></code></pre></div>
+<pre><code>##                      fixed.acidity volatile.acidity  citric.acid residual.sugar
+## fixed.acidity           1.00000000      -0.02269729  0.289180698     0.08902070
+## volatile.acidity       -0.02269729       1.00000000 -0.149471811     0.06428606
+## citric.acid             0.28918070      -0.14947181  1.000000000     0.09421162
+## residual.sugar          0.08902070       0.06428606  0.094211624     1.00000000
+## chlorides               0.02308564       0.07051157  0.114364448     0.08868454
+## free.sulfur.dioxide    -0.04939586      -0.09701194  0.094077221     0.29909835
+## total.sulfur.dioxide    0.09106976       0.08926050  0.121130798     0.40143931
+## density                 0.26533101       0.02711385  0.149502571     0.83896645
+## pH                     -0.42585829      -0.03191537 -0.163748211    -0.19413345
+## sulphates              -0.01714299      -0.03572815  0.062330940    -0.02666437
+## alcohol                -0.12088112       0.06771794 -0.075728730    -0.45063122
+## quality                -0.11366283      -0.19472297 -0.009209091    -0.09757683
+##                        chlorides free.sulfur.dioxide total.sulfur.dioxide
+## fixed.acidity         0.02308564       -0.0493958591          0.091069756
+## volatile.acidity      0.07051157       -0.0970119393          0.089260504
+## citric.acid           0.11436445        0.0940772210          0.121130798
+## residual.sugar        0.08868454        0.2990983537          0.401439311
+## chlorides             1.00000000        0.1013923521          0.198910300
+## free.sulfur.dioxide   0.10139235        1.0000000000          0.615500965
+## total.sulfur.dioxide  0.19891030        0.6155009650          1.000000000
+## density               0.25721132        0.2942104109          0.529881324
+## pH                   -0.09043946       -0.0006177961          0.002320972
+## sulphates             0.01676288        0.0592172458          0.134562367
+## alcohol              -0.36018871       -0.2501039415         -0.448892102
+## quality              -0.20993441        0.0081580671         -0.174737218
+##                          density            pH   sulphates     alcohol
+## fixed.acidity         0.26533101 -0.4258582910 -0.01714299 -0.12088112
+## volatile.acidity      0.02711385 -0.0319153683 -0.03572815  0.06771794
+## citric.acid           0.14950257 -0.1637482114  0.06233094 -0.07572873
+## residual.sugar        0.83896645 -0.1941334540 -0.02666437 -0.45063122
+## chlorides             0.25721132 -0.0904394560  0.01676288 -0.36018871
+## free.sulfur.dioxide   0.29421041 -0.0006177961  0.05921725 -0.25010394
+## total.sulfur.dioxide  0.52988132  0.0023209718  0.13456237 -0.44889210
+## density               1.00000000 -0.0935914935  0.07449315 -0.78013762
+## pH                   -0.09359149  1.0000000000  0.15595150  0.12143210
+## sulphates             0.07449315  0.1559514973  1.00000000 -0.01743277
+## alcohol              -0.78013762  0.1214320987 -0.01743277  1.00000000
+## quality              -0.30712331  0.0994272457  0.05367788  0.43557472
+##                           quality
+## fixed.acidity        -0.113662831
+## volatile.acidity     -0.194722969
+## citric.acid          -0.009209091
+## residual.sugar       -0.097576829
+## chlorides            -0.209934411
+## free.sulfur.dioxide   0.008158067
+## total.sulfur.dioxide -0.174737218
+## density              -0.307123313
+## pH                    0.099427246
+## sulphates             0.053677877
+## alcohol               0.435574715
+## quality               1.000000000</code></pre>
+<div id="heat-map-for-correlation-matrix" class="section level3">
+<h3>
+<span class="header-section-number">68.2.1</span> heat map for correlation matrix<a class="anchor" aria-label="anchor" href="#heat-map-for-correlation-matrix"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can also draw a quick heat map to visualize the correlation with ggcorrplot library.</p>
+<p>We can see free.Sulfur.dioxide and citric.acid have very small correlations with the dependent variable quality. You may consider to try removing these two features in the models.</p>
+<div class="sourceCode" id="cb841"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggcorrplot/man/ggcorrplot.html">ggcorrplot</a></span><span class="op">(</span><span class="va">cor_matrix</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="feature_selection_in_r_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="function-to-find-redundant-variables" class="section level3">
+<h3>
+<span class="header-section-number">68.2.2</span> function to find redundant variables<a class="anchor" aria-label="anchor" href="#function-to-find-redundant-variables"><i class="fas fa-link"></i></a>
+</h3>
+<p>Besides from using graph to identify redundant variables, you can also use the findCorrelation function in caret library. It outputs the index of variables we need to delete. If two variables have a higher correlation than the cutoff, the function removes the variable with the largest mean absolute correlation.</p>
+<p>In our case, the function finds out that density is highly correlated to other variables.</p>
+<div class="sourceCode" id="cb842"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/caret/man/findCorrelation.html">findCorrelation</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">winequality</span><span class="op">)</span>, cutoff<span class="op">=</span><span class="fl">0.75</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+</div>
+</div>
+<div id="variable-importance" class="section level2">
+<h2>
+<span class="header-section-number">68.3</span> Variable Importance<a class="anchor" aria-label="anchor" href="#variable-importance"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are some functions in caret library to evaluate variable importance. Typically, variable importance evaluation can be separated into two categories: the ones that use model information and the ones that do not.</p>
+<div id="calculate-feature-importance-without-models" class="section level3">
+<h3>
+<span class="header-section-number">68.3.1</span> calculate feature importance without models<a class="anchor" aria-label="anchor" href="#calculate-feature-importance-without-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you don’t want to use specific model to evaluate features, you can use the filterVarImp() function in Caret library.</p>
+<p>For classification, this function uses ROC curve analysis on each predictor and use area under the curve as scores.</p>
+<p>For regression, a linear line is fit between each pair of dependent variable and independent variables, and the absolute value of the t-statistic for the slope of the independent variable is used.</p>
+<p>The data set Winequality is a regression task, so t-statistic of slopes are used. The two variables citric.acid and free.sulfur.dioxide have very low scores, which are consistent with our correlation analysis above.</p>
+<div class="sourceCode" id="cb844"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#use roc_curve area as score</span>
+<span class="va">roc_imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/filterVarImp.html">filterVarImp</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">winequality</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">]</span>, y <span class="op">=</span> <span class="va">winequality</span><span class="op">$</span><span class="va">quality</span><span class="op">)</span>
+
+<span class="co">#sort the score in decreasing order</span>
+<span class="va">roc_imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>variable <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames</a></span><span class="op">(</span><span class="va">roc_imp</span><span class="op">)</span>, score <span class="op">=</span> <span class="va">roc_imp</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>
+<span class="va">roc_imp</span><span class="op">$</span><span class="va">score</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">as.double</a></span><span class="op">(</span><span class="va">roc_imp</span><span class="op">$</span><span class="va">score</span><span class="op">)</span>
+<span class="va">roc_imp</span><span class="op">[</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setorder.html">order</a></span><span class="op">(</span><span class="va">roc_imp</span><span class="op">$</span><span class="va">score</span>,decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,<span class="op">]</span></code></pre></div>
+<pre><code>##                variable      score
+## 11              alcohol 33.8584627
+## 8               density 22.5812112
+## 5             chlorides 15.0242170
+## 2      volatile.acidity 13.8909397
+## 7  total.sulfur.dioxide 12.4176561
+## 1         fixed.acidity  8.0050275
+## 9                    pH  6.9917109
+## 4        residual.sugar  6.8603271
+## 10            sulphates  3.7613401
+## 3           citric.acid  0.6444005
+## 6   free.sulfur.dioxide  0.5708506</code></pre>
+</div>
+<div id="calculate-feature-importance-with-models" class="section level3">
+<h3>
+<span class="header-section-number">68.3.2</span> calculate feature importance with models<a class="anchor" aria-label="anchor" href="#calculate-feature-importance-with-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>The advantage for using model-specific evaluation is that the feature scores are specific linked to model performance and using them to filter features may help improve performance for that specific model.</p>
+<p>There are some models that do not have built-in importance score. For those models, we need to use the filterVarImp() function above. To check which models are available, see documentation of varImp(): <a href="https://www.rdocumentation.org/packages/caret/versions/6.0-90/topics/varImp" class="uri">https://www.rdocumentation.org/packages/caret/versions/6.0-90/topics/varImp</a></p>
+<p>In the following example, I show that svm model does not have importance score implemented and varImp returns an error.</p>
+<div class="sourceCode" id="cb846"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#library(e1071)</span>
+<span class="co">#svmfit = svm(x= winequality[,1:11],y= winequality[,12], kernel = "linear", scale = TRUE)</span>
+<span class="co">#roc_imp2 &lt;- varImp(svmfit, scale = FALSE)</span></code></pre></div>
+<p>I train a random forest regression model for the data set and use the varImp() function to calculate the feature importance based on this tree model. In the case of random forest model, varLmp() is a wrapper around the importance functions from the randomForest library.</p>
+<div class="sourceCode" id="cb847"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#train random forest model and calculate feature importance</span>
+<span class="va">rf</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/randomForest.html">randomForest</a></span><span class="op">(</span>x<span class="op">=</span> <span class="va">winequality</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">]</span>,y<span class="op">=</span> <span class="va">winequality</span><span class="op">[</span>,<span class="fl">12</span><span class="op">]</span><span class="op">)</span>
+<span class="va">var_imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/varImp.html">varImp</a></span><span class="op">(</span><span class="va">rf</span>, scale <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<p>If you have too many features and want to use only 100 of them. You can choose to use the top 100 based on the feature importance scores.</p>
+<div class="sourceCode" id="cb848"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#sort the score in decreasing order</span>
+<span class="va">var_imp_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>variable <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames</a></span><span class="op">(</span><span class="va">var_imp</span><span class="op">)</span>, score <span class="op">=</span> <span class="va">var_imp</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>
+<span class="va">var_imp_df</span><span class="op">$</span><span class="va">score</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">as.double</a></span><span class="op">(</span><span class="va">var_imp_df</span><span class="op">$</span><span class="va">score</span><span class="op">)</span>
+<span class="va">var_imp_df</span><span class="op">[</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setorder.html">order</a></span><span class="op">(</span><span class="va">var_imp_df</span><span class="op">$</span><span class="va">score</span>,decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,<span class="op">]</span></code></pre></div>
+<pre><code>##                variable    score
+## 11              alcohol 614.1825
+## 8               density 420.6559
+## 2      volatile.acidity 392.8720
+## 6   free.sulfur.dioxide 386.1611
+## 5             chlorides 306.5278
+## 7  total.sulfur.dioxide 298.4874
+## 4        residual.sugar 280.1159
+## 9                    pH 257.6119
+## 3           citric.acid 253.7064
+## 1         fixed.acidity 232.2419
+## 10            sulphates 221.5637</code></pre>
+<p>We can see that the ranking here is different from the previous one and they are specifically linked to the performance of the random forest model.</p>
+<div class="sourceCode" id="cb850"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">var_imp_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">variable</span>, <span class="va">score</span><span class="op">)</span>, y<span class="op">=</span><span class="va">score</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">variable</span>,xend<span class="op">=</span><span class="va">variable</span>,y<span class="op">=</span><span class="fl">0</span>,yend<span class="op">=</span><span class="va">score</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"IncNodePurity"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Variable Name"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="feature_selection_in_r_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+</div>
+<div id="univariate-feature-selection" class="section level2">
+<h2>
+<span class="header-section-number">68.4</span> Univariate Feature Selection<a class="anchor" aria-label="anchor" href="#univariate-feature-selection"><i class="fas fa-link"></i></a>
+</h2>
+<p>Univariate tests are tests which involve only one dependent variable, including chi-sqaure test, analysis of variance, linear regressions and t-tests of means.</p>
+<p>Univariate feature selection utilizes univariate statistical tests to each feature-outcome pair and selects features which perform the best in these tests.</p>
+<p>The sbf() is used to do univariate feature selection with the model fitting function specified in the function argument of sbfControl() function. In the following example, I uses rfSBF, which use node purity to calculate scores.</p>
+<p>To avoid overfitting by feature selection, sbf() function use several iterations of resampling to do feature selection. resampling methods can be boot, cv, LOOCV or LGOCV and can be specified in the method argument of sbfControl().</p>
+<p>It will take several minutes to run.</p>
+<div class="sourceCode" id="cb851"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">filterCtrl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/sbfControl.html">sbfControl</a></span><span class="op">(</span>functions <span class="op">=</span> <span class="va">rfSBF</span>, method <span class="op">=</span> <span class="st">"repeatedcv"</span>, repeats <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+<span class="va">rfWithFilter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/sbf.html">sbf</a></span><span class="op">(</span>x<span class="op">=</span> <span class="va">winequality</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">]</span>,y<span class="op">=</span> <span class="va">winequality</span><span class="op">[</span>,<span class="fl">12</span><span class="op">]</span>, sbfControl <span class="op">=</span> <span class="va">filterCtrl</span><span class="op">)</span>
+<span class="va">rfWithFilter</span></code></pre></div>
+<pre><code>## 
+## Selection By Filter
+## 
+## Outer resampling method: Cross-Validated (10 fold, repeated 3 times) 
+## 
+## Resampling performance:
+## 
+##    RMSE Rsquared    MAE  RMSESD RsquaredSD   MAESD
+##  0.5951   0.5578 0.4271 0.02422    0.03461 0.01498
+## 
+## Using the training set, 11 variables were selected:
+##    fixed.acidity, volatile.acidity, citric.acid, residual.sugar, chlorides...
+## 
+## During resampling, the top 5 selected variables (out of a possible 11):
+##    alcohol (100%), chlorides (100%), citric.acid (100%), density (100%), fixed.acidity (100%)
+## 
+## On average, 11 variables were selected (min = 11, max = 11)</code></pre>
+</div>
+<div id="recursive-feature-elimination" class="section level2">
+<h2>
+<span class="header-section-number">68.5</span> Recursive Feature <strong>elimination</strong><a class="anchor" aria-label="anchor" href="#recursive-feature-elimination"><i class="fas fa-link"></i></a>
+</h2>
+<p>Recursive Feature elimination(RFE) is a popular method to choose a subset of features. It starts with all the features and removes feature with lowest score at each iteration. It trains with smaller and smaller subset of features and find the best set of features.</p>
+<p>It will also take several minutes to run.</p>
+<div class="sourceCode" id="cb853"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">filterCtrl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/rfeControl.html">rfeControl</a></span><span class="op">(</span>functions<span class="op">=</span><span class="va">rfFuncs</span>, method<span class="op">=</span><span class="st">"cv"</span>, number<span class="op">=</span><span class="fl">3</span><span class="op">)</span>
+<span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/rfe.html">rfe</a></span><span class="op">(</span>x<span class="op">=</span> <span class="va">winequality</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">]</span>,y<span class="op">=</span> <span class="va">winequality</span><span class="op">[</span>,<span class="fl">12</span><span class="op">]</span>, sizes<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span>, rfeControl<span class="op">=</span><span class="va">filterCtrl</span><span class="op">)</span>
+<span class="va">results</span></code></pre></div>
+<pre><code>## 
+## Recursive feature selection
+## 
+## Outer resampling method: Cross-Validated (3 fold) 
+## 
+## Resampling performance over subset size:
+## 
+##  Variables   RMSE Rsquared    MAE   RMSESD RsquaredSD   MAESD Selected
+##          1 0.8771  0.02983 0.6716 0.008902   0.005228 0.01124         
+##          2 0.7419  0.30221 0.5698 0.024748   0.031039 0.02074         
+##          3 0.6875  0.39769 0.5221 0.029803   0.042278 0.02562         
+##          4 0.6567  0.45364 0.4947 0.027705   0.039877 0.02482         
+##          5 0.6473  0.47384 0.4863 0.025290   0.036250 0.02249         
+##          6 0.6389  0.48270 0.4712 0.025658   0.035250 0.02254         
+##          7 0.6337  0.49326 0.4681 0.028872   0.041554 0.02367         
+##          8 0.6292  0.50149 0.4629 0.027721   0.039958 0.02301         
+##          9 0.6266  0.50448 0.4585 0.028215   0.039576 0.02338         
+##         10 0.6236  0.51015 0.4569 0.026821   0.037238 0.02181         
+##         11 0.6202  0.51706 0.4545 0.026379   0.037467 0.02170        *
+## 
+## The top 5 variables (out of 11):
+##    volatile.acidity, alcohol, free.sulfur.dioxide, residual.sugar, pH</code></pre>
+<div class="sourceCode" id="cb855"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># plot the results</span>
+<span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">results</span>, type<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"g"</span>, <span class="st">"o"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="feature_selection_in_r_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="section-1" class="section level2">
+<h2>
+<span class="header-section-number">68.6</span> <a class="anchor" aria-label="anchor" href="#section-1"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="resources" class="section level2">
+<h2>
+<span class="header-section-number">68.7</span> Resources:<a class="anchor" aria-label="anchor" href="#resources"><i class="fas fa-link"></i></a>
+</h2>
+<p><a href="https://topepo.github.io/caret/variable-importance.html#model-independent-metrics" class="uri">https://topepo.github.io/caret/variable-importance.html#model-independent-metrics</a></p>
+<p><a href="https://www.rdocumentation.org/packages/caret/versions/6.0-90/topics/varImp" class="uri">https://www.rdocumentation.org/packages/caret/versions/6.0-90/topics/varImp</a></p>
+<p><a href="https://machinelearningmastery.com/feature-selection-with-the-caret-r-package/" class="uri">https://machinelearningmastery.com/feature-selection-with-the-caret-r-package/</a></p>
+<p><a href="https://towardsdatascience.com/the-art-of-finding-the-best-features-for-machine-learning-a9074e2ca60d" class="uri">https://towardsdatascience.com/the-art-of-finding-the-best-features-for-machine-learning-a9074e2ca60d</a></p>
+<p><a href="https://rdrr.io/rforge/caret/man/sbfControl.html" class="uri">https://rdrr.io/rforge/caret/man/sbfControl.html</a></p>
+
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">67</span> Tutorial for ggvis and its Comparison with ggplot2</a></div>
+<div class="next"><a href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">69</span> Introduction to analytics consulting at Accenture</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#feature-selection-in-r"><span class="header-section-number">68</span> Feature selection in r</a></li>
+<li><a class="nav-link" href="#introduction-13"><span class="header-section-number">68.1</span> Introduction</a></li>
+<li>
+<a class="nav-link" href="#correlation-matrix"><span class="header-section-number">68.2</span> Correlation Matrix</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#heat-map-for-correlation-matrix"><span class="header-section-number">68.2.1</span> heat map for correlation matrix</a></li>
+<li><a class="nav-link" href="#function-to-find-redundant-variables"><span class="header-section-number">68.2.2</span> function to find redundant variables</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#variable-importance"><span class="header-section-number">68.3</span> Variable Importance</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#calculate-feature-importance-without-models"><span class="header-section-number">68.3.1</span> calculate feature importance without models</a></li>
+<li><a class="nav-link" href="#calculate-feature-importance-with-models"><span class="header-section-number">68.3.2</span> calculate feature importance with models</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#univariate-feature-selection"><span class="header-section-number">68.4</span> Univariate Feature Selection</a></li>
+<li><a class="nav-link" href="#recursive-feature-elimination"><span class="header-section-number">68.5</span> Recursive Feature elimination</a></li>
+<li><a class="nav-link" href="#section-1"><span class="header-section-number">68.6</span></a></li>
+<li><a class="nav-link" href="#resources"><span class="header-section-number">68.7</span> Resources:</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/feature_selection_in_r.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/feature_selection_in_r.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-09.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

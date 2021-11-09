@@ -661,6 +661,18 @@ input_checkbox
 combine-different-methods
 multiple-outputs
 references-4
+feature-selection-in-r
+introduction-13
+correlation-matrix
+heat-map-for-correlation-matrix
+function-to-find-redundant-variables
+variable-importance
+calculate-feature-importance-without-models
+calculate-feature-importance-with-models
+univariate-feature-selection
+recursive-feature-elimination
+section-1
+resources
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
@@ -677,7 +689,7 @@ heatmap-1
 mosaic-plot-1
 understand-data-with-plots
 r-and-python-visualization
-introduction-13
+introduction-14
 histograms
 boxplots
 q-q-plots
