@@ -90,6 +90,7 @@ rmd_files: [
   'brief_introduction_of_ggpubr.Rmd',
   'base_r_data_organization_visualization.Rmd',
   'map_visualization.Rmd',
+  'common_github_commands.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
