@@ -162,14 +162,14 @@ Imports:
     wordcloud2,
     wpp2019,
     xts
+Suggests:
+    bookdown,
+    bslib,
+    downlit,
+    xml2    
 Remotes:
     robinlovelace/geocompr,
     ricardo-bion/ggradar,
     AntoninVidon/goyav,
     ramnathv/rCharts,
     madlogos/recharts
-Suggests:
-    bookdown,
-    bslib,
-    downlit,
-    xml2
