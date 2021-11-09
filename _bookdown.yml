@@ -5,11 +5,13 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
-
+    
 
 # Chapter ordering
 
-'super_ggformat_project.Rmd',
+
+
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -39,6 +41,7 @@ rmd_files: [
   'ggplot2_cheatsheet.Rmd',
   'rstudio_cheatsheet.Rmd',
   'd3_visualizations_in_r_cheatsheet.Rmd',
+  'colors.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -74,18 +77,35 @@ rmd_files: [
   'intro_to_gganimate.Rmd',
   'nbastatr_tutorial.Rmd',
   'mtemplates_mj3038.rmd',
+  'introduction_to_time_series_analysis_in_r.Rmd',
+  'storytelling_with_data.Rmd',
+  "r_torch_tutorial.Rmd",
+  'correlogram_calendar_heatmap_slopegram_tutorial.Rmd',
+  'r_recursive_codes_and_som.Rmd',
+  'tutorial_of_three_ggplot2_based_packages.Rmd',
+  'short_guide_for_NLP.Rmd',
+  'ggvis_ggplot2_graphs.Rmd',
+  'feature_selection_in_r.Rmd',
+  'debugging_in_rstudio.Rmd',
+  'r_tutorial_cheatsheet.Rmd',
+  'brief_introduction_of_ggpubr.Rmd',
+  'base_r_data_organization_visualization.Rmd',
+  'map_visualization.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
   'map_of_r_world.Rmd',
   'alluvial_diagrams_and_their_implementation_in_r.Rmd',
+  'data_visualization_r_shiny.Rmd',
   
   # Part: Data visualizations
   'introduction_to_pyecharts_package.Rmd', # contains PART header
   'r_vs_python_plots.Rmd',
   'plots_python_seaborn_matplotlib.Rmd',
+  'r_and_python_visualization.Rmd',
   
   # Part: Custom R packages
+  'super_ggformat_project.Rmd',
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
