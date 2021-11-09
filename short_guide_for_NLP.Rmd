@@ -1,0 +1,171 @@
+# A Step by Step Tutorial for Natural Language Processing in R
+
+Yuwen Zhang
+
+Natural language processing (NLP) is an intersection of linguistics, computer science, and artificial intelligence aiming to tackle the interactions between computers and human language, particularly how to program computers to process and analyze large amounts of natural language data. The goal is to train the computer so that it can "understand" the contents of documents, including the contextual nuances of the language within them.
+
+This document contains a short tutorial to perform NLP. It provides a general idea of steps that should be taken when dealing with natural language data.
+
+```{r, include=FALSE}
+rm(list = ls())
+library(dplyr)
+library(textstem)
+library(textclean)
+library(text2vec)
+library(superml)
+library(glmnet)
+library(rsample)
+```
+
+I use a dataset of reviews on Rotten Tomatoes (https://www.rottentomatoes.com/) as a demo. Our goal is to predict whether a review type is "Fresh" or "Rotten" based on the review content.
+
+<br><br>
+
+#### Step 0 Exploratory Analysis
+
+Before the first step of the NLP analysis, it's often a good idea to perform exploratory analysis on the dataset to get a general idea of the data that we are working with, such as the distribution of values of each feature, missingness, etc. For example, for `review_type`, there is a rough 9:5 ratio of Fresh:Rotten, and a 5.8% of empty reviews for `review_content`.
+
+** In order to speed up the process, I randomly sampled 40,000 reviews for the analysis
+
+```{r}
+reviews = read.csv(unz("resources/short_guide_for_NLP/rotten_tomatoes_critic_reviews.csv.zip",
+                       "rotten_tomatoes_critic_reviews.csv"),
+                   colClasses=c("NULL", "NULL", "NULL", "NULL", NA, "NULL", "NULL", NA))
+
+reviews$review_val = ifelse(reviews$review_type == "Fresh",1,0)
+
+print(reviews %>% count(review_type))
+empty_count = sum(reviews$review_content == "")
+empty_ratio = empty_count / nrow(reviews)
+empty_table = data.frame("Empty_Count" = c(empty_count), "Empty_Ratio" = c(empty_ratio))
+print(empty_table)
+
+set.seed(10)
+reviews_sample = reviews %>%
+  filter(review_content != "") %>%
+  sample_n(40000)
+
+knitr::kable(head(reviews_sample))
+```
+
+<br><br>
+
+#### Step 1 Data Cleaning
+
+Usually the data we have on hand is not standardized enough to directly perform training, therefore it is necessary to clean the data first, such as lowercase the words (such as "Hello", "hello", "hELLo" to "hello"), remove irrelevant characters (such as "this - that" to "this that"), lemmatize the words (such as "am", "are", and "is" to a common form "be"), etc. However, we need to be smart about our approach, there are some questions to consider during my experience of NLP
+
+1. Lowercase the words: Do we need to lowercase all words? Especially in the case of sentiment analysis, will specific capitalization reveal more information on the sentiment? For example, "what is this movie" may only mean a question, but "WHAT IS THIS MOVIE" may convey a stronger emotion such as upset or confused.
+
+2. Remove irrelevant characters: What characters are we considering. For example, periods (.) or commas (,) in a sentence maybe irrelevant for analysis, but what about question marks (?) or exclamation marks (!)? Does "I don't like this movie." vs. "I don't like this movie!" convey the same magnitude of emotion?
+
+3. The interaction of words is also something to consider. For example, "it is good" versus "it is not good" both have "good" in the sentence but have completely opposite meanings, because "not" is interacting with "good" in the second sentence.
+
+For this tutorial, I replace contraction words to their original form (such as I'm to I am, Don't to Do not), remove all characters except for question marks and exclamation marks, lowercase all words except for words that are completely capitalized and have length > 1 (to exclude words like I or A), and add interaction term to 'not' and its following word (for example, if we have "it is not good", the formatted sentence would be "it is not good notgood"), and lemmatize all words.
+
+```{r}
+reviews_sample$review_content = replace_contraction(reviews_sample$review_content)
+reviews_sample$review_content = gsub("[^A-Za-z0-9 !?]","", reviews_sample$review_content)
+reviews_sample$review_content = gsub("([!?])", " \\1 \\2", reviews_sample$review_content)
+
+reviews_sample = reviews_sample %>%
+  filter(review_content != "")
+
+for (i in 1:nrow(reviews_sample)) {
+  review_content = reviews_sample$review_content[i]
+  review_split =  strsplit(review_content, " +")[[1]]
+  len = length(review_split)
+  for (j in 1:len) {
+    if (review_split[j] != toupper(review_split[j]) || nchar(review_split[j]) == 1) {
+      review_split[j] = tolower(review_split[j])
+    }
+    if (len > 1 && j > 1 && tolower(review_split[j-1]) == "not") {
+        review_split = c(review_split, paste(review_split[j-1], review_split[j], sep=""))
+    }
+  }
+  review_split = lemmatize_words(review_split)
+  reviews_sample$review_content[i] = paste(review_split, collapse=' ')
+}
+```
+
+<br><br>
+
+#### Step 2 Data Transformation
+
+After cleaning the dataset, the next thing is to process the data so that we can feed it into our model. The first thing is to split our data into training, and testing dataset. Then we need to transform our dataset. Currently our dataset contains only strings, but that's unhelpful for training. Therefore, we need to represent the data in another format.
+One way to do that is using One-hot Encoding (Bag of Words), which is to encode each character individually as a number. For example, if we have two strings "i am correct am i" (STRING 1) and "i am better than her" (STRING 2), then our bag of words would be \{"i", "am", "correct", "better", "than", "her"\} and our dataframe can be converted to what we called a Document-Term Matrix (DTM):
+
+                     "i"       "am"       "correct"       "better"        "than"        "her"
+        STRING 1      2          2             1               0             0             0
+        STRING 2      1          1             0               1             1             1
+
+This format will be more convenient for model building.
+
+After this step, it is enough to proceed to training. However, we can transform our dataset even more.
+One important thing to consider is the frequency of words within one category versus all categories. Our goal here is basically to find words that can uniquely represent each category, therefore, words like "is", "movie", "and" are probably present in all categories, making them bad indicators, but words like "good", "love", "excellent" are more unique to the "Fresh" category and "bad", "terrible", "hate" are more indicative of the "Rotten" category. To better reflect this, we can perform a TF-IDF calculation to the words. tf–idf, TF*IDF, or TFIDF, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus. Term frequency, tf(t,d), is the frequency of term t, and the inverse document frequency, idf(t,D), is a measure of how much information the word provides, i.e., if it's common or rare across all documents.
+
+In calculation:
+
+${\displaystyle \mathrm {tf} (t,d)={\frac {f_{t,d}}{\sum _{t'\in d}{f_{t',d}}}}}$
+
+${\displaystyle \mathrm{idf}(t, D) =  \log \frac{N}{|\{d \in D: t \in d\}|}}$
+<br><br>
+Then tf–idf is calculated as:
+
+${\displaystyle \mathrm {tfidf} (t,d,D)=\mathrm {tf} (t,d)\cdot \mathrm {idf} (t,D)}$
+
+```{r}
+train_test = initial_split(reviews_sample, prop = 0.75)
+test = train_test %>%
+  testing()
+train = train_test %>%
+  training()
+
+model_tfidf = TfIdf$new(smooth_idf = TRUE)
+
+train_tokens = space_tokenizer(train$review_content, " ")
+train_dtm = create_dtm(itoken(train_tokens), hash_vectorizer())
+train_tfidf = model_tfidf$fit_transform(train_dtm)
+
+test_tokens = space_tokenizer(test$review_content, " ")
+test_dtm = create_dtm(itoken(test_tokens), hash_vectorizer())
+test_tfidf = model_tfidf$transform(test_dtm)
+```
+
+To wrap up, we first create DTM for our datasets, and then compute tf–idf of the DTM. However, in real life, we don't want to perform these steps on the entire dataset, because logically we should not know the information of validation and testing data. To prevent such leakage, we perform fit_transform on our training data and transform on the validation and testing data, such that the validation and testing data are being transformed not based on their own information, but the information from the training data.
+
+<br><br>
+
+#### Step 3 Hyperparameter Tuning
+
+When fitting the model, we need to find the best parameters so that our model can give the optimal result. In this step, I use glmnet as an example training method (glmnet stands for Lasso and Elastic-Net Regularized Generalized Linear Models, which are extremely efficient procedures for fitting the entire lasso or elastic-net regularization path for linear regression, logistic and multinomial regression models, Poisson regression, Cox model, multiple-response Gaussian, and the grouped multinomial regression. glmnet is also one of the few models that can deal with sparse matrix in R). The parameters that I am tunning are lambdas, and I use cross validation method to find the model with the minimum mean error and its corresponding parameters.
+
+```{r}
+lambda_vals = 10^seq(3, -2, by = -.1)
+cv_glm_fit = cv.glmnet(x = train_tfidf, y = train$review_type,
+                       family = 'binomial', alpha = 0, lambda = lambda_vals, nfolds = 5)
+opt_lambda = cv_glm_fit$lambda.min
+
+
+knitr::kable(data.frame(Best_lambda = c(opt_lambda)))
+```
+
+As we can see, the best lambda value for that we tuned is around 0.3981
+
+<br><br>
+
+#### Step 4 Model training & Evaluation
+
+After getting the optimum hyperparameters, we use them to train our model, and predit using our test data.
+
+```{r}
+glm_fit = cv_glm_fit$glmnet.fit
+pred_class = predict(glm_fit, s = opt_lambda, newx = test_tfidf, type='class')
+
+knitr::kable(data.frame(accuracy = c(1-mean(pred_class != test$review_type))))
+```
+
+As we can see, we get around 73% correctness with our model, which is not bad!
+
+<br><br>
+
+#### Citation: https://www.kaggle.com/stefanoleone992/rotten-tomatoes-movies-and-critic-reviews-dataset

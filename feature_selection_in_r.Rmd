@@ -1,0 +1,176 @@
+# Feature selection in r
+
+Zehui Wu
+
+```{r}
+library(ggcorrplot)
+library(caret)
+library(randomForest)
+library(gam)
+```
+
+## Introduction
+
+Feature selection is one of the most important tasks to boost performance of machine learning models. Some of the benefits of doing feature selections include:
+
+-   Better Accuracy: removing irrelevant features let the models make decisions only using important features. In my experience, classification models can usually get 5 to 10 percent improvement in accuracy scores after feature selection.
+
+-   Avoid Overfitting: the models will not put weights in irrelevant features.
+
+-   Improve running time: decreasing the dimension of the data makes the models run faster.
+
+In this tutorial, I will introduce some of the intuitive and popular methods in R for feature selection.
+
+## Correlation Matrix
+
+Correlation matrix is a popular method for feature selection. By using correlation matrix, we can see the correlation for each pair of numerical variables. we not only can filter out variables with low correlation to the dependent variable, but also can remove redundant variables by identifying highly correlated independent variables.
+
+To illustrate how to use this method, I use the Winequality regression dataset from UCI.
+
+```{r}
+# load the data
+winequality <- read.csv("http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv", sep = ";")
+head(winequality)
+```
+
+I firstly use the cor() function to calculate correlation matrix.
+
+```{r}
+cor_matrix <- data.frame(cor(winequality))
+cor_matrix
+```
+
+### heat map for correlation matrix
+
+You can also draw a quick heat map to visualize the correlation with ggcorrplot library.
+
+We can see free.Sulfur.dioxide and citric.acid have very small correlations with the dependent variable quality. You may consider to try removing these two features in the models.
+
+```{r}
+ggcorrplot(cor_matrix)
+```
+
+### function to find redundant variables
+
+Besides from using graph to identify redundant variables, you can also use the findCorrelation function in caret library. It outputs the index of variables we need to delete. If two variables have a higher correlation than the cutoff, the function removes the variable with the largest mean absolute correlation.
+
+In our case, the function finds out that density is highly correlated to other variables.
+
+```{r}
+findCorrelation(cor(winequality), cutoff=0.75)
+```
+
+## Variable Importance
+
+There are some functions in caret library to evaluate variable importance. Typically, variable importance evaluation can be separated into two categories: the ones that use model information and the ones that do not.
+
+### calculate feature importance without models
+
+If you don't want to use specific model to evaluate features, you can use the filterVarImp() function in Caret library.
+
+For classification, this function uses ROC curve analysis on each predictor and use area under the curve as scores.
+
+For regression, a linear line is fit between each pair of dependent variable and independent variables, and the absolute value of the t-statistic for the slope of the independent variable is used.
+
+The data set Winequality is a regression task, so t-statistic of slopes are used. The two variables citric.acid and free.sulfur.dioxide have very low scores, which are consistent with our correlation analysis above.
+
+```{r}
+#use roc_curve area as score
+roc_imp <- filterVarImp(x = winequality[,1:11], y = winequality$quality)
+
+#sort the score in decreasing order
+roc_imp <- data.frame(cbind(variable = rownames(roc_imp), score = roc_imp[,1]))
+roc_imp$score <- as.double(roc_imp$score)
+roc_imp[order(roc_imp$score,decreasing = TRUE),]
+```
+
+### calculate feature importance with models
+
+The advantage for using model-specific evaluation is that the feature scores are specific linked to model performance and using them to filter features may help improve performance for that specific model.
+
+There are some models that do not have built-in importance score. For those models, we need to use the filterVarImp() function above. To check which models are available, see documentation of varImp(): <https://www.rdocumentation.org/packages/caret/versions/6.0-90/topics/varImp>
+
+In the following example, I show that svm model does not have importance score implemented and varImp returns an error.
+
+```{r}
+#library(e1071)
+#svmfit = svm(x= winequality[,1:11],y= winequality[,12], kernel = "linear", scale = TRUE)
+#roc_imp2 <- varImp(svmfit, scale = FALSE)
+```
+
+I train a random forest regression model for the data set and use the varImp() function to calculate the feature importance based on this tree model. In the case of random forest model, varLmp() is a wrapper around the importance functions from the randomForest library.
+
+```{r}
+#train random forest model and calculate feature importance
+rf = randomForest(x= winequality[,1:11],y= winequality[,12])
+var_imp <- varImp(rf, scale = FALSE)
+```
+
+If you have too many features and want to use only 100 of them. You can choose to use the top 100 based on the feature importance scores.
+
+```{r}
+#sort the score in decreasing order
+var_imp_df <- data.frame(cbind(variable = rownames(var_imp), score = var_imp[,1]))
+var_imp_df$score <- as.double(var_imp_df$score)
+var_imp_df[order(var_imp_df$score,decreasing = TRUE),]
+```
+
+We can see that the ranking here is different from the previous one and they are specifically linked to the performance of the random forest model.
+
+```{r}
+ggplot(var_imp_df, aes(x=reorder(variable, score), y=score)) + 
+  geom_point() +
+  geom_segment(aes(x=variable,xend=variable,y=0,yend=score)) +
+  ylab("IncNodePurity") +
+  xlab("Variable Name") +
+  coord_flip()
+```
+
+## Univariate Feature Selection
+
+Univariate tests are tests which involve only one dependent variable, including chi-sqaure test, analysis of variance, linear regressions and t-tests of means.
+
+Univariate feature selection utilizes univariate statistical tests to each feature-outcome pair and selects features which perform the best in these tests.
+
+The sbf() is used to do univariate feature selection with the model fitting function specified in the function argument of sbfControl() function. In the following example, I uses rfSBF, which use node purity to calculate scores.
+
+To avoid overfitting by feature selection, sbf() function use several iterations of resampling to do feature selection. resampling methods can be boot, cv, LOOCV or LGOCV and can be specified in the method argument of sbfControl().
+
+It will take several minutes to run.
+
+```{r}
+filterCtrl <- sbfControl(functions = rfSBF, method = "repeatedcv", repeats = 3)
+rfWithFilter <- sbf(x= winequality[,1:11],y= winequality[,12], sbfControl = filterCtrl)
+rfWithFilter
+```
+
+## Recursive Feature **elimination**
+
+Recursive Feature elimination(RFE) is a popular method to choose a subset of features. It starts with all the features and removes feature with lowest score at each iteration. It trains with smaller and smaller subset of features and find the best set of features.
+
+It will also take several minutes to run.
+
+```{r}
+filterCtrl <- rfeControl(functions=rfFuncs, method="cv", number=3)
+results <- rfe(x= winequality[,1:11],y= winequality[,12], sizes=c(1:11), rfeControl=filterCtrl)
+results
+```
+
+```{r}
+# plot the results
+plot(results, type=c("g", "o"))
+```
+
+## 
+
+## Resources:
+
+<https://topepo.github.io/caret/variable-importance.html#model-independent-metrics>
+
+<https://www.rdocumentation.org/packages/caret/versions/6.0-90/topics/varImp>
+
+<https://machinelearningmastery.com/feature-selection-with-the-caret-r-package/>
+
+<https://towardsdatascience.com/the-art-of-finding-the-best-features-for-machine-learning-a9074e2ca60d>
+
+<https://rdrr.io/rforge/caret/man/sbfControl.html>
