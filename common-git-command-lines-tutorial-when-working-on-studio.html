@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 8 RChess package cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Ju Hyun Jeon How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to...">
+<title>Chapter 76 Common git command lines tutorial when working on studio | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Boquan Sun When many people work on a project, it is very efficient to use github to synchronize everyone’s process. And git command lines can make us do very thing on github conveniently. Not...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 8 RChess package cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 76 Common git command lines tutorial when working on studio | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Ju Hyun Jeon How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to...">
+<meta property="og:description" content="Boquan Sun When many people work on a project, it is very efficient to use github to synchronize everyone’s process. And git command lines can make us do very thing on github conveniently. Not...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 8 RChess package cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Ju Hyun Jeon How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to...">
+<meta name="twitter:title" content="Chapter 76 Common git command lines tutorial when working on studio | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Boquan Sun When many people work on a project, it is very efficient to use github to synchronize everyone’s process. And git command lines can make us do very thing on github conveniently. Not...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -53,7 +53,7 @@
 <li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
 <li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
 <li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
-<li><a class="active" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
 <li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
 <li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
 <li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
@@ -122,7 +122,7 @@
 <li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">73</span> Brief Introduction of ggpubr</a></li>
 <li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">74</span> R based data organization and visualization</a></li>
 <li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">75</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">76</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="active" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">76</span> Common git command lines tutorial when working on studio</a></li>
 <li class="book-part">Project &amp; Workshops</li>
 <li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">77</span> Introduction to analytics consulting at Accenture</a></li>
 <li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">78</span> Map of the R world</a></li>
@@ -144,28 +144,122 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="rchess-package-cheatsheet" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="common-git-command-lines-tutorial-when-working-on-studio" class="section level1">
 <h1>
-<span class="header-section-number">8</span> RChess package cheatsheet<a class="anchor" aria-label="anchor" href="#rchess-package-cheatsheet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">76</span> Common git command lines tutorial when working on studio<a class="anchor" aria-label="anchor" href="#common-git-command-lines-tutorial-when-working-on-studio"><i class="fas fa-link"></i></a>
 </h1>
-<p>Ju Hyun Jeon</p>
-<p>How can one analyze chess games with R? There are several packages that help users understand chess positions with R but there are not many resources. This cheatsheet has been made to help people to use RChess.
-RChess is the most approachable and convenient way of processing Chess data with R. Furthermore, it can be used in conjunction with ggplot2 to plot chess positions. This cheatsheet contains all the functions with example positions that will help understand the package. There are 4 major uses of Rchess functions. 1. importing positions, 2. identifying positions, 3. modifying positions, and 4. visualizing positions. Further study can be conducted to derive methods to process annotated PGNs and PGNs with clock time.</p>
-<p>The cheatsheet can be accessed through the following link.
-<a href="https://github.com/witchhead/RChessCheatsheet/blob/main/RchessCheatSheet.pdf" class="uri">https://github.com/witchhead/RChessCheatsheet/blob/main/RchessCheatSheet.pdf</a></p>
+<p>Boquan Sun</p>
+<p>When many people work on a project, it is very efficient to use github to synchronize everyone’s process. And git command lines can make us do very thing on github conveniently. Not only in RStudio, but also in VisualStudio or other development tools can we use same command lines to do what we want. Therefore, it is very significant to be familiar with git common lines.</p>
+<p>Firstly set up user’s information</p>
+<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb943-1"></a>git config <span class="op">--</span>global user.name <span class="st">"[first_name last_name]"</span></span></code></pre></div>
+<p>Then clone a github repository</p>
+<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb944-1"></a><span class="co">#initialize a directory as git directory</span></span>
+<span id="cb944-2"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb944-2"></a>git init </span>
+<span id="cb944-3"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb944-3"></a></span>
+<span id="cb944-4"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb944-4"></a><span class="co">#retrieve a git repository from github.com</span></span>
+<span id="cb944-5"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb944-5"></a>git clone [url]</span></code></pre></div>
+<p>Update and retrieve from remote repository</p>
+<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb945-1"></a><span class="co"># synchronize your local repository with remote</span></span>
+<span id="cb945-2"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb945-2"></a>git pull </span>
+<span id="cb945-3"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb945-3"></a></span>
+<span id="cb945-4"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb945-4"></a><span class="co">#Download objects and refs from another repositorym</span></span>
+<span id="cb945-5"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb945-5"></a>git fetch [alias or url] </span></code></pre></div>
+<p>Git checkout to get branch for different work.</p>
+<div class="sourceCode" id="cb946"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb946-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-1"></a><span class="co"># start a new branch and then checked out.</span></span>
+<span id="cb946-2"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-2"></a>git checkout <span class="op">-</span>b [newbranch] </span>
+<span id="cb946-3"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-3"></a></span>
+<span id="cb946-4"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-4"></a><span class="co"># start a new branch and then checked out. If it already exists, initialize it as a new branch.</span></span>
+<span id="cb946-5"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-5"></a>git checkout <span class="op">-</span>B [newbranch] </span>
+<span id="cb946-6"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-6"></a></span>
+<span id="cb946-7"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-7"></a> <span class="co"># switch to a existed branch</span></span>
+<span id="cb946-8"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-8"></a>git checkout [branch]    </span>
+<span id="cb946-9"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-9"></a></span>
+<span id="cb946-10"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-10"></a><span class="co"># list all existed branches</span></span>
+<span id="cb946-11"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-11"></a>git branch </span>
+<span id="cb946-12"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-12"></a></span>
+<span id="cb946-13"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-13"></a><span class="co"># delete a branch</span></span>
+<span id="cb946-14"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-14"></a>git branch <span class="op">-</span>d [branch]</span>
+<span id="cb946-15"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-15"></a></span>
+<span id="cb946-16"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-16"></a><span class="co"># create a new branch</span></span>
+<span id="cb946-17"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb946-17"></a>git branch [branch] </span></code></pre></div>
+<p>After writing new codes, commit them to a remote repository.</p>
+<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-1"></a><span class="co"># add modified files to stage prepared to be commited</span></span>
+<span id="cb947-2"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-2"></a>git add [file list] </span>
+<span id="cb947-3"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-3"></a></span>
+<span id="cb947-4"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-4"></a><span class="co"># add everying</span></span>
+<span id="cb947-5"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-5"></a>git add <span class="op">-</span>A </span>
+<span id="cb947-6"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-6"></a></span>
+<span id="cb947-7"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-7"></a><span class="co">#merges the specified branch’s history into the current branch</span></span>
+<span id="cb947-8"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-8"></a>git merge [branch name] </span>
+<span id="cb947-9"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-9"></a></span>
+<span id="cb947-10"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-10"></a><span class="co">#commit your staged files</span></span>
+<span id="cb947-11"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-11"></a>git commit <span class="op">-</span>m <span class="st">'[describe your commit content]'</span></span>
+<span id="cb947-12"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-12"></a></span>
+<span id="cb947-13"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-13"></a><span class="co"># update remote repository </span></span>
+<span id="cb947-14"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-14"></a>git push </span>
+<span id="cb947-15"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-15"></a></span>
+<span id="cb947-16"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-16"></a><span class="co">#set a new remote repo and update these commit to it</span></span>
+<span id="cb947-17"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb947-17"></a>git push <span class="op">--</span>set<span class="op">-</span>upstream origin [repo name] </span></code></pre></div>
+<p>Sometimes we want to record the current state of the working directory and the index, but want to go back to a clean working directory</p>
+<div class="sourceCode" id="cb948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb948-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-1"></a><span class="co"># saves local modifications away and reverts the working directory to match the HEAD commit.</span></span>
+<span id="cb948-2"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-2"></a>git stash </span>
+<span id="cb948-3"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-3"></a></span>
+<span id="cb948-4"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-4"></a><span class="co">#same as git stash</span></span>
+<span id="cb948-5"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-5"></a>git stash push </span>
+<span id="cb948-6"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-6"></a></span>
+<span id="cb948-7"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-7"></a><span class="co"># list stash entries we have</span></span>
+<span id="cb948-8"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-8"></a>git stash list </span>
+<span id="cb948-9"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-9"></a></span>
+<span id="cb948-10"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-10"></a><span class="co"># restore a recent stash modification</span></span>
+<span id="cb948-11"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb948-11"></a>git stash apply </span></code></pre></div>
+<p>When you enter an old branch, you may forget what you have done. So there are commands help you to recall what has been modified.</p>
+<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-1"></a><span class="co"># show modified files in working directory, staged for  next commit</span></span>
+<span id="cb949-2"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-2"></a>git status </span>
+<span id="cb949-3"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-3"></a></span>
+<span id="cb949-4"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-4"></a><span class="co"># get difference of modified parts but not staged yet</span></span>
+<span id="cb949-5"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-5"></a>git diff </span>
+<span id="cb949-6"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-6"></a></span>
+<span id="cb949-7"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-7"></a><span class="co"># get diiference of staged part but not committed yet</span></span>
+<span id="cb949-8"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-8"></a>git diff <span class="op">--</span>staged </span>
+<span id="cb949-9"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-9"></a></span>
+<span id="cb949-10"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-10"></a><span class="co">#unstage files to retain changes in working directory</span></span>
+<span id="cb949-11"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb949-11"></a>git reset [file_list] </span></code></pre></div>
+<p>Sometimes we may see our commit history.</p>
+<div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-1"></a><span class="co"># for current branch to see the commit history</span></span>
+<span id="cb950-2"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-2"></a>git log </span>
+<span id="cb950-3"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-3"></a></span>
+<span id="cb950-4"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-4"></a><span class="co"># show commit in branchA but not in branchB</span></span>
+<span id="cb950-5"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-5"></a>git log branchB..branchA</span>
+<span id="cb950-6"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-6"></a></span>
+<span id="cb950-7"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-7"></a><span class="co"># see the commits that changed file</span></span>
+<span id="cb950-8"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-8"></a>git log <span class="op">--</span>follow [file]</span>
+<span id="cb950-9"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-9"></a></span>
+<span id="cb950-10"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-10"></a><span class="co">#show all commit logs with indication of paths that moved</span></span>
+<span id="cb950-11"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb950-11"></a>git log <span class="op">--</span>stat <span class="op">-</span>M</span></code></pre></div>
+<p>At last, usually we find an edition with bug, then we need to revert it.</p>
+<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb951-1"></a><span class="co">#check commit history</span></span>
+<span id="cb951-2"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb951-2"></a>git log <span class="op">--</span><span class="st"> </span>oneline</span>
+<span id="cb951-3"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb951-3"></a></span>
+<span id="cb951-4"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb951-4"></a><span class="co"># specify the hash code next to our commit </span></span>
+<span id="cb951-5"><a href="common-git-command-lines-tutorial-when-working-on-studio.html#cb951-5"></a>git revert [hash code]</span></code></pre></div>
+<p>The advantage of using git revert is that it doesn’t touch the commit history. This means that we can still see all of the commits in our history, even the reverted ones.</p>
+<p>Another safety measure here is that everything happens in our local system unless we push them to the remote repo</p>
 
 </div>
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></div>
-<div class="next"><a href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></div>
+<div class="prev"><a href="r-packages-for-map-visualization.html"><span class="header-section-number">75</span> R packages for map Visualization</a></div>
+<div class="next"><a href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">77</span> Introduction to analytics consulting at Accenture</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#rchess-package-cheatsheet"><span class="header-section-number">8</span> RChess package cheatsheet</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#common-git-command-lines-tutorial-when-working-on-studio"><span class="header-section-number">76</span> Common git command lines tutorial when working on studio</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/rchess_package_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/rchess_package_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/common_github_commands.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/common_github_commands.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

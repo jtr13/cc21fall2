@@ -727,6 +727,7 @@ introduction-17
 tmap
 ggmap
 plotly-1
+common-git-command-lines-tutorial-when-working-on-studio
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
@@ -755,6 +756,13 @@ scatter-plot-with-hex-heatmap
 scatter-matrix
 heatmaps-1
 final-thoughts
+super-ggformat
+introduction-19
+how-it-differs-from-ggformat
+handle-multiple-sentences
+handle-comments
+wrapping-long-sentences
+ways-to-improve-ggformat
 github-initial-setup
 create-new-repo
 pages-in-repo-settings
