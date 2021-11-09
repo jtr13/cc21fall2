@@ -727,7 +727,6 @@ introduction-17
 tmap
 ggmap
 plotly-1
-common-git-command-lines-tutorial-when-working-on-studio
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
