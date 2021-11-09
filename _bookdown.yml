@@ -47,6 +47,7 @@ rmd_files: [
   'plotly_cheatsheet.Rmd',
   'tidyverse.Rmd',
   'learn_sql_using_its_r_translation.Rmd',
+  'animate_time_series.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
