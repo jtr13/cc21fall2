@@ -86,6 +86,7 @@ rmd_files: [
   'ggvis_ggplot2_graphs.Rmd',
   'feature_selection_in_r.Rmd',
   'debugging_in_rstudio.Rmd',
+  'r_tutorial_cheatsheet.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
