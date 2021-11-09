@@ -9,6 +9,7 @@ language:
 
 # Chapter ordering
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -39,6 +40,7 @@ rmd_files: [
   'rstudio_cheatsheet.Rmd',
   'd3_visualizations_in_r_cheatsheet.Rmd',
   'colors.Rmd',
+  'r_datasets.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
