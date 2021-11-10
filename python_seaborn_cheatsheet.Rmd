@@ -1,4 +1,4 @@
-# Data Visualization with Searborn
+# Data Visualization with Seaborn
 
 Xinyu Huang (xh2511)
 
