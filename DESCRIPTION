@@ -22,6 +22,7 @@ Imports:
     DescTools,
     devtools,
     dlookr,
+    DMwR,
     doParallel,
     dplyr,
     DT,
@@ -172,6 +173,7 @@ Suggests:
     downlit,
     xml2    
 Remotes:
+    cran/DMwR,
     ricardo-bion/ggradar,
     AntoninVidon/goyav,
     ramnathv/rCharts,
