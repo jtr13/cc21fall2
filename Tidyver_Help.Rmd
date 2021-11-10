@@ -288,7 +288,7 @@ warpbreaks %>%
   sample_frac(size = 0.15)
 ```
 
-### Group
+###  Group
 use group_by() to create groups and use ungroup to separate group
 use summarize() to find out the properties of the group
 n() :count the frequency
