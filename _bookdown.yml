@@ -10,7 +10,6 @@ language:
 
 
 
-
 # Chapter ordering
 rmd_files: [
   # Part: Introduction
@@ -102,6 +101,7 @@ rmd_files: [
   'introduce_rmarkdown.Rmd',
   'dlookr.Rmd',
   'urca_unitroottest_cointegrationtest.Rmd',
+  'pygal_tutorial.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
