@@ -12,7 +12,6 @@ language:
 
 
 # Chapter ordering
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -102,6 +101,7 @@ rmd_files: [
   'r_shiny_tutorial.Rmd',
   'introduce_rmarkdown.Rmd',
   'dlookr.Rmd',
+  'urca_unitroottest_cointegrationtest.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
