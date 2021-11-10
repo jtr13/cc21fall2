@@ -23,7 +23,7 @@ legend("topright", legend=c("True density", "Estimated density"),
 It can also be the case that the data exhibits values exactly equal to 0, in which case the standard density plot cannot help us detect it and we would have to do further exploration in order to do it.
 
 ```{r}
-set.seed(123)
+set.seed(123) 
 data <- c(rep(0, 10), rgamma(100, 1, 1))
 plot(density( data ), lty=2, lwd=2, col="red",  main="Densities")
 legend("topright", legend="Estimated density", 
@@ -49,7 +49,7 @@ The density $g$ will be modified from the standard `stats::density` function in 
 
 ## plot_density Function
 
-We introduce the function `plot_density`, that adjusts itself in the presence of non-negative, non-positive or real data to avoid assigning density to unlikely values, and also automatically detects the presence of significant repeated values in the data.
+We introduce `plot_density`, a function that adjusts itself in the presence of non-negative, non-positive or real data to avoid assigning density to unlikely values, and also automatically detects the presence of significant repeated values in the data.
 
 ```{r}
 # plot_density function
