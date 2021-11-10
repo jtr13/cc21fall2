@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 80 Tutorial of radar chart | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Pengyu Zou and Nuanyu Shou  80.1 Overview Radar chart is a useful chart to display multivariate observations with an arbitrary number of variables. It consists of a sequence of equi-angular...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 80 Tutorial of radar chart | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Pengyu Zou and Nuanyu Shou  80.1 Overview Radar chart is a useful chart to display multivariate observations with an arbitrary number of variables. It consists of a sequence of equi-angular...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 80 Tutorial of radar chart | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Pengyu Zou and Nuanyu Shou  80.1 Overview Radar chart is a useful chart to display multivariate observations with an arbitrary number of variables. It consists of a sequence of equi-angular...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
+<li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
+<li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">34</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">35</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">36</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">37</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">38</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">39</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">40</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">41</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">42</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">43</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">44</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">45</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">46</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">47</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">50</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">51</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">52</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">53</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">54</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">55</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">56</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">57</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">58</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">59</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">60</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">61</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">62</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">63</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">64</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">65</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">66</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">67</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">68</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">69</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">70</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">71</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">73</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">74</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">75</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">76</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">77</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">78</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">79</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="active" href="tutorial-of-radar-chart.html"><span class="header-section-number">80</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">81</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">82</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">83</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">84</span> Dlookr package</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">85</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">86</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">87</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">88</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">89</span> RGL Package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">90</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">91</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">92</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">93</span> R and Python visualization</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">94</span> Super ggformat</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">95</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">96</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tutorial-of-radar-chart" class="section level1">
+<h1>
+<span class="header-section-number">80</span> Tutorial of radar chart<a class="anchor" aria-label="anchor" href="#tutorial-of-radar-chart"><i class="fas fa-link"></i></a>
+</h1>
+<p>Pengyu Zou and Nuanyu Shou</p>
+<div id="overview-6" class="section level2">
+<h2>
+<span class="header-section-number">80.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>Radar chart is a useful chart to display multivariate observations with an arbitrary number of variables. It consists of a sequence of equi-angular spokes, called radii, with each spoke representing one of the variables. The data length of a spoke is proportional to the magnitude of the variable for the data point relative to the maximum magnitude of the variable across all data points. Radar charts are widely used in sports to chart players’ strengths and weaknesses.</p>
+<p>In this document, we will introduce how to draw a radar charts using package <code>ggradar</code> and <code>fmsb</code>. For each method, we will give instructions about installation, simple example and parameter usage tutorial. Besides, we explore how to use <code>plotly</code> to make the radar chart more readable and interactive.</p>
+</div>
+<div id="radar-chart-using-ggradar" class="section level2">
+<h2>
+<span class="header-section-number">80.2</span> Radar chart using ggradar<a class="anchor" aria-label="anchor" href="#radar-chart-using-ggradar"><i class="fas fa-link"></i></a>
+</h2>
+<div id="installation-6" class="section level3">
+<h3>
+<span class="header-section-number">80.2.1</span> Installation<a class="anchor" aria-label="anchor" href="#installation-6"><i class="fas fa-link"></i></a>
+</h3>
+<div id="install-by-devtools" class="section level4">
+<h4>
+<span class="header-section-number">80.2.1.1</span> Install by devtools<a class="anchor" aria-label="anchor" href="#install-by-devtools"><i class="fas fa-link"></i></a>
+</h4>
+<p> </p>
+<div id="ggradar-is-a-github-package-and-requires-devtools-to-install-it.-run-following-script-to-install-ggradar." class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.1.1</span> <code>ggradar</code> is a github package and requires devtools to install it. Run following script to install <code>ggradar</code>.<a class="anchor" aria-label="anchor" href="#ggradar-is-a-github-package-and-requires-devtools-to-install-it.-run-following-script-to-install-ggradar."><i class="fas fa-link"></i></a>
+</h5>
+<pre><code>devtools::install_github("ricardo-bion/ggradar",dependencies = TRUE,force = T")</code></pre>
+<p> </p>
+</div>
+</div>
+<div id="unzip-package-in-the-r-directory" class="section level4">
+<h4>
+<span class="header-section-number">80.2.1.2</span> Unzip package in the R directory<a class="anchor" aria-label="anchor" href="#unzip-package-in-the-r-directory"><i class="fas fa-link"></i></a>
+</h4>
+<p> </p>
+<div id="step1-download-the-package-from-github." class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.2.1</span> Step1: Download the package from github.<a class="anchor" aria-label="anchor" href="#step1-download-the-package-from-github."><i class="fas fa-link"></i></a>
+</h5>
+<p><img src="resources/radar_chart_pic/github.png"><br>
+ </p>
+</div>
+<div id="step2-move-the-zip-file-ggradar-master.zip-to-the-r-directory-..rbinx64-and-unzip-it." class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.2.2</span> Step2: Move the zip file <code>ggradar-master.zip</code> to the R directory ../R/bin/x64 and unzip it.<a class="anchor" aria-label="anchor" href="#step2-move-the-zip-file-ggradar-master.zip-to-the-r-directory-..rbinx64-and-unzip-it."><i class="fas fa-link"></i></a>
+</h5>
+<p><img src="resources/radar_chart_pic/directory.png"><br>
+ </p>
+</div>
+<div id="step3-open-terminalmac-or-commandwindows-in-this-directory-and-run-the-following-script." class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.2.3</span> Step3: Open terminal(Mac) or Command(Windows) in this directory and run the following script.<a class="anchor" aria-label="anchor" href="#step3-open-terminalmac-or-commandwindows-in-this-directory-and-run-the-following-script."><i class="fas fa-link"></i></a>
+</h5>
+<pre><code>Rcmd build ggradar-master</code></pre>
+<p><img src="resources/radar_chart_pic/cmd.png"><br>
+ </p>
+</div>
+<div id="this-will-create-a-ggradar_0.2.tar.gz-file-in-this-directory." class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.2.4</span> This will create a <code>ggradar_0.2.tar.gz</code> file in this directory.<a class="anchor" aria-label="anchor" href="#this-will-create-a-ggradar_0.2.tar.gz-file-in-this-directory."><i class="fas fa-link"></i></a>
+</h5>
+<p><img src="resources/radar_chart_pic/tar.png"><br>
+ </p>
+</div>
+<div id="step4install-ggradar-in-rstudio" class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.2.5</span> Step4:Install ggradar in RStudio<a class="anchor" aria-label="anchor" href="#step4install-ggradar-in-rstudio"><i class="fas fa-link"></i></a>
+</h5>
+<p>Open the RStudio, Tools -&gt; Install Package and choose install from <code>Package Archive File(.zip; .tar.gz)</code>.</p>
+<p><img src="resources/radar_chart_pic/choose.png"><br>
+ </p>
+</div>
+<div id="browse-and-choose-the-ggradar_0.2.tar.gz-file-and-click-install." class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.2.6</span> Browse and choose the <code>ggradar_0.2.tar.gz</code> file and click <code>Install</code>.<a class="anchor" aria-label="anchor" href="#browse-and-choose-the-ggradar_0.2.tar.gz-file-and-click-install."><i class="fas fa-link"></i></a>
+</h5>
+<p><img src="resources/radar_chart_pic/browser.png"><br>
+ </p>
+</div>
+<div id="there-will-be-installation-information-in-the-console-showing-that-we-are-done." class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.2.7</span> There will be installation information in the Console, showing that we are done.<a class="anchor" aria-label="anchor" href="#there-will-be-installation-information-in-the-console-showing-that-we-are-done."><i class="fas fa-link"></i></a>
+</h5>
+<p><img src="resources/radar_chart_pic/detail.png"><br>
+ </p>
+</div>
+<div id="now-we-can-check-in-the-packages-tab-that-if-ggradar-has-been-installed." class="section level5">
+<h5>
+<span class="header-section-number">80.2.1.2.8</span> Now, we can check in the <code>Packages</code> tab that if <code>ggradar</code> has been installed.<a class="anchor" aria-label="anchor" href="#now-we-can-check-in-the-packages-tab-that-if-ggradar-has-been-installed."><i class="fas fa-link"></i></a>
+</h5>
+<div class="inline-figure"><img src="resources/radar_chart_pic/check.png"></div>
+</div>
+</div>
+</div>
+<div id="simple-example" class="section level3">
+<h3>
+<span class="header-section-number">80.2.2</span> Simple Example<a class="anchor" aria-label="anchor" href="#simple-example"><i class="fas fa-link"></i></a>
+</h3>
+<p><code>ggradar</code> takes the first string column as group name and the rest numeric columns as different axes to plot. We take the columns from 6 to 10 in the <code>mtcars</code> dataset, and the first column as Group name.</p>
+<div class="sourceCode" id="cb1042"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#load data</span>
+<span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="va">mtcars</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span>rownames <span class="op">=</span> <span class="st">"group"</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="op">-</span><span class="va">group</span><span class="op">)</span>, <span class="va">rescale</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">tail</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>
+
+<span class="co">#check data type with std() function</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></code></pre></div>
+<pre><code>## tibble [2 × 6] (S3: tbl_df/tbl/data.frame)
+##  $ group: chr [1:2] "Maserati Bora" "Volvo 142E"
+##  $ drat : num [1:2] 0.359 0.622
+##  $ wt   : num [1:2] 0.526 0.324
+##  $ qsec : num [1:2] 0.0119 0.4881
+##  $ vs   : num [1:2] 0 1
+##  $ am   : num [1:2] 1 1</code></pre>
+<div class="sourceCode" id="cb1044"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/p-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>We can find that there are three circle lines in this radar chart, which stand for three bar values. Here are 0%, 50% and 100%. In addition, there are five axes corresponding to the five columns in the data. Each axis is connected with the inner layer with a solid line.</p>
+</div>
+<div id="parameters-usage" class="section level3">
+<h3>
+<span class="header-section-number">80.2.3</span> Parameters Usage<a class="anchor" aria-label="anchor" href="#parameters-usage"><i class="fas fa-link"></i></a>
+</h3>
+<div id="change-text-size" class="section level4">
+<h4>
+<span class="header-section-number">80.2.3.1</span> Change text size<a class="anchor" aria-label="anchor" href="#change-text-size"><i class="fas fa-link"></i></a>
+</h4>
+<p><code>axis.label.size</code> is for the axis text.</p>
+<div class="sourceCode" id="cb1045"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,axis.label.size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><code>grid.label.size</code> is for the text of three grids.</p>
+<div class="sourceCode" id="cb1046"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,grid.label.size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="set-the-bar-value-for-each-grid" class="section level4">
+<h4>
+<span class="header-section-number">80.2.3.2</span> Set the bar value for each grid<a class="anchor" aria-label="anchor" href="#set-the-bar-value-for-each-grid"><i class="fas fa-link"></i></a>
+</h4>
+<p><code>values.radar</code> is for setting the value for each grid. It only takes three values. If provide more than three, only the first three will be taken.</p>
+<div class="sourceCode" id="cb1047"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,             
+            <span class="co"># "125%" will be ignore.</span>
+            values.radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"33%"</span>,<span class="st">"66%"</span>,<span class="st">"100%"</span>,<span class="st">"125%"</span><span class="op">)</span>
+        <span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="set-the-split-ratio-for-each-grid" class="section level4">
+<h4>
+<span class="header-section-number">80.2.3.3</span> Set the split ratio for each grid<a class="anchor" aria-label="anchor" href="#set-the-split-ratio-for-each-grid"><i class="fas fa-link"></i></a>
+</h4>
+<p>Three grids will split data by ratio according to <code>grid.max</code>, <code>grid.mid</code> and <code>grid.min</code>. This should be correspond to <code>values.radar</code>.</p>
+<div class="sourceCode" id="cb1048"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
+            values.radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0%"</span>,<span class="st">"55%"</span>,<span class="st">"100%"</span><span class="op">)</span>,
+            grid.max <span class="op">=</span> <span class="fl">1</span>,
+            grid.mid <span class="op">=</span> <span class="fl">0.6</span>,
+            grid.min <span class="op">=</span> <span class="fl">0</span>
+        <span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="legend-2" class="section level4">
+<h4>
+<span class="header-section-number">80.2.3.4</span> Legend<a class="anchor" aria-label="anchor" href="#legend-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you want to get rid of the legend you can set <code>plot.legend = FALSE</code> or <code>legend.position = "none</code>.</p>
+<div class="sourceCode" id="cb1049"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
+                plot.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1050"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
+                legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="background-and-styles-of-grid-lines." class="section level4">
+<h4>
+<span class="header-section-number">80.2.3.5</span> Background and styles of grid lines.<a class="anchor" aria-label="anchor" href="#background-and-styles-of-grid-lines."><i class="fas fa-link"></i></a>
+</h4>
+<p>Use <code>background.circle.colour</code> to set the background color of the chart. <code>gridline.max.colour</code>, <code>gridline.min.colour</code> and <code>gridline.max.colour</code> are for the colors of three grid lines. <code>gridline.min.linetype</code> can set style of grid line to solid or longdash.</p>
+<div class="sourceCode" id="cb1051"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>, 
+             background.circle.colour <span class="op">=</span> <span class="st">'yellow'</span>,
+             gridline.min.colour <span class="op">=</span> <span class="st">'red'</span>,
+             gridline.mid.colour <span class="op">=</span> <span class="st">'blue'</span>,
+             gridline.max.colour <span class="op">=</span> <span class="st">'green'</span>,
+             gridline.min.linetype <span class="op">=</span> <span class="st">'solid'</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="set-the-colors-of-axes." class="section level4">
+<h4>
+<span class="header-section-number">80.2.3.6</span> Set the colors of axes.<a class="anchor" aria-label="anchor" href="#set-the-colors-of-axes."><i class="fas fa-link"></i></a>
+</h4>
+<p><code>group.colours</code> take a <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> of colors for each group.</p>
+<div class="sourceCode" id="cb1052"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
+                  group.colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'red'</span>,<span class="st">'blue'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="set-the-size-of-point" class="section level4">
+<h4>
+<span class="header-section-number">80.2.3.7</span> Set the size of point<a class="anchor" aria-label="anchor" href="#set-the-size-of-point"><i class="fas fa-link"></i></a>
+</h4>
+<p><code>group.point.size</code> only take one value or values of the data size.</p>
+<div class="sourceCode" id="cb1053"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
+              group.point.size <span class="op">=</span> <span class="fl">8</span>
+        <span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1054"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
+              group.point.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span>
+        <span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="set-the-width-of-line" class="section level4">
+<h4>
+<span class="header-section-number">80.2.3.8</span> Set the width of line<a class="anchor" aria-label="anchor" href="#set-the-width-of-line"><i class="fas fa-link"></i></a>
+</h4>
+<p><code>group.line.width</code> only take one value or values of the data size.</p>
+<div class="sourceCode" id="cb1055"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
+              group.line.width <span class="op">=</span> <span class="fl">3</span>
+        <span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1056"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
+              group.line.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>
+        <span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+</div>
+</div>
+<div id="radar-chart-using-fmsb" class="section level2">
+<h2>
+<span class="header-section-number">80.3</span> Radar chart using fmsb<a class="anchor" aria-label="anchor" href="#radar-chart-using-fmsb"><i class="fas fa-link"></i></a>
+</h2>
+<div id="installation-7" class="section level3">
+<h3>
+<span class="header-section-number">80.3.1</span> Installation<a class="anchor" aria-label="anchor" href="#installation-7"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can install fmsb package using command below:</p>
+<pre><code>install.packages("fmsb")</code></pre>
+<p> </p>
+</div>
+<div id="simple-example-1" class="section level3">
+<h3>
+<span class="header-section-number">80.3.2</span> Simple Example<a class="anchor" aria-label="anchor" href="#simple-example-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>By default, data frame must include maximum values as row 1 and minimum values as row 2 for each variables to create axis, and actual data should be given as row 3 and lower rows. So we should first modify the data and use <code><a href="https://rdrr.io/pkg/fmsb/man/radarchart.html">fmsb::radarchart</a></code> to draw the plot:</p>
+<div class="sourceCode" id="cb1058"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df_maxmin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+    drat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
+    wt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
+    qsec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
+    vs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
+    am <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="va">mtcars_radar</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'drat'</span>,<span class="st">'wt'</span>,<span class="st">'qsec'</span>,<span class="st">'vs'</span>,<span class="st">'am'</span><span class="op">)</span><span class="op">]</span>
+<span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbind</a></span><span class="op">(</span><span class="va">df_maxmin</span>, <span class="va">mtcars_radar</span><span class="op">)</span>
+<span class="fu">fmsb</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/fmsb/man/radarchart.html">radarchart</a></span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="parameters-usage-1" class="section level3">
+<h3>
+<span class="header-section-number">80.3.3</span> Parameters Usage<a class="anchor" aria-label="anchor" href="#parameters-usage-1"><i class="fas fa-link"></i></a>
+</h3>
+<div id="change-the-axistype" class="section level4">
+<h4>
+<span class="header-section-number">80.3.3.1</span> Change the axistype<a class="anchor" aria-label="anchor" href="#change-the-axistype"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can change different <code>axistype</code></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>0 – no axis label(Default)</p></li>
+<li><p>1 – center axis label only</p></li>
+<li><p>2 – around-the-chart label only</p></li>
+<li><p>3 – both center and around-the-chart (peripheral) labels</p></li>
+<li><p>4 – *.** format of axistype1</p></li>
+<li><p>5 – *.** format of axistype3</p></li>
+</ol>
+<div class="sourceCode" id="cb1059"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="change-axis-segments" class="section level4">
+<h4>
+<span class="header-section-number">80.3.3.2</span> Change axis segments<a class="anchor" aria-label="anchor" href="#change-axis-segments"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can modify <code>seg</code> to change the number of segments for each axis.
+In the plot below, we can see we set the <code>seg</code> = 1 and then segments becomes less.</p>
+<div class="sourceCode" id="cb1060"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, seg <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="set-points-symbol" class="section level4">
+<h4>
+<span class="header-section-number">80.3.3.3</span> Set Points Symbol<a class="anchor" aria-label="anchor" href="#set-points-symbol"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can modify <code>pty</code> to change point symbol. If you don’t plot data points, it should be 32. And the default value is 16. Besides, there are some other symbol you can try.</p>
+<div class="sourceCode" id="cb1061"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># default</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">32</span><span class="op">)</span> <span class="co"># no points</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">24</span><span class="op">)</span> <span class="co"># triangle</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">18</span><span class="op">)</span> <span class="co"># square</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="modify-lines-apperance-colortypewidth" class="section level4">
+<h4>
+<span class="header-section-number">80.3.3.4</span> Modify Lines’ Apperance (color/type/width)<a class="anchor" aria-label="anchor" href="#modify-lines-apperance-colortypewidth"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: lower-alpha">
+<li>
+<code>pcol</code> : A vector of color codes for plot data</li>
+<li>
+<code>plty</code> : A vector of line types for plot data</li>
+<li>
+<code>plwd</code> : A vector of line widths for plot data</li>
+</ol>
+<div class="sourceCode" id="cb1062"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#7FBF3F'</span>, <span class="st">'#FFB602'</span><span class="op">)</span>, <span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, plty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, plwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="modify-the-axislines-colortypewidth" class="section level4">
+<h4>
+<span class="header-section-number">80.3.3.5</span> Modify the axislines (color/type/width)<a class="anchor" aria-label="anchor" href="#modify-the-axislines-colortypewidth"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can change axislines appearance using these parameters:</p>
+<ol style="list-style-type: lower-alpha">
+<li>
+<code>cglcol</code>:Line color for radar grids</li>
+<li>
+<code>cglty</code>:Line type for radar grids</li>
+<li>
+<code>cglwd</code>:Line width for radar grids</li>
+</ol>
+<div class="sourceCode" id="cb1063"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span> 
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglcol <span class="op">=</span> <span class="st">'#7FBF3F'</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglwd <span class="op">=</span> <span class="fl">3</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="filling-polygons" class="section level4">
+<h4>
+<span class="header-section-number">80.3.3.6</span> Filling Polygons<a class="anchor" aria-label="anchor" href="#filling-polygons"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can add filling polygons appearance using these parameters:</p>
+<ol style="list-style-type: lower-alpha">
+<li>
+<code>pfcol</code>: A vector of color codes for filling polygons</li>
+<li>
+<code>pdensity</code>: A vector of filling density of polygons</li>
+<li>
+<code>pangle</code>: A vector of the angles of lines used as filling polygons</li>
+</ol>
+<div class="sourceCode" id="cb1064"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span>, pdensity<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>,<span class="fl">50</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span>, pdensity<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">10</span><span class="op">)</span>, pangle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, plty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="st">'#99999980'</span><span class="op">)</span>, cglty<span class="op">=</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">79</span> Common git command lines tutorial when working on studio</a></div>
+<div class="next"><a href="interactive-radar.html"><span class="header-section-number">81</span> Interactive Radar</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tutorial-of-radar-chart"><span class="header-section-number">80</span> Tutorial of radar chart</a></li>
+<li><a class="nav-link" href="#overview-6"><span class="header-section-number">80.1</span> Overview</a></li>
+<li>
+<a class="nav-link" href="#radar-chart-using-ggradar"><span class="header-section-number">80.2</span> Radar chart using ggradar</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#installation-6"><span class="header-section-number">80.2.1</span> Installation</a></li>
+<li><a class="nav-link" href="#simple-example"><span class="header-section-number">80.2.2</span> Simple Example</a></li>
+<li><a class="nav-link" href="#parameters-usage"><span class="header-section-number">80.2.3</span> Parameters Usage</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#radar-chart-using-fmsb"><span class="header-section-number">80.3</span> Radar chart using fmsb</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#installation-7"><span class="header-section-number">80.3.1</span> Installation</a></li>
+<li><a class="nav-link" href="#simple-example-1"><span class="header-section-number">80.3.2</span> Simple Example</a></li>
+<li><a class="nav-link" href="#parameters-usage-1"><span class="header-section-number">80.3.3</span> Parameters Usage</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/tutorial_of_radar_chart.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/tutorial_of_radar_chart.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

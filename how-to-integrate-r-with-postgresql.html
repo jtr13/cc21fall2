@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 31 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Julia Wang  31.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that...">
+<title>Chapter 33 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Julia Wang  33.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 31 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 33 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Julia Wang  31.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that...">
+<meta property="og:description" content="Julia Wang  33.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 31 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Julia Wang  31.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that...">
+<meta name="twitter:title" content="Chapter 33 How to Integrate R with PostgreSQL | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Julia Wang  33.1 Motivation This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -75,69 +75,77 @@
 <li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
 <li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
 <li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">30</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="active" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">31</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">32</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">33</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">34</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">35</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">36</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">37</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">38</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">39</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">40</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">41</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">42</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">43</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">44</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">45</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">46</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">47</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">48</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">49</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">50</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">51</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">52</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">53</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">54</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">55</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">56</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">57</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">58</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">59</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">60</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">61</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">62</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">63</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">64</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">65</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">66</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">67</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">68</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">69</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">70</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">71</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">72</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">73</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">74</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">75</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">76</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">77</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="active" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">34</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">35</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">36</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">37</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">38</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">39</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">40</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">41</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">42</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">43</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">44</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">45</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">46</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">47</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">50</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">51</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">52</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">53</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">54</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">55</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">56</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">57</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">58</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">59</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">60</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">61</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">62</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">63</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">64</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">65</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">66</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">67</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">68</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">69</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">70</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">71</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">73</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">74</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">75</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">76</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">77</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">78</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">79</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">80</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">81</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">82</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">83</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">84</span> Dlookr package</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">78</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">79</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">80</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">81</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">85</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">86</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">87</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">88</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">89</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">82</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">83</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">84</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">85</span> R and Python visualization</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">86</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">90</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">91</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">92</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">93</span> R and Python visualization</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">94</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">87</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">88</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">95</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">96</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -147,33 +155,33 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="how-to-integrate-r-with-postgresql" class="section level1">
 <h1>
-<span class="header-section-number">31</span> How to Integrate R with PostgreSQL<a class="anchor" aria-label="anchor" href="#how-to-integrate-r-with-postgresql"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33</span> How to Integrate R with PostgreSQL<a class="anchor" aria-label="anchor" href="#how-to-integrate-r-with-postgresql"><i class="fas fa-link"></i></a>
 </h1>
 <p>Julia Wang</p>
-<div id="motivation" class="section level2">
+<div id="motivation-1" class="section level2">
 <h2>
-<span class="header-section-number">31.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>This guide will teach you how to connect RStudio to your local instance of PostgreSQL, a popular open source object-relational database server management system, that is free to download. Once we have become familiar with connecting to our PostgreSQL instance, we will perform a quick Linear Regression on some sample data, store the data in your PostgreSQL database, and then reuse that LR model to make a prediction.</p>
 <p>Note: instance and database will be used interchangeably in this guide, but mean the same thing.</p>
 </div>
 <div id="how-to-integrate-r-with-postgresql-1" class="section level2">
 <h2>
-<span class="header-section-number">31.2</span> How to Integrate R with PostgreSQL<a class="anchor" aria-label="anchor" href="#how-to-integrate-r-with-postgresql-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.2</span> How to Integrate R with PostgreSQL<a class="anchor" aria-label="anchor" href="#how-to-integrate-r-with-postgresql-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you haven’t already, you will have to [download PostgreSQL]((<a href="https://www.postgresql.org/download/" class="uri">https://www.postgresql.org/download/</a>){target="_blank"} and setup pgAdmin 4. You should note down is the user and password that you create in this process, as well as make a note of what port and host you used to set up PostgreSQL (the defaults for this are localhost and 5432). You will need this information later to establish a connection between RStudio and your PostgreSQL instance.</p>
 <p>Once you have set up PostgreSQL and were able to connect to pgAdmin 4, now in RStudio, we want to install and use the relevant RPostgreSQL packages. You can do so by running the following commands.</p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"RPostgres"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"DBI"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></code></pre></div>
 <div id="create-your-connection" class="section level3">
 <h3>
-<span class="header-section-number">31.2.1</span> Create your connection<a class="anchor" aria-label="anchor" href="#create-your-connection"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.2.1</span> Create your connection<a class="anchor" aria-label="anchor" href="#create-your-connection"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the case you want to use a separate dummy/admin user, you can create a user by going to Servers &gt; PostgreSQL &gt; Databases &gt; <database name> &gt; Login &gt; right click Create &gt; Login/Group Role. The name will be the user name and set the password in Definition to whatever you want. It should have the priviledge to login at the bare minimum. In the following R block, we are going to setup a connection to our PostgreSQL instance. One question you might have reading the following block is what the drv (driver) does. A driver in this context is a tool that allows applications to access data in your database in other systems, similar to how printer drivers allow you to talk to your printer and print things. We pass a driver and relevant information about your database and a database user to create a connection, which we are able to use to then run R commands, such as dbListTables, which list all of the tables in your database.</database></p>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">db</span> <span class="op">&lt;-</span> <span class="st">'&lt;your db name here&gt;'</span>  <span class="co"># provide the name of your db</span>
 
 <span class="va">host_db</span> <span class="op">&lt;-</span> <span class="st">'&lt;your db server here&gt;'</span> <span class="co"># i.e. 'ec2-54-83-201-96.compute-1.amazonaws.com or localhost if you are connecting to an instance on your own laptop'  </span>
@@ -192,10 +200,10 @@
 </div>
 <div id="basic-sql-commands" class="section level3">
 <h3>
-<span class="header-section-number">31.2.2</span> Basic SQL commands<a class="anchor" aria-label="anchor" href="#basic-sql-commands"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.2.2</span> Basic SQL commands<a class="anchor" aria-label="anchor" href="#basic-sql-commands"><i class="fas fa-link"></i></a>
 </h3>
 <p>In addition to the two commands that I showed above, there are a few more basic commands that are built into the RPostgres library, which will allow you to read and write from your database. The following block will show you how to write a dataframe into a table in your instance, as well as query it afterwards.</p>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create a table</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
@@ -208,12 +216,12 @@
 <span class="fu">dbWriteTable</span><span class="op">(</span><span class="va">con</span>, <span class="st">'cars'</span>, <span class="va">cars</span>, overwrite<span class="op">=</span><span class="cn">TRUE</span>, append<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co"># you will need to pass in additional parameters. Overwrite will drop and recreate the table with your new data. Append just appends your data, your df needs to be in the same shape with the same variable names in order to work.</span></code></pre></div>
 <p>If you don’t notice your table immediately, make sure to right click the tables dropdown in the sidebar and hit refresh.</p>
 <p>Read your table:</p>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">dbReadTable</span><span class="op">(</span><span class="va">con</span>, <span class="st">"cars"</span><span class="op">)</span> <span class="co"># read your newly created table</span>
 
 <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">dbReadTable</span><span class="op">(</span><span class="va">con</span>, <span class="st">"cars"</span><span class="op">)</span> <span class="co"># can also be stored as variable</span></code></pre></div>
 <p>In case you prefer writing raw sql, you can use the dbGetQuery method. There is also a dbSendQuery method which is a bit more involved, but for our purposes, dbGetQuery will be sufficient.</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 
 <span class="fu">dbGetQuery</span><span class="op">(</span><span class="va">con</span>, <span class="st">'ALTER TABLE cars ADD CONSTRAINT cars_pk PRIMARY KEY (id)'</span><span class="op">)</span> <span class="co"># add primary key to the id column</span>
@@ -227,7 +235,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Displacement (cu.in.)"</span><span class="op">)</span></code></pre></div>
 <p>The dbSendQuery method only submits and synchronously executes the SQL query to the database engine. It does not extract any records, for that you need to use the dbFetch method, and then you must call dbClearResult when you finish fetching the records you need. If you are going to run SQL queries through RStudio, then most likely you should be using dbGetQuery.</p>
 <p>Now that we are able to connect to and talk to our PostgreSQL instance, we can now run analyses using the data stored there as well as store our results there. We can also pull that saved model to make predictions as well, which can save us time on retraining our models.</p>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">disp</span>, <span class="va">db_cars</span><span class="op">)</span>
 
 <span class="va">serialized_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rawConversion.html">rawToChar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/serialize.html">serialize</a></span><span class="op">(</span><span class="va">model</span>, <span class="cn">NULL</span>, ascii<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="co"># serialize (convert string) model so it can be stored in database</span>
@@ -255,7 +263,7 @@
 <span class="va">X_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">disp</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">db_model</span>, <span class="va">X_test</span><span class="op">)</span></code></pre></div>
 <p>Make sure to clean up your connections once you are finished working with your database.</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># disconnect once you are finished</span>
 <span class="fu">dbDisconnect</span><span class="op">(</span><span class="va">con</span><span class="op">)</span>
 <span class="fu">dbUnloadDriver</span><span class="op">(</span><span class="va">drv</span><span class="op">)</span></code></pre></div>
@@ -263,7 +271,7 @@
 </div>
 <div id="sources-1" class="section level2">
 <h2>
-<span class="header-section-number">31.3</span> Sources<a class="anchor" aria-label="anchor" href="#sources-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">33.3</span> Sources<a class="anchor" aria-label="anchor" href="#sources-1"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li><a href="https://www.datacareer.de/blog/connect-to-postgresql-with-r-a-step-by-step-example/" class="uri">https://www.datacareer.de/blog/connect-to-postgresql-with-r-a-step-by-step-example/</a></li>
@@ -272,20 +280,20 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">30</span> Tutorial on Cluster Analysis</a></div>
-<div class="next"><a href="apply-function-in-r.html"><span class="header-section-number">32</span> Apply function in r</a></div>
+<div class="prev"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></div>
+<div class="next"><a href="apply-function-in-r.html"><span class="header-section-number">34</span> Apply function in r</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#how-to-integrate-r-with-postgresql"><span class="header-section-number">31</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="nav-link" href="#motivation"><span class="header-section-number">31.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#how-to-integrate-r-with-postgresql"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="nav-link" href="#motivation-1"><span class="header-section-number">33.1</span> Motivation</a></li>
 <li>
-<a class="nav-link" href="#how-to-integrate-r-with-postgresql-1"><span class="header-section-number">31.2</span> How to Integrate R with PostgreSQL</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#create-your-connection"><span class="header-section-number">31.2.1</span> Create your connection</a></li>
-<li><a class="nav-link" href="#basic-sql-commands"><span class="header-section-number">31.2.2</span> Basic SQL commands</a></li>
+<a class="nav-link" href="#how-to-integrate-r-with-postgresql-1"><span class="header-section-number">33.2</span> How to Integrate R with PostgreSQL</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#create-your-connection"><span class="header-section-number">33.2.1</span> Create your connection</a></li>
+<li><a class="nav-link" href="#basic-sql-commands"><span class="header-section-number">33.2.2</span> Basic SQL commands</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#sources-1"><span class="header-section-number">31.3</span> Sources</a></li>
+<li><a class="nav-link" href="#sources-1"><span class="header-section-number">33.3</span> Sources</a></li>
 </ul>
 
       <div class="book-extra">
@@ -303,7 +311,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-09.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

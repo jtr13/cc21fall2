@@ -1,0 +1,15 @@
+# RGL Package
+
+Nishi Modi and Vishwas Reddy Thuniki
+
+RGL package is a data visualization device system for R. It uses OpenGl or WebGL as the backend. It provides R programming interface along with interactive viewpoint navigation. It contains low level structure and high level graphic commands.
+
+RGL Graphical Elements:
+• It has various primitive shapes such as “points3d”, “lines3d”, “segments3d”, “quads3d” to add graphical elements to currently active plot.
+• It has various constructed shapes such as “text3d”, “arc3d”, “planes3d”, “pch3d” to construct objects from primitives.
+• “Light3d” function will help in controlling the position and characteristics of light. This helps in improving the appearance of an object in different backgrounds.
+• “texture” function helps in changing texture of any polygon and enhance their look in a particular code.
+• Font can be changed using “rglFonts” for low level function and “rglExtraFonts” for high level function.
+
+Why RGL?
+RGL provides real time 3D plots using medium and high level functions. It was created to produce 3D models easily in R. We have listed few elements of RGL which will be explained in detailed during our talk with examples. This can help everyone in improving visualization effects of our code. It has several advanced features as well which we will try to highlight in our talk.
