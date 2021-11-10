@@ -38,7 +38,6 @@ Imports:
     formatR,
     gam,
     gapminder,
-    geocompr,
     geosphere,
     ggalluvial,
     GGally,
@@ -173,7 +172,6 @@ Suggests:
     downlit,
     xml2    
 Remotes:
-    robinlovelace/geocompr,
     ricardo-bion/ggradar,
     AntoninVidon/goyav,
     ramnathv/rCharts,
