@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 85 Map of the R world | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Guangyu Wu (gw2415) As a newcomer to the R world, I created a map to help people like me navigate the rich ecosystem of R packages. Popular packages are mapped onto 2D and 3D space based on their...">
+<title>Chapter 31 Animate Time Series : the goyav package | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content='Antonin Vidon # install.packages("devtools") # library(devtools) # install_github("AntoninVidon/goyav") library(goyav) # must be installed from source # install.packages("gapminder")...'>
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 85 Map of the R world | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 31 Animate Time Series : the goyav package | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Guangyu Wu (gw2415) As a newcomer to the R world, I created a map to help people like me navigate the rich ecosystem of R packages. Popular packages are mapped onto 2D and 3D space based on their...">
+<meta property="og:description" content='Antonin Vidon # install.packages("devtools") # library(devtools) # install_github("AntoninVidon/goyav") library(goyav) # must be installed from source # install.packages("gapminder")...'>
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 85 Map of the R world | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Guangyu Wu (gw2415) As a newcomer to the R world, I created a map to help people like me navigate the rich ecosystem of R packages. Popular packages are mapped onto 2D and 3D space based on their...">
+<meta name="twitter:title" content="Chapter 31 Animate Time Series : the goyav package | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content='Antonin Vidon # install.packages("devtools") # library(devtools) # install_github("AntoninVidon/goyav") library(goyav) # must be installed from source # install.packages("gapminder")...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -76,7 +76,7 @@
 <li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
 <li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
 <li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
-<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="active" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
 <li class="book-part">Tutorials</li>
 <li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></li>
 <li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
@@ -132,7 +132,7 @@
 <li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">83</span> Tutorial on R Markdown</a></li>
 <li class="book-part">Project &amp; Workshops</li>
 <li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">84</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="active" href="map-of-the-r-world.html"><span class="header-section-number">85</span> Map of the R world</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">85</span> Map of the R world</a></li>
 <li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">86</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
 <li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">87</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
 <li><a class="" href="rgl-package.html"><span class="header-section-number">88</span> RGL Package</a></li>
@@ -152,27 +152,174 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="map-of-the-r-world" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="animate-time-series-the-goyav-package" class="section level1">
 <h1>
-<span class="header-section-number">85</span> Map of the R world<a class="anchor" aria-label="anchor" href="#map-of-the-r-world"><i class="fas fa-link"></i></a>
+<span class="header-section-number">31</span> Animate Time Series : the <code>goyav</code> package<a class="anchor" aria-label="anchor" href="#animate-time-series-the-goyav-package"><i class="fas fa-link"></i></a>
 </h1>
-<p>Guangyu Wu (gw2415)</p>
-<p>As a newcomer to the R world, I created a map to help people like me navigate the rich ecosystem of R packages. Popular packages are mapped onto 2D and 3D space based on their semantic information and colored by auto-generated functionality groups.</p>
-<p>Please visit the project page at <code>https://github.com/TimWGY/r_world</code> for high-resolution map and interactive visualization, as well as methodology documentation.</p>
-<p><img src="resources/map_of_r_world/r_world_2d_compressed.png" alt="r_world_2d"><img src="resources/map_of_r_world/r_world_3d_static.png" alt="r_world_3d"></p>
+<p>Antonin Vidon</p>
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="co"># library(devtools)</span>
+<span class="co"># install_github("AntoninVidon/goyav")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">goyav</span><span class="op">)</span> <span class="co"># must be installed from source</span>
+
+<span class="co"># install.packages("gapminder")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span></code></pre></div>
+<div id="motivation" class="section level2">
+<h2>
+<span class="header-section-number">31.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+</h2>
+<p>One of the main drawbacks of the IDE RStudio is the lack of real interaction between the user and the plots generated from raw data. Even for simple plots, the user often has to go through a lot of documentation and/or look at heavy web located tutorials.</p>
+<p>We build a shiny-app based interface on which the user tunes dynamically the plot he wants to build by offering choices among true candidates for each parameter (no error possible). We choose to focus on “animated” plots. These are dynamic plots generated from temporal data. This type of plot is especially tedious to build in a “hard-code” way with the <code>gganimate</code> package. We add some interesting features such as <em>filter on a factor</em>, <em>choose x,y and temporal range</em>, <em>change any/both of the scales to log-scales</em>, <em>modify the duration of the animation</em>, … These are common operations that a meticulous user might want to perform in order to draw impactful plots.</p>
+</div>
+<div id="features" class="section level2">
+<h2>
+<span class="header-section-number">31.2</span> Features<a class="anchor" aria-label="anchor" href="#features"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>goyav</code> is a shiny App meant to generate GIF animations from tabular temporal data. All customization of the animated plots is done in an interactive window.</p>
+<p>The dashboard of the application looks like this :</p>
+<div class="inline-figure"><img src="resources/animate_time_series/dashboard.PNG" width="939" style="display: block; margin: auto;"></div>
+<p>The user is able to navigate into two tabs : “Animate” and “Advanced animate”, the latter offering a wider range of customization.</p>
+<p>From the <em>Animate</em> tab, you may choose the following :</p>
+<ul>
+<li>X variable (numeric);</li>
+<li>Y variable (numeric);</li>
+<li>size variable (numeric);</li>
+<li>color variable (optional, factor);</li>
+<li>temporal variable (numeric);</li>
+<li>choose if you want to apply a log-scale to either X, Y or X and Y (optional).</li>
+</ul>
+<p>From the <em>Advanced animated</em> tab, you may choose the following :</p>
+<ul>
+<li>X variable (numeric);</li>
+<li>Y variable (numeric);</li>
+<li>size variable (numeric);</li>
+<li>color variable (optional, factor);</li>
+<li>temporal variable (numeric);</li>
+<li>choose if you want to apply a log-scale to either X, Y or X and Y (optional);</li>
+<li>X range;</li>
+<li>Y range;</li>
+<li>temporal range;</li>
+<li>Animation duration (s);</li>
+<li>Factor levels to include (optional, among color variable levels).</li>
+</ul>
+</div>
+<div id="demonstration" class="section level2">
+<h2>
+<span class="header-section-number">31.3</span> Demonstration<a class="anchor" aria-label="anchor" href="#demonstration"><i class="fas fa-link"></i></a>
+</h2>
+<p>In order to better show the use of the package, we will use the <code>gapminder</code> dataset from the <code>gapminder</code> package.</p>
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># display first rows of dataset</span>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1952</td>
+<td align="right">28.801</td>
+<td align="right">8425333</td>
+<td align="right">779.4453</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1957</td>
+<td align="right">30.332</td>
+<td align="right">9240934</td>
+<td align="right">820.8530</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1962</td>
+<td align="right">31.997</td>
+<td align="right">10267083</td>
+<td align="right">853.1007</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1967</td>
+<td align="right">34.020</td>
+<td align="right">11537966</td>
+<td align="right">836.1971</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1972</td>
+<td align="right">36.088</td>
+<td align="right">13079460</td>
+<td align="right">739.9811</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1977</td>
+<td align="right">38.438</td>
+<td align="right">14880372</td>
+<td align="right">786.1134</td>
+</tr>
+</tbody>
+</table></div>
+<p>In order to be able to create any GIF, your dataframe should have candidate columns for the following variables: X, Y, size and temporal. Therefore, <em>calling the <code>goyav</code> function on a dataframe with less than 4 numeric variables will return an error</em>.</p>
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># try to call the `goyav` function on the first 3 columns of the `gapminder` dataset</span>
+<span class="fu"><a href="https://rdrr.io/pkg/goyav/man/goyav.html">goyav</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<pre><code>## Error in goyav(gapminder[, 1:3]): Your dataframe should have at least 4 numeric variables.</code></pre>
+<p>Let’s now call <code>goyav</code> on the whole dataset :</p>
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># call `goyav` on `gapminder`</span>
+<span class="fu"><a href="https://rdrr.io/pkg/goyav/man/goyav.html">goyav</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">)</span></code></pre></div>
+<div id="view-from-the-animate-tab" class="section level3">
+<h3>
+<span class="header-section-number">31.3.1</span> View from the <em>Animate</em> tab<a class="anchor" aria-label="anchor" href="#view-from-the-animate-tab"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="resources/animate_time_series/Animate.gif" style="display: block; margin: auto;"></div>
+</div>
+<div id="view-from-the-advanced-animate-tab" class="section level3">
+<h3>
+<span class="header-section-number">31.3.2</span> View from the <em>Advanced animate</em> tab<a class="anchor" aria-label="anchor" href="#view-from-the-advanced-animate-tab"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="resources/animate_time_series/AdvancedAnimate.gif" style="display: block; margin: auto;"></div>
 
 </div>
+</div>
+</div>
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">84</span> Introduction to analytics consulting at Accenture</a></div>
-<div class="next"><a href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">86</span> Alluvial diagrams and their implementation using GGalluvial in R</a></div>
+<div class="prev"><a href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></div>
+<div class="next"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#map-of-the-r-world"><span class="header-section-number">85</span> Map of the R world</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#animate-time-series-the-goyav-package"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="nav-link" href="#motivation"><span class="header-section-number">31.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#features"><span class="header-section-number">31.2</span> Features</a></li>
+<li>
+<a class="nav-link" href="#demonstration"><span class="header-section-number">31.3</span> Demonstration</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#view-from-the-animate-tab"><span class="header-section-number">31.3.1</span> View from the Animate tab</a></li>
+<li><a class="nav-link" href="#view-from-the-advanced-animate-tab"><span class="header-section-number">31.3.2</span> View from the Advanced animate tab</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/map_of_r_world.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/map_of_r_world.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/animate_time_series.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/animate_time_series.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

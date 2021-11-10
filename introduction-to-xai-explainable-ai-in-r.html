@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 47 Introduction to XAI (Explainable AI) in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Masataka Koga library(openintro) library(tidyverse) library(rsample) library(doParallel) library(caret) library(iml) library(patchwork)  47.1 Motivation Unlike linear models and decision trees,...">
+<title>Chapter 48 Introduction to XAI (Explainable AI) in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Masataka Koga library(openintro) library(tidyverse) library(rsample) library(doParallel) library(caret) library(iml) library(patchwork)  48.1 Motivation Unlike linear models and decision trees,...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 47 Introduction to XAI (Explainable AI) in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 48 Introduction to XAI (Explainable AI) in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Masataka Koga library(openintro) library(tidyverse) library(rsample) library(doParallel) library(caret) library(iml) library(patchwork)  47.1 Motivation Unlike linear models and decision trees,...">
+<meta property="og:description" content="Masataka Koga library(openintro) library(tidyverse) library(rsample) library(doParallel) library(caret) library(iml) library(patchwork)  48.1 Motivation Unlike linear models and decision trees,...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 47 Introduction to XAI (Explainable AI) in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Masataka Koga library(openintro) library(tidyverse) library(rsample) library(doParallel) library(caret) library(iml) library(patchwork)  47.1 Motivation Unlike linear models and decision trees,...">
+<meta name="twitter:title" content="Chapter 48 Introduction to XAI (Explainable AI) in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Masataka Koga library(openintro) library(tidyverse) library(rsample) library(doParallel) library(caret) library(iml) library(patchwork)  48.1 Motivation Unlike linear models and decision trees,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -76,74 +76,75 @@
 <li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
 <li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
 <li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">31</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">32</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">33</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">34</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">35</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">36</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">37</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">38</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">39</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">40</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">41</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">42</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">43</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">44</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">45</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">46</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="active" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">47</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">48</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">49</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">50</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">51</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">52</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">53</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">54</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">55</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">56</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">57</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">58</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">59</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">60</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">61</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">62</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">63</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">64</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">65</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">66</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">67</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">68</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">69</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">70</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">71</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">72</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">73</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">74</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">75</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">76</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">77</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">78</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">79</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">80</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">81</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">82</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">34</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">35</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">36</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">37</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">38</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">39</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">40</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">41</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">42</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">43</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">44</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">45</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">46</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">47</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="active" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">50</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">51</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">52</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">53</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">54</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">55</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">56</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">57</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">58</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">59</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">60</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">61</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">62</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">63</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">64</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">65</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">66</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">67</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">68</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">69</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">70</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">71</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">73</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">74</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">75</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">76</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">77</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">78</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">79</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">80</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">81</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">82</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">83</span> Tutorial on R Markdown</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">83</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">84</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">85</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">86</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">87</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">84</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">85</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">86</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">87</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">88</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">88</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">89</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">90</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">91</span> R and Python visualization</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">92</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">89</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">90</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">91</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">92</span> R and Python visualization</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">93</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">93</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">94</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">94</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">95</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -153,10 +154,10 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction-to-xai-explainable-ai-in-r" class="section level1">
 <h1>
-<span class="header-section-number">47</span> Introduction to XAI (Explainable AI) in R<a class="anchor" aria-label="anchor" href="#introduction-to-xai-explainable-ai-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R<a class="anchor" aria-label="anchor" href="#introduction-to-xai-explainable-ai-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Masataka Koga</p>
-<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb567"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://openintrostat.github.io/openintro/">openintro</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org">rsample</a></span><span class="op">)</span>
@@ -164,9 +165,9 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://christophm.github.io/iml/">iml</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></code></pre></div>
-<div id="motivation-2" class="section level2">
+<div id="motivation-3" class="section level2">
 <h2>
-<span class="header-section-number">47.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-3"><i class="fas fa-link"></i></a>
 </h2>
 <p>Unlike linear models and decision trees, machine learning models are often described as black-box models due to their complexity. It is difficult to describe the relationship between independent and dependent variables so that humans can intuitively understand. For this reason, machine learning models tend to be avoided in cases where the goal is to explain the mechanism of event occurrence, or where the causes of the model’s prediction must be explained to convince those who will be affected by the decision. In other words, machine learning is mainly used for tasks where prediction itself is important.</p>
 <p>However, simple interpretable models have a limit to the events that can be described. So, to utilize machine learning models, investigations and researches on methods to explain the model structure in a format easy for humans to understand have progressed. In addition, The General Data Protection Regulation (GDPR) in the EU, the strictest privacy and security law in the world, puts a premium on transparent AI. Therefore, the interpretability of machine learning models is becoming crucial and required by society.</p>
@@ -174,7 +175,7 @@
 </div>
 <div id="introduction-8" class="section level2">
 <h2>
-<span class="header-section-number">47.2</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.2</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-8"><i class="fas fa-link"></i></a>
 </h2>
 <p>Typical cases in which interpretability is more important can be divided into the four types below. In such cases, the usage of XAI (Explainable Artificial Intelligence), methods for explaining and interpreting black-box models, is a very promising option.</p>
 <ol style="list-style-type: decimal">
@@ -275,7 +276,7 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="model-training" class="section level2">
 <h2>
-<span class="header-section-number">47.3</span> Model Training<a class="anchor" aria-label="anchor" href="#model-training"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.3</span> Model Training<a class="anchor" aria-label="anchor" href="#model-training"><i class="fas fa-link"></i></a>
 </h2>
 <p>At first, I created the neural network model (NN model) as a black-box model. In the following code, I utilized the ames dataset in the openintro package, which we analyzed in PSet2, selected eight out of the numeric variables in the ames as independent variables, and sampled 20% of data as training data to introduce XAI simply. The rsample package enables us to split data by random sampling into train and test data easily. Also, I set the set.seed(0) for the reproducible analysis. The selected variables are as follows.</p>
 <div class="inline-table"><table class="table table-sm">
@@ -326,7 +327,7 @@ When using machine learning models to describe events that require ethical consi
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
 
 <span class="va">ames_8</span> <span class="op">&lt;-</span> <span class="va">ames</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"price"</span>, <span class="st">"area"</span>, <span class="st">"Lot.Frontage"</span>,
@@ -340,7 +341,7 @@ When using machine learning models to describe events that require ethical consi
 <p>Parameter tuning for NN models is often time-consuming due to the huge amount of calculations. In such cases, we can parallelize the computation to increase the computation speed by doParallel package. My PC has 8 cores. We can check the number of cores by launching a command prompt and typing “set NUMBER_OF_PROCESSORS.” In the R code below, by executing the R function called “detectCores(),” R automatically sets the number of cores for makePSOCKcluster() function according to our PC’s specifications.</p>
 <p>For implementing NN model, we can use the caret package. The package allows efficient implementation of many different machine learning models in R without learning and management of various related packages. Basically, we need to know predict(), which calculates the prediction values using trained models, and train() functions in the caret. To train NN model by nnet package, set the argument of method as “nnet”.</p>
 <p>We can normalize the data by specify “preProcess = c(”center“,”scale“),” find the best hyperparameter based on cross-validation by setting “trControl = trainControl(method =”cv“),” decide the range for cross-validation by “tuneGrid = expand.grid(size = sequence_1, decay = sequence_2)” with arbitrary desired sequences of sequence_1 and sequence_2. Also, we can decide only the number of parameter combinations to test by “tuneLength = n” with the desired number of n. In this case, the number of tested patterns is <span class="math inline">\(n^2\)</span> because caret searches grid points for n points respectively in size and decay. Then, We can set “lineout = TRUE” to run the regression of NN model and set “trace = FALSE” to hide the results in each step. To save the time to tune the model, not specify too large tuneLength and tuneGrid patterns. Finally, I changed the metric from the default setting, “RMSE” (Root Mean Squared Error), to “MAE” (Mean Absolute Error) because MAE is more robust to outliers.</p>
-<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb569"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># parallelize the computation by the doParallel package</span>
 <span class="va">cl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/parallel/makeCluster.html">makePSOCKcluster</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html">detectCores</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/doParallel/man/registerDoParallel.html">registerDoParallel</a></span><span class="op">(</span><span class="va">cl</span><span class="op">)</span>
@@ -379,11 +380,11 @@ When using machine learning models to describe events that require ethical consi
 ## 18   31 0.00010 37041.91  0.80137 27094.78  6346.569    0.04844 4037.853
 ## 19   39 0.00015 38397.60  0.78882 27125.06  9873.664    0.06774 6165.891
 ## 20   39 0.01468 38973.02  0.78150 27158.82  6957.925    0.06207 5068.639</code></pre>
-<div class="sourceCode" id="cb566"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb571"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">price_sd</span> <span class="op">&lt;-</span> <span class="va">ames_train</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 <span class="va">price_sd</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"SD of Price in Train Data: "</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">print</span></code></pre></div>
 <pre><code>## [1] "SD of Price in Train Data: 82290.72"</code></pre>
-<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">modelNnet</span><span class="op">$</span><span class="va">results</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">MAE</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="va">price_sd</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"MAE / Price_SD: "</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">print</span></code></pre></div>
 <pre><code>## [1] "MAE / Price_SD: 0.31"</code></pre>
@@ -392,13 +393,13 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="entire-model-interpretation" class="section level2">
 <h2>
-<span class="header-section-number">47.4</span> Entire Model Interpretation<a class="anchor" aria-label="anchor" href="#entire-model-interpretation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.4</span> Entire Model Interpretation<a class="anchor" aria-label="anchor" href="#entire-model-interpretation"><i class="fas fa-link"></i></a>
 </h2>
 <p>XAI can be roughly divided into three types by its policy, Entire Model Interpretation, Features Interpretation, and Local Interpretation. At first, I will briefly explain two methods for entire model interpretation, Permutation Feature Importance and Global Surrogate Model, as intuitive means to comprehend the whole structure of learned black-box models, and its implementation using the iml package. If you need more detailed information, Interpretable Machine Learning (e-book) in the Reference section offers it about all methods in the iml package because the author of the e-book, Christoph Molnar, is one of the authors of iml.</p>
 <p><br></p>
 <div id="permutation-feature-importance" class="section level3">
 <h3>
-<span class="header-section-number">47.4.1</span> Permutation Feature Importance<a class="anchor" aria-label="anchor" href="#permutation-feature-importance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.4.1</span> Permutation Feature Importance<a class="anchor" aria-label="anchor" href="#permutation-feature-importance"><i class="fas fa-link"></i></a>
 </h3>
 <p>Permutation Feature Importance is a method devised by Breiman in 2001 to interpret random forests in order to ascertain the magnitude of importance of each independent variable. The technique has been improved, and a model-agnostic method was devised by Fisher et al. in 2018. In this method, the feature values of interest are randomly shuffled in the dataset, and the prediction error is calculated to see how much it worsens. In this method, if the model error is more significant, the importance of the independent variable is more important in the model.</p>
 <p>To execute any XAI methods, including permutation feature importance, by iml package, we need to set a Predictor object, which basically requires a fitted model object and data to be used for analyzing the prediction model. Employing XAI methods to classification models, we need to specify the class and type for Predictor object. Apart from predictor, FeatureImp has three arguments, loss, compare, and n.reptitions, as follows.</p>
@@ -407,12 +408,12 @@ When using machine learning models to describe events that require ethical consi
 <li>compare:“ratio” or “difference,” which adopt “error.permutation/error.orig” and “error.permutation - error.orig” to measure importance after permutation respectively</li>
 <li>n.repetitions: the number of feature shuffling. The higher repetition number leads to the more stable and accurate results</li>
 </ul>
-<div class="sourceCode" id="cb570"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb575"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">predictor</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/Predictor.html">Predictor</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">modelNnet</span>, data <span class="op">=</span> <span class="va">ames_train</span><span class="op">)</span>
 <span class="va">imp</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/FeatureImp.html">FeatureImp</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>, loss <span class="op">=</span> <span class="st">"mae"</span>, compare <span class="op">=</span> <span class="st">"ratio"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">imp</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb571"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb576"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">imp</span><span class="op">$</span><span class="va">results</span></code></pre></div>
 <pre><code>##          feature importance.05 importance importance.95 permutation.error
 ## 1   Overall.Qual      1.332271   1.375708      1.445636          34619.43
@@ -429,7 +430,7 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="global-surrogate-model" class="section level3">
 <h3>
-<span class="header-section-number">47.4.2</span> Global Surrogate Model<a class="anchor" aria-label="anchor" href="#global-surrogate-model"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.4.2</span> Global Surrogate Model<a class="anchor" aria-label="anchor" href="#global-surrogate-model"><i class="fas fa-link"></i></a>
 </h3>
 <p>An approximate model created for a trained machine learning model using training data without bias is called a Global Surrogate Model. To adopt simple and interpretable models such as linear models and decision trees as surrogate models makes it possible to interpret black-box models. There is also a way to create surrogate models as compact models that reduce the feature numbers in machine learning models. On the other hand, approximate models created by only parts of training data or by focusing on some data are called Local surrogate models, which will be introduced later in the section of Local Interpretable Model-Agnostic Explanations (LIME).</p>
 <p>The iml package provides only TreeSurrogate method for global surrogate models of decision trees. Apart from predictor, TreeSurrogate has only the two arguments below.</p>
@@ -437,14 +438,14 @@ When using machine learning models to describe events that require ethical consi
 <li>maxdepth: the number of the maximum tree depth. Default is 2. The deeper trees can grasp fitted models more accurately but have less explainability</li>
 <li>tree.args: arguments for conditional inference trees in party::ctree(), but you do not have to specify any ctree arguments because they are optional and not required</li>
 </ul>
-<div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb578"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tree</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/TreeSurrogate.html">TreeSurrogate</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>, maxdepth <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">tree</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb574"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb579"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">mae</span><span class="op">(</span><span class="va">modelNnet</span>, <span class="va">ames_test</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">round</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"MAE of NN model: "</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">print</span></code></pre></div>
 <pre><code>## [1] "MAE of NN model: 26435"</code></pre>
-<div class="sourceCode" id="cb576"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb581"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">modelNnet</span>, <span class="va">ames_test</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">tree</span>, <span class="va">ames_test</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="va">mean</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">round</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"MAE of GS model: "</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">print</span></code></pre></div>
 <pre><code>## [1] "MAE of GS model: 25005"</code></pre>
@@ -455,13 +456,13 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="features-interpretation" class="section level2">
 <h2>
-<span class="header-section-number">47.5</span> Features Interpretation<a class="anchor" aria-label="anchor" href="#features-interpretation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.5</span> Features Interpretation<a class="anchor" aria-label="anchor" href="#features-interpretation"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this section, I will introduce five methods for feature interpretation, Partial Dependence Plot (PDP), Individual Conditional Expectation (ICE) Plot, Centered ICE (c-ICE) Plot, Accumulated Local Effects (ALE) Plot, and Feature Interaction, to grasp the characteristics of features in learned black-box models, and the usage methods of iml. Some other feature interaction methods, such as d-ICE plot and m-plot, are less valuable than those above and not implemented in the iml package. So, I will not explain here, and please refer to the e-book of Interpretable Machine Learning if interested.</p>
 <p><br></p>
 <div id="pdp-ice-plot-and-c-ice-plot" class="section level3">
 <h3>
-<span class="header-section-number">47.5.1</span> PDP, ICE Plot, and c-ICE Plot<a class="anchor" aria-label="anchor" href="#pdp-ice-plot-and-c-ice-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.5.1</span> PDP, ICE Plot, and c-ICE Plot<a class="anchor" aria-label="anchor" href="#pdp-ice-plot-and-c-ice-plot"><i class="fas fa-link"></i></a>
 </h3>
 <p>J. H. Friedman proposed Partial Dependence Plot (PDP) in 2001, which calculates the marginal effect of independent variables of interest on dependent variables in trained models; in other words, PDP draws how much predicted values changes in response to the value shift of the variable. Goldstein et al. introduced the Individual Conditional Expectation (ICE) plot in 2015. It is a plot that depicts how the fitted model predictions change when the variable values other than the variable of interest are fixed at the value of one sample, and only the variable of interest is changed. The average of ICE for all samples is the value of PDP. By depicting the ICE, we can see the effect of the interaction between variables on predictions, which the PDP obscure.</p>
 <p>To draw them by using iml, we can utilize FeatureEffects() method and its arguments other than a predictor.</p>
@@ -472,13 +473,13 @@ When using machine learning models to describe events that require ethical consi
 <li>grid.size: size of the grid for evaluating the predictions</li>
 <li>feature: feature name or index for which to compute PDP and ICE plot. not set when using features instead</li>
 </ul>
-<div class="sourceCode" id="cb578"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb583"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pdp</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/FeatureEffects.html">FeatureEffects</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>,
                           features <span class="op">=</span> <span class="va">predictor</span><span class="op">$</span><span class="va">model</span><span class="op">$</span><span class="va">coefnames</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>,
                           method <span class="op">=</span> <span class="st">"pdp+ice"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pdp</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb579"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb584"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pdp</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/FeatureEffects.html">FeatureEffects</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>,
                           features <span class="op">=</span> <span class="va">predictor</span><span class="op">$</span><span class="va">model</span><span class="op">$</span><span class="va">coefnames</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>,
                           method <span class="op">=</span> <span class="st">"pdp+ice"</span><span class="op">)</span>
@@ -487,7 +488,7 @@ When using machine learning models to describe events that require ethical consi
 <p>In the figure above, PDPs are depicted in yellow curves, ICE plots in black curves, and distributions of each variable in short lines on the x-axis. From PDP, we can say that all variables may have positive correlations with the price. On the other hand, Lot.Frontage and Total.Bsmt.SF seem to have nonlinear relationships. Also, ICE roughly shows that the relationship between independent variables and price is not consistent in each sample but heterogeneous due to interactions between independent variables.</p>
 <p>However, like these graphs, ICE plots are sometimes too complicated to see the curves differ between each sample because they start at different predictions. To solve this problem, we can use centered ICE (c-ICE) plot, which is a graph with centered ICE curves at one point in each variable (often selected as the lower end of each feature) and shows only the difference in the prediction from the point.</p>
 <p>The center.at argument in FeatureEffects() function gives the easy way to make c-ICE graphs by assigning numeric value at which the plot should be centered.</p>
-<div class="sourceCode" id="cb580"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb585"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">min_val</span> <span class="op">&lt;-</span> <span class="va">predictor</span><span class="op">$</span><span class="va">model</span><span class="op">$</span><span class="va">trainingData</span><span class="op">[</span>,<span class="va">predictor</span><span class="op">$</span><span class="va">model</span><span class="op">$</span><span class="va">coefnames</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_each.html">summarize_each</a></span><span class="op">(</span><span class="va">min</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">as.numeric</span>
 
@@ -504,17 +505,17 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="accumulated-local-effects-ale-plot" class="section level3">
 <h3>
-<span class="header-section-number">47.5.2</span> Accumulated Local Effects (ALE) Plot<a class="anchor" aria-label="anchor" href="#accumulated-local-effects-ale-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.5.2</span> Accumulated Local Effects (ALE) Plot<a class="anchor" aria-label="anchor" href="#accumulated-local-effects-ale-plot"><i class="fas fa-link"></i></a>
 </h3>
 <p>D. W. Apley presented Accumulated Local Effects (ALE) Plot in 2016. While ALE Plot calculates the average effect of independent variables on the predictions of constructed machine learning models like PDP, ALE plots are a faster and unbiased alternative to it. Unlike PDP, ALE plot can take into account interactions of variables even when they are correlated, and its theory makes the average of the output values aligned to zero.</p>
 <p>In the same way as PDP, we can quickly implement ALE by the FeatureEffects() method with the argument of ‘method = “ale”.’</p>
-<div class="sourceCode" id="cb581"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb586"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ale</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/FeatureEffects.html">FeatureEffects</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>,
                           features <span class="op">=</span> <span class="va">predictor</span><span class="op">$</span><span class="va">model</span><span class="op">$</span><span class="va">coefnames</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>,
                           method <span class="op">=</span> <span class="st">"ale"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ale</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb582"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb587"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ale</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/FeatureEffects.html">FeatureEffects</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>,
                           features <span class="op">=</span> <span class="va">predictor</span><span class="op">$</span><span class="va">model</span><span class="op">$</span><span class="va">coefnames</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>,
                           method <span class="op">=</span> <span class="st">"ale"</span><span class="op">)</span>
@@ -525,11 +526,11 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="feature-interaction" class="section level3">
 <h3>
-<span class="header-section-number">47.5.3</span> Feature Interaction<a class="anchor" aria-label="anchor" href="#feature-interaction"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.5.3</span> Feature Interaction<a class="anchor" aria-label="anchor" href="#feature-interaction"><i class="fas fa-link"></i></a>
 </h3>
 <p>Feature Interaction is a method to express the strength of the interaction between two features, and the iml package adopts Friedman’s H-statistic to measure it. Friedman’s H-statistic is a statistic devised by Friedman et al. in 2008. It takes on values between 0 (when there is no interaction between two variables) and 1 (when all influence on predicted values is derived via interaction only).</p>
 <p>As written below, we can simply compute and plot them by Interaction() function in iml package with the arguments already introduced above.</p>
-<div class="sourceCode" id="cb583"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb588"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">interact</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/Interaction.html">Interaction</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">interact</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;"></div>
@@ -539,13 +540,13 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="local-interpretation" class="section level2">
 <h2>
-<span class="header-section-number">47.6</span> Local Interpretation<a class="anchor" aria-label="anchor" href="#local-interpretation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.6</span> Local Interpretation<a class="anchor" aria-label="anchor" href="#local-interpretation"><i class="fas fa-link"></i></a>
 </h2>
 <p>Finally, I will explain Shapley Value and Local Interpretable Model-Agnostic Explanations (LIME) as methods for Local Interpretation. They can explain individual predictions of black-box machine learning models. Like the previous sections, the e-book of Interpretable Machine Learning mentions some techniques I omitted here since the iml package does not have ways to implement them.</p>
 <p><br></p>
 <div id="shapley-value" class="section level3">
 <h3>
-<span class="header-section-number">47.6.1</span> Shapley Value<a class="anchor" aria-label="anchor" href="#shapley-value"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.6.1</span> Shapley Value<a class="anchor" aria-label="anchor" href="#shapley-value"><i class="fas fa-link"></i></a>
 </h3>
 <p>The Shapley value is a method convinced based on the idea of fairly evaluating the contribution of independent variables to predictions by applying the Shapley value proposed by Shapley in 1953 in cooperative game theory. Intuitively, the method calculating the contribution is as follows: for a single model prediction, when any independent variable is changed from zero into the actual value of the sample in random order, one variable at a time, the prediction change due to the addition of variable of interest is calculated for all change patterns and averaged. The iml package adopts the Monte Carlo sampling approximation introduced by Strumbelj et al. in 2014.</p>
 <p>Shapley() method in iml estimates Shapley value by using the following arguments. The patchwork package below is designed to make graph composition simple and powerful, and enables us to draw a set of graphs by “+”.</p>
@@ -553,7 +554,7 @@ When using machine learning models to describe events that require ethical consi
 <li>x.interest: data.frame of a single row with the variable to be explained</li>
 <li>sample.size: number of Monte Carlo samples for estimating the Shapley value</li>
 </ul>
-<div class="sourceCode" id="cb584"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb589"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">shapley_f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x.interest</span><span class="op">)</span><span class="op">{</span>
   <span class="va">shapley</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/Shapley.html">Shapley</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>,
                          x.interest <span class="op">=</span> <span class="va">x.interest</span><span class="op">)</span>
@@ -565,7 +566,7 @@ When using machine learning models to describe events that require ethical consi
 <span class="fu">shapley_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu">shapley_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span>
 <span class="fu">shapley_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">3</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu">shapley_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">4</span>,<span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-11-1.png" width="960" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb585"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb590"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">shapley_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">5</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu">shapley_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">6</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span>
 <span class="fu">shapley_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">7</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu">shapley_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">8</span>,<span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-11-2.png" width="960" style="display: block; margin: auto;"></div>
@@ -575,7 +576,7 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="local-interpretable-model-agnostic-explanations-lime" class="section level3">
 <h3>
-<span class="header-section-number">47.6.2</span> Local Interpretable Model-Agnostic Explanations (LIME)<a class="anchor" aria-label="anchor" href="#local-interpretable-model-agnostic-explanations-lime"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.6.2</span> Local Interpretable Model-Agnostic Explanations (LIME)<a class="anchor" aria-label="anchor" href="#local-interpretable-model-agnostic-explanations-lime"><i class="fas fa-link"></i></a>
 </h3>
 <p>LIME is a specific implementation of the local surrogate model proposed by Ribeiro et al. in 2016 to explain each prediction. As the name suggests, it locally approximates the learned model with an interpretable model and uses the approximated model to explain individual predictions. The idea is very intuitive: LIME examines how predictions change when variation is added to the input data of the fitted model. It creates a new dataset with the variation, predicts with it, and then trains interpretable models, such as Lasso and decision tree, based on the new dataset with the predicted values. However, you should be aware that the trained model is not a globally good approximation but locally approximates the black-box model predictions.</p>
 <p>For LIME, the iml package has LocalModel() method with the new arguments below. It fits locally weighted linear regression models (logistic regression models for classification) as interpretable models to explain single model predictions.</p>
@@ -584,7 +585,7 @@ When using machine learning models to describe events that require ethical consi
 <li>kernel.width: width of the kernel for the proximity computation. Only used if dist.fun is not “gower”</li>
 <li>k: number of independent variables</li>
 </ul>
-<div class="sourceCode" id="cb586"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb591"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">lime_f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x.interest</span><span class="op">)</span><span class="op">{</span>
   <span class="va">lime</span> <span class="op">&lt;-</span> <span class="va"><a href="https://christophm.github.io/iml/reference/LocalModel.html">LocalModel</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>,
                          x.interest <span class="op">=</span> <span class="va">x.interest</span>,
@@ -596,7 +597,7 @@ When using machine learning models to describe events that require ethical consi
 <span class="fu">lime_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu">lime_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span>
 <span class="fu">lime_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">3</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu">lime_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">4</span>,<span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-12-1.png" width="960" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb587"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb592"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">lime_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">5</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu">lime_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">6</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span>
 <span class="fu">lime_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">7</span>,<span class="op">]</span><span class="op">)</span> <span class="op">+</span> <span class="fu">lime_f</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">ames_train</span><span class="op">[</span><span class="fl">8</span>,<span class="op">]</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="introduction_to_xai_in_r_files/figure-html/unnamed-chunk-12-2.png" width="960" style="display: block; margin: auto;"></div>
@@ -607,14 +608,14 @@ When using machine learning models to describe events that require ethical consi
 </div>
 <div id="conclusion-1" class="section level2">
 <h2>
-<span class="header-section-number">47.7</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.7</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>I briefly explained all XAI methods in the iml package, which is the crucial ways to meet the social need for interpreting machine learning models, and how to implement them in R. While this topic is vital in the current data science projects, it is tough to follow all of them because many XAI methods are now being devised and revised. If you want to see other techniques or more detailed information, Interpretable Machine Learning, authored by Christoph Molnar, is one of the best resources. It is also quite beneficial to learn not covered methods or find the best combination with less cost of the XAI methods to some models because some ways are easy to implement for some models, such as tree models, but not for others.</p>
 <p><br></p>
 </div>
 <div id="refenence" class="section level2">
 <h2>
-<span class="header-section-number">47.8</span> Refenence<a class="anchor" aria-label="anchor" href="#refenence"><i class="fas fa-link"></i></a>
+<span class="header-section-number">48.8</span> Refenence<a class="anchor" aria-label="anchor" href="#refenence"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>Reference manual for iml package, Christoph Molnar and Patrick Schratz: <a href="https://cran.r-project.org/web/packages/iml/iml.pdf" class="uri">https://cran.r-project.org/web/packages/iml/iml.pdf</a>
@@ -648,36 +649,36 @@ When using machine learning models to describe events that require ethical consi
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">46</span> Hive plots with the ggraph and hiver packages</a></div>
-<div class="next"><a href="tutorial-for-gg_cleveland.html"><span class="header-section-number">48</span> Tutorial for gg_cleveland</a></div>
+<div class="prev"><a href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">47</span> Hive plots with the ggraph and hiver packages</a></div>
+<div class="next"><a href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction-to-xai-explainable-ai-in-r"><span class="header-section-number">47</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="nav-link" href="#motivation-2"><span class="header-section-number">47.1</span> Motivation</a></li>
-<li><a class="nav-link" href="#introduction-8"><span class="header-section-number">47.2</span> Introduction</a></li>
-<li><a class="nav-link" href="#model-training"><span class="header-section-number">47.3</span> Model Training</a></li>
+<li><a class="nav-link" href="#introduction-to-xai-explainable-ai-in-r"><span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="nav-link" href="#motivation-3"><span class="header-section-number">48.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#introduction-8"><span class="header-section-number">48.2</span> Introduction</a></li>
+<li><a class="nav-link" href="#model-training"><span class="header-section-number">48.3</span> Model Training</a></li>
 <li>
-<a class="nav-link" href="#entire-model-interpretation"><span class="header-section-number">47.4</span> Entire Model Interpretation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#permutation-feature-importance"><span class="header-section-number">47.4.1</span> Permutation Feature Importance</a></li>
-<li><a class="nav-link" href="#global-surrogate-model"><span class="header-section-number">47.4.2</span> Global Surrogate Model</a></li>
+<a class="nav-link" href="#entire-model-interpretation"><span class="header-section-number">48.4</span> Entire Model Interpretation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#permutation-feature-importance"><span class="header-section-number">48.4.1</span> Permutation Feature Importance</a></li>
+<li><a class="nav-link" href="#global-surrogate-model"><span class="header-section-number">48.4.2</span> Global Surrogate Model</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#features-interpretation"><span class="header-section-number">47.5</span> Features Interpretation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pdp-ice-plot-and-c-ice-plot"><span class="header-section-number">47.5.1</span> PDP, ICE Plot, and c-ICE Plot</a></li>
-<li><a class="nav-link" href="#accumulated-local-effects-ale-plot"><span class="header-section-number">47.5.2</span> Accumulated Local Effects (ALE) Plot</a></li>
-<li><a class="nav-link" href="#feature-interaction"><span class="header-section-number">47.5.3</span> Feature Interaction</a></li>
+<a class="nav-link" href="#features-interpretation"><span class="header-section-number">48.5</span> Features Interpretation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pdp-ice-plot-and-c-ice-plot"><span class="header-section-number">48.5.1</span> PDP, ICE Plot, and c-ICE Plot</a></li>
+<li><a class="nav-link" href="#accumulated-local-effects-ale-plot"><span class="header-section-number">48.5.2</span> Accumulated Local Effects (ALE) Plot</a></li>
+<li><a class="nav-link" href="#feature-interaction"><span class="header-section-number">48.5.3</span> Feature Interaction</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#local-interpretation"><span class="header-section-number">47.6</span> Local Interpretation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#shapley-value"><span class="header-section-number">47.6.1</span> Shapley Value</a></li>
-<li><a class="nav-link" href="#local-interpretable-model-agnostic-explanations-lime"><span class="header-section-number">47.6.2</span> Local Interpretable Model-Agnostic Explanations (LIME)</a></li>
+<a class="nav-link" href="#local-interpretation"><span class="header-section-number">48.6</span> Local Interpretation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#shapley-value"><span class="header-section-number">48.6.1</span> Shapley Value</a></li>
+<li><a class="nav-link" href="#local-interpretable-model-agnostic-explanations-lime"><span class="header-section-number">48.6.2</span> Local Interpretable Model-Agnostic Explanations (LIME)</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#conclusion-1"><span class="header-section-number">47.7</span> Conclusion</a></li>
-<li><a class="nav-link" href="#refenence"><span class="header-section-number">47.8</span> Refenence</a></li>
+<li><a class="nav-link" href="#conclusion-1"><span class="header-section-number">48.7</span> Conclusion</a></li>
+<li><a class="nav-link" href="#refenence"><span class="header-section-number">48.8</span> Refenence</a></li>
 </ul>
 
       <div class="book-extra">

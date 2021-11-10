@@ -174,6 +174,12 @@ pivot_wider
 count
 summarize
 learning-sql-with-its-r-dplyr-translation
+animate-time-series-the-goyav-package
+motivation
+features
+demonstration
+view-from-the-animate-tab
+view-from-the-advanced-animate-tab
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
@@ -194,7 +200,7 @@ density-based-algorithms-1
 using-clustering-for-further-analysis
 sources
 how-to-integrate-r-with-postgresql
-motivation
+motivation-1
 how-to-integrate-r-with-postgresql-1
 create-your-connection
 basic-sql-commands
@@ -217,7 +223,7 @@ nplot
 recharts
 highcharter
 plot-and-analyze-stock-data-with-r
-motivation-1
+motivation-2
 plot-stock-data
 using-ggplot2-to-plot-time-series
 candlestick-chart
@@ -406,7 +412,7 @@ hive-plots-1
 ggraph-1
 hiver-1
 introduction-to-xai-explainable-ai-in-r
-motivation-2
+motivation-3
 introduction-8
 model-training
 entire-model-interpretation
@@ -579,7 +585,7 @@ reference-6
 python-visualization-tutorial
 gganimate-tutorial
 get-nba-dataset-in-r
-motivation-3
+motivation-4
 installation-3
 functions
 guides-to-functions
@@ -613,7 +619,7 @@ citation
 edav-tutorials-correlogram-calendar-heatmap-and-slopegram
 recursive-codes-and-self-organized-map-with-r
 to-conduct-all-analyses-with-r-write-recursive-code-with-r
-motivation-4
+motivation-5
 an-illustration-of-recursive-code-levenshtein-distance
 naive-coding
 better-coding-using-dp-table
@@ -624,7 +630,7 @@ titanic-data
 limitation-in-mapping-plot
 limitation-in-codes-plot
 three-situations-that-i-think-ggplot-is-the-most-useful-in-practice
-motivation-5
+motivation-6
 situation-1.-attaching-labels-in-scatter-plotbubble-chart-not-to-overlap-with-each-other
 situation-2.-cleveland-dot-plots
 situation-3.-multivariate-plots
