@@ -17,7 +17,7 @@ c(1, 3, 4, 5) %>% plot(., main=paste(., collapse=", "))
 c(1, 3, 4, 5) %>% plot(main=paste(., collapse=", "))
 ```
 
-### 0. Connection Bewtween two datasets
+###  Connection Bewtween two datasets
 Efficiently bind multiple data frames by row and column 
 bind_rows() and bind_cols() return the same type as the first input, either a data frame, tbl_df, or grouped_df
 code:  bind_rows(..., .id = NULL)   bind_cols(...)
@@ -36,7 +36,7 @@ bind_cols(
 ) %>% glimpse()
 ```
 
-### 1.combime two datasets by value: join
+### combime two datasets by value: join
 
 ```{r}
 # prepare data 
@@ -86,7 +86,7 @@ code: semi_join(a_tibble, another_tibble, by = ...)
 superheroes %>%
   semi_join(publishers, by="publisher")
 ```
-### 2. manipulation on column
+### manipulation on column
 we use select to choose column.
 we can use helper function to choose column
 starts_with() : start with a literal string
@@ -159,7 +159,7 @@ iris %>%
   names()
 ```
 
-### 4. manipulation on row
+###  manipulation on row
 ```{r}
 # prepare data
 set.seed(896)
@@ -226,7 +226,7 @@ sw_dup %>%
   filter_if(is.character, any_vars(is.na(.)))
 ```
 
-### 5. build new column or mutate column
+###  build new column or mutate column
 use mutate to create rows or columns
 ```{r}
 iris %>%
@@ -288,7 +288,7 @@ warpbreaks %>%
   sample_frac(size = 0.15)
 ```
 
-### 6. Group
+### Group
 use group_by() to create groups and use ungroup to separate group
 use summarize() to find out the properties of the group
 n() :count the frequency
