@@ -1,0 +1,364 @@
+# Running Sql Queries on Dataframes
+
+Chao Pang and Krishna Kalluri
+
+
+
+
+```r
+library(tidyverse)
+library(openintro)
+library(sparklyr)
+```
+
+## Motivation
+
+The goal of this tutorial is to allow ourselves and other students to have the capability to write SQL queries against dplyr dataframes directly rather than to use dplyr functions in our assignments. Despite the convenience dplyr offers, we actually prefer the beloved classic SQL queries because that's what we are using in our daily work. We believe that a lot of people who aren't familiar with R (specifically tidyverse) would feel the same way and prefer SQL at the beginning of their adventure into the R "universe".
+
+It's important to point out that writing SQL SHOULD not be a complete replacement of dplyr, but rather an alternative option on the table for students because we just feel that one should not limit themselves to a particular data manipulation tool. We do want to acknolwedge that dplyr is a well-thought-out library, it uses the same principles as SQL queries, however, Googling for the right syntax doesn't seem to be straightforward at times (unlike pandas for Python). The motivation of this project stemmed from our frustrations of not being able to find the right functions/syntax to manipulate the data with ease. Although we've learned how to use dplyr after three assignments, it would be nice to provide this alternative to the future generations of students.
+
+## SQL use cases
+
+### Get started
+
+knitr is the underlying engine for knitting the R markdown files into a document, and provides support for for different programming languages. In particular, knitr provides a SQL engine that allows you write SQL queries in the code chunk, see official documentation at [knitr sql engine](https://bookdown.org/yihui/rmarkdown/language-engines.html#sql). However, this engine requires a connection to a database, and we can only query tables that are materialized in this database. To leverage this engine, we have to create a temp database and import the dataframes of interest as tables. The dbplyer library provides a convenience function to get a in-memory database engine (sqllite) and additional functions for importing dataframes as tables. If you are not familiar with SQL queries and want to learn more about it, please visit this funny tutorial at [learn-how-to-write-sql-from-r](https://www.r-bloggers.com/2021/01/learn-how-to-write-sql-from-r/)
+
+#### Load the table into the dbplyr in-mem database
+
+
+```r
+connection = dbplyr::src_memdb()$con
+dplyr::copy_to(connection, iris)
+```
+
+Wow, this is actually super easy to do, it only took two lines of code to import a table. However, it took us a long time to find out such a function even existed, hopefully you won't go through the same pain in the future 😊!
+
+#### Run your first query
+
+Once you've imported the table, you could get the database connection object from dbplyr directly, now you just need to pass it into the code chunk in the chunk options. There are three options specified in the below code chunk,
+
+-   sql: the key word that indicates this is a sql code chunk
+
+-   connection: the sqllite database connection we created earlier (any database connection would work though!)
+
+
+```sql
+--chunk options: {sql, connection=connection}
+SELECT
+  *
+FROM iris
+```
+
+
+<div class="knitsql-table">
+
+
+Table: (\#tab:unnamed-chunk-4)Displaying records 1 - 10
+
+| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
+|------------:|-----------:|------------:|-----------:|:-------|
+|          5.1|         3.5|          1.4|         0.2|setosa  |
+|          4.9|         3.0|          1.4|         0.2|setosa  |
+|          4.7|         3.2|          1.3|         0.2|setosa  |
+|          4.6|         3.1|          1.5|         0.2|setosa  |
+|          5.0|         3.6|          1.4|         0.2|setosa  |
+|          5.4|         3.9|          1.7|         0.4|setosa  |
+|          4.6|         3.4|          1.4|         0.3|setosa  |
+|          5.0|         3.4|          1.5|         0.2|setosa  |
+|          4.4|         2.9|          1.4|         0.2|setosa  |
+|          4.9|         3.1|          1.5|         0.1|setosa  |
+
+</div>
+
+#### Group by
+
+Calculate the average petal length, and petal width by species.
+
+
+```sql
+--chunk options: {sql, connection=connection}
+SELECT
+  species,
+  AVG(`Petal.Length`) AS avg_petal_length,
+  AVG(`Petal.Width`) AS avg_petal_width
+FROM iris
+GROUP BY species 
+```
+
+
+<div class="knitsql-table">
+
+
+Table: (\#tab:unnamed-chunk-5)3 records
+
+|Species    | avg_petal_length| avg_petal_width|
+|:----------|----------------:|---------------:|
+|setosa     |            1.462|           0.246|
+|versicolor |            4.260|           1.326|
+|virginica  |            5.552|           2.026|
+
+</div>
+
+#### Saving results as dataframes
+
+
+```sql
+--chunk options: {sql, connection=connection, output.var="result_df"}
+SELECT
+  Species AS specs,
+  `Petal.Width` AS petal_width,
+  `Petal.Length` AS ptal_length
+FROM iris
+WHERE species = 'setosa'
+```
+
+
+```r
+result_df %>% rmarkdown::paged_table()
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["specs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["petal_width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ptal_length"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.3"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.4","3":"1.7"},{"1":"setosa","2":"0.3","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.1","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.1","3":"1.4"},{"1":"setosa","2":"0.1","3":"1.1"},{"1":"setosa","2":"0.2","3":"1.2"},{"1":"setosa","2":"0.4","3":"1.5"},{"1":"setosa","2":"0.4","3":"1.3"},{"1":"setosa","2":"0.3","3":"1.4"},{"1":"setosa","2":"0.3","3":"1.7"},{"1":"setosa","2":"0.3","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.7"},{"1":"setosa","2":"0.4","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.0"},{"1":"setosa","2":"0.5","3":"1.7"},{"1":"setosa","2":"0.2","3":"1.9"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.4","3":"1.6"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.4","3":"1.5"},{"1":"setosa","2":"0.1","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.2"},{"1":"setosa","2":"0.2","3":"1.3"},{"1":"setosa","2":"0.1","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.3"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.3","3":"1.3"},{"1":"setosa","2":"0.3","3":"1.3"},{"1":"setosa","2":"0.2","3":"1.3"},{"1":"setosa","2":"0.6","3":"1.6"},{"1":"setosa","2":"0.4","3":"1.9"},{"1":"setosa","2":"0.3","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+### Complex Use Cases
+
+##### Popular pet names
+
+In this tutorial, are going to use a pet name dataset called [seattlepets](https://www.openintro.org/data/index.php?data=seattlepets) for demonstration.The question we are trying to figure out is --- what are the 20 most popular cat and dog names?
+
+Let's try to answer this question using the dplyr way.
+
+
+```r
+seattlepets %>% 
+  drop_na(animal_name) %>%
+  filter (species %in% c("Dog", "Cat")) %>% 
+  group_by(species, animal_name) %>%
+  summarise(count=n()) %>%
+  ungroup() %>%
+  group_by(species) %>%
+  arrange(desc(count)) %>%
+  mutate(row_number=row_number()) %>%
+  ungroup() %>%
+  filter(row_number <= 20) %>%
+  rmarkdown::paged_table()
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["species"],"name":[1],"type":["chr"],"align":["left"]},{"label":["animal_name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["count"],"name":[3],"type":["int"],"align":["right"]},{"label":["row_number"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Dog","2":"Lucy","3":"337","4":"1"},{"1":"Dog","2":"Charlie","3":"306","4":"2"},{"1":"Dog","2":"Bella","3":"249","4":"3"},{"1":"Dog","2":"Luna","3":"244","4":"4"},{"1":"Dog","2":"Daisy","3":"221","4":"5"},{"1":"Dog","2":"Cooper","3":"189","4":"6"},{"1":"Dog","2":"Lola","3":"187","4":"7"},{"1":"Dog","2":"Max","3":"186","4":"8"},{"1":"Dog","2":"Molly","3":"186","4":"9"},{"1":"Dog","2":"Stella","3":"185","4":"10"},{"1":"Dog","2":"Buddy","3":"175","4":"11"},{"1":"Dog","2":"Jack","3":"167","4":"12"},{"1":"Dog","2":"Maggie","3":"158","4":"13"},{"1":"Dog","2":"Penny","3":"153","4":"14"},{"1":"Dog","2":"Sadie","3":"153","4":"15"},{"1":"Dog","2":"Sophie","3":"152","4":"16"},{"1":"Dog","2":"Ruby","3":"150","4":"17"},{"1":"Dog","2":"Lily","3":"146","4":"18"},{"1":"Dog","2":"Rosie","3":"144","4":"19"},{"1":"Dog","2":"Bailey","3":"139","4":"20"},{"1":"Cat","2":"Luna","3":"111","4":"1"},{"1":"Cat","2":"Lucy","3":"102","4":"2"},{"1":"Cat","2":"Lily","3":"86","4":"3"},{"1":"Cat","2":"Max","3":"83","4":"4"},{"1":"Cat","2":"Bella","3":"82","4":"5"},{"1":"Cat","2":"Charlie","3":"81","4":"6"},{"1":"Cat","2":"Oliver","3":"73","4":"7"},{"1":"Cat","2":"Jack","3":"65","4":"8"},{"1":"Cat","2":"Sophie","3":"59","4":"9"},{"1":"Cat","2":"Leo","3":"54","4":"10"},{"1":"Cat","2":"Molly","3":"54","4":"11"},{"1":"Cat","2":"Shadow","3":"53","4":"12"},{"1":"Cat","2":"Milo","3":"52","4":"13"},{"1":"Cat","2":"Henry","3":"50","4":"14"},{"1":"Cat","2":"Kitty","3":"49","4":"15"},{"1":"Cat","2":"Gracie","3":"48","4":"16"},{"1":"Cat","2":"Oscar","3":"47","4":"17"},{"1":"Cat","2":"Cleo","3":"45","4":"18"},{"1":"Cat","2":"George","3":"44","4":"19"},{"1":"Cat","2":"Pepper","3":"44","4":"20"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+Now let's try to write a SQL query that does the same thing.
+
+
+```r
+connection = dbplyr::src_memdb()$con
+dplyr::copy_to(connection, seattlepets)
+```
+
+
+```sql
+--chunk options: {sql, connection=connection}
+WITH pets AS
+(
+  SELECT
+    species, 
+    animal_name,
+    COUNT(*) AS count
+  FROM seattlepets
+  WHERE animal_name IS NOT NULL
+    AND species IN ("Cat", "Dog")
+  GROUP BY species, animal_name
+),
+animal_name_row_number AS
+(
+  SELECT
+    species,
+    animal_name,
+    count,
+    ROW_NUMBER() OVER(PARTITION BY species ORDER BY count DESC) AS row_number
+  FROM pets
+)
+
+SELECT
+  *
+FROM animal_name_row_number
+WHERE row_number <= 20
+ORDER BY species DESC, count DESC
+```
+
+
+<div class="knitsql-table">
+
+
+Table: (\#tab:unnamed-chunk-10)Displaying records 1 - 10
+
+|species |animal_name | count| row_number|
+|:-------|:-----------|-----:|----------:|
+|Dog     |Lucy        |   337|          1|
+|Dog     |Charlie     |   306|          2|
+|Dog     |Bella       |   249|          3|
+|Dog     |Luna        |   244|          4|
+|Dog     |Daisy       |   221|          5|
+|Dog     |Cooper      |   189|          6|
+|Dog     |Lola        |   187|          7|
+|Dog     |Max         |   186|          8|
+|Dog     |Molly       |   186|          9|
+|Dog     |Stella      |   185|         10|
+
+</div>
+
+Voila, the tables generated by two different approaches look exactly the same, how cool is that! We can choose between the two depending on how we feel!
+
+Let's look at a slightly more complicated example, we want to know the 20 most popular names for dogs and cats combined. To do that, we need to structure the data in the long form for generating a Cleveland plot. Again we will do it using dplyr way first.
+
+
+```r
+seattlepets %>%
+  drop_na(animal_name) %>%
+  filter (species %in% c("Dog", "Cat")) %>%
+  group_by(animal_name, species) %>%
+  summarise(count=n()) %>%
+  ungroup() %>%
+  pivot_wider(names_from=species, values_from=count) %>%
+  mutate(total = ifelse(is.na(Dog), 0, Dog) + ifelse(is.na(Cat), 0, Cat)) %>%
+  arrange(desc(total), animal_name) %>%
+  mutate(row_number=row_number()) %>%
+  filter(row_number <= 20) %>%
+  mutate(total_count = total) %>%
+  pivot_longer(cols=c(Dog, Cat, total), names_to="group_type", values_to="count") %>%
+
+ ggplot() + 
+    geom_point(aes(fct_reorder(animal_name, total_count), count, group=group_type, color=group_type)) +
+    coord_flip() + 
+    xlab("Animal Name") + 
+    ylab("Count")
+```
+
+<img src="running_sql_queries_on_dataframes_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" />
+
+The cool thing about SQL engine is that it returns the result as a regular dplyr dataframe, which allows us to mix and match SQL queries and dplyr syntax. Here is a demonstration, where we calculate the total count of dog and cat names combined in SQL query, and leverage the **pivot_longer** function to structure the data for plotting.
+
+
+```sql
+--chunk options: {sql, connection=connection, output.var="total_pet_count"}
+WITH pet_counts AS
+(
+  SELECT
+    animal_name, 
+    species,
+    COUNT(*) AS count
+  FROM seattlepets
+  WHERE animal_name IS NOT NULL
+    AND species IN ("Dog", "Cat")
+  GROUP BY animal_name, species
+)
+
+SELECT
+  animal_name,
+  Cat,
+  Dog,
+  Cat + Dog AS total,
+  ROW_NUMBER() OVER(ORDER BY Cat + Dog DESC) AS row_number
+FROM
+(
+  SELECT
+    animal_name,
+    IFNULL(SUM(CASE WHEN species = "Cat" THEN count END), 0) AS Cat,
+    IFNULL(SUM(CASE WHEN species = "Dog" THEN count END), 0) AS Dog
+  FROM pet_counts
+  GROUP BY animal_name
+) p
+ORDER BY Cat + Dog DESC
+```
+
+
+```r
+total_pet_count %>%
+  filter(row_number <= 20) %>%
+  mutate(total_count = total) %>%
+  pivot_longer(cols=c(Dog, Cat, total), names_to="group_type", values_to="count") %>%
+
+ ggplot() + 
+    geom_point(aes(fct_reorder(animal_name, total_count), count, group=group_type, color=group_type)) +
+    coord_flip() + 
+    xlab("Animal Name") + 
+    ylab("Count")
+```
+
+<img src="running_sql_queries_on_dataframes_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" />
+
+## Lessons learned
+
+Writing SQL queries in R markdown is not as complicated as we thought. Although Knitr already provides support for the SQL engine, their documentation does not provide enough information for our use case, where we want to write SQL queries against the dataframes. It took us some time to realize that we could use an in-memory SqlLite database and import dataframes as tables, doing so allows us to use the SQL engine directly. We feel there is a missing gap in the documentation, which is the reason we created this tutorial to help others get up to speed.
+
+In general, most of the dplyr functions can be reproduced in SQL queries, and vice versa. One could perform data transformation using either dplyr functions or SQL queries or the combination of both. However, there are certain things that are definitely easier to do depending on your background and preference (subjective opinions). For example, we feel doing joins and aliasing columns are much easier in SQL queries, whereas pivot operations are away easier and straightforward in dplyr.
+
+We do want to re-iterate that writing SQL should not be a replacement of dplyr functions, but rather an alternative approach one could take. In addition, we acknowledge that there are certain drawbacks in the SQL approach.
+
+1.  SqlLite doesn't support a few functions including pivot, unpivot, full outer join, and right join. (These functions are offered in other SQL dialects though e.g. MSSQL)
+2.  For the intermediate results generated by the SQL chunk, we would have to import them as tables into the same in-mem database so we can use them in the subsequent SQL code chunks.
+3.  The SQL chunk doesn't produce a paged table on its own. One would have to save the result as a dataframe and view it in a R chunk.
+
+## Future work
+
+Given the limited time, we are happy with what we've achieved, however, there are few things we would like to improve upon in the near future.
+
+### Missing pagination for sql engine query output
+
+We noticed that the table generated by sql engine doesn't come with a pager, unlike the formatiting and pagination offered by dplyr by default. We looked through the options offered by the sql engine, but it doesn't seem to support this feature. So we are planning to expand the table formatter in the existing sql engine to support pagination.
+
+### sql engine for dplyr dataframes
+
+Despite the success, we still feel that importing the tables to the in-mem database and passing the connection along is tedious and unncessary, in an idea world, we could just reference the dataframes in the environment directly in the SQL queries. We have explored this idea briefly by creating a new knitr engine named *eng_sql_local* based on the existing *eng_sql* implementation. The idea is summarized below,
+
+1.  we use a library called [queryparser](https://cran.r-project.org/web/packages/queryparser/) to extract all the table references from the query
+2.  we get the corresponding dataframes by name from the knit_global environment
+3.  we import the dataframes into the dbplyr in-memory database
+4.  we invoke the existing *eng_sql* to run the query
+
+Here is a code snippet, and we also have the code in our [own fork](https://github.com/ChaoPang/knitr/blob/90fcad9d6dfe842319d781315e5c79d4aa8d3bfd/R/engine.R#L653).
+
+
+```r
+# sql engine using dbplyr in-memory db
+eng_sql_local = function(options) {
+
+  query = one_string(options$code)
+  table_references <- queryparser::parse_query(query)$from
+  options$connection <- dbplyr::src_memdb()$con
+  overwrite <-ifelse(is.null(options$overwrite), FALSE, options$overwrite)
+
+  output <- tryCatch({
+    for (i in range(1, length(table_references)))
+    {
+      table_name <- as.character(table_references[[i]])
+      dataframe = get(table_name, envir = knit_global())
+      if ((!DBI::dbExistsTable(options$connection, table_name)) | overwrite){
+        DBI::dbWriteTable(dbplyr::src_memdb()$con, table_name, dataframe)
+      }
+    }
+  },error = function(e) {
+    e$message <-
+      paste(e$message,
+            paste("The table ", table_name, " doesn't exist in the global environment.", sep=""),
+            "Using the following command to set the dataframe in the global environment:",
+            "env <- knitr::knit_global()",
+            paste("env$`", table_name, "` <- `", table_name, "`", sep=""),
+            sep = "\n")
+    e
+  })
+
+  if (inherits(output, "error"))
+    return(engine_output(options, query, one_string(output)))
+
+  return(eng_sql(options))
+}
+```
+
+This has been tested successfully in our local environment (one would have to fork or clone our [repo](https://github.com/ChaoPang/knitr), build knitr locally to test out this new code block). However, the library [queryparser](https://cran.r-project.org/web/packages/queryparser/) doesn't handle the complex queries with Common Table Expression (CTE), we would have to implement our own queryparser using regular expression to identify table names in the query. Another problem we found with this custom sql engine is that it doesn't support the syntax highlighting, while the existing sql engine does, we will try to fix this issue in the future.

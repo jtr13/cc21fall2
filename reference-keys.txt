@@ -1,3 +1,6 @@
+tab:unnamed-chunk-4
+tab:unnamed-chunk-5
+tab:unnamed-chunk-10
 welcome
 community-contribution
 important-logistics
@@ -854,6 +857,20 @@ r-vs.-sql
 reshaping
 self-evaluation
 reference-7
+running-sql-queries-on-dataframes
+motivation-8
+sql-use-cases
+get-started
+load-the-table-into-the-dbplyr-in-mem-database
+run-your-first-query
+group-by
+saving-results-as-dataframes
+complex-use-cases
+popular-pet-names
+lessons-learned
+future-work
+missing-pagination-for-sql-engine-query-output
+sql-engine-for-dplyr-dataframes
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
