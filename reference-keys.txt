@@ -840,6 +840,7 @@ the-elliottrothenbergstock-test
 the-schmidtphillips-test
 the-zivot-andrews-test
 the-johansen-procedure-test
+pygal-tutorial
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
