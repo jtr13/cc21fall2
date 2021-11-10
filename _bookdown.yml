@@ -8,21 +8,4 @@ language:
 
 
 # Chapter ordering
-rmd_files: [
-  # Part: Introduction
-  'index.Rmd', # must be first chapter
-  'assignment.Rmd',
-  'instructions.Rmd',
-  'sample_project.Rmd',
-
-  # Part: Cheatsheets
- 
-  # Part: Tutorials
-  
-  # Part: Workshops
-
-  # Part: Appendices
-  'appendix_initial_setup.Rmd', # contains PART header
-  'appendix_pull_request_tutorial.Rmd'
-
-]
+'running_sql_queries_on_dataframes.Rmd',
