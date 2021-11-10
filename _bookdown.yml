@@ -5,6 +5,9 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+
+
+
     
 
 
@@ -46,6 +49,7 @@ rmd_files: [
   'tidyverse.Rmd',
   'learn_sql_using_its_r_translation.Rmd',
   'animate_time_series.Rmd',
+  'stringr_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
