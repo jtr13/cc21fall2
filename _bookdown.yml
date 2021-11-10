@@ -9,8 +9,6 @@ language:
 
 
 
-
-
 # Chapter ordering
 rmd_files: [
   # Part: Introduction
@@ -104,6 +102,7 @@ rmd_files: [
   'urca_unitroottest_cointegrationtest.Rmd',
   'pygal_tutorial.Rmd',
   'comparing_excel_and_r.Rmd',
+  'joining_and_reshaping_in_r.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
