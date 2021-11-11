@@ -9,6 +9,7 @@ language:
 
 # Chapter ordering
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -105,6 +106,7 @@ rmd_files: [
   'joining_and_reshaping_in_r.Rmd',
   'running_sql_queries_on_dataframes.Rmd',
   'tidyver_help.Rmd',
+  'animate_your_plots.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
