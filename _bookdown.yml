@@ -7,11 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-
-    
-
-
-
 # Chapter ordering
 
 rmd_files: [
@@ -109,6 +104,7 @@ rmd_files: [
   'comparing_excel_and_r.Rmd',
   'joining_and_reshaping_in_r.Rmd',
   'running_sql_queries_on_dataframes.Rmd',
+  'tidyver_help.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -131,4 +127,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
