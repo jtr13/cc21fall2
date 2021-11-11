@@ -272,14 +272,14 @@ plot(gross_square_feet_log)
 
 #### Diagnosis report
 
-```{r diagnosis report, echo=FALSE, eval=FALSE}
+```{r diagnosis report, eval=FALSE}
 # NOT RUN
 manhattan %>%
   diagnose_web_report(subtitle = "manhattan", output_dir = "./", 
                       output_file = "Diagn.html", theme = "blue")
 ```
 
-```{r diagnosis_report_pdf, echo=FALSE, eval=FALSE}
+```{r diagnosis_report_pdf, eval=FALSE}
 # NOT RUN
 manhattan %>%
   diagnose_paged_report(subtitle = "manhattan", output_dir = "./",
