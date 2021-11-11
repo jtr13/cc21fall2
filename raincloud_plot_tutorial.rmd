@@ -283,7 +283,7 @@ Now, you can not only see the density shape from the ridges, statistics from the
 
 Without further ado, lets break it down and see how it is created!
 
-##Components of raincloud plot.
+## Components of raincloud plot.
 
 In this section, I will use the variable `verified_income` with less cardinality to demonstrate one way to generate raincloud plot:
 
