@@ -120,6 +120,7 @@ rmd_files: [
   'r_vs_python_plots.Rmd',
   'plots_python_seaborn_matplotlib.Rmd',
   'r_and_python_visualization.Rmd',
+  'r_3d_visualization.Rmd',
   
   # Part: Custom R packages
   'super_ggformat_project.Rmd',
@@ -129,3 +130,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
