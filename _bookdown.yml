@@ -9,51 +9,5 @@ language:
 
 
 # Chapter ordering
-
-rmd_files: [
-  # Part: Introduction
-  'index.Rmd', # must be first chapter
-  'assignment.Rmd',
-  'instructions.Rmd',
-  'sample_project.Rmd',
-
-  # Part: Cheatsheets
-  'statistics_in_r_vs_python.Rmd', # contains PART header
-  "python_seaborn_cheatsheet.Rmd",
-  'make_r_packages.Rmd',
-  'rchess_package_cheatsheet.Rmd',
-  'hypothesis_testing_cheatsheet.Rmd',
-  'interactive_web_visualizations_for_r_cheatsheet.Rmd',
-  'ggforce.Rmd',
-  'gganimate_cheatsheat.Rmd',
-  'statistical_tests_and_parameter_estimations_in_r.Rmd',
-  'ggalluvial_cheatsheet.Rmd',
-  'cc_plotly_cheatsheet.Rmd',
-  
-  # Part: Tutorials
-  'clustering_analysis_tutorial.Rmd', # contains PART header
-  'postgresql_r.Rmd',
-  'apply_function_in_r.Rmd',
-  'introdution_interative_graphs_in_r.Rmd',
-  'stock_analysis.Rmd',
-  'data_vis_ordering.Rmd',
-  'r_lattice_tutorial.Rmd',
-  'network_visualization_in_r.Rmd',
-  'dplyr_tutorial_in_r.Rmd',
-  'downloading_files.Rmd',
-  'intro_to_maps_with_ggmap.Rmd',
-  'base_r_tidyverse_data_table.Rmd',
-  'raincloud_plot_tutorial.Rmd',
-  
-  # Part: Projects & Workshops
-  'analytics_consulting_intro.Rmd',
-  # Part: Data visualizations
-  
-  # Part: Custom R packages
-
-  # Part: Appendices
-  'appendix_initial_setup.Rmd', # contains PART header
-  'appendix_pull_request_tutorial.Rmd'
-
-]
+'raincloud_plot_tutorial.rmd',
 
