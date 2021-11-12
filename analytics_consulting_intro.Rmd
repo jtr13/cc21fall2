@@ -1,3 +1,5 @@
+# (PART) Project & Workshops {-}
+
 # Introduction to analytics consulting at Accenture
 
 Gabrielle Nyirjesy
