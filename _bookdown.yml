@@ -10,6 +10,7 @@ language:
 # Chapter ordering
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -107,6 +108,7 @@ rmd_files: [
   'running_sql_queries_on_dataframes.Rmd',
   'tidyver_help.Rmd',
   'animate_your_plots.Rmd',
+  'raincloud_plot_tutorial.rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -130,4 +132,5 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
 
