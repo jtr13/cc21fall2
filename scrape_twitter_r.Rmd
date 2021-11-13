@@ -2,6 +2,10 @@
 
 Senqi Zhang
 
+```{r, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(eval=FALSE) # chapter can't render without working API keys
+```
+
 ```{r, message=FALSE}
 # install.packages("twitteR")
 # install.packages("rtweet")
