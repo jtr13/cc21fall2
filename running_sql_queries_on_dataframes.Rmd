@@ -26,7 +26,7 @@ knitr is the underlying engine for knitting the R markdown files into a document
 
 #### Load the table into the dbplyr in-mem database
 
-```{r, eval=TRUE}
+```{r, eval=TRUE, cache=FALSE}
 connection = dbplyr::src_memdb()$con
 dplyr::copy_to(connection, iris)
 ```
