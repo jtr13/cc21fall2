@@ -2,8 +2,8 @@
 
 Chao Pang and Krishna Kalluri
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE, cache=FALSE)
+```{r, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE)
 ```
 
 ```{r}
