@@ -7,6 +7,8 @@ language:
     chapter_name: "Chapter "
 
 
+
+
 # Chapter ordering
 
 
@@ -47,6 +49,7 @@ rmd_files: [
   'learn_sql_using_its_r_translation.Rmd',
   'animate_time_series.Rmd',
   'stringr_cheatsheet.Rmd',
+  'ggalluvial_cheatsheet2.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -132,5 +135,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
-
