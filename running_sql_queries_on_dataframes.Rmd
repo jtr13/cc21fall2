@@ -3,7 +3,7 @@
 Chao Pang and Krishna Kalluri
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE，cache=FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE, cache=FALSE)
 ```
 
 ```{r}
