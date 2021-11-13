@@ -81,8 +81,8 @@ The visualizations that we learned will in fact show that this VAE has a number 
 
 ```{r}
 # Load data:
-test_labels <- as.numeric(unlist(read.table('https://raw.githubusercontent.com/jtr13/cc21fall2/main/resources/r_3d_visualization/test_labels.csv.csv', header=FALSE)))
-latents <- read.table('https://raw.githubusercontent.com/jtr13/cc21fall2/main/resources/r_3d_visualization/test_3d_latents.csv.csv', header=FALSE)
+test_labels <- as.numeric(unlist(read.table('https://raw.githubusercontent.com/jtr13/cc21fall2/main/resources/r_3d_visualization/test_labels.csv', header=FALSE)))
+latents <- read.table('https://raw.githubusercontent.com/jtr13/cc21fall2/main/resources/r_3d_visualization/test_3d_latents.csv', header=FALSE)
 
 # Select a subset of the data:
 test_labels <- test_labels[1:1000]
