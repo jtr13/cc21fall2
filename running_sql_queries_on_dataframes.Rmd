@@ -3,7 +3,7 @@
 Chao Pang and Krishna Kalluri
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE, cache=FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE)
 ```
 
 ```{r}
@@ -26,7 +26,7 @@ knitr is the underlying engine for knitting the R markdown files into a document
 
 #### Load the table into the dbplyr in-mem database
 
-```{r}
+```{r, eval=TRUE}
 connection = dbplyr::src_memdb()$con
 dplyr::copy_to(connection, iris)
 ```
