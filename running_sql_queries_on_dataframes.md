@@ -41,7 +41,6 @@ Once you've imported the table, you could get the database connection object fro
 
 -   connection: the sqllite database connection we created earlier (any database connection would work though!)
 
-
 ```sql
 --chunk options: {sql, connection=connection}
 SELECT
@@ -52,7 +51,6 @@ FROM iris
 #### Group by
 
 Calculate the average petal length, and petal width by species.
-
 
 ```sql
 --chunk options: {sql, connection=connection}
@@ -112,7 +110,6 @@ Now let's try to write a SQL query that does the same thing.
 connection = dbplyr::src_memdb()$con
 dplyr::copy_to(connection, seattlepets)
 ```
-
 
 ```sql
 --chunk options: {sql, connection=connection}

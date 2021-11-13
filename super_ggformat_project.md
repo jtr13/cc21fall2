@@ -35,7 +35,7 @@ There are 5 "sentences" in the code block above -- the first three sentences imp
 
 
 ```r
-# BEFORE
+##After using ggformat
 library(parcoords)library(webshot)library(d3r)sel_df_<-df %>%
   filter(Year == 2020) %>%
   select(County,Region,Murder,Rape,Robbery)%>%
