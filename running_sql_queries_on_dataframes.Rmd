@@ -64,7 +64,7 @@ GROUP BY species
 
 #### Saving results as dataframes
 
-```{sql, connection=connection, output.var="result_df"}
+```sql
 --chunk options: {sql, connection=connection, output.var="result_df"}
 SELECT
   Species AS specs,
@@ -166,7 +166,7 @@ seattlepets %>%
 
 The cool thing about SQL engine is that it returns the result as a regular dplyr dataframe, which allows us to mix and match SQL queries and dplyr syntax. Here is a demonstration, where we calculate the total count of dog and cat names combined in SQL query, and leverage the **pivot_longer** function to structure the data for plotting.
 
-```{sql, connection=connection, output.var="total_pet_count"}
+```sql
 --chunk options: {sql, connection=connection, output.var="total_pet_count"}
 WITH pet_counts AS
 (
