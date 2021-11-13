@@ -1,0 +1,8 @@
+# R data sets
+
+Daoxing Zhang
+
+This cheatsheet summarized some R built-in data sets to help people find their interested data sets to play with. For each data set, this cheatsheet listed some attributes of it with some brief explanations.
+
+Access to the cheat sheet:
+resources/R_datasets/R_datasets_Cheatsheet.pdf
