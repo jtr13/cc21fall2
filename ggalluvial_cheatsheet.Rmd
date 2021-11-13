@@ -1,6 +1,6 @@
 # ggalluvial Cheatsheet
 
-# Meggie Wen
+Meggie Wen
 
 ##Intro to ggalluvial:
 
