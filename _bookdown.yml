@@ -13,6 +13,7 @@ language:
 
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -50,6 +51,7 @@ rmd_files: [
   'animate_time_series.Rmd',
   'stringr_cheatsheet.Rmd',
   'ggalluvial_cheatsheet2.Rmd',
+  'cheatsheet_pandas_baser_tidyverse.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -135,3 +137,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
