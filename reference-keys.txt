@@ -181,6 +181,8 @@ demonstration
 view-from-the-animate-tab
 view-from-the-advanced-animate-tab
 string-manipulation-in-r
+ggalluvial-cheatsheet
+description
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
@@ -229,7 +231,7 @@ plot-stock-data
 using-ggplot2-to-plot-time-series
 candlestick-chart
 background-history
-description
+description-1
 draw-candlestick-chart-in-r
 interactive-plot
 analyze-stock-data
@@ -516,7 +518,7 @@ data-setup-and-preparation
 homeownership-in-relation-to-other-demographic-characteristics
 spatial-pattern-of-different-crimes
 data-visualization-in-python-vs-r
-description-1
+description-2
 python-part
 r-part
 data-1
