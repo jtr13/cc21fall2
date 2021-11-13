@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 91 TidyVerse | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Zhisen Cai Sometimes we may forget the way to use Tidyverse. Therefore, I create this for help. People can finish most of the basic part of tidyverse by using this. I separate it into 4 parts,...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 91 TidyVerse | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Zhisen Cai Sometimes we may forget the way to use Tidyverse. Therefore, I create this for help. People can finish most of the basic part of tidyverse by using this. I separate it into 4 parts,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 91 TidyVerse | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Zhisen Cai Sometimes we may forget the way to use Tidyverse. Therefore, I create this for help. People can finish most of the basic part of tidyverse by using this. I separate it into 4 parts,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
+<li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
+<li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">33</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">34</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">35</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">36</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">37</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">38</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">39</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">40</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">41</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">42</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">43</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">44</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">45</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">46</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">47</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">48</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">49</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">50</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">51</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">52</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">53</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">54</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">55</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">56</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">57</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">58</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">59</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">60</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">61</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">62</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">63</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">64</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">65</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">66</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">67</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">68</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">69</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">70</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">71</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">72</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">73</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">74</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">75</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">76</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">77</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">78</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">79</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">80</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">81</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">82</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">83</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">84</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">85</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">86</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">87</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">88</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">89</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">90</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="active" href="tidyverse.html"><span class="header-section-number">91</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">92</span> How to animate your plots</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">93</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">94</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">95</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">96</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">97</span> RGL Package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">98</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">99</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">100</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">101</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">102</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">103</span> Super ggformat</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">104</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">105</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tidyverse" class="section level1">
+<h1>
+<span class="header-section-number">91</span> TidyVerse<a class="anchor" aria-label="anchor" href="#tidyverse"><i class="fas fa-link"></i></a>
+</h1>
+<p>Zhisen Cai</p>
+<p>Sometimes we may forget the way to use Tidyverse. Therefore, I create this for help. People can finish most of the basic part of tidyverse by using this. I separate it into 4 parts, manipulation between two datasets, manipulation on rows, manipulation on columns and group_by. With the examples of each function, people can know how to use the function and how the function works.</p>
+<div class="sourceCode" id="cb1186"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<p>Magrittr use pipeline to convey the data. (%&gt;%) We have to use a dot to represent the thing we convey if it is not used in the first parameter.</p>
+<div class="sourceCode" id="cb1187"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># we can omit '.'</span>
+<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 3.25</code></pre>
+<div class="sourceCode" id="cb1189"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span>na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  </code></pre></div>
+<pre><code>## [1] 3.25</code></pre>
+<div class="sourceCode" id="cb1191"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># we can not omit '.' in the second parameter</span>
+<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">.</span>, main<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">.</span>, collapse<span class="op">=</span><span class="st">", "</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span>main<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">.</span>, collapse<span class="op">=</span><span class="st">", "</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tidyver_help_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
+<div id="connection-bewtween-two-datasets" class="section level3">
+<h3>
+<span class="header-section-number">91.0.1</span> Connection Bewtween two datasets<a class="anchor" aria-label="anchor" href="#connection-bewtween-two-datasets"><i class="fas fa-link"></i></a>
+</h3>
+<p>Efficiently bind multiple data frames by row and column
+bind_rows() and bind_cols() return the same type as the first input, either a data frame, tbl_df, or grouped_df
+code: bind_rows(…, .id = NULL) bind_cols(…)</p>
+<div class="sourceCode" id="cb1192"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span>
+<span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,
+<span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,
+<span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## Rows: 30
+## Columns: 5
+## $ Sepal.Length &lt;dbl&gt; 5.6, 6.3, 6.2, 7.7, 6.4, 4.6, 4.6, 5.0, 5.9, 6.2, 5.4, 4.…
+## $ Sepal.Width  &lt;dbl&gt; 2.8, 2.8, 2.2, 2.6, 2.7, 3.6, 3.4, 3.4, 3.0, 2.9, 3.7, 3.…
+## $ Petal.Length &lt;dbl&gt; 4.9, 5.1, 4.5, 6.9, 5.3, 1.0, 1.4, 1.6, 5.1, 4.3, 1.5, 1.…
+## $ Petal.Width  &lt;dbl&gt; 2.0, 1.5, 1.5, 2.3, 1.9, 0.2, 0.3, 0.4, 1.8, 1.3, 0.2, 0.…
+## $ Species      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</code></pre>
+<div class="sourceCode" id="cb1194"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>
+<span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## Rows: 10
+## Columns: 15
+## $ Sepal.Length...1  &lt;dbl&gt; 4.6, 5.5, 6.5, 5.0, 5.6, 5.1, 6.5, 4.9, 7.7, 7.7
+## $ Sepal.Width...2   &lt;dbl&gt; 3.2, 4.2, 3.2, 3.5, 3.0, 2.5, 3.0, 3.1, 2.6, 3.8
+## $ Petal.Length...3  &lt;dbl&gt; 1.4, 1.4, 5.1, 1.6, 4.5, 3.0, 5.2, 1.5, 6.9, 6.7
+## $ Petal.Width...4   &lt;dbl&gt; 0.2, 0.2, 2.0, 0.6, 1.5, 1.1, 2.0, 0.2, 2.3, 2.2
+## $ Species...5       &lt;fct&gt; setosa, setosa, virginica, setosa, versicolor, versi…
+## $ Sepal.Length...6  &lt;dbl&gt; 5.4, 4.4, 5.4, 7.2, 6.4, 4.8, 5.8, 5.8, 4.8, 6.9
+## $ Sepal.Width...7   &lt;dbl&gt; 3.9, 3.2, 3.9, 3.6, 2.8, 3.1, 2.7, 2.8, 3.0, 3.1
+## $ Petal.Length...8  &lt;dbl&gt; 1.3, 1.3, 1.7, 6.1, 5.6, 1.6, 5.1, 5.1, 1.4, 5.4
+## $ Petal.Width...9   &lt;dbl&gt; 0.4, 0.2, 0.4, 2.5, 2.1, 0.2, 1.9, 2.4, 0.1, 2.1
+## $ Species...10      &lt;fct&gt; setosa, setosa, setosa, virginica, virginica, setosa…
+## $ Sepal.Length...11 &lt;dbl&gt; 6.1, 6.3, 5.1, 5.0, 4.7, 5.6, 5.7, 6.6, 7.7, 5.3
+## $ Sepal.Width...12  &lt;dbl&gt; 3.0, 2.3, 3.4, 3.0, 3.2, 3.0, 3.0, 2.9, 3.8, 3.7
+## $ Petal.Length...13 &lt;dbl&gt; 4.6, 4.4, 1.5, 1.6, 1.6, 4.5, 4.2, 4.6, 6.7, 1.5
+## $ Petal.Width...14  &lt;dbl&gt; 1.4, 1.3, 0.2, 0.2, 0.2, 1.5, 1.2, 1.3, 2.2, 0.2
+## $ Species...15      &lt;fct&gt; versicolor, versicolor, setosa, setosa, setosa, vers…</code></pre>
+</div>
+<div id="combime-two-datasets-by-value-join" class="section level3">
+<h3>
+<span class="header-section-number">91.0.2</span> combime two datasets by value: join<a class="anchor" aria-label="anchor" href="#combime-two-datasets-by-value-join"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb1196"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># prepare data </span>
+<span class="va">superheroes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
+  <span class="op">~</span><span class="va">name</span>,      <span class="op">~</span><span class="va">alignment</span>,  <span class="op">~</span><span class="va">gender</span>,   <span class="op">~</span><span class="va">publisher</span>,
+  <span class="st">"Magneto"</span>,  <span class="st">"bad"</span>,       <span class="st">"male"</span>,    <span class="st">"Marvel"</span>,
+  <span class="st">"Storm"</span>,    <span class="st">"good"</span>,      <span class="st">"female"</span>,  <span class="st">"Marvel"</span>,
+  <span class="st">"Mystique"</span>, <span class="st">"bad"</span>,       <span class="st">"female"</span>,  <span class="st">"Marvel"</span>,
+  <span class="st">"Batman"</span>,   <span class="st">"good"</span>,      <span class="st">"male"</span>,    <span class="st">"DC"</span>,
+  <span class="st">"Joker"</span>,    <span class="st">"bad"</span>,       <span class="st">"male"</span>,    <span class="st">"DC"</span>,
+  <span class="st">"Catwoman"</span>, <span class="st">"bad"</span>,       <span class="st">"female"</span>,  <span class="st">"DC"</span>,
+  <span class="st">"Hellboy"</span>,  <span class="st">"good"</span>,      <span class="st">"male"</span>,    <span class="st">"Dark Horse Comics"</span>
+<span class="op">)</span>
+<span class="va">publishers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
+  <span class="op">~</span><span class="va">publisher</span>, <span class="op">~</span><span class="va">yr_founded</span>,
+  <span class="st">"DC"</span>,       <span class="fl">1934L</span>,
+  <span class="st">"Marvel"</span>,   <span class="fl">1939L</span>,
+  <span class="st">"Image"</span>,    <span class="fl">1992L</span>
+<span class="op">)</span></code></pre></div>
+<p>left_join
+A left join in R is a merge operation between two data frames where the merge returns all of the rows from one table (the left side) and any matching rows from the second table. A left join in R will NOT return values of the second table which do not already exist in the first table.
+left_join(a_tibble, another_tibble, by = …)</p>
+<div class="sourceCode" id="cb1197"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 7 × 5
+##   name     alignment gender publisher         yr_founded
+##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                  &lt;int&gt;
+## 1 Magneto  bad       male   Marvel                  1939
+## 2 Storm    good      female Marvel                  1939
+## 3 Mystique bad       female Marvel                  1939
+## 4 Batman   good      male   DC                      1934
+## 5 Joker    bad       male   DC                      1934
+## 6 Catwoman bad       female DC                      1934
+## 7 Hellboy  good      male   Dark Horse Comics         NA</code></pre>
+<p>inner join:
+he inner_join keyword selects records that have matching values in both tables.It will not return unmatched rows. Therefore, we do not see the last row shown in the left_join.
+code: inner_join(a_tibble, another_tibble, by = …)</p>
+<div class="sourceCode" id="cb1199"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">superheroes</span>, <span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##   name     alignment gender publisher yr_founded
+##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;int&gt;
+## 1 Magneto  bad       male   Marvel          1939
+## 2 Storm    good      female Marvel          1939
+## 3 Mystique bad       female Marvel          1939
+## 4 Batman   good      male   DC              1934
+## 5 Joker    bad       male   DC              1934
+## 6 Catwoman bad       female DC              1934</code></pre>
+<p>anti join:
+An anti join returns the rows of the first table where it cannot find a match in the second table.</p>
+<div class="sourceCode" id="cb1201"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 4
+##   name    alignment gender publisher        
+##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            
+## 1 Hellboy good      male   Dark Horse Comics</code></pre>
+<p>semi join
+Semi joins are the opposite of anti joins: an anti-anti join, if you like.
+A semi join returns the rows of the first table where it can find a match in the second table.
+code: semi_join(a_tibble, another_tibble, by = …)</p>
+<div class="sourceCode" id="cb1203"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   name     alignment gender publisher
+##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    
+## 1 Magneto  bad       male   Marvel   
+## 2 Storm    good      female Marvel   
+## 3 Mystique bad       female Marvel   
+## 4 Batman   good      male   DC       
+## 5 Joker    bad       male   DC       
+## 6 Catwoman bad       female DC</code></pre>
+</div>
+<div id="manipulation-on-column" class="section level3">
+<h3>
+<span class="header-section-number">91.0.3</span> manipulation on column<a class="anchor" aria-label="anchor" href="#manipulation-on-column"><i class="fas fa-link"></i></a>
+</h3>
+<p>we use select to choose column.
+we can use helper function to choose column
+starts_with() : start with a literal string
+ends_with() : end with a literal string
+matches(): match a regular expression
+num_range(): are part of a numercial range
+everything(): selects all columns</p>
+<div class="sourceCode" id="cb1205"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"</code></pre>
+<div class="sourceCode" id="cb1207"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> 
+<span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Petal"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    Petal.Length Petal.Width
+##           &lt;dbl&gt;       &lt;dbl&gt;
+##  1          1.4         0.2
+##  2          1.4         0.2
+##  3          1.3         0.2
+##  4          1.5         0.2
+##  5          1.4         0.2
+##  6          1.7         0.4
+##  7          1.4         0.3
+##  8          1.5         0.2
+##  9          1.4         0.2
+## 10          1.5         0.1</code></pre>
+<div class="sourceCode" id="cb1209"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    Sepal.Length Petal.Length
+##           &lt;dbl&gt;        &lt;dbl&gt;
+##  1          5.1          1.4
+##  2          4.9          1.4
+##  3          4.7          1.3
+##  4          4.6          1.5
+##  5          5            1.4
+##  6          5.4          1.7
+##  7          4.6          1.4
+##  8          5            1.5
+##  9          4.4          1.4
+## 10          4.9          1.5</code></pre>
+<div class="sourceCode" id="cb1211"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 4
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+##  1          5.1         3.5          1.4         0.2
+##  2          4.9         3            1.4         0.2
+##  3          4.7         3.2          1.3         0.2
+##  4          4.6         3.1          1.5         0.2
+##  5          5           3.6          1.4         0.2
+##  6          5.4         3.9          1.7         0.4
+##  7          4.6         3.4          1.4         0.3
+##  8          5           3.4          1.5         0.2
+##  9          4.4         2.9          1.4         0.2
+## 10          4.9         3.1          1.5         0.1</code></pre>
+<p>select_if
+we can use select_if to choose column with logical condition or any function return true or false.</p>
+<div class="sourceCode" id="cb1213"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 3
+##    height  mass birth_year
+##     &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt;
+##  1    172    77       19  
+##  2    167    75      112  
+##  3     96    32       33  
+##  4    202   136       41.9
+##  5    150    49       19  
+##  6    178   120       52  
+##  7    165    75       47  
+##  8     97    32       NA  
+##  9    183    84       24  
+## 10    182    77       57</code></pre>
+<div class="sourceCode" id="cb1215"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">less_than_500</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">500</span>
+<span class="op">}</span>
+<span class="va">iris</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">less_than_500</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    Sepal.Width Petal.Width
+##          &lt;dbl&gt;       &lt;dbl&gt;
+##  1         3.5         0.2
+##  2         3           0.2
+##  3         3.2         0.2
+##  4         3.1         0.2
+##  5         3.6         0.2
+##  6         3.9         0.4
+##  7         3.4         0.3
+##  8         3.4         0.2
+##  9         2.9         0.2
+## 10         3.1         0.1</code></pre>
+<p>!!!! we can use ~ to represent anonymous function</p>
+<div class="sourceCode" id="cb1217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">500</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    Sepal.Width Petal.Width
+##          &lt;dbl&gt;       &lt;dbl&gt;
+##  1         3.5         0.2
+##  2         3           0.2
+##  3         3.2         0.2
+##  4         3.1         0.2
+##  5         3.6         0.2
+##  6         3.9         0.4
+##  7         3.4         0.3
+##  8         3.4         0.2
+##  9         2.9         0.2
+## 10         3.1         0.1</code></pre>
+<p>We can select the data by deleting columns using minus sign.</p>
+<div class="sourceCode" id="cb1219"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Species</span>, <span class="op">-</span><span class="va">Petal.Length</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 3
+##    Sepal.Length Sepal.Width Petal.Width
+##           &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1          5.1         3.5         0.2
+##  2          4.9         3           0.2
+##  3          4.7         3.2         0.2
+##  4          4.6         3.1         0.2
+##  5          5           3.6         0.2
+##  6          5.4         3.9         0.4
+##  7          4.6         3.4         0.3
+##  8          5           3.4         0.2
+##  9          4.4         2.9         0.2
+## 10          4.9         3.1         0.1</code></pre>
+<div class="sourceCode" id="cb1221"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Species</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 3
+##    Species Sepal.Width Petal.Width
+##    &lt;fct&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+##  1 setosa          3.5         0.2
+##  2 setosa          3           0.2
+##  3 setosa          3.2         0.2
+##  4 setosa          3.1         0.2
+##  5 setosa          3.6         0.2
+##  6 setosa          3.9         0.4
+##  7 setosa          3.4         0.3
+##  8 setosa          3.4         0.2
+##  9 setosa          2.9         0.2
+## 10 setosa          3.1         0.1</code></pre>
+<p>rename the column</p>
+<div class="sourceCode" id="cb1223"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>sep_len<span class="op">=</span><span class="va">Sepal.Length</span>, sep_wid<span class="op">=</span><span class="va">Sepal.Width</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/names.html">names</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "sep_len"      "sep_wid"      "Petal.Length" "Petal.Width"  "Species"</code></pre>
+</div>
+<div id="manipulation-on-row" class="section level3">
+<h3>
+<span class="header-section-number">91.0.4</span> manipulation on row<a class="anchor" aria-label="anchor" href="#manipulation-on-row"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb1225"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># prepare data</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">896</span><span class="op">)</span>
+<span class="va">sw_dup</span> <span class="op">&lt;-</span>
+  <span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">films</span><span class="op">:</span><span class="va">starships</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="fl">100</span>, replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">sw_dup</span>,<span class="fl">10</span><span class="op">)</span> </code></pre></div>
+<pre><code>## # A tibble: 10 × 11
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Sly Moo…    178    48 none       pale       white             NA &lt;NA&gt;  &lt;NA&gt;  
+##  2 Mon Mot…    150    NA auburn     fair       blue              48 fema… femin…
+##  3 Finn         NA    NA black      dark       dark              NA male  mascu…
+##  4 Roos Ta…    224    82 none       grey       orange            NA male  mascu…
+##  5 Arvel C…     NA    NA brown      fair       brown             NA male  mascu…
+##  6 BB8          NA    NA none       none       black             NA none  mascu…
+##  7 Saesee …    188    NA none       pale       orange            NA male  mascu…
+##  8 IG-88       200   140 none       metal      red               15 none  mascu…
+##  9 Yarael …    264    NA none       white      yellow            NA male  mascu…
+## 10 Jek Ton…    180   110 brown      fair       blue              NA male  mascu…
+## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<p>Use arrange() to reorder the rows.</p>
+<div class="sourceCode" id="cb1227"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">gender</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 11
+##    name    height  mass hair_color skin_color  eye_color birth_year sex   gender
+##    &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Adi Ga…    184    50 none       dark        blue              NA fema… femin…
+##  2 Arvel …     NA    NA brown      fair        brown             NA male  mascu…
+##  3 Bail P…    191    NA black      tan         brown             67 male  mascu…
+##  4 BB8         NA    NA none       none        black             NA none  mascu…
+##  5 BB8         NA    NA none       none        black             NA none  mascu…
+##  6 Ben Qu…    163    65 none       grey, gree… orange            NA male  mascu…
+##  7 Ben Qu…    163    65 none       grey, gree… orange            NA male  mascu…
+##  8 Beru W…    165    75 brown      light       blue              47 fema… femin…
+##  9 Beru W…    165    75 brown      light       blue              47 fema… femin…
+## 10 Bossk      190   113 none       green       red               53 male  mascu…
+## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<p>using desc() for decreasing order</p>
+<div class="sourceCode" id="cb1229"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mass</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 11
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 IG-88       200   140 none       metal      red               15 none  mascu…
+##  2 Tarfful     234   136 brown      brown      blue              NA male  mascu…
+##  3 Bossk       190   113 none       green      red               53 male  mascu…
+##  4 Jek Ton…    180   110 brown      fair       blue              NA male  mascu…
+##  5 Jek Ton…    180   110 brown      fair       blue              NA male  mascu…
+##  6 Jek Ton…    180   110 brown      fair       blue              NA male  mascu…
+##  7 Dexter …    198   102 none       brown      yellow            NA male  mascu…
+##  8 Dexter …    198   102 none       brown      yellow            NA male  mascu…
+##  9 Qui-Gon…    193    89 brown      fair       blue              92 male  mascu…
+## 10 Kit Fis…    196    87 none       green      black             NA male  mascu…
+## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<p>use distinct() to remove the duplicated rows</p>
+<div class="sourceCode" id="cb1231"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">anyDuplicated</a></span><span class="op">(</span><span class="op">)</span>  </code></pre></div>
+<pre><code>## Rows: 57
+## Columns: 11
+## $ name       &lt;chr&gt; "Sly Moore", "Mon Mothma", "Finn", "Roos Tarpals", "Arvel C…
+## $ height     &lt;int&gt; 178, 150, NA, 224, NA, NA, 188, 200, 264, 180, 163, 183, 18…
+## $ mass       &lt;dbl&gt; 48, NA, NA, 82, NA, NA, NA, 140, NA, 110, 65, 80, 84, 75, 4…
+## $ hair_color &lt;chr&gt; "none", "auburn", "black", "none", "brown", "none", "none",…
+## $ skin_color &lt;chr&gt; "pale", "fair", "dark", "grey", "fair", "none", "pale", "me…
+## $ eye_color  &lt;chr&gt; "white", "blue", "dark", "orange", "brown", "black", "orang…
+## $ birth_year &lt;dbl&gt; NA, 48, NA, NA, NA, NA, NA, 15, NA, NA, NA, NA, 72, 47, 46,…
+## $ sex        &lt;chr&gt; NA, "female", "male", "male", "male", "none", "male", "none…
+## $ gender     &lt;chr&gt; NA, "feminine", "masculine", "masculine", "masculine", "mas…
+## $ homeworld  &lt;chr&gt; "Umbara", "Chandrila", NA, "Naboo", NA, NA, "Iktotch", NA, …
+## $ species    &lt;chr&gt; NA, "Human", "Human", "Gungan", "Human", "Droid", "Iktotchi…</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>use drop_na() to remove all the rows including NA</p>
+<div class="sourceCode" id="cb1234"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/base/NA.html">anyNA</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## Rows: 30
+## Columns: 11
+## $ name       &lt;chr&gt; "Mace Windu", "Beru Whitesun lars", "Padmé Amidala", "Mace …
+## $ height     &lt;int&gt; 188, 165, 165, 188, 175, 175, 165, 198, 196, 198, 188, 175,…
+## $ mass       &lt;dbl&gt; 84.0, 75.0, 45.0, 84.0, 79.0, 80.0, 45.0, 82.0, 66.0, 82.0,…
+## $ hair_color &lt;chr&gt; "none", "brown", "brown", "none", "none", "none", "brown", …
+## $ skin_color &lt;chr&gt; "dark", "light", "light", "dark", "light", "red", "light", …
+## $ eye_color  &lt;chr&gt; "brown", "blue", "brown", "brown", "blue", "yellow", "brown…
+## $ birth_year &lt;dbl&gt; 72, 47, 46, 72, 37, 54, 46, 92, 52, 92, 22, 54, 92, 8, 72, …
+## $ sex        &lt;chr&gt; "male", "female", "female", "male", "male", "male", "female…
+## $ gender     &lt;chr&gt; "masculine", "feminine", "feminine", "masculine", "masculin…
+## $ homeworld  &lt;chr&gt; "Haruun Kal", "Tatooine", "Naboo", "Haruun Kal", "Bespin", …
+## $ species    &lt;chr&gt; "Human", "Human", "Human", "Human", "Human", "Zabrak", "Hum…</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>or can only drop na with specific rows</p>
+<div class="sourceCode" id="cb1237"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">gender</span><span class="op">:</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/base/NA.html">anyNA</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## Rows: 83
+## Columns: 11
+## $ name       &lt;chr&gt; "Mon Mothma", "Roos Tarpals", "Saesee Tiin", "Yarael Poof",…
+## $ height     &lt;int&gt; 150, 224, 188, 264, 180, 163, 183, 188, 165, 165, 188, 175,…
+## $ mass       &lt;dbl&gt; NA, 82, NA, NA, 110, 65, 80, 84, 75, 45, 84, 79, 48, NA, 80…
+## $ hair_color &lt;chr&gt; "auburn", "none", "none", "none", "brown", "none", "none", …
+## $ skin_color &lt;chr&gt; "fair", "grey", "pale", "white", "fair", "grey, green, yell…
+## $ eye_color  &lt;chr&gt; "blue", "orange", "orange", "yellow", "blue", "orange", "ye…
+## $ birth_year &lt;dbl&gt; 48, NA, NA, NA, NA, NA, NA, 72, 47, 46, 72, 37, NA, 82, 54,…
+## $ sex        &lt;chr&gt; "female", "male", "male", "male", "male", "male", "male", "…
+## $ gender     &lt;chr&gt; "feminine", "masculine", "masculine", "masculine", "masculi…
+## $ homeworld  &lt;chr&gt; "Chandrila", "Naboo", "Iktotch", "Quermia", "Bestine IV", "…
+## $ species    &lt;chr&gt; "Human", "Gungan", "Iktotchi", "Quermian", "Human", "Toong"…</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>use filter to select rows</p>
+<div class="sourceCode" id="cb1240"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">mass</span><span class="op">)</span> <span class="op">|</span> <span class="va">height</span> <span class="op">&gt;</span> <span class="fl">180</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 11
+##    name    height  mass hair_color skin_color eye_color birth_year sex    gender
+##    &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; 
+##  1 Mon Mo…    150    NA auburn     fair       blue              48 female femin…
+##  2 Finn        NA    NA black      dark       dark              NA male   mascu…
+##  3 Arvel …     NA    NA brown      fair       brown             NA male   mascu…
+##  4 Mace W…    188    84 none       dark       brown             72 male   mascu…
+##  5 Mace W…    188    84 none       dark       brown             72 male   mascu…
+##  6 Qui-Go…    193    89 brown      fair       blue              92 male   mascu…
+##  7 Cliegg…    183    NA brown      fair       blue              82 male   mascu…
+##  8 Cliegg…    183    NA brown      fair       blue              82 male   mascu…
+##  9 Mon Mo…    150    NA auburn     fair       blue              48 female femin…
+## 10 Cliegg…    183    NA brown      fair       blue              82 male   mascu…
+## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<p>use filter_all() to choose rows in all the columns</p>
+<div class="sourceCode" id="cb1242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_all</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="va">.</span> <span class="op">&gt;</span> <span class="fl">7.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width
+##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+## 1          7.6         3            6.6         2.1
+## 2          7.7         3.8          6.7         2.2
+## 3          7.7         2.6          6.9         2.3
+## 4          7.7         2.8          6.7         2  
+## 5          7.9         3.8          6.4         2  
+## 6          7.7         3            6.1         2.3</code></pre>
+<p>use filter_if() to choose rows</p>
+<div class="sourceCode" id="cb1244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_if</a></span><span class="op">(</span><span class="va">is.character</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 19 × 11
+##    name    height  mass hair_color skin_color  eye_color birth_year sex   gender
+##    &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Sly Mo…    178    48 none       pale        white             NA &lt;NA&gt;  &lt;NA&gt;  
+##  2 Finn        NA    NA black      dark        dark              NA male  mascu…
+##  3 Arvel …     NA    NA brown      fair        brown             NA male  mascu…
+##  4 BB8         NA    NA none       none        black             NA none  mascu…
+##  5 IG-88      200   140 none       metal       red               15 none  mascu…
+##  6 Qui-Go…    193    89 brown      fair        blue              92 male  mascu…
+##  7 R2-D2       96    32 &lt;NA&gt;       white, blue red               33 none  mascu…
+##  8 R5-D4       97    32 &lt;NA&gt;       white, red  red               NA none  mascu…
+##  9 Captai…     NA    NA unknown    unknown     unknown           NA &lt;NA&gt;  &lt;NA&gt;  
+## 10 Ric Ol…    183    NA brown      fair        blue              NA &lt;NA&gt;  &lt;NA&gt;  
+## 11 Poe Da…     NA    NA brown      light       brown             NA male  mascu…
+## 12 BB8         NA    NA none       none        black             NA none  mascu…
+## 13 Yoda        66    17 white      green       brown            896 male  mascu…
+## 14 Yoda        66    17 white      green       brown            896 male  mascu…
+## 15 Ric Ol…    183    NA brown      fair        blue              NA &lt;NA&gt;  &lt;NA&gt;  
+## 16 Finn        NA    NA black      dark        dark              NA male  mascu…
+## 17 Rey         NA    NA brown      light       hazel             NA fema… femin…
+## 18 Finn        NA    NA black      dark        dark              NA male  mascu…
+## 19 Rey         NA    NA brown      light       hazel             NA fema… femin…
+## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+</div>
+<div id="build-new-column-or-mutate-column" class="section level3">
+<h3>
+<span class="header-section-number">91.0.5</span> build new column or mutate column<a class="anchor" aria-label="anchor" href="#build-new-column-or-mutate-column"><i class="fas fa-link"></i></a>
+</h3>
+<p>use mutate to create rows or columns</p>
+<div class="sourceCode" id="cb1246"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>add_all <span class="op">=</span> <span class="va">Sepal.Length</span> <span class="op">+</span> <span class="va">Sepal.Width</span> <span class="op">+</span> <span class="va">Petal.Length</span> <span class="op">+</span> <span class="va">Petal.Width</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 6
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species add_all
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt;
+##  1          5.1         3.5          1.4         0.2 setosa     10.2
+##  2          4.9         3            1.4         0.2 setosa      9.5
+##  3          4.7         3.2          1.3         0.2 setosa      9.4
+##  4          4.6         3.1          1.5         0.2 setosa      9.4
+##  5          5           3.6          1.4         0.2 setosa     10.2
+##  6          5.4         3.9          1.7         0.4 setosa     11.4
+##  7          4.6         3.4          1.4         0.3 setosa      9.7
+##  8          5           3.4          1.5         0.2 setosa     10.1
+##  9          4.4         2.9          1.4         0.2 setosa      8.9
+## 10          4.9         3.1          1.5         0.1 setosa      9.6</code></pre>
+<div class="sourceCode" id="cb1248"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>median_petal_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Petal.Length</span><span class="op">)</span>,
+         has_long_petals <span class="op">=</span> <span class="va">Petal.Length</span> <span class="op">&gt;</span> <span class="va">median_petal_length</span>,
+         has_long_petals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">has_long_petals</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Petal.Length</span>, <span class="va">median_petal_length</span>, <span class="va">has_long_petals</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 150 × 3
+##    Petal.Length median_petal_length has_long_petals
+##           &lt;dbl&gt;               &lt;dbl&gt;           &lt;dbl&gt;
+##  1          1.4                4.35               0
+##  2          1.4                4.35               0
+##  3          1.3                4.35               0
+##  4          1.5                4.35               0
+##  5          1.4                4.35               0
+##  6          1.7                4.35               0
+##  7          1.4                4.35               0
+##  8          1.5                4.35               0
+##  9          1.4                4.35               0
+## 10          1.5                4.35               0
+## # … with 140 more rows</code></pre>
+<p>use mutate_all to apply function to all the rows and columns</p>
+<div class="sourceCode" id="cb1250"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">msleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="va">tolower</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 83 × 11
+##    name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;
+##  1 cheet… acin… carni carn… lc           12.1        &lt;NA&gt;      &lt;NA&gt;        11.9 
+##  2 owl m… aotus omni  prim… &lt;NA&gt;         17          1.8       &lt;NA&gt;        7    
+##  3 mount… aplo… herbi rode… nt           14.4        2.4       &lt;NA&gt;        9.6  
+##  4 great… blar… omni  sori… lc           14.9        2.3       0.133333333 9.1  
+##  5 cow    bos   herbi arti… domesticated 4           0.7       0.666666667 20   
+##  6 three… brad… herbi pilo… &lt;NA&gt;         14.4        2.2       0.766666667 9.6  
+##  7 north… call… carni carn… vu           8.7         1.4       0.383333333 15.3 
+##  8 vespe… calo… &lt;NA&gt;  rode… &lt;NA&gt;         7           &lt;NA&gt;      &lt;NA&gt;        17   
+##  9 dog    canis carni carn… domesticated 10.1        2.9       0.333333333 13.9 
+## 10 roe d… capr… herbi arti… lc           3           &lt;NA&gt;      &lt;NA&gt;        21   
+## # … with 73 more rows, and 2 more variables: brainwt &lt;chr&gt;, bodywt &lt;chr&gt;</code></pre>
+<p>use mutate_if to apply function to specific row and column which satisfied some conditions</p>
+<div class="sourceCode" id="cb1252"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span><span class="op">(</span><span class="va">is.double</span>, <span class="va">as.integer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;int&gt;       &lt;int&gt;        &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  
+##  1            5           3            1           0 setosa 
+##  2            4           3            1           0 setosa 
+##  3            4           3            1           0 setosa 
+##  4            4           3            1           0 setosa 
+##  5            5           3            1           0 setosa 
+##  6            5           3            1           0 setosa 
+##  7            4           3            1           0 setosa 
+##  8            5           3            1           0 setosa 
+##  9            4           2            1           0 setosa 
+## 10            4           3            1           0 setosa</code></pre>
+<p>use mutate_at to apply function to specific row and column</p>
+<div class="sourceCode" id="cb1254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"Width"</span><span class="op">)</span><span class="op">)</span>, <span class="op">~</span> <span class="va">.</span><span class="op">*</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1           51          35           14           2 setosa 
+##  2           49          30           14           2 setosa 
+##  3           47          32           13           2 setosa 
+##  4           46          31           15           2 setosa 
+##  5           50          36           14           2 setosa 
+##  6           54          39           17           4 setosa 
+##  7           46          34           14           3 setosa 
+##  8           50          34           15           2 setosa 
+##  9           44          29           14           2 setosa 
+## 10           49          31           15           1 setosa</code></pre>
+<p>We can use if_else() and case_when() to decide how to change the value
+if_else(condition, if true:—, if false: —-)</p>
+<div class="sourceCode" id="cb1256"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">warpbreaks</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>breed <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">wool</span> <span class="op">==</span> <span class="st">"A"</span>,
+                         true <span class="op">=</span> <span class="st">"Merino"</span>,
+                         false <span class="op">=</span> <span class="st">"Corriedale"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></code></pre></div>
+<pre><code>##   breaks wool tension      breed
+## 1     41    B       L Corriedale
+## 2     54    A       L     Merino
+## 3     51    A       L     Merino
+## 4     15    B       H Corriedale
+## 5     13    B       H Corriedale
+## 6     30    A       M     Merino
+## 7     35    A       M     Merino
+## 8     21    A       H     Merino</code></pre>
+<p>case_when (condition1 ~ class1,
+condition2 ~ class2,
+condition3 ~ class3,
+……
+)</p>
+<div class="sourceCode" id="cb1258"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">warpbreaks</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>tension<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">tension</span> <span class="op">==</span> <span class="st">"H"</span> <span class="op">~</span> <span class="st">"High"</span>,
+                           <span class="va">tension</span> <span class="op">==</span> <span class="st">"M"</span> <span class="op">~</span> <span class="st">"Medium"</span>,
+                           <span class="va">tension</span> <span class="op">==</span> <span class="st">"L"</span> <span class="op">~</span> <span class="st">"Low"</span>,
+                           <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA_character_</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></code></pre></div>
+<pre><code>##   breaks wool tension
+## 1     29    B  Medium
+## 2     28    B    High
+## 3     30    A  Medium
+## 4     16    B    High
+## 5     25    A     Low
+## 6     29    B     Low
+## 7     70    A     Low
+## 8     15    B    High</code></pre>
+</div>
+<div id="group" class="section level3">
+<h3>
+<span class="header-section-number">91.0.6</span> Group<a class="anchor" aria-label="anchor" href="#group"><i class="fas fa-link"></i></a>
+</h3>
+<p>use group_by() to create groups and use ungroup to separate group
+use summarize() to find out the properties of the group
+n() :count the frequency
+sum(var),max(var),min(var),mean(var),median(var),sd(var)</p>
+<div class="sourceCode" id="cb1260"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,
+            avg_len <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Petal.Length</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>,
+            med_len <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Petal.Length</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 4
+##   Species        n avg_len med_len
+##   &lt;fct&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 setosa        50    1.46    1.5 
+## 2 versicolor    50    4.26    4.35
+## 3 virginica     50    5.55    5.55</code></pre>
+<p>We can also use summarize_if,summarize_all</p>
+<div class="sourceCode" id="cb1262"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_if</a></span><span class="op">(</span><span class="va">is.numeric</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">dat</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 17
+##   Species    Sepal.Length_me… Sepal.Width_mean Petal.Length_me… Petal.Width_mean
+##   &lt;fct&gt;                 &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1 setosa                 5.01             3.43             1.46            0.246
+## 2 versicolor             5.94             2.77             4.26            1.33 
+## 3 virginica              6.59             2.97             5.55            2.03 
+## # … with 12 more variables: Sepal.Length_median &lt;dbl&gt;,
+## #   Sepal.Width_median &lt;dbl&gt;, Petal.Length_median &lt;dbl&gt;,
+## #   Petal.Width_median &lt;dbl&gt;, Sepal.Length_min &lt;dbl&gt;, Sepal.Width_min &lt;dbl&gt;,
+## #   Petal.Length_min &lt;dbl&gt;, Petal.Width_min &lt;dbl&gt;, Sepal.Length_max &lt;dbl&gt;,
+## #   Sepal.Width_max &lt;dbl&gt;, Petal.Length_max &lt;dbl&gt;, Petal.Width_max &lt;dbl&gt;</code></pre>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="running-sql-queries-on-dataframes.html"><span class="header-section-number">90</span> Running Sql Queries on Dataframes</a></div>
+<div class="next"><a href="how-to-animate-your-plots.html"><span class="header-section-number">92</span> How to animate your plots</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li>
+<a class="nav-link" href="#tidyverse"><span class="header-section-number">91</span> TidyVerse</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#connection-bewtween-two-datasets"><span class="header-section-number">91.0.1</span> Connection Bewtween two datasets</a></li>
+<li><a class="nav-link" href="#combime-two-datasets-by-value-join"><span class="header-section-number">91.0.2</span> combime two datasets by value: join</a></li>
+<li><a class="nav-link" href="#manipulation-on-column"><span class="header-section-number">91.0.3</span> manipulation on column</a></li>
+<li><a class="nav-link" href="#manipulation-on-row"><span class="header-section-number">91.0.4</span> manipulation on row</a></li>
+<li><a class="nav-link" href="#build-new-column-or-mutate-column"><span class="header-section-number">91.0.5</span> build new column or mutate column</a></li>
+<li><a class="nav-link" href="#group"><span class="header-section-number">91.0.6</span> Group</a></li>
+</ul>
+</li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/tidyver_help.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/tidyver_help.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -49,27 +49,6 @@ SELECT
 FROM iris
 ```
 
-
-<div class="knitsql-table">
-
-
-Table: (\#tab:unnamed-chunk-4)Displaying records 1 - 10
-
-| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
-|------------:|-----------:|------------:|-----------:|:-------|
-|          5.1|         3.5|          1.4|         0.2|setosa  |
-|          4.9|         3.0|          1.4|         0.2|setosa  |
-|          4.7|         3.2|          1.3|         0.2|setosa  |
-|          4.6|         3.1|          1.5|         0.2|setosa  |
-|          5.0|         3.6|          1.4|         0.2|setosa  |
-|          5.4|         3.9|          1.7|         0.4|setosa  |
-|          4.6|         3.4|          1.4|         0.3|setosa  |
-|          5.0|         3.4|          1.5|         0.2|setosa  |
-|          4.4|         2.9|          1.4|         0.2|setosa  |
-|          4.9|         3.1|          1.5|         0.1|setosa  |
-
-</div>
-
 #### Group by
 
 Calculate the average petal length, and petal width by species.
@@ -85,22 +64,7 @@ FROM iris
 GROUP BY species 
 ```
 
-
-<div class="knitsql-table">
-
-
-Table: (\#tab:unnamed-chunk-5)3 records
-
-|Species    | avg_petal_length| avg_petal_width|
-|:----------|----------------:|---------------:|
-|setosa     |            1.462|           0.246|
-|versicolor |            4.260|           1.326|
-|virginica  |            5.552|           2.026|
-
-</div>
-
 #### Saving results as dataframes
-
 
 ```sql
 --chunk options: {sql, connection=connection, output.var="result_df"}
@@ -116,12 +80,6 @@ WHERE species = 'setosa'
 ```r
 result_df %>% rmarkdown::paged_table()
 ```
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["specs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["petal_width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["ptal_length"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.3"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.4","3":"1.7"},{"1":"setosa","2":"0.3","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.1","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.1","3":"1.4"},{"1":"setosa","2":"0.1","3":"1.1"},{"1":"setosa","2":"0.2","3":"1.2"},{"1":"setosa","2":"0.4","3":"1.5"},{"1":"setosa","2":"0.4","3":"1.3"},{"1":"setosa","2":"0.3","3":"1.4"},{"1":"setosa","2":"0.3","3":"1.7"},{"1":"setosa","2":"0.3","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.7"},{"1":"setosa","2":"0.4","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.0"},{"1":"setosa","2":"0.5","3":"1.7"},{"1":"setosa","2":"0.2","3":"1.9"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.4","3":"1.6"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.4","3":"1.5"},{"1":"setosa","2":"0.1","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.2"},{"1":"setosa","2":"0.2","3":"1.3"},{"1":"setosa","2":"0.1","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.3"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.3","3":"1.3"},{"1":"setosa","2":"0.3","3":"1.3"},{"1":"setosa","2":"0.2","3":"1.3"},{"1":"setosa","2":"0.6","3":"1.6"},{"1":"setosa","2":"0.4","3":"1.9"},{"1":"setosa","2":"0.3","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.6"},{"1":"setosa","2":"0.2","3":"1.4"},{"1":"setosa","2":"0.2","3":"1.5"},{"1":"setosa","2":"0.2","3":"1.4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
 
 ### Complex Use Cases
 
@@ -146,12 +104,6 @@ seattlepets %>%
   filter(row_number <= 20) %>%
   rmarkdown::paged_table()
 ```
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["species"],"name":[1],"type":["chr"],"align":["left"]},{"label":["animal_name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["count"],"name":[3],"type":["int"],"align":["right"]},{"label":["row_number"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Dog","2":"Lucy","3":"337","4":"1"},{"1":"Dog","2":"Charlie","3":"306","4":"2"},{"1":"Dog","2":"Bella","3":"249","4":"3"},{"1":"Dog","2":"Luna","3":"244","4":"4"},{"1":"Dog","2":"Daisy","3":"221","4":"5"},{"1":"Dog","2":"Cooper","3":"189","4":"6"},{"1":"Dog","2":"Lola","3":"187","4":"7"},{"1":"Dog","2":"Max","3":"186","4":"8"},{"1":"Dog","2":"Molly","3":"186","4":"9"},{"1":"Dog","2":"Stella","3":"185","4":"10"},{"1":"Dog","2":"Buddy","3":"175","4":"11"},{"1":"Dog","2":"Jack","3":"167","4":"12"},{"1":"Dog","2":"Maggie","3":"158","4":"13"},{"1":"Dog","2":"Penny","3":"153","4":"14"},{"1":"Dog","2":"Sadie","3":"153","4":"15"},{"1":"Dog","2":"Sophie","3":"152","4":"16"},{"1":"Dog","2":"Ruby","3":"150","4":"17"},{"1":"Dog","2":"Lily","3":"146","4":"18"},{"1":"Dog","2":"Rosie","3":"144","4":"19"},{"1":"Dog","2":"Bailey","3":"139","4":"20"},{"1":"Cat","2":"Luna","3":"111","4":"1"},{"1":"Cat","2":"Lucy","3":"102","4":"2"},{"1":"Cat","2":"Lily","3":"86","4":"3"},{"1":"Cat","2":"Max","3":"83","4":"4"},{"1":"Cat","2":"Bella","3":"82","4":"5"},{"1":"Cat","2":"Charlie","3":"81","4":"6"},{"1":"Cat","2":"Oliver","3":"73","4":"7"},{"1":"Cat","2":"Jack","3":"65","4":"8"},{"1":"Cat","2":"Sophie","3":"59","4":"9"},{"1":"Cat","2":"Leo","3":"54","4":"10"},{"1":"Cat","2":"Molly","3":"54","4":"11"},{"1":"Cat","2":"Shadow","3":"53","4":"12"},{"1":"Cat","2":"Milo","3":"52","4":"13"},{"1":"Cat","2":"Henry","3":"50","4":"14"},{"1":"Cat","2":"Kitty","3":"49","4":"15"},{"1":"Cat","2":"Gracie","3":"48","4":"16"},{"1":"Cat","2":"Oscar","3":"47","4":"17"},{"1":"Cat","2":"Cleo","3":"45","4":"18"},{"1":"Cat","2":"George","3":"44","4":"19"},{"1":"Cat","2":"Pepper","3":"44","4":"20"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
 
 Now let's try to write a SQL query that does the same thing.
 
@@ -192,27 +144,6 @@ WHERE row_number <= 20
 ORDER BY species DESC, count DESC
 ```
 
-
-<div class="knitsql-table">
-
-
-Table: (\#tab:unnamed-chunk-10)Displaying records 1 - 10
-
-|species |animal_name | count| row_number|
-|:-------|:-----------|-----:|----------:|
-|Dog     |Lucy        |   337|          1|
-|Dog     |Charlie     |   306|          2|
-|Dog     |Bella       |   249|          3|
-|Dog     |Luna        |   244|          4|
-|Dog     |Daisy       |   221|          5|
-|Dog     |Cooper      |   189|          6|
-|Dog     |Lola        |   187|          7|
-|Dog     |Max         |   186|          8|
-|Dog     |Molly       |   186|          9|
-|Dog     |Stella      |   185|         10|
-
-</div>
-
 Voila, the tables generated by two different approaches look exactly the same, how cool is that! We can choose between the two depending on how we feel!
 
 Let's look at a slightly more complicated example, we want to know the 20 most popular names for dogs and cats combined. To do that, we need to structure the data in the long form for generating a Cleveland plot. Again we will do it using dplyr way first.
@@ -240,10 +171,7 @@ seattlepets %>%
     ylab("Count")
 ```
 
-<img src="running_sql_queries_on_dataframes_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" />
-
 The cool thing about SQL engine is that it returns the result as a regular dplyr dataframe, which allows us to mix and match SQL queries and dplyr syntax. Here is a demonstration, where we calculate the total count of dog and cat names combined in SQL query, and leverage the **pivot_longer** function to structure the data for plotting.
-
 
 ```sql
 --chunk options: {sql, connection=connection, output.var="total_pet_count"}
@@ -290,8 +218,6 @@ total_pet_count %>%
     xlab("Animal Name") + 
     ylab("Count")
 ```
-
-<img src="running_sql_queries_on_dataframes_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" />
 
 ## Lessons learned
 

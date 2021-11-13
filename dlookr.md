@@ -660,8 +660,20 @@ plot(gross_square_feet_log)
 #### Diagnosis report
 
 
+```r
+# NOT RUN
+manhattan %>%
+  diagnose_web_report(subtitle = "manhattan", output_dir = "./", 
+                      output_file = "Diagn.html", theme = "blue")
+```
 
 
+```r
+# NOT RUN
+manhattan %>%
+  diagnose_paged_report(subtitle = "manhattan", output_dir = "./",
+                        output_file = "Diagn.pdf", theme = "blue")
+```
 
 ### References
 

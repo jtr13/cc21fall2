@@ -1,6 +1,3 @@
-tab:unnamed-chunk-4
-tab:unnamed-chunk-5
-tab:unnamed-chunk-10
 welcome
 community-contribution
 important-logistics
@@ -183,6 +180,7 @@ features
 demonstration
 view-from-the-animate-tab
 view-from-the-advanced-animate-tab
+string-manipulation-in-r
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
@@ -369,6 +367,7 @@ conclusion
 reference-1
 raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both
 introduction-7
+components-of-raincloud-plot.
 tailoring-out-the-cloud-halved-violin
 making-it-rain-jittered-points
 adding-the-box-to-collect-the-rain-boxplot
@@ -871,6 +870,16 @@ lessons-learned
 future-work
 missing-pagination-for-sql-engine-query-output
 sql-engine-for-dplyr-dataframes
+tidyverse
+connection-bewtween-two-datasets
+combime-two-datasets-by-value-join
+manipulation-on-column
+manipulation-on-row
+build-new-column-or-mutate-column
+group
+how-to-animate-your-plots
+gganimate-1
+using-the-animate.hook-hook
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r
@@ -900,8 +909,13 @@ scatter-plot-with-hex-heatmap
 scatter-matrix
 heatmaps-1
 final-thoughts
-super-ggformat
+d-visualization-with-rgl-and-scatterplot3d
 introduction-22
+toy-data
+variational-auto-encoder-representations-on-mnist
+references-6
+super-ggformat
+introduction-23
 how-it-differs-from-ggformat
 handle-multiple-sentences
 handle-comments

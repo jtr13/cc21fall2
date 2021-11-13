@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 42 Video introduction to maps with ggmap | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content='Ryan Rogers # install.packages("ggmap") library(ggmap) # You will also need to activate an API key! Use a line like the following: # register_google("&lt;API KEY&gt;")  42.1 Link to Video Tutorial...'>
+<title>Chapter 43 Video introduction to maps with ggmap | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content='Ryan Rogers # install.packages("ggmap") library(ggmap) # You will also need to activate an API key! Use a line like the following: # register_google("&lt;API KEY&gt;")  43.1 Link to Video Tutorial...'>
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 42 Video introduction to maps with ggmap | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 43 Video introduction to maps with ggmap | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content='Ryan Rogers # install.packages("ggmap") library(ggmap) # You will also need to activate an API key! Use a line like the following: # register_google("&lt;API KEY&gt;")  42.1 Link to Video Tutorial...'>
+<meta property="og:description" content='Ryan Rogers # install.packages("ggmap") library(ggmap) # You will also need to activate an API key! Use a line like the following: # register_google("&lt;API KEY&gt;")  43.1 Link to Video Tutorial...'>
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 42 Video introduction to maps with ggmap | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content='Ryan Rogers # install.packages("ggmap") library(ggmap) # You will also need to activate an API key! Use a line like the following: # register_google("&lt;API KEY&gt;")  42.1 Link to Video Tutorial...'>
+<meta name="twitter:title" content="Chapter 43 Video introduction to maps with ggmap | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content='Ryan Rogers # install.packages("ggmap") library(ggmap) # You will also need to activate an API key! Use a line like the following: # register_google("&lt;API KEY&gt;")  43.1 Link to Video Tutorial...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -23,8 +23,7 @@
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
 <script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
-<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -78,80 +77,84 @@
 <li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
 <li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
 <li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">34</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">35</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">36</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">37</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">38</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">39</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">40</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">41</span> Downloading files</a></li>
-<li><a class="active" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">42</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">43</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">44</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">45</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">46</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">47</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">50</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">51</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">52</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">53</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">54</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">55</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">56</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">57</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">58</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">59</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">60</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">61</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">62</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">63</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">64</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">65</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">66</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">67</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">68</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">69</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">70</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">71</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">73</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">74</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">75</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">76</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">77</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">78</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">79</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">80</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">81</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">82</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">83</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">84</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">85</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">86</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">87</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">88</span> Joining and reshaping in R</a></li>
-<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">89</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">33</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">34</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">35</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">36</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">37</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">38</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">39</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">40</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">41</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">42</span> Downloading files</a></li>
+<li><a class="active" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">43</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">44</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">45</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">46</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">47</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">48</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">49</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">50</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">51</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">52</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">53</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">54</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">55</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">56</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">57</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">58</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">59</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">60</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">61</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">62</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">63</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">64</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">65</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">66</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">67</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">68</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">69</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">70</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">71</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">72</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">73</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">74</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">75</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">76</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">77</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">78</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">79</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">80</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">81</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">82</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">83</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">84</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">85</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">86</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">87</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">88</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">89</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">90</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">91</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">92</span> How to animate your plots</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">90</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">91</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">92</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">93</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">94</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">93</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">94</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">95</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">96</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">97</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">95</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">96</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">97</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">98</span> R and Python visualization</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">99</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">98</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">99</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">100</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">101</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">102</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">103</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">100</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">101</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">104</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">105</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -161,7 +164,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="video-introduction-to-maps-with-ggmap" class="section level1">
 <h1>
-<span class="header-section-number">42</span> Video introduction to maps with ggmap<a class="anchor" aria-label="anchor" href="#video-introduction-to-maps-with-ggmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43</span> Video introduction to maps with ggmap<a class="anchor" aria-label="anchor" href="#video-introduction-to-maps-with-ggmap"><i class="fas fa-link"></i></a>
 </h1>
 <p>Ryan Rogers</p>
 <div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
@@ -171,13 +174,13 @@
 <span class="co"># register_google("&lt;API KEY&gt;")</span></code></pre></div>
 <div id="link-to-video-tutorial" class="section level2">
 <h2>
-<span class="header-section-number">42.1</span> Link to Video Tutorial<a class="anchor" aria-label="anchor" href="#link-to-video-tutorial"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.1</span> Link to Video Tutorial<a class="anchor" aria-label="anchor" href="#link-to-video-tutorial"><i class="fas fa-link"></i></a>
 </h2>
 <p><a href="https://www.youtube.com/watch?v=AKEEAaCbtog" class="uri">https://www.youtube.com/watch?v=AKEEAaCbtog</a></p>
 </div>
 <div id="getting-started" class="section level2">
 <h2>
-<span class="header-section-number">42.2</span> Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.2</span> Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
 </h2>
 <p>This demonstration will show you how to make static maps within the tidyverse framework using ggmap. Before we get started, make sure you have ggmap installed and ready to go, since you may not have it installed by default.</p>
 <p>One thing that can be somewhat pesky when working with ggmap is Google maps. As of 2018, this service requires an API key to use. To access the full features of this demonstration, you will have to register a Google API key. Details on how to do this can be found in the help file for ‘register_google’.</p>
@@ -185,14 +188,14 @@
 </div>
 <div id="why-ggmap" class="section level2">
 <h2>
-<span class="header-section-number">42.3</span> Why ggmap?<a class="anchor" aria-label="anchor" href="#why-ggmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.3</span> Why ggmap?<a class="anchor" aria-label="anchor" href="#why-ggmap"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggmap is useful for our demonstration, since it will use syntax that you may be familiar with already! ggmap is designed to be quite compatible with ggplot2 (in fact, Hadley Wickham, one of the authors of ggplot2, is a co-author!). In fact, much of ggmap is, under the hood, largely comprised of ggplot2 components. ggmap, however, features the added benefit of abstracting away from many of the more involved components of setting up a ggplot2 visual with maps, and will doubtless prove easier to use than base ggplot2 alone. ggmap also has many options for customizing its resulting visuals, though we will not explore many of these options in depth.</p>
 <p>It should be noted that ggmap is an excellent tool for <em>static</em> maps. If you are looking more dynamic maps that provide more potential for user interaction, you may find other libraries, such as leaflet, that better suit your needs.</p>
 </div>
 <div id="dataset-for-demonstration" class="section level2">
 <h2>
-<span class="header-section-number">42.4</span> Dataset for Demonstration<a class="anchor" aria-label="anchor" href="#dataset-for-demonstration"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.4</span> Dataset for Demonstration<a class="anchor" aria-label="anchor" href="#dataset-for-demonstration"><i class="fas fa-link"></i></a>
 </h2>
 <p>For our demonstration, we will utilize data on public WiFi locations in New York City. The dataset can be found here:
 <a href="https://data.cityofnewyork.us/City-Government/NYC-Wi-Fi-Hotspot-Locations/yjub-udmw" class="uri">https://data.cityofnewyork.us/City-Government/NYC-Wi-Fi-Hotspot-Locations/yjub-udmw</a> . We will save this dataset to ‘wifi_data’:</p>
@@ -258,12 +261,12 @@
 </div>
 <div id="creating-maps-no-plotting" class="section level2">
 <h2>
-<span class="header-section-number">42.5</span> Creating Maps (No plotting)<a class="anchor" aria-label="anchor" href="#creating-maps-no-plotting"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.5</span> Creating Maps (No plotting)<a class="anchor" aria-label="anchor" href="#creating-maps-no-plotting"><i class="fas fa-link"></i></a>
 </h2>
 <p>Before we dive into how to overlay datapoints and other visuals over our graphs, we’ll start by going over how to create maps in the first place.</p>
 <div id="by-location-name" class="section level3">
 <h3>
-<span class="header-section-number">42.5.1</span> By location name<a class="anchor" aria-label="anchor" href="#by-location-name"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.5.1</span> By location name<a class="anchor" aria-label="anchor" href="#by-location-name"><i class="fas fa-link"></i></a>
 </h3>
 <p>The first, and perhaps more approachable way we can plot a map is by simply specifying the name of the location we’d like to see. This works through the geocode function. Here is an example with the city of Paris, France:</p>
 <div class="sourceCode" id="cb462"><pre class="downlit sourceCode r">
@@ -293,7 +296,7 @@
 </div>
 <div id="by-geographic-coordinates" class="section level3">
 <h3>
-<span class="header-section-number">42.5.2</span> By geographic coordinates<a class="anchor" aria-label="anchor" href="#by-geographic-coordinates"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.5.2</span> By geographic coordinates<a class="anchor" aria-label="anchor" href="#by-geographic-coordinates"><i class="fas fa-link"></i></a>
 </h3>
 <p>Another way to plot a map is with geographic coordinates directly. Here, we will input the coordinates for the Grand Canyon:</p>
 <div class="sourceCode" id="cb466"><pre class="downlit sourceCode r">
@@ -306,14 +309,14 @@
 </div>
 <div id="using-shape-files" class="section level3">
 <h3>
-<span class="header-section-number">42.5.3</span> Using shape files<a class="anchor" aria-label="anchor" href="#using-shape-files"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.5.3</span> Using shape files<a class="anchor" aria-label="anchor" href="#using-shape-files"><i class="fas fa-link"></i></a>
 </h3>
 <p>Shape files are also an option for plotting maps with ggmap, but we will not cover them here.</p>
 </div>
 </div>
 <div id="quick-map-plot" class="section level2">
 <h2>
-<span class="header-section-number">42.6</span> Quick Map Plot<a class="anchor" aria-label="anchor" href="#quick-map-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.6</span> Quick Map Plot<a class="anchor" aria-label="anchor" href="#quick-map-plot"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the event that you would like a quick visual plotted, given a set of latitude and longitude points that you would like to superimpose on a map, there is an easy option in the form of qmplot. Here is an example, using our sample dataset:</p>
 <div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
@@ -323,12 +326,12 @@
 </div>
 <div id="plotting-by-overlaying-ggplot2-visuals" class="section level2">
 <h2>
-<span class="header-section-number">42.7</span> Plotting by Overlaying ggplot2 Visuals<a class="anchor" aria-label="anchor" href="#plotting-by-overlaying-ggplot2-visuals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.7</span> Plotting by Overlaying ggplot2 Visuals<a class="anchor" aria-label="anchor" href="#plotting-by-overlaying-ggplot2-visuals"><i class="fas fa-link"></i></a>
 </h2>
 <p>In most cases, you will want more elaborate visuals, which may be easier to accomplish with ggplot2 and ordinary ggmaps. Here are some examples:</p>
 <div id="scatterplot" class="section level3">
 <h3>
-<span class="header-section-number">42.7.1</span> Scatterplot<a class="anchor" aria-label="anchor" href="#scatterplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.7.1</span> Scatterplot<a class="anchor" aria-label="anchor" href="#scatterplot"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let us start with a basic plotting. Note that ‘lat’ and ‘lon’ are the expected names of the x and y values.</p>
 <div class="sourceCode" id="cb468"><pre class="downlit sourceCode r">
@@ -350,7 +353,7 @@
 </div>
 <div id="heatmap-with-rectangular-bins" class="section level3">
 <h3>
-<span class="header-section-number">42.7.2</span> Heatmap with Rectangular Bins<a class="anchor" aria-label="anchor" href="#heatmap-with-rectangular-bins"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.7.2</span> Heatmap with Rectangular Bins<a class="anchor" aria-label="anchor" href="#heatmap-with-rectangular-bins"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the event of overplotting, a rectangular heatmap can be used. The below graph shows a rectangular heatmap for the area of manhattan north of central park.</p>
 <div class="sourceCode" id="cb470"><pre class="downlit sourceCode r">
@@ -362,7 +365,7 @@
 </div>
 <div id="contour-plots" class="section level3">
 <h3>
-<span class="header-section-number">42.7.3</span> Contour Plots<a class="anchor" aria-label="anchor" href="#contour-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.7.3</span> Contour Plots<a class="anchor" aria-label="anchor" href="#contour-plots"><i class="fas fa-link"></i></a>
 </h3>
 <p>One final visual of interest is the contour plot. Here is an example of one:</p>
 <div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
@@ -374,7 +377,7 @@
 </div>
 <div id="overlaying-routes" class="section level3">
 <h3>
-<span class="header-section-number">42.7.4</span> Overlaying Routes<a class="anchor" aria-label="anchor" href="#overlaying-routes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.7.4</span> Overlaying Routes<a class="anchor" aria-label="anchor" href="#overlaying-routes"><i class="fas fa-link"></i></a>
 </h3>
 <p>One other neat feature of ggmap is the ability to superimpose routes. Here is a map that shows the available WiFi hotspots near a walking route from Columbia to Central Park:</p>
 <div class="sourceCode" id="cb472"><pre class="downlit sourceCode r">
@@ -391,13 +394,13 @@
 </div>
 <div id="recommended-reading" class="section level2">
 <h2>
-<span class="header-section-number">42.8</span> Recommended Reading<a class="anchor" aria-label="anchor" href="#recommended-reading"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.8</span> Recommended Reading<a class="anchor" aria-label="anchor" href="#recommended-reading"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you’re looking for additional reading on ggmap, I would recommend <a href="https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf" class="uri">https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf</a> .</p>
 </div>
 <div id="sources-3" class="section level2">
 <h2>
-<span class="header-section-number">42.9</span> Sources<a class="anchor" aria-label="anchor" href="#sources-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">43.9</span> Sources<a class="anchor" aria-label="anchor" href="#sources-3"><i class="fas fa-link"></i></a>
 </h2>
 <p>L. Ellis. Map Plots Created With R And Ggmap. Little Miss Data. April 15, 2018. URL
 <a href="https://www.littlemissdata.com/blog/maps" class="uri">https://www.littlemissdata.com/blog/maps</a></p>
@@ -409,34 +412,34 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="downloading-files.html"><span class="header-section-number">41</span> Downloading files</a></div>
-<div class="next"><a href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">43</span> Comparison among base R, tidyverse, and datatable</a></div>
+<div class="prev"><a href="downloading-files.html"><span class="header-section-number">42</span> Downloading files</a></div>
+<div class="next"><a href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">44</span> Comparison among base R, tidyverse, and datatable</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#video-introduction-to-maps-with-ggmap"><span class="header-section-number">42</span> Video introduction to maps with ggmap</a></li>
-<li><a class="nav-link" href="#link-to-video-tutorial"><span class="header-section-number">42.1</span> Link to Video Tutorial</a></li>
-<li><a class="nav-link" href="#getting-started"><span class="header-section-number">42.2</span> Getting Started</a></li>
-<li><a class="nav-link" href="#why-ggmap"><span class="header-section-number">42.3</span> Why ggmap?</a></li>
-<li><a class="nav-link" href="#dataset-for-demonstration"><span class="header-section-number">42.4</span> Dataset for Demonstration</a></li>
+<li><a class="nav-link" href="#video-introduction-to-maps-with-ggmap"><span class="header-section-number">43</span> Video introduction to maps with ggmap</a></li>
+<li><a class="nav-link" href="#link-to-video-tutorial"><span class="header-section-number">43.1</span> Link to Video Tutorial</a></li>
+<li><a class="nav-link" href="#getting-started"><span class="header-section-number">43.2</span> Getting Started</a></li>
+<li><a class="nav-link" href="#why-ggmap"><span class="header-section-number">43.3</span> Why ggmap?</a></li>
+<li><a class="nav-link" href="#dataset-for-demonstration"><span class="header-section-number">43.4</span> Dataset for Demonstration</a></li>
 <li>
-<a class="nav-link" href="#creating-maps-no-plotting"><span class="header-section-number">42.5</span> Creating Maps (No plotting)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#by-location-name"><span class="header-section-number">42.5.1</span> By location name</a></li>
-<li><a class="nav-link" href="#by-geographic-coordinates"><span class="header-section-number">42.5.2</span> By geographic coordinates</a></li>
-<li><a class="nav-link" href="#using-shape-files"><span class="header-section-number">42.5.3</span> Using shape files</a></li>
+<a class="nav-link" href="#creating-maps-no-plotting"><span class="header-section-number">43.5</span> Creating Maps (No plotting)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#by-location-name"><span class="header-section-number">43.5.1</span> By location name</a></li>
+<li><a class="nav-link" href="#by-geographic-coordinates"><span class="header-section-number">43.5.2</span> By geographic coordinates</a></li>
+<li><a class="nav-link" href="#using-shape-files"><span class="header-section-number">43.5.3</span> Using shape files</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#quick-map-plot"><span class="header-section-number">42.6</span> Quick Map Plot</a></li>
+<li><a class="nav-link" href="#quick-map-plot"><span class="header-section-number">43.6</span> Quick Map Plot</a></li>
 <li>
-<a class="nav-link" href="#plotting-by-overlaying-ggplot2-visuals"><span class="header-section-number">42.7</span> Plotting by Overlaying ggplot2 Visuals</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#scatterplot"><span class="header-section-number">42.7.1</span> Scatterplot</a></li>
-<li><a class="nav-link" href="#heatmap-with-rectangular-bins"><span class="header-section-number">42.7.2</span> Heatmap with Rectangular Bins</a></li>
-<li><a class="nav-link" href="#contour-plots"><span class="header-section-number">42.7.3</span> Contour Plots</a></li>
-<li><a class="nav-link" href="#overlaying-routes"><span class="header-section-number">42.7.4</span> Overlaying Routes</a></li>
+<a class="nav-link" href="#plotting-by-overlaying-ggplot2-visuals"><span class="header-section-number">43.7</span> Plotting by Overlaying ggplot2 Visuals</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#scatterplot"><span class="header-section-number">43.7.1</span> Scatterplot</a></li>
+<li><a class="nav-link" href="#heatmap-with-rectangular-bins"><span class="header-section-number">43.7.2</span> Heatmap with Rectangular Bins</a></li>
+<li><a class="nav-link" href="#contour-plots"><span class="header-section-number">43.7.3</span> Contour Plots</a></li>
+<li><a class="nav-link" href="#overlaying-routes"><span class="header-section-number">43.7.4</span> Overlaying Routes</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#recommended-reading"><span class="header-section-number">42.8</span> Recommended Reading</a></li>
-<li><a class="nav-link" href="#sources-3"><span class="header-section-number">42.9</span> Sources</a></li>
+<li><a class="nav-link" href="#recommended-reading"><span class="header-section-number">43.8</span> Recommended Reading</a></li>
+<li><a class="nav-link" href="#sources-3"><span class="header-section-number">43.9</span> Sources</a></li>
 </ul>
 
       <div class="book-extra">
@@ -454,7 +457,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-10.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

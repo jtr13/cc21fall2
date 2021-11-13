@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 77 R based data organization and visualization | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Tengteng Tao library(tidyverse) library(ggridges) library(ggplot2) library(scales)  77.1 Introduction In this cheat sheet, I conclude all the important functions we have used in the past two...">
+<title>Chapter 78 R based data organization and visualization | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Tengteng Tao library(tidyverse) library(ggridges) library(ggplot2) library(scales)  78.1 Introduction In this cheat sheet, I conclude all the important functions we have used in the past two...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 77 R based data organization and visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 78 R based data organization and visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Tengteng Tao library(tidyverse) library(ggridges) library(ggplot2) library(scales)  77.1 Introduction In this cheat sheet, I conclude all the important functions we have used in the past two...">
+<meta property="og:description" content="Tengteng Tao library(tidyverse) library(ggridges) library(ggplot2) library(scales)  78.1 Introduction In this cheat sheet, I conclude all the important functions we have used in the past two...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 77 R based data organization and visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Tengteng Tao library(tidyverse) library(ggridges) library(ggplot2) library(scales)  77.1 Introduction In this cheat sheet, I conclude all the important functions we have used in the past two...">
+<meta name="twitter:title" content="Chapter 78 R based data organization and visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Tengteng Tao library(tidyverse) library(ggridges) library(ggplot2) library(scales)  78.1 Introduction In this cheat sheet, I conclude all the important functions we have used in the past two...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -23,8 +23,7 @@
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
 <script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
-<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -78,80 +77,84 @@
 <li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
 <li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
 <li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">34</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">35</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">36</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">37</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">38</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">39</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">40</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">41</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">42</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">43</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">44</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">45</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">46</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">47</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">50</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">51</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">52</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">53</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">54</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">55</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">56</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">57</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">58</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">59</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">60</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">61</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">62</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">63</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">64</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">65</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">66</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">67</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">68</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">69</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">70</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">71</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">73</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">74</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">75</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">76</span> Brief Introduction of ggpubr</a></li>
-<li><a class="active" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">77</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">78</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">79</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">80</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">81</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">82</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">83</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">84</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">85</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">86</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">87</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">88</span> Joining and reshaping in R</a></li>
-<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">89</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">33</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">34</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">35</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">36</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">37</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">38</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">39</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">40</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">41</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">42</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">43</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">44</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">45</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">46</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">47</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">48</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">49</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">50</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">51</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">52</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">53</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">54</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">55</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">56</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">57</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">58</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">59</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">60</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">61</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">62</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">63</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">64</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">65</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">66</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">67</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">68</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">69</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">70</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">71</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">72</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">73</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">74</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">75</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">76</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">77</span> Brief Introduction of ggpubr</a></li>
+<li><a class="active" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">78</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">79</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">80</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">81</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">82</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">83</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">84</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">85</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">86</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">87</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">88</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">89</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">90</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">91</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">92</span> How to animate your plots</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">90</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">91</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">92</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">93</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">94</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">93</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">94</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">95</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">96</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">97</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">95</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">96</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">97</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">98</span> R and Python visualization</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">99</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">98</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">99</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">100</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">101</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">102</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">103</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">100</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">101</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">104</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">105</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -161,7 +164,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-based-data-organization-and-visualization" class="section level1">
 <h1>
-<span class="header-section-number">77</span> R based data organization and visualization<a class="anchor" aria-label="anchor" href="#r-based-data-organization-and-visualization"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78</span> R based data organization and visualization<a class="anchor" aria-label="anchor" href="#r-based-data-organization-and-visualization"><i class="fas fa-link"></i></a>
 </h1>
 <p>Tengteng Tao</p>
 <div class="sourceCode" id="cb988"><pre class="downlit sourceCode r">
@@ -171,17 +174,17 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></code></pre></div>
 <div id="introduction-17" class="section level2">
 <h2>
-<span class="header-section-number">77.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-17"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-17"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this cheat sheet, I conclude all the important functions we have used in the past two graded homeworks. The whole cheat sheet has two sections. In the first section, all functions related to plotting will be listed. In the second section, all functions which are helpful in organizing data will be mentioned.</p>
 </div>
 <div id="plots-and-their-corresponding-codes" class="section level2">
 <h2>
-<span class="header-section-number">77.2</span> Plots and their corresponding codes<a class="anchor" aria-label="anchor" href="#plots-and-their-corresponding-codes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2</span> Plots and their corresponding codes<a class="anchor" aria-label="anchor" href="#plots-and-their-corresponding-codes"><i class="fas fa-link"></i></a>
 </h2>
 <div id="box-plots" class="section level3">
 <h3>
-<span class="header-section-number">77.2.1</span> Box plots<a class="anchor" aria-label="anchor" href="#box-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.1</span> Box plots<a class="anchor" aria-label="anchor" href="#box-plots"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create box plots, we use the function geom_boxplot() from the ggplot2. The basic function is</p>
 <p>ggplot(dataframe, aes(y = TheColumnForYaxis , x = TheColumnForXaxis ))+
@@ -198,7 +201,7 @@ geom_boxplot()</p>
 </div>
 <div id="histograms" class="section level3">
 <h3>
-<span class="header-section-number">77.2.2</span> Histograms<a class="anchor" aria-label="anchor" href="#histograms"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.2</span> Histograms<a class="anchor" aria-label="anchor" href="#histograms"><i class="fas fa-link"></i></a>
 </h3>
 <p>In this section, I will introduce the two ways to make histograms. Examples used data mtl from package openintro
 The first way is plotting with base R. We can simply use function hist() like</p>
@@ -220,7 +223,7 @@ geom_hist()</p>
 </div>
 <div id="density-curves" class="section level3">
 <h3>
-<span class="header-section-number">77.2.3</span> Density curves<a class="anchor" aria-label="anchor" href="#density-curves"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.3</span> Density curves<a class="anchor" aria-label="anchor" href="#density-curves"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create density curves, we use geom_density from ggplot2. Basic function is:</p>
 <p>ggplot(dataframe, aes(x=TheColumnYouWantToPlot))+
@@ -235,7 +238,7 @@ geom_density()</p>
 </div>
 <div id="normal-curves" class="section level3">
 <h3>
-<span class="header-section-number">77.2.4</span> Normal curves<a class="anchor" aria-label="anchor" href="#normal-curves"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.4</span> Normal curves<a class="anchor" aria-label="anchor" href="#normal-curves"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create normal curves, we need use stat_function(fun = dnorm, args = list(mean, sd)). The basic function is:</p>
 <p>ggplot(dataframe, aes(x=TheColumnYouWantToPlot))+
@@ -249,7 +252,7 @@ stat_function(fun = dnorm, args = list(mean = mean(TheColumnYouWantToPlot), sd =
 </div>
 <div id="ridgeline-plot" class="section level3">
 <h3>
-<span class="header-section-number">77.2.5</span> Ridgeline plot<a class="anchor" aria-label="anchor" href="#ridgeline-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.5</span> Ridgeline plot<a class="anchor" aria-label="anchor" href="#ridgeline-plot"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create a ridgeline plot, we need to use geom_density_ridges() from the package ggridges. The basic function is:</p>
 <p>ggplot(df, aes(y = TheColumnForYaxis , x = TheColumnForXaxis ))+
@@ -266,7 +269,7 @@ geom_density_ridges()+</p>
 </div>
 <div id="frequency-bar-chart" class="section level3">
 <h3>
-<span class="header-section-number">77.2.6</span> Frequency Bar Chart<a class="anchor" aria-label="anchor" href="#frequency-bar-chart"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.6</span> Frequency Bar Chart<a class="anchor" aria-label="anchor" href="#frequency-bar-chart"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create a frequency bar chart, we need to use geom_bar() from ggplot2. Here is the basic function:</p>
 <p>ggplot(dataframe, aes(x = TheColumnYouWantToPlot))+
@@ -284,7 +287,7 @@ geom_bar(aes(y = ..count..))</p>
 </div>
 <div id="cleveland-dot-plots" class="section level3">
 <h3>
-<span class="header-section-number">77.2.7</span> Cleveland dot plots<a class="anchor" aria-label="anchor" href="#cleveland-dot-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.7</span> Cleveland dot plots<a class="anchor" aria-label="anchor" href="#cleveland-dot-plots"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create a cleveland dot plots, we need to geom_point from ggplot2. The basic function is</p>
 <p>ggplot(dataframe, aes(y =reorder(TheColumnForYaxis, TheColumnForXaxis) , x = TheColumnForXaxis))+
@@ -299,7 +302,7 @@ geom_point()</p>
 </div>
 <div id="scatter-plot-1" class="section level3">
 <h3>
-<span class="header-section-number">77.2.8</span> Scatter plot<a class="anchor" aria-label="anchor" href="#scatter-plot-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.8</span> Scatter plot<a class="anchor" aria-label="anchor" href="#scatter-plot-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create a scatter plot, we also use geom_point(). The basic function is</p>
 <p>ggplot(dataframe, aes(y = TheColumnForYaxis , x = TheColumnForXaxis))+
@@ -314,7 +317,7 @@ geom_point()</p>
 </div>
 <div id="density-contour-lines" class="section level3">
 <h3>
-<span class="header-section-number">77.2.9</span> Density contour lines<a class="anchor" aria-label="anchor" href="#density-contour-lines"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.9</span> Density contour lines<a class="anchor" aria-label="anchor" href="#density-contour-lines"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create density contour lines, we need to use geom_density_2d(). Here is the basic function:</p>
 <p>ggplot(dataframe, aes(y = TheColumnForYaxis , x = TheColumnForXaxis))+
@@ -329,7 +332,7 @@ geom_density_2d()</p>
 </div>
 <div id="hexagonal-heatmap" class="section level3">
 <h3>
-<span class="header-section-number">77.2.10</span> Hexagonal heatmap<a class="anchor" aria-label="anchor" href="#hexagonal-heatmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.10</span> Hexagonal heatmap<a class="anchor" aria-label="anchor" href="#hexagonal-heatmap"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create hexagonal heatmap, we need to use geom_hex(). Here is the basic function:</p>
 <p>ggplot(dataframe, aes(y = TheColumnForYaxis , x = TheColumnForXaxis))+
@@ -345,7 +348,7 @@ geom_hex()</p>
 </div>
 <div id="square-heatmap" class="section level3">
 <h3>
-<span class="header-section-number">77.2.11</span> Square heatmap<a class="anchor" aria-label="anchor" href="#square-heatmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.2.11</span> Square heatmap<a class="anchor" aria-label="anchor" href="#square-heatmap"><i class="fas fa-link"></i></a>
 </h3>
 <p>To create hexagonal heatmap, we need to use geom_bin_2d(). Here is the basic function:</p>
 <p>ggplot(dataframe, aes(y = TheColumnForYaxis , x = TheColumnForXaxis))+
@@ -362,11 +365,11 @@ geom_bin_2d()</p>
 </div>
 <div id="data-organization-functions" class="section level2">
 <h2>
-<span class="header-section-number">77.3</span> Data organization functions<a class="anchor" aria-label="anchor" href="#data-organization-functions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.3</span> Data organization functions<a class="anchor" aria-label="anchor" href="#data-organization-functions"><i class="fas fa-link"></i></a>
 </h2>
 <div id="pipe-operator" class="section level3">
 <h3>
-<span class="header-section-number">77.3.1</span> Pipe(%&gt;%) Operator<a class="anchor" aria-label="anchor" href="#pipe-operator"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.3.1</span> Pipe(%&gt;%) Operator<a class="anchor" aria-label="anchor" href="#pipe-operator"><i class="fas fa-link"></i></a>
 </h3>
 <p>Pipe operator can be used to simplified your code. It can be simple interpreted as “and then” For example:
 filter(data, variable == numeric_value) and
@@ -385,7 +388,7 @@ facet_warp() allow us to combine multiple plots, which can give us a more direct
 </div>
 <div id="filter-3" class="section level3">
 <h3>
-<span class="header-section-number">77.3.2</span> filter()<a class="anchor" aria-label="anchor" href="#filter-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.3.2</span> filter()<a class="anchor" aria-label="anchor" href="#filter-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>filter() function allows us to select those variable with specific values. For example, in the data seattlepets from the package openintro, we can use filter to find all dogs’ name:</p>
 <div class="sourceCode" id="cb1002"><pre class="downlit sourceCode r">
@@ -409,7 +412,7 @@ facet_warp() allow us to combine multiple plots, which can give us a more direct
 </div>
 <div id="group_by-1" class="section level3">
 <h3>
-<span class="header-section-number">77.3.3</span> group_by()<a class="anchor" aria-label="anchor" href="#group_by-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.3.3</span> group_by()<a class="anchor" aria-label="anchor" href="#group_by-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>group_by()function allow us to group the data by some variables.</p>
 <p>For example, we want to group the data that crimes in 2020 by county and region, we can do this</p>
@@ -436,7 +439,7 @@ facet_warp() allow us to combine multiple plots, which can give us a more direct
 </div>
 <div id="summarise" class="section level3">
 <h3>
-<span class="header-section-number">77.3.4</span> summarise()<a class="anchor" aria-label="anchor" href="#summarise"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.3.4</span> summarise()<a class="anchor" aria-label="anchor" href="#summarise"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can use summarise() to measure some value for a certain group. For example, in data set ames from openintro, we want to know the average price and area for each Neighborhood, we can do this:</p>
 <div class="sourceCode" id="cb1006"><pre class="downlit sourceCode r">
@@ -462,7 +465,7 @@ facet_warp() allow us to combine multiple plots, which can give us a more direct
 </div>
 <div id="summarise_at" class="section level3">
 <h3>
-<span class="header-section-number">77.3.5</span> summarise_at()<a class="anchor" aria-label="anchor" href="#summarise_at"><i class="fas fa-link"></i></a>
+<span class="header-section-number">78.3.5</span> summarise_at()<a class="anchor" aria-label="anchor" href="#summarise_at"><i class="fas fa-link"></i></a>
 </h3>
 <p>For some specific situation, we need to summaries many variables. Writing them one by one will be time comsuming and we can do this by using summarise_at().</p>
 <p>For Example, we want to know for year 2020, the total number of each type of crime happened in every county. We can write something like this:</p>
@@ -493,35 +496,35 @@ facet_warp() allow us to combine multiple plots, which can give us a more direct
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="brief-introduction-of-ggpubr.html"><span class="header-section-number">76</span> Brief Introduction of ggpubr</a></div>
-<div class="next"><a href="r-packages-for-map-visualization.html"><span class="header-section-number">78</span> R packages for map Visualization</a></div>
+<div class="prev"><a href="brief-introduction-of-ggpubr.html"><span class="header-section-number">77</span> Brief Introduction of ggpubr</a></div>
+<div class="next"><a href="r-packages-for-map-visualization.html"><span class="header-section-number">79</span> R packages for map Visualization</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#r-based-data-organization-and-visualization"><span class="header-section-number">77</span> R based data organization and visualization</a></li>
-<li><a class="nav-link" href="#introduction-17"><span class="header-section-number">77.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#r-based-data-organization-and-visualization"><span class="header-section-number">78</span> R based data organization and visualization</a></li>
+<li><a class="nav-link" href="#introduction-17"><span class="header-section-number">78.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#plots-and-their-corresponding-codes"><span class="header-section-number">77.2</span> Plots and their corresponding codes</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#box-plots"><span class="header-section-number">77.2.1</span> Box plots</a></li>
-<li><a class="nav-link" href="#histograms"><span class="header-section-number">77.2.2</span> Histograms</a></li>
-<li><a class="nav-link" href="#density-curves"><span class="header-section-number">77.2.3</span> Density curves</a></li>
-<li><a class="nav-link" href="#normal-curves"><span class="header-section-number">77.2.4</span> Normal curves</a></li>
-<li><a class="nav-link" href="#ridgeline-plot"><span class="header-section-number">77.2.5</span> Ridgeline plot</a></li>
-<li><a class="nav-link" href="#frequency-bar-chart"><span class="header-section-number">77.2.6</span> Frequency Bar Chart</a></li>
-<li><a class="nav-link" href="#cleveland-dot-plots"><span class="header-section-number">77.2.7</span> Cleveland dot plots</a></li>
-<li><a class="nav-link" href="#scatter-plot-1"><span class="header-section-number">77.2.8</span> Scatter plot</a></li>
-<li><a class="nav-link" href="#density-contour-lines"><span class="header-section-number">77.2.9</span> Density contour lines</a></li>
-<li><a class="nav-link" href="#hexagonal-heatmap"><span class="header-section-number">77.2.10</span> Hexagonal heatmap</a></li>
-<li><a class="nav-link" href="#square-heatmap"><span class="header-section-number">77.2.11</span> Square heatmap</a></li>
+<a class="nav-link" href="#plots-and-their-corresponding-codes"><span class="header-section-number">78.2</span> Plots and their corresponding codes</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#box-plots"><span class="header-section-number">78.2.1</span> Box plots</a></li>
+<li><a class="nav-link" href="#histograms"><span class="header-section-number">78.2.2</span> Histograms</a></li>
+<li><a class="nav-link" href="#density-curves"><span class="header-section-number">78.2.3</span> Density curves</a></li>
+<li><a class="nav-link" href="#normal-curves"><span class="header-section-number">78.2.4</span> Normal curves</a></li>
+<li><a class="nav-link" href="#ridgeline-plot"><span class="header-section-number">78.2.5</span> Ridgeline plot</a></li>
+<li><a class="nav-link" href="#frequency-bar-chart"><span class="header-section-number">78.2.6</span> Frequency Bar Chart</a></li>
+<li><a class="nav-link" href="#cleveland-dot-plots"><span class="header-section-number">78.2.7</span> Cleveland dot plots</a></li>
+<li><a class="nav-link" href="#scatter-plot-1"><span class="header-section-number">78.2.8</span> Scatter plot</a></li>
+<li><a class="nav-link" href="#density-contour-lines"><span class="header-section-number">78.2.9</span> Density contour lines</a></li>
+<li><a class="nav-link" href="#hexagonal-heatmap"><span class="header-section-number">78.2.10</span> Hexagonal heatmap</a></li>
+<li><a class="nav-link" href="#square-heatmap"><span class="header-section-number">78.2.11</span> Square heatmap</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#data-organization-functions"><span class="header-section-number">77.3</span> Data organization functions</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pipe-operator"><span class="header-section-number">77.3.1</span> Pipe(%&gt;%) Operator</a></li>
-<li><a class="nav-link" href="#filter-3"><span class="header-section-number">77.3.2</span> filter()</a></li>
-<li><a class="nav-link" href="#group_by-1"><span class="header-section-number">77.3.3</span> group_by()</a></li>
-<li><a class="nav-link" href="#summarise"><span class="header-section-number">77.3.4</span> summarise()</a></li>
-<li><a class="nav-link" href="#summarise_at"><span class="header-section-number">77.3.5</span> summarise_at()</a></li>
+<a class="nav-link" href="#data-organization-functions"><span class="header-section-number">78.3</span> Data organization functions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pipe-operator"><span class="header-section-number">78.3.1</span> Pipe(%&gt;%) Operator</a></li>
+<li><a class="nav-link" href="#filter-3"><span class="header-section-number">78.3.2</span> filter()</a></li>
+<li><a class="nav-link" href="#group_by-1"><span class="header-section-number">78.3.3</span> group_by()</a></li>
+<li><a class="nav-link" href="#summarise"><span class="header-section-number">78.3.4</span> summarise()</a></li>
+<li><a class="nav-link" href="#summarise_at"><span class="header-section-number">78.3.5</span> summarise_at()</a></li>
 </ul>
 </li>
 </ul>
@@ -541,7 +544,7 @@ facet_warp() allow us to combine multiple plots, which can give us a more direct
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-10.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

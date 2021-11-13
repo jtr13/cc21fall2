@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 72 Tutorial for ggvis and its Comparison with ggplot2 | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Anbang Wang and Keyi Guo  72.1 Introduction  For R users, ggplot2 is a name that can hardly be ignored. As a data visualization package, ggplot2 can actually take care of all the details as long...">
+<title>Chapter 73 Tutorial for ggvis and its Comparison with ggplot2 | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Anbang Wang and Keyi Guo  73.1 Introduction  For R users, ggplot2 is a name that can hardly be ignored. As a data visualization package, ggplot2 can actually take care of all the details as long...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 72 Tutorial for ggvis and its Comparison with ggplot2 | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 73 Tutorial for ggvis and its Comparison with ggplot2 | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Anbang Wang and Keyi Guo  72.1 Introduction  For R users, ggplot2 is a name that can hardly be ignored. As a data visualization package, ggplot2 can actually take care of all the details as long...">
+<meta property="og:description" content="Anbang Wang and Keyi Guo  73.1 Introduction  For R users, ggplot2 is a name that can hardly be ignored. As a data visualization package, ggplot2 can actually take care of all the details as long...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 72 Tutorial for ggvis and its Comparison with ggplot2 | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Anbang Wang and Keyi Guo  72.1 Introduction  For R users, ggplot2 is a name that can hardly be ignored. As a data visualization package, ggplot2 can actually take care of all the details as long...">
+<meta name="twitter:title" content="Chapter 73 Tutorial for ggvis and its Comparison with ggplot2 | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Anbang Wang and Keyi Guo  73.1 Introduction  For R users, ggplot2 is a name that can hardly be ignored. As a data visualization package, ggplot2 can actually take care of all the details as long...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -23,8 +23,7 @@
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
 <script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
-<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -78,80 +77,84 @@
 <li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
 <li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
 <li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">34</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">35</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">36</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">37</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">38</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">39</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">40</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">41</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">42</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">43</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">44</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">45</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">46</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">47</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">50</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">51</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">52</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">53</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">54</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">55</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">56</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">57</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">58</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">59</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">60</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">61</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">62</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">63</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">64</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">65</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">66</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">67</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">68</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">69</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">70</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">71</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="active" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">73</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">74</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">75</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">76</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">77</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">78</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">79</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">80</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">81</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">82</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">83</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">84</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">85</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">86</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">87</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">88</span> Joining and reshaping in R</a></li>
-<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">89</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">33</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">34</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">35</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">36</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">37</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">38</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">39</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">40</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">41</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">42</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">43</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">44</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">45</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">46</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">47</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">48</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">49</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">50</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">51</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">52</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">53</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">54</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">55</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">56</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">57</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">58</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">59</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">60</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">61</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">62</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">63</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">64</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">65</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">66</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">67</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">68</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">69</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">70</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">71</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">72</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="active" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">73</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">74</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">75</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">76</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">77</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">78</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">79</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">80</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">81</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">82</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">83</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">84</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">85</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">86</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">87</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">88</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">89</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">90</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">91</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">92</span> How to animate your plots</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">90</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">91</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">92</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">93</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">94</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">93</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">94</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">95</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">96</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">97</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">95</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">96</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">97</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">98</span> R and Python visualization</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">99</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">98</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">99</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">100</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">101</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">102</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">103</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">100</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">101</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">104</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">105</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -161,12 +164,12 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tutorial-for-ggvis-and-its-comparison-with-ggplot2" class="section level1">
 <h1>
-<span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2<a class="anchor" aria-label="anchor" href="#tutorial-for-ggvis-and-its-comparison-with-ggplot2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73</span> Tutorial for ggvis and its Comparison with ggplot2<a class="anchor" aria-label="anchor" href="#tutorial-for-ggvis-and-its-comparison-with-ggplot2"><i class="fas fa-link"></i></a>
 </h1>
 <p>Anbang Wang and Keyi Guo</p>
 <div id="introduction-13" class="section level2">
 <h2>
-<span class="header-section-number">72.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-13"><i class="fas fa-link"></i></a>
 </h2>
 <p><br>
 For R users, ggplot2 is a name that can hardly be ignored. As a data visualization package, ggplot2 can actually take care of all the details as long as you provide the data and tell it how to map variables to aesthetics. But there are certain features in ggvis that can be both practical and easy to use. In addition, ggvis has its special interactive plots that enables you to create complex, aesthetically pleasing charts with interactive features. Therefore, while it can generate similar graphs as ggplot2 did for a dataset, it can also generate interactive graphs. In this tutorial, we will include the ways of generating static plots by ggvis, its comparison to ggplot2, and also a video tutorial for the interactive part.</p>
@@ -174,7 +177,7 @@ For R users, ggplot2 is a name that can hardly be ignored. As a data visualizati
 </div>
 <div id="install-and-load-ggvis-and-ggplot2-packages" class="section level2">
 <h2>
-<span class="header-section-number">72.2</span> Install and load “ggvis” and “ggplot2” packages<a class="anchor" aria-label="anchor" href="#install-and-load-ggvis-and-ggplot2-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.2</span> Install and load “ggvis” and “ggplot2” packages<a class="anchor" aria-label="anchor" href="#install-and-load-ggvis-and-ggplot2-packages"><i class="fas fa-link"></i></a>
 </h2>
 <p><br>
 Shiny is an R package that makes it easy to build interactive web apps straight from R.</p>
@@ -189,7 +192,7 @@ Shiny is an R package that makes it easy to build interactive web apps straight 
 </div>
 <div id="load-dataset" class="section level2">
 <h2>
-<span class="header-section-number">72.3</span> Load dataset<a class="anchor" aria-label="anchor" href="#load-dataset"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.3</span> Load dataset<a class="anchor" aria-label="anchor" href="#load-dataset"><i class="fas fa-link"></i></a>
 </h2>
 <div class="sourceCode" id="cb887"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">datasets</span><span class="op">)</span>
@@ -198,12 +201,12 @@ Shiny is an R package that makes it easy to build interactive web apps straight 
 </div>
 <div id="comparison-between-ggvis-and-ggplot" class="section level2">
 <h2>
-<span class="header-section-number">72.4</span> <strong>Comparison Between ggvis and ggplot</strong><a class="anchor" aria-label="anchor" href="#comparison-between-ggvis-and-ggplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.4</span> <strong>Comparison Between ggvis and ggplot</strong><a class="anchor" aria-label="anchor" href="#comparison-between-ggvis-and-ggplot"><i class="fas fa-link"></i></a>
 </h2>
 </div>
 <div id="histogram-1" class="section level2">
 <h2>
-<span class="header-section-number">72.5</span> Histogram<a class="anchor" aria-label="anchor" href="#histogram-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.5</span> Histogram<a class="anchor" aria-label="anchor" href="#histogram-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis</p>
 <div class="sourceCode" id="cb888"><pre class="downlit sourceCode r">
@@ -375,7 +378,7 @@ ggvis.getPlot("plot_id204903521").parseSpec(plot_id204903521_spec);
 </div>
 <div id="scatter-plots" class="section level2">
 <h2>
-<span class="header-section-number">72.6</span> Scatter Plots<a class="anchor" aria-label="anchor" href="#scatter-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.6</span> Scatter Plots<a class="anchor" aria-label="anchor" href="#scatter-plots"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis</p>
 <div class="sourceCode" id="cb890"><pre class="downlit sourceCode r">
@@ -540,13 +543,13 @@ ggvis.getPlot("plot_id153341078").parseSpec(plot_id153341078_spec);
 </div>
 <div id="scatter-plots-customization" class="section level2">
 <h2>
-<span class="header-section-number">72.7</span> Scatter Plots (Customization)<a class="anchor" aria-label="anchor" href="#scatter-plots-customization"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.7</span> Scatter Plots (Customization)<a class="anchor" aria-label="anchor" href="#scatter-plots-customization"><i class="fas fa-link"></i></a>
 </h2>
 <p>By changing each argument’s value, we can actually create our own plot style.</p>
 <p><br></p>
 <div id="fill-change-the-color-of-the-dots" class="section level3">
 <h3>
-<span class="header-section-number">72.7.1</span> fill (change the color of the dots)<a class="anchor" aria-label="anchor" href="#fill-change-the-color-of-the-dots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.7.1</span> fill (change the color of the dots)<a class="anchor" aria-label="anchor" href="#fill-change-the-color-of-the-dots"><i class="fas fa-link"></i></a>
 </h3>
 <p>ggvis</p>
 <div class="sourceCode" id="cb892"><pre class="downlit sourceCode r">
@@ -730,7 +733,7 @@ ggvis.getPlot("plot_id310720409").parseSpec(plot_id310720409_spec);
 </div>
 <div id="size-change-dots-size" class="section level3">
 <h3>
-<span class="header-section-number">72.7.2</span> size (change dots size)<a class="anchor" aria-label="anchor" href="#size-change-dots-size"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.7.2</span> size (change dots size)<a class="anchor" aria-label="anchor" href="#size-change-dots-size"><i class="fas fa-link"></i></a>
 </h3>
 <p>ggvis</p>
 <div class="sourceCode" id="cb894"><pre class="downlit sourceCode r">
@@ -915,7 +918,7 @@ ggvis.getPlot("plot_id168674887").parseSpec(plot_id168674887_spec);
 </div>
 <div id="opacity-change-transparency-of-the-dots" class="section level3">
 <h3>
-<span class="header-section-number">72.7.3</span> Opacity ( change transparency of the dots)<a class="anchor" aria-label="anchor" href="#opacity-change-transparency-of-the-dots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.7.3</span> Opacity ( change transparency of the dots)<a class="anchor" aria-label="anchor" href="#opacity-change-transparency-of-the-dots"><i class="fas fa-link"></i></a>
 </h3>
 <p>ggvis</p>
 <div class="sourceCode" id="cb896"><pre class="downlit sourceCode r">
@@ -1093,7 +1096,7 @@ ggvis.getPlot("plot_id360924821").parseSpec(plot_id360924821_spec);
 </div>
 <div id="line-plot" class="section level2">
 <h2>
-<span class="header-section-number">72.8</span> Line Plot<a class="anchor" aria-label="anchor" href="#line-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.8</span> Line Plot<a class="anchor" aria-label="anchor" href="#line-plot"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis</p>
 <div class="sourceCode" id="cb897"><pre class="downlit sourceCode r">
@@ -1261,7 +1264,7 @@ ggvis.getPlot("plot_id846184308").parseSpec(plot_id846184308_spec);
 </div>
 <div id="line-plot-customization" class="section level2">
 <h2>
-<span class="header-section-number">72.9</span> Line Plot (Customization)<a class="anchor" aria-label="anchor" href="#line-plot-customization"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.9</span> Line Plot (Customization)<a class="anchor" aria-label="anchor" href="#line-plot-customization"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis</p>
 <div class="sourceCode" id="cb899"><pre class="downlit sourceCode r">
@@ -1472,7 +1475,7 @@ ggvis.getPlot("plot_id797942867").parseSpec(plot_id797942867_spec);
 </div>
 <div id="scatter-plots-1" class="section level2">
 <h2>
-<span class="header-section-number">72.10</span> Scatter plots<a class="anchor" aria-label="anchor" href="#scatter-plots-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.10</span> Scatter plots<a class="anchor" aria-label="anchor" href="#scatter-plots-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis</p>
 <div class="sourceCode" id="cb901"><pre class="downlit sourceCode r">
@@ -1687,7 +1690,7 @@ ggvis.getPlot("plot_id979720105").parseSpec(plot_id979720105_spec);
 </div>
 <div id="scatter-plots-with-fit-line" class="section level2">
 <h2>
-<span class="header-section-number">72.11</span> Scatter plots with fit line<a class="anchor" aria-label="anchor" href="#scatter-plots-with-fit-line"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.11</span> Scatter plots with fit line<a class="anchor" aria-label="anchor" href="#scatter-plots-with-fit-line"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis</p>
 <div class="sourceCode" id="cb903"><pre class="downlit sourceCode r">
@@ -1917,7 +1920,7 @@ ggvis.getPlot("plot_id693355763").parseSpec(plot_id693355763_spec);
 </div>
 <div id="density-plots" class="section level2">
 <h2>
-<span class="header-section-number">72.12</span> Density Plots<a class="anchor" aria-label="anchor" href="#density-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.12</span> Density Plots<a class="anchor" aria-label="anchor" href="#density-plots"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis</p>
 <div class="sourceCode" id="cb905"><pre class="downlit sourceCode r">
@@ -2162,7 +2165,7 @@ ggvis.getPlot("plot_id676700113").parseSpec(plot_id676700113_spec);
 </div>
 <div id="boxplot-1" class="section level2">
 <h2>
-<span class="header-section-number">72.13</span> Boxplot<a class="anchor" aria-label="anchor" href="#boxplot-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.13</span> Boxplot<a class="anchor" aria-label="anchor" href="#boxplot-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis</p>
 <div class="sourceCode" id="cb907"><pre class="downlit sourceCode r">
@@ -2506,7 +2509,7 @@ ggvis.getPlot("plot_id230413099").parseSpec(plot_id230413099_spec);
 </div>
 <div id="plot-for-time-series-data" class="section level2">
 <h2>
-<span class="header-section-number">72.14</span> Plot for Time Series Data<a class="anchor" aria-label="anchor" href="#plot-for-time-series-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.14</span> Plot for Time Series Data<a class="anchor" aria-label="anchor" href="#plot-for-time-series-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>ggvis and ggplot2 actually have very similar methods to deal with time series data.</p>
 <p><br></p>
@@ -2808,14 +2811,14 @@ ggvis.getPlot("plot_id202114438").parseSpec(plot_id202114438_spec);
 </div>
 <div id="heatmap" class="section level2">
 <h2>
-<span class="header-section-number">72.15</span> Heatmap<a class="anchor" aria-label="anchor" href="#heatmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.15</span> Heatmap<a class="anchor" aria-label="anchor" href="#heatmap"><i class="fas fa-link"></i></a>
 </h2>
 <p><br>
 Both ggvis and ggplot2 can create heatmap for suitable dataset. Here, we use the UCBAdmissions dataset as an example.</p>
 <p><br></p>
 <div id="ggvis" class="section level5">
 <h5>
-<span class="header-section-number">72.15.0.0.1</span> ggvis<a class="anchor" aria-label="anchor" href="#ggvis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.15.0.0.1</span> ggvis<a class="anchor" aria-label="anchor" href="#ggvis"><i class="fas fa-link"></i></a>
 </h5>
 <p>In ggvis, we can create a heatmap by using layer_rects().</p>
 <div class="sourceCode" id="cb913"><pre class="downlit sourceCode r">
@@ -3005,7 +3008,7 @@ ggvis.getPlot("plot_id213767229").parseSpec(plot_id213767229_spec);
 </div>
 <div id="ggplot" class="section level5">
 <h5>
-<span class="header-section-number">72.15.0.0.2</span> ggplot<a class="anchor" aria-label="anchor" href="#ggplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.15.0.0.2</span> ggplot<a class="anchor" aria-label="anchor" href="#ggplot"><i class="fas fa-link"></i></a>
 </h5>
 <p>In ggplot2, we use geom_tile() for heatmap. This is the most basic heatmap.</p>
 <div class="sourceCode" id="cb914"><pre class="downlit sourceCode r">
@@ -3017,18 +3020,18 @@ Clearly ggplot2 is a much easier tool to use for building heatmaps. Note that fo
 </div>
 <div id="interactive-graphs" class="section level2">
 <h2>
-<span class="header-section-number">72.16</span> <strong>Interactive Graphs</strong><a class="anchor" aria-label="anchor" href="#interactive-graphs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16</span> <strong>Interactive Graphs</strong><a class="anchor" aria-label="anchor" href="#interactive-graphs"><i class="fas fa-link"></i></a>
 </h2>
 <p><br>
 What’s so special about ggvis is that it has some interactive controls that present graphical information more straightforward and vivid. It allows us to see the differences through changing the argument values that we passed in. In order to better show the visualization features of ggvis, we will include a brief video tutorial here.</p>
 <div id="link-here-httpswww.youtube.comwatchvjtcjgadyx4a" class="section level3">
 <h3>
-<span class="header-section-number">72.16.1</span> link here : <a href="https://www.youtube.com/watch?v=jTcjgaDyx4A" class="uri">https://www.youtube.com/watch?v=jTcjgaDyx4A</a><a class="anchor" aria-label="anchor" href="#link-here-httpswww.youtube.comwatchvjtcjgadyx4a"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16.1</span> link here : <a href="https://www.youtube.com/watch?v=jTcjgaDyx4A" class="uri">https://www.youtube.com/watch?v=jTcjgaDyx4A</a><a class="anchor" aria-label="anchor" href="#link-here-httpswww.youtube.comwatchvjtcjgadyx4a"><i class="fas fa-link"></i></a>
 </h3>
 <p>ggvis designs a series of functions to produce interactive controls. We will start with some basic ones, which produces very similar results to statis plots. All we do is replacing constant values with functions.<br><br><br></p>
 <div id="input_slider" class="section level4">
 <h4>
-<span class="header-section-number">72.16.1.1</span> input_slider<a class="anchor" aria-label="anchor" href="#input_slider"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16.1.1</span> input_slider<a class="anchor" aria-label="anchor" href="#input_slider"><i class="fas fa-link"></i></a>
 </h4>
 <p><br>
 input_slider provide an interactive slider. Here, we use it to control size and opacity for the scatter plot.<br></p>
@@ -3384,7 +3387,7 @@ ggvis.getPlot("plot_id516313046").parseSpec(plot_id516313046_spec);
 </div>
 <div id="input_numeric" class="section level4">
 <h4>
-<span class="header-section-number">72.16.1.2</span> input_numeric<a class="anchor" aria-label="anchor" href="#input_numeric"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16.1.2</span> input_numeric<a class="anchor" aria-label="anchor" href="#input_numeric"><i class="fas fa-link"></i></a>
 </h4>
 <p><br>
 input_numeric is another way we can use to adjust the size. Unlike input_slider, it only allows numbers and comes with a spin box control.<br></p>
@@ -3538,7 +3541,7 @@ ggvis.getPlot("plot_id896696502").parseSpec(plot_id896696502_spec);
 </div>
 <div id="input_text" class="section level4">
 <h4>
-<span class="header-section-number">72.16.1.3</span> input_text<a class="anchor" aria-label="anchor" href="#input_text"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16.1.3</span> input_text<a class="anchor" aria-label="anchor" href="#input_text"><i class="fas fa-link"></i></a>
 </h4>
 <p><br>
 input_text allows any kind of input values. Therefore, it can also be used to adjust the colors without having to specify a series of options.<br></p>
@@ -3701,7 +3704,7 @@ ggvis.getPlot("plot_id403109628").parseSpec(plot_id403109628_spec);
 </div>
 <div id="input_select" class="section level4">
 <h4>
-<span class="header-section-number">72.16.1.4</span> input_select<a class="anchor" aria-label="anchor" href="#input_select"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16.1.4</span> input_select<a class="anchor" aria-label="anchor" href="#input_select"><i class="fas fa-link"></i></a>
 </h4>
 <p><br>
 We can use input_select to provide a series of options for values like shape and color. We have to provide the options by using the “choices” argument.<br></p>
@@ -3863,7 +3866,7 @@ ggvis.getPlot("plot_id893403277").parseSpec(plot_id893403277_spec);
 </div>
 <div id="input_checkbox" class="section level4">
 <h4>
-<span class="header-section-number">72.16.1.5</span> input_checkbox<a class="anchor" aria-label="anchor" href="#input_checkbox"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16.1.5</span> input_checkbox<a class="anchor" aria-label="anchor" href="#input_checkbox"><i class="fas fa-link"></i></a>
 </h4>
 <p><br>
 input_checkbox controls different values by using the “map” function. It creates an interactive checkbox. The map function will become valid if the checkbox is checked.<br></p>
@@ -4022,7 +4025,7 @@ ggvis.getPlot("plot_id761558232").parseSpec(plot_id761558232_spec);
 </div>
 <div id="combine-different-methods" class="section level3">
 <h3>
-<span class="header-section-number">72.16.2</span> Combine different methods<a class="anchor" aria-label="anchor" href="#combine-different-methods"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16.2</span> Combine different methods<a class="anchor" aria-label="anchor" href="#combine-different-methods"><i class="fas fa-link"></i></a>
 </h3>
 <p><br>
 Here we can use both input_slider and input_select for different types of interactive effects. For this density graph, we use input_slider to adjust bandwidth, and input_select to provide a series of kernel options.<br></p>
@@ -4568,7 +4571,7 @@ ggvis.getPlot("plot_id660024795").parseSpec(plot_id660024795_spec);
 </div>
 <div id="multiple-outputs" class="section level3">
 <h3>
-<span class="header-section-number">72.16.3</span> Multiple Outputs<a class="anchor" aria-label="anchor" href="#multiple-outputs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.16.3</span> Multiple Outputs<a class="anchor" aria-label="anchor" href="#multiple-outputs"><i class="fas fa-link"></i></a>
 </h3>
 <p><br>
 We can also use one slider for multiple outputs control. Once the slider is pre-defined, we can use it in different functions to adjust values at the same time.<br></p>
@@ -4758,7 +4761,7 @@ ggvis.getPlot("plot_id193287069").parseSpec(plot_id193287069_spec);
 </div>
 <div id="references-4" class="section level2">
 <h2>
-<span class="header-section-number">72.17</span> <strong>References</strong><a class="anchor" aria-label="anchor" href="#references-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">73.17</span> <strong>References</strong><a class="anchor" aria-label="anchor" href="#references-4"><i class="fas fa-link"></i></a>
 </h2>
 <p>Package ’ggvis: ’<a href="https://cran.r-project.org/web/packages/ggvis/ggvis.pdf" class="uri">https://cran.r-project.org/web/packages/ggvis/ggvis.pdf</a></p>
 <p>A Short Introduction to ggvis: ‘<a href="https://towardsdatascience.com/a-short-introduction-to-ggvis-52a4c104df71" class="uri">https://towardsdatascience.com/a-short-introduction-to-ggvis-52a4c104df71</a>’</p>
@@ -4768,41 +4771,41 @@ ggvis.getPlot("plot_id193287069").parseSpec(plot_id193287069_spec);
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">71</span> A Step by Step Tutorial for Natural Language Processing in R</a></div>
-<div class="next"><a href="feature-selection-in-r.html"><span class="header-section-number">73</span> Feature selection in r</a></div>
+<div class="prev"><a href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">72</span> A Step by Step Tutorial for Natural Language Processing in R</a></div>
+<div class="next"><a href="feature-selection-in-r.html"><span class="header-section-number">74</span> Feature selection in r</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tutorial-for-ggvis-and-its-comparison-with-ggplot2"><span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="nav-link" href="#introduction-13"><span class="header-section-number">72.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#install-and-load-ggvis-and-ggplot2-packages"><span class="header-section-number">72.2</span> Install and load “ggvis” and “ggplot2” packages</a></li>
-<li><a class="nav-link" href="#load-dataset"><span class="header-section-number">72.3</span> Load dataset</a></li>
-<li><a class="nav-link" href="#comparison-between-ggvis-and-ggplot"><span class="header-section-number">72.4</span> Comparison Between ggvis and ggplot</a></li>
-<li><a class="nav-link" href="#histogram-1"><span class="header-section-number">72.5</span> Histogram</a></li>
-<li><a class="nav-link" href="#scatter-plots"><span class="header-section-number">72.6</span> Scatter Plots</a></li>
+<li><a class="nav-link" href="#tutorial-for-ggvis-and-its-comparison-with-ggplot2"><span class="header-section-number">73</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="nav-link" href="#introduction-13"><span class="header-section-number">73.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#install-and-load-ggvis-and-ggplot2-packages"><span class="header-section-number">73.2</span> Install and load “ggvis” and “ggplot2” packages</a></li>
+<li><a class="nav-link" href="#load-dataset"><span class="header-section-number">73.3</span> Load dataset</a></li>
+<li><a class="nav-link" href="#comparison-between-ggvis-and-ggplot"><span class="header-section-number">73.4</span> Comparison Between ggvis and ggplot</a></li>
+<li><a class="nav-link" href="#histogram-1"><span class="header-section-number">73.5</span> Histogram</a></li>
+<li><a class="nav-link" href="#scatter-plots"><span class="header-section-number">73.6</span> Scatter Plots</a></li>
 <li>
-<a class="nav-link" href="#scatter-plots-customization"><span class="header-section-number">72.7</span> Scatter Plots (Customization)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#fill-change-the-color-of-the-dots"><span class="header-section-number">72.7.1</span> fill (change the color of the dots)</a></li>
-<li><a class="nav-link" href="#size-change-dots-size"><span class="header-section-number">72.7.2</span> size (change dots size)</a></li>
-<li><a class="nav-link" href="#opacity-change-transparency-of-the-dots"><span class="header-section-number">72.7.3</span> Opacity ( change transparency of the dots)</a></li>
+<a class="nav-link" href="#scatter-plots-customization"><span class="header-section-number">73.7</span> Scatter Plots (Customization)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#fill-change-the-color-of-the-dots"><span class="header-section-number">73.7.1</span> fill (change the color of the dots)</a></li>
+<li><a class="nav-link" href="#size-change-dots-size"><span class="header-section-number">73.7.2</span> size (change dots size)</a></li>
+<li><a class="nav-link" href="#opacity-change-transparency-of-the-dots"><span class="header-section-number">73.7.3</span> Opacity ( change transparency of the dots)</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#line-plot"><span class="header-section-number">72.8</span> Line Plot</a></li>
-<li><a class="nav-link" href="#line-plot-customization"><span class="header-section-number">72.9</span> Line Plot (Customization)</a></li>
-<li><a class="nav-link" href="#scatter-plots-1"><span class="header-section-number">72.10</span> Scatter plots</a></li>
-<li><a class="nav-link" href="#scatter-plots-with-fit-line"><span class="header-section-number">72.11</span> Scatter plots with fit line</a></li>
-<li><a class="nav-link" href="#density-plots"><span class="header-section-number">72.12</span> Density Plots</a></li>
-<li><a class="nav-link" href="#boxplot-1"><span class="header-section-number">72.13</span> Boxplot</a></li>
-<li><a class="nav-link" href="#plot-for-time-series-data"><span class="header-section-number">72.14</span> Plot for Time Series Data</a></li>
-<li><a class="nav-link" href="#heatmap"><span class="header-section-number">72.15</span> Heatmap</a></li>
+<li><a class="nav-link" href="#line-plot"><span class="header-section-number">73.8</span> Line Plot</a></li>
+<li><a class="nav-link" href="#line-plot-customization"><span class="header-section-number">73.9</span> Line Plot (Customization)</a></li>
+<li><a class="nav-link" href="#scatter-plots-1"><span class="header-section-number">73.10</span> Scatter plots</a></li>
+<li><a class="nav-link" href="#scatter-plots-with-fit-line"><span class="header-section-number">73.11</span> Scatter plots with fit line</a></li>
+<li><a class="nav-link" href="#density-plots"><span class="header-section-number">73.12</span> Density Plots</a></li>
+<li><a class="nav-link" href="#boxplot-1"><span class="header-section-number">73.13</span> Boxplot</a></li>
+<li><a class="nav-link" href="#plot-for-time-series-data"><span class="header-section-number">73.14</span> Plot for Time Series Data</a></li>
+<li><a class="nav-link" href="#heatmap"><span class="header-section-number">73.15</span> Heatmap</a></li>
 <li>
-<a class="nav-link" href="#interactive-graphs"><span class="header-section-number">72.16</span> Interactive Graphs</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#link-here-httpswww.youtube.comwatchvjtcjgadyx4a"><span class="header-section-number">72.16.1</span> link here : https://www.youtube.com/watch?v=jTcjgaDyx4A</a></li>
-<li><a class="nav-link" href="#combine-different-methods"><span class="header-section-number">72.16.2</span> Combine different methods</a></li>
-<li><a class="nav-link" href="#multiple-outputs"><span class="header-section-number">72.16.3</span> Multiple Outputs</a></li>
+<a class="nav-link" href="#interactive-graphs"><span class="header-section-number">73.16</span> Interactive Graphs</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#link-here-httpswww.youtube.comwatchvjtcjgadyx4a"><span class="header-section-number">73.16.1</span> link here : https://www.youtube.com/watch?v=jTcjgaDyx4A</a></li>
+<li><a class="nav-link" href="#combine-different-methods"><span class="header-section-number">73.16.2</span> Combine different methods</a></li>
+<li><a class="nav-link" href="#multiple-outputs"><span class="header-section-number">73.16.3</span> Multiple Outputs</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#references-4"><span class="header-section-number">72.17</span> References</a></li>
+<li><a class="nav-link" href="#references-4"><span class="header-section-number">73.17</span> References</a></li>
 </ul>
 
       <div class="book-extra">
@@ -4820,7 +4823,7 @@ ggvis.getPlot("plot_id193287069").parseSpec(plot_id193287069_spec);
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-10.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

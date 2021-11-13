@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 50 Neural network tools in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<title>Chapter 51 Neural network tools in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content='Yuan Wang #install.packages("NeuralNetTools") #install.packages("nnet") #install.packages("RSNNS") #install.packages("neuralnet") library("NeuralNetTools") library("RSNNS") library("nnet")...'>
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 50 Neural network tools in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 51 Neural network tools in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content='Yuan Wang #install.packages("NeuralNetTools") #install.packages("nnet") #install.packages("RSNNS") #install.packages("neuralnet") library("NeuralNetTools") library("RSNNS") library("nnet")...'>
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 50 Neural network tools in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:title" content="Chapter 51 Neural network tools in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta name="twitter:description" content='Yuan Wang #install.packages("NeuralNetTools") #install.packages("nnet") #install.packages("RSNNS") #install.packages("neuralnet") library("NeuralNetTools") library("RSNNS") library("nnet")...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -23,8 +23,7 @@
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
 <script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
-<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -78,80 +77,84 @@
 <li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
 <li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
 <li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">32</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">33</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">34</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">35</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">36</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">37</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">38</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">39</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">40</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">41</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">42</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">43</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">44</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">45</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">46</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">47</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">48</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></li>
-<li><a class="active" href="neural-network-tools-in-r.html"><span class="header-section-number">50</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">51</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">52</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">53</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">54</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">55</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">56</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">57</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">58</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">59</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">60</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">61</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">62</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">63</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">64</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">65</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">66</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">67</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">68</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">69</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">70</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">71</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">72</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">73</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">74</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">75</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">76</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">77</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">78</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">79</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">80</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">81</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">82</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">83</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">84</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">85</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">86</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">87</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">88</span> Joining and reshaping in R</a></li>
-<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">89</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">33</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">34</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">35</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">36</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">37</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">38</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">39</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">40</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">41</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">42</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">43</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">44</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">45</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">46</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">47</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">48</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">49</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">50</span> Tutorial for gg_cleveland</a></li>
+<li><a class="active" href="neural-network-tools-in-r.html"><span class="header-section-number">51</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">52</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">53</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">54</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">55</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">56</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">57</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">58</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">59</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">60</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">61</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">62</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">63</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">64</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">65</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">66</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">67</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">68</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">69</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">70</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">71</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">72</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">73</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">74</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">75</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">76</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">77</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">78</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">79</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">80</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">81</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">82</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">83</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">84</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">85</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">86</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">87</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">88</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">89</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">90</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">91</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">92</span> How to animate your plots</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">90</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">91</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">92</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">93</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">94</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">93</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">94</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">95</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">96</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">97</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">95</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">96</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">97</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">98</span> R and Python visualization</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">99</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">98</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">99</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">100</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">101</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">102</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">103</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">100</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">101</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">104</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">105</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -161,7 +164,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="neural-network-tools-in-r" class="section level1">
 <h1>
-<span class="header-section-number">50</span> Neural network tools in R<a class="anchor" aria-label="anchor" href="#neural-network-tools-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51</span> Neural network tools in R<a class="anchor" aria-label="anchor" href="#neural-network-tools-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Yuan Wang</p>
 <div class="sourceCode" id="cb619"><pre class="downlit sourceCode r">
@@ -176,7 +179,7 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/bips-hb/neuralnet">"neuralnet"</a></span><span class="op">)</span></code></pre></div>
 <div id="introduction-9" class="section level2">
 <h2>
-<span class="header-section-number">50.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-9"><i class="fas fa-link"></i></a>
 </h2>
 <p>Deep learning plays a key role in today’s data science, given the advance of accessible computing resources and the algorithm’s performance and versatility. However, building an efficient neural network requires careful architecture
 design which is crucial for improving the output accuracy of the network’s
@@ -189,7 +192,7 @@ conduct sensitivity analysis, which makes it easier to interpret and
 gives insights into fine-tuning strategies.</p>
 <div id="packages-will-be-introduced" class="section level3">
 <h3>
-<span class="header-section-number">50.1.1</span> Packages will be introduced:<a class="anchor" aria-label="anchor" href="#packages-will-be-introduced"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.1.1</span> Packages will be introduced:<a class="anchor" aria-label="anchor" href="#packages-will-be-introduced"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Basics: Neuralnettools, nnet, Neuralnet, RSNNS,</li>
@@ -198,7 +201,7 @@ gives insights into fine-tuning strategies.</p>
 </div>
 <div id="some-background-knowledge-of-neural-networks" class="section level3">
 <h3>
-<span class="header-section-number">50.1.2</span> Some background knowledge of neural networks:<a class="anchor" aria-label="anchor" href="#some-background-knowledge-of-neural-networks"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.1.2</span> Some background knowledge of neural networks:<a class="anchor" aria-label="anchor" href="#some-background-knowledge-of-neural-networks"><i class="fas fa-link"></i></a>
 </h3>
 <p>This tutorial focuses on supervised learning problems where the goal of
 the neural network is to map inputs to given labels. In a supervised
@@ -215,11 +218,11 @@ components (they are scaled from 0 to 1 using softmax function)</p></li>
 </div>
 <div id="data-pre-processing" class="section level3">
 <h3>
-<span class="header-section-number">50.1.3</span> Data pre-processing<a class="anchor" aria-label="anchor" href="#data-pre-processing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.1.3</span> Data pre-processing<a class="anchor" aria-label="anchor" href="#data-pre-processing"><i class="fas fa-link"></i></a>
 </h3>
 <div id="common-approach-for-deep-learning" class="section level4">
 <h4>
-<span class="header-section-number">50.1.3.1</span> Common approach for deep learning:<a class="anchor" aria-label="anchor" href="#common-approach-for-deep-learning"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.1.3.1</span> Common approach for deep learning:<a class="anchor" aria-label="anchor" href="#common-approach-for-deep-learning"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li><p>Normalize the input variables (inputs —&gt; X’s)</p></li>
@@ -237,7 +240,7 @@ miniconda is also required and TensorFlow should be installed by “install_tens
 </div>
 <div id="reshape" class="section level4">
 <h4>
-<span class="header-section-number">50.1.3.2</span> Reshape<a class="anchor" aria-label="anchor" href="#reshape"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.1.3.2</span> Reshape<a class="anchor" aria-label="anchor" href="#reshape"><i class="fas fa-link"></i></a>
 </h4>
 <p>Neural networks are heavily used in computer vision where datasets are
 images that were 3-dimensional array (images,width,height) of grayscale
@@ -258,11 +261,11 @@ can find more information and the code to train MNIST using keras in
 </div>
 <div id="visualization-of-neural-networks" class="section level2">
 <h2>
-<span class="header-section-number">50.2</span> Visualization of Neural Networks<a class="anchor" aria-label="anchor" href="#visualization-of-neural-networks"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2</span> Visualization of Neural Networks<a class="anchor" aria-label="anchor" href="#visualization-of-neural-networks"><i class="fas fa-link"></i></a>
 </h2>
 <div id="neuralnettools-package" class="section level3">
 <h3>
-<span class="header-section-number">50.2.1</span> Neuralnettools package<a class="anchor" aria-label="anchor" href="#neuralnettools-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.1</span> Neuralnettools package<a class="anchor" aria-label="anchor" href="#neuralnettools-package"><i class="fas fa-link"></i></a>
 </h3>
 <p>A set of visualization and analysis tools used to interpret the
 structure of neural net models. This is the main package for plotting a
@@ -273,7 +276,7 @@ model.</p>
 </div>
 <div id="four-core-functions-of-neuralnettools" class="section level3">
 <h3>
-<span class="header-section-number">50.2.2</span> Four core functions of NeuralNetTools<a class="anchor" aria-label="anchor" href="#four-core-functions-of-neuralnettools"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.2</span> Four core functions of NeuralNetTools<a class="anchor" aria-label="anchor" href="#four-core-functions-of-neuralnettools"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li><p>plotnet: to plot the for visualization</p></li>
@@ -285,7 +288,7 @@ input variable?)</p></li>
 </div>
 <div id="neural-interpretation-diagram-nid" class="section level3">
 <h3>
-<span class="header-section-number">50.2.3</span> Neural Interpretation Diagram (NID)<a class="anchor" aria-label="anchor" href="#neural-interpretation-diagram-nid"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.3</span> Neural Interpretation Diagram (NID)<a class="anchor" aria-label="anchor" href="#neural-interpretation-diagram-nid"><i class="fas fa-link"></i></a>
 </h3>
 <p>Neural interpretatiion diagram (NID) is a graph representation with
 nodes and edges divided into vertical layers. The stages of training the
@@ -353,7 +356,7 @@ direction, color and thickness of the connections which will discussed
 in details later.</p>
 <div id="when-to-terminate-the-training" class="section level4">
 <h4>
-<span class="header-section-number">50.2.3.1</span> When to terminate the training<a class="anchor" aria-label="anchor" href="#when-to-terminate-the-training"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.3.1</span> When to terminate the training<a class="anchor" aria-label="anchor" href="#when-to-terminate-the-training"><i class="fas fa-link"></i></a>
 </h4>
 <p>Running nnet() will output a list of the loss of each tenth iteration up
 to 100. You can see here the traning stops at an error of 0.010132
@@ -414,7 +417,7 @@ iterations because the fitting criterion is satisfied).</p>
 </div>
 <div id="further-explaination-of-the-three-model-functions-used-above" class="section level4">
 <h4>
-<span class="header-section-number">50.2.3.2</span> Further explaination of the three model functions used above:<a class="anchor" aria-label="anchor" href="#further-explaination-of-the-three-model-functions-used-above"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.3.2</span> Further explaination of the three model functions used above:<a class="anchor" aria-label="anchor" href="#further-explaination-of-the-three-model-functions-used-above"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>“mlp”:</li>
@@ -583,7 +586,7 @@ relTol * Max(Abs(prediction), Abs(target))</p>
 </div>
 <div id="neuralnettoolsplotnet" class="section level3">
 <h3>
-<span class="header-section-number">50.2.4</span> NeuralNetTools::plotnet<a class="anchor" aria-label="anchor" href="#neuralnettoolsplotnet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.4</span> NeuralNetTools::plotnet<a class="anchor" aria-label="anchor" href="#neuralnettoolsplotnet"><i class="fas fa-link"></i></a>
 </h3>
 <p>This is the plotting function to visualize the neural networks from the
 model. It will plot a diagram of net structure (NID), with support of
@@ -735,7 +738,7 @@ nit_matrix_value</td>
 </div>
 <div id="alternative-to-nid" class="section level3">
 <h3>
-<span class="header-section-number">50.2.5</span> Alternative to NID:<a class="anchor" aria-label="anchor" href="#alternative-to-nid"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.5</span> Alternative to NID:<a class="anchor" aria-label="anchor" href="#alternative-to-nid"><i class="fas fa-link"></i></a>
 </h3>
 <p>The neural network is often complex with large numbers of layers, nodes,
 and edges, which makes it difficult to interpret. In this case, we can
@@ -800,14 +803,14 @@ is to the outputs.</strong></p>
 </div>
 <div id="sensitivity-analysis" class="section level3">
 <h3>
-<span class="header-section-number">50.2.6</span> Sensitivity analysis:<a class="anchor" aria-label="anchor" href="#sensitivity-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.6</span> Sensitivity analysis:<a class="anchor" aria-label="anchor" href="#sensitivity-analysis"><i class="fas fa-link"></i></a>
 </h3>
 <p>Sensitivity analysis shows how sensitive an input variable (feature) and
 is necessary for us to <strong>understand the relationship and the influence
 of each input parameter on the outputs.</strong></p>
 <div id="lekprofile" class="section level4">
 <h4>
-<span class="header-section-number">50.2.6.1</span> Lekprofile<a class="anchor" aria-label="anchor" href="#lekprofile"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.2.6.1</span> Lekprofile<a class="anchor" aria-label="anchor" href="#lekprofile"><i class="fas fa-link"></i></a>
 </h4>
 <p>This function uses Lek’s profile method to evaluate the behavior of
 outputs across different values of the input variables. It’s generic and
@@ -868,11 +871,11 @@ its value changes more dramatically across groups.</p>
 </div>
 <div id="miscellaneous" class="section level2">
 <h2>
-<span class="header-section-number">50.3</span> Miscellaneous<a class="anchor" aria-label="anchor" href="#miscellaneous"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.3</span> Miscellaneous<a class="anchor" aria-label="anchor" href="#miscellaneous"><i class="fas fa-link"></i></a>
 </h2>
 <div id="other-useful-functions-from-the-package" class="section level4">
 <h4>
-<span class="header-section-number">50.3.0.1</span> Other useful functions from the package:<a class="anchor" aria-label="anchor" href="#other-useful-functions-from-the-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.3.0.1</span> Other useful functions from the package:<a class="anchor" aria-label="anchor" href="#other-useful-functions-from-the-package"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -902,14 +905,14 @@ group in Lek Profile method.</p></li>
 </div>
 <div id="load-popular-datasets-for-neural-networks-from-rs-keras-package" class="section level4">
 <h4>
-<span class="header-section-number">50.3.0.2</span> Load popular datasets for neural networks from R’s keras package:<a class="anchor" aria-label="anchor" href="#load-popular-datasets-for-neural-networks-from-rs-keras-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.3.0.2</span> Load popular datasets for neural networks from R’s keras package:<a class="anchor" aria-label="anchor" href="#load-popular-datasets-for-neural-networks-from-rs-keras-package"><i class="fas fa-link"></i></a>
 </h4>
 <p><a href="https://rdrr.io/cran/keras/f/vignettes/index.Rmd" class="uri">https://rdrr.io/cran/keras/f/vignettes/index.Rmd</a></p>
 </div>
 </div>
 <div id="reference-3" class="section level2">
 <h2>
-<span class="header-section-number">50.4</span> Reference:<a class="anchor" aria-label="anchor" href="#reference-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">51.4</span> Reference:<a class="anchor" aria-label="anchor" href="#reference-3"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6262849/" class="uri">&lt;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6262849/&gt;</a></p></li>
@@ -922,31 +925,31 @@ group in Lek Profile method.</p></li>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="tutorial-for-gg_cleveland.html"><span class="header-section-number">49</span> Tutorial for gg_cleveland</a></div>
-<div class="next"><a href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">51</span> R Dplyr vs Python Pandas</a></div>
+<div class="prev"><a href="tutorial-for-gg_cleveland.html"><span class="header-section-number">50</span> Tutorial for gg_cleveland</a></div>
+<div class="next"><a href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">52</span> R Dplyr vs Python Pandas</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#neural-network-tools-in-r"><span class="header-section-number">50</span> Neural network tools in R</a></li>
+<li><a class="nav-link" href="#neural-network-tools-in-r"><span class="header-section-number">51</span> Neural network tools in R</a></li>
 <li>
-<a class="nav-link" href="#introduction-9"><span class="header-section-number">50.1</span> Introduction</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#packages-will-be-introduced"><span class="header-section-number">50.1.1</span> Packages will be introduced:</a></li>
-<li><a class="nav-link" href="#some-background-knowledge-of-neural-networks"><span class="header-section-number">50.1.2</span> Some background knowledge of neural networks:</a></li>
-<li><a class="nav-link" href="#data-pre-processing"><span class="header-section-number">50.1.3</span> Data pre-processing</a></li>
+<a class="nav-link" href="#introduction-9"><span class="header-section-number">51.1</span> Introduction</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#packages-will-be-introduced"><span class="header-section-number">51.1.1</span> Packages will be introduced:</a></li>
+<li><a class="nav-link" href="#some-background-knowledge-of-neural-networks"><span class="header-section-number">51.1.2</span> Some background knowledge of neural networks:</a></li>
+<li><a class="nav-link" href="#data-pre-processing"><span class="header-section-number">51.1.3</span> Data pre-processing</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#visualization-of-neural-networks"><span class="header-section-number">50.2</span> Visualization of Neural Networks</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#neuralnettools-package"><span class="header-section-number">50.2.1</span> Neuralnettools package</a></li>
-<li><a class="nav-link" href="#four-core-functions-of-neuralnettools"><span class="header-section-number">50.2.2</span> Four core functions of NeuralNetTools</a></li>
-<li><a class="nav-link" href="#neural-interpretation-diagram-nid"><span class="header-section-number">50.2.3</span> Neural Interpretation Diagram (NID)</a></li>
-<li><a class="nav-link" href="#neuralnettoolsplotnet"><span class="header-section-number">50.2.4</span> NeuralNetTools::plotnet</a></li>
-<li><a class="nav-link" href="#alternative-to-nid"><span class="header-section-number">50.2.5</span> Alternative to NID:</a></li>
-<li><a class="nav-link" href="#sensitivity-analysis"><span class="header-section-number">50.2.6</span> Sensitivity analysis:</a></li>
+<a class="nav-link" href="#visualization-of-neural-networks"><span class="header-section-number">51.2</span> Visualization of Neural Networks</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#neuralnettools-package"><span class="header-section-number">51.2.1</span> Neuralnettools package</a></li>
+<li><a class="nav-link" href="#four-core-functions-of-neuralnettools"><span class="header-section-number">51.2.2</span> Four core functions of NeuralNetTools</a></li>
+<li><a class="nav-link" href="#neural-interpretation-diagram-nid"><span class="header-section-number">51.2.3</span> Neural Interpretation Diagram (NID)</a></li>
+<li><a class="nav-link" href="#neuralnettoolsplotnet"><span class="header-section-number">51.2.4</span> NeuralNetTools::plotnet</a></li>
+<li><a class="nav-link" href="#alternative-to-nid"><span class="header-section-number">51.2.5</span> Alternative to NID:</a></li>
+<li><a class="nav-link" href="#sensitivity-analysis"><span class="header-section-number">51.2.6</span> Sensitivity analysis:</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#miscellaneous"><span class="header-section-number">50.3</span> Miscellaneous</a></li>
-<li><a class="nav-link" href="#reference-3"><span class="header-section-number">50.4</span> Reference:</a></li>
+<li><a class="nav-link" href="#miscellaneous"><span class="header-section-number">51.3</span> Miscellaneous</a></li>
+<li><a class="nav-link" href="#reference-3"><span class="header-section-number">51.4</span> Reference:</a></li>
 </ul>
 
       <div class="book-extra">
@@ -964,7 +967,7 @@ group in Lek Profile method.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-10.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
