@@ -184,6 +184,7 @@ string-manipulation-in-r
 ggalluvial-cheatsheet
 description
 a-cheatsheet-from-pandas-to-base-r-and-tidyverse
+introduction-to-log-transformation
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist
