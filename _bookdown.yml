@@ -52,6 +52,7 @@ rmd_files: [
   'stringr_cheatsheet.Rmd',
   'ggalluvial_cheatsheet2.Rmd',
   'cheatsheet_pandas_baser_tidyverse.Rmd',
+  'intro_to_log_transformation.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
