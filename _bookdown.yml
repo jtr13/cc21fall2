@@ -9,6 +9,7 @@ language:
 
 
 
+
 # Chapter ordering
 
 
@@ -119,6 +120,7 @@ rmd_files: [
   'raincloud_plot_tutorial.Rmd',
   'dataframe_operation_tutorial.Rmd',
   'instruction_for_new_ss.Rmd',
+  'anova_tutorial_revised.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -142,4 +144,5 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
 
