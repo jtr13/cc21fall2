@@ -92,6 +92,7 @@ Imports:
     nnet,
     openintro,
     palmerpenguins,
+    pandas,
     pander,
     parcoords,
     patchwork,
