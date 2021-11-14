@@ -116,8 +116,8 @@ rmd_files: [
   'running_sql_queries_on_dataframes.Rmd',
   'tidyver_help.Rmd',
   'animate_your_plots.Rmd',
-  'raincloud_plot_tutorial.rmd',
-  ' dataframe_operation_tutorial.Rmd',
+  'raincloud_plot_tutorial.Rmd',
+  'dataframe_operation_tutorial.Rmd',
   'instruction_for_new_ss.Rmd',
   
   # Part: Projects & Workshops
