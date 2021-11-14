@@ -13,7 +13,6 @@ language:
 
 
 
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -119,6 +118,7 @@ rmd_files: [
   'animate_your_plots.Rmd',
   'raincloud_plot_tutorial.rmd',
   ' dataframe_operation_tutorial.Rmd',
+  'instruction_for_new_ss.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
