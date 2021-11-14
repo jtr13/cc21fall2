@@ -21,11 +21,11 @@ Similar as in base R and `ggplot2`, functions in `numpy`, `pandas`, `matplotlib`
 
 ## Preparation
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, include = FALSE, eval = FALSE}
+knitr::opts_chunk$set(echo = TRUE,eval = FALSE)
 ```
 
-```{r warning = FALSE, message = FALSE}
+```{r warning = FALSE, message = FALSE,eval = FALSE}
 # Clean up workspace environment
 rm(list = ls())
 
@@ -263,7 +263,7 @@ However, it seems like the magic functions only work on Python environments and 
 
 ## Base R Plot Function
 
-```{r, fig.width=13}
+```{r, fig.width=13,eval = FALSE}
 X <- 1:20
 Y <- X*X
 
@@ -283,7 +283,7 @@ plot(X, Y, type = "n") # "n" for no plotting
 There are many parameters that you can change within `plot` function to adjust the appearance of a plot. For example, different `pch` values give different shapes of points as shown in the figure.
 ![](resources/base_r_ggplot2_python_graph/symbol_image.png)
 
-```{r, plot function aesthetics}
+```{r, plot function aesthetics,eval = FALSE}
 plot(X, Y, type = "p",
      las = 1,                  # orient y-axis label
      pch = 15,                 # shape of point
@@ -299,7 +299,7 @@ plot(X, Y, type = "p",
 
 ### ggplot2
 
-```{r}
+```{r,eval = FALSE}
 ggplot(data.frame(X,Y), aes(x=X,y=Y)) + geom_point()
 ggplot(data.frame(X,Y), aes(x=X,y=Y)) + geom_line()
 ggplot(data.frame(X,Y), aes(x=X,y=Y)) + geom_point() + geom_line()
@@ -313,7 +313,7 @@ ggplot(data.frame(X,Y), aes(x=X,y=Y)) + geom_step()
 
 Base R provides the function `hist`, with which we can easily create histograms. Notice that the parameter `break` is not the same as `bins` in ggplot2. When we give an integer to `break`, `hist` only takes it as a suggestion number of breaks to use in the histogram.
 
-```{r, histogram breaks}
+```{r, histogram breaks,eval = FALSE}
 set.seed(123)
 x <- rpois(n=50, lambda = 15)
 par(mfrow=c(1,2)) 
@@ -330,7 +330,7 @@ hist(x,
 
 ### ggplot2
 
-```{r}
+```{r,eval = FALSE}
 ggplot(data.frame(x), aes(x=x)) + 
   geom_histogram(bins = 12, color = "black", fill = "gray") +
   xlab("x") + ylab("frequency") + 
@@ -389,7 +389,7 @@ plt.show()
 
 ## Basic Line Graph with Regression
 
-```{r}
+```{r,eval = FALSE}
 set.seed(123)
 X1 = c(1:30)
 Y1 = rnorm(30, mean=20, sd=5)
@@ -399,7 +399,7 @@ Y1 = rnorm(30, mean=20, sd=5)
 
 With base R, we can plot line graphs with `plot`, and change the type, width and color of line with parameters very efficiently. We can add linear regression line by fitting a model and draw the line with `abline` in base R.
 
-```{r}
+```{r,eval = FALSE}
 par(mfrow=c(2,3)) 
 plot(X1, Y1, type="l", xlab="x", ylab="y")
 plot(X1, Y1, type="l", xlab="x", ylab="y", lty="dashed")      #"lty" for line type
@@ -415,7 +415,7 @@ abline(fit1, lty = "dashed")                                  #add an abline in 
 
 To add linear model fit line in ggplot2, use `geom_smooth(method = 'lm')`.
 
-```{r}
+```{r,eval = FALSE}
 ggplot(data.frame(X1, Y1), aes(x=X1, y=Y1)) + 
   geom_line(col = "red", lwd=0.8) + 
   geom_smooth(method = "lm", se = FALSE, col="black", lty="dashed")
@@ -476,7 +476,7 @@ plt.show()
 
 Without specifying the type in `plot`, the function by default creates scatterplots.
 
-```{r, add legend}
+```{r, add legend,eval = FALSE}
 data(iris)
 plot(iris$Sepal.Length, iris$Petal.Length,        # x variable, y variable
      col = iris$Species,                          # color by species
@@ -491,7 +491,7 @@ legend ("topleft", legend = levels(iris$Species), col = c(1:3), pch = 18)
 
 ### ggplot2
 
-```{r}
+```{r,eval = FALSE}
 ggplot(iris, aes(x=Sepal.Length, y=Petal.Length, color = Species)) +
   geom_point() + 
   xlab("Sepal Length") +
@@ -563,7 +563,7 @@ plt.show()
 
 The function `boxplot` is used in base R to create boxplots, and adding notches to the plot makes it easier to see the difference among the data.
 
-```{r}
+```{r,eval = FALSE}
 boxplot(iris$Sepal.Length ~ iris$Species)
 boxplot(iris$Sepal.Length ~ iris$Species, notch=T)
 
@@ -576,7 +576,7 @@ boxplot(iris$Sepal.Length ~ iris$Species, notch=T,
 
 ### ggplot2
 
-```{r}
+```{r,eval = FALSE}
 ggplot(iris, aes(x=Species, y=Sepal.Length)) + geom_boxplot()
 ```
 
@@ -628,7 +628,7 @@ plt.show()
 
 ## Barplot with Error Bars
 
-```{r}
+```{r,eval = FALSE}
 dragons <- data.frame(
   TalonLength = c(20.9, 58.3, 35.5),
   SE = c(4.5, 6.3, 5.5),
@@ -637,13 +637,13 @@ dragons <- data.frame(
 
 ### base R
 
-```{r}
+```{r,eval = FALSE}
 barplot(dragons$TalonLength, names = dragons$Population)
 ```
 
 Note that `plotCI` requires use the `gplots` package.
 
-```{r, warning=FALSE}
+```{r, warning=FALSE,eval = FALSE}
 dragons$Population <- factor(dragons$Population, 
                              levels=c("Scotland","Wales","England"))
 
@@ -665,7 +665,7 @@ plotCI (dragons$TalonLength,
 
 `ggplot2` is more recommended to use when drawing bar plots.
 
-```{r}
+```{r,eval = FALSE}
 ggplot(dragons,aes(x=Population, y=TalonLength)) +
   geom_bar(stat="identity", fill="lightgray", col="black") + 
   geom_errorbar(ymin=dragons$TalonLength-dragons$SE,
