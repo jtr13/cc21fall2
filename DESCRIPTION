@@ -84,6 +84,7 @@ Imports:
     maps,
     MASS,
     mongolite,
+    mapproj,
     naniar,
     NbClust,
     networkD3,
