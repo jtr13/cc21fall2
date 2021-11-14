@@ -130,7 +130,6 @@ rmd_files: [
   'plots_python_seaborn_matplotlib.Rmd',
   'r_and_python_visualization.Rmd',
   'r_3d_visualization.Rmd',
-  'geospatial_data_visualization.Rmd',
   
   # Part: Custom R packages
   'super_ggformat_project.Rmd',
