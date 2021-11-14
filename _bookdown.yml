@@ -54,6 +54,7 @@ rmd_files: [
   'cheatsheet_pandas_baser_tidyverse.Rmd',
   'intro_to_log_transformation.Rmd',
   'base_r_ggplot2_python_graph.Rmd',
+  'score_hundred_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
