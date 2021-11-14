@@ -214,6 +214,7 @@ python-4
 conclusion
 references-2
 cheat-sheet-to-score-100-points
+scatterplots-cheatsheet
 tutorial-on-cluster-analysis
 what-is-clustering-analysis
 what-types-of-clustering-analysis-exist

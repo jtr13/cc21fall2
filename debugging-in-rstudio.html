@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 80 Debugging in Rstudio | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Tianxiang Li  80.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
+<title>Chapter 81 Debugging in Rstudio | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Tianxiang Li  81.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 80 Debugging in Rstudio | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 81 Debugging in Rstudio | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Tianxiang Li  80.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
+<meta property="og:description" content="Tianxiang Li  81.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 80 Debugging in Rstudio | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Tianxiang Li  80.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
+<meta name="twitter:title" content="Chapter 81 Debugging in Rstudio | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Tianxiang Li  81.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -83,83 +83,84 @@
 <li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">35</span> Introduction to Log-transformation</a></li>
 <li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
 <li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">37</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="scatterplots-cheatsheet.html"><span class="header-section-number">38</span> Scatterplots cheatsheet</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">38</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">39</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">40</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">41</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">42</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">43</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">44</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">45</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">46</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">47</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">48</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">49</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">50</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">51</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">52</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">53</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">54</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">55</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">56</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">57</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">58</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">59</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">60</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">61</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">62</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">63</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">64</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">65</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">66</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">67</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">68</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">69</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">70</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">71</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">72</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">73</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">74</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">75</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">76</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">77</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">78</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">79</span> Feature selection in r</a></li>
-<li><a class="active" href="debugging-in-rstudio.html"><span class="header-section-number">80</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">81</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">82</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">83</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">84</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">85</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">86</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">87</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">88</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">89</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">90</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">91</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">92</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">93</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">94</span> Joining and reshaping in R</a></li>
-<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">95</span> Running Sql Queries on Dataframes</a></li>
-<li><a class="" href="tidyverse.html"><span class="header-section-number">96</span> TidyVerse</a></li>
-<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">97</span> How to animate your plots</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">39</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">40</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">41</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">42</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">43</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">44</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">45</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">46</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">47</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">48</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">49</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">50</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">51</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">52</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">53</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">54</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">55</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">56</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">57</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">58</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">59</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">60</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">61</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">62</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">63</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">64</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">65</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">66</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">67</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">68</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">69</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">70</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">71</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">72</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">73</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">74</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">75</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">76</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">77</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">78</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">79</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">80</span> Feature selection in r</a></li>
+<li><a class="active" href="debugging-in-rstudio.html"><span class="header-section-number">81</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">82</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">83</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">84</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">85</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">86</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">87</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">88</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">89</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">90</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">91</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">92</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">93</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">94</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">95</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">96</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">97</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">98</span> How to animate your plots</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">98</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">99</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">100</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">101</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">102</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">99</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">100</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">101</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">102</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">103</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">103</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">104</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">105</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">106</span> R and Python visualization</a></li>
-<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">107</span> 3D Visualization with rgl and scatterplot3d</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">108</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">104</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">105</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">106</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">107</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">108</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">109</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">109</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">110</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">110</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">111</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -169,30 +170,30 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="debugging-in-rstudio" class="section level1">
 <h1>
-<span class="header-section-number">80</span> Debugging in Rstudio<a class="anchor" aria-label="anchor" href="#debugging-in-rstudio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81</span> Debugging in Rstudio<a class="anchor" aria-label="anchor" href="#debugging-in-rstudio"><i class="fas fa-link"></i></a>
 </h1>
 <p>Tianxiang Li</p>
 <div id="introduction-15" class="section level2">
 <h2>
-<span class="header-section-number">80.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-15"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-15"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the first assignment we were asked to find out how <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> in baseR determines the number of bins. Many students including me got confused because the return of the function is not the same as described in its documentation. I’d like to share how I solved the problem.</p>
 <p>The tutorial mainly consists of three parts: how to use <code>help()</code>, how to find the source code of a function using <code><a href="https://rdrr.io/r/utils/methods.html">methods()</a></code>, and how to debug in RStudio. Hopefully this can help other people like me when they encounter similar problems in the future.</p>
-<div class="sourceCode" id="cb985"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb995"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://openintrostat.github.io/openintro/">'openintro'</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">'tidyverse'</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="first-choice-help" class="section level2">
 <h2>
-<span class="header-section-number">80.2</span> First Choice: help()<a class="anchor" aria-label="anchor" href="#first-choice-help"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.2</span> First Choice: help()<a class="anchor" aria-label="anchor" href="#first-choice-help"><i class="fas fa-link"></i></a>
 </h2>
 <div id="how-to-use-help" class="section level3">
 <h3>
-<span class="header-section-number">80.2.1</span> how to use help()<a class="anchor" aria-label="anchor" href="#how-to-use-help"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.2.1</span> how to use help()<a class="anchor" aria-label="anchor" href="#how-to-use-help"><i class="fas fa-link"></i></a>
 </h3>
 <p>When you want to find out how a new function works, trying <code>help()</code> is always the first step. It will returns the official documentation of the function. Usually a detailed documentation will answer most of your questions. Take <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> for example:</p>
-<div class="sourceCode" id="cb986"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb996"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">hist</span><span class="op">)</span></code></pre></div>
 <p>This will show you the documentation of <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function. Here is a summarization:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/1.png" width="60%" style="display: block; margin: auto;"></div>
@@ -201,10 +202,10 @@
 </div>
 <div id="understand-the-documentation" class="section level3">
 <h3>
-<span class="header-section-number">80.2.2</span> understand the documentation<a class="anchor" aria-label="anchor" href="#understand-the-documentation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.2.2</span> understand the documentation<a class="anchor" aria-label="anchor" href="#understand-the-documentation"><i class="fas fa-link"></i></a>
 </h3>
 <p>The R documentation typically consists of several parts: <em>Description</em>, <em>Usage</em>, <em>Arguments</em>, <em>Details</em>, <em>Value</em>, <em>Examples</em> and so on. In <em>Usage</em> you can find the arguments and their default values. In <em>Arguments</em> there are explanations of these arguments. <em>Value</em> is the return value of the function. For example, <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> returns an object that has 6 attributes:</p>
-<div class="sourceCode" id="cb987"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb997"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span>, plot<span class="op">=</span><span class="cn">F</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
 <pre><code>## List of 6
@@ -218,12 +219,12 @@
 </div>
 <div id="not-enough" class="section level3">
 <h3>
-<span class="header-section-number">80.2.3</span> not enough<a class="anchor" aria-label="anchor" href="#not-enough"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.2.3</span> not enough<a class="anchor" aria-label="anchor" href="#not-enough"><i class="fas fa-link"></i></a>
 </h3>
 <p>However, R documentation cannot answers all the questions. In our case, the documentation of <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> only says that it uses <em>Sturges’ algorithm</em>, and uses it as a suggestion to <code><a href="https://rdrr.io/r/base/pretty.html">pretty()</a></code>.</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/2.png" width="60%" style="display: block; margin: auto;"></div>
 <p>With this description, we still do not understand how it works: how to use the result of <em>Sturges’ algorithm</em> as a suggestion to <code><a href="https://rdrr.io/r/base/pretty.html">pretty()</a></code>. If we use <code><a href="https://rdrr.io/r/base/pretty.html">pretty()</a></code> directly, the results are clearly not the same as the results of <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code>:</p>
-<div class="sourceCode" id="cb989"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb999"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 1.6 1.8 2.0 2.2 2.4 2.6</code></pre>
 <p>To totally understand how a function works, the best way is to read</p>
@@ -231,20 +232,20 @@
 </div>
 <div id="source-code-methods" class="section level2">
 <h2>
-<span class="header-section-number">80.3</span> Source code: methods()<a class="anchor" aria-label="anchor" href="#source-code-methods"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.3</span> Source code: methods()<a class="anchor" aria-label="anchor" href="#source-code-methods"><i class="fas fa-link"></i></a>
 </h2>
 <p>To totally understand how a function works, the best way is to read its source code. Since it is not include in the documentation, where should we find it?</p>
 <p>Sometimes you can just type the name of the function. It will return the source code:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/3.png" width="60%" style="display: block; margin: auto;"></div>
 <p>Unfortunately, when you try it on <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code>, this happens:</p>
-<div class="sourceCode" id="cb991"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1001"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">hist</span></code></pre></div>
 <pre><code>## function (x, ...) 
 ## UseMethod("hist")
 ## &lt;bytecode: 0x5563e7771ad8&gt;
 ## &lt;environment: namespace:graphics&gt;</code></pre>
 <p>This is because that it is a generic function (more specifically, it’s a S3 generic function). We can use <code><a href="https://rdrr.io/r/utils/methods.html">methods()</a></code>, it will list all available methods for a S3 or S4 generic function:</p>
-<div class="sourceCode" id="cb993"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1003"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">hist</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] hist.Date*   hist.default hist.POSIXt*
 ## see '?methods' for accessing help and source code</code></pre>
@@ -255,13 +256,13 @@
 </div>
 <div id="debugging-in-rstudio-1" class="section level2">
 <h2>
-<span class="header-section-number">80.4</span> Debugging in RStudio<a class="anchor" aria-label="anchor" href="#debugging-in-rstudio-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.4</span> Debugging in RStudio<a class="anchor" aria-label="anchor" href="#debugging-in-rstudio-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Debugging is a very useful tool to understand the how your code behaves when it is actually running, or to find out why the code is not running as you expected. You can set a breakpoint before the line you are interested in, then when the code is running, it will stop at the breakpoint. Then you can run the code step by step to walk through it.</p>
 <p>Now let’s see how to use debugging to find out how <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> works.</p>
 <div id="set-the-breakpoint" class="section level3">
 <h3>
-<span class="header-section-number">80.4.1</span> set the breakpoint<a class="anchor" aria-label="anchor" href="#set-the-breakpoint"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.4.1</span> set the breakpoint<a class="anchor" aria-label="anchor" href="#set-the-breakpoint"><i class="fas fa-link"></i></a>
 </h3>
 <p>Firstly we need to set a breakpoint. To do this, you must create a R script file (you can’t do this in R markdown file). Then set a breakpoint by clicking on the left area of the line number. It looks like this:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/5.png" width="60%" style="display: block; margin: auto;"></div>
@@ -269,7 +270,7 @@
 </div>
 <div id="run-the-script" class="section level3">
 <h3>
-<span class="header-section-number">80.4.2</span> run the script<a class="anchor" aria-label="anchor" href="#run-the-script"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.4.2</span> run the script<a class="anchor" aria-label="anchor" href="#run-the-script"><i class="fas fa-link"></i></a>
 </h3>
 <p>Save the script and run it through <code>Code -&gt; Run Region -&gt; Run All</code>:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/6.png" width="60%" style="display: block; margin: auto;"></div>
@@ -277,7 +278,7 @@
 </div>
 <div id="debug" class="section level3">
 <h3>
-<span class="header-section-number">80.4.3</span> debug<a class="anchor" aria-label="anchor" href="#debug"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.4.3</span> debug<a class="anchor" aria-label="anchor" href="#debug"><i class="fas fa-link"></i></a>
 </h3>
 <p>When it stops, it will go into debug mode and looks like this:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/7.png" width="80%" style="display: block; margin: auto;"></div>
@@ -288,22 +289,22 @@
 <p>Since we already step into the <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function, from now on we click button 1:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/9.png" width="80%" style="display: block; margin: auto;"></div>
 <p>We can clearly see that the value of variable <code>breaks</code> is “Sturges” and the code goes into <code>if</code> instead of <code>else if</code>. And we can see that in the next two steps this will happen:</p>
-<div class="sourceCode" id="cb995"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1005"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/nclass.html">nclass.Sturges</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
 <p>Now we get this:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/10.png" width="80%" style="display: block; margin: auto;"></div>
 <p>The value of <code>breaks</code> is 7 and in the next step it will execute</p>
-<div class="sourceCode" id="cb996"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1006"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">7</span>, min.n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <p>Finally we get the result of <code>breaks</code>:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/11.png" width="80%" style="display: block; margin: auto;"></div>
 </div>
 <div id="summary" class="section level3">
 <h3>
-<span class="header-section-number">80.4.4</span> summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
+<span class="header-section-number">81.4.4</span> summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
 </h3>
 <p>After we debug the script, we can understand how <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> determines breaks:</p>
-<div class="sourceCode" id="cb997"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1007"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span>, n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/nclass.html">nclass.Sturges</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span>, min.n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="va">breaks</span></code></pre></div>
 <pre><code>##  [1] 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6</code></pre>
@@ -315,27 +316,27 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="feature-selection-in-r.html"><span class="header-section-number">79</span> Feature selection in r</a></div>
-<div class="next"><a href="r-tutorial-cheatsheet.html"><span class="header-section-number">81</span> R tutorial cheatsheet</a></div>
+<div class="prev"><a href="feature-selection-in-r.html"><span class="header-section-number">80</span> Feature selection in r</a></div>
+<div class="next"><a href="r-tutorial-cheatsheet.html"><span class="header-section-number">82</span> R tutorial cheatsheet</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#debugging-in-rstudio"><span class="header-section-number">80</span> Debugging in Rstudio</a></li>
-<li><a class="nav-link" href="#introduction-15"><span class="header-section-number">80.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#debugging-in-rstudio"><span class="header-section-number">81</span> Debugging in Rstudio</a></li>
+<li><a class="nav-link" href="#introduction-15"><span class="header-section-number">81.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#first-choice-help"><span class="header-section-number">80.2</span> First Choice: help()</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#how-to-use-help"><span class="header-section-number">80.2.1</span> how to use help()</a></li>
-<li><a class="nav-link" href="#understand-the-documentation"><span class="header-section-number">80.2.2</span> understand the documentation</a></li>
-<li><a class="nav-link" href="#not-enough"><span class="header-section-number">80.2.3</span> not enough</a></li>
+<a class="nav-link" href="#first-choice-help"><span class="header-section-number">81.2</span> First Choice: help()</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#how-to-use-help"><span class="header-section-number">81.2.1</span> how to use help()</a></li>
+<li><a class="nav-link" href="#understand-the-documentation"><span class="header-section-number">81.2.2</span> understand the documentation</a></li>
+<li><a class="nav-link" href="#not-enough"><span class="header-section-number">81.2.3</span> not enough</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#source-code-methods"><span class="header-section-number">80.3</span> Source code: methods()</a></li>
+<li><a class="nav-link" href="#source-code-methods"><span class="header-section-number">81.3</span> Source code: methods()</a></li>
 <li>
-<a class="nav-link" href="#debugging-in-rstudio-1"><span class="header-section-number">80.4</span> Debugging in RStudio</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#set-the-breakpoint"><span class="header-section-number">80.4.1</span> set the breakpoint</a></li>
-<li><a class="nav-link" href="#run-the-script"><span class="header-section-number">80.4.2</span> run the script</a></li>
-<li><a class="nav-link" href="#debug"><span class="header-section-number">80.4.3</span> debug</a></li>
-<li><a class="nav-link" href="#summary"><span class="header-section-number">80.4.4</span> summary</a></li>
+<a class="nav-link" href="#debugging-in-rstudio-1"><span class="header-section-number">81.4</span> Debugging in RStudio</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#set-the-breakpoint"><span class="header-section-number">81.4.1</span> set the breakpoint</a></li>
+<li><a class="nav-link" href="#run-the-script"><span class="header-section-number">81.4.2</span> run the script</a></li>
+<li><a class="nav-link" href="#debug"><span class="header-section-number">81.4.3</span> debug</a></li>
+<li><a class="nav-link" href="#summary"><span class="header-section-number">81.4.4</span> summary</a></li>
 </ul>
 </li>
 </ul>

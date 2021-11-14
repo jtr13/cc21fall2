@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 94 Joining and reshaping in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Yisi Liu library(gridExtra) library(dplyr) library(tidyr) library(ggplot2) library(forcats)  94.1 Motivation The majority of the analyses we have done in assignments and lectures so far have been...">
+<title>Chapter 95 Joining and reshaping in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Yisi Liu library(gridExtra) library(dplyr) library(tidyr) library(ggplot2) library(forcats)  95.1 Motivation The majority of the analyses we have done in assignments and lectures so far have been...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 94 Joining and reshaping in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 95 Joining and reshaping in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Yisi Liu library(gridExtra) library(dplyr) library(tidyr) library(ggplot2) library(forcats)  94.1 Motivation The majority of the analyses we have done in assignments and lectures so far have been...">
+<meta property="og:description" content="Yisi Liu library(gridExtra) library(dplyr) library(tidyr) library(ggplot2) library(forcats)  95.1 Motivation The majority of the analyses we have done in assignments and lectures so far have been...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 94 Joining and reshaping in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Yisi Liu library(gridExtra) library(dplyr) library(tidyr) library(ggplot2) library(forcats)  94.1 Motivation The majority of the analyses we have done in assignments and lectures so far have been...">
+<meta name="twitter:title" content="Chapter 95 Joining and reshaping in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Yisi Liu library(gridExtra) library(dplyr) library(tidyr) library(ggplot2) library(forcats)  95.1 Motivation The majority of the analyses we have done in assignments and lectures so far have been...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -83,83 +83,84 @@
 <li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">35</span> Introduction to Log-transformation</a></li>
 <li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
 <li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">37</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="scatterplots-cheatsheet.html"><span class="header-section-number">38</span> Scatterplots cheatsheet</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">38</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">39</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">40</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">41</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">42</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">43</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">44</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">45</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">46</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">47</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">48</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">49</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">50</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">51</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">52</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">53</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">54</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">55</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">56</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">57</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">58</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">59</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">60</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">61</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">62</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">63</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">64</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">65</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">66</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">67</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">68</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">69</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">70</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">71</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">72</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">73</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">74</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">75</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">76</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">77</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">78</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">79</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">80</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">81</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">82</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">83</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">84</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">85</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">86</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">87</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">88</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">89</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">90</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">91</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">92</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">93</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="active" href="joining-and-reshaping-in-r.html"><span class="header-section-number">94</span> Joining and reshaping in R</a></li>
-<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">95</span> Running Sql Queries on Dataframes</a></li>
-<li><a class="" href="tidyverse.html"><span class="header-section-number">96</span> TidyVerse</a></li>
-<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">97</span> How to animate your plots</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">39</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">40</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">41</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">42</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">43</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">44</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">45</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">46</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">47</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">48</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">49</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">50</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">51</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">52</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">53</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">54</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">55</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">56</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">57</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">58</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">59</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">60</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">61</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">62</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">63</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">64</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">65</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">66</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">67</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">68</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">69</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">70</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">71</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">72</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">73</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">74</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">75</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">76</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">77</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">78</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">79</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">80</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">81</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">82</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">83</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">84</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">85</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">86</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">87</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">88</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">89</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">90</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">91</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">92</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">93</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">94</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="active" href="joining-and-reshaping-in-r.html"><span class="header-section-number">95</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">96</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">97</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">98</span> How to animate your plots</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">98</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">99</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">100</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">101</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">102</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">99</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">100</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">101</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">102</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">103</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">103</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">104</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">105</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">106</span> R and Python visualization</a></li>
-<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">107</span> 3D Visualization with rgl and scatterplot3d</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">108</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">104</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">105</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">106</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">107</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">108</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">109</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">109</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">110</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">110</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">111</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -169,10 +170,10 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="joining-and-reshaping-in-r" class="section level1">
 <h1>
-<span class="header-section-number">94</span> Joining and reshaping in R<a class="anchor" aria-label="anchor" href="#joining-and-reshaping-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95</span> Joining and reshaping in R<a class="anchor" aria-label="anchor" href="#joining-and-reshaping-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Yisi Liu</p>
-<div class="sourceCode" id="cb1194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gridExtra</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
@@ -180,14 +181,14 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://forcats.tidyverse.org">forcats</a></span><span class="op">)</span></code></pre></div>
 <div id="motivation-7" class="section level2">
 <h2>
-<span class="header-section-number">94.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-7"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>The majority of the analyses we have done in assignments and lectures so far have been based on a single data set. In the real world, however, raw data may be saved in different files or tables, so there may not always be a meta data set containing all of the information. For example, we want a summary table showing how many students are in each department, but department information and student information are kept separate. To begin the analysis, we will need to combine the two or more data sets into a single one and, if necessary, change it into a preferred format.</p>
 <p>During my previous intern experience as an analytics engineer, merging and transforming the source data into the desired table is a crucial step. We performed data wrangling and ETL (extract-transform-loading) pipelines with SQL back then. While working on assignments for this class, I surprisingly discovered some comparable functions within <code>dplyr</code> and <code>tidyr</code>, which I will explain in this tutorial.</p>
 </div>
 <div id="content" class="section level2">
 <h2>
-<span class="header-section-number">94.2</span> Content<a class="anchor" aria-label="anchor" href="#content"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.2</span> Content<a class="anchor" aria-label="anchor" href="#content"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>Joining / Merging data sets
@@ -213,14 +214,14 @@
 </div>
 <div id="combining-tables" class="section level2">
 <h2>
-<span class="header-section-number">94.3</span> Combining Tables<a class="anchor" aria-label="anchor" href="#combining-tables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.3</span> Combining Tables<a class="anchor" aria-label="anchor" href="#combining-tables"><i class="fas fa-link"></i></a>
 </h2>
 <div id="setup" class="section level3">
 <h3>
-<span class="header-section-number">94.3.1</span> Setup<a class="anchor" aria-label="anchor" href="#setup"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.3.1</span> Setup<a class="anchor" aria-label="anchor" href="#setup"><i class="fas fa-link"></i></a>
 </h3>
 <p>We will use <code>student</code> table to walk through the tutorial today. <code>student</code> includes information <code>student_id</code>, <code>student_name</code>, and <code>department_id</code> so far.</p>
-<div class="sourceCode" id="cb1195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">111</span><span class="op">)</span>
 
 <span class="va">student</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="st">'student_id'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">100000</span><span class="op">:</span><span class="fl">999999</span>, <span class="fl">4</span>, replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,
@@ -231,11 +232,11 @@
 </div>
 <div id="types-of-bind" class="section level3">
 <h3>
-<span class="header-section-number">94.3.2</span> Types of Bind<a class="anchor" aria-label="anchor" href="#types-of-bind"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.3.2</span> Types of Bind<a class="anchor" aria-label="anchor" href="#types-of-bind"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>bind_rows()</strong></p>
 <p>At the beginning of this semester, two new students Troy and Wendy transferred to our school. Table <code>new_student</code> records their student id, name, and department id (new students’ majors remain undeclared so <code>NA</code> here).</p>
-<div class="sourceCode" id="cb1196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
 <span class="va">new_student</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="st">'student_id'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">100000</span><span class="op">:</span><span class="fl">999999</span>, <span class="fl">2</span>, replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,
                         <span class="st">'student_name'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Troy'</span>,<span class="st">'Wendy'</span><span class="op">)</span>,
@@ -244,13 +245,13 @@
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">new_student</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'new_student table'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>For the convenience of future analyses, we want to add new students’ information to our existing <code>student</code> table. To append the rows of <code>new_students</code> onto <code>student</code>, we perform <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code> function in <code>dplyr</code>.</p>
-<div class="sourceCode" id="cb1197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">student</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">student</span>, <span class="va">new_student</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">student</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'bind_rows: student &amp; new_student'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 <p><strong>bind_cols()</strong></p>
 <p>In this semester, suppose the first half of students on <code>student</code> table are assigned to take STAT 5701 while the second half to take STAT 5702. A table <code>course</code> records the course id and course name each student takes, but there is no student name.</p>
-<div class="sourceCode" id="cb1198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">course</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
         <span class="st">'course_id'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'STAT 5701'</span>,<span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">student</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'STAT 5702'</span>,<span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">student</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>,
         <span class="st">'course_name'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'Probability'</span>,<span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">student</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'Data Visualization'</span>,<span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">student</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
@@ -258,7 +259,7 @@
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>As we are interested in questions like which class James takes or if Roger and Amy take the same class this year, we want to include these two columns in our <code>student</code> table.</p>
 <p>To add an additional column, we use <code>bind_columns()</code> here. Now we are able to tell that James takes STAT 5701, and Roger and Amy are not taking the same class this semester.</p>
-<div class="sourceCode" id="cb1199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bind_c</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span><span class="op">(</span><span class="va">student</span>, <span class="va">course</span><span class="op">)</span> 
 
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">bind_c</span><span class="op">)</span> , top <span class="op">=</span> <span class="st">'bind_rows: student &amp; course'</span><span class="op">)</span></code></pre></div>
@@ -267,10 +268,10 @@
 </div>
 <div id="mutating-joins" class="section level3">
 <h3>
-<span class="header-section-number">94.3.3</span> Mutating Joins<a class="anchor" aria-label="anchor" href="#mutating-joins"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.3.3</span> Mutating Joins<a class="anchor" aria-label="anchor" href="#mutating-joins"><i class="fas fa-link"></i></a>
 </h3>
 <p>We have shown that <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols()</a></code> could append columns to a table. However, it is less likely that a table with the same number of rows as the primary table would always exist. Consider the case where the <code>student</code> table has 10,000 rows. Another table with 10,000 rows, each indicating a student’s major, would take up a lot of space. A more common way to store relational data is as follows:</p>
-<div class="sourceCode" id="cb1200"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">department</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="st">'department_id'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span>,
                          <span class="st">'department_name'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Math'</span>,<span class="st">'Computer Science'</span>, 
                                                <span class="st">'Philosophy'</span>,<span class="st">'Linguistics'</span>,
@@ -311,22 +312,22 @@
 <div class="inline-figure"><img src="resources/joining_and_reshaping_in_r/join_pic.jpg" width="400px" style="display: block; margin: auto;"></div>
 <p>Now, let’s perform different joins to merge the tables.</p>
 <p><strong>inner_join()</strong></p>
-<div class="sourceCode" id="cb1201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">join_inner</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">student</span>, <span class="va">department</span>, by <span class="op">=</span> <span class="st">'department_id'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">join_inner</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'inner join: student &amp; department'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
 <p><strong>full_join()</strong></p>
-<div class="sourceCode" id="cb1202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1212"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">join_full</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">student</span>, <span class="va">department</span>, by <span class="op">=</span> <span class="st">'department_id'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">join_full</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'full join: student &amp; department'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
 <p><strong>left_join()</strong></p>
-<div class="sourceCode" id="cb1203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">join_left</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">student</span>, <span class="va">department</span>, by <span class="op">=</span> <span class="st">'department_id'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">join_left</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'left join: student &amp; department'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></div>
 <p><strong>right_join()</strong></p>
-<div class="sourceCode" id="cb1204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">join_right</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">student</span>, <span class="va">department</span>, by <span class="op">=</span> <span class="st">'department_id'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">join_right</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'right join: student &amp; department'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
@@ -334,7 +335,7 @@
 <p><strong>Multiple keys</strong></p>
 </blockquote>
 <p>Multiple keys may be required in some circumstances to uniquely identify an observation. Our data sets below, for example, each student has two separate observations, therefore we need to connect them by both <code>student_id</code> and <code>course_id</code>.</p>
-<div class="sourceCode" id="cb1205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">student2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="st">'student_id'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">student</span><span class="op">$</span><span class="va">student_id</span>, <span class="fl">2</span><span class="op">)</span>,
                        <span class="st">'student_name'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">student</span><span class="op">$</span><span class="va">student_name</span>, <span class="fl">2</span><span class="op">)</span>,
                        <span class="st">'course_id'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'STAT 5701'</span>,<span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">student</span><span class="op">)</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'STAT 5702'</span>,<span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">student</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
@@ -346,14 +347,14 @@
 
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">student2</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">grades</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">1</span>, top <span class="op">=</span> <span class="st">'student2 table, grades table'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-14-1.png" width="864" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">student_with_grades</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">student2</span>, <span class="va">grades</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'student_id'</span>,<span class="st">'course_id'</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">student_with_grades</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'inner join: student2 &amp; grades'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-14-2.png" width="864" style="display: block; margin: auto;"></div>
 </div>
 <div id="filtering-joins" class="section level3">
 <h3>
-<span class="header-section-number">94.3.4</span> Filtering joins<a class="anchor" aria-label="anchor" href="#filtering-joins"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.3.4</span> Filtering joins<a class="anchor" aria-label="anchor" href="#filtering-joins"><i class="fas fa-link"></i></a>
 </h3>
 <p>In addition to mutating joins that add columns to <code>x</code> from <code>y</code>, there are two more filtering joins functions within <code>dplyr</code>. Filtering joins filter rows from <code>x</code> based on the presence or absence of matches in <code>y</code>. <a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="uri">https://dplyr.tidyverse.org/reference/filter-joins.html</a></p>
 <div class="inline-table"><table class="table table-sm">
@@ -375,23 +376,23 @@
 <p>Recall that <code>department_id</code> is the key for both <code>student</code> table and <code>department</code> table, and <code>department_id</code>= {1,3,4} occurs in both tables.</p>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-15-1.png" width="864" style="display: block; margin: auto;"></div>
 <p><strong>semi_join()</strong></p>
-<div class="sourceCode" id="cb1207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#only keep rows in student table</span>
 <span class="va">join_semi1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">student</span>, <span class="va">department</span>, by <span class="op">=</span> <span class="st">'department_id'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">join_semi1</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'semi join: student &amp; department'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#only keep rows in department table</span>
 <span class="va">join_semi2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">department</span>,<span class="va">student</span>, by <span class="op">=</span> <span class="st">'department_id'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">join_semi2</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'semi join: department &amp; student'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></div>
 <p><strong>anti_join()</strong></p>
-<div class="sourceCode" id="cb1209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#only keep rows in student table</span>
 <span class="va">join_anti1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">student</span>, <span class="va">department</span>, by <span class="op">=</span> <span class="st">'department_id'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">join_anti1</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'anti join: student &amp; department'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#only keep rows in department table</span>
 <span class="va">join_anti2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">department</span>, <span class="va">student</span>, by <span class="op">=</span> <span class="st">'department_id'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">join_anti2</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'anti join: department &amp; student'</span><span class="op">)</span></code></pre></div>
@@ -399,7 +400,7 @@
 </div>
 <div id="r-vs.-sql" class="section level3">
 <h3>
-<span class="header-section-number">94.3.5</span> R vs. SQL<a class="anchor" aria-label="anchor" href="#r-vs.-sql"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.3.5</span> R vs. SQL<a class="anchor" aria-label="anchor" href="#r-vs.-sql"><i class="fas fa-link"></i></a>
 </h3>
 <p>The commands for joins in R and SQL are included in the table below. We can see that both languages have mutating/filtering joins.</p>
 <div class="inline-table"><table class="table table-sm">
@@ -442,26 +443,26 @@
 </div>
 <div id="reshaping" class="section level2">
 <h2>
-<span class="header-section-number">94.4</span> Reshaping<a class="anchor" aria-label="anchor" href="#reshaping"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.4</span> Reshaping<a class="anchor" aria-label="anchor" href="#reshaping"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>pivot_wider()</strong></p>
 <p>Recall the table <code>student_with_grades</code>.
 <img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>The above data makes it difficult to read and compare students’ grades in both classes. Alternatively, we can extract the courses’ names and divide them into two columns, each containing the final grade as the value. We could make such a table with the <code>pivot wider()</code> function in <code>tidyr</code>.</p>
-<div class="sourceCode" id="cb1211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">student_with_grades_2</span> <span class="op">=</span> <span class="va">student_with_grades</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">course_id</span>, values_from <span class="op">=</span> <span class="va">final_grade</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">student_with_grades_2</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'pivot_wider: student_with_grades_2'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;"></div>
 <p><strong>pivot_longer()</strong></p>
 <p>Conversely, if we are given the ‘wider’ table <code>student_with_grades_2</code>, and want to convert the format to be <code>student_with_grades</code> in order to compare the distribution of final grades between two classes. We can do this by using the <code>pivor_longer()</code> function to reshape the table and plot a side-by-side bar chart from the ‘longer’ table.</p>
-<div class="sourceCode" id="cb1212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">student_with_grades_3</span> <span class="op">&lt;-</span> <span class="va">student_with_grades_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
                         <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'STAT 5701'</span>,<span class="st">'STAT 5702'</span><span class="op">)</span>, 
                                      names_to <span class="op">=</span> <span class="st">'course_id'</span>, 
                                      values_to <span class="op">=</span> <span class="st">'final_grade'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html">grid.arrange</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/gridExtra/man/tableGrob.html">tableGrob</a></span><span class="op">(</span><span class="va">student_with_grades_3</span><span class="op">)</span>, top <span class="op">=</span> <span class="st">'pivot_longer: student_with_grades_3'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="joining_and_reshaping_in_r_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">student_with_grades_3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">final_grade</span>,<span class="st">'B'</span>, after <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
@@ -472,7 +473,7 @@
 </div>
 <div id="self-evaluation" class="section level2">
 <h2>
-<span class="header-section-number">94.5</span> Self-evaluation<a class="anchor" aria-label="anchor" href="#self-evaluation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.5</span> Self-evaluation<a class="anchor" aria-label="anchor" href="#self-evaluation"><i class="fas fa-link"></i></a>
 </h2>
 <p>Before starting this project, I only knew <strong>mutating joins</strong> such as <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>. I discovered <strong>filtering joins</strong> like <code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join()</a></code> while working on it. The filtering joins are extremely useful when we only need data from <code>x</code> based on some standards from <code>y</code>.</p>
 <p>In SQL, we normally use the <code>where</code> statement to create such a constraint in <code>x</code>, as seen in the ‘R vs. SQL’ comparison table I included above. This, I believe, is the most intriguing aspect of knowing many data-handling tools: we can always find other approaches that perform the same function.</p>
@@ -480,33 +481,33 @@
 </div>
 <div id="reference-7" class="section level2">
 <h2>
-<span class="header-section-number">94.6</span> Reference<a class="anchor" aria-label="anchor" href="#reference-7"><i class="fas fa-link"></i></a>
+<span class="header-section-number">95.6</span> Reference<a class="anchor" aria-label="anchor" href="#reference-7"><i class="fas fa-link"></i></a>
 </h2>
 <p>R4DS Chapter 13: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></p>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">93</span> Comparing Excel Chart Making with R’s</a></div>
-<div class="next"><a href="running-sql-queries-on-dataframes.html"><span class="header-section-number">95</span> Running Sql Queries on Dataframes</a></div>
+<div class="prev"><a href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">94</span> Comparing Excel Chart Making with R’s</a></div>
+<div class="next"><a href="running-sql-queries-on-dataframes.html"><span class="header-section-number">96</span> Running Sql Queries on Dataframes</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#joining-and-reshaping-in-r"><span class="header-section-number">94</span> Joining and reshaping in R</a></li>
-<li><a class="nav-link" href="#motivation-7"><span class="header-section-number">94.1</span> Motivation</a></li>
-<li><a class="nav-link" href="#content"><span class="header-section-number">94.2</span> Content</a></li>
+<li><a class="nav-link" href="#joining-and-reshaping-in-r"><span class="header-section-number">95</span> Joining and reshaping in R</a></li>
+<li><a class="nav-link" href="#motivation-7"><span class="header-section-number">95.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#content"><span class="header-section-number">95.2</span> Content</a></li>
 <li>
-<a class="nav-link" href="#combining-tables"><span class="header-section-number">94.3</span> Combining Tables</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#setup"><span class="header-section-number">94.3.1</span> Setup</a></li>
-<li><a class="nav-link" href="#types-of-bind"><span class="header-section-number">94.3.2</span> Types of Bind</a></li>
-<li><a class="nav-link" href="#mutating-joins"><span class="header-section-number">94.3.3</span> Mutating Joins</a></li>
-<li><a class="nav-link" href="#filtering-joins"><span class="header-section-number">94.3.4</span> Filtering joins</a></li>
-<li><a class="nav-link" href="#r-vs.-sql"><span class="header-section-number">94.3.5</span> R vs. SQL</a></li>
+<a class="nav-link" href="#combining-tables"><span class="header-section-number">95.3</span> Combining Tables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#setup"><span class="header-section-number">95.3.1</span> Setup</a></li>
+<li><a class="nav-link" href="#types-of-bind"><span class="header-section-number">95.3.2</span> Types of Bind</a></li>
+<li><a class="nav-link" href="#mutating-joins"><span class="header-section-number">95.3.3</span> Mutating Joins</a></li>
+<li><a class="nav-link" href="#filtering-joins"><span class="header-section-number">95.3.4</span> Filtering joins</a></li>
+<li><a class="nav-link" href="#r-vs.-sql"><span class="header-section-number">95.3.5</span> R vs. SQL</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#reshaping"><span class="header-section-number">94.4</span> Reshaping</a></li>
-<li><a class="nav-link" href="#self-evaluation"><span class="header-section-number">94.5</span> Self-evaluation</a></li>
-<li><a class="nav-link" href="#reference-7"><span class="header-section-number">94.6</span> Reference</a></li>
+<li><a class="nav-link" href="#reshaping"><span class="header-section-number">95.4</span> Reshaping</a></li>
+<li><a class="nav-link" href="#self-evaluation"><span class="header-section-number">95.5</span> Self-evaluation</a></li>
+<li><a class="nav-link" href="#reference-7"><span class="header-section-number">95.6</span> Reference</a></li>
 </ul>
 
       <div class="book-extra">

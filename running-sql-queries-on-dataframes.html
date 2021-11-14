@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 95 Running Sql Queries on Dataframes | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Chao Pang and Krishna Kalluri library(tidyverse) library(openintro) library(sparklyr)  95.1 Motivation The goal of this tutorial is to allow ourselves and other students to have the capability to...">
+<title>Chapter 96 Running Sql Queries on Dataframes | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Chao Pang and Krishna Kalluri library(tidyverse) library(openintro) library(sparklyr)  96.1 Motivation The goal of this tutorial is to allow ourselves and other students to have the capability to...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 95 Running Sql Queries on Dataframes | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 96 Running Sql Queries on Dataframes | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Chao Pang and Krishna Kalluri library(tidyverse) library(openintro) library(sparklyr)  95.1 Motivation The goal of this tutorial is to allow ourselves and other students to have the capability to...">
+<meta property="og:description" content="Chao Pang and Krishna Kalluri library(tidyverse) library(openintro) library(sparklyr)  96.1 Motivation The goal of this tutorial is to allow ourselves and other students to have the capability to...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 95 Running Sql Queries on Dataframes | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Chao Pang and Krishna Kalluri library(tidyverse) library(openintro) library(sparklyr)  95.1 Motivation The goal of this tutorial is to allow ourselves and other students to have the capability to...">
+<meta name="twitter:title" content="Chapter 96 Running Sql Queries on Dataframes | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Chao Pang and Krishna Kalluri library(tidyverse) library(openintro) library(sparklyr)  96.1 Motivation The goal of this tutorial is to allow ourselves and other students to have the capability to...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -83,83 +83,84 @@
 <li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">35</span> Introduction to Log-transformation</a></li>
 <li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
 <li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">37</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="scatterplots-cheatsheet.html"><span class="header-section-number">38</span> Scatterplots cheatsheet</a></li>
 <li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">38</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">39</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">40</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">41</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">42</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">43</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">44</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">45</span> Network Visualization in R</a></li>
-<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">46</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">47</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">48</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">49</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">50</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">51</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">52</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">53</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">54</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">55</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">56</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">57</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">58</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">59</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">60</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">61</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">62</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">63</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">64</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">65</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">66</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">67</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">68</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">69</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">70</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">71</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">72</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">73</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">74</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">75</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">76</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">77</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">78</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">79</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">80</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">81</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">82</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">83</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">84</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">85</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">86</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">87</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">88</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">89</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">90</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">91</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">92</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">93</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">94</span> Joining and reshaping in R</a></li>
-<li><a class="active" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">95</span> Running Sql Queries on Dataframes</a></li>
-<li><a class="" href="tidyverse.html"><span class="header-section-number">96</span> TidyVerse</a></li>
-<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">97</span> How to animate your plots</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">39</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">40</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">41</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">42</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">43</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">44</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">45</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">46</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">47</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">48</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">49</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">50</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">51</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">52</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">53</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">54</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">55</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">56</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">57</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">58</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">59</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">60</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">61</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">62</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">63</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">64</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">65</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">66</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">67</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">68</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">69</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">70</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">71</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">72</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">73</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">74</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">75</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">76</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">77</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">78</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">79</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">80</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">81</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">82</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">83</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">84</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">85</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">86</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">87</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">88</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">89</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">90</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">91</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">92</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">93</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">94</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">95</span> Joining and reshaping in R</a></li>
+<li><a class="active" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">96</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">97</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">98</span> How to animate your plots</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">98</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">99</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">100</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">101</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">102</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">99</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">100</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">101</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">102</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">103</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">103</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">104</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">105</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">106</span> R and Python visualization</a></li>
-<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">107</span> 3D Visualization with rgl and scatterplot3d</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">108</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">104</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">105</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">106</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">107</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">108</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">109</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">109</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">110</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">110</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">111</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -169,91 +170,91 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="running-sql-queries-on-dataframes" class="section level1">
 <h1>
-<span class="header-section-number">95</span> Running Sql Queries on Dataframes<a class="anchor" aria-label="anchor" href="#running-sql-queries-on-dataframes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96</span> Running Sql Queries on Dataframes<a class="anchor" aria-label="anchor" href="#running-sql-queries-on-dataframes"><i class="fas fa-link"></i></a>
 </h1>
 <p>Chao Pang and Krishna Kalluri</p>
-<div class="sourceCode" id="cb1214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://openintrostat.github.io/openintro/">openintro</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://spark.rstudio.com/">sparklyr</a></span><span class="op">)</span></code></pre></div>
 <div id="motivation-8" class="section level2">
 <h2>
-<span class="header-section-number">95.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-8"><i class="fas fa-link"></i></a>
 </h2>
 <p>The goal of this tutorial is to allow ourselves and other students to have the capability to write SQL queries against dplyr dataframes directly rather than to use dplyr functions in our assignments. Despite the convenience dplyr offers, we actually prefer the beloved classic SQL queries because that’s what we are using in our daily work. We believe that a lot of people who aren’t familiar with R (specifically tidyverse) would feel the same way and prefer SQL at the beginning of their adventure into the R “universe”.</p>
 <p>It’s important to point out that writing SQL SHOULD not be a complete replacement of dplyr, but rather an alternative option on the table for students because we just feel that one should not limit themselves to a particular data manipulation tool. We do want to acknolwedge that dplyr is a well-thought-out library, it uses the same principles as SQL queries, however, Googling for the right syntax doesn’t seem to be straightforward at times (unlike pandas for Python). The motivation of this project stemmed from our frustrations of not being able to find the right functions/syntax to manipulate the data with ease. Although we’ve learned how to use dplyr after three assignments, it would be nice to provide this alternative to the future generations of students.</p>
 </div>
 <div id="sql-use-cases" class="section level2">
 <h2>
-<span class="header-section-number">95.2</span> SQL use cases<a class="anchor" aria-label="anchor" href="#sql-use-cases"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.2</span> SQL use cases<a class="anchor" aria-label="anchor" href="#sql-use-cases"><i class="fas fa-link"></i></a>
 </h2>
 <div id="get-started" class="section level3">
 <h3>
-<span class="header-section-number">95.2.1</span> Get started<a class="anchor" aria-label="anchor" href="#get-started"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.2.1</span> Get started<a class="anchor" aria-label="anchor" href="#get-started"><i class="fas fa-link"></i></a>
 </h3>
 <p>knitr is the underlying engine for knitting the R markdown files into a document, and provides support for for different programming languages. In particular, knitr provides a SQL engine that allows you write SQL queries in the code chunk, see official documentation at <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html#sql">knitr sql engine</a>. However, this engine requires a connection to a database, and we can only query tables that are materialized in this database. To leverage this engine, we have to create a temp database and import the dataframes of interest as tables. The dbplyer library provides a convenience function to get a in-memory database engine (sqllite) and additional functions for importing dataframes as tables. If you are not familiar with SQL queries and want to learn more about it, please visit this funny tutorial at <a href="https://www.r-bloggers.com/2021/01/learn-how-to-write-sql-from-r/">learn-how-to-write-sql-from-r</a></p>
 <div id="load-the-table-into-the-dbplyr-in-mem-database" class="section level4">
 <h4>
-<span class="header-section-number">95.2.1.1</span> Load the table into the dbplyr in-mem database<a class="anchor" aria-label="anchor" href="#load-the-table-into-the-dbplyr-in-mem-database"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.2.1.1</span> Load the table into the dbplyr in-mem database<a class="anchor" aria-label="anchor" href="#load-the-table-into-the-dbplyr-in-mem-database"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb1215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">connection</span> <span class="op">=</span> <span class="fu">dbplyr</span><span class="fu">::</span><span class="fu"><a href="https://dbplyr.tidyverse.org/reference/memdb_frame.html">src_memdb</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">con</span>
 <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/copy_to.html">copy_to</a></span><span class="op">(</span><span class="va">connection</span>, <span class="va">iris</span><span class="op">)</span></code></pre></div>
 <p>Wow, this is actually super easy to do, it only took two lines of code to import a table. However, it took us a long time to find out such a function even existed, hopefully you won’t go through the same pain in the future 😊!</p>
 </div>
 <div id="run-your-first-query" class="section level4">
 <h4>
-<span class="header-section-number">95.2.1.2</span> Run your first query<a class="anchor" aria-label="anchor" href="#run-your-first-query"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.2.1.2</span> Run your first query<a class="anchor" aria-label="anchor" href="#run-your-first-query"><i class="fas fa-link"></i></a>
 </h4>
 <p>Once you’ve imported the table, you could get the database connection object from dbplyr directly, now you just need to pass it into the code chunk in the chunk options. There are three options specified in the below code chunk,</p>
 <ul>
 <li><p>sql: the key word that indicates this is a sql code chunk</p></li>
 <li><p>connection: the sqllite database connection we created earlier (any database connection would work though!)</p></li>
 </ul>
-<div class="sourceCode" id="cb1216"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1216-1"><a href="running-sql-queries-on-dataframes.html#cb1216-1"></a><span class="co">--chunk options: {sql, connection=connection}</span></span>
-<span id="cb1216-2"><a href="running-sql-queries-on-dataframes.html#cb1216-2"></a><span class="kw">SELECT</span></span>
-<span id="cb1216-3"><a href="running-sql-queries-on-dataframes.html#cb1216-3"></a>  <span class="op">*</span></span>
-<span id="cb1216-4"><a href="running-sql-queries-on-dataframes.html#cb1216-4"></a><span class="kw">FROM</span> iris</span></code></pre></div>
+<div class="sourceCode" id="cb1226"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1226-1"><a href="running-sql-queries-on-dataframes.html#cb1226-1"></a><span class="co">--chunk options: {sql, connection=connection}</span></span>
+<span id="cb1226-2"><a href="running-sql-queries-on-dataframes.html#cb1226-2"></a><span class="kw">SELECT</span></span>
+<span id="cb1226-3"><a href="running-sql-queries-on-dataframes.html#cb1226-3"></a>  <span class="op">*</span></span>
+<span id="cb1226-4"><a href="running-sql-queries-on-dataframes.html#cb1226-4"></a><span class="kw">FROM</span> iris</span></code></pre></div>
 </div>
 <div id="group-by" class="section level4">
 <h4>
-<span class="header-section-number">95.2.1.3</span> Group by<a class="anchor" aria-label="anchor" href="#group-by"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.2.1.3</span> Group by<a class="anchor" aria-label="anchor" href="#group-by"><i class="fas fa-link"></i></a>
 </h4>
 <p>Calculate the average petal length, and petal width by species.</p>
-<div class="sourceCode" id="cb1217"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1217-1"><a href="running-sql-queries-on-dataframes.html#cb1217-1"></a><span class="co">--chunk options: {sql, connection=connection}</span></span>
-<span id="cb1217-2"><a href="running-sql-queries-on-dataframes.html#cb1217-2"></a><span class="kw">SELECT</span></span>
-<span id="cb1217-3"><a href="running-sql-queries-on-dataframes.html#cb1217-3"></a>  species,</span>
-<span id="cb1217-4"><a href="running-sql-queries-on-dataframes.html#cb1217-4"></a>  <span class="fu">AVG</span>(`Petal.Length`) <span class="kw">AS</span> avg_petal_length,</span>
-<span id="cb1217-5"><a href="running-sql-queries-on-dataframes.html#cb1217-5"></a>  <span class="fu">AVG</span>(`Petal.Width`) <span class="kw">AS</span> avg_petal_width</span>
-<span id="cb1217-6"><a href="running-sql-queries-on-dataframes.html#cb1217-6"></a><span class="kw">FROM</span> iris</span>
-<span id="cb1217-7"><a href="running-sql-queries-on-dataframes.html#cb1217-7"></a><span class="kw">GROUP</span> <span class="kw">BY</span> species </span></code></pre></div>
+<div class="sourceCode" id="cb1227"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1227-1"><a href="running-sql-queries-on-dataframes.html#cb1227-1"></a><span class="co">--chunk options: {sql, connection=connection}</span></span>
+<span id="cb1227-2"><a href="running-sql-queries-on-dataframes.html#cb1227-2"></a><span class="kw">SELECT</span></span>
+<span id="cb1227-3"><a href="running-sql-queries-on-dataframes.html#cb1227-3"></a>  species,</span>
+<span id="cb1227-4"><a href="running-sql-queries-on-dataframes.html#cb1227-4"></a>  <span class="fu">AVG</span>(`Petal.Length`) <span class="kw">AS</span> avg_petal_length,</span>
+<span id="cb1227-5"><a href="running-sql-queries-on-dataframes.html#cb1227-5"></a>  <span class="fu">AVG</span>(`Petal.Width`) <span class="kw">AS</span> avg_petal_width</span>
+<span id="cb1227-6"><a href="running-sql-queries-on-dataframes.html#cb1227-6"></a><span class="kw">FROM</span> iris</span>
+<span id="cb1227-7"><a href="running-sql-queries-on-dataframes.html#cb1227-7"></a><span class="kw">GROUP</span> <span class="kw">BY</span> species </span></code></pre></div>
 </div>
 <div id="saving-results-as-dataframes" class="section level4">
 <h4>
-<span class="header-section-number">95.2.1.4</span> Saving results as dataframes<a class="anchor" aria-label="anchor" href="#saving-results-as-dataframes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.2.1.4</span> Saving results as dataframes<a class="anchor" aria-label="anchor" href="#saving-results-as-dataframes"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb1218"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1218-1"><a href="running-sql-queries-on-dataframes.html#cb1218-1"></a><span class="co">--chunk options: {sql, connection=connection, output.var="result_df"}</span></span>
-<span id="cb1218-2"><a href="running-sql-queries-on-dataframes.html#cb1218-2"></a><span class="kw">SELECT</span></span>
-<span id="cb1218-3"><a href="running-sql-queries-on-dataframes.html#cb1218-3"></a>  Species <span class="kw">AS</span> specs,</span>
-<span id="cb1218-4"><a href="running-sql-queries-on-dataframes.html#cb1218-4"></a>  `Petal.Width` <span class="kw">AS</span> petal_width,</span>
-<span id="cb1218-5"><a href="running-sql-queries-on-dataframes.html#cb1218-5"></a>  `Petal.Length` <span class="kw">AS</span> ptal_length</span>
-<span id="cb1218-6"><a href="running-sql-queries-on-dataframes.html#cb1218-6"></a><span class="kw">FROM</span> iris</span>
-<span id="cb1218-7"><a href="running-sql-queries-on-dataframes.html#cb1218-7"></a><span class="kw">WHERE</span> species <span class="op">=</span> <span class="st">'setosa'</span></span></code></pre></div>
-<div class="sourceCode" id="cb1219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1228"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1228-1"><a href="running-sql-queries-on-dataframes.html#cb1228-1"></a><span class="co">--chunk options: {sql, connection=connection, output.var="result_df"}</span></span>
+<span id="cb1228-2"><a href="running-sql-queries-on-dataframes.html#cb1228-2"></a><span class="kw">SELECT</span></span>
+<span id="cb1228-3"><a href="running-sql-queries-on-dataframes.html#cb1228-3"></a>  Species <span class="kw">AS</span> specs,</span>
+<span id="cb1228-4"><a href="running-sql-queries-on-dataframes.html#cb1228-4"></a>  `Petal.Width` <span class="kw">AS</span> petal_width,</span>
+<span id="cb1228-5"><a href="running-sql-queries-on-dataframes.html#cb1228-5"></a>  `Petal.Length` <span class="kw">AS</span> ptal_length</span>
+<span id="cb1228-6"><a href="running-sql-queries-on-dataframes.html#cb1228-6"></a><span class="kw">FROM</span> iris</span>
+<span id="cb1228-7"><a href="running-sql-queries-on-dataframes.html#cb1228-7"></a><span class="kw">WHERE</span> species <span class="op">=</span> <span class="st">'setosa'</span></span></code></pre></div>
+<div class="sourceCode" id="cb1229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">result_df</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span> <span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html">paged_table</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="complex-use-cases" class="section level3">
 <h3>
-<span class="header-section-number">95.2.2</span> Complex Use Cases<a class="anchor" aria-label="anchor" href="#complex-use-cases"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.2.2</span> Complex Use Cases<a class="anchor" aria-label="anchor" href="#complex-use-cases"><i class="fas fa-link"></i></a>
 </h3>
 <div id="popular-pet-names" class="section level5">
 <h5>
-<span class="header-section-number">95.2.2.0.1</span> Popular pet names<a class="anchor" aria-label="anchor" href="#popular-pet-names"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.2.2.0.1</span> Popular pet names<a class="anchor" aria-label="anchor" href="#popular-pet-names"><i class="fas fa-link"></i></a>
 </h5>
 <p>In this tutorial, are going to use a pet name dataset called <a href="https://www.openintro.org/data/index.php?data=seattlepets">seattlepets</a> for demonstration.The question we are trying to figure out is — what are the 20 most popular cat and dog names?</p>
 <p>Let’s try to answer this question using the dplyr way.</p>
-<div class="sourceCode" id="cb1220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">seattlepets</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/pkg/sparklyr/man/filter.html">filter</a></span> <span class="op">(</span><span class="va">species</span> <span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dog"</span>, <span class="st">"Cat"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span> 
@@ -267,39 +268,39 @@
   <span class="fu"><a href="https://rdrr.io/pkg/sparklyr/man/filter.html">filter</a></span><span class="op">(</span><span class="va">row_number</span> <span class="op">&lt;=</span> <span class="fl">20</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span>
   <span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html">paged_table</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Now let’s try to write a SQL query that does the same thing.</p>
-<div class="sourceCode" id="cb1221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">connection</span> <span class="op">=</span> <span class="fu">dbplyr</span><span class="fu">::</span><span class="fu"><a href="https://dbplyr.tidyverse.org/reference/memdb_frame.html">src_memdb</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">con</span>
 <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/copy_to.html">copy_to</a></span><span class="op">(</span><span class="va">connection</span>, <span class="va">seattlepets</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb1222"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1222-1"><a href="running-sql-queries-on-dataframes.html#cb1222-1"></a><span class="co">--chunk options: {sql, connection=connection}</span></span>
-<span id="cb1222-2"><a href="running-sql-queries-on-dataframes.html#cb1222-2"></a><span class="kw">WITH</span> pets <span class="kw">AS</span></span>
-<span id="cb1222-3"><a href="running-sql-queries-on-dataframes.html#cb1222-3"></a>(</span>
-<span id="cb1222-4"><a href="running-sql-queries-on-dataframes.html#cb1222-4"></a>  <span class="kw">SELECT</span></span>
-<span id="cb1222-5"><a href="running-sql-queries-on-dataframes.html#cb1222-5"></a>    species, </span>
-<span id="cb1222-6"><a href="running-sql-queries-on-dataframes.html#cb1222-6"></a>    animal_name,</span>
-<span id="cb1222-7"><a href="running-sql-queries-on-dataframes.html#cb1222-7"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
-<span id="cb1222-8"><a href="running-sql-queries-on-dataframes.html#cb1222-8"></a>  <span class="kw">FROM</span> seattlepets</span>
-<span id="cb1222-9"><a href="running-sql-queries-on-dataframes.html#cb1222-9"></a>  <span class="kw">WHERE</span> animal_name <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb1222-10"><a href="running-sql-queries-on-dataframes.html#cb1222-10"></a>    <span class="kw">AND</span> species <span class="kw">IN</span> (<span class="ot">"Cat"</span>, <span class="ot">"Dog"</span>)</span>
-<span id="cb1222-11"><a href="running-sql-queries-on-dataframes.html#cb1222-11"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> species, animal_name</span>
-<span id="cb1222-12"><a href="running-sql-queries-on-dataframes.html#cb1222-12"></a>),</span>
-<span id="cb1222-13"><a href="running-sql-queries-on-dataframes.html#cb1222-13"></a>animal_name_row_number <span class="kw">AS</span></span>
-<span id="cb1222-14"><a href="running-sql-queries-on-dataframes.html#cb1222-14"></a>(</span>
-<span id="cb1222-15"><a href="running-sql-queries-on-dataframes.html#cb1222-15"></a>  <span class="kw">SELECT</span></span>
-<span id="cb1222-16"><a href="running-sql-queries-on-dataframes.html#cb1222-16"></a>    species,</span>
-<span id="cb1222-17"><a href="running-sql-queries-on-dataframes.html#cb1222-17"></a>    animal_name,</span>
-<span id="cb1222-18"><a href="running-sql-queries-on-dataframes.html#cb1222-18"></a>    <span class="fu">count</span>,</span>
-<span id="cb1222-19"><a href="running-sql-queries-on-dataframes.html#cb1222-19"></a>    <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span>(<span class="kw">PARTITION</span> <span class="kw">BY</span> species <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="fu">count</span> <span class="kw">DESC</span>) <span class="kw">AS</span> <span class="fu">row_number</span></span>
-<span id="cb1222-20"><a href="running-sql-queries-on-dataframes.html#cb1222-20"></a>  <span class="kw">FROM</span> pets</span>
-<span id="cb1222-21"><a href="running-sql-queries-on-dataframes.html#cb1222-21"></a>)</span>
-<span id="cb1222-22"><a href="running-sql-queries-on-dataframes.html#cb1222-22"></a></span>
-<span id="cb1222-23"><a href="running-sql-queries-on-dataframes.html#cb1222-23"></a><span class="kw">SELECT</span></span>
-<span id="cb1222-24"><a href="running-sql-queries-on-dataframes.html#cb1222-24"></a>  <span class="op">*</span></span>
-<span id="cb1222-25"><a href="running-sql-queries-on-dataframes.html#cb1222-25"></a><span class="kw">FROM</span> animal_name_row_number</span>
-<span id="cb1222-26"><a href="running-sql-queries-on-dataframes.html#cb1222-26"></a><span class="kw">WHERE</span> <span class="fu">row_number</span> <span class="op">&lt;=</span> <span class="dv">20</span></span>
-<span id="cb1222-27"><a href="running-sql-queries-on-dataframes.html#cb1222-27"></a><span class="kw">ORDER</span> <span class="kw">BY</span> species <span class="kw">DESC</span>, <span class="fu">count</span> <span class="kw">DESC</span></span></code></pre></div>
+<div class="sourceCode" id="cb1232"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1232-1"><a href="running-sql-queries-on-dataframes.html#cb1232-1"></a><span class="co">--chunk options: {sql, connection=connection}</span></span>
+<span id="cb1232-2"><a href="running-sql-queries-on-dataframes.html#cb1232-2"></a><span class="kw">WITH</span> pets <span class="kw">AS</span></span>
+<span id="cb1232-3"><a href="running-sql-queries-on-dataframes.html#cb1232-3"></a>(</span>
+<span id="cb1232-4"><a href="running-sql-queries-on-dataframes.html#cb1232-4"></a>  <span class="kw">SELECT</span></span>
+<span id="cb1232-5"><a href="running-sql-queries-on-dataframes.html#cb1232-5"></a>    species, </span>
+<span id="cb1232-6"><a href="running-sql-queries-on-dataframes.html#cb1232-6"></a>    animal_name,</span>
+<span id="cb1232-7"><a href="running-sql-queries-on-dataframes.html#cb1232-7"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
+<span id="cb1232-8"><a href="running-sql-queries-on-dataframes.html#cb1232-8"></a>  <span class="kw">FROM</span> seattlepets</span>
+<span id="cb1232-9"><a href="running-sql-queries-on-dataframes.html#cb1232-9"></a>  <span class="kw">WHERE</span> animal_name <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb1232-10"><a href="running-sql-queries-on-dataframes.html#cb1232-10"></a>    <span class="kw">AND</span> species <span class="kw">IN</span> (<span class="ot">"Cat"</span>, <span class="ot">"Dog"</span>)</span>
+<span id="cb1232-11"><a href="running-sql-queries-on-dataframes.html#cb1232-11"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> species, animal_name</span>
+<span id="cb1232-12"><a href="running-sql-queries-on-dataframes.html#cb1232-12"></a>),</span>
+<span id="cb1232-13"><a href="running-sql-queries-on-dataframes.html#cb1232-13"></a>animal_name_row_number <span class="kw">AS</span></span>
+<span id="cb1232-14"><a href="running-sql-queries-on-dataframes.html#cb1232-14"></a>(</span>
+<span id="cb1232-15"><a href="running-sql-queries-on-dataframes.html#cb1232-15"></a>  <span class="kw">SELECT</span></span>
+<span id="cb1232-16"><a href="running-sql-queries-on-dataframes.html#cb1232-16"></a>    species,</span>
+<span id="cb1232-17"><a href="running-sql-queries-on-dataframes.html#cb1232-17"></a>    animal_name,</span>
+<span id="cb1232-18"><a href="running-sql-queries-on-dataframes.html#cb1232-18"></a>    <span class="fu">count</span>,</span>
+<span id="cb1232-19"><a href="running-sql-queries-on-dataframes.html#cb1232-19"></a>    <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span>(<span class="kw">PARTITION</span> <span class="kw">BY</span> species <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="fu">count</span> <span class="kw">DESC</span>) <span class="kw">AS</span> <span class="fu">row_number</span></span>
+<span id="cb1232-20"><a href="running-sql-queries-on-dataframes.html#cb1232-20"></a>  <span class="kw">FROM</span> pets</span>
+<span id="cb1232-21"><a href="running-sql-queries-on-dataframes.html#cb1232-21"></a>)</span>
+<span id="cb1232-22"><a href="running-sql-queries-on-dataframes.html#cb1232-22"></a></span>
+<span id="cb1232-23"><a href="running-sql-queries-on-dataframes.html#cb1232-23"></a><span class="kw">SELECT</span></span>
+<span id="cb1232-24"><a href="running-sql-queries-on-dataframes.html#cb1232-24"></a>  <span class="op">*</span></span>
+<span id="cb1232-25"><a href="running-sql-queries-on-dataframes.html#cb1232-25"></a><span class="kw">FROM</span> animal_name_row_number</span>
+<span id="cb1232-26"><a href="running-sql-queries-on-dataframes.html#cb1232-26"></a><span class="kw">WHERE</span> <span class="fu">row_number</span> <span class="op">&lt;=</span> <span class="dv">20</span></span>
+<span id="cb1232-27"><a href="running-sql-queries-on-dataframes.html#cb1232-27"></a><span class="kw">ORDER</span> <span class="kw">BY</span> species <span class="kw">DESC</span>, <span class="fu">count</span> <span class="kw">DESC</span></span></code></pre></div>
 <p>Voila, the tables generated by two different approaches look exactly the same, how cool is that! We can choose between the two depending on how we feel!</p>
 <p>Let’s look at a slightly more complicated example, we want to know the 20 most popular names for dogs and cats combined. To do that, we need to structure the data in the long form for generating a Cleveland plot. Again we will do it using dplyr way first.</p>
-<div class="sourceCode" id="cb1223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">seattlepets</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/pkg/sparklyr/man/filter.html">filter</a></span> <span class="op">(</span><span class="va">species</span> <span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dog"</span>, <span class="st">"Cat"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span>
@@ -320,36 +321,36 @@
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Animal Name"</span><span class="op">)</span> <span class="op">+</span> 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Count"</span><span class="op">)</span></code></pre></div>
 <p>The cool thing about SQL engine is that it returns the result as a regular dplyr dataframe, which allows us to mix and match SQL queries and dplyr syntax. Here is a demonstration, where we calculate the total count of dog and cat names combined in SQL query, and leverage the <strong>pivot_longer</strong> function to structure the data for plotting.</p>
-<div class="sourceCode" id="cb1224"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1224-1"><a href="running-sql-queries-on-dataframes.html#cb1224-1"></a><span class="co">--chunk options: {sql, connection=connection, output.var="total_pet_count"}</span></span>
-<span id="cb1224-2"><a href="running-sql-queries-on-dataframes.html#cb1224-2"></a><span class="kw">WITH</span> pet_counts <span class="kw">AS</span></span>
-<span id="cb1224-3"><a href="running-sql-queries-on-dataframes.html#cb1224-3"></a>(</span>
-<span id="cb1224-4"><a href="running-sql-queries-on-dataframes.html#cb1224-4"></a>  <span class="kw">SELECT</span></span>
-<span id="cb1224-5"><a href="running-sql-queries-on-dataframes.html#cb1224-5"></a>    animal_name, </span>
-<span id="cb1224-6"><a href="running-sql-queries-on-dataframes.html#cb1224-6"></a>    species,</span>
-<span id="cb1224-7"><a href="running-sql-queries-on-dataframes.html#cb1224-7"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
-<span id="cb1224-8"><a href="running-sql-queries-on-dataframes.html#cb1224-8"></a>  <span class="kw">FROM</span> seattlepets</span>
-<span id="cb1224-9"><a href="running-sql-queries-on-dataframes.html#cb1224-9"></a>  <span class="kw">WHERE</span> animal_name <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb1224-10"><a href="running-sql-queries-on-dataframes.html#cb1224-10"></a>    <span class="kw">AND</span> species <span class="kw">IN</span> (<span class="ot">"Dog"</span>, <span class="ot">"Cat"</span>)</span>
-<span id="cb1224-11"><a href="running-sql-queries-on-dataframes.html#cb1224-11"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> animal_name, species</span>
-<span id="cb1224-12"><a href="running-sql-queries-on-dataframes.html#cb1224-12"></a>)</span>
-<span id="cb1224-13"><a href="running-sql-queries-on-dataframes.html#cb1224-13"></a></span>
-<span id="cb1224-14"><a href="running-sql-queries-on-dataframes.html#cb1224-14"></a><span class="kw">SELECT</span></span>
-<span id="cb1224-15"><a href="running-sql-queries-on-dataframes.html#cb1224-15"></a>  animal_name,</span>
-<span id="cb1224-16"><a href="running-sql-queries-on-dataframes.html#cb1224-16"></a>  Cat,</span>
-<span id="cb1224-17"><a href="running-sql-queries-on-dataframes.html#cb1224-17"></a>  Dog,</span>
-<span id="cb1224-18"><a href="running-sql-queries-on-dataframes.html#cb1224-18"></a>  Cat <span class="op">+</span> Dog <span class="kw">AS</span> total,</span>
-<span id="cb1224-19"><a href="running-sql-queries-on-dataframes.html#cb1224-19"></a>  <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span>(<span class="kw">ORDER</span> <span class="kw">BY</span> Cat <span class="op">+</span> Dog <span class="kw">DESC</span>) <span class="kw">AS</span> <span class="fu">row_number</span></span>
-<span id="cb1224-20"><a href="running-sql-queries-on-dataframes.html#cb1224-20"></a><span class="kw">FROM</span></span>
-<span id="cb1224-21"><a href="running-sql-queries-on-dataframes.html#cb1224-21"></a>(</span>
-<span id="cb1224-22"><a href="running-sql-queries-on-dataframes.html#cb1224-22"></a>  <span class="kw">SELECT</span></span>
-<span id="cb1224-23"><a href="running-sql-queries-on-dataframes.html#cb1224-23"></a>    animal_name,</span>
-<span id="cb1224-24"><a href="running-sql-queries-on-dataframes.html#cb1224-24"></a>    IFNULL(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> species <span class="op">=</span> <span class="ot">"Cat"</span> <span class="cf">THEN</span> <span class="fu">count</span> <span class="cf">END</span>), <span class="dv">0</span>) <span class="kw">AS</span> Cat,</span>
-<span id="cb1224-25"><a href="running-sql-queries-on-dataframes.html#cb1224-25"></a>    IFNULL(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> species <span class="op">=</span> <span class="ot">"Dog"</span> <span class="cf">THEN</span> <span class="fu">count</span> <span class="cf">END</span>), <span class="dv">0</span>) <span class="kw">AS</span> Dog</span>
-<span id="cb1224-26"><a href="running-sql-queries-on-dataframes.html#cb1224-26"></a>  <span class="kw">FROM</span> pet_counts</span>
-<span id="cb1224-27"><a href="running-sql-queries-on-dataframes.html#cb1224-27"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> animal_name</span>
-<span id="cb1224-28"><a href="running-sql-queries-on-dataframes.html#cb1224-28"></a>) p</span>
-<span id="cb1224-29"><a href="running-sql-queries-on-dataframes.html#cb1224-29"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Cat <span class="op">+</span> Dog <span class="kw">DESC</span></span></code></pre></div>
-<div class="sourceCode" id="cb1225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1234"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1234-1"><a href="running-sql-queries-on-dataframes.html#cb1234-1"></a><span class="co">--chunk options: {sql, connection=connection, output.var="total_pet_count"}</span></span>
+<span id="cb1234-2"><a href="running-sql-queries-on-dataframes.html#cb1234-2"></a><span class="kw">WITH</span> pet_counts <span class="kw">AS</span></span>
+<span id="cb1234-3"><a href="running-sql-queries-on-dataframes.html#cb1234-3"></a>(</span>
+<span id="cb1234-4"><a href="running-sql-queries-on-dataframes.html#cb1234-4"></a>  <span class="kw">SELECT</span></span>
+<span id="cb1234-5"><a href="running-sql-queries-on-dataframes.html#cb1234-5"></a>    animal_name, </span>
+<span id="cb1234-6"><a href="running-sql-queries-on-dataframes.html#cb1234-6"></a>    species,</span>
+<span id="cb1234-7"><a href="running-sql-queries-on-dataframes.html#cb1234-7"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
+<span id="cb1234-8"><a href="running-sql-queries-on-dataframes.html#cb1234-8"></a>  <span class="kw">FROM</span> seattlepets</span>
+<span id="cb1234-9"><a href="running-sql-queries-on-dataframes.html#cb1234-9"></a>  <span class="kw">WHERE</span> animal_name <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb1234-10"><a href="running-sql-queries-on-dataframes.html#cb1234-10"></a>    <span class="kw">AND</span> species <span class="kw">IN</span> (<span class="ot">"Dog"</span>, <span class="ot">"Cat"</span>)</span>
+<span id="cb1234-11"><a href="running-sql-queries-on-dataframes.html#cb1234-11"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> animal_name, species</span>
+<span id="cb1234-12"><a href="running-sql-queries-on-dataframes.html#cb1234-12"></a>)</span>
+<span id="cb1234-13"><a href="running-sql-queries-on-dataframes.html#cb1234-13"></a></span>
+<span id="cb1234-14"><a href="running-sql-queries-on-dataframes.html#cb1234-14"></a><span class="kw">SELECT</span></span>
+<span id="cb1234-15"><a href="running-sql-queries-on-dataframes.html#cb1234-15"></a>  animal_name,</span>
+<span id="cb1234-16"><a href="running-sql-queries-on-dataframes.html#cb1234-16"></a>  Cat,</span>
+<span id="cb1234-17"><a href="running-sql-queries-on-dataframes.html#cb1234-17"></a>  Dog,</span>
+<span id="cb1234-18"><a href="running-sql-queries-on-dataframes.html#cb1234-18"></a>  Cat <span class="op">+</span> Dog <span class="kw">AS</span> total,</span>
+<span id="cb1234-19"><a href="running-sql-queries-on-dataframes.html#cb1234-19"></a>  <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span>(<span class="kw">ORDER</span> <span class="kw">BY</span> Cat <span class="op">+</span> Dog <span class="kw">DESC</span>) <span class="kw">AS</span> <span class="fu">row_number</span></span>
+<span id="cb1234-20"><a href="running-sql-queries-on-dataframes.html#cb1234-20"></a><span class="kw">FROM</span></span>
+<span id="cb1234-21"><a href="running-sql-queries-on-dataframes.html#cb1234-21"></a>(</span>
+<span id="cb1234-22"><a href="running-sql-queries-on-dataframes.html#cb1234-22"></a>  <span class="kw">SELECT</span></span>
+<span id="cb1234-23"><a href="running-sql-queries-on-dataframes.html#cb1234-23"></a>    animal_name,</span>
+<span id="cb1234-24"><a href="running-sql-queries-on-dataframes.html#cb1234-24"></a>    IFNULL(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> species <span class="op">=</span> <span class="ot">"Cat"</span> <span class="cf">THEN</span> <span class="fu">count</span> <span class="cf">END</span>), <span class="dv">0</span>) <span class="kw">AS</span> Cat,</span>
+<span id="cb1234-25"><a href="running-sql-queries-on-dataframes.html#cb1234-25"></a>    IFNULL(<span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> species <span class="op">=</span> <span class="ot">"Dog"</span> <span class="cf">THEN</span> <span class="fu">count</span> <span class="cf">END</span>), <span class="dv">0</span>) <span class="kw">AS</span> Dog</span>
+<span id="cb1234-26"><a href="running-sql-queries-on-dataframes.html#cb1234-26"></a>  <span class="kw">FROM</span> pet_counts</span>
+<span id="cb1234-27"><a href="running-sql-queries-on-dataframes.html#cb1234-27"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> animal_name</span>
+<span id="cb1234-28"><a href="running-sql-queries-on-dataframes.html#cb1234-28"></a>) p</span>
+<span id="cb1234-29"><a href="running-sql-queries-on-dataframes.html#cb1234-29"></a><span class="kw">ORDER</span> <span class="kw">BY</span> Cat <span class="op">+</span> Dog <span class="kw">DESC</span></span></code></pre></div>
+<div class="sourceCode" id="cb1235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">total_pet_count</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/pkg/sparklyr/man/filter.html">filter</a></span><span class="op">(</span><span class="va">row_number</span> <span class="op">&lt;=</span> <span class="fl">20</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://rdrr.io/pkg/sparklyr/man/mutate.html">mutate</a></span><span class="op">(</span>total_count <span class="op">=</span> <span class="va">total</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/sparklyr/man/pipe.html">%&gt;%</a></span>
@@ -365,7 +366,7 @@
 </div>
 <div id="lessons-learned" class="section level2">
 <h2>
-<span class="header-section-number">95.3</span> Lessons learned<a class="anchor" aria-label="anchor" href="#lessons-learned"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.3</span> Lessons learned<a class="anchor" aria-label="anchor" href="#lessons-learned"><i class="fas fa-link"></i></a>
 </h2>
 <p>Writing SQL queries in R markdown is not as complicated as we thought. Although Knitr already provides support for the SQL engine, their documentation does not provide enough information for our use case, where we want to write SQL queries against the dataframes. It took us some time to realize that we could use an in-memory SqlLite database and import dataframes as tables, doing so allows us to use the SQL engine directly. We feel there is a missing gap in the documentation, which is the reason we created this tutorial to help others get up to speed.</p>
 <p>In general, most of the dplyr functions can be reproduced in SQL queries, and vice versa. One could perform data transformation using either dplyr functions or SQL queries or the combination of both. However, there are certain things that are definitely easier to do depending on your background and preference (subjective opinions). For example, we feel doing joins and aliasing columns are much easier in SQL queries, whereas pivot operations are away easier and straightforward in dplyr.</p>
@@ -378,18 +379,18 @@
 </div>
 <div id="future-work" class="section level2">
 <h2>
-<span class="header-section-number">95.4</span> Future work<a class="anchor" aria-label="anchor" href="#future-work"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.4</span> Future work<a class="anchor" aria-label="anchor" href="#future-work"><i class="fas fa-link"></i></a>
 </h2>
 <p>Given the limited time, we are happy with what we’ve achieved, however, there are few things we would like to improve upon in the near future.</p>
 <div id="missing-pagination-for-sql-engine-query-output" class="section level3">
 <h3>
-<span class="header-section-number">95.4.1</span> Missing pagination for sql engine query output<a class="anchor" aria-label="anchor" href="#missing-pagination-for-sql-engine-query-output"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.4.1</span> Missing pagination for sql engine query output<a class="anchor" aria-label="anchor" href="#missing-pagination-for-sql-engine-query-output"><i class="fas fa-link"></i></a>
 </h3>
 <p>We noticed that the table generated by sql engine doesn’t come with a pager, unlike the formatiting and pagination offered by dplyr by default. We looked through the options offered by the sql engine, but it doesn’t seem to support this feature. So we are planning to expand the table formatter in the existing sql engine to support pagination.</p>
 </div>
 <div id="sql-engine-for-dplyr-dataframes" class="section level3">
 <h3>
-<span class="header-section-number">95.4.2</span> sql engine for dplyr dataframes<a class="anchor" aria-label="anchor" href="#sql-engine-for-dplyr-dataframes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">96.4.2</span> sql engine for dplyr dataframes<a class="anchor" aria-label="anchor" href="#sql-engine-for-dplyr-dataframes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Despite the success, we still feel that importing the tables to the in-mem database and passing the connection along is tedious and unncessary, in an idea world, we could just reference the dataframes in the environment directly in the SQL queries. We have explored this idea briefly by creating a new knitr engine named <em>eng_sql_local</em> based on the existing <em>eng_sql</em> implementation. The idea is summarized below,</p>
 <ol style="list-style-type: decimal">
@@ -399,7 +400,7 @@
 <li>we invoke the existing <em>eng_sql</em> to run the query</li>
 </ol>
 <p>Here is a code snippet, and we also have the code in our <a href="https://github.com/ChaoPang/knitr/blob/90fcad9d6dfe842319d781315e5c79d4aa8d3bfd/R/engine.R#L653">own fork</a>.</p>
-<div class="sourceCode" id="cb1226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># sql engine using dbplyr in-memory db</span>
 <span class="va">eng_sql_local</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">options</span><span class="op">)</span> <span class="op">{</span>
 
@@ -439,24 +440,24 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="joining-and-reshaping-in-r.html"><span class="header-section-number">94</span> Joining and reshaping in R</a></div>
-<div class="next"><a href="tidyverse.html"><span class="header-section-number">96</span> TidyVerse</a></div>
+<div class="prev"><a href="joining-and-reshaping-in-r.html"><span class="header-section-number">95</span> Joining and reshaping in R</a></div>
+<div class="next"><a href="tidyverse.html"><span class="header-section-number">97</span> TidyVerse</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#running-sql-queries-on-dataframes"><span class="header-section-number">95</span> Running Sql Queries on Dataframes</a></li>
-<li><a class="nav-link" href="#motivation-8"><span class="header-section-number">95.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#running-sql-queries-on-dataframes"><span class="header-section-number">96</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="nav-link" href="#motivation-8"><span class="header-section-number">96.1</span> Motivation</a></li>
 <li>
-<a class="nav-link" href="#sql-use-cases"><span class="header-section-number">95.2</span> SQL use cases</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#get-started"><span class="header-section-number">95.2.1</span> Get started</a></li>
-<li><a class="nav-link" href="#complex-use-cases"><span class="header-section-number">95.2.2</span> Complex Use Cases</a></li>
+<a class="nav-link" href="#sql-use-cases"><span class="header-section-number">96.2</span> SQL use cases</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#get-started"><span class="header-section-number">96.2.1</span> Get started</a></li>
+<li><a class="nav-link" href="#complex-use-cases"><span class="header-section-number">96.2.2</span> Complex Use Cases</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#lessons-learned"><span class="header-section-number">95.3</span> Lessons learned</a></li>
+<li><a class="nav-link" href="#lessons-learned"><span class="header-section-number">96.3</span> Lessons learned</a></li>
 <li>
-<a class="nav-link" href="#future-work"><span class="header-section-number">95.4</span> Future work</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#missing-pagination-for-sql-engine-query-output"><span class="header-section-number">95.4.1</span> Missing pagination for sql engine query output</a></li>
-<li><a class="nav-link" href="#sql-engine-for-dplyr-dataframes"><span class="header-section-number">95.4.2</span> sql engine for dplyr dataframes</a></li>
+<a class="nav-link" href="#future-work"><span class="header-section-number">96.4</span> Future work</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#missing-pagination-for-sql-engine-query-output"><span class="header-section-number">96.4.1</span> Missing pagination for sql engine query output</a></li>
+<li><a class="nav-link" href="#sql-engine-for-dplyr-dataframes"><span class="header-section-number">96.4.2</span> sql engine for dplyr dataframes</a></li>
 </ul>
 </li>
 </ul>
