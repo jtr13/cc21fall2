@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 36 Base R, ggplot2, &amp; Python Graphing Performances | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Yan Gong, Ziyan Liu  36.1 Preface One of the most powerful reason that data scientists consider R as an efficient tool is its ability to produce a wide range of plots quickly and easily for data...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 36 Base R, ggplot2, &amp; Python Graphing Performances | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Yan Gong, Ziyan Liu  36.1 Preface One of the most powerful reason that data scientists consider R as an efficient tool is its ability to produce a wide range of plots quickly and easily for data...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 36 Base R, ggplot2, &amp; Python Graphing Performances | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Yan Gong, Ziyan Liu  36.1 Preface One of the most powerful reason that data scientists consider R as an efficient tool is its ability to produce a wide range of plots quickly and easily for data...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
+<li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
+<li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
+<li><a class="" href="ggalluvial-cheatsheet.html"><span class="header-section-number">33</span> ggalluvial Cheatsheet</a></li>
+<li><a class="" href="a-cheatsheet-from-pandas-to-base-r-and-tidyverse.html"><span class="header-section-number">34</span> A cheatsheet from pandas to base r and tidyverse</a></li>
+<li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">35</span> Introduction to Log-transformation</a></li>
+<li><a class="active" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">37</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">38</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">39</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">40</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">41</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">42</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">43</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">44</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">45</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">46</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">47</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">48</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">49</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">50</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">51</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">52</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">53</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">54</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">55</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">56</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">57</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">58</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">59</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">60</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">61</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">62</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">63</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">64</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">65</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">66</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">67</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">68</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">69</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">70</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">71</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">72</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">73</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">74</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">75</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">76</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">77</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">78</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">79</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">80</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">81</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">82</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">83</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">84</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">85</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">86</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">87</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">88</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">89</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">90</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">91</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">92</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">93</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">94</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">95</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">96</span> How to animate your plots</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">97</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">98</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">99</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">100</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">101</span> RGL Package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">102</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">103</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">104</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">105</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">106</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">107</span> Super ggformat</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">108</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">109</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="base-r-ggplot2-python-graphing-performances" class="section level1">
+<h1>
+<span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances<a class="anchor" aria-label="anchor" href="#base-r-ggplot2-python-graphing-performances"><i class="fas fa-link"></i></a>
+</h1>
+<p>Yan Gong, Ziyan Liu</p>
+<div id="preface" class="section level2">
+<h2>
+<span class="header-section-number">36.1</span> Preface<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
+</h2>
+<p>One of the most powerful reason that data scientists consider R as an efficient tool is its ability to produce a wide range of plots quickly and easily for data visualizations. However, as Python being introduced more and more in data science projects, the combination of several data processing, ploting, and exploration packages, including <code>numpy</code>, <code>pandas</code>, <code>matplotlib</code>, and <code>seaborn</code>, has become another option for data visualizations and further, data explorations. In the meantime, both base R and the most well-known R plotting package, <code>ggplot2</code>, also received multiple updates and improved their data visualization performances. The goal of this cheatsheet is to introduce several functions, for each one of base R, <code>ggplot2</code>, and Python data science packages, and compare their results in five general type of plots in data analysis: basic histogram, line graph with regression, scatterplot with legend, boxplot with reordered/formatted axes, and boxplot with error bars.</p>
+<p>In order to represent the use of packages in Python libraries and compare it with regular approaches in R (base R and <code>ggplot2</code> package), the Python session would be embedded within a basic R session and achieve its functionality on a R-based platform, RStudio. Thanks to the openness and diversity of the R libraries, there is a R package called <code>reticulate</code>, which enabling seamless, high-performance interoperability between R and Python. According to the documentation of <code>reticulate</code>, this package has the functionality of:</p>
+<ul>
+<li><p>Calling Python from R in a variety of ways including R Markdown, sourcing Python scripts, importing Python modules, and using Python interactively within an R session;</p></li>
+<li><p>Translation between R and Python objects (for example, between R and Pandas data frames, or between R matrices and NumPy arrays);</p></li>
+<li><p>Flexible binding to different versions of Python including virtual environments and Conda environments.</p></li>
+</ul>
+<p>Similar as in base R and <code>ggplot2</code>, functions in <code>numpy</code>, <code>pandas</code>, <code>matplotlib</code>, and <code>seaborn</code> are called to generate the five main kinds of plots.</p>
+</div>
+<div id="preparation-1" class="section level2">
+<h2>
+<span class="header-section-number">36.2</span> Preparation<a class="anchor" aria-label="anchor" href="#preparation-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Clean up workspace environment</span>
+<span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span>list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># Call packages used for the assignment</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/reticulate">reticulate</a></span><span class="op">)</span> <span class="co"># Enable Python usage in R</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/talgalili/gplots">gplots</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="python-environment-setup" class="section level2">
+<h2>
+<span class="header-section-number">36.3</span> Python Environment Setup<a class="anchor" aria-label="anchor" href="#python-environment-setup"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before running Python code chunks in R markdown, RStudio requires the installation of miniconda, a small, bootstrap version of Anaconda with only conda, Python, the packages they depend on, and a small number of other useful packages. In default settings, installation of Miniconda and making it as the default environment is forced, unless the user has explicitly requested a particular version of Python with one of the <code>use_*()</code> helpers.</p>
+<p>To install miniconda in RStudio, check the meta path (working directory of miniconda) by <code>reticulate:::miniconda_meta_path()</code>:</p>
+<pre><code>&gt; library(reticulate)
+&gt; reticulate:::miniconda_meta_path()
+[1] "C:\\Users\\Shiro\\AppData\\Local/r-reticulate/r-reticulate/miniconda.json"</code></pre>
+<p>Then install miniconda by <code><a href="https://rdrr.io/pkg/reticulate/man/install_miniconda.html">reticulate::install_miniconda()</a></code>:</p>
+<pre><code>&gt; reticulate::install_miniconda()
+* Downloading "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" ...
+trying URL 'https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe'
+Content type 'application/octet-stream' length 60924672 bytes (58.1 MB)
+downloaded 58.1 MB
+
+* Installing Miniconda -- please wait a moment ...
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: C:\Users\Shiro\AppData\Local\R-MINI~1
+
+  added / updated specs:
+    - conda
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2021.10.26 |       haa95532_2         115 KB
+    certifi-2021.10.8          |   py39haa95532_0         152 KB
+    charset-normalizer-2.0.4   |     pyhd3eb1b0_0          35 KB
+    cryptography-35.0.0        |   py39h71e12ea_0         991 KB
+    idna-3.2                   |     pyhd3eb1b0_0          48 KB
+    openssl-1.1.1l             |       h2bbff1b_0         4.8 MB
+    pip-21.2.4                 |   py39haa95532_0         1.8 MB
+    pyopenssl-21.0.0           |     pyhd3eb1b0_1          49 KB
+    pywin32-228                |   py39hbaba5e8_1         5.6 MB
+    requests-2.26.0            |     pyhd3eb1b0_0          59 KB
+    setuptools-58.0.4          |   py39haa95532_0         778 KB
+    tqdm-4.62.3                |     pyhd3eb1b0_1          83 KB
+    tzdata-2021e               |       hda174b7_0         112 KB
+    urllib3-1.26.7             |     pyhd3eb1b0_0         111 KB
+    wheel-0.37.0               |     pyhd3eb1b0_1          33 KB
+    wincertstore-0.2           |   py39haa95532_2          15 KB
+    ------------------------------------------------------------
+                                           Total:        14.8 MB
+
+The following NEW packages will be INSTALLED:
+
+  charset-normalizer pkgs/main/noarch::charset-normalizer-2.0.4-pyhd3eb1b0_0
+
+The following packages will be REMOVED:
+
+  chardet-4.0.0-py39haa95532_1003
+
+The following packages will be UPDATED:
+
+  ca-certificates                       2021.7.5-haa95532_1 --&gt; 2021.10.26-haa95532_2
+  certifi                          2021.5.30-py39haa95532_0 --&gt; 2021.10.8-py39haa95532_0
+  cryptography                         3.4.7-py39h71e12ea_0 --&gt; 35.0.0-py39h71e12ea_0
+  idna                                    2.10-pyhd3eb1b0_0 --&gt; 3.2-pyhd3eb1b0_0
+  openssl                                 1.1.1k-h2bbff1b_0 --&gt; 1.1.1l-h2bbff1b_0
+  pip                                 21.1.3-py39haa95532_0 --&gt; 21.2.4-py39haa95532_0
+  pyopenssl                             20.0.1-pyhd3eb1b0_1 --&gt; 21.0.0-pyhd3eb1b0_1
+  pywin32                                228-py39he774522_0 --&gt; 228-py39hbaba5e8_1
+  requests                              2.25.1-pyhd3eb1b0_0 --&gt; 2.26.0-pyhd3eb1b0_0
+  setuptools                          52.0.0-py39haa95532_0 --&gt; 58.0.4-py39haa95532_0
+  tqdm                                  4.61.2-pyhd3eb1b0_1 --&gt; 4.62.3-pyhd3eb1b0_1
+  tzdata                                   2021a-h52ac0ba_0 --&gt; 2021e-hda174b7_0
+  urllib3                               1.26.6-pyhd3eb1b0_1 --&gt; 1.26.7-pyhd3eb1b0_0
+  wheel                                 0.36.2-pyhd3eb1b0_0 --&gt; 0.37.0-pyhd3eb1b0_1
+  wincertstore                           0.2-py39h2bbff1b_0 --&gt; 0.2-py39haa95532_2
+
+
+
+Downloading and Extracting Packages
+certifi-2021.10.8    | 152 KB    | ########## | 100% 
+pip-21.2.4           | 1.8 MB    | ########## | 100% 
+pywin32-228          | 5.6 MB    | ########## | 100% 
+urllib3-1.26.7       | 111 KB    | ########## | 100% 
+openssl-1.1.1l       | 4.8 MB    | ########## | 100% 
+requests-2.26.0      | 59 KB     | ########## | 100% 
+tqdm-4.62.3          | 83 KB     | ########## | 100% 
+wincertstore-0.2     | 15 KB     | ########## | 100% 
+idna-3.2             | 48 KB     | ########## | 100% 
+tzdata-2021e         | 112 KB    | ########## | 100% 
+cryptography-35.0.0  | 991 KB    | ########## | 100% 
+setuptools-58.0.4    | 778 KB    | ########## | 100% 
+pyopenssl-21.0.0     | 49 KB     | ########## | 100% 
+charset-normalizer-2 | 35 KB     | ########## | 100% 
+wheel-0.37.0         | 33 KB     | ########## | 100% 
+ca-certificates-2021 | 115 KB    | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: C:\Users\Shiro\AppData\Local\R-MINI~1\envs\r-reticulate
+
+  added / updated specs:
+    - numpy
+    - python=3.6
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    certifi-2020.12.5          |   py36haa95532_0         140 KB
+    intel-openmp-2021.4.0      |    h57928b3_3556         3.2 MB  conda-forge
+    libblas-3.9.0              |     12_win64_mkl         4.5 MB  conda-forge
+    libcblas-3.9.0             |     12_win64_mkl         4.5 MB  conda-forge
+    liblapack-3.9.0            |     12_win64_mkl         4.5 MB  conda-forge
+    mkl-2021.4.0               |     h0e2418a_729       181.7 MB  conda-forge
+    numpy-1.19.5               |   py36h4b40d73_2         4.9 MB  conda-forge
+    pip-21.3.1                 |     pyhd8ed1ab_0         1.2 MB  conda-forge
+    python-3.6.13              |h39d44d4_2_cpython        18.9 MB  conda-forge
+    python_abi-3.6             |          2_cp36m           4 KB  conda-forge
+    setuptools-49.6.0          |   py36ha15d459_3         921 KB  conda-forge
+    tbb-2021.4.0               |       h2d74725_0         149 KB  conda-forge
+    ucrt-10.0.20348.0          |       h57928b3_0         1.2 MB  conda-forge
+    vc-14.2                    |       hb210afc_5          13 KB  conda-forge
+    vs2015_runtime-14.29.30037 |       h902a5da_5         1.3 MB  conda-forge
+    wheel-0.37.0               |     pyhd8ed1ab_1          31 KB  conda-forge
+    wincertstore-0.2           |py36ha15d459_1006          15 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:       227.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  certifi            pkgs/main/win-64::certifi-2020.12.5-py36haa95532_0
+  intel-openmp       conda-forge/win-64::intel-openmp-2021.4.0-h57928b3_3556
+  libblas            conda-forge/win-64::libblas-3.9.0-12_win64_mkl
+  libcblas           conda-forge/win-64::libcblas-3.9.0-12_win64_mkl
+  liblapack          conda-forge/win-64::liblapack-3.9.0-12_win64_mkl
+  mkl                conda-forge/win-64::mkl-2021.4.0-h0e2418a_729
+  numpy              conda-forge/win-64::numpy-1.19.5-py36h4b40d73_2
+  pip                conda-forge/noarch::pip-21.3.1-pyhd8ed1ab_0
+  python             conda-forge/win-64::python-3.6.13-h39d44d4_2_cpython
+  python_abi         conda-forge/win-64::python_abi-3.6-2_cp36m
+  setuptools         conda-forge/win-64::setuptools-49.6.0-py36ha15d459_3
+  tbb                conda-forge/win-64::tbb-2021.4.0-h2d74725_0
+  ucrt               conda-forge/win-64::ucrt-10.0.20348.0-h57928b3_0
+  vc                 conda-forge/win-64::vc-14.2-hb210afc_5
+  vs2015_runtime     conda-forge/win-64::vs2015_runtime-14.29.30037-h902a5da_5
+  wheel              conda-forge/noarch::wheel-0.37.0-pyhd8ed1ab_1
+  wincertstore       conda-forge/win-64::wincertstore-0.2-py36ha15d459_1006
+
+
+
+Downloading and Extracting Packages
+python-3.6.13        | 18.9 MB   | ########## | 100% 
+libcblas-3.9.0       | 4.5 MB    | ########## | 100% 
+vs2015_runtime-14.29 | 1.3 MB    | ########## | 100% 
+mkl-2021.4.0         | 181.7 MB  | ########## | 100% 
+wincertstore-0.2     | 15 KB     | ########## | 100% 
+tbb-2021.4.0         | 149 KB    | ########## | 100% 
+numpy-1.19.5         | 4.9 MB    | ########## | 100% 
+setuptools-49.6.0    | 921 KB    | ########## | 100% 
+wheel-0.37.0         | 31 KB     | ########## | 100% 
+ucrt-10.0.20348.0    | 1.2 MB    | ########## | 100% 
+python_abi-3.6       | 4 KB      | ########## | 100% 
+certifi-2020.12.5    | 140 KB    | ########## | 100% 
+pip-21.3.1           | 1.2 MB    | ########## | 100% 
+vc-14.2              | 13 KB     | ########## | 100% 
+intel-openmp-2021.4. | 3.2 MB    | ########## | 100% 
+libblas-3.9.0        | 4.5 MB    | ########## | 100% 
+liblapack-3.9.0      | 4.5 MB    | ########## | 100% 
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+#
+# To activate this environment, use
+#
+#     $ conda activate r-reticulate
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+* Miniconda has been successfully installed at "C:/Users/Shiro/AppData/Local/r-miniconda".
+[1] "C:/Users/Shiro/AppData/Local/r-miniconda"</code></pre>
+<p>Import all Python packages as neeeded:</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb201-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-1"></a><span class="co"># numpy was automatically installed with miniconda</span></span>
+<span id="cb201-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb201-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-3"></a></span>
+<span id="cb201-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-4"></a><span class="co"># install pandas by py_install('pandas')</span></span>
+<span id="cb201-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-5"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb201-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-6"></a></span>
+<span id="cb201-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-7"></a><span class="co"># install matplotlib by py_install('matplotlib')</span></span>
+<span id="cb201-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-8"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt  <span class="co"># interactive plot: use `plotly` package</span></span>
+<span id="cb201-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-9"></a></span>
+<span id="cb201-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-10"></a><span class="co"># install seaborn by py_install('seaborn')</span></span>
+<span id="cb201-11"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-11"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb201-12"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-12"></a></span>
+<span id="cb201-13"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-13"></a><span class="co"># Set style globally</span></span>
+<span id="cb201-14"><a href="base-r-ggplot2-python-graphing-performances.html#cb201-14"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span></code></pre></div>
+<p>Basically, with the magic funtion (<code>%</code>) applied globally in Python, all plots in figures which generated by <code>matplotlib</code> could be shown automatically in notebooks:</p>
+<pre><code>%matplotlib inline</code></pre>
+<p>However, it seems like the magic functions only work on Python environments and platforms. <code>matplotlib.pyplot.show()</code> would be used for each figure as alternatives.</p>
+</div>
+<div id="base-r-plot-function" class="section level2">
+<h2>
+<span class="header-section-number">36.4</span> Base R Plot Function<a class="anchor" aria-label="anchor" href="#base-r-plot-function"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">X</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>
+<span class="va">Y</span> <span class="op">&lt;-</span> <span class="va">X</span><span class="op">*</span><span class="va">X</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>, mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span><span class="op">+</span><span class="fl">.5</span>, mgp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1.5</span>,<span class="fl">.6</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span> 
+<span class="co"># a window that can show 3 * 3 plots at the same time</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"p"</span><span class="op">)</span> <span class="co"># "p" for points</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span> <span class="co"># "l" for lines</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span> <span class="co"># "b" for both points and lines</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span> <span class="co"># "o" for both overplotted</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span> <span class="co"># "c" for empty points joined by lines</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"s"</span><span class="op">)</span> <span class="co"># "s" for stair steps</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span> <span class="co"># "h" for histogram-like vertical lines</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span> <span class="co"># "n" for no plotting</span></code></pre></div>
+<p>There are many parameters that you can change within <code>plot</code> function to adjust the appearance of a plot. For example, different <code>pch</code> values give different shapes of points as shown in the figure.
+<img src="resources/base_r_ggplot2_python_graph/symbol_image.png"></p>
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, type <span class="op">=</span> <span class="st">"p"</span>,
+     las <span class="op">=</span> <span class="fl">1</span>,                  <span class="co"># orient y-axis label</span>
+     pch <span class="op">=</span> <span class="fl">15</span>,                 <span class="co"># shape of point</span>
+     cex<span class="op">=</span><span class="fl">1.5</span>,                  <span class="co"># size of point</span>
+     col <span class="op">=</span> <span class="fl">2</span>,                  <span class="co"># color of point</span>
+     xlab <span class="op">=</span> <span class="st">"x"</span>,               <span class="co"># x axis label</span>
+     ylab <span class="op">=</span> <span class="st">"y"</span>,               <span class="co"># y axis label</span>
+     main <span class="op">=</span> <span class="st">"f(x) = x^2"</span>,      <span class="co"># title of plot</span>
+     cex.lab <span class="op">=</span> <span class="fl">1.5</span>,            <span class="co"># size of axis labels</span>
+     cex.axis <span class="op">=</span> <span class="fl">1.2</span>,           <span class="co"># size of tick mark labels</span>
+     cex.main <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>             <span class="co"># size of main title</span></code></pre></div>
+<div id="ggplot2" class="section level3">
+<h3>
+<span class="header-section-number">36.4.1</span> ggplot2<a class="anchor" aria-label="anchor" href="#ggplot2"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span>,y<span class="op">=</span><span class="va">Y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span>,y<span class="op">=</span><span class="va">Y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span>,y<span class="op">=</span><span class="va">Y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span>,y<span class="op">=</span><span class="va">Y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_step</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="basic-histogram" class="section level2">
+<h2>
+<span class="header-section-number">36.5</span> Basic Histogram<a class="anchor" aria-label="anchor" href="#basic-histogram"><i class="fas fa-link"></i></a>
+</h2>
+<div id="base-r" class="section level3">
+<h3>
+<span class="header-section-number">36.5.1</span> base R<a class="anchor" aria-label="anchor" href="#base-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>Base R provides the function <code>hist</code>, with which we can easily create histograms. Notice that the parameter <code><a href="https://rdrr.io/r/base/Control.html">break</a></code> is not the same as <code>bins</code> in ggplot2. When we give an integer to <code><a href="https://rdrr.io/r/base/Control.html">break</a></code>, <code>hist</code> only takes it as a suggestion number of breaks to use in the histogram.</p>
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">50</span>, lambda <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> 
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>,      
+     breaks <span class="op">=</span> <span class="fl">12</span>,                          <span class="co"># number of cells, suggestion only</span>
+     xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"frequency"</span><span class="op">)</span>       <span class="co"># axis labels</span>
+
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>,      
+     breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">7</span><span class="op">:</span><span class="fl">21</span><span class="op">)</span>,                     <span class="co"># vector of breakpoints</span>
+     xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"frequency"</span>,       <span class="co"># axis labels</span>
+     las <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>                              <span class="co">#rotate the y-axis label direction</span></code></pre></div>
+</div>
+<div id="ggplot2-1" class="section level3">
+<h3>
+<span class="header-section-number">36.5.2</span> ggplot2<a class="anchor" aria-label="anchor" href="#ggplot2-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">12</span>, color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"x"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"frequency"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Histogram of 50 Randomly Generated Numbers"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="python" class="section level3">
+<h3>
+<span class="header-section-number">36.5.3</span> Python<a class="anchor" aria-label="anchor" href="#python"><i class="fas fa-link"></i></a>
+</h3>
+<p>Loading the example dataset with <code>pandas</code>:</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb208-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb208-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/bryanrgibson/eods-f21/main/data/yellowcab_demo_withdaycategories.csv'</span>, </span>
+<span id="cb208-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb208-2"></a>                 sep <span class="op">=</span> <span class="st">','</span>, </span>
+<span id="cb208-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb208-3"></a>                 header <span class="op">=</span> <span class="dv">1</span>, </span>
+<span id="cb208-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb208-4"></a>                 parse_dates <span class="op">=</span> [<span class="st">'pickup_datetime'</span>, <span class="st">'dropoff_datetime'</span>])</span></code></pre></div>
+<p>Both <code>pandas</code> and <code>seaborn</code> packages could be used to plot histograms. By using <code>matplotlib</code> package to construct subplots, figures, and axes, multiple histograms could be plotted within the same figure:</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb209-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-1"></a><span class="co"># Plotting with `pandas`</span></span>
+<span id="cb209-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-2"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb209-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-3"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize <span class="op">=</span> (<span class="dv">16</span>,<span class="dv">4</span>))</span>
+<span id="cb209-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-4"></a><span class="co"># Subset dataset for trips before the noon, plot histogram by pandas.DataFrame.plot.hist(), and place the plot in the first subplot</span></span>
+<span id="cb209-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-5"></a>df[df.pickup_datetime.dt.hour <span class="op">&lt;</span> <span class="dv">12</span>].fare_amount.plot.hist(bins <span class="op">=</span> <span class="dv">100</span>, ax <span class="op">=</span> ax[<span class="dv">0</span>])<span class="op">;</span> </span>
+<span id="cb209-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-6"></a><span class="co"># Set labels and title</span></span>
+<span id="cb209-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-7"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"fare_amount (dollars)"</span>)<span class="op">;</span></span>
+<span id="cb209-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-8"></a>ax[<span class="dv">0</span>].set_title(<span class="st">"Trips before Noon"</span>)<span class="op">;</span></span>
+<span id="cb209-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-9"></a></span>
+<span id="cb209-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-10"></a><span class="co"># Subset dataset for trips after the noon, plot histogram by pandas.DataFrame.plot.hist(), and place the plot in the second subplot</span></span>
+<span id="cb209-11"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-11"></a>df[df.pickup_datetime.dt.hour <span class="op">&gt;=</span>  <span class="dv">12</span>].fare_amount.plot.hist(bins <span class="op">=</span> <span class="dv">100</span>, ax <span class="op">=</span> ax[<span class="dv">1</span>])<span class="op">;</span></span>
+<span id="cb209-12"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-12"></a><span class="co"># Set labels and title</span></span>
+<span id="cb209-13"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-13"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"fare_amount (dollars)"</span>)<span class="op">;</span></span>
+<span id="cb209-14"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-14"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Trips after Noon"</span>)<span class="op">;</span></span>
+<span id="cb209-15"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-15"></a></span>
+<span id="cb209-16"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-16"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb209-17"><a href="base-r-ggplot2-python-graphing-performances.html#cb209-17"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb210-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-1"></a><span class="co"># Plotting with `seaborn`</span></span>
+<span id="cb210-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-2"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb210-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-3"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize <span class="op">=</span> (<span class="dv">16</span>,<span class="dv">4</span>))</span>
+<span id="cb210-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-4"></a><span class="co"># Subset dataset for trips before the noon by pandas.DataFrame.query(), plot histogram by seaborn.histplot(), and place the plot in the first subplot</span></span>
+<span id="cb210-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-5"></a>sns.histplot(x <span class="op">=</span> <span class="st">'fare_amount'</span>, </span>
+<span id="cb210-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-6"></a>             data <span class="op">=</span> df.query(<span class="st">"pickup_datetime.dt.hour &lt; 12"</span>), </span>
+<span id="cb210-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-7"></a>             ax <span class="op">=</span> ax[<span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb210-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-8"></a><span class="co"># Subset dataset for trips after the noon, plot histogram by seaborn.histplot(), and place the plot in the first subplot</span></span>
+<span id="cb210-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-9"></a>sns.histplot(x <span class="op">=</span> df.fare_amount[df.pickup_datetime.dt.hour <span class="op">&gt;=</span> <span class="dv">12</span>], </span>
+<span id="cb210-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-10"></a>             ax <span class="op">=</span> ax[<span class="dv">1</span>])<span class="op">;</span></span>
+<span id="cb210-11"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-11"></a>             </span>
+<span id="cb210-12"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-12"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb210-13"><a href="base-r-ggplot2-python-graphing-performances.html#cb210-13"></a>plt.show()</span></code></pre></div>
+</div>
+</div>
+<div id="basic-line-graph-with-regression" class="section level2">
+<h2>
+<span class="header-section-number">36.6</span> Basic Line Graph with Regression<a class="anchor" aria-label="anchor" href="#basic-line-graph-with-regression"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+<span class="va">X1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span>
+<span class="va">Y1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">30</span>, mean<span class="op">=</span><span class="fl">20</span>, sd<span class="op">=</span><span class="fl">5</span><span class="op">)</span></code></pre></div>
+<div id="base-r-1" class="section level3">
+<h3>
+<span class="header-section-number">36.6.1</span> base R<a class="anchor" aria-label="anchor" href="#base-r-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>With base R, we can plot line graphs with <code>plot</code>, and change the type, width and color of line with parameters very efficiently. We can add linear regression line by fitting a model and draw the line with <code>abline</code> in base R.</p>
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span> 
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">Y1</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"x"</span>, ylab<span class="op">=</span><span class="st">"y"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">Y1</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"x"</span>, ylab<span class="op">=</span><span class="st">"y"</span>, lty<span class="op">=</span><span class="st">"dashed"</span><span class="op">)</span>      <span class="co">#"lty" for line type</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">Y1</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"x"</span>, ylab<span class="op">=</span><span class="st">"y"</span>, lty<span class="op">=</span><span class="st">"dotted"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">Y1</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"x"</span>, ylab<span class="op">=</span><span class="st">"y"</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span>         <span class="co">#"col" for color of line</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">Y1</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"x"</span>, ylab<span class="op">=</span><span class="st">"y"</span>, col<span class="op">=</span><span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">3</span><span class="op">)</span>  <span class="co">#"lwd" for "line width"</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">Y1</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"x"</span>, ylab<span class="op">=</span><span class="st">"y"</span>, col<span class="op">=</span><span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="va">fit1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Y1</span><span class="op">~</span><span class="va">X1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">fit1</span>, lty <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span>                                  <span class="co">#add an abline in the last plot</span></code></pre></div>
+</div>
+<div id="ggplot2-2" class="section level3">
+<h3>
+<span class="header-section-number">36.6.2</span> ggplot2<a class="anchor" aria-label="anchor" href="#ggplot2-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>To add linear model fit line in ggplot2, use <code>geom_smooth(method = 'lm')</code>.</p>
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">Y1</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X1</span>, y<span class="op">=</span><span class="va">Y1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, col<span class="op">=</span><span class="st">"black"</span>, lty<span class="op">=</span><span class="st">"dashed"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="python-1" class="section level3">
+<h3>
+<span class="header-section-number">36.6.3</span> Python<a class="anchor" aria-label="anchor" href="#python-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Loading the example dataset with <code>pandas</code>:</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb214-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb214-1"></a>df_wine <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/bryanrgibson/eods-f21/main/data/wine_dataset.csv'</span>, </span>
+<span id="cb214-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb214-2"></a>                      usecols <span class="op">=</span> [<span class="st">'alcohol'</span>,<span class="st">'ash'</span>,<span class="st">'proline'</span>,<span class="st">'hue'</span>,<span class="st">'class'</span>])</span></code></pre></div>
+<p>Although the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function could generate the linear model within the R session and <code>reticulate</code> allows users to access datasets stored in the environment in both R and Python chunks, it is still not easy to use the model generated by R functions to plot by Python. Instead, the whole process would be done by Python, using the <code>sklearn</code> package:</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb215-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-1"></a><span class="co"># install scikit-learn (sklearn) by py_install('scikit-learn')</span></span>
+<span id="cb215-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-2"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb215-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-3"></a></span>
+<span id="cb215-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-4"></a><span class="co"># Instantiate the model and set hyperparameters</span></span>
+<span id="cb215-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-5"></a>lr <span class="op">=</span> LinearRegression(fit_intercept <span class="op">=</span> <span class="va">True</span>, </span>
+<span id="cb215-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-6"></a>                      normalize <span class="op">=</span> <span class="va">False</span>)     <span class="co"># by default</span></span>
+<span id="cb215-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-7"></a></span>
+<span id="cb215-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-8"></a><span class="co"># Fit the model</span></span>
+<span id="cb215-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-9"></a><span class="co"># .reshape(-1, 1): scikit-learn models expect the input features to be 2 dimensional</span></span>
+<span id="cb215-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-10"></a>lr.fit(X <span class="op">=</span> df_wine.proline.values.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), y <span class="op">=</span> df_wine.alcohol)<span class="op">;</span></span>
+<span id="cb215-11"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-11"></a></span>
+<span id="cb215-12"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-12"></a><span class="co"># Predict values and plot the model</span></span>
+<span id="cb215-13"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-13"></a>x_predict <span class="op">=</span> [df_wine.proline.<span class="bu">min</span>(), df_wine.proline.<span class="bu">max</span>()]</span>
+<span id="cb215-14"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-14"></a>y_hat <span class="op">=</span> lr.predict(np.array(x_predict).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb215-15"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-15"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize <span class="op">=</span> (<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb215-16"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-16"></a>ax <span class="op">=</span> sns.scatterplot(x <span class="op">=</span> df_wine.proline, y <span class="op">=</span> df_wine.alcohol)<span class="op">;</span></span>
+<span id="cb215-17"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-17"></a>ax.plot(x_predict, y_hat)<span class="op">;</span></span>
+<span id="cb215-18"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-18"></a></span>
+<span id="cb215-19"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-19"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb215-20"><a href="base-r-ggplot2-python-graphing-performances.html#cb215-20"></a>plt.show()</span></code></pre></div>
+<p>Again, the plotting part has the <code>pandas</code> package involved (<code>pandas.DataFrame.plot()</code>).</p>
+<p>Without constructing a linear regression model, instead, <code>seaborn</code> has a function called <code>seaborn.regplot()</code>, which could directly add a regression line:</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb216-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb216-1"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb216-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb216-2"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize <span class="op">=</span> (<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb216-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb216-3"></a><span class="co"># Add regression line</span></span>
+<span id="cb216-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb216-4"></a>sns.regplot(x <span class="op">=</span> <span class="st">'proline'</span>, y <span class="op">=</span> <span class="st">'alcohol'</span>, data <span class="op">=</span> df_wine, ax <span class="op">=</span> ax)<span class="op">;</span></span>
+<span id="cb216-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb216-5"></a></span>
+<span id="cb216-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb216-6"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb216-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb216-7"></a>plt.show()</span></code></pre></div>
+</div>
+</div>
+<div id="scatterplot-with-legend" class="section level2">
+<h2>
+<span class="header-section-number">36.7</span> Scatterplot with Legend<a class="anchor" aria-label="anchor" href="#scatterplot-with-legend"><i class="fas fa-link"></i></a>
+</h2>
+<div id="base-r-2" class="section level3">
+<h3>
+<span class="header-section-number">36.7.1</span> base R<a class="anchor" aria-label="anchor" href="#base-r-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Without specifying the type in <code>plot</code>, the function by default creates scatterplots.</p>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span>, <span class="va">iris</span><span class="op">$</span><span class="va">Petal.Length</span>,        <span class="co"># x variable, y variable</span>
+     col <span class="op">=</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span>,                          <span class="co"># color by species</span>
+     pch <span class="op">=</span> <span class="fl">18</span>,                                    <span class="co"># type of point to use</span>
+     cex <span class="op">=</span> <span class="fl">1.5</span>,                                   <span class="co"># size of point to use</span>
+     xlab <span class="op">=</span> <span class="st">"Sepal Length"</span>,                       <span class="co"># x axis label</span>
+     ylab <span class="op">=</span> <span class="st">"Petal Length"</span>,                       <span class="co"># y axis label</span>
+     main <span class="op">=</span> <span class="st">"Flower Characteristics in Iris"</span><span class="op">)</span>     <span class="co"># plot title</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span> <span class="op">(</span><span class="st">"topleft"</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, pch <span class="op">=</span> <span class="fl">18</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="ggplot2-3" class="section level3">
+<h3>
+<span class="header-section-number">36.7.2</span> ggplot2<a class="anchor" aria-label="anchor" href="#ggplot2-3"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Sepal.Length</span>, y<span class="op">=</span><span class="va">Petal.Length</span>, color <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Sepal Length"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Petal length"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Flower Characteristics in Iris"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="python-2" class="section level3">
+<h3>
+<span class="header-section-number">36.7.3</span> Python<a class="anchor" aria-label="anchor" href="#python-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>The most strightforward way to make scatterplots is to use the <code>matplotlib.pyplot.scatter()</code> function from <code>matplotlib</code> package:</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-1"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb219-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-2"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize <span class="op">=</span> (<span class="dv">12</span>,<span class="dv">4</span>))</span>
+<span id="cb219-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-3"></a><span class="co"># Plot scatterplot by matplotlib.pyplot.scatter(), and place the plot in the first subplot</span></span>
+<span id="cb219-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-4"></a>ax[<span class="dv">0</span>].scatter(df.trip_distance, </span>
+<span id="cb219-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-5"></a>              df.fare_amount, </span>
+<span id="cb219-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-6"></a>              marker <span class="op">=</span> <span class="st">'x'</span>, </span>
+<span id="cb219-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-7"></a>              color <span class="op">=</span> <span class="st">'blue'</span>)<span class="op">;</span> </span>
+<span id="cb219-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-8"></a><span class="co"># Plot scatterplot by matplotlib.pyplot.scatter(), and place the plot in the second subplot</span></span>
+<span id="cb219-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-9"></a>ax[<span class="dv">1</span>].scatter(df.trip_distance, </span>
+<span id="cb219-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-10"></a>              df.tip_amount, </span>
+<span id="cb219-11"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-11"></a>              color <span class="op">=</span> <span class="st">'red'</span>)<span class="op">;</span></span>
+<span id="cb219-12"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-12"></a><span class="co"># Set labels and titles</span></span>
+<span id="cb219-13"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-13"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">'trip_distance'</span>)<span class="op">;</span></span>
+<span id="cb219-14"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-14"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">'trip_distance'</span>)<span class="op">;</span></span>
+<span id="cb219-15"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-15"></a>ax[<span class="dv">0</span>].set_ylabel(<span class="st">'fare_amount'</span>), ax[<span class="dv">1</span>].set_ylabel(<span class="st">'tip_amount'</span>)<span class="op">;</span> </span>
+<span id="cb219-16"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-16"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'trip_distance vs fare_amount'</span>)<span class="op">;</span> </span>
+<span id="cb219-17"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-17"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'trip_distance vs tip_amount'</span>)<span class="op">;</span> </span>
+<span id="cb219-18"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-18"></a>fig.suptitle(<span class="st">'Yellowcab Taxi Features'</span>)<span class="op">;</span> </span>
+<span id="cb219-19"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-19"></a></span>
+<span id="cb219-20"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-20"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb219-21"><a href="base-r-ggplot2-python-graphing-performances.html#cb219-21"></a>plt.show()</span></code></pre></div>
+<p>To add a legend, just simply add <code>matplotlib.pyplot.legend()</code>:</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb220-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-1"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb220-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-2"></a>fig,ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">16</span>,<span class="dv">4</span>))</span>
+<span id="cb220-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-3"></a><span class="co"># Subset dataset for trips before the noon, plot scatterplot by matplotlib.pyplot.scatter(), and place the plot in the figure</span></span>
+<span id="cb220-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-4"></a>ax.scatter(df[df.pickup_datetime.dt.hour <span class="op">&lt;</span> <span class="dv">12</span>].trip_distance, </span>
+<span id="cb220-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-5"></a>           df[df.pickup_datetime.dt.hour <span class="op">&lt;</span> <span class="dv">12</span>].fare_amount, </span>
+<span id="cb220-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-6"></a>           marker <span class="op">=</span> <span class="st">'x'</span>, </span>
+<span id="cb220-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-7"></a>           color <span class="op">=</span> <span class="st">'blue'</span>, </span>
+<span id="cb220-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-8"></a>           label <span class="op">=</span> <span class="st">'Before Noon'</span>)<span class="op">;</span> </span>
+<span id="cb220-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-9"></a><span class="co"># Subset dataset for trips after the noon, plot scatterplot by matplotlib.pyplot.scatter(), and place the plot in the figure</span></span>
+<span id="cb220-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-10"></a>ax.scatter(df[df.pickup_datetime.dt.hour <span class="op">&gt;=</span> <span class="dv">12</span>].trip_distance, </span>
+<span id="cb220-11"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-11"></a>           df[df.pickup_datetime.dt.hour <span class="op">&gt;=</span> <span class="dv">12</span>].fare_amount, </span>
+<span id="cb220-12"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-12"></a>           marker <span class="op">=</span> <span class="st">'o'</span>, </span>
+<span id="cb220-13"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-13"></a>           color <span class="op">=</span> <span class="st">'red'</span>, </span>
+<span id="cb220-14"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-14"></a>           label <span class="op">=</span> <span class="st">'After Noon'</span>)<span class="op">;</span> </span>
+<span id="cb220-15"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-15"></a><span class="co"># Set labels and title</span></span>
+<span id="cb220-16"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-16"></a>ax.set_xlabel(<span class="st">"trip_distance"</span>)<span class="op">;</span></span>
+<span id="cb220-17"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-17"></a>ax.set_ylabel(<span class="st">"fare_amount (dollars)"</span>)<span class="op">;</span></span>
+<span id="cb220-18"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-18"></a>ax.set_title(<span class="st">"Yellowcab Taxi Features"</span>)<span class="op">;</span></span>
+<span id="cb220-19"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-19"></a><span class="co"># Set legends</span></span>
+<span id="cb220-20"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-20"></a><span class="co"># Set the location of legends at the best place</span></span>
+<span id="cb220-21"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-21"></a>ax.legend(loc <span class="op">=</span> <span class="st">'best'</span>)</span>
+<span id="cb220-22"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-22"></a></span>
+<span id="cb220-23"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-23"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb220-24"><a href="base-r-ggplot2-python-graphing-performances.html#cb220-24"></a>plt.show()</span></code></pre></div>
+</div>
+</div>
+<div id="boxplot-with-reordered-and-formatted-axes" class="section level2">
+<h2>
+<span class="header-section-number">36.8</span> Boxplot with Reordered and Formatted Axes<a class="anchor" aria-label="anchor" href="#boxplot-with-reordered-and-formatted-axes"><i class="fas fa-link"></i></a>
+</h2>
+<div id="base-r-3" class="section level3">
+<h3>
+<span class="header-section-number">36.8.1</span> base R<a class="anchor" aria-label="anchor" href="#base-r-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>The function <code>boxplot</code> is used in base R to create boxplots, and adding notches to the plot makes it easier to see the difference among the data.</p>
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span> <span class="op">~</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span> <span class="op">~</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span>, notch<span class="op">=</span><span class="cn">T</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">iris</span><span class="op">$</span><span class="va">Sepal.Length</span> <span class="op">~</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span>, notch<span class="op">=</span><span class="cn">T</span>,
+        xlab <span class="op">=</span> <span class="st">"Species"</span>,    
+        ylab <span class="op">=</span> <span class="st">"Sepal Length"</span>,
+        las <span class="op">=</span> <span class="fl">1</span>,
+        main <span class="op">=</span> <span class="st">"Sepal Length by Species in Iris"</span><span class="op">)</span> </code></pre></div>
+</div>
+<div id="ggplot2-4" class="section level3">
+<h3>
+<span class="header-section-number">36.8.2</span> ggplot2<a class="anchor" aria-label="anchor" href="#ggplot2-4"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Species</span>, y<span class="op">=</span><span class="va">Sepal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="python-3" class="section level3">
+<h3>
+<span class="header-section-number">36.8.3</span> Python<a class="anchor" aria-label="anchor" href="#python-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>The most convenient method to draw boxplot is using <code>seaborn</code>. The result plots could show the first quantile, the second quantile (median), the third quantile, whiskers (usually as 1.5*IQR), and possible outliers.</p>
+<p>For a single horizontal boxplot:</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb223-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb223-1"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb223-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb223-2"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize <span class="op">=</span> (<span class="dv">16</span>,<span class="dv">4</span>))</span>
+<span id="cb223-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb223-3"></a><span class="co"># Draw horizontal boxplot</span></span>
+<span id="cb223-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb223-4"></a>sns.boxplot(x <span class="op">=</span> df.fare_amount, ax <span class="op">=</span> ax)<span class="op">;</span></span>
+<span id="cb223-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb223-5"></a></span>
+<span id="cb223-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb223-6"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb223-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb223-7"></a>plt.show()</span></code></pre></div>
+<p>Draw a vertical/horizontal boxplot grouped by a categorical variable:</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb224-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-1"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb224-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-2"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize <span class="op">=</span> (<span class="dv">16</span>,<span class="dv">4</span>))</span>
+<span id="cb224-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-3"></a><span class="co"># Draw vertical boxplot</span></span>
+<span id="cb224-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-4"></a>sns.boxplot(x <span class="op">=</span> df.payment_type, y <span class="op">=</span> df.fare_amount, ax <span class="op">=</span> ax[<span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb224-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-5"></a><span class="co"># Draw horizontal boxplot for each numeric variable in the DataFrame</span></span>
+<span id="cb224-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-6"></a>sns.boxplot(data <span class="op">=</span> df, orient <span class="op">=</span> <span class="st">"h"</span>, ax <span class="op">=</span> ax[<span class="dv">1</span>])<span class="op">;</span></span>
+<span id="cb224-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-7"></a></span>
+<span id="cb224-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-8"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb224-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb224-9"></a>plt.show()</span></code></pre></div>
+<p>Adding <code>hue</code> to the boxplot:</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb225-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-1"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb225-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-2"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize <span class="op">=</span> (<span class="dv">16</span>,<span class="dv">4</span>))</span>
+<span id="cb225-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-3"></a><span class="co"># Draw vertical boxplot</span></span>
+<span id="cb225-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-4"></a>sns.boxplot(x <span class="op">=</span> df.day_of_week, </span>
+<span id="cb225-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-5"></a>            y <span class="op">=</span> df.fare_amount, </span>
+<span id="cb225-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-6"></a>            hue <span class="op">=</span> df.is_weekend, </span>
+<span id="cb225-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-7"></a>            ax <span class="op">=</span> ax)<span class="op">;</span></span>
+<span id="cb225-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-8"></a>            </span>
+<span id="cb225-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-9"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb225-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb225-10"></a>plt.show()</span></code></pre></div>
+</div>
+</div>
+<div id="barplot-with-error-bars" class="section level2">
+<h2>
+<span class="header-section-number">36.9</span> Barplot with Error Bars<a class="anchor" aria-label="anchor" href="#barplot-with-error-bars"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dragons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+  TalonLength <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20.9</span>, <span class="fl">58.3</span>, <span class="fl">35.5</span><span class="op">)</span>,
+  SE <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4.5</span>, <span class="fl">6.3</span>, <span class="fl">5.5</span><span class="op">)</span>,
+  Population <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"England"</span>, <span class="st">"Scotland"</span>, <span class="st">"Wales"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div id="base-r-4" class="section level3">
+<h3>
+<span class="header-section-number">36.9.1</span> base R<a class="anchor" aria-label="anchor" href="#base-r-4"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">dragons</span><span class="op">$</span><span class="va">TalonLength</span>, names <span class="op">=</span> <span class="va">dragons</span><span class="op">$</span><span class="va">Population</span><span class="op">)</span></code></pre></div>
+<p>Note that <code>plotCI</code> requires use the <code>gplots</code> package.</p>
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dragons</span><span class="op">$</span><span class="va">Population</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">dragons</span><span class="op">$</span><span class="va">Population</span>, 
+                             levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Scotland"</span>,<span class="st">"Wales"</span>,<span class="st">"England"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">dragons</span><span class="op">$</span><span class="va">TalonLength</span>, names <span class="op">=</span> <span class="va">dragons</span><span class="op">$</span><span class="va">Population</span>, 
+        ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">70</span><span class="op">)</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">4</span><span class="op">)</span>,yaxs<span class="op">=</span><span class="st">'i'</span>, xaxs<span class="op">=</span><span class="st">'i'</span>,
+        main<span class="op">=</span><span class="st">"Dragon Talon Length in the UK"</span>,
+        ylab<span class="op">=</span><span class="st">"Mean Talon Length"</span>,
+        xlab<span class="op">=</span><span class="st">"Country"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>new<span class="op">=</span><span class="cn">T</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/gplots/man/plotCI.html">plotCI</a></span> <span class="op">(</span><span class="va">dragons</span><span class="op">$</span><span class="va">TalonLength</span>, 
+        uiw <span class="op">=</span> <span class="va">dragons</span><span class="op">$</span><span class="va">SE</span>, liw <span class="op">=</span> <span class="va">dragons</span><span class="op">$</span><span class="va">SE</span>,
+        gap<span class="op">=</span><span class="fl">0</span>,sfrac<span class="op">=</span><span class="fl">0.01</span>,pch<span class="op">=</span><span class="st">""</span>,
+        ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">70</span><span class="op">)</span>,
+        xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.4</span>,<span class="fl">3.7</span><span class="op">)</span>,
+        yaxs<span class="op">=</span><span class="st">'i'</span>, xaxs<span class="op">=</span><span class="st">'i'</span>,axes<span class="op">=</span><span class="cn">F</span>,ylab<span class="op">=</span><span class="st">""</span>,xlab<span class="op">=</span><span class="st">""</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="ggplot2-5" class="section level3">
+<h3>
+<span class="header-section-number">36.9.2</span> ggplot2<a class="anchor" aria-label="anchor" href="#ggplot2-5"><i class="fas fa-link"></i></a>
+</h3>
+<p><code>ggplot2</code> is more recommended to use when drawing bar plots.</p>
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">dragons</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Population</span>, y<span class="op">=</span><span class="va">TalonLength</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span>, fill<span class="op">=</span><span class="st">"lightgray"</span>, col<span class="op">=</span><span class="st">"black"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span>ymin<span class="op">=</span><span class="va">dragons</span><span class="op">$</span><span class="va">TalonLength</span><span class="op">-</span><span class="va">dragons</span><span class="op">$</span><span class="va">SE</span>,
+                ymax<span class="op">=</span><span class="va">dragons</span><span class="op">$</span><span class="va">TalonLength</span><span class="op">+</span><span class="va">dragons</span><span class="op">$</span><span class="va">SE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">70</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Country"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Mean Talon Length"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="python-4" class="section level3">
+<h3>
+<span class="header-section-number">36.9.3</span> Python<a class="anchor" aria-label="anchor" href="#python-4"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>seaborn</code> package also gives the optimal approach to generate barplots. The function name is <code>seaborn.boxplot()</code>. Unlike R, barplots generated by <code>seaborn</code> has error bars in default.</p>
+<p>For simply plotting numeric and categorical variables:</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb230-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-1"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb230-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-2"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize <span class="op">=</span> (<span class="dv">16</span>,<span class="dv">4</span>))</span>
+<span id="cb230-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-3"></a><span class="co"># Draw barplot for mean of df.fare_amount</span></span>
+<span id="cb230-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-4"></a>sns.barplot(x <span class="op">=</span> df.payment_type, </span>
+<span id="cb230-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-5"></a>            y <span class="op">=</span> df.fare_amount, </span>
+<span id="cb230-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-6"></a>            estimator <span class="op">=</span> np.mean, </span>
+<span id="cb230-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-7"></a>            ci <span class="op">=</span> <span class="dv">95</span>)<span class="op">;</span> </span>
+<span id="cb230-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-8"></a><span class="co"># Set label</span></span>
+<span id="cb230-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-9"></a>ax.set_label(<span class="st">"Mean of fare_amount"</span>)<span class="op">;</span> </span>
+<span id="cb230-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-10"></a></span>
+<span id="cb230-11"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-11"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb230-12"><a href="base-r-ggplot2-python-graphing-performances.html#cb230-12"></a>plt.show()</span></code></pre></div>
+<p>Add <code>hue</code> to the barplot:</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb231-1"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-1"></a><span class="co"># Create figure with `matplotlib`</span></span>
+<span id="cb231-2"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-2"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize <span class="op">=</span> (<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb231-3"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-3"></a><span class="co"># Add df.payment_type as the hue</span></span>
+<span id="cb231-4"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-4"></a>sns.barplot(x <span class="op">=</span> <span class="st">'day_of_week'</span>, </span>
+<span id="cb231-5"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-5"></a>            y <span class="op">=</span> <span class="st">'fare_amount'</span>, </span>
+<span id="cb231-6"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-6"></a>            hue <span class="op">=</span> <span class="st">'payment_type'</span>, </span>
+<span id="cb231-7"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-7"></a>            data <span class="op">=</span> df)<span class="op">;</span></span>
+<span id="cb231-8"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-8"></a><span class="co"># Set legend location</span></span>
+<span id="cb231-9"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-9"></a>ax.legend(loc <span class="op">=</span> <span class="st">'best'</span>)</span>
+<span id="cb231-10"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-10"></a></span>
+<span id="cb231-11"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-11"></a><span class="co"># Extra step needed in R markdown; not required in Jupyter Notebook</span></span>
+<span id="cb231-12"><a href="base-r-ggplot2-python-graphing-performances.html#cb231-12"></a>plt.show()</span></code></pre></div>
+</div>
+<div id="conclusion" class="section level3">
+<h3>
+<span class="header-section-number">36.9.4</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"><i class="fas fa-link"></i></a>
+</h3>
+<p>With the success of achieving data visualization by Python in R sessions, comparing all generated plots with those by base R and <code>ggplot2</code> package, it is not hard to find that, given a processed dataset, both R and Python have well-developed, professional, and powerful packages to visualize and explore the dataset.</p>
+</div>
+<div id="references-2" class="section level3">
+<h3>
+<span class="header-section-number">36.9.5</span> References<a class="anchor" aria-label="anchor" href="#references-2"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p>R Base Graphics: An Idiot’s Guide <a href="https://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html">https://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html</a></p></li>
+<li><p>EODS-F21: Elements of Data Science, Fall 2021 <a href="https://github.com/bryanrgibson/eods-f21">https://github.com/bryanrgibson/eods-f21</a></p></li>
+<li><p>R Interface to Python <a href="https://rstudio.github.io/reticulate/">https://rstudio.github.io/reticulate/</a></p></li>
+<li><p>Numpy and Scipy Documentation <a href="https://docs.scipy.org/doc/">https://docs.scipy.org/doc/</a></p></li>
+<li><p>pandas documentation <a href="https://pandas.pydata.org/docs/">https://pandas.pydata.org/docs/</a></p></li>
+<li><p>Matplotlib: Visualization with Python - matplotlib.pyplot <a href="https://matplotlib.org/stable/api/pyplot_summary.html">https://matplotlib.org/stable/api/pyplot_summary.html</a></p></li>
+<li><p>seaborn: statistical data visualization - User guide and tutorial <a href="https://seaborn.pydata.org/tutorial.html">https://seaborn.pydata.org/tutorial.html</a></p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="introduction-to-log-transformation.html"><span class="header-section-number">35</span> Introduction to Log-transformation</a></div>
+<div class="next"><a href="tutorial-on-cluster-analysis.html"><span class="header-section-number">37</span> Tutorial on Cluster Analysis</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#base-r-ggplot2-python-graphing-performances"><span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
+<li><a class="nav-link" href="#preface"><span class="header-section-number">36.1</span> Preface</a></li>
+<li><a class="nav-link" href="#preparation-1"><span class="header-section-number">36.2</span> Preparation</a></li>
+<li><a class="nav-link" href="#python-environment-setup"><span class="header-section-number">36.3</span> Python Environment Setup</a></li>
+<li>
+<a class="nav-link" href="#base-r-plot-function"><span class="header-section-number">36.4</span> Base R Plot Function</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ggplot2"><span class="header-section-number">36.4.1</span> ggplot2</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#basic-histogram"><span class="header-section-number">36.5</span> Basic Histogram</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#base-r"><span class="header-section-number">36.5.1</span> base R</a></li>
+<li><a class="nav-link" href="#ggplot2-1"><span class="header-section-number">36.5.2</span> ggplot2</a></li>
+<li><a class="nav-link" href="#python"><span class="header-section-number">36.5.3</span> Python</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#basic-line-graph-with-regression"><span class="header-section-number">36.6</span> Basic Line Graph with Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#base-r-1"><span class="header-section-number">36.6.1</span> base R</a></li>
+<li><a class="nav-link" href="#ggplot2-2"><span class="header-section-number">36.6.2</span> ggplot2</a></li>
+<li><a class="nav-link" href="#python-1"><span class="header-section-number">36.6.3</span> Python</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#scatterplot-with-legend"><span class="header-section-number">36.7</span> Scatterplot with Legend</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#base-r-2"><span class="header-section-number">36.7.1</span> base R</a></li>
+<li><a class="nav-link" href="#ggplot2-3"><span class="header-section-number">36.7.2</span> ggplot2</a></li>
+<li><a class="nav-link" href="#python-2"><span class="header-section-number">36.7.3</span> Python</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#boxplot-with-reordered-and-formatted-axes"><span class="header-section-number">36.8</span> Boxplot with Reordered and Formatted Axes</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#base-r-3"><span class="header-section-number">36.8.1</span> base R</a></li>
+<li><a class="nav-link" href="#ggplot2-4"><span class="header-section-number">36.8.2</span> ggplot2</a></li>
+<li><a class="nav-link" href="#python-3"><span class="header-section-number">36.8.3</span> Python</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#barplot-with-error-bars"><span class="header-section-number">36.9</span> Barplot with Error Bars</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#base-r-4"><span class="header-section-number">36.9.1</span> base R</a></li>
+<li><a class="nav-link" href="#ggplot2-5"><span class="header-section-number">36.9.2</span> ggplot2</a></li>
+<li><a class="nav-link" href="#python-4"><span class="header-section-number">36.9.3</span> Python</a></li>
+<li><a class="nav-link" href="#conclusion"><span class="header-section-number">36.9.4</span> Conclusion</a></li>
+<li><a class="nav-link" href="#references-2"><span class="header-section-number">36.9.5</span> References</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/base_r_ggplot2_python_graph.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/base_r_ggplot2_python_graph.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-14.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
