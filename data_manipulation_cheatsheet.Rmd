@@ -14,13 +14,13 @@ This cheat sheet is particularly made for people who don't experience with R and
 ### Environment Set Up
 Before using those packages, we need to install them into our computer. To do that, we can simply install the tidyverse package and import it use library() function, which includes dplyr, tidyr and some other useful packages.
 
-### Part1: Data Import 
+### Part One: Data Import 
 In this part, three most commonly used ways of importing data will be showed.\
 1.<b>Direct Import from R Package</b>\
 2.<b>Import Using URL </b>\
 3.<b>Import from local computer</b>\
 
-#### 1 Import from Package
+#### Import from Package
 One greatest thing about R is that it has a R dataset package which contains a variety of datasets that we can use.
 To use those datasets, we just need to import the package into R.
 eg If we want to use fastfood dataset from the openintro packaage, we just need to import openintro
@@ -33,7 +33,7 @@ If there are other dataset called fastfood, to avoid confusion, we can specify i
 openintro::fastfood
 ```
 
-#### 2 Import Using URL
+#### Import Using URL
 (a) We can also import dataset direcly from online sources. To achieve that, we will be using the read_csv function.
 eg import the crime dataset from government official website.
 ```{r,message=FALSE}
@@ -48,7 +48,7 @@ eg read dataset from the github
 read_csv("https://raw.githubusercontent.com/curran/data/gh-pages/dataSoup/datasets.csv")
 ```
 
-#### 3 Import from the local computer
+#### Import from the local computer
 If the file is already in you computer, then you can simple import it by finding its path and read it.\
 eg read the state_wl.csv file from the computer.\
 1. Find the location of state_wl.csv in your computer.\
@@ -99,7 +99,7 @@ df
 na.omit(df)
 ```
 
-### Part2: dylyr
+### Part Two: dylyr
 There are 7 key functions that help transform dataset.\
 1.<b>filter</b>: subset a data frame where all columns in the subset satisfy certain conditions.\
 2.<b>select</b>: select columns by their names.\
@@ -209,7 +209,7 @@ eg change the qsec to acceleration
 rename(mtcars,acceleration=qsec)
 ```
 
-### Part3: tidyr
+### Part Three: tidyr
 There are 2 key functions that help transform dataset.\
 1.<b>pivot_longer</b>: Increase the number of rows and decrease the number of columns\
 2.<b>pivot_wider</b>: The opposite of pivot_longer.\
@@ -232,7 +232,7 @@ pivot_wider(table2,names_from = type,values_from = count)
 #### Note: 
 pivot_longer makes dataframe narrower and longer, while pivot_wider makes dataframe wider and shorter, so they are actually complements.
 
-### Part4: Example
+### Part Four: Example
 In this part, we will use an example to show how those functions really work in transforming the dataset.\
 The dataset we will be using is seattlepets in the openintro package.\
 The goal is to find the dog names and cat names and decide which names are more popular for dogs and for cats.
