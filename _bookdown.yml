@@ -14,6 +14,7 @@ language:
 
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -56,6 +57,7 @@ rmd_files: [
   'base_r_ggplot2_python_graph.Rmd',
   'score_hundred_cheatsheet.Rmd',
   'scatterplots_cheatsheet.Rmd',
+  'base_r_string_operations_cheatsheet.Rmd', 
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -144,5 +146,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
 
