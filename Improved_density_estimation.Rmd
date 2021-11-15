@@ -1,4 +1,4 @@
-# Improved density estimation
+# improved density estimation
 
 Abel Perez Vargas
 
