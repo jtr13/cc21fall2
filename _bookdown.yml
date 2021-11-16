@@ -12,11 +12,6 @@ language:
 
 # Chapter ordering
 
-
-
-
-
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -60,7 +55,8 @@ rmd_files: [
   'score_hundred_cheatsheet.Rmd',
   'scatterplots_cheatsheet.Rmd',
   'base_r_string_operations_cheatsheet.Rmd',
-  'data_manipulation_cheatsheet.Rmd', 
+  'data_manipulation_cheatsheet.Rmd',
+  'ggplot_matplotlib_cheatsheet.Rmd',
   
   # Part: Tutorials
   'clustering_analysis_tutorial.Rmd', # contains PART header
@@ -149,4 +145,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
