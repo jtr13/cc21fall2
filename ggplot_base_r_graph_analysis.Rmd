@@ -9,7 +9,7 @@ library(dplyr)
 library(tidyverse)
 library(tidyr)
 ```
-### 1. Scatterplot
+### Scatterplot
 
 a) Base R
 
@@ -44,7 +44,7 @@ But when we try to do more fancy tasks, such as fit a best regression line on th
 
 Instead, ggplot2 can create new features simply by adding new component on the original statement (Dataset 'mtcars' is only called once). Adding "geom_smooth()" can fit and visualize a best regression line on the data point. It also gives extra information in the blur around line which shows the 95% confidence interval on the fitted values. Adding "geom_text()" can easily label each data point. In this way, the plots are created in a more organized way, and the code is more efficient and readable.
 
-### 2. Line chart
+### Line chart
 
 #### Single line
 
@@ -118,7 +118,7 @@ But in base r, we can see that to fulfill the same task, we need to write much m
 
 So, for some complicated tasks, ggplot2 gives very fast and easy solution whereas base r still requires more manual implementation.
 
-### 3. histogram
+### histogram
 
 a) Base R
 
@@ -139,7 +139,7 @@ ggplot(data=mtcars, aes(mpg)) +
 
 For histogram, both base r and ggplot2 can reach the same effect using minimum code. But when we want to add a density curve on top of the histogram, ggplot2 is again more readable.
 
-### 4. Bar Chart
+### Bar Chart
 
 a) Base R
 
@@ -161,7 +161,7 @@ ggplot(data = data,aes(x = sex, y = height))+
 
 From the comparison of two graphs, we can find that in ggplot2, the background is grey and have grids to make users  visualize the scales more clearly. Besides, the title and labels are lighter that normal plots in R itself. From the perspectives of codes, we can say the coding style is different between ggplot2 and R. In ggplot2, we can see that the code is divided into different components and then the codes is linked by '+'. However, in normal R, we use the function in R and set the parameters and labels we need inside the funtion itself. 
 
-### 5. Boxplot
+### Boxplot
 
 a) Base R
 
@@ -189,7 +189,7 @@ ggplot(data,aes(x = group, y = values))+
 we can also see that in the ggplot2, the background is grey and have grids to make users  visualize the scales more clearly. Another big difference is the breaks in the y scale. The default breaks are different between ggplot and normal r. The code style is also different. In ggplot2, we can see that the code is divided into different components and then the codes is linked by '+'. However, in normal R, we use the function in R and set the parameters and labels we need inside the function itself. 
 
 
-### 6. Piechart:
+### Piechart:
 
 a) Base R
 
@@ -215,7 +215,7 @@ ggplot(df, aes(x="", y=value, fill=group))+
 First, the coding style is also different. In ggplot2, the plot is divided into different components including the xlab and ylab and title and the pie chart. In normal r plot, we just use function called 'pie'. One interesting thing in ggplot is we first use geom_col and then covert the bar plot into a pie chart. The looking of the graphs is also different. The default colors and the sequence of groups are also different. In ggplot, we can  find the scale around the pie chart and we can discover the percentage of each group from the pie chart. 
 
 
-### 7. Multiple Variables
+### Multiple Variables
 
 a) Base R
 
@@ -244,7 +244,7 @@ ggplot(data = data, aes(x= time, y = total_bill, fill = sex))+
 
 For code part, in ggplot2, we just need to use components in ggplot packages and use function called geom bar to visualize more than 2 variables, and set parameter 'fill'. However, in normal r plot, we need to first convert our data frame into a matrix and then apply function called 'barplot'. The graph made by ggplot is more clear. The default color is not grey and black and we can see the labels in x direction and we also have legends by default. However, the graph made by normal r packages doesn't have default legends and x labels. 
 
-### 8. Facet
+### Facet
 
 a) Base R
 
