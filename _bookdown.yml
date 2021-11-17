@@ -65,8 +65,8 @@ rmd_files: [
   'ggplot_matplotlib_cheatsheet.Rmd',
   
   # Part: Tutorials
-  'clustering_analysis_tutorial.Rmd', # contains PART header
-  'postgresql_r.Rmd',
+  'postgresql_r.Rmd', # contains PART header
+  'clustering_analysis_tutorial.Rmd', 
   'apply_function_in_r.Rmd',
   'introdution_interative_graphs_in_r.Rmd',
   'stock_analysis.Rmd',
@@ -146,7 +146,7 @@ rmd_files: [
   'ggplot_base_r_graph_analysis.Rmd',
   
   # Part: Custom R packages
-  'super_ggformat_project.Rmd',
+  'super_ggformat_project.Rmd', # contains PART header
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
