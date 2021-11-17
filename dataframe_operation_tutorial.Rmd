@@ -14,7 +14,7 @@ library(dplyr)
 This tutorial will introduce some basic ways to help some beginners be familiar with the dataframe in R. Since usually when we plotting the graph, we need to handle the data well and it is unavoidable to process the data stored in the dataframe. Thus, this tutorial are made for people who are not familiar with the function that help user to do the operation on the dataframe in R. 
 
 #### Introduction
-![Caption for the picture.](resources/111.jpeg) \
+![Caption for the picture.](resources/Rayzyz_resources/111.jpeg) \
 The data frame is a table or a two-dimensional array-like structure in which each column contains values of one variable and each row contains one set of values from each column. There are several characteristics of a data frame \
 1. The column names should be non-empty. \
 2. The row names should be unique. \
@@ -124,7 +124,7 @@ Then these are all the basic operations for the dataframe, next I am going to us
 
 
 #### Dplyr 
-![Caption for the picture.](resources/222.png) \
+![Caption for the picture.](resources/Rayzyz_resources/222.png) \
 
 Dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges:\
 1. mutate() adds new variables that are functions of existing variables.\
@@ -139,7 +139,7 @@ Then, first we need to run the installation for the Dplyr package and import it
 ```
 Next, we are going to use the stats_wl.csv as the example and import it using the read.csv function. Note, the csv file must be stored with same directory. Otherwise, you need to revise the path in order to import it.
 ```{r}
-df <- read.csv("resources/data.csv", stringsAsFactors = F)
+df <- read.csv("resources/Rayzyz_resources/data.csv", stringsAsFactors = F)
 head(df)
 ```
 `select()`(and optionally rename) select variables in a data frame, using a concise mini-language that makes it easy to refer to variables based on their name.
@@ -209,7 +209,7 @@ We could use the `arrange()` to sort the values based on the variable that I cho
 
 #### Join two tables
 
-![Caption for the picture.](resources/333.jpeg) \
+![Caption for the picture.](resources/Rayzyz_resources/333.jpeg) \
 
 There are four different type of when we join the table which are left join, right join, inner join, and full join. Then we first create two dataframe which are df1 and df2.
 ```{r}
