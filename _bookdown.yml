@@ -126,7 +126,7 @@ rmd_files: [
   'animate_your_plots.Rmd',
   'raincloud_plot_tutorial.rmd',
   'dataframe_operation_tutorial.Rmd',
-  'instruction_for_new_ss.Rmd',
+  'cc_instruction_for_new.Rmd',
   'anova_tutorial_revised.Rmd',
   'ggplot2_in_python.Rmd',
   
