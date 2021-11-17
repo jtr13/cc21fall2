@@ -10,6 +10,9 @@ language:
 
 
 
+
+
+
 # Chapter ordering
 
 rmd_files: [
@@ -136,6 +139,7 @@ rmd_files: [
   'plots_python_seaborn_matplotlib.Rmd',
   'r_and_python_visualization.Rmd',
   'r_3d_visualization.Rmd',
+  'ggplot_base_r_graph_analysis.Rmd',
   
   # Part: Custom R packages
   'super_ggformat_project.Rmd',
@@ -145,3 +149,4 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
