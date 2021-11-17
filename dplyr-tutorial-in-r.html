@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 47 Dplyr tutorial in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  47.1 Environment Setup In order to use dyplr...'>
+<title>Chapter 49 Dplyr tutorial in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  49.1 Environment Setup In order to use dyplr...'>
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 47 Dplyr tutorial in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 49 Dplyr tutorial in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  47.1 Environment Setup In order to use dyplr...'>
+<meta property="og:description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  49.1 Environment Setup In order to use dyplr...'>
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 47 Dplyr tutorial in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  47.1 Environment Setup In order to use dyplr...'>
+<meta name="twitter:title" content="Chapter 49 Dplyr tutorial in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  49.1 Environment Setup In order to use dyplr...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -84,83 +84,89 @@
 <li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
 <li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">37</span> Cheat Sheet to Score 100 Points</a></li>
 <li><a class="" href="scatterplots-cheatsheet.html"><span class="header-section-number">38</span> Scatterplots cheatsheet</a></li>
-<li class="book-part">Tutorials</li>
-<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">39</span> Tutorial on Cluster Analysis</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">40</span> How to Integrate R with PostgreSQL</a></li>
-<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">41</span> Apply function in r</a></li>
-<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">42</span> Introduction to interactive graphs in R</a></li>
-<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">43</span> Plot and Analyze Stock Data with R</a></li>
-<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">44</span> Data Visulization Ordering</a></li>
-<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">45</span> Tutorial on lattice package in R</a></li>
-<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">46</span> Network Visualization in R</a></li>
-<li><a class="active" href="dplyr-tutorial-in-r.html"><span class="header-section-number">47</span> Dplyr tutorial in R</a></li>
-<li><a class="" href="downloading-files.html"><span class="header-section-number">48</span> Downloading files</a></li>
-<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">49</span> Video introduction to maps with ggmap</a></li>
-<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">50</span> Comparison among base R, tidyverse, and datatable</a></li>
-<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">51</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
-<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">52</span> An Introduction to Dygraph in R</a></li>
-<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">53</span> Streamlit Tutorial</a></li>
-<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">54</span> Hive plots with the ggraph and hiver packages</a></li>
-<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">55</span> Introduction to XAI (Explainable AI) in R</a></li>
-<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">56</span> Tutorial for gg_cleveland</a></li>
-<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">57</span> Neural network tools in R</a></li>
-<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">58</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">59</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">60</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">61</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">62</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">63</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">64</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">65</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">66</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">67</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">68</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">69</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">70</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">71</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">72</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">73</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">74</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">75</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">76</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">77</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">78</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">79</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">80</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">81</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">82</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">83</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">84</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">85</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">86</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">87</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">88</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">89</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">90</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">91</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">92</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">93</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">94</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">95</span> Joining and reshaping in R</a></li>
-<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">96</span> Running Sql Queries on Dataframes</a></li>
-<li><a class="" href="tidyverse.html"><span class="header-section-number">97</span> TidyVerse</a></li>
-<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">98</span> How to animate your plots</a></li>
+<li><a class="" href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">39</span> Base R String Operations Cheatsheet</a></li>
+<li><a class="" href="data-manipulation-in-r.html"><span class="header-section-number">40</span> Data manipulation in R</a></li>
+<li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">41</span> ggplot_matplotlib_cheatsheet</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">42</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">43</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">44</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">45</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">46</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">47</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">48</span> Network Visualization in R</a></li>
+<li><a class="active" href="dplyr-tutorial-in-r.html"><span class="header-section-number">49</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">50</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">51</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">52</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">53</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">54</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">55</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">56</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">57</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">58</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">59</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">60</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">61</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">62</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">63</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">64</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">65</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">66</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">67</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">68</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">69</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">70</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">71</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">72</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">73</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">74</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">75</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">76</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">77</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">78</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">79</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">80</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">81</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">82</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">83</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">84</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">85</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">86</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">87</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">88</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">89</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">90</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">91</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">92</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">93</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">94</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">95</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">96</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">97</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">98</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">99</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">100</span> How to animate your plots</a></li>
+<li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">101</span> Dataframe operations tutorial</a></li>
+<li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">102</span> A brief instruction for the half semester of EDAV5702</a></li>
+<li><a class="" href="anova-tutorial.html"><span class="header-section-number">103</span> ANOVA tutorial</a></li>
+<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">104</span> ggplot2 in python</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">99</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">100</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">101</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">102</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">103</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">105</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">106</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">107</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">108</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">109</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">104</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">105</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">106</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">107</span> R and Python visualization</a></li>
-<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">108</span> 3D Visualization with rgl and scatterplot3d</a></li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">109</span> Super ggformat</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">110</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">111</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">112</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">113</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">114</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">115</span> Base r vs. ggplot2 visualization</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">116</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">110</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">111</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">117</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">118</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -170,10 +176,10 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="dplyr-tutorial-in-r" class="section level1">
 <h1>
-<span class="header-section-number">47</span> Dplyr tutorial in R<a class="anchor" aria-label="anchor" href="#dplyr-tutorial-in-r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49</span> Dplyr tutorial in R<a class="anchor" aria-label="anchor" href="#dplyr-tutorial-in-r"><i class="fas fa-link"></i></a>
 </h1>
 <p>Pinyi Yang</p>
-<div class="sourceCode" id="cb382"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb450"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#install.packages("dplyr")</span>
 <span class="co">#install.packages("ggplot2")</span>
 <span class="co">#install.packages("stringr")</span>
@@ -182,7 +188,7 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></code></pre></div>
 <div id="environment-setup" class="section level2">
 <h2>
-<span class="header-section-number">47.1</span> Environment Setup<a class="anchor" aria-label="anchor" href="#environment-setup"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.1</span> Environment Setup<a class="anchor" aria-label="anchor" href="#environment-setup"><i class="fas fa-link"></i></a>
 </h2>
 <p>In order to use dyplr package, we need to first install and library it at the beginning.
 Besides the dplyr package, we will use two other packages for better demonstration of the functions in dplyr. Related documentations of the two accessory packages are provided below:</p>
@@ -193,18 +199,18 @@ Besides the dplyr package, we will use two other packages for better demonstrati
 </div>
 <div id="introduction-5" class="section level2">
 <h2>
-<span class="header-section-number">47.2</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.2</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-5"><i class="fas fa-link"></i></a>
 </h2>
 <div class="inline-figure"><img src="https://www.business-science.io/assets/2020-10-15-must-know-tidyverse-features/tidyverse-icons.png" class="center"></div>
 <p>Dplyr is a package of tidyverse in R. The key role of dplyr is dataframe manipulation and enables data management. Dplyr contain numerous useful functions that allows for user-friendly data query, data cleaning, data summary, etc. Dplyr is especially important for data visualization, because, an effective and informative visualization requires the structural integrity of the dataframe being used as well as the removal of excessive redundant information and keeping only the information needed.</p>
 </div>
 <div id="data" class="section level2">
 <h2>
-<span class="header-section-number">47.3</span> Data<a class="anchor" aria-label="anchor" href="#data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.3</span> Data<a class="anchor" aria-label="anchor" href="#data"><i class="fas fa-link"></i></a>
 </h2>
 <p>One of the most widely used data for tutorial use purpose in R is the ‘diamond’ dataset. For more information on the ‘diamond’ dataset, please visit the following link: <a href="https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5/topics/diamonds" class="uri">https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5/topics/diamonds</a>.</p>
 <p>The following section showcases the attributes of the ‘diamond’ dataset to assist the understanding of further data manipulation using dplyr.</p>
-<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb451"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span></code></pre></div>
 <pre><code>## tibble [53,940 × 10] (S3: tbl_df/tbl/data.frame)
 ##  $ carat  : num [1:53940] 0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...
@@ -217,7 +223,7 @@ Besides the dplyr package, we will use two other packages for better demonstrati
 ##  $ x      : num [1:53940] 3.95 3.89 4.05 4.2 4.34 3.94 3.95 4.07 3.87 4 ...
 ##  $ y      : num [1:53940] 3.98 3.84 4.07 4.23 4.35 3.96 3.98 4.11 3.78 4.05 ...
 ##  $ z      : num [1:53940] 2.43 2.31 2.31 2.63 2.75 2.48 2.47 2.53 2.49 2.39 ...</code></pre>
-<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb453"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">diamonds</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
@@ -225,7 +231,7 @@ Besides the dplyr package, we will use two other packages for better demonstrati
 ## 1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43
 ## 2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31
 ## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31</code></pre>
-<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">[</span>,<span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"color"</span>, <span class="st">"clarity"</span>, <span class="st">"cut"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <pre><code>##      carat            depth           table           price      
 ##  Min.   :0.2000   Min.   :43.00   Min.   :43.00   Min.   :  326  
@@ -245,7 +251,7 @@ Besides the dplyr package, we will use two other packages for better demonstrati
 </div>
 <div id="column-and-row-manipulation" class="section level2">
 <h2>
-<span class="header-section-number">47.4</span> Column and Row Manipulation<a class="anchor" aria-label="anchor" href="#column-and-row-manipulation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4</span> Column and Row Manipulation<a class="anchor" aria-label="anchor" href="#column-and-row-manipulation"><i class="fas fa-link"></i></a>
 </h2>
 <p>In data analysis, sometimes the original data set contains too much information, more than what we actually need for further analysis or it does not have a good structure for us to use. In order to make the data looked structured, we would use Dplyr to organize and clean Data. Dplyr can effectively help us reorganize the data set based on criteria we commanded. For example, the data set may contain all observations (i.e. rows) from the past 10 years, while we only need to analyze the trend in the recent 5 years. In this case, we need to ignore the data from the previous years in order to generate reasonable visualizations, thus the filter function in Dplyr will come in handy. Also, there might be times when the data contains numerous redundant parameters (i.e. columns) for analysis, and we need to only select those variables that are important for the goal of the study. In this case, we can use Dplyr’s select function to choose desired columns.
 ### Select
@@ -253,7 +259,7 @@ The ‘select’ in dplyr package is used to select certain columns from the dat
 <span class="math display">\[select(data, column\ names/column\ position , \dots)\]</span>
 #### Column Selection
 In the following example, we are selecting three columns of observations only: ‘carat’, ‘clarity’, and ‘price’. Noted here that we can select by its name or by its position.</p>
-<div class="sourceCode" id="cb389"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#only keeping "carat", "clarity", and "price" columns</span>
 <span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">clarity</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
@@ -263,7 +269,7 @@ In the following example, we are selecting three columns of observations only: �
 ## 1  0.23 SI2       326
 ## 2  0.21 SI1       326
 ## 3  0.23 VS1       327</code></pre>
-<div class="sourceCode" id="cb391"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># same result but use position</span>
 <span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
@@ -273,7 +279,7 @@ In the following example, we are selecting three columns of observations only: �
 ## 1  0.23 SI2       326
 ## 2  0.21 SI1       326
 ## 3  0.23 VS1       327</code></pre>
-<div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># or use both column name and position, not recommended</span>
 <span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
@@ -285,10 +291,10 @@ In the following example, we are selecting three columns of observations only: �
 ## 3  0.23 VS1       327</code></pre>
 <div id="column-deselection" class="section level4">
 <h4>
-<span class="header-section-number">47.4.0.1</span> Column Deselection<a class="anchor" aria-label="anchor" href="#column-deselection"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4.0.1</span> Column Deselection<a class="anchor" aria-label="anchor" href="#column-deselection"><i class="fas fa-link"></i></a>
 </h4>
 <p>We can also deselect certain columns, or a range of columns using the negate command <span class="math inline">\(!\)</span>. In the following example, we want to remove (i.e. deselect) columns from x to z.</p>
-<div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#deselecting columns from x to z</span>
 <span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="op">!</span><span class="op">(</span><span class="va">x</span><span class="op">:</span><span class="va">z</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
@@ -301,7 +307,7 @@ In the following example, we are selecting three columns of observations only: �
 </div>
 <div id="helper-functions" class="section level4">
 <h4>
-<span class="header-section-number">47.4.0.2</span> Helper Functions<a class="anchor" aria-label="anchor" href="#helper-functions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4.0.2</span> Helper Functions<a class="anchor" aria-label="anchor" href="#helper-functions"><i class="fas fa-link"></i></a>
 </h4>
 <p>there are several helper functions for selection that deal with specific cases to be used with select function:</p>
 <ul>
@@ -314,11 +320,11 @@ In the following example, we are selecting three columns of observations only: �
 </div>
 <div id="the-matches-function" class="section level4">
 <h4>
-<span class="header-section-number">47.4.0.3</span> The matches() Function<a class="anchor" aria-label="anchor" href="#the-matches-function"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4.0.3</span> The matches() Function<a class="anchor" aria-label="anchor" href="#the-matches-function"><i class="fas fa-link"></i></a>
 </h4>
 <p>As introduced above, the <span class="math inline">\(matches()\)</span> function can select columns with names that match a regular expression (regex). Regular expression is a way to represent certain string patterns, which is extensively used in natural language processing, linguistic analysis, etc. For details in regular expression, such as grammar, and its application, please visit the following link: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet" class="uri">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet</a>.</p>
 <p>For example, if we only want to keep columns with names that start with c, we can use the regular expression of “^c” in the <span class="math inline">\(matches()\)</span> function. (p.s. “^c” is a regular expression that defines strings that start with the letter lower-case c)</p>
-<div class="sourceCode" id="cb397"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">matches</a></span><span class="op">(</span><span class="st">"^c"</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##   carat cut     color clarity
@@ -330,10 +336,10 @@ In the following example, we are selecting three columns of observations only: �
 </div>
 <div id="the-contains-function" class="section level4">
 <h4>
-<span class="header-section-number">47.4.0.4</span> The contains() Function<a class="anchor" aria-label="anchor" href="#the-contains-function"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4.0.4</span> The contains() Function<a class="anchor" aria-label="anchor" href="#the-contains-function"><i class="fas fa-link"></i></a>
 </h4>
 <p>For the sake of demonstration, we will create a pseudo-dataset with names specifically designed to include certain strings. In this case, multiple column names include the string “length”</p>
-<div class="sourceCode" id="cb399"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span><span class="op">)</span>
 <span class="va">pseudo_car_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>obs <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,
                               cabin_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">7.5</span><span class="op">)</span>,
@@ -346,30 +352,30 @@ In the following example, we are selecting three columns of observations only: �
 ## 2   2     5.929073    1.223836           5.936480  green
 ## 3   3     6.816316    2.020962           4.808456  green</code></pre>
 <p>Now, we can use the <span class="math inline">\(contains()\)</span> function to select those names that contain the string “length”.</p>
-<div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pseudo_car_data</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"length"</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>##   cabin_length door_length wind_shield_length
 ## 1     5.888524    2.332473           5.374240
 ## 2     5.929073    1.223836           5.936480
 ## 3     6.816316    2.020962           4.808456</code></pre>
 </div>
-<div id="filter-1" class="section level3">
+<div id="filter-2" class="section level3">
 <h3>
-<span class="header-section-number">47.4.1</span> Filter<a class="anchor" aria-label="anchor" href="#filter-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4.1</span> Filter<a class="anchor" aria-label="anchor" href="#filter-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Similar to the select function that we discussed in the last section, the filter function in dplyr package is also used for selection from the existing data frame. Filter function is used to select rows that satisfies specific conditions/criteria.The second argument here must be logical value. Logical operation would be useful here. For example, the ‘is.na’ function would return TRUE if a value is NA and FALSE if it is not. We can also use <span class="math inline">\(\&amp;\)</span> and <span class="math inline">\(|\)</span> operators to combine multiple logical statements.</p>
 <p>The syntax for the filter function is as follow:
 <span class="math display">\[filter(data, condition, \dots)\]</span></p>
 <div id="filter-numerical-values" class="section level4">
 <h4>
-<span class="header-section-number">47.4.1.1</span> Filter Numerical Values<a class="anchor" aria-label="anchor" href="#filter-numerical-values"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4.1.1</span> Filter Numerical Values<a class="anchor" aria-label="anchor" href="#filter-numerical-values"><i class="fas fa-link"></i></a>
 </h4>
 <p>The filter function can be used to filter both numerical and character type data. First, lets use the price parameter to demonstrate how to filter numerical values. We will filter out the observations that have diamond price over 500. In other words, we will only keep those rows of observations with <span class="math inline">\(price \leq 500\)</span>.</p>
-<div class="sourceCode" id="cb403"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#the range of prices for diamonds</span>
 <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">price</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1]   326 18823</code></pre>
-<div class="sourceCode" id="cb405"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#filter observations that have price less than or equal to 500</span>
 <span class="va">filter_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">price</span> <span class="op">&lt;=</span> <span class="fl">500</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">filter_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
@@ -382,19 +388,19 @@ In the following example, we are selecting three columns of observations only: �
 </div>
 <div id="filter-character-values" class="section level4">
 <h4>
-<span class="header-section-number">47.4.1.2</span> Filter Character Values<a class="anchor" aria-label="anchor" href="#filter-character-values"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4.1.2</span> Filter Character Values<a class="anchor" aria-label="anchor" href="#filter-character-values"><i class="fas fa-link"></i></a>
 </h4>
 <p>Now, we can filter by character type variables. For example, we can choose those observations that have “Fair” or “Good” cuts:</p>
-<div class="sourceCode" id="cb407"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#check levels of cuts</span>
 <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "Fair"      "Good"      "Very Good" "Premium"   "Ideal"</code></pre>
-<div class="sourceCode" id="cb409"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ##      Fair      Good Very Good   Premium     Ideal 
 ##      1610      4906     12082     13791     21551</code></pre>
-<div class="sourceCode" id="cb411"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#filter by cut, keeping Fair and Good</span>
 <span class="va">filter_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fair"</span>, <span class="st">"Good"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">filter_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
@@ -404,7 +410,7 @@ In the following example, we are selecting three columns of observations only: �
 ## 1  0.23 Good  E     VS1      56.9    65   327  4.05  4.07  2.31
 ## 2  0.31 Good  J     SI2      63.3    58   335  4.34  4.35  2.75
 ## 3  0.22 Fair  E     VS2      65.1    61   337  3.87  3.78  2.49</code></pre>
-<div class="sourceCode" id="cb413"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">filter_result</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ##      Fair      Good Very Good   Premium     Ideal 
@@ -414,12 +420,12 @@ In the following example, we are selecting three columns of observations only: �
 </div>
 <div id="slice" class="section level3">
 <h3>
-<span class="header-section-number">47.4.2</span> Slice<a class="anchor" aria-label="anchor" href="#slice"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.4.2</span> Slice<a class="anchor" aria-label="anchor" href="#slice"><i class="fas fa-link"></i></a>
 </h3>
 <p>The slice function in dplyr is also useful for selecting rows based on its position or order. The use of it is similar to head function in base R which would select the top or tail n rows in the data set.</p>
 <p>The syntax for the slice function is as follow:
 <span class="math display">\[slice(data,  number\ to\ be\ sliced,... )\]</span></p>
-<div class="sourceCode" id="cb415"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#only get the first five observation of the data frame </span>
 <span class="va">slice_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>
 <span class="va">slice_result</span> </code></pre></div>
@@ -433,7 +439,7 @@ In the following example, we are selecting three columns of observations only: �
 ## 5  0.31 Good    J     SI2      63.3    58   335  4.34  4.35  2.75</code></pre>
 <p>There are also other wrapper functions for ‘slice’ that can be used to get the pieces of data with specified number/range of rows while also filtering with some conditions, such as slice_max,slice_min. The syntax for the slice function is as follow:
 <span class="math display">\[slice\_max(data, order\_by = column \ name, n =  number\ to\ be\ sliced )\]</span></p>
-<div class="sourceCode" id="cb417"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># only get the first five observation of the data frame with highest price</span>
 <span class="va">slice_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max</a></span><span class="op">(</span><span class="va">diamonds</span>, order_by <span class="op">=</span> <span class="va">price</span>, n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="va">slice_result</span></code></pre></div>
@@ -449,13 +455,13 @@ In the following example, we are selecting three columns of observations only: �
 </div>
 <div id="order-manipulation" class="section level2">
 <h2>
-<span class="header-section-number">47.5</span> Order Manipulation<a class="anchor" aria-label="anchor" href="#order-manipulation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.5</span> Order Manipulation<a class="anchor" aria-label="anchor" href="#order-manipulation"><i class="fas fa-link"></i></a>
 </h2>
 <p>Sometimes, we want to get a direct visualization of the data by ranking the observations using one or multiple parameters.
 ### Ascending Order
 We can use the ‘arrange’ function to arrange data, based on one parameter or multiple parameters, in an ascending order, using the following syntax:
 <span class="math display">\[arrange(data, column\ for\ arrangement, \dots)\]</span></p>
-<div class="sourceCode" id="cb419"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">price</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
@@ -465,11 +471,11 @@ We can use the ‘arrange’ function to arrange data, based on one parameter or
 ## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31</code></pre>
 <div id="descending-order" class="section level3">
 <h3>
-<span class="header-section-number">47.5.1</span> Descending Order<a class="anchor" aria-label="anchor" href="#descending-order"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.5.1</span> Descending Order<a class="anchor" aria-label="anchor" href="#descending-order"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can use the ‘desc’ function to arrange data, based on one or multiple parameters, in a descending order, using the following syntax:
 <span class="math display">\[arrange(data, desc(column\ for\ arrangement))\]</span></p>
-<div class="sourceCode" id="cb421"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut       color clarity depth table price     x     y     z
@@ -481,13 +487,13 @@ We can use the ‘arrange’ function to arrange data, based on one parameter or
 </div>
 <div id="entry-manipulation" class="section level2">
 <h2>
-<span class="header-section-number">47.6</span> Entry Manipulation<a class="anchor" aria-label="anchor" href="#entry-manipulation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6</span> Entry Manipulation<a class="anchor" aria-label="anchor" href="#entry-manipulation"><i class="fas fa-link"></i></a>
 </h2>
 <p>In real life data processing, sometimes, we need to gather data in order to reduce the dimension. For example, if we want to show the mean of number of products sold across all months while the data shows daily sales. In this case, we need to gather observations by combining observations within the same month and calculate their cumulative mean and generate the desirable visualizations. This is when the grouping function and summary function in dplyr comes in handy.
 ### Grouping
 Grouping function in dplyr groups data based on the categories in the assigned column(s). The general syntax is:
 <span class="math display">\[group\_by(data, column\ used\ for\ grouping, \dots)\]</span></p>
-<div class="sourceCode" id="cb423"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ## # Groups:   cut [3]
@@ -496,7 +502,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 ## 1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43
 ## 2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31
 ## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31</code></pre>
-<div class="sourceCode" id="cb425"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">diamonds</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
@@ -507,12 +513,12 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 <p>Notice that the dataframe before and after grouping looks exactly the same! This is because the ‘group_by’ function does not change the dataframe itself, rather, it prepares the dataframe for further data processing. As we can see in the next section, we can summarize the data after grouping.</p>
 <div id="summary-statistics" class="section level3">
 <h3>
-<span class="header-section-number">47.6.1</span> Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6.1</span> Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"><i class="fas fa-link"></i></a>
 </h3>
 <p>Often times, we want to reduce the complexity of the data by creating summary statistics, such as the mean, median, max, etc. The ‘summarise’ function in dplyr do just the job. After grouping by categories in certain column(s), we can employ the ‘summarise’ function to create new column(s) of summary statistics, with the following syntax:
 <span class="math display">\[summarise(grouped\_data, new\_column\_name = function(column\ to\ be\ summarized), \dots)\]</span></p>
 <p>For example, here we are trying to get the mean price based on the cut of diamond type.</p>
-<div class="sourceCode" id="cb427"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb495"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span><span class="op">)</span>, mean_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   cut       mean_price
@@ -524,7 +530,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 ## 5 Ideal          3458.</code></pre>
 <div id="helper-function-for-summarise" class="section level4">
 <h4>
-<span class="header-section-number">47.6.1.1</span> Helper function for summarise()<a class="anchor" aria-label="anchor" href="#helper-function-for-summarise"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6.1.1</span> Helper function for summarise()<a class="anchor" aria-label="anchor" href="#helper-function-for-summarise"><i class="fas fa-link"></i></a>
 </h4>
 <p>There are several helper functions that can efficiently find the summary statistics within the ‘summarise’ function.</p>
 <ul>
@@ -536,16 +542,16 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </div>
 <div id="mutation" class="section level3">
 <h3>
-<span class="header-section-number">47.6.2</span> Mutation<a class="anchor" aria-label="anchor" href="#mutation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6.2</span> Mutation<a class="anchor" aria-label="anchor" href="#mutation"><i class="fas fa-link"></i></a>
 </h3>
 <p>The ‘mutate’ function is extremely useful for data manipulation not only because it allows for greater freedom in transforming the existing dataframe, but also because of its application in missing value imputation. The syntax for the mutate function is:
 <span class="math display">\[mutate(data, new\_column\_name = operation, \dots)\]</span></p>
 <div id="transforming-dataframe" class="section level4">
 <h4>
-<span class="header-section-number">47.6.2.1</span> Transforming Dataframe<a class="anchor" aria-label="anchor" href="#transforming-dataframe"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6.2.1</span> Transforming Dataframe<a class="anchor" aria-label="anchor" href="#transforming-dataframe"><i class="fas fa-link"></i></a>
 </h4>
 <p>We can add a new parameter by performing operations on existing parameters. In the following example, we will calculate the price per carat diamond for each diamond listed in the dataset. To do so we can use the formula <span class="math inline">\(\frac{price}{carat}\)</span> for each row of observation.</p>
-<div class="sourceCode" id="cb429"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">diamonds</span>, price_per_carat <span class="op">=</span> <span class="va">price</span><span class="op">/</span><span class="va">carat</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
 ##   carat cut    color clarity depth table price     x     y     z price_per_carat
@@ -557,10 +563,10 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </div>
 <div id="imputation-using-mean" class="section level4">
 <h4>
-<span class="header-section-number">47.6.2.2</span> Imputation – Using Mean<a class="anchor" aria-label="anchor" href="#imputation-using-mean"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6.2.2</span> Imputation – Using Mean<a class="anchor" aria-label="anchor" href="#imputation-using-mean"><i class="fas fa-link"></i></a>
 </h4>
 <p>For the sake of demonstration, we will create a pseudo-dataset that contains missing values to showcase the imputation power of the mutate function.</p>
-<div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#create new data</span>
 <span class="va">pseudo_missing_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tom"</span>, <span class="st">"Jay"</span>, <span class="st">"Marry"</span>, <span class="st">"Lexa"</span>, <span class="st">"Garcia"</span><span class="op">)</span>,
                           age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">40</span><span class="op">:</span><span class="fl">80</span>, <span class="fl">3</span>, replace <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span>
@@ -572,7 +578,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 ## 4   Lexa  NA
 ## 5 Garcia  NA</code></pre>
 <p>In the example, we can see that Lexa and Garcia’s ages are missing. We will use mutate function to impute the missing values by using the mean of the rest of the ages (i.e. age of Tom, Jay, and Marry). The <span class="math inline">\(is.na()\)</span> function is used to check if the entry contain NA values.</p>
-<div class="sourceCode" id="cb433"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">imputed_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">pseudo_missing_data</span>,
                        age <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>, <span class="va">age</span><span class="op">)</span><span class="op">)</span>
 <span class="va">imputed_data</span></code></pre></div>
@@ -585,10 +591,10 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </div>
 <div id="imputation-removing-observations" class="section level4">
 <h4>
-<span class="header-section-number">47.6.2.3</span> Imputation – Removing Observations<a class="anchor" aria-label="anchor" href="#imputation-removing-observations"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6.2.3</span> Imputation – Removing Observations<a class="anchor" aria-label="anchor" href="#imputation-removing-observations"><i class="fas fa-link"></i></a>
 </h4>
 <p>Also, there is a more brutal way of cleaning the data – removing observations with NA values (i.e. removing the entire row if that row contain NA value). However, this type of cleaning technique is generally not recommended when there are large quantity of missing values, because it will severely depricate the integrity of the original dataset and lose important information. But the general way of removing observations with NA values is by calling the ‘na.omit’ function:</p>
-<div class="sourceCode" id="cb435"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/na.omit.data.table.html">na.omit</a></span><span class="op">(</span><span class="va">pseudo_missing_data</span><span class="op">)</span></code></pre></div>
 <pre><code>##    name age
 ## 1   Tom  42
@@ -598,7 +604,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </div>
 <div id="useful-helper-functions-for-mutate" class="section level4">
 <h4>
-<span class="header-section-number">47.6.2.4</span> Useful Helper Functions for mutate()<a class="anchor" aria-label="anchor" href="#useful-helper-functions-for-mutate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6.2.4</span> Useful Helper Functions for mutate()<a class="anchor" aria-label="anchor" href="#useful-helper-functions-for-mutate"><i class="fas fa-link"></i></a>
 </h4>
 <p>There are multiple functions that can be embedded in the ‘mutate’ function which helps perform complex tasks that otherwise requires us to define functions by ourselves:</p>
 <ul>
@@ -609,7 +615,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 <li><p><span class="math inline">\(cummean()\)</span>: Cumulative mean</p></li>
 </ul>
 <p>example:</p>
-<div class="sourceCode" id="cb437"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">helper_example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">diamonds</span>,
                          <span class="co">#use cummin to find the minimum value up to the current observation</span>
                          cummin_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cummin</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,
@@ -629,11 +635,11 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </div>
 <div id="distinct-1" class="section level3">
 <h3>
-<span class="header-section-number">47.6.3</span> Distinct<a class="anchor" aria-label="anchor" href="#distinct-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.6.3</span> Distinct<a class="anchor" aria-label="anchor" href="#distinct-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>The ‘distinct’ function is used to check if there is any duplicates in the data set. Because we wouldn’t want our data to have excessive duplicated observations. The distinct function can help us to delete the replicated rows and simplify the dataframe.
 <span class="math display">\[distinct(data, \dots)\]</span></p>
-<div class="sourceCode" id="cb439"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">repeated_diamonds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">diamonds</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>
 <span class="va">repeated_diamonds</span> </code></pre></div>
 <pre><code>## # A tibble: 5 × 10
@@ -644,7 +650,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 ## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31
 ## 4  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43
 ## 5  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31</code></pre>
-<div class="sourceCode" id="cb441"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">repeated_diamonds</span> <span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
@@ -656,11 +662,11 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </div>
 <div id="piping---tying-everything-together" class="section level2">
 <h2>
-<span class="header-section-number">47.7</span> Piping - Tying Everything Together<a class="anchor" aria-label="anchor" href="#piping---tying-everything-together"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.7</span> Piping - Tying Everything Together<a class="anchor" aria-label="anchor" href="#piping---tying-everything-together"><i class="fas fa-link"></i></a>
 </h2>
 <p>Piping is an effective way to construct data processing pipelines, especially when the process involves multiple manipulation steps. The grammar used to pipe down commands is the ‘%&gt;%’. The direction where the arrow is pointing towards is the way that data processing proceeds.</p>
 <p>For example, we want to first filter out the observations that have ‘Good’ cut; then only keep the parameters that are numerical (i.e. ‘carat’, ‘price’, ‘depth’, ‘table’, ‘x’, ‘y’, ‘z’), as well as ‘clarity’; then, summarize the data by taking the mean of price grouping by ‘clarity’.</p>
-<div class="sourceCode" id="cb443"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#pass down to the next manipulation command using piping</span>
 <span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="co">#filter only those observations with Good cuts</span>
@@ -687,10 +693,10 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </div>
 <div id="using-dplyr-with-ggplot" class="section level2">
 <h2>
-<span class="header-section-number">47.8</span> Using Dplyr with GGplot<a class="anchor" aria-label="anchor" href="#using-dplyr-with-ggplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">49.8</span> Using Dplyr with GGplot<a class="anchor" aria-label="anchor" href="#using-dplyr-with-ggplot"><i class="fas fa-link"></i></a>
 </h2>
 <p>The essence of dplyr is to clean the data before it is used to perform model construction or data visualization. In this section, we will use a simple data visualization example that combines dplyr and ggplot2 and shows how we can tie the functions we have introduced above with graphic design using ggplot2.</p>
-<div class="sourceCode" id="cb445"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="co">#data manipulation using dplyr</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fair"</span>, <span class="st">"Good"</span>, <span class="st">"Very Good"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
@@ -709,33 +715,33 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="network-visualization-in-r.html"><span class="header-section-number">46</span> Network Visualization in R</a></div>
-<div class="next"><a href="downloading-files.html"><span class="header-section-number">48</span> Downloading files</a></div>
+<div class="prev"><a href="network-visualization-in-r.html"><span class="header-section-number">48</span> Network Visualization in R</a></div>
+<div class="next"><a href="downloading-files.html"><span class="header-section-number">50</span> Downloading files</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-tutorial-in-r"><span class="header-section-number">47</span> Dplyr tutorial in R</a></li>
-<li><a class="nav-link" href="#environment-setup"><span class="header-section-number">47.1</span> Environment Setup</a></li>
-<li><a class="nav-link" href="#introduction-5"><span class="header-section-number">47.2</span> Introduction</a></li>
-<li><a class="nav-link" href="#data"><span class="header-section-number">47.3</span> Data</a></li>
+<li><a class="nav-link" href="#dplyr-tutorial-in-r"><span class="header-section-number">49</span> Dplyr tutorial in R</a></li>
+<li><a class="nav-link" href="#environment-setup"><span class="header-section-number">49.1</span> Environment Setup</a></li>
+<li><a class="nav-link" href="#introduction-5"><span class="header-section-number">49.2</span> Introduction</a></li>
+<li><a class="nav-link" href="#data"><span class="header-section-number">49.3</span> Data</a></li>
 <li>
-<a class="nav-link" href="#column-and-row-manipulation"><span class="header-section-number">47.4</span> Column and Row Manipulation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#filter-1"><span class="header-section-number">47.4.1</span> Filter</a></li>
-<li><a class="nav-link" href="#slice"><span class="header-section-number">47.4.2</span> Slice</a></li>
+<a class="nav-link" href="#column-and-row-manipulation"><span class="header-section-number">49.4</span> Column and Row Manipulation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#filter-2"><span class="header-section-number">49.4.1</span> Filter</a></li>
+<li><a class="nav-link" href="#slice"><span class="header-section-number">49.4.2</span> Slice</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#order-manipulation"><span class="header-section-number">47.5</span> Order Manipulation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#descending-order"><span class="header-section-number">47.5.1</span> Descending Order</a></li></ul>
+<a class="nav-link" href="#order-manipulation"><span class="header-section-number">49.5</span> Order Manipulation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#descending-order"><span class="header-section-number">49.5.1</span> Descending Order</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#entry-manipulation"><span class="header-section-number">47.6</span> Entry Manipulation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#summary-statistics"><span class="header-section-number">47.6.1</span> Summary Statistics</a></li>
-<li><a class="nav-link" href="#mutation"><span class="header-section-number">47.6.2</span> Mutation</a></li>
-<li><a class="nav-link" href="#distinct-1"><span class="header-section-number">47.6.3</span> Distinct</a></li>
+<a class="nav-link" href="#entry-manipulation"><span class="header-section-number">49.6</span> Entry Manipulation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#summary-statistics"><span class="header-section-number">49.6.1</span> Summary Statistics</a></li>
+<li><a class="nav-link" href="#mutation"><span class="header-section-number">49.6.2</span> Mutation</a></li>
+<li><a class="nav-link" href="#distinct-1"><span class="header-section-number">49.6.3</span> Distinct</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#piping---tying-everything-together"><span class="header-section-number">47.7</span> Piping - Tying Everything Together</a></li>
-<li><a class="nav-link" href="#using-dplyr-with-ggplot"><span class="header-section-number">47.8</span> Using Dplyr with GGplot</a></li>
+<li><a class="nav-link" href="#piping---tying-everything-together"><span class="header-section-number">49.7</span> Piping - Tying Everything Together</a></li>
+<li><a class="nav-link" href="#using-dplyr-with-ggplot"><span class="header-section-number">49.8</span> Using Dplyr with GGplot</a></li>
 </ul>
 
       <div class="book-extra">
@@ -753,7 +759,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-14.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

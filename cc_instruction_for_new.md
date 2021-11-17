@@ -1,0 +1,108 @@
+# A brief instruction for the half semester of EDAV5702
+
+Siyuan Sang
+
+## Introduction
+<p style="text-indent:32px;">
+#### The Exploratory Data Analysis and Visualization(EDAV) is a very useful course for R users to get familiar with the techiques and rules we need to learn in terms of data visualization(honestly, anyone can figure out this from the name). In this instruction, instead of digging into some R vitualization skills, I'll provide you with some useful suggestions and resources based on my first half of semester. I sincerely hope this instruction can help somebody out in the future.
+</p>
+## The packages you should get familiar with
+
+
+```r
+library(ggplot2)
+library(tidyverse)
+```
+
+#### These two lines of code will appear on the top of your every homework assignment. Get familiar with them, ggplot2 is the base of graph in this course, and tidyverse is the core package of tidyverse.
+
+#### Here're two websites you can learn in advance,
+
+#### For ggpolt2: https://r4ds.had.co.nz/data-visualisation.html
+#### For tidyverse: https://r4ds.had.co.nz/introduction.html#the-tidyverse
+ 
+## Pay attention to the rules learned in class
+
+#### In the process of data vatualization, there are some rules that you may ignore. However, many students(including me) lost points because of this. To make it more specific, I'll quote my work and the correct one from my homework1 here to show you how it works.
+
+#### My code goes like this:
+
+
+```r
+library(openintro)
+ggplot(loans_full_schema, aes(x =loan_purpose, y = loan_amount)) + 
+  geom_boxplot() +
+  coord_flip()
+```
+
+<img src="cc_instruction_for_new_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" />
+
+#### While the correct one should be:
+
+
+```r
+library(openintro)
+ggplot(loans_full_schema, aes(x = fct_reorder(loan_purpose, loan_amount), y = loan_amount)) + 
+  geom_boxplot() +
+  coord_flip()
+```
+
+<img src="cc_instruction_for_new_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" />
+
+####  See the difference? The only thing I forget to do is arrange the boxed in descending order of median. However, it turns out that this little difference can cause huge difference.
+
+## Try your best to imporve the graph
+
+#### As a course of data vitualization, in my view, drawing a graph should never be the end of the story. There're many ways to make your graphs look more clear and refined. Here I give an example of the scatterplot of housing price.
+
+
+```r
+cor_df <- ames %>%
+  group_by(Neighborhood) %>%
+  summarize(cor = cor(area, price), beta = lm(price~area)$coefficients[2], meanprice = mean(price)) %>%
+  ungroup() %>%
+  arrange(beta)
+ggplot(cor_df, aes(meanprice, beta)) +
+  geom_point() +
+  geom_smooth(method="lm", se= FALSE)
+```
+
+<img src="cc_instruction_for_new_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" />
+
+#### It's now just a set of points with a line in this graph. Now I want to improve it. Considering our goal to make an analysis. It can be a good idea to put the names of Neighborhoods inside.
+
+
+```r
+ggplot(cor_df, aes(meanprice, beta, label = Neighborhood)) +
+  geom_point() +
+  geom_text(nudge_y = 10, size = 3) +
+  geom_smooth(method="lm", se= FALSE)
+```
+
+<img src="cc_instruction_for_new_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" />
+#### In this graph, although a lot names are in a mess, we can easily figure out the Neighborhood name of the oulier, which is an observable features of the dataset. 
+
+#### Here is a blog I'd like to provide, which is a wide summary of many codes to improve your graph,
+
+#### http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/#working-with-the-background-colors
+
+#### The author is zev@zevross.com
+
+## Analysis is important!
+
+#### During the first half of semester, I noticed that many students including me seem to have some misunderstanding of this course. We should always remember that the goal of data vitualization is not that graph but what we conclude from that graph. The reason to improve the graphs is not writting several meaningless words as your final analysis. As a data analyst, I think the time we need to cost on analysis the graph should always be much more than we draw it, even you're not asked to do so.
+
+## Some other suggestions
+
+####  Although this is a course based on R, I still think learning how to achieve the same thing in python is very useful.
+
+####  When you're asked to find a partner, do it ealier than anyone else.
+
+####  When you're facing with some problems, you can also look through the instructions in other languages, there're many high quality journals that is not in English. As an example, Google tanslater is good enough to make me understand the most ideas of a instruction in Japanese.
+
+
+
+
+
+
+

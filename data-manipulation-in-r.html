@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 40 Data manipulation in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Junhao Zhang  40.0.1 Overview This cheat sheet is particularly made for people who don’t experience with R and it briefly talks about the necessary tools and packages used in our programming...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 40 Data manipulation in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Junhao Zhang  40.0.1 Overview This cheat sheet is particularly made for people who don’t experience with R and it briefly talks about the necessary tools and packages used in our programming...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 40 Data manipulation in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Junhao Zhang  40.0.1 Overview This cheat sheet is particularly made for people who don’t experience with R and it briefly talks about the necessary tools and packages used in our programming...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
+<li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
+<li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
+<li><a class="" href="ggalluvial-cheatsheet.html"><span class="header-section-number">33</span> ggalluvial Cheatsheet</a></li>
+<li><a class="" href="a-cheatsheet-from-pandas-to-base-r-and-tidyverse.html"><span class="header-section-number">34</span> A cheatsheet from pandas to base r and tidyverse</a></li>
+<li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">35</span> Introduction to Log-transformation</a></li>
+<li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
+<li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">37</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="scatterplots-cheatsheet.html"><span class="header-section-number">38</span> Scatterplots cheatsheet</a></li>
+<li><a class="" href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">39</span> Base R String Operations Cheatsheet</a></li>
+<li><a class="active" href="data-manipulation-in-r.html"><span class="header-section-number">40</span> Data manipulation in R</a></li>
+<li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">41</span> ggplot_matplotlib_cheatsheet</a></li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">42</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">43</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">44</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">45</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">46</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">47</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">48</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">49</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">50</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">51</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">52</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">53</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">54</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">55</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">56</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">57</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">58</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">59</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">60</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">61</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">62</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">63</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">64</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">65</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">66</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">67</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">68</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">69</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">70</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">71</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">72</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">73</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">74</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">75</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">76</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">77</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">78</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">79</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">80</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">81</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">82</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">83</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">84</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">85</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">86</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">87</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">88</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">89</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">90</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">91</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">92</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">93</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">94</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">95</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">96</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">97</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">98</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">99</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">100</span> How to animate your plots</a></li>
+<li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">101</span> Dataframe operations tutorial</a></li>
+<li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">102</span> A brief instruction for the half semester of EDAV5702</a></li>
+<li><a class="" href="anova-tutorial.html"><span class="header-section-number">103</span> ANOVA tutorial</a></li>
+<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">104</span> ggplot2 in python</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">105</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">106</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">107</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">108</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">109</span> RGL Package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">110</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">111</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">112</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">113</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">114</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">115</span> Base r vs. ggplot2 visualization</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">116</span> Super ggformat</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">117</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">118</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-manipulation-in-r" class="section level1">
+<h1>
+<span class="header-section-number">40</span> Data manipulation in R<a class="anchor" aria-label="anchor" href="#data-manipulation-in-r"><i class="fas fa-link"></i></a>
+</h1>
+<p>Junhao Zhang</p>
+<div id="overview" class="section level3">
+<h3>
+<span class="header-section-number">40.0.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview"><i class="fas fa-link"></i></a>
+</h3>
+<p>This cheat sheet is particularly made for people who don’t experience with R and it briefly talks about the necessary tools and packages used in our programming assignments that can help manipulate the dataset before doing the visualization. Two packages will be mainly focused here: “dplyr” and “tidyr”.</p>
+</div>
+<div id="environment-set-up" class="section level3">
+<h3>
+<span class="header-section-number">40.0.2</span> Environment Set Up<a class="anchor" aria-label="anchor" href="#environment-set-up"><i class="fas fa-link"></i></a>
+</h3>
+<p>Before using those packages, we need to install them into our computer. To do that, we can simply install the tidyverse package and import it use library() function, which includes dplyr, tidyr and some other useful packages.</p>
+</div>
+<div id="part-one-data-import" class="section level3">
+<h3>
+<span class="header-section-number">40.0.3</span> Part One: Data Import<a class="anchor" aria-label="anchor" href="#part-one-data-import"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this part, three most commonly used ways of importing data will be showed.<br>
+1.<b>Direct Import from R Package</b><br>
+2.<b>Import Using URL </b><br>
+3.<b>Import from local computer</b><br></p>
+<div id="import-from-package" class="section level4">
+<h4>
+<span class="header-section-number">40.0.3.1</span> Import from Package<a class="anchor" aria-label="anchor" href="#import-from-package"><i class="fas fa-link"></i></a>
+</h4>
+<p>One greatest thing about R is that it has a R dataset package which contains a variety of datasets that we can use.
+To use those datasets, we just need to import the package into R.
+eg If we want to use fastfood dataset from the openintro packaage, we just need to import openintro</p>
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://openintrostat.github.io/openintro/">openintro</a></span><span class="op">)</span>
+<span class="va">fastfood</span></code></pre></div>
+<pre><code>## # A tibble: 515 × 17
+##    restaurant item      calories cal_fat total_fat sat_fat trans_fat cholesterol
+##    &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+##  1 Mcdonalds  Artisan …      380      60         7       2       0            95
+##  2 Mcdonalds  Single B…      840     410        45      17       1.5         130
+##  3 Mcdonalds  Double B…     1130     600        67      27       3           220
+##  4 Mcdonalds  Grilled …      750     280        31      10       0.5         155
+##  5 Mcdonalds  Crispy B…      920     410        45      12       0.5         120
+##  6 Mcdonalds  Big Mac        540     250        28      10       1            80
+##  7 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
+##  8 Mcdonalds  Classic …      510     210        24       4       0            65
+##  9 Mcdonalds  Double C…      430     190        21      11       1            85
+## 10 Mcdonalds  Double Q…      770     400        45      21       2.5         175
+## # … with 505 more rows, and 9 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;,
+## #   fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;,
+## #   calcium &lt;dbl&gt;, salad &lt;chr&gt;</code></pre>
+<p>If there are other dataset called fastfood, to avoid confusion, we can specify it clearly with the package name</p>
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">openintro</span><span class="fu">::</span><span class="va"><a href="https://openintrostat.github.io/openintro/reference/fastfood.html">fastfood</a></span></code></pre></div>
+<pre><code>## # A tibble: 515 × 17
+##    restaurant item      calories cal_fat total_fat sat_fat trans_fat cholesterol
+##    &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+##  1 Mcdonalds  Artisan …      380      60         7       2       0            95
+##  2 Mcdonalds  Single B…      840     410        45      17       1.5         130
+##  3 Mcdonalds  Double B…     1130     600        67      27       3           220
+##  4 Mcdonalds  Grilled …      750     280        31      10       0.5         155
+##  5 Mcdonalds  Crispy B…      920     410        45      12       0.5         120
+##  6 Mcdonalds  Big Mac        540     250        28      10       1            80
+##  7 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
+##  8 Mcdonalds  Classic …      510     210        24       4       0            65
+##  9 Mcdonalds  Double C…      430     190        21      11       1            85
+## 10 Mcdonalds  Double Q…      770     400        45      21       2.5         175
+## # … with 505 more rows, and 9 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;,
+## #   fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;,
+## #   calcium &lt;dbl&gt;, salad &lt;chr&gt;</code></pre>
+</div>
+<div id="import-using-url" class="section level4">
+<h4>
+<span class="header-section-number">40.0.3.2</span> Import Using URL<a class="anchor" aria-label="anchor" href="#import-using-url"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: lower-alpha">
+<li>We can also import dataset direcly from online sources. To achieve that, we will be using the read_csv function.
+eg import the crime dataset from government official website.</li>
+</ol>
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://data.ny.gov/api/views/ca8h-8gjq/rows.csv"</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 21,228 × 15
+##    County Agency      Year `Months Reporte… `Index Total` `Violent Total` Murder
+##    &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Albany Albany Ci…  1990               NA          6635            1052      9
+##  2 Albany Albany Ci…  1991               NA          7569            1201     11
+##  3 Albany Albany Ci…  1992               NA          7791            1150      8
+##  4 Albany Albany Ci…  1993               NA          7802            1238      6
+##  5 Albany Albany Ci…  1994               NA          8648            1380     13
+##  6 Albany Albany Ci…  1995               NA          8329            1227      7
+##  7 Albany Albany Ci…  1996               NA          8130            1132     11
+##  8 Albany Albany Ci…  1997               NA          7354            1035      7
+##  9 Albany Albany Ci…  1998               NA          7320             995      2
+## 10 Albany Albany Ci…  1999               NA          7475             897     12
+## # … with 21,218 more rows, and 8 more variables: Rape &lt;dbl&gt;, Robbery &lt;dbl&gt;,
+## #   Aggravated Assault &lt;dbl&gt;, Property Total &lt;dbl&gt;, Burglary &lt;dbl&gt;,
+## #   Larceny &lt;dbl&gt;, Motor Vehicle Theft &lt;dbl&gt;, Region &lt;chr&gt;</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>We can alsp import dataset direcly from the github.<br>
+1.Go to the github repository link where you have the CSV file<br>
+2.Click on the raw option present on the top right of the data<br>
+3.Copy the URL and put into the read_csv function<br>
+eg read dataset from the github</li>
+</ol>
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/curran/data/gh-pages/dataSoup/datasets.csv"</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 57 × 12
+##    `Dataset Name`  `Person Adding` `Date Added` `Dataset Link`  `Most Recent Ye…
+##    &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;           
+##  1 2008 Election … EJ              11/7/2012    https://docs.g… 2008            
+##  2 Occupy Oakland… EJ              11/7/2012    https://docs.g… 2012            
+##  3 NYPD Stop-and-… EJ              11/7/2012    http://api.occ… 2011            
+##  4 Presidential S… Kai             11/7/2012    http://millerc… 2012            
+##  5 USDA National … Kai             11/7/2012    http://www.ars… 2012            
+##  6 US Foreign Aid  Kai             11/7/2012    https://explor… 2010            
+##  7 US Potato Stat… Kai             11/7/2012    https://explor… 2007            
+##  8 Livestock and … Kai             11/7/2012    https://explor… 2011            
+##  9 Mine Accidents… Kai             11/7/2012    http://www.msh… 2012            
+## 10 Sloan Digital … Kai             11/7/2012    http://www.sds… 2011            
+## # … with 47 more rows, and 7 more variables: Earliest Year In Data &lt;dbl&gt;,
+## #   Status &lt;chr&gt;, Dataset Type &lt;chr&gt;, Documentation &lt;chr&gt;, Existing Work &lt;chr&gt;,
+## #   Tags &lt;chr&gt;, Active &lt;chr&gt;</code></pre>
+</div>
+<div id="import-from-the-local-computer" class="section level4">
+<h4>
+<span class="header-section-number">40.0.3.3</span> Import from the local computer<a class="anchor" aria-label="anchor" href="#import-from-the-local-computer"><i class="fas fa-link"></i></a>
+</h4>
+<p>If the file is already in you computer, then you can simple import it by finding its path and read it.<br>
+eg read the state_wl.csv file from the computer.<br>
+1. Find the location of state_wl.csv in your computer.<br>
+2. Use read_csv to read it: read_csv(file path).<br></p>
+</div>
+</div>
+<div id="missing-values" class="section level3">
+<h3>
+<span class="header-section-number">40.0.4</span> Missing Values<a class="anchor" aria-label="anchor" href="#missing-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>Before we talk about data transformation packages, I want to first address the missing values problem. In reality, most data set will not be tidy, especially data set from online sources.The most common issue in any given data set is the missing value. Sometimes missing values are just meaningless errors, but sometimes they are important. It’s up to you to decide whether to include those missing values or not. This part will show how to detect, recode and exclude missing values.<br></p>
+<div id="detecting-missing-values" class="section level4">
+<h4>
+<span class="header-section-number">40.0.4.1</span> Detecting missing values<a class="anchor" aria-label="anchor" href="#detecting-missing-values"><i class="fas fa-link"></i></a>
+</h4>
+<p>The is.na() function will help test whether missing values exist or not by returning a logical vector with either TRUE or FALSE</p>
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="cn">NA</span>, <span class="fl">6</span><span class="op">:</span><span class="fl">7</span>, <span class="cn">NA</span><span class="op">)</span>
+<span class="va">x</span></code></pre></div>
+<pre><code>## [1]  1  2  3  4 NA  6  7 NA</code></pre>
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
+<p>To identify the location or the number of NAs in a vector, we can use which() and sum()</p>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># identify the location of NA</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 5 8</code></pre>
+<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># coun the number of NA</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="recode-missing-values" class="section level4">
+<h4>
+<span class="header-section-number">40.0.4.2</span> Recode missing values<a class="anchor" aria-label="anchor" href="#recode-missing-values"><i class="fas fa-link"></i></a>
+</h4>
+<p>Not all missing values are meaningless. Some missing values are caused by human error and thus we can correct them by recoding missing values.</p>
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># original x</span>
+<span class="va">x</span></code></pre></div>
+<pre><code>## [1]  1  2  3  4 NA  6  7 NA</code></pre>
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># replace NA in x by other numbers</span>
+<span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> 
+<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">x</span>,<span class="fl">2</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 1.00 2.00 3.00 4.00 3.83 6.00 7.00 3.83</code></pre>
+</div>
+<div id="exclude-missing-values" class="section level4">
+<h4>
+<span class="header-section-number">40.0.4.3</span> Exclude missing values<a class="anchor" aria-label="anchor" href="#exclude-missing-values"><i class="fas fa-link"></i></a>
+</h4>
+<p>If we are sure that missing values are meaningless, then we can remove it from the dataset because any arithmetic calculation involving NA results in NA.</p>
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="cn">NA</span>,<span class="fl">3</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> </code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Another way to remove all NA from a dataframe is by using na.omit().</p>
+<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="cn">NA</span><span class="op">)</span>,
+                 col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"this"</span>, <span class="cn">NA</span>,<span class="st">"is"</span>, <span class="st">"text"</span><span class="op">)</span>, 
+                 col3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>, 
+                 col4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">4.2</span>, <span class="fl">3.2</span>, <span class="cn">NA</span><span class="op">)</span>,
+                 stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">df</span></code></pre></div>
+<pre><code>##   col1 col2  col3 col4
+## 1    1 this  TRUE  2.5
+## 2    2 &lt;NA&gt; FALSE  4.2
+## 3    3   is  TRUE  3.2
+## 4   NA text  TRUE   NA</code></pre>
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></code></pre></div>
+<pre><code>##   col1 col2 col3 col4
+## 1    1 this TRUE  2.5
+## 3    3   is TRUE  3.2</code></pre>
+</div>
+</div>
+<div id="part-two-dylyr" class="section level3">
+<h3>
+<span class="header-section-number">40.0.5</span> Part Two: dylyr<a class="anchor" aria-label="anchor" href="#part-two-dylyr"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are 7 key functions that help transform dataset.<br>
+1.<b>filter</b>: subset a data frame where all columns in the subset satisfy certain conditions.<br>
+2.<b>select</b>: select columns by their names.<br>
+3.<b>mutate</b>: adds news columns at the end of dataset and preserves the existing ones.<br>
+4.<b>arrange</b>: change the order of rows in a data frame.<br>
+5.<b>summarise/summarize</b>: reduces multiple values down to a single value and usually used on grouped data.<br>
+6.<b>group_by</b>: group the whole dataset by one or more variables<br>
+7.<b>rename</b>: rename column names.<br></p>
+<p>We will be using mtcars dataset in r to illustrate the above key functions.<br></p>
+<div id="filter-1" class="section level4">
+<h4>
+<span class="header-section-number">40.0.5.1</span> filter()<a class="anchor" aria-label="anchor" href="#filter-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can use this function to get columns based on their values.<br>
+eg find all cars that has 6 cylinders</p>
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="va">cyl</span><span class="op">==</span><span class="fl">6</span><span class="op">)</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Valiant        18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 280       19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C      17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6</code></pre>
+<p>We can also use c() to filter more than more columns<br>
+eg find all information of cars that have number of foward gears is 3 or 5</p>
+<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="va">gear</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code></pre>
+<p>We can also put complex conditions
+eg find all cars have more than 6 cylinders and fuel consumption less than 20 mpg.</p>
+<div class="sourceCode" id="cb274"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="va">cyl</span><span class="op">&gt;</span><span class="fl">6</span> <span class="op">&amp;</span> <span class="va">mpg</span><span class="op">&lt;</span><span class="fl">20</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code></pre>
+</div>
+<div id="select-1" class="section level4">
+<h4>
+<span class="header-section-number">40.0.5.2</span> select()<a class="anchor" aria-label="anchor" href="#select-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>we can use select to pick up certain columns by their names, especially when you have a really long dataframe, select allows you to select only columns you need.<br></p>
+<p>eg select car information containing information of miles per gallon and number of cylinders</p>
+<div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="va">mpg</span>,<span class="va">cyl</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl
+## Mazda RX4           21.0   6
+## Mazda RX4 Wag       21.0   6
+## Datsun 710          22.8   4
+## Hornet 4 Drive      21.4   6
+## Hornet Sportabout   18.7   8
+## Valiant             18.1   6
+## Duster 360          14.3   8
+## Merc 240D           24.4   4
+## Merc 230            22.8   4
+## Merc 280            19.2   6
+## Merc 280C           17.8   6
+## Merc 450SE          16.4   8
+## Merc 450SL          17.3   8
+## Merc 450SLC         15.2   8
+## Cadillac Fleetwood  10.4   8
+## Lincoln Continental 10.4   8
+## Chrysler Imperial   14.7   8
+## Fiat 128            32.4   4
+## Honda Civic         30.4   4
+## Toyota Corolla      33.9   4
+## Toyota Corona       21.5   4
+## Dodge Challenger    15.5   8
+## AMC Javelin         15.2   8
+## Camaro Z28          13.3   8
+## Pontiac Firebird    19.2   8
+## Fiat X1-9           27.3   4
+## Porsche 914-2       26.0   4
+## Lotus Europa        30.4   4
+## Ford Pantera L      15.8   8
+## Ferrari Dino        19.7   6
+## Maserati Bora       15.0   8
+## Volvo 142E          21.4   4</code></pre>
+<p>We can select several columns using index “:”
+eg select car information from displacement to weight</p>
+<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="va">disp</span><span class="op">:</span><span class="va">wt</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      disp  hp drat    wt
+## Mazda RX4           160.0 110 3.90 2.620
+## Mazda RX4 Wag       160.0 110 3.90 2.875
+## Datsun 710          108.0  93 3.85 2.320
+## Hornet 4 Drive      258.0 110 3.08 3.215
+## Hornet Sportabout   360.0 175 3.15 3.440
+## Valiant             225.0 105 2.76 3.460
+## Duster 360          360.0 245 3.21 3.570
+## Merc 240D           146.7  62 3.69 3.190
+## Merc 230            140.8  95 3.92 3.150
+## Merc 280            167.6 123 3.92 3.440
+## Merc 280C           167.6 123 3.92 3.440
+## Merc 450SE          275.8 180 3.07 4.070
+## Merc 450SL          275.8 180 3.07 3.730
+## Merc 450SLC         275.8 180 3.07 3.780
+## Cadillac Fleetwood  472.0 205 2.93 5.250
+## Lincoln Continental 460.0 215 3.00 5.424
+## Chrysler Imperial   440.0 230 3.23 5.345
+## Fiat 128             78.7  66 4.08 2.200
+## Honda Civic          75.7  52 4.93 1.615
+## Toyota Corolla       71.1  65 4.22 1.835
+## Toyota Corona       120.1  97 3.70 2.465
+## Dodge Challenger    318.0 150 2.76 3.520
+## AMC Javelin         304.0 150 3.15 3.435
+## Camaro Z28          350.0 245 3.73 3.840
+## Pontiac Firebird    400.0 175 3.08 3.845
+## Fiat X1-9            79.0  66 4.08 1.935
+## Porsche 914-2       120.3  91 4.43 2.140
+## Lotus Europa         95.1 113 3.77 1.513
+## Ford Pantera L      351.0 264 4.22 3.170
+## Ferrari Dino        145.0 175 3.62 2.770
+## Maserati Bora       301.0 335 3.54 3.570
+## Volvo 142E          121.0 109 4.11 2.780</code></pre>
+<p>We could add a minus sign in front of the column name to not select them.
+eg select all information of car except Rear axle ration and number of carburetors</p>
+<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="op">-</span><span class="va">drat</span>,<span class="op">-</span><span class="va">carb</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp    wt  qsec vs am gear
+## Mazda RX4           21.0   6 160.0 110 2.620 16.46  0  1    4
+## Mazda RX4 Wag       21.0   6 160.0 110 2.875 17.02  0  1    4
+## Datsun 710          22.8   4 108.0  93 2.320 18.61  1  1    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.215 19.44  1  0    3
+## Hornet Sportabout   18.7   8 360.0 175 3.440 17.02  0  0    3
+## Valiant             18.1   6 225.0 105 3.460 20.22  1  0    3
+## Duster 360          14.3   8 360.0 245 3.570 15.84  0  0    3
+## Merc 240D           24.4   4 146.7  62 3.190 20.00  1  0    4
+## Merc 230            22.8   4 140.8  95 3.150 22.90  1  0    4
+## Merc 280            19.2   6 167.6 123 3.440 18.30  1  0    4
+## Merc 280C           17.8   6 167.6 123 3.440 18.90  1  0    4
+## Merc 450SE          16.4   8 275.8 180 4.070 17.40  0  0    3
+## Merc 450SL          17.3   8 275.8 180 3.730 17.60  0  0    3
+## Merc 450SLC         15.2   8 275.8 180 3.780 18.00  0  0    3
+## Cadillac Fleetwood  10.4   8 472.0 205 5.250 17.98  0  0    3
+## Lincoln Continental 10.4   8 460.0 215 5.424 17.82  0  0    3
+## Chrysler Imperial   14.7   8 440.0 230 5.345 17.42  0  0    3
+## Fiat 128            32.4   4  78.7  66 2.200 19.47  1  1    4
+## Honda Civic         30.4   4  75.7  52 1.615 18.52  1  1    4
+## Toyota Corolla      33.9   4  71.1  65 1.835 19.90  1  1    4
+## Toyota Corona       21.5   4 120.1  97 2.465 20.01  1  0    3
+## Dodge Challenger    15.5   8 318.0 150 3.520 16.87  0  0    3
+## AMC Javelin         15.2   8 304.0 150 3.435 17.30  0  0    3
+## Camaro Z28          13.3   8 350.0 245 3.840 15.41  0  0    3
+## Pontiac Firebird    19.2   8 400.0 175 3.845 17.05  0  0    3
+## Fiat X1-9           27.3   4  79.0  66 1.935 18.90  1  1    4
+## Porsche 914-2       26.0   4 120.3  91 2.140 16.70  0  1    5
+## Lotus Europa        30.4   4  95.1 113 1.513 16.90  1  1    5
+## Ford Pantera L      15.8   8 351.0 264 3.170 14.50  0  1    5
+## Ferrari Dino        19.7   6 145.0 175 2.770 15.50  0  1    5
+## Maserati Bora       15.0   8 301.0 335 3.570 14.60  0  1    5
+## Volvo 142E          21.4   4 121.0 109 2.780 18.60  1  1    4</code></pre>
+<p>eg Don’t select information between displacement and weight</p>
+<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="op">-</span><span class="op">(</span><span class="va">disp</span><span class="op">:</span><span class="va">wt</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl  qsec vs am gear carb
+## Mazda RX4           21.0   6 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 17.02  0  1    4    4
+## Datsun 710          22.8   4 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 17.02  0  0    3    2
+## Valiant             18.1   6 20.22  1  0    3    1
+## Duster 360          14.3   8 15.84  0  0    3    4
+## Merc 240D           24.4   4 20.00  1  0    4    2
+## Merc 230            22.8   4 22.90  1  0    4    2
+## Merc 280            19.2   6 18.30  1  0    4    4
+## Merc 280C           17.8   6 18.90  1  0    4    4
+## Merc 450SE          16.4   8 17.40  0  0    3    3
+## Merc 450SL          17.3   8 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 17.42  0  0    3    4
+## Fiat 128            32.4   4 19.47  1  1    4    1
+## Honda Civic         30.4   4 18.52  1  1    4    2
+## Toyota Corolla      33.9   4 19.90  1  1    4    1
+## Toyota Corona       21.5   4 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 16.87  0  0    3    2
+## AMC Javelin         15.2   8 17.30  0  0    3    2
+## Camaro Z28          13.3   8 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 17.05  0  0    3    2
+## Fiat X1-9           27.3   4 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 16.70  0  1    5    2
+## Lotus Europa        30.4   4 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 15.50  0  1    5    6
+## Maserati Bora       15.0   8 14.60  0  1    5    8
+## Volvo 142E          21.4   4 18.60  1  1    4    2</code></pre>
+</div>
+<div id="mutate-1" class="section level4">
+<h4>
+<span class="header-section-number">40.0.5.3</span> mutate()<a class="anchor" aria-label="anchor" href="#mutate-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can use this function to add new variables and adding it at the end of dataset and preserves the existing columns.<br></p>
+<p>eg we can calculate the displacement per cylinder for each car with mpg greater than 20 by using mutate</p>
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">&gt;</span><span class="fl">20</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>capacity<span class="op">=</span><span class="va">disp</span><span class="op">/</span><span class="va">cyl</span><span class="op">)</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb capacity
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4 26.66667
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4 26.66667
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1 27.00000
+## Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1 43.00000
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2 36.67500
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2 35.20000
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1 19.67500
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2 18.92500
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1 17.77500
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1 30.02500
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1 19.75000
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2 30.07500
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2 23.77500
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2 30.25000</code></pre>
+</div>
+<div id="arrange-1" class="section level4">
+<h4>
+<span class="header-section-number">40.0.5.4</span> arrange()<a class="anchor" aria-label="anchor" href="#arrange-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can use this function to sort all rows by the value of columns. The default order is ascending. Use desc() to sort it in descending order.<br></p>
+<p>eg we sort all the cars by the fuel consumption (mpg) in acending and decending order</p>
+<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="va">mpg</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1</code></pre>
+<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4</code></pre>
+<p>We can also sort the dataframe using more than one column values
+eg sort all the cars by cylinder number in descending order and if cars have the same culinder number then sort by weight in ascending order</p>
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span>,<span class="va">wt</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2</code></pre>
+</div>
+<div id="summarisesummarize" class="section level4">
+<h4>
+<span class="header-section-number">40.0.5.5</span> summarise()/summarize()<a class="anchor" aria-label="anchor" href="#summarisesummarize"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="group_by" class="section level4">
+<h4>
+<span class="header-section-number">40.0.5.6</span> group_by()<a class="anchor" aria-label="anchor" href="#group_by"><i class="fas fa-link"></i></a>
+</h4>
+<p>In most cases, summarise() and group_by() functions are used together when transforming the data. Summarise() creates a new dataframe which contains one column for each grouping variable and one column for each summary statistics.<br></p>
+<p>eg summarize the mean and count statistics of fuel consumption for cars without grouping</p>
+<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">mtcars</span>,mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span>,count<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>##       mean count
+## 1 20.09062    32</code></pre>
+<p>eg first group by the number of cylinders then summarize the mean and count statistics of fuel consumption for cars</p>
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span>,count<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##     cyl  mean count
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1     4  26.7    11
+## 2     6  19.7     7
+## 3     8  15.1    14</code></pre>
+<p>we can also group by more than one variables<br>
+eg gourp by number of cylinders and weight and then summarize the mean and count statistics of fuel consumption for cars.</p>
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cyl</span>,<span class="va">wt</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span>,count<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 30 × 4
+## # Groups:   cyl [3]
+##      cyl    wt  mean count
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+##  1     4  1.51  30.4     1
+##  2     4  1.62  30.4     1
+##  3     4  1.84  33.9     1
+##  4     4  1.94  27.3     1
+##  5     4  2.14  26       1
+##  6     4  2.2   32.4     1
+##  7     4  2.32  22.8     1
+##  8     4  2.46  21.5     1
+##  9     4  2.78  21.4     1
+## 10     4  3.15  22.8     1
+## # … with 20 more rows</code></pre>
+<p>If we want to perform operations on ungrouped data, use ungroup()</p>
+</div>
+<div id="rename-1" class="section level4">
+<h4>
+<span class="header-section-number">40.0.5.7</span> rename()<a class="anchor" aria-label="anchor" href="#rename-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>we can use this function to change the column names.<br>
+eg change the qsec to acceleration</p>
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">mtcars</span>,acceleration<span class="op">=</span><span class="va">qsec</span><span class="op">)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt acceleration vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620        16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875        17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320        18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215        19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440        17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460        20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570        15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190        20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150        22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440        18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440        18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070        17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730        17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780        18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250        17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424        17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345        17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200        19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615        18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835        19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465        20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520        16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435        17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840        15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845        17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935        18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140        16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513        16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170        14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770        15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570        14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780        18.60  1  1    4    2</code></pre>
+</div>
+</div>
+<div id="part-three-tidyr" class="section level3">
+<h3>
+<span class="header-section-number">40.0.6</span> Part Three: tidyr<a class="anchor" aria-label="anchor" href="#part-three-tidyr"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are 2 key functions that help transform dataset.<br>
+1.<b>pivot_longer</b>: Increase the number of rows and decrease the number of columns<br>
+2.<b>pivot_wider</b>: The opposite of pivot_longer.<br></p>
+<div id="pivot_longer-1" class="section level4">
+<h4>
+<span class="header-section-number">40.0.6.1</span> pivot_longer()<a class="anchor" aria-label="anchor" href="#pivot_longer-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>One of the most commom problem with dataset is that the some column names are not the variable names, but values of a variable. To deal with this case, we use pivot_longer to transform the dataset.<br>
+eg in table4a, the column “1999” and “2000” are not variables but they are values of variable "year, so we use pivot_longer to change it.</p>
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">table4a</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   country     `1999` `2000`
+## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+## 1 Afghanistan    745   2666
+## 2 Brazil       37737  80488
+## 3 China       212258 213766</code></pre>
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">table4a</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">`1999`</span>, <span class="va">`2000`</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"year"</span>, values_to <span class="op">=</span> <span class="st">"cases"</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   country     year   cases
+##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;
+## 1 Afghanistan 1999     745
+## 2 Afghanistan 2000    2666
+## 3 Brazil      1999   37737
+## 4 Brazil      2000   80488
+## 5 China       1999  212258
+## 6 China       2000  213766</code></pre>
+</div>
+<div id="pivot_wider-1" class="section level4">
+<h4>
+<span class="header-section-number">40.0.6.2</span> Pivot_wider()<a class="anchor" aria-label="anchor" href="#pivot_wider-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>This function is the opposite of pivot_longer. Instead of increasing the number of rows, it decreases the number of rows but increases the number of columns. We normally use it when an observation is scattered across multiple rows.<br>
+eg in table2, an observation is a county in a year, but each observation across two row,and we want to transform it such at each county in a year only has one row.</p>
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">table2</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 4
+##    country      year type            count
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+##  1 Afghanistan  1999 cases             745
+##  2 Afghanistan  1999 population   19987071
+##  3 Afghanistan  2000 cases            2666
+##  4 Afghanistan  2000 population   20595360
+##  5 Brazil       1999 cases           37737
+##  6 Brazil       1999 population  172006362
+##  7 Brazil       2000 cases           80488
+##  8 Brazil       2000 population  174504898
+##  9 China        1999 cases          212258
+## 10 China        1999 population 1272915272
+## 11 China        2000 cases          213766
+## 12 China        2000 population 1280428583</code></pre>
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span><span class="va">table2</span>,names_from <span class="op">=</span> <span class="va">type</span>,values_from <span class="op">=</span> <span class="va">count</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   country      year  cases population
+##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan  1999    745   19987071
+## 2 Afghanistan  2000   2666   20595360
+## 3 Brazil       1999  37737  172006362
+## 4 Brazil       2000  80488  174504898
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583</code></pre>
+</div>
+<div id="note" class="section level4">
+<h4>
+<span class="header-section-number">40.0.6.3</span> Note:<a class="anchor" aria-label="anchor" href="#note"><i class="fas fa-link"></i></a>
+</h4>
+<p>pivot_longer makes dataframe narrower and longer, while pivot_wider makes dataframe wider and shorter, so they are actually complements.</p>
+</div>
+</div>
+<div id="part-four-example" class="section level3">
+<h3>
+<span class="header-section-number">40.0.7</span> Part Four: Example<a class="anchor" aria-label="anchor" href="#part-four-example"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this part, we will use an example to show how those functions really work in transforming the dataset.<br>
+The dataset we will be using is seattlepets in the openintro package.<br>
+The goal is to find the dog names and cat names and decide which names are more popular for dogs and for cats.</p>
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dogcat</span> <span class="op">&lt;-</span> <span class="va">seattlepets</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dog"</span>,<span class="st">"Cat"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">animal_name</span>,<span class="va">species</span>,name<span class="op">=</span><span class="st">'total'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>id_cols<span class="op">=</span><span class="va">animal_name</span>,names_from <span class="op">=</span> <span class="va">species</span>,values_from <span class="op">=</span> <span class="va">total</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>total<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Cat</span>,<span class="va">Dog</span>,na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,proportion<span class="op">=</span><span class="va">Dog</span><span class="op">/</span><span class="va">total</span>,ratio<span class="op">=</span><span class="va">Dog</span><span class="op">/</span><span class="va">Cat</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">total</span><span class="op">)</span><span class="op">)</span>
+<span class="va">dogcat</span></code></pre></div>
+<pre><code>## # A tibble: 13,920 × 6
+##    animal_name   Cat   Dog total proportion ratio
+##    &lt;chr&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 &lt;NA&gt;          406    76   482      0.158 0.187
+##  2 Lucy          102   337   439      0.768 3.30 
+##  3 Charlie        81   306   387      0.791 3.78 
+##  4 Luna          111   244   355      0.687 2.20 
+##  5 Bella          82   249   331      0.752 3.04 
+##  6 Max            83   186   269      0.691 2.24 
+##  7 Daisy          40   221   261      0.847 5.52 
+##  8 Molly          54   186   240      0.775 3.44 
+##  9 Jack           65   167   232      0.720 2.57 
+## 10 Lily           86   146   232      0.629 1.70 
+## # … with 13,910 more rows</code></pre>
+<div id="explanation" class="section level4">
+<h4>
+<span class="header-section-number">40.0.7.1</span> Explanation:<a class="anchor" aria-label="anchor" href="#explanation"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>use the filter function to find all animal names whose species are dog or cat.<br>
+</li>
+<li>find the total number for each animal name using the count function.<br>
+</li>
+<li>use pivot_wider to expand the dataframe to get the count of each name for dog and cat.<br>
+</li>
+<li>add new columns total,proportion and raio using mutate().<br>
+</li>
+<li>reorder the datafram by total in descending order using arrange().<br>
+</li>
+<li>notice that there are some NAs in dog and cat columns. We can use na.rm to avoid it.</li>
+</ol>
+</div>
+</div>
+<div id="summary" class="section level3">
+<h3>
+<span class="header-section-number">40.0.8</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
+</h3>
+<p>The motivation of this project is to create a guide to future 5702 students who don’t have much experience with R. I personally don’t have much experience with R before taking this class, so when I was doing the problem sets, I kind struggled a little bit. I want to create this cheat sheet so it can help future students get familiar with R. In this project, I mainly talk about three parts. The first part is about importing data. I discussed three most common ways that people use to import data: package, online website, github. The second part is dplyr package. This is one of the most useful packages in R. It contains a variety of functions that help transform the data. I illustrate 7 key functions in the package by giving some simple examples. I’m not giving complicated examples because this cheat sheet is for students who don’t have much experience with R. The last part is another package “tidyr”, also one of the most important packages in R. It allows to create tidy data. Two functions are mainly talked about in this part. Finally, I give an example step by step using the previous functions to show how to use them in analyzing a real problem. Apparently, this cheat sheet is only for R beginners because the stuff it covers is really simple. I only talk about packages and functions I used before. Of course, there are more useful functions and packages not covered in this cheat sheet. For people who want to know more information, please refer to the following links in the preferences. If I will do it again next time, I will add more details and more advanced uses of the previous stuff.</p>
+</div>
+<div id="references-3" class="section level3">
+<h3>
+<span class="header-section-number">40.0.9</span> References<a class="anchor" aria-label="anchor" href="#references-3"><i class="fas fa-link"></i></a>
+</h3>
+<p><a href="https://r4ds.had.co.nz/transform.html" class="uri">https://r4ds.had.co.nz/transform.html</a><br><a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a><br><a href="https://r4ds.had.co.nz/tidy-data.html#tidy-data-1" class="uri">https://r4ds.had.co.nz/tidy-data.html#tidy-data-1</a><br><a href="https://tidyr.tidyverse.org/" class="uri">https://tidyr.tidyverse.org/</a></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">39</span> Base R String Operations Cheatsheet</a></div>
+<div class="next"><a href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">41</span> ggplot_matplotlib_cheatsheet</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li>
+<a class="nav-link" href="#data-manipulation-in-r"><span class="header-section-number">40</span> Data manipulation in R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#overview"><span class="header-section-number">40.0.1</span> Overview</a></li>
+<li><a class="nav-link" href="#environment-set-up"><span class="header-section-number">40.0.2</span> Environment Set Up</a></li>
+<li><a class="nav-link" href="#part-one-data-import"><span class="header-section-number">40.0.3</span> Part One: Data Import</a></li>
+<li><a class="nav-link" href="#missing-values"><span class="header-section-number">40.0.4</span> Missing Values</a></li>
+<li><a class="nav-link" href="#part-two-dylyr"><span class="header-section-number">40.0.5</span> Part Two: dylyr</a></li>
+<li><a class="nav-link" href="#part-three-tidyr"><span class="header-section-number">40.0.6</span> Part Three: tidyr</a></li>
+<li><a class="nav-link" href="#part-four-example"><span class="header-section-number">40.0.7</span> Part Four: Example</a></li>
+<li><a class="nav-link" href="#summary"><span class="header-section-number">40.0.8</span> Summary</a></li>
+<li><a class="nav-link" href="#references-3"><span class="header-section-number">40.0.9</span> References</a></li>
+</ul>
+</li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/data_manipulation_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/data_manipulation_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-17.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
