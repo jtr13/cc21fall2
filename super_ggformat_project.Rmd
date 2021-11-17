@@ -35,7 +35,7 @@ parcoords(data = sel_df_,brushMode = '1D-axes',color = list(colorBy = "Region"),
 There are 5 "sentences" in the code block above -- the first three sentences imports libraries, and the fourth sentence modifies dataframe `df`, the last sentence draw a plot using `parcoords`. However, `ggformat` clearly cannot differentiate those sentences and would result in wrong answer by simply stacking all these sentences together:
 
 ```{r}
-# BEFORE
+##After using ggformat
 library(parcoords)library(webshot)library(d3r)sel_df_<-df %>%
   filter(Year == 2020) %>%
   select(County,Region,Murder,Rape,Robbery)%>%
