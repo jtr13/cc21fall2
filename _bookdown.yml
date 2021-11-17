@@ -9,6 +9,9 @@ language:
 
 
 
+# Chapter ordering
+
+
 
 
 
@@ -125,6 +128,7 @@ rmd_files: [
   'dataframe_operation_tutorial.Rmd',
   'instruction_for_new_ss.Rmd',
   'anova_tutorial_revised.Rmd',
+  'ggplot2_in_python.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -149,4 +153,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
