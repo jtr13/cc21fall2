@@ -10,7 +10,7 @@ knitr::opts_chunk$set(error = TRUE)
 The main **motivation** for this community contribution project is to provide a tutorial of a few useful visualization tools in the process of the analysis of variances, a common topic that statisticians deal with on a daily basis. This project will walk users through such tools of visualization and how they would be a complement to concrete test results by making them understandable even by audiences with little training in statistics. In the first part, the background for a typical problem of our choice will be provided and manipulations of the data will be carried out to obtain a model of best fit for later use. In the second part, diagnosis using visualization tools will be conducted and results will be analyzed.
 
 ```{r}
-.libPaths("C:/Rpackage")
+#.libPaths("C:/Rpackage")
 library(car)
 library(MASS)
 library(tidyverse)
