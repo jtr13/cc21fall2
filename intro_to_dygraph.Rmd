@@ -1,0 +1,116 @@
+# An Introduction to Dygraph in R
+
+Yanyun Chen
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+
+### These are the codes demonstrated in the video tutorial. The video tutorial can be found at https://www.youtube.com/watch?v=ewQdzu47yZs
+
+
+***Data Source: FRED, https://fred.stlouisfed.org/categories/9?t=cpi&ob=pv&od=desc#***
+
+
+```{r library}
+library(readxl)
+library(dygraphs)
+library(dplyr)
+```
+
+
+### Project Description
+The main motivation of this project is the ubiquity of time series data. One thing I 
+noticed in my past internship and project experience is that the need for exploratory 
+analysis and visualization of such data is high, but people are less familiar with it than 
+other types of data. Moreover, the r package dygraphs provides much easier and 
+intuitive functionality to draw time series data when compared to ggplot or plotly (which 
+were introduced in class), and it additionally has interactive features that are useful for 
+long-term time series data. I personally think the video tutorial and example codes are 
+organized and rendered in a clean and friendly way that anyone with some r 
+background would understand and learn. During the making process, I’ve also
+benefitted a lot from exploring this package, especially plotting prediction range and 
+actual data in such a quick and easy way. However, what I might do differently next 
+time is to pay more attention to the best practices of visualizing time series data, such 
+as not filling the area. 
+
+
+### The Basic
+
+```{r intro}
+cpi_data <- read_excel("resources/intro_to_dygraph/cpi.xlsx", col_types = c("date", 
+    "numeric", "numeric"))
+colnames(cpi_data) <- c("date","us","china")
+us_cpi <- ts(cpi_data$us, frequency=12, start=c(1999,9))
+dygraph(us_cpi)
+```
+
+
+**Note**: In the video, fill is demonstrated. But filling time series graph is generally not recommended.
+
+```{r selector,title,label}
+dygraph(us_cpi, main = "CPI, not seasonally adjusted: All Items for United States") %>% 
+  dySeries("V1", label = "United States CPI",color='red') %>%
+  dyAxis("y", label = "Index (2015=100)", valueRange = c(50, 120)) %>%
+  dyOptions(axisLineWidth = 1.5, 
+            drawGrid = FALSE) %>%
+  dyRangeSelector(height = 20) %>%
+  dyLegend(show = "follow")
+```
+
+
+### Multiple Series
+```{r multilple}
+cpi <- ts(cpi_data[,-1], frequency=12, start=c(1999,9))
+dygraph(cpi)
+```
+```{r multilple/options}
+dygraph(cpi,main="CPI, not Seasonally Adjusted: All Items") %>%
+  dySeries("us", label = "United States",color='red') %>%
+  dySeries("china", label = "China",color='blue') %>%
+  dyAxis("y", label = "Index (2015=100)") %>%
+  dyOptions(axisLineWidth = 1.5, drawGrid = TRUE) %>%
+  dyRangeSelector(height = 20)
+```
+
+### Events
+
+**Note**: In the video, drawing event line along with shaded region is demonstrated. Another option is to draw annotation along with shaded region, which is demonstrated below.
+
+```{r events}
+dygraph(cpi, main="CPI, not Seasonally Adjusted: All Items") %>%
+  dySeries("us", label = "United States") %>%
+  dySeries("china", label = "China") %>%
+  dyRangeSelector(height = 20) %>%
+  dyEvent("2019-12-01", "COVID-19", labelLoc = "bottom") %>%
+  dyAnnotation("2008-05-01", "2008 Financial Crisis", attachAtBottom = TRUE, width = 150) %>%
+  #dyEvent("2008-05-01", "2008 Financial Crisis", labelLoc = "bottom") %>%
+  dyShading(from = "2008-01-01", to = "2008-12-01")
+```
+
+
+### Prediction
+```{r upper/lower}
+china_cpi <- ts(cpi_data$china, frequency=12, start=c(1999,9))
+hw <- HoltWinters(china_cpi)
+predicted <- predict(hw, n.ahead = 36, prediction.interval = TRUE)
+all <- cbind(china_cpi, predicted)
+
+dygraph(all, "CPI, not Seasonally Adjusted: All Items for China") %>%
+  dySeries("china_cpi", label = "Actual") %>%
+  dySeries(c("predicted.lwr", "predicted.fit", "predicted.upr"), label = "Predicted")
+```
+
+
+```{r upper/lower/more}
+china_cpi_200 <- ts(cpi_data$china[1:200], frequency=12, start=c(1999,9))
+hw <- HoltWinters(china_cpi_200)
+predicted <- predict(hw, n.ahead = 64, prediction.interval = TRUE)
+all <- cbind(china_cpi, predicted)
+
+dygraph(all, "CPI, not Seasonally Adjusted: All Items for China") %>%
+  dySeries("china_cpi", label = "Actual") %>%
+  dySeries(c("predicted.lwr", "predicted.fit", "predicted.upr"), label = "Predicted")
+```
+
