@@ -19,6 +19,7 @@ language:
 # Chapter ordering
 
 
+
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -156,4 +157,5 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
+
 
