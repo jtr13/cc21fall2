@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 38 Scatterplots cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Shangzhi Liu # package used library(ggplot2) library(scatterplot3d) library(car) #use data mtcars in package car # Sample scatterplot 1: set.seed(1234) x &lt;- rnorm(100,mean = 2, sd = 3) y &lt;- -1.5 +...">
+<title>Chapter 104 Color selection for ggplot graphs | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Raphaël Adda and Deepesh Theruvath library(ggplot2) library(RColorBrewer) How to chose colors in R When we are a plotting something, the choice of the colors is very important. R offers a huge...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 38 Scatterplots cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 104 Color selection for ggplot graphs | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Shangzhi Liu # package used library(ggplot2) library(scatterplot3d) library(car) #use data mtcars in package car # Sample scatterplot 1: set.seed(1234) x &lt;- rnorm(100,mean = 2, sd = 3) y &lt;- -1.5 +...">
+<meta property="og:description" content="Raphaël Adda and Deepesh Theruvath library(ggplot2) library(RColorBrewer) How to chose colors in R When we are a plotting something, the choice of the colors is very important. R offers a huge...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 38 Scatterplots cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Shangzhi Liu # package used library(ggplot2) library(scatterplot3d) library(car) #use data mtcars in package car # Sample scatterplot 1: set.seed(1234) x &lt;- rnorm(100,mean = 2, sd = 3) y &lt;- -1.5 +...">
+<meta name="twitter:title" content="Chapter 104 Color selection for ggplot graphs | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Raphaël Adda and Deepesh Theruvath library(ggplot2) library(RColorBrewer) How to chose colors in R When we are a plotting something, the choice of the colors is very important. R offers a huge...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -80,14 +80,15 @@
 <li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
 <li><a class="" href="ggalluvial-cheatsheet.html"><span class="header-section-number">33</span> ggalluvial Cheatsheet</a></li>
 <li><a class="" href="a-cheatsheet-from-pandas-to-base-r-and-tidyverse.html"><span class="header-section-number">34</span> A cheatsheet from pandas to base r and tidyverse</a></li>
-<li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">35</span> Introduction to Log-transformation</a></li>
-<li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">36</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
-<li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">37</span> Cheat Sheet to Score 100 Points</a></li>
-<li><a class="active" href="scatterplots-cheatsheet.html"><span class="header-section-number">38</span> Scatterplots cheatsheet</a></li>
-<li><a class="" href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">39</span> Base R String Operations Cheatsheet</a></li>
-<li><a class="" href="data-manipulation-in-r.html"><span class="header-section-number">40</span> Data manipulation in R</a></li>
-<li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">41</span> ggplot_matplotlib_cheatsheet</a></li>
-<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">42</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">35</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
+<li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">36</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">37</span> Base R String Operations Cheatsheet</a></li>
+<li><a class="" href="data-manipulation-in-r.html"><span class="header-section-number">38</span> Data manipulation in R</a></li>
+<li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">39</span> ggplot_matplotlib_cheatsheet</a></li>
+<li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">40</span> Introduction to Log-transformation</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">41</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">42</span> Tutorial on Cluster Analysis</a></li>
 <li><a class="" href="apply-function-in-r.html"><span class="header-section-number">43</span> Apply function in r</a></li>
 <li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">44</span> Introduction to interactive graphs in R</a></li>
 <li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">45</span> Plot and Analyze Stock Data with R</a></li>
@@ -148,8 +149,8 @@
 <li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">100</span> How to animate your plots</a></li>
 <li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">101</span> Dataframe operations tutorial</a></li>
 <li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">102</span> A brief instruction for the half semester of EDAV5702</a></li>
-<li><a class="" href="anova-tutorial.html"><span class="header-section-number">103</span> ANOVA tutorial</a></li>
-<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">104</span> ggplot2 in python</a></li>
+<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">103</span> ggplot2 in python</a></li>
+<li><a class="active" href="color-selection-for-ggplot-graphs.html"><span class="header-section-number">104</span> Color selection for ggplot graphs</a></li>
 <li class="book-part">Project &amp; Workshops</li>
 <li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">105</span> Introduction to analytics consulting at Accenture</a></li>
 <li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">106</span> Map of the R world</a></li>
@@ -163,6 +164,7 @@
 <li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">113</span> R and Python visualization</a></li>
 <li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">114</span> 3D Visualization with rgl and scatterplot3d</a></li>
 <li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">115</span> Base r vs. ggplot2 visualization</a></li>
+<li class="book-part">Custom R Package</li>
 <li><a class="" href="super-ggformat.html"><span class="header-section-number">116</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="github-initial-setup.html"><span class="header-section-number">117</span> Github initial setup</a></li>
@@ -174,70 +176,109 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="scatterplots-cheatsheet" class="section level1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="color-selection-for-ggplot-graphs" class="section level1">
 <h1>
-<span class="header-section-number">38</span> Scatterplots cheatsheet<a class="anchor" aria-label="anchor" href="#scatterplots-cheatsheet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">104</span> Color selection for ggplot graphs<a class="anchor" aria-label="anchor" href="#color-selection-for-ggplot-graphs"><i class="fas fa-link"></i></a>
 </h1>
-<p>Shangzhi Liu</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># package used</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">scatterplot3d</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span> <span class="co">#use data mtcars in package car</span>
-
-<span class="co"># Sample scatterplot 1:</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>,mean <span class="op">=</span> <span class="fl">2</span>, sd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">1.5</span> <span class="op">+</span> <span class="fl">2</span><span class="op">*</span><span class="va">x</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Sample scatterplot 2:</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span>, alpha <span class="op">=</span> <span class="fl">0.3</span>, shape <span class="op">=</span> <span class="fl">15</span>, color <span class="op">=</span> <span class="st">"blue"</span>, stroke <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># 3D scatterplot:</span>
-<span class="fu"><a href="https://rdrr.io/pkg/scatterplot3d/man/scatterplot3d.html">scatterplot3d</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">wt</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">disp</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, main<span class="op">=</span><span class="st">"3D Scatterplot"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-3.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># 3D scatterplot example:</span>
-<span class="fu"><a href="https://rdrr.io/pkg/scatterplot3d/man/scatterplot3d.html">scatterplot3d</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">wt</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">disp</span>, <span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, highlight.3d<span class="op">=</span><span class="cn">TRUE</span>, type<span class="op">=</span><span class="st">"h"</span>, main<span class="op">=</span><span class="st">"3D Scatterplot"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-4.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Density contour lines, Hexagonal and Square heatmap </span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">geom_density2d</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-5.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-6.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bin_2d.html">geom_bin_2d</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-7.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># text</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">wt</span>, <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">wt</span>, <span class="va">mpg</span>, label <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-8.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">wt</span>, <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">3.840</span>, y <span class="op">=</span> <span class="fl">13.3</span>, label <span class="op">=</span> <span class="st">"Camaro Z28"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="fl">1.935</span>, y <span class="op">=</span> <span class="fl">27.3</span>, label <span class="op">=</span> <span class="st">"Fiat X1-9"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-9.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#matrix</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="op">~</span><span class="va">mpg</span><span class="op">+</span><span class="va">disp</span><span class="op">+</span><span class="va">hp</span><span class="op">+</span><span class="va">drat</span><span class="op">+</span><span class="va">wt</span>,data<span class="op">=</span><span class="va">mtcars</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="scatterplots_cheatsheet_files/figure-html/unnamed-chunk-2-10.png" width="672" style="display: block; margin: auto;"></div>
+<p>Raphaël Adda and Deepesh Theruvath</p>
+<div class="sourceCode" id="cb1458"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></code></pre></div>
+<p><strong>How to chose colors in R</strong></p>
+<p>When we are a plotting something, the choice of the colors is very important. R offers a huge number of ways to determine the colors that we will use. However, a lot of R users do not really know how to choose them.</p>
+<p>This is the motivation behind this cheat sheet which presents the different methods of choosing colors in R.</p>
+<p>We will use this histogram to illustrate how to chose colors</p>
+<div class="sourceCode" id="cb1459"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins<span class="op">=</span><span class="fl">7</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><strong>Classic naming of colors</strong>
+The simplest way to determine colors in a plot is to call the color by its name:</p>
+<p>Example</p>
+<div class="sourceCode" id="cb1460"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins<span class="op">=</span><span class="fl">7</span>,fill <span class="op">=</span> <span class="st">"grey"</span>,col <span class="op">=</span><span class="st">"white"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure">
+<img src="color_selection_ggplot_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;">
+OR:</div>
+<div class="sourceCode" id="cb1461"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins<span class="op">=</span><span class="fl">7</span>,fill <span class="op">=</span> <span class="st">"black"</span>,col <span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><strong>Colors with number</strong>
+In this method we are selecting colors based on the numbers defined in R</p>
+<div class="sourceCode" id="cb1462"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins<span class="op">=</span><span class="fl">7</span>,fill <span class="op">=</span> <span class="fl">3</span>,col <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>Each number greater than 0 is related to a color:
+Here is a graph showing the link between some numbers and some colors:</p>
+<div class="sourceCode" id="cb1463"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">16</span><span class="op">)</span>
+<span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">16</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, col <span class="op">=</span> <span class="va">x</span>, pch <span class="op">=</span> <span class="fl">19</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/axis.html">axis</a></span><span class="op">(</span><span class="fl">1</span>, at <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>So, each number between 1 and 8 corresponds to a color. When a number is greater than 8, its color is just the color of the rest of the euclidiean division per 8 (if the number is divisible by 8, the color corresponds to the color of 8 (grey)</p>
+<p><strong>Using primary colours</strong></p>
+<p>The method presented above is relatively easy but too restrictive. We can use 8 colors for our plots, and more sophisticated figures may require more colors.
+All colors are composed of a mix of three primary colors: red, green, and blue. In all screens, each pixel is characterized by a superposition of these three colors: each one corresponds to a vector of size three, where each vector input is the intensity of the Red, Green, and Blue colors (RGB).
+For instance, the White color is a superposition of Red, Green, and Blue, so, thanks to the R function RGB, applied to the vector (1,1,1), we will obtain the white color.
+Then for the vector (1/2,0,1/2), we will obtain a mix of the red and blue colors but not at their maximum intensity: we will thus get a kind of Purple.</p>
+<div class="sourceCode" id="cb1464"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins<span class="op">=</span><span class="fl">7</span>,fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>,col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">0</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>Thus, thanks to the RGB function, we can reproduce any color we want.</p>
+<p><strong>Mixing colours</strong>
+The previous section is handy because we can obtain every color. However, some people prefer doing their own mix of color.
+The function we will present allows us to mix two different colors:
+colorRamp takes into an argument a vector of two colors and returns a function: this function takes a float argument p between 0 and 1 and returns and return a mix of the two colors (proportion (1-p) of color 1 and p of color 2), coded using RGB colour model. However, each color is coded between 0 and 255 so we need to divide by 255 to obtain the RGB vector with number between 0 and 1 to obtain a vector usable with the rgb function presented above.
+Here is an example: we want a 90% pink and 10% green mix to fill in the histogram.</p>
+<div class="sourceCode" id="cb1465"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRamp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"pink"</span>, <span class="st">"green"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">mixed_col</span> <span class="op">=</span> <span class="fu">pal</span><span class="op">(</span><span class="fl">0.1</span><span class="op">)</span>
+<span class="va">mixed_col</span></code></pre></div>
+<pre><code>##       [,1]  [,2]  [,3]
+## [1,] 229.5 198.3 182.7</code></pre>
+<div class="sourceCode" id="cb1467"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins<span class="op">=</span><span class="fl">7</span>,fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="va">mixed_col</span><span class="op">/</span><span class="fl">255</span><span class="op">)</span>,col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
+<p><strong>Creating differents shades of a colors</strong></p>
+<p>All previous methods help express colors in R. However; they require some knowledge about colors. For people who don’t know how to reproduce colors using the RGB color model or by mixing two colors, a simpler way exists to determine colors.
+The RColorBrewer allows the creation of different shades of color and visualization of them.
+The brewer. pal function takes two arguments: an integer n and a set of colors, and it returns a vector of n shades of this set.
+Here is an example: if we want to use purple in a plot, we just need to display different shades of the set “Purples” and choose which one interests us the most.</p>
+<div class="sourceCode" id="cb1468"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">display.brewer.pal</a></span><span class="op">(</span><span class="fl">9</span>,<span class="st">"Purples"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>Here, assume that the 5th shades of purple is the one that we want to use. Thus, it correspond to “brewer.pal(10,”Purples“)[5]”.</p>
+<div class="sourceCode" id="cb1469"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fill_color</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">9</span>,<span class="st">"Purples"</span><span class="op">)</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins<span class="op">=</span><span class="fl">7</span>,fill <span class="op">=</span> <span class="va">fill_color</span>,col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>In order to know which set of colors we can use, there is the function “display.brewer.all()” which displays all the set of colors and the different colors we can use.</p>
+<div class="sourceCode" id="cb1470"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">display.brewer.all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="color_selection_ggplot_files/figure-html/unnamed-chunk-12-1.png" width="1440" style="display: block; margin: auto;"></div>
 
 </div>
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">37</span> Cheat Sheet to Score 100 Points</a></div>
-<div class="next"><a href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">39</span> Base R String Operations Cheatsheet</a></div>
+<div class="prev"><a href="ggplot2-in-python.html"><span class="header-section-number">103</span> ggplot2 in python</a></div>
+<div class="next"><a href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">105</span> Introduction to analytics consulting at Accenture</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#scatterplots-cheatsheet"><span class="header-section-number">38</span> Scatterplots cheatsheet</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#color-selection-for-ggplot-graphs"><span class="header-section-number">104</span> Color selection for ggplot graphs</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/scatterplots_cheatsheet.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/scatterplots_cheatsheet.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/color_selection_ggplot.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/color_selection_ggplot.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -249,7 +290,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-17.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

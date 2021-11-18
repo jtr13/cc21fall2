@@ -2,6 +2,10 @@
 
 Shangzhi Liu
 
+Check the link to see the scatterplots cheatsheet pdf file:
+
+https://github.com/ShangzhiLiu2021/cc21fall2/blob/scatterplots_cheatsheet/resources/scatterplots_cheatsheet/scatterplots.pdf
+
 
 
 
