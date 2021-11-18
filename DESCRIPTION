@@ -81,6 +81,7 @@ Imports:
     Lock5withR,
     luz,
     magrittr,
+    makeR,
     maps,
     MASS,
     mongolite,
