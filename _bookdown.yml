@@ -131,6 +131,7 @@ rmd_files: [
   'anova_tutorial_revised.Rmd',
   'ggplot2_in_python.Rmd',
   'predictive-analytics-r.Rmd',
+  'color_selection_ggplot.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
