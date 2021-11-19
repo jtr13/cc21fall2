@@ -7,12 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-# Chapter ordering
-
-
-
-
-
 
 # Chapter ordering
 
@@ -131,6 +125,7 @@ rmd_files: [
   'ggplot2_in_python.Rmd',
   'predictive-analytics-r.Rmd',
   'color_selection_ggplot.Rmd',
+  'data_vis_for_ranking.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -156,5 +151,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
-
