@@ -131,7 +131,7 @@ rmd_files: [
   'cc_instruction_for_new.Rmd',
   #'anova_tutorial_revised.Rmd',#commented out as file missing
   'ggplot2_in_python.Rmd',
-  #'predictive-analytics-r.Rmd',#commented may need special install
+  'predictive-analytics-r.Rmd',
   'color_selection_ggplot.Rmd',
   
   # Part: Projects & Workshops
