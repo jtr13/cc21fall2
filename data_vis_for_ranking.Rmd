@@ -1,4 +1,4 @@
-##Data visualization for ranking in R
+#Data visualization for ranking in R
 
 Jingyuan Chen and Ling Sun
 
