@@ -1,4 +1,3 @@
-# (PART) Tutorials {-}
 
 # Tutorial on Cluster Analysis
 
