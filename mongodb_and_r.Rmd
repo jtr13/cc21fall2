@@ -3,7 +3,7 @@
 Yiran Shu (ys3373)
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=TRUE)
 ```
 
 ```{r}
@@ -14,19 +14,19 @@ library(reshape2)
 library(stats)
 ```
 
-## 1. Overview
+## Overview
 
 Note: to knit this Rmd file, you should first install **MongoDB Compass** and add data to the database. These 2 steps are described in part 3 and part 4.
 
 This tutorial talks about how to use *MongoDB* database system with *R*. I will introduce how to install the *MongoDB* database system and the **mongolite** package, perform CRUD operations with the **mongolite** package and visualize the data retrieved from the *MongoDB* database. 
 
-## 2. Introduction
+## Introduction
 
 *MongoDB* is a very popular NoSQL database system. Different from relational database management systems, *MongoDB* is a document database used to build highly available and scalable internet applications [1]. *MongoDB* stores data in collections (similar to tables in MySQL). A collection is composed of documents (similar to records in MySQL). A document is like JSON-format, consisting of attribute-value pairs, which are real data entities. Because *MongoDB* has a flexible schema approach, it is very approariate to store semi-structured and unstructured data. Since data is usually semi-structured and unstrcutured in practice, *MongoDB* is a very popular database management system in web applications.  
 
 *MongoDB* CRUD operations can be learned from https://docs.mongodb.com/manual/crud/. It is very easy to learn and use. Furthermore,  *MongoDB Compass* is very powerful desktop tool for performing operations on and visualizing a *MongoDB* database. Now that *MongoDB* is very useful in databases and data analysis, I would like to introduce how to use it with *R*.
 
-## 3. Installation
+## Installation
 
 Here is the link to download *MongoDB Compass*: https://www.mongodb.com/try/download/compass
 
@@ -34,7 +34,7 @@ To use *MongoDb* with *R*, we need to install the **mongolite** package. It is t
 
 `install.packages("mongolite")`
 
-## 4 Add Data to the Database
+## Add Data to the Database
 
 I took a video on how to do this step on Youtube: https://www.youtube.com/watch?v=BEu8rcslJv8 for reference.
 
@@ -53,7 +53,7 @@ My collection looks like this after inserting the documents:
 
 Obviously, this dataset is about the grades of each student in a class.  
 
-## 5 Connection
+## Connection
 
 We absolutely need to connect to the database to perform operations on the collection. We need a connection string, which is like a url. The connection string can be copied from *MongoDB Compass*. Then we indicate the database name and collection name to connect.
 
@@ -71,7 +71,7 @@ student_collection$count()
 
 There are 200 documents in the **school** collection in total, which indicates that the connection is successful.
 
-## 6 Retrieve Data from MongoDB
+## Retrieve Data from MongoDB
 
 Now we have connected to the `MongoDB` database and our collection **school**. we can use the `find` command to retrieve data from the `MongoDB` database. Refer to https://docs.mongodb.com/manual/reference/method/db.collection.find/ for more information about the `find` command.
 
@@ -84,11 +84,11 @@ If we want to show all the students whose exam score is higher than 80 and their
 student_collection$find('{"exam":{"$gt":80}, "$expr": {"$gt": ["$quiz","$homework"]}}')
 ```
 
-## 7 Other CRUD Operations with Mongolite [3]
+## Other CRUD Operations with Mongolite [3]
 
 In aaddition to retrieving data from the *MongoDB* database with the **mongolite** package, we can also use it to perform other CRUD operations.
 
-### (1) 
+### Insert Command
 For example, if we want to add a student named "Yiran", whose exam score is 93.3, quiz score is 86.1 and homework score is 90.1, we can use the `insert`command. Refer to https://docs.mongodb.com/manual/reference/insert-methods/ for more information about the `insert` command.
 
 ```{r}
@@ -100,7 +100,7 @@ We can now retrieve the document we just inserted.
 student_collection$find('{"name": "Yiran"}')
 ```
 
-### (2)
+### Update Command
 If we want to modify an attribute of a document, we can use the `update` command with the `$set` expression. Refer to https://docs.mongodb.com/manual/reference/method/db.collection.update/ for more information.
 
 ```{r}
@@ -113,7 +113,7 @@ student_collection$find('{"name": "Yiran"}')
 
 We can see that Yiran's exam score has been modified into 92.4.
 
-### (3)
+### Remove Command
 If we want to delete a document from the database, we can use the `remove` command. Refer to https://docs.mongodb.com/v4.2/reference/method/db.collection.remove/ for more information about the `remove` command.
 
 ```{r}
@@ -126,7 +126,7 @@ student_collection$find('{"name": "Yiran"}')
 Now we cannot find anything about Yiran
 
 
-## 8 Visualization
+## Visualization
 
 It is easy to convert the data obtained from APIs of the **mongolite** package to a dataframe in *R*.
 
@@ -179,7 +179,7 @@ Xtest_quiz_exam$p.value
 
 All these 3 p-values are much smaller than 0.01. So all the 3 pairs of variables are independent at the 1% significance level.
 
-## 9 References:
+## References:
 [1] https://www.mongodb.com/why-use-mongodb
 
 [2] https://www.mongodb.com/languages/mongodb-and-r-example
