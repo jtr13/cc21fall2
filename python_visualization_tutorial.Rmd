@@ -1,0 +1,12 @@
+# Python Visualization Tutorial
+
+Jingxiang Zhang
+
+This is a python visualization tutorial using python language and python packages
+including Matplotlib and Seaborn. In the tutorial, we cover contents like continuous
+variables visualization and categorical variables visualization and different kinds
+of graphs like histogram, boxplot, bar chart, etc.
+
+Please check out my github repo to see this tutorial:
+
+[https://github.com/zhangjx831/Python-Visualization/blob/main/Python-Visualization.ipynb](https://github.com/zhangjx831/Python-Visualization/blob/main/Python-Visualization.ipynb)
