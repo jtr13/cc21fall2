@@ -1,9 +1,10 @@
-```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 # rdoc - An Alfred Worflow to Search R Documentation
 
 Darvesh Gorhe
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## Motivation
 Looking up documentation can often be a distracting and time consuming process. It often involves moving to a separate window and out of RStudio or your preferred IDE. This can be remedied by having a second monitor but that is hardly a practical solution in all cases. It would be easier if you could see a temporary window with the information you need that disappears with a keystroke. 
