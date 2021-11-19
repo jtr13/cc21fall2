@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 117 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Abel Perez Vargas  117.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 117 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Abel Perez Vargas  117.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 117 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Abel Perez Vargas  117.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
+<li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
+<li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
+<li><a class="" href="ggalluvial-cheatsheet.html"><span class="header-section-number">33</span> ggalluvial Cheatsheet</a></li>
+<li><a class="" href="a-cheatsheet-from-pandas-to-base-r-and-tidyverse.html"><span class="header-section-number">34</span> A cheatsheet from pandas to base r and tidyverse</a></li>
+<li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">35</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
+<li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">36</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">37</span> Base R String Operations Cheatsheet</a></li>
+<li><a class="" href="data-manipulation-in-r.html"><span class="header-section-number">38</span> Data manipulation in R</a></li>
+<li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">39</span> ggplot_matplotlib_cheatsheet</a></li>
+<li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">40</span> Introduction to Log-transformation</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">41</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">42</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">43</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">44</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">45</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">46</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">47</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">48</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">49</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">50</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">51</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">52</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">53</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">54</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">55</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">56</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">57</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">58</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">59</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">60</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">61</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">62</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">63</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">64</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">65</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">66</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">67</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">68</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">69</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">70</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">71</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">72</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">73</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">74</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">75</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">76</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">77</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">78</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">79</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">80</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">81</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">82</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">83</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">84</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">85</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">86</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">87</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">88</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">89</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">90</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">91</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">92</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">93</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">94</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">95</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">96</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">97</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">98</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">99</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">100</span> How to animate your plots</a></li>
+<li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">101</span> Dataframe operations tutorial</a></li>
+<li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">102</span> A brief instruction for the half semester of EDAV5702</a></li>
+<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">103</span> ggplot2 in python</a></li>
+<li><a class="" href="predictive-analytics-using-data-visualization-in-r.html"><span class="header-section-number">104</span> Predictive Analytics using Data Visualization in R</a></li>
+<li><a class="" href="color-selection-for-ggplot-graphs.html"><span class="header-section-number">105</span> Color selection for ggplot graphs</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">106</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">107</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">108</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">109</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">110</span> RGL Package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">111</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">112</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">113</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">114</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">115</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">116</span> Base r vs. ggplot2 visualization</a></li>
+<li><a class="active" href="improved-density-estimation.html"><span class="header-section-number">117</span> Improved density estimation</a></li>
+<li class="book-part">Custom R Package</li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">118</span> Super ggformat</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">119</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">120</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="improved-density-estimation" class="section level1">
+<h1>
+<span class="header-section-number">117</span> Improved density estimation<a class="anchor" aria-label="anchor" href="#improved-density-estimation"><i class="fas fa-link"></i></a>
+</h1>
+<p>Abel Perez Vargas</p>
+<div id="introduction-25" class="section level2">
+<h2>
+<span class="header-section-number">117.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-25"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as non-positive variables such as money due, level below the sea or below freezing point temperature.</p>
+<p>Before thinking in further modeling of such variables, we may be first interested in exploring and visualizing the data. And among the first techniques one may want to implement, there is univariate visualization.</p>
+<p>Density plots are a very useful technique that unveils the distributional form of the variables, and it may help us identify patterns that may be hidden in a traditional histogram (e.g. “gaps” in the data that may happen to be inside one specific histogram class).</p>
+<p>However, density plots may sometimes give the false impression that a know-to-be non-negative variable has some negative values like in this example using simulations of a <span class="math inline">\(\Gamma(2,2)\)</span> distribution.</p>
+<div class="sourceCode" id="cb1574"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/density.html">density</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span> <span class="op">)</span>, lty<span class="op">=</span><span class="fl">2</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, main<span class="op">=</span><span class="st">"Densities"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">dgamma</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, from<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, to<span class="op">=</span><span class="fl">5</span>, lwd<span class="op">=</span><span class="fl">2</span>, add<span class="op">=</span><span class="cn">T</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"True density"</span>, <span class="st">"Estimated density"</span><span class="op">)</span>, 
+       lty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="improved_density_estimation_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>It can also be the case that the data exhibits values exactly equal to 0, in which case the standard density plot cannot help us detect it and we would have to do further exploration in order to do it.</p>
+<div class="sourceCode" id="cb1575"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span> 
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/density.html">density</a></span><span class="op">(</span> <span class="va">data</span> <span class="op">)</span>, lty<span class="op">=</span><span class="fl">2</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>,  main<span class="op">=</span><span class="st">"Densities"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="st">"Estimated density"</span>, 
+       lty<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="improved_density_estimation_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb1576"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Frequency of 0:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">data</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span> <span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "Frequency of 0: 10"</code></pre>
+</div>
+<div id="generalizing-kernel-smoothing-for-densities" class="section level2">
+<h2>
+<span class="header-section-number">117.2</span> Generalizing Kernel Smoothing for Densities<a class="anchor" aria-label="anchor" href="#generalizing-kernel-smoothing-for-densities"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this tutorial we focus on density plots, or more formally, density estimation based on kernels (Venables &amp; Ripley, 2002) for data that may come from a mixture of discrete and continuous random variables (e.g. data exhibiting 0’s), and avoid positive density below or above 0 if the data exhibits such behavior.</p>
+<p>For this, we first perform an algorithm that detects repeated values in the data and then tests their significance with a Binomial test for the proportion with the following hypothesis:
+<span class="math display">\[H_0: p_i=\frac{1}{n} ~~ vs ~~ H_1: p_i&gt;\frac{1}{n},\]</span>
+for <span class="math inline">\(i\)</span> an index for such values with repetitions.</p>
+<p>If repeated values are found to be statistically significant (that is, when <span class="math inline">\(H_0\)</span> is rejected under <span class="math inline">\(\alpha=0.05\)</span>), we then model the data as a mixture of a discrete random variable with support on the repeated values, and a continuous random variable for the data without repetitions, which implies the following density:
+<span class="math display">\[ f_X(x)=\sum_{i^*}\hat{p}_{i^*} \delta_{ \{ x_{i^*} \} }(x) ~ + ~ \left( 1-\sum_{i^*}\hat{p}_{i^*} \right)g(x),\]</span>
+where <span class="math inline">\(g\)</span> is the density estimate of the data without the significant repeated values: <span class="math inline">\(x_{i^*}\)</span>, <span class="math inline">\(\hat{p}_{i^*}\)</span> represents the estimated probability mass (proportion) of such values, and <span class="math inline">\(\delta_{ \{ k \}}(x)\)</span> is Dirac’s delta, a function that is equal to infinity in <span class="math inline">\(k\)</span>, <span class="math inline">\(0\)</span> otherwise, and integrates to one.</p>
+<p>The previous representation is useful to keep <span class="math inline">\(f_X\)</span> as a valid density function, but for visualization purposes we will only plot <span class="math inline">\(\hat{p}_{i^*}\)</span> as Dirac’s delta would be represented as a vertical infinite line.</p>
+<p>The density <span class="math inline">\(g\)</span> will be modified from the standard <code><a href="https://rdrr.io/r/stats/density.html">stats::density</a></code> function in <code>R</code> to avoid positive density in non-admissible regions (like in the negative numbers if all the data are all positive). For that end, we will slightly modify the kernel method of density estimation, by generalizing the gaussian kernel to truncated normal for the smoothing. In the case of non-negative data, the kernel will be truncated to be distinct than <span class="math inline">\(0\)</span> only for <span class="math inline">\(x\geq0\)</span> (and a similar case for non-positive data).</p>
+</div>
+<div id="plot_density-function" class="section level2">
+<h2>
+<span class="header-section-number">117.3</span> plot_density Function<a class="anchor" aria-label="anchor" href="#plot_density-function"><i class="fas fa-link"></i></a>
+</h2>
+<p>We introduce <code>plot_density</code>, a function that adjusts itself in the presence of non-negative, non-positive or real data to avoid assigning density to unlikely values, and also automatically detects the presence of significant repeated values in the data.</p>
+<div class="sourceCode" id="cb1578"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># plot_density function</span>
+<span class="co">#</span>
+<span class="co"># Inputs:</span>
+<span class="co">#</span>
+<span class="co"># x: data, a numeric vector possibly with repeated values</span>
+<span class="co"># k: split parameter (default=0), the value for which the function will</span>
+<span class="co">#    evaluate whether or not the data is all "to the left", "to the right"</span>
+<span class="co">#    or neither from k</span>
+<span class="co"># bw: bandwidth, either the character "nrd0" as in stats::density, or a number</span>
+<span class="co">#     for manual bandwidth selection</span>
+<span class="co"># main, xlab, ylab: graphical parameters to be passed to base::plot</span>
+<span class="co">#</span>
+<span class="co"># Output: data density plot with displayed relative frequency of repeated vales (if that's the case)</span>
+<span class="va">plot_density</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">thr</span><span class="op">=</span><span class="fl">0</span>, <span class="va">bw</span><span class="op">=</span><span class="st">"nrd0"</span>,
+                         <span class="va">main</span><span class="op">=</span><span class="st">"Density Plot"</span>, <span class="va">xlab</span><span class="op">=</span><span class="st">"x"</span>, <span class="va">ylab</span><span class="op">=</span><span class="st">"density"</span><span class="op">)</span><span class="op">{</span>
+  
+  <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span> <span class="op">)</span><span class="op">{</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="st">"NAs found"</span><span class="op">)</span>
+  <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+    
+    <span class="co"># Repeated Values detection</span>
+    
+    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+    <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+    <span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">[</span><span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">==</span><span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="va">n</span><span class="op">]</span><span class="op">]</span>
+    <span class="va">vals</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
+    
+    <span class="co"># Smallest difference distinct than 0 to be used for plot margins</span>
+    <span class="va">diff</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">-</span><span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="va">n</span><span class="op">]</span>
+    <span class="va">diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">diff</span><span class="op">[</span><span class="va">diff</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">]</span><span class="op">)</span>
+  
+    <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span> <span class="op">)</span><span class="op">{</span>
+      <span class="va">rep</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="co"># frequency of the repeated values</span>
+      <span class="va">M</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">rep</span>, <span class="va">binom.test</span>, n<span class="op">=</span><span class="va">n</span>, p<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="va">n</span>,
+             alternative<span class="op">=</span><span class="st">"greater"</span><span class="op">)</span><span class="co"># binomial test p-values</span>
+      <span class="va">M</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">M</span><span class="op">)</span><span class="op">==</span><span class="st">"p.value"</span>, <span class="op">]</span><span class="op">)</span>
+      
+      <span class="va">vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/names.html">names</a></span><span class="op">(</span><span class="va">rep</span><span class="op">)</span><span class="op">[</span><span class="va">M</span><span class="op">&lt;</span><span class="fl">0.05</span><span class="op">]</span>
+      <span class="va">freq</span> <span class="op">&lt;-</span> <span class="va">rep</span><span class="op">[</span><span class="va">M</span><span class="op">&lt;</span><span class="fl">0.05</span><span class="op">]</span>
+    
+      <span class="co"># If significant values where detected, they are stored in 'vals'</span>
+      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
+        <span class="va">vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span>
+      <span class="op">}</span>
+    <span class="op">}</span>
+    
+    <span class="co"># banwidth</span>
+    
+    <span class="kw">if</span><span class="op">(</span><span class="va">bw</span><span class="op">==</span><span class="st">"nrd0"</span><span class="op">)</span><span class="op">{</span>
+      <span class="co"># Silverman's rule of thumb: Silverman (1986, page 48, eqn (3.31)))</span>
+      <span class="va">IQ</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/quantile.html">quantile</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">0.75</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/quantile.html">quantile</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">0.25</span><span class="op">)</span>
+      <span class="kw">if</span><span class="op">(</span><span class="va">IQ</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
+        <span class="va">bw</span> <span class="op">&lt;-</span> <span class="fl">0.9</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">/</span><span class="fl">1.34</span><span class="op">*</span><span class="va">n</span><span class="op">)</span><span class="op">^</span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span>, <span class="op">(</span><span class="va">IQ</span><span class="op">/</span><span class="fl">1.34</span><span class="op">*</span><span class="va">n</span><span class="op">)</span><span class="op">^</span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>
+      <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+        <span class="va">bw</span> <span class="op">&lt;-</span> <span class="fl">0.9</span><span class="op">*</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">/</span><span class="fl">1.34</span><span class="op">*</span><span class="va">n</span><span class="op">)</span><span class="op">^</span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span>
+      <span class="op">}</span>
+      
+    <span class="op">}</span>
+    
+    
+    <span class="co"># Density plotting</span>
+    
+    
+    <span class="kw">if</span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">&gt;=</span><span class="va">thr</span> <span class="op">)</span><span class="op">{</span>
+      <span class="co"># Non-negative case: Gaussian kernel modified to positive truncated Normal</span>
+      
+      
+      <span class="co"># Truncated normal kernel</span>
+      <span class="va">k</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">m</span>, <span class="va">sd</span><span class="op">)</span><span class="op">{</span>
+        <span class="kw">if</span><span class="op">(</span><span class="va">x</span><span class="op">&lt;</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
+          <span class="fl">0</span>
+        <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+          <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">m</span>, <span class="va">sd</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">m</span>, <span class="va">sd</span><span class="op">)</span><span class="op">)</span> 
+        <span class="op">}</span>
+      <span class="op">}</span>
+      
+      
+      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
+        <span class="co"># Discrete probability mass will be plotted</span>
+        
+        <span class="va">p</span> <span class="op">&lt;-</span> <span class="va">freq</span><span class="op">/</span><span class="va">n</span><span class="co"># mass probabilities</span>
+        <span class="va">c</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="op">!</span><span class="va">x</span> <span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span> <span class="va">vals</span><span class="op">]</span><span class="co"># continuous component</span>
+        
+        <span class="co"># continous density component re-scaled with the mass probability</span>
+        <span class="va">d</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">{</span>
+          <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu">k</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">)</span>
+        <span class="op">}</span>
+        
+        <span class="co"># Plot</span>
+        <span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="va">diff</span>, <span class="va">c</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">+</span><span class="va">diff</span> <span class="op">)</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">grid</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span> <span class="va">grid</span>, <span class="va">d</span>, <span class="va">c</span>, <span class="va">bw</span> <span class="op">)</span>, main<span class="op">=</span><span class="va">main</span>, xlab<span class="op">=</span><span class="va">xlab</span>,
+             ylab<span class="op">=</span><span class="va">ylab</span>, col<span class="op">=</span><span class="st">"darkgray"</span>, type<span class="op">=</span><span class="st">"l"</span><span class="op">)</span>
+        <span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="va">vals</span>, <span class="va">p</span>, pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span>
+        <span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">vals</span><span class="op">[</span><span class="va">j</span><span class="op">]</span>, <span class="va">vals</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">p</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span> <span class="op">)</span><span class="op">}</span>
+        <span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="st">"Mass Probability"</span>, col<span class="op">=</span><span class="st">"black"</span>, pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span>
+      
+      <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+        <span class="co"># No probability mass found</span>
+        
+        <span class="co"># continous density</span>
+        <span class="va">d</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">{</span>
+          <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu">k</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">)</span>
+        <span class="op">}</span>
+        
+        <span class="co"># Plot</span>
+        <span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="va">diff</span>, <span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">+</span><span class="va">diff</span> <span class="op">)</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">grid</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span> <span class="va">grid</span>, <span class="va">d</span>, <span class="va">x</span>, <span class="va">bw</span> <span class="op">)</span>, main<span class="op">=</span><span class="va">main</span>, xlab<span class="op">=</span><span class="va">xlab</span>,
+             ylab<span class="op">=</span><span class="va">ylab</span>, col<span class="op">=</span><span class="st">"gray"</span>, type<span class="op">=</span><span class="st">"l"</span><span class="op">)</span>
+        
+      <span class="op">}</span>
+      
+      
+    <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+      
+      
+      <span class="kw">if</span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">&lt;=</span><span class="va">thr</span> <span class="op">)</span><span class="op">{</span>
+        <span class="co"># Non-positive case: Gaussian kernel modified to negative truncated Normal</span>
+        
+        <span class="co"># Truncated normal kernel</span>
+        <span class="va">k</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">m</span>, <span class="va">sd</span><span class="op">)</span><span class="op">{</span>
+          <span class="kw">if</span><span class="op">(</span><span class="va">x</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
+            <span class="fl">0</span>
+          <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+            <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">m</span>, <span class="va">sd</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">m</span>, <span class="va">sd</span><span class="op">)</span> 
+          <span class="op">}</span>
+        <span class="op">}</span>
+      
+        
+        
+        <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
+          <span class="co"># Discrete probability mass will be plotted</span>
+          
+          <span class="va">p</span> <span class="op">&lt;-</span> <span class="va">freq</span><span class="op">/</span><span class="va">n</span><span class="co"># mass probabilities</span>
+          <span class="va">c</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="op">!</span><span class="va">x</span> <span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span> <span class="va">vals</span><span class="op">]</span><span class="co"># continuous component</span>
+        
+          <span class="co"># continous density component re-scaled with the mass probability</span>
+          <span class="va">d</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">{</span>
+            <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu">k</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">)</span>
+          <span class="op">}</span>
+        
+          <span class="co"># Plot</span>
+          <span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="va">diff</span>, <span class="va">c</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">+</span><span class="va">diff</span> <span class="op">)</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">grid</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span> <span class="va">grid</span>, <span class="va">d</span>, <span class="va">c</span>, <span class="va">bw</span> <span class="op">)</span>, main<span class="op">=</span><span class="va">main</span>, xlab<span class="op">=</span><span class="va">xlab</span>,
+               ylab<span class="op">=</span><span class="va">ylab</span>, col<span class="op">=</span><span class="st">"gray"</span>, type<span class="op">=</span><span class="st">"l"</span><span class="op">)</span>
+          <span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="va">vals</span>, <span class="va">p</span>, pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span>
+          <span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">vals</span><span class="op">[</span><span class="va">j</span><span class="op">]</span>, <span class="va">vals</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">p</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span> <span class="op">)</span><span class="op">}</span>
+          <span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="st">"Mass Probability"</span>, col<span class="op">=</span><span class="st">"black"</span>, pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span>
+        
+        
+        <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+          <span class="co"># No probability mass found</span>
+          
+          <span class="co"># continous density</span>
+          <span class="va">d</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">{</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu">k</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">)</span>
+          <span class="op">}</span>
+        
+          <span class="co"># Plot</span>
+          <span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="va">diff</span>, <span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">+</span><span class="va">diff</span> <span class="op">)</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">grid</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span> <span class="va">grid</span>, <span class="va">d</span>, <span class="va">x</span>, <span class="va">bw</span> <span class="op">)</span>, main<span class="op">=</span><span class="va">main</span>, xlab<span class="op">=</span><span class="va">xlab</span>,
+               ylab<span class="op">=</span><span class="va">ylab</span>, col<span class="op">=</span><span class="st">"gray"</span>, type<span class="op">=</span><span class="st">"l"</span><span class="op">)</span>
+        
+        <span class="op">}</span>
+        
+        
+      
+      <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+        <span class="co"># Real case: Gaussian kernel kept</span>
+        
+        
+        <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
+          <span class="co"># Discrete probability mass will be plotted</span>
+          
+          <span class="va">p</span> <span class="op">&lt;-</span> <span class="va">freq</span><span class="op">/</span><span class="va">n</span><span class="co"># mass probabilities</span>
+          <span class="va">c</span> <span class="op">&lt;-</span> <span class="va">x</span><span class="op">[</span><span class="op">!</span><span class="va">x</span> <span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span> <span class="va">vals</span><span class="op">]</span><span class="co"># continuous component</span>
+        
+          <span class="co"># continous density component re-scaled with the mass probability</span>
+          <span class="va">d</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">{</span>
+            <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">)</span>
+          <span class="op">}</span>
+        
+          <span class="co"># Plot</span>
+          <span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="va">diff</span>, <span class="va">c</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">+</span><span class="va">diff</span> <span class="op">)</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">grid</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span> <span class="va">grid</span>, <span class="va">d</span>, <span class="va">c</span>, <span class="va">bw</span> <span class="op">)</span>, main<span class="op">=</span><span class="va">main</span>, xlab<span class="op">=</span><span class="va">xlab</span>,
+               ylab<span class="op">=</span><span class="va">ylab</span>, col<span class="op">=</span><span class="st">"gray"</span>, type<span class="op">=</span><span class="st">"l"</span><span class="op">)</span>
+          <span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="va">vals</span>, <span class="va">p</span>, pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span>
+          <span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">vals</span><span class="op">[</span><span class="va">j</span><span class="op">]</span>, <span class="va">vals</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">p</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span> <span class="op">)</span><span class="op">}</span>
+          <span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="st">"Mass Probability"</span>, col<span class="op">=</span><span class="st">"black"</span>, pch<span class="op">=</span><span class="fl">16</span><span class="op">)</span>
+        
+        
+        <span class="op">}</span><span class="kw">else</span><span class="op">{</span>
+          <span class="co"># No probability mass found</span>
+          
+          <span class="co"># continous density</span>
+          <span class="va">d</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">{</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">c</span>, <span class="va">bw</span><span class="op">)</span><span class="op">)</span>
+          <span class="op">}</span>
+        
+          <span class="co"># Plot</span>
+          <span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="va">diff</span>, <span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">+</span><span class="va">diff</span> <span class="op">)</span>
+          <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">grid</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span> <span class="va">grid</span>, <span class="va">d</span>, <span class="va">x</span>, <span class="va">bw</span> <span class="op">)</span>, main<span class="op">=</span><span class="va">main</span>, xlab<span class="op">=</span><span class="va">xlab</span>,
+               ylab<span class="op">=</span><span class="va">ylab</span>, col<span class="op">=</span><span class="st">"gray"</span>, type<span class="op">=</span><span class="st">"l"</span><span class="op">)</span>
+        
+        <span class="op">}</span>
+        
+        
+      <span class="op">}</span>
+      
+    <span class="op">}</span>
+    
+  <span class="op">}</span>
+  
+  
+  
+<span class="op">}</span></code></pre></div>
+</div>
+<div id="examples" class="section level2">
+<h2>
+<span class="header-section-number">117.4</span> Examples<a class="anchor" aria-label="anchor" href="#examples"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now we show some examples in which the function would be useful.</p>
+<div id="non-negative-data-with-repetitions" class="section level3">
+<h3>
+<span class="header-section-number">117.4.1</span> Non-negative data with repetitions<a class="anchor" aria-label="anchor" href="#non-negative-data-with-repetitions"><i class="fas fa-link"></i></a>
+</h3>
+<p>Imagine data such as the waiting time of people in a bank branch. In this context there may be observations exactly equal to 0 indicating clients that got attended directly after.</p>
+<div class="sourceCode" id="cb1579"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+<span class="va">times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">15</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">rexp</a></span><span class="op">(</span><span class="fl">200</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">plot_density</span><span class="op">(</span><span class="va">times</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/density.html">density</a></span><span class="op">(</span><span class="va">times</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"top"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"plot_density"</span>, <span class="st">"Usual density"</span><span class="op">)</span>,
+       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"darkgray"</span>, <span class="st">"blue"</span><span class="op">)</span>, lty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, cex<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="improved_density_estimation_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>In the previous example the data is non-negative and exhibits repetitions in 0. <code>plot_density</code> detects such repetitions as statistically significant and displays the proportion as a single dot connected with a black line. The density now doesn’t exhibits positive probability in the negative numbers (as opossed to <code><a href="https://rdrr.io/r/stats/density.html">stats::density</a></code> in blue).</p>
+</div>
+<div id="non-positive-data-with-repetitions" class="section level3">
+<h3>
+<span class="header-section-number">117.4.2</span> Non-positive data with repetitions<a class="anchor" aria-label="anchor" href="#non-positive-data-with-repetitions"><i class="fas fa-link"></i></a>
+</h3>
+<p>We now center our attention to negative data, e.g. credit due. In such cases density in positive values would be counter intuitive.</p>
+<div class="sourceCode" id="cb1580"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+<span class="va">credit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">30</span><span class="op">)</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">300</span>, <span class="fl">8</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">plot_density</span><span class="op">(</span><span class="va">credit</span>, bw<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/density.html">density</a></span><span class="op">(</span><span class="va">credit</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"plot_density"</span>, <span class="st">"Usual density"</span><span class="op">)</span>,
+       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"darkgray"</span>, <span class="st">"blue"</span><span class="op">)</span>, lty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, cex<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="improved_density_estimation_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>In this case there are two probability mass points at 0 and -1, which may be associated with all the cards with 0 balance, and many having 1 due to, fo example, a cash back promotion for using $1,000 in credit (assume data is in thousands).</p>
+<p><code>plot_density</code> detects such repetitions and excludes them from the other data giving a broader picture of them, the standard density method gives the impression of having a bimodality around -1 when they are actually two repeated values repeated.</p>
+</div>
+<div id="real-data-with-repetitions" class="section level3">
+<h3>
+<span class="header-section-number">117.4.3</span> Real data with repetitions<a class="anchor" aria-label="anchor" href="#real-data-with-repetitions"><i class="fas fa-link"></i></a>
+</h3>
+<p>We now center in the case of real data that may have repetitions, e.g. mortgage loan amounts in which it is frequent to observe loans in multiples of $1,000.</p>
+<div class="sourceCode" id="cb1581"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+<span class="va">loans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">50</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2000</span>, <span class="fl">40</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">3000</span>, <span class="fl">60</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">4000</span>, <span class="fl">35</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">5000</span>, <span class="fl">45</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">3000</span>, <span class="fl">800</span><span class="op">)</span> <span class="op">)</span>
+<span class="fu">plot_density</span><span class="op">(</span><span class="va">loans</span>, bw<span class="op">=</span><span class="fl">100</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/density.html">density</a></span><span class="op">(</span><span class="va">loans</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"plot_density"</span>, <span class="st">"Usual density"</span><span class="op">)</span>,
+       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"darkgray"</span>, <span class="st">"blue"</span><span class="op">)</span>, lty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, cex<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="improved_density_estimation_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>In this case we also had to manually tune the bandwidth by changing the <em>bw</em> parameter. Due to the span of the data, the density is lower than the probability mass, however, the lines are still plotted and they let us know there are repetitions by displaying. This helps to avoid the false impression of many values around the first and last modalities displayed by the blue density.</p>
+</div>
+<div id="real-data-without-repetitions" class="section level3">
+<h3>
+<span class="header-section-number">117.4.4</span> Real data without repetitions<a class="anchor" aria-label="anchor" href="#real-data-without-repetitions"><i class="fas fa-link"></i></a>
+</h3>
+<p>We finally focus on the general case of real data with no repetitions, in which case <code>plot_density</code> closely resembles <code><a href="https://rdrr.io/r/stats/density.html">stats::density</a></code>:</p>
+<div class="sourceCode" id="cb1582"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">rt</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">3</span><span class="op">)</span> 
+<span class="fu">plot_density</span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/density.html">density</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"plot_density"</span>, <span class="st">"Usual density"</span><span class="op">)</span>,
+       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"darkgray"</span>, <span class="st">"blue"</span><span class="op">)</span>, lty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, cex<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="improved_density_estimation_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+</div>
+<div id="conclussion" class="section level2">
+<h2>
+<span class="header-section-number">117.5</span> Conclussion<a class="anchor" aria-label="anchor" href="#conclussion"><i class="fas fa-link"></i></a>
+</h2>
+<p>We introduced a function, <code>plot_density</code>, that can be helpful for univariate visualization in cases with strictly non-negative or non-positive data and in the possible pressence of repetitions.</p>
+<p>It generalizes <code><a href="https://rdrr.io/r/stats/density.html">stats::density</a></code> by using truncated normal kernels for the continuous density, and mixing it with discrete probability mass components if repetitions are found.</p>
+</div>
+<div id="references-11" class="section level2">
+<h2>
+<span class="header-section-number">117.6</span> References<a class="anchor" aria-label="anchor" href="#references-11"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>Silverman, B. W. (1986). <em>Density Estimation</em>. London: Chapman and Hall.</p></li>
+<li><p>Venables, W.N. &amp; Ripley, B.D. (2002). <em>Modern Applied Statistics with S</em>, Springer, 4th edition.</p></li>
+</ul>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">116</span> Base r vs. ggplot2 visualization</a></div>
+<div class="next"><a href="super-ggformat.html"><span class="header-section-number">118</span> Super ggformat</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#improved-density-estimation"><span class="header-section-number">117</span> Improved density estimation</a></li>
+<li><a class="nav-link" href="#introduction-25"><span class="header-section-number">117.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#generalizing-kernel-smoothing-for-densities"><span class="header-section-number">117.2</span> Generalizing Kernel Smoothing for Densities</a></li>
+<li><a class="nav-link" href="#plot_density-function"><span class="header-section-number">117.3</span> plot_density Function</a></li>
+<li>
+<a class="nav-link" href="#examples"><span class="header-section-number">117.4</span> Examples</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#non-negative-data-with-repetitions"><span class="header-section-number">117.4.1</span> Non-negative data with repetitions</a></li>
+<li><a class="nav-link" href="#non-positive-data-with-repetitions"><span class="header-section-number">117.4.2</span> Non-positive data with repetitions</a></li>
+<li><a class="nav-link" href="#real-data-with-repetitions"><span class="header-section-number">117.4.3</span> Real data with repetitions</a></li>
+<li><a class="nav-link" href="#real-data-without-repetitions"><span class="header-section-number">117.4.4</span> Real data without repetitions</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#conclussion"><span class="header-section-number">117.5</span> Conclussion</a></li>
+<li><a class="nav-link" href="#references-11"><span class="header-section-number">117.6</span> References</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/improved_density_estimation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/improved_density_estimation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
