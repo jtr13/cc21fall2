@@ -1,6 +1,0 @@
-# Useful resources for R beginners
-
-Freddy Wong
-I have made a simple pdf for R beginners to kick start their self learning
-
-http://github.com/ww2615/tips/blob/main/selflearntipsforRbeginers.pdf
