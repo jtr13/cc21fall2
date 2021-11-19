@@ -81,6 +81,7 @@ Imports:
     Lock5withR,
     luz,
     magrittr,
+    makeR
     maps,
     MASS,
     mongolite,
@@ -178,4 +179,5 @@ Remotes:
     ricardo-bion/ggradar,
     AntoninVidon/goyav,
     ramnathv/rCharts,
-    madlogos/recharts
+    madlogos/recharts,
+    jbryer/makeR
