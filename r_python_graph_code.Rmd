@@ -27,7 +27,6 @@ In this document, I referred to some codes used in the lecture and the problem s
 
 ## Histogram
 
------- 
 
 ### R
 
@@ -101,7 +100,6 @@ plt.show()
 
 ## Boxplot
 
-------
 
 ### R
 
@@ -160,7 +158,6 @@ plt.show()
 
 ## Density Curve
 
-------
 
 ### R
 
@@ -207,7 +204,6 @@ plt.show()
 
 ## Ridgeline Plot
 
-------
 
 ### R
 I plot the ridgeline plots using `ggplot2`.
@@ -245,7 +241,6 @@ source: https://deepnote.com/@deepnote/Joyplot-Introduction-RmbhozJJRC6alCu8xcsb
 
 ## QQ Plot
 
-------
 
 ### R
 I plot the QQ Plot plots using `qqline`. I'll create 200 exponential data for displaying
@@ -279,7 +274,6 @@ plt.show()
 
 ## Scatter Plot
 
-------
 
 ### R
 I plot the scatter plot using `ggplot2`. In the example below, we used the `ames` dataset from `openintro` library. The dependent variable would be `area` and the independent variable is `price`.
@@ -315,7 +309,6 @@ plt.show()
 
 ## Heatmap
 
-------
 
 ### R
 I plot the heatmap using `ggplot2`. In the example below, we used the `ames` dataset from `openintro` library. The dependent variable would be `area` and the independent variable is `price`.
@@ -351,7 +344,6 @@ source: https://seaborn.pydata.org/generated/seaborn.heatmap.html
 
 ## Parallel Coordinate Plots
 
-------
 
 ### R
 In the lecture, we learned two type of R methods to plot the parallel coordinate plots. One uses `ggparcoord` which produces a static plot, while the other one uses `parcoords` to produce a interactive plot. 
@@ -404,7 +396,6 @@ source: https://pandas.pydata.org/docs/reference/api/pandas.plotting.parallel_co
 
 ## Mosaic Plot
 
-------
 
 ### R
 In the lecture, we used `vcd::mosaic` to plot the mosaic plot. And I will show a simple mosaic plot with two variables only. The dataset I will used below is `mpg`.
