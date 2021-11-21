@@ -10,8 +10,6 @@ language:
 
 # Chapter ordering
 
-
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -126,6 +124,7 @@ rmd_files: [
   'predictive-analytics-r.Rmd',
   'color_selection_ggplot.Rmd',
   'data_vis_for_ranking.Rmd',
+  'self_learning.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
