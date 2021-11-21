@@ -1,0 +1,250 @@
+# Dataframe operations tutorial
+
+Yunzhe Zhang
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+```
+
+### Tutorial for being familiar with DataFrame in R
+This tutorial will introduce some basic ways to help some beginners be familiar with the dataframe in R. Since usually when we plotting the graph, we need to handle the data well and it is unavoidable to process the data stored in the dataframe. Thus, this tutorial are made for people who are not familiar with the function that help user to do the operation on the dataframe in R. 
+
+#### Introduction
+![Caption for the picture.](resources/Rayzyz_resources/111.jpeg) \
+The data frame is a table or a two-dimensional array-like structure in which each column contains values of one variable and each row contains one set of values from each column. There are several characteristics of a data frame \
+1. The column names should be non-empty. \
+2. The row names should be unique. \
+3. The data stored in a data frame can be of numeric, factor or character type. \
+4. Each column should contain same number of data items. \
+
+Next, I am going to introduce several basic operations for dataframe in R.
+
+```{r}
+# Create a data frame.
+temp <- data.frame(
+   index = c (1:5), 
+   names = c("Rick","Dan","Michelle","Ryan","Gary"),
+   salary = c(623.3,515.2,611.0,729.0,843.25), 
+   sex = c("male", "female", "male", "male", "male"),
+   Date = as.Date(c("2012-01-01", "2013-09-23", "2014-11-15", "2014-05-11",
+      "2015-03-27"))
+)
+# display the data frame.			
+temp 
+```
+As you can see, the format to create a dataframe has been in the above code. We need to explicitly states the value for each row and the column name. If we want to get the structure of the data frame, we could use the str() function
+```{r}
+str(temp)
+```
+As shown above, all the information about the dataframe has been shown belowe like the number of observations and the column names. When we begin to process the data, we could use the str() function to help us be familiar with the dataframe for the processing later. But we coudl also use summary function to also get the information of the dataframe.
+```{r}
+summary(temp)
+```
+We could use the following code to iterate the dataframe when you want to do some operations on the dataframe
+```{r}
+for(i in 1:nrow(temp)) {
+    # row represent each row in the dataframe
+    row <- temp[i,]
+    # we could get specific column value by $, for example print the names for each row
+    print(row$names)
+}
+```
+
+
+However, when we deal with the dataframe, some times we want to create a empty dataframe. We could achieve this by the following code.
+```{r}
+# A empty df with no column names and set the dimension of the dataframe to be 3*3
+emptydf =  data.frame(matrix(ncol = 3, nrow = 3))
+# setting the column names
+x <- c("name", "age", "gender")
+colnames(emptydf) <- x
+emptydf
+```
+
+If we want to append rows into the empty dataframe by the following code
+```{r}
+# append at the first row
+emptydf[1,] = c("alex", 18, "male")
+# append at the second row
+emptydf[2,] = c("tony", 21, "male")
+# append at the last row
+emptydf[nrow(emptydf),] = c("Ales", 25, "female")
+emptydf
+
+```
+We could also add whole columns in the dataframe by the following code.
+```{r}
+emptydf$race <- c("White","Black","White")
+emptydf
+```
+
+
+However, sometimes we want append all the values from another dataframe to the current dataframe. Then we could use the rbind function to append the second dataframe to the first dataframe.
+```{r}
+df2 <- data.frame(var1=c("Derick", "James", "Molly"),
+                  var2=c(23, 12, 6),
+                  var3=c("male", "male", "female"),
+                  var4=c("black", "black", "Asian"))
+x <- c("name", "age", "gender", "race")
+colnames(df2) <- x
+df3 <- rbind(emptydf, df2)
+df3
+```
+We could also extract specific colunme by following operation.
+```{r}
+name <- data.frame(df3$gender,df3$age)
+print(name)
+```
+Besides, there is a important operation for the dataframe in R which is the index slicing. The index slicing is quite similar with python but not totally the same. The index slicing in R has been represented as[all rows, all columns]. For example, df3[1:2, ] represents we take the first two rows and all the columns and [, 1:2] represent we take all the rows but only first two columns
+```{r}
+# first case
+temp1 <- df3[1:2,]
+temp1
+# second case
+temp2 <- df3[, 1:2]
+temp2
+```
+
+At the same time, we could also use the subset to do the filter some values and get the rows that you want. The subset function also supports the logical operators.
+```{r}
+# first case
+temp3 <- subset(temp, names == "Dan" | salary > 750)
+temp3
+# second case
+temp4 <- subset(temp, salary < 700 & sex == "male")
+temp4
+```
+
+
+Then these are all the basic operations for the dataframe, next I am going to use the dplyr pacakge to do some advanced operations on the dataframe.
+
+
+#### Dplyr 
+![Caption for the picture.](resources/Rayzyz_resources/222.png) \
+
+Dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges:\
+1. mutate() adds new variables that are functions of existing variables.\
+2. select() picks variables based on their names.\
+3. filter() picks cases based on their values.\
+4. summarise() reduces multiple values down to a single summary.\
+5. arrange() changes the ordering of the rows.\
+
+Then, first we need to run the installation for the Dplyr package and import it
+```{r}
+#install.packages("dplyr")
+```
+Next, we are going to use the stats_wl.csv as the example and import it using the read.csv function. Note, the csv file must be stored with same directory. Otherwise, you need to revise the path in order to import it.
+```{r}
+df <- read.csv("resources/Rayzyz_resources/data.csv", stringsAsFactors = F)
+head(df)
+```
+`select()`(and optionally rename) select variables in a data frame, using a concise mini-language that makes it easy to refer to variables based on their name.
+```{r}
+head(df,10) %>% select(duration, employment, age)
+```
+We could also select the consecutive columns by the following code
+```{r}
+head(df,10) %>% select(duration:age)
+```
+We could also select all the other columns by specifing the column that you do not want
+```{r}
+head(df,10) %>% select(-(age))
+```
+
+We could also use `start_with()` , `end_with()` , and `contains()` to match up some column names.
+```{r}
+# starts_with
+head(df,10) %>% select(starts_with("dura"))
+# contains
+head(df,10) %>% select(contains("_"))
+```
+
+The `filter()` function is used to subset a data frame, retaining all rows that satisfy your conditions. To be retained, the row must produce a value of TRUE for all conditions. Note that when a condition evaluates to NA the row will be dropped, unlike base subsetting with [. \
+There are many functions and operators that are useful when constructing the expressions used to filter the data: \
+1. `==`,`>`,`>=` etc. \
+2. `&`, `|`, `!`, xor(). \
+3. `is.na()`.\
+4. `between()`, `near()`. \
+```{r}
+# get rows whose duration is > 20 and class is good.
+head(df,10) %>% filter(duration > 20 & class == as.character("good"))
+```
+```{r}
+# get rows whose duration is > 20 or class is good.
+head(df,10) %>% filter(duration > 20 | class == as.character("good"))
+```
+As you see in the above code, we could add various logical operations when filtering the dataframe even including the `xor`.
+```{r}
+head(df,10) %>% filter(duration > 20 & class == as.character("good") & is.na(credit_amount) == FALSE)
+```
+We could also use filter and is.na() to delete the rows whose credit_amount is NA. Thus, we could use filter to get the rows that you want based on your need.
+
+`mutate()` adds new variables and preserves existing ones.
+```{r}
+head(df,10) %>% select(duration, class, age) %>% group_by(class) %>% mutate(por_age = age/ mean(age)) 
+```
+We use the mutate to initialize a new column called the pro_age which is calculated by the age / mean(age)
+
+`summarise()` creates a new data frame. It will have one (or more) rows for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarising all observations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified.
+
+```{r}
+head(df,10) %>%
+  group_by(class) %>%
+  summarise(mean_age = mean(age), mean_duration = mean(duration), count = n())
+```
+We use the `grou_by()` and `summarise` find out the mean age, mean duration and the total counts for the class good and class bad.
+
+`arrange` orders the rows of a data frame by the values of selected columns.
+```{r}
+head(df,10) %>%
+  group_by(property_magnitude) %>%
+  summarise(mean_age = mean(age), mean_duration = mean(duration), count = n()) %>% arrange(mean_age)
+```
+We could use the `arrange()` to sort the values based on the variable that I choose. For the code below, I sort the dataframe by the variable mean_age with asenting order. We could also choose desc order by adding the `desc()` in front of the mean_age.
+
+
+#### Join two tables
+
+![Caption for the picture.](resources/Rayzyz_resources/333.jpeg) \
+
+There are four different type of when we join the table which are left join, right join, inner join, and full join. Then we first create two dataframe which are df1 and df2.
+```{r}
+df1 <- data.frame(
+   index = c (1:10), 
+   State = c("GA","GA", "GA","FL","FL","FL","AL","AL","AL", "CA"), 
+   Limit = c("50000", "50000", "40000", "30000", "75000","75000", "85000", "90000", "45000", "125000")
+)
+df1
+```
+```{r}
+df2 <- data.frame(
+   index = c (1:4), 
+   State = c("GA","FL", "AL", "OH"), 
+   regulatory_limit = c("50000", "75000", "45000", "48000")
+)
+df2
+```
+Left Join will join the table based on the common values that df1 and df2 both have. If the values in df1 can not find in df2, then keep it but missing values for the corresponding column in df2 will be initialized to NA
+```{r}
+df1 %>% left_join(df2, by="State")
+```
+
+Right Join will join the table based on the common values that df1 and df2 both have. If the values in df2 can not find in df1, then keep it but missing values for the corresponding column in df1 will be initialized to NA
+```{r}
+df1 %>% right_join(df2, by="State")
+```
+
+Inner Join will join two tables where all the values are shared by df1 and df2
+```{r}
+df1 %>% inner_join(df2, by="State")
+```
+
+Full_join will concate all the values in df1 and df2 and leave NA for those values which can not be find in the other table.
+```{r}
+df1 %>% full_join(df2, by="State")
+```
+
