@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 117 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Abel Perez Vargas  117.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
+<title>Chapter 118 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Abel Perez Vargas  118.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 117 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 118 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Abel Perez Vargas  117.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
+<meta property="og:description" content="Abel Perez Vargas  118.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 117 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Abel Perez Vargas  117.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
+<meta name="twitter:title" content="Chapter 118 Improved density estimation | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Abel Perez Vargas  118.1 Introduction In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -23,7 +23,8 @@
 <script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
 <script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
-<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -152,25 +153,26 @@
 <li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">103</span> ggplot2 in python</a></li>
 <li><a class="" href="predictive-analytics-using-data-visualization-in-r.html"><span class="header-section-number">104</span> Predictive Analytics using Data Visualization in R</a></li>
 <li><a class="" href="color-selection-for-ggplot-graphs.html"><span class="header-section-number">105</span> Color selection for ggplot graphs</a></li>
+<li><a class="" href="useful-resources-for-r-beginners.html"><span class="header-section-number">106</span> Useful resources for R beginners</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">106</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">107</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">108</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">109</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">110</span> RGL Package</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">107</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">108</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">109</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">110</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">111</span> RGL Package</a></li>
 <li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">111</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">112</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">113</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">114</span> R and Python visualization</a></li>
-<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">115</span> 3D Visualization with rgl and scatterplot3d</a></li>
-<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">116</span> Base r vs. ggplot2 visualization</a></li>
-<li><a class="active" href="improved-density-estimation.html"><span class="header-section-number">117</span> Improved density estimation</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">112</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">113</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">114</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">115</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">116</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">117</span> Base r vs. ggplot2 visualization</a></li>
+<li><a class="active" href="improved-density-estimation.html"><span class="header-section-number">118</span> Improved density estimation</a></li>
 <li class="book-part">Custom R Package</li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">118</span> Super ggformat</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">119</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">119</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">120</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">120</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">121</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -180,18 +182,18 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="improved-density-estimation" class="section level1">
 <h1>
-<span class="header-section-number">117</span> Improved density estimation<a class="anchor" aria-label="anchor" href="#improved-density-estimation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118</span> Improved density estimation<a class="anchor" aria-label="anchor" href="#improved-density-estimation"><i class="fas fa-link"></i></a>
 </h1>
 <p>Abel Perez Vargas</p>
 <div id="introduction-25" class="section level2">
 <h2>
-<span class="header-section-number">117.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-25"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-25"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the field of data analysis it is common to come across non-negative variables, such as waiting times, prices, distances, age and weight, as well as non-positive variables such as money due, level below the sea or below freezing point temperature.</p>
 <p>Before thinking in further modeling of such variables, we may be first interested in exploring and visualizing the data. And among the first techniques one may want to implement, there is univariate visualization.</p>
 <p>Density plots are a very useful technique that unveils the distributional form of the variables, and it may help us identify patterns that may be hidden in a traditional histogram (e.g. “gaps” in the data that may happen to be inside one specific histogram class).</p>
 <p>However, density plots may sometimes give the false impression that a know-to-be non-negative variable has some negative values like in this example using simulations of a <span class="math inline">\(\Gamma(2,2)\)</span> distribution.</p>
-<div class="sourceCode" id="cb1564"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1574"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/density.html">density</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span> <span class="op">)</span>, lty<span class="op">=</span><span class="fl">2</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, main<span class="op">=</span><span class="st">"Densities"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">dgamma</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, from<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, to<span class="op">=</span><span class="fl">5</span>, lwd<span class="op">=</span><span class="fl">2</span>, add<span class="op">=</span><span class="cn">T</span><span class="op">)</span>
@@ -199,20 +201,20 @@
        lty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="improved_density_estimation_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>It can also be the case that the data exhibits values exactly equal to 0, in which case the standard density plot cannot help us detect it and we would have to do further exploration in order to do it.</p>
-<div class="sourceCode" id="cb1565"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1575"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span> 
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/density.html">density</a></span><span class="op">(</span> <span class="va">data</span> <span class="op">)</span>, lty<span class="op">=</span><span class="fl">2</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>,  main<span class="op">=</span><span class="st">"Densities"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="st">"Estimated density"</span>, 
        lty<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="improved_density_estimation_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1566"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1576"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Frequency of 0:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">data</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span> <span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "Frequency of 0: 10"</code></pre>
 </div>
 <div id="generalizing-kernel-smoothing-for-densities" class="section level2">
 <h2>
-<span class="header-section-number">117.2</span> Generalizing Kernel Smoothing for Densities<a class="anchor" aria-label="anchor" href="#generalizing-kernel-smoothing-for-densities"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.2</span> Generalizing Kernel Smoothing for Densities<a class="anchor" aria-label="anchor" href="#generalizing-kernel-smoothing-for-densities"><i class="fas fa-link"></i></a>
 </h2>
 <p>In this tutorial we focus on density plots, or more formally, density estimation based on kernels (Venables &amp; Ripley, 2002) for data that may come from a mixture of discrete and continuous random variables (e.g. data exhibiting 0’s), and avoid positive density below or above 0 if the data exhibits such behavior.</p>
 <p>For this, we first perform an algorithm that detects repeated values in the data and then tests their significance with a Binomial test for the proportion with the following hypothesis:
@@ -226,10 +228,10 @@ where <span class="math inline">\(g\)</span> is the density estimate of the data
 </div>
 <div id="plot_density-function" class="section level2">
 <h2>
-<span class="header-section-number">117.3</span> plot_density Function<a class="anchor" aria-label="anchor" href="#plot_density-function"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.3</span> plot_density Function<a class="anchor" aria-label="anchor" href="#plot_density-function"><i class="fas fa-link"></i></a>
 </h2>
 <p>We introduce <code>plot_density</code>, a function that adjusts itself in the presence of non-negative, non-positive or real data to avoid assigning density to unlikely values, and also automatically detects the presence of significant repeated values in the data.</p>
-<div class="sourceCode" id="cb1568"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1578"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># plot_density function</span>
 <span class="co">#</span>
 <span class="co"># Inputs:</span>
@@ -448,15 +450,15 @@ where <span class="math inline">\(g\)</span> is the density estimate of the data
 </div>
 <div id="examples" class="section level2">
 <h2>
-<span class="header-section-number">117.4</span> Examples<a class="anchor" aria-label="anchor" href="#examples"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.4</span> Examples<a class="anchor" aria-label="anchor" href="#examples"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now we show some examples in which the function would be useful.</p>
 <div id="non-negative-data-with-repetitions" class="section level3">
 <h3>
-<span class="header-section-number">117.4.1</span> Non-negative data with repetitions<a class="anchor" aria-label="anchor" href="#non-negative-data-with-repetitions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.4.1</span> Non-negative data with repetitions<a class="anchor" aria-label="anchor" href="#non-negative-data-with-repetitions"><i class="fas fa-link"></i></a>
 </h3>
 <p>Imagine data such as the waiting time of people in a bank branch. In this context there may be observations exactly equal to 0 indicating clients that got attended directly after.</p>
-<div class="sourceCode" id="cb1569"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1579"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
 <span class="va">times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">15</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">rexp</a></span><span class="op">(</span><span class="fl">200</span><span class="op">)</span><span class="op">)</span>
 <span class="fu">plot_density</span><span class="op">(</span><span class="va">times</span><span class="op">)</span>
@@ -468,10 +470,10 @@ where <span class="math inline">\(g\)</span> is the density estimate of the data
 </div>
 <div id="non-positive-data-with-repetitions" class="section level3">
 <h3>
-<span class="header-section-number">117.4.2</span> Non-positive data with repetitions<a class="anchor" aria-label="anchor" href="#non-positive-data-with-repetitions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.4.2</span> Non-positive data with repetitions<a class="anchor" aria-label="anchor" href="#non-positive-data-with-repetitions"><i class="fas fa-link"></i></a>
 </h3>
 <p>We now center our attention to negative data, e.g. credit due. In such cases density in positive values would be counter intuitive.</p>
-<div class="sourceCode" id="cb1570"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1580"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
 <span class="va">credit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">30</span><span class="op">)</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="fl">300</span>, <span class="fl">8</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="fu">plot_density</span><span class="op">(</span><span class="va">credit</span>, bw<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span>
@@ -484,10 +486,10 @@ where <span class="math inline">\(g\)</span> is the density estimate of the data
 </div>
 <div id="real-data-with-repetitions" class="section level3">
 <h3>
-<span class="header-section-number">117.4.3</span> Real data with repetitions<a class="anchor" aria-label="anchor" href="#real-data-with-repetitions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.4.3</span> Real data with repetitions<a class="anchor" aria-label="anchor" href="#real-data-with-repetitions"><i class="fas fa-link"></i></a>
 </h3>
 <p>We now center in the case of real data that may have repetitions, e.g. mortgage loan amounts in which it is frequent to observe loans in multiples of $1,000.</p>
-<div class="sourceCode" id="cb1571"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1581"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
 <span class="va">loans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">50</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2000</span>, <span class="fl">40</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">3000</span>, <span class="fl">60</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">4000</span>, <span class="fl">35</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">5000</span>, <span class="fl">45</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">3000</span>, <span class="fl">800</span><span class="op">)</span> <span class="op">)</span>
 <span class="fu">plot_density</span><span class="op">(</span><span class="va">loans</span>, bw<span class="op">=</span><span class="fl">100</span><span class="op">)</span>
@@ -499,10 +501,10 @@ where <span class="math inline">\(g\)</span> is the density estimate of the data
 </div>
 <div id="real-data-without-repetitions" class="section level3">
 <h3>
-<span class="header-section-number">117.4.4</span> Real data without repetitions<a class="anchor" aria-label="anchor" href="#real-data-without-repetitions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.4.4</span> Real data without repetitions<a class="anchor" aria-label="anchor" href="#real-data-without-repetitions"><i class="fas fa-link"></i></a>
 </h3>
 <p>We finally focus on the general case of real data with no repetitions, in which case <code>plot_density</code> closely resembles <code><a href="https://rdrr.io/r/stats/density.html">stats::density</a></code>:</p>
-<div class="sourceCode" id="cb1572"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1582"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">rt</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">3</span><span class="op">)</span> 
 <span class="fu">plot_density</span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
@@ -514,14 +516,14 @@ where <span class="math inline">\(g\)</span> is the density estimate of the data
 </div>
 <div id="conclussion" class="section level2">
 <h2>
-<span class="header-section-number">117.5</span> Conclussion<a class="anchor" aria-label="anchor" href="#conclussion"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.5</span> Conclussion<a class="anchor" aria-label="anchor" href="#conclussion"><i class="fas fa-link"></i></a>
 </h2>
 <p>We introduced a function, <code>plot_density</code>, that can be helpful for univariate visualization in cases with strictly non-negative or non-positive data and in the possible pressence of repetitions.</p>
 <p>It generalizes <code><a href="https://rdrr.io/r/stats/density.html">stats::density</a></code> by using truncated normal kernels for the continuous density, and mixing it with discrete probability mass components if repetitions are found.</p>
 </div>
-<div id="references-10" class="section level2">
+<div id="references-11" class="section level2">
 <h2>
-<span class="header-section-number">117.6</span> References<a class="anchor" aria-label="anchor" href="#references-10"><i class="fas fa-link"></i></a>
+<span class="header-section-number">118.6</span> References<a class="anchor" aria-label="anchor" href="#references-11"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li><p>Silverman, B. W. (1986). <em>Density Estimation</em>. London: Chapman and Hall.</p></li>
@@ -533,25 +535,25 @@ where <span class="math inline">\(g\)</span> is the density estimate of the data
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">116</span> Base r vs. ggplot2 visualization</a></div>
-<div class="next"><a href="super-ggformat.html"><span class="header-section-number">118</span> Super ggformat</a></div>
+<div class="prev"><a href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">117</span> Base r vs. ggplot2 visualization</a></div>
+<div class="next"><a href="super-ggformat.html"><span class="header-section-number">119</span> Super ggformat</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#improved-density-estimation"><span class="header-section-number">117</span> Improved density estimation</a></li>
-<li><a class="nav-link" href="#introduction-25"><span class="header-section-number">117.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#generalizing-kernel-smoothing-for-densities"><span class="header-section-number">117.2</span> Generalizing Kernel Smoothing for Densities</a></li>
-<li><a class="nav-link" href="#plot_density-function"><span class="header-section-number">117.3</span> plot_density Function</a></li>
+<li><a class="nav-link" href="#improved-density-estimation"><span class="header-section-number">118</span> Improved density estimation</a></li>
+<li><a class="nav-link" href="#introduction-25"><span class="header-section-number">118.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#generalizing-kernel-smoothing-for-densities"><span class="header-section-number">118.2</span> Generalizing Kernel Smoothing for Densities</a></li>
+<li><a class="nav-link" href="#plot_density-function"><span class="header-section-number">118.3</span> plot_density Function</a></li>
 <li>
-<a class="nav-link" href="#examples"><span class="header-section-number">117.4</span> Examples</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#non-negative-data-with-repetitions"><span class="header-section-number">117.4.1</span> Non-negative data with repetitions</a></li>
-<li><a class="nav-link" href="#non-positive-data-with-repetitions"><span class="header-section-number">117.4.2</span> Non-positive data with repetitions</a></li>
-<li><a class="nav-link" href="#real-data-with-repetitions"><span class="header-section-number">117.4.3</span> Real data with repetitions</a></li>
-<li><a class="nav-link" href="#real-data-without-repetitions"><span class="header-section-number">117.4.4</span> Real data without repetitions</a></li>
+<a class="nav-link" href="#examples"><span class="header-section-number">118.4</span> Examples</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#non-negative-data-with-repetitions"><span class="header-section-number">118.4.1</span> Non-negative data with repetitions</a></li>
+<li><a class="nav-link" href="#non-positive-data-with-repetitions"><span class="header-section-number">118.4.2</span> Non-positive data with repetitions</a></li>
+<li><a class="nav-link" href="#real-data-with-repetitions"><span class="header-section-number">118.4.3</span> Real data with repetitions</a></li>
+<li><a class="nav-link" href="#real-data-without-repetitions"><span class="header-section-number">118.4.4</span> Real data without repetitions</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#conclussion"><span class="header-section-number">117.5</span> Conclussion</a></li>
-<li><a class="nav-link" href="#references-10"><span class="header-section-number">117.6</span> References</a></li>
+<li><a class="nav-link" href="#conclussion"><span class="header-section-number">118.5</span> Conclussion</a></li>
+<li><a class="nav-link" href="#references-11"><span class="header-section-number">118.6</span> References</a></li>
 </ul>
 
       <div class="book-extra">
@@ -569,7 +571,7 @@ where <span class="math inline">\(g\)</span> is the density estimate of the data
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-19.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
