@@ -2,7 +2,7 @@
 
 Yiran Shu (ys3373)
 
-```{r, include=FALSE}
+```{r, include=FALSE,eval=FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=TRUE)
 ```
 
