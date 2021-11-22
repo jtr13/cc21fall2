@@ -7,7 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-
 # Chapter ordering
 
 
@@ -128,6 +127,7 @@ rmd_files: [
   'data_vis_for_ranking.Rmd',
   'self_learning.Rmd',
   'mongodb_and_r.Rmd',
+  'r_python_graph_code.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
