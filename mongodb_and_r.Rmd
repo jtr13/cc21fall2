@@ -2,8 +2,8 @@
 
 Yiran Shu (ys3373)
 
-```{r, include=FALSE,eval=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=TRUE,eval=FALSE)
+```{r, include=FALSE}
+knitr::opts_chunk$set(eval=FALSE, warning = FALSE, message = FALSE, echo=TRUE)
 ```
 
 ```{r}
