@@ -10,7 +10,6 @@ language:
 # Chapter ordering
 
 
-
 rmd_files: [
   # Part: Introduction
   'index.Rmd', # must be first chapter
@@ -128,6 +127,7 @@ rmd_files: [
   'self_learning.Rmd',
   'mongodb_and_r.Rmd',
   'r_python_graph_code.Rmd',
+  'rdoc_alfred_workflow.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -153,4 +153,3 @@ rmd_files: [
   'appendix_pull_request_tutorial.Rmd'
 
 ]
-
