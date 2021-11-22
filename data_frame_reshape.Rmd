@@ -1,14 +1,13 @@
+# Data Frame Reshape
 
----
-title: "Reshape"
-output:
-  html_document: default
----
+Jingwen Bai
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```{r, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
 ```
-### Intro
+
+
+### Introduction
 
 In this tutorial we will focusing on the reshape of a data frame in R using pacakges `reshape2` and `tidyr`.
 First, we need to know what are wide-format data or long-format data. Wide data has a column for each variable. While long data using all variable as values.
