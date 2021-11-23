@@ -7,7 +7,6 @@ language:
     chapter_name: "Chapter "
 
 
-
 # Chapter ordering
 
 
@@ -146,6 +145,7 @@ rmd_files: [
   'r_3d_visualization.Rmd',
   'ggplot_base_r_graph_analysis.Rmd',
   'improved_density_estimation.Rmd',
+  'theme_columbia.Rmd',
   
   # Part: Custom R packages
   'super_ggformat_project.Rmd', # contains PART header
