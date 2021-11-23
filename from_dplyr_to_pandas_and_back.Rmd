@@ -4,14 +4,14 @@ Yujia Xie
 \
 \
 
-```{r, include=FALSE}
+```{r, include=FALSE, cache=FALSE}
 # this prevents package loading message from appearing in the rendered version of your problem set
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE)
 
 ```
 
 
-```{r}
+```{r, eval=FALSE}
 # install.packages('reticulate')
 library(reticulate)
 library(tidyverse)
@@ -76,7 +76,7 @@ Secondly, we point to the correct version of Python. \
 You may have multiple versions of Python installed. If you’re using Mac, you will have a version of Python 2 installed by default as the OS uses. Typing `which -a python python3` into your terminal (Mac OS) and will give you a list of the paths of all the versions of Python on your machine.
 
 In the below R chunk, we tell R to use my Python 3 interpreter, import the sys Python module and find out what version of Python that R is using.
-```{r}
+```{r, eval=FALSE}
 use_python("/usr/local/bin/python3", required = T)
 sys <- import("sys")
 sys$version
@@ -84,7 +84,7 @@ sys$version
 
 
 Now we are ready to write Python code by creating a Python chunk.
-```{python}
+```{python, eval=FALSE}
 # Python in a Python chunk
 import pandas as pd
 print("We are calling Python from R in a Python Chunk!")
@@ -122,7 +122,7 @@ r_df
 ### Dplyr
 Use `readr::read_csv()`
 ```{r}
-r_df <- read_csv("resources/yujia_resources/yellowcab.csv", 
+r_df <- readr::read_csv("resources/yujia_resources/yellowcab.csv", 
                  skip = 1) #second line is the column names
 ```
 
