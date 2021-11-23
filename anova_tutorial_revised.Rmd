@@ -36,7 +36,7 @@ library(broom)
 
 
 
-crop.data <- read.csv("crop.data.csv", header = TRUE, colClasses = c("factor", "factor", "factor", "numeric")) # if data is in the $home folder
+crop.data <- read.csv("resources/anova_tutorial/cropdata.csv", header = TRUE, colClasses = c("factor", "factor", "factor", "numeric")) # if data is in the $home folder
 
 summary(crop.data)
 ```
