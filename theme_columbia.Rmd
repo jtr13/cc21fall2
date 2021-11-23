@@ -143,6 +143,7 @@ ggplot(ames, aes(fct_infreq(Roof.Style))) +
 ```
 ```{r}
 # Packages if you want to import the DSI logo!
+```{r, eval=False}
 if (!require("RCurl", character.only = TRUE)) {
     install.packages("RCurl", dependencies = TRUE)
 }
