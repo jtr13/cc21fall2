@@ -141,15 +141,18 @@ ggplot(ames, aes(fct_infreq(Roof.Style))) +
     scale_color_columbia() +
     theme_columbia_u()
 ```
-```{r}
-# Packages if you want to import the DSI logo!
+
 ```{r, eval=False}
+# Packages if you want to import the DSI logo!
 if (!require("RCurl", character.only = TRUE)) {
     install.packages("RCurl", dependencies = TRUE)
 }
 if (!require("png", character.only = TRUE)) {
     install.packages("png", dependencies = TRUE)
 }
+```
+
+```{r}
 library(RCurl)
 library(png)
 dsi_logo <- readPNG(getURLContent("https://datascience.columbia.edu/wp-content/uploads/2021/02/DSI-Vertical_000d74_RGB_Blue_091720.png"))
