@@ -119,7 +119,7 @@ rmd_files: [
   'raincloud_plot_tutorial.rmd',
   'dataframe_operation_tutorial.Rmd',
   'cc_instruction_for_new.Rmd',
-  #'anova_tutorial_revised.Rmd',#commented out as file missing
+  'anova_tutorial_revised.Rmd',#commented out as file missing
   'ggplot2_in_python.Rmd',
   'predictive-analytics-r.Rmd',
   'color_selection_ggplot.Rmd',
