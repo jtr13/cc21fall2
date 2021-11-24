@@ -4,7 +4,7 @@ Qi Meng
 
 ```{r, include=FALSE}
 library(reticulate)
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(eval = FALSE, cache = FALSE, warning = FALSE, message = FALSE)
 knitr::knit_engines$set(python = reticulate::eng_python)
 ```
 
