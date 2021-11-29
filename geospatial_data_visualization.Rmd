@@ -31,7 +31,7 @@ iii) Connection Map.<br />
 
 Packages needed:
 
-```{r}
+```{r, eval = FALSE}
 library(ggplot2) # to visualize the map
 library(dplyr)
 library(tidyverse)
@@ -42,7 +42,7 @@ library(geosphere)
 
 Let's use the `USArrests` dataset in R to create a chloropleth and bubble map. More information about this dataset can be found here: https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/USArrests
 
-```{r}
+```{r,eval = FALSE}
 head(USArrests, 10)
 ```
 
@@ -51,7 +51,7 @@ This dataset provides us with various attributes but there is a lack of coordina
 
 More information about the `map_data` function can be found here: https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5/topics/map_data
 
-```{r}
+```{r,eval = FALSE}
 states_map <- map_data("state")
 head(states_map, 10)
 ```
@@ -64,7 +64,7 @@ For the purpose of this tutorial, we will use the state data from `map_data`. It
 
 Let's merge the state data with the `USArrests` data.
 
-```{r}
+```{r,eval = FALSE}
 crimes <- data.frame(state = tolower(rownames(USArrests)), USArrests)
 crime_map <- merge(states_map, crimes, by.x = "region", by.y = "state")
 crime_map <- arrange(crime_map, group, order)
@@ -77,7 +77,7 @@ The `maps` package can be used to plot, however we will concentrate on using `gg
 ### Chloropleth 
 Chloropleth Maps are great for showing depicting trends based on numeric attribute through color. In addition to the numeric data, Chloropleth maps require a geospatial object that provides geographic region boundaries. They are visually pleasing and intuitive. The following map compares number of rape cases across the states. Note that Alaska and Hawaii are not included here as including those regions would make the overall map look too compressed and thus difficult to read.
 
-```{r}
+```{r,eval = FALSE}
 crime1 <- ggplot(crime_map, aes(x = long, y = lat, group = group, fill = Rape)) +
   geom_polygon(colour = "black") +
   coord_map("mercator")
@@ -94,7 +94,7 @@ More information about the mercator projection can be found here: https://deskto
 
 The above graph uses the default color scheme which is slightly unintuitive. Let's change the fill:
 
-```{r}
+```{r,eval = FALSE}
 crime_p <- ggplot(crimes, aes(map_id = state, fill = Rape)) +
   geom_map(map = states_map, colour = "black") +
   expand_limits(x = states_map$long, y = states_map$lat) +
@@ -123,7 +123,7 @@ The same way a choloropleth map uses color to depict a numeric attribute/value p
 In the latter case, it is required that we find the center of each region to plot the circle.
 This can be done in the following manner:
 
-```{r}
+```{r,eval = FALSE}
 state_centroids <- crime_map %>%
   group_by(region) %>%
   summarize(long = mean(range(long)), 
@@ -136,7 +136,7 @@ head(state_centroids, 10)
 
 Once we have our center, lets plot the circles on the map.
 
-```{r fig.width = 10, fig.height = 5}
+```{r fig.width = 10, fig.height = 5,eval = FALSE}
 
 bubble <- ggplot(crimes, aes(map_id = state)) +
   geom_map(map = states_map, colour = "white") +
@@ -153,7 +153,7 @@ bubble
 
 Bubble maps are an easy way to compare two attributes as well. This can be done by adding a color scale to the circles. Let's compare assault cases to rape cases. 
 
-```{r fig.width = 10, fig.height = 5}
+```{r fig.width = 10, fig.height = 5,eval = FALSE}
 
 bubble <- ggplot(crimes, aes(map_id = state)) +
   geom_map(map = states_map, colour = "white") +
@@ -183,7 +183,7 @@ In this tutorial, we will make use of the gcIntermediate() function from the geo
 
 To explain the use of Connection Maps, we will make use of the USA Flights dataset. More information about the dataset can be found here: https://www.kaggle.com/flashgordon/usa-airport-dataset
 
-```{r}
+```{r,eval = FALSE}
 df <- read_csv("Airports2.csv")
 head(df, 10)
 ```
@@ -192,7 +192,7 @@ head(df, 10)
 This dataset contains information about the number of flights, number of passenger, and number of seats that were associated with the flights that flew from different origin airports of the USA to some other destination airports. It also provides the longitude and latitude values of the origin, destination airports and cities.
 
 
-```{r}
+```{r,eval = FALSE}
 #map showing the number of flights that flew from JFK airport to different locations on 1st December 2009.
 par(mar=c(0,0,0,0))
 cc<-c("#DF536B","#61D04F","#2297E6","#28E2E5","#CD0BBC","#F5C710","gray62" )
@@ -242,7 +242,7 @@ lines(inter6, col="pink", lwd=2)
 text(rownames(don),x=don$long,y=don$lat,col="white",cex=0.8,pos=2)
 ```
 
-```{r}
+```{r,eval = FALSE}
 df1 <- read_csv("Airports2.csv")
 
 par(mar=c(0,0,0,0))
