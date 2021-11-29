@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 125 Super ggformat | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
-<meta name="description" content="Zihan Wang  125.1 Introduction ggformat (https://github.com/jtr13/ggformat) is an add-in tool to clean up and style ggplot2 code, and it is very useful to tidy up a single sentence when writing R...">
+<title>Chapter 126 Super ggformat | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Zihan Wang  126.1 Introduction ggformat (https://github.com/jtr13/ggformat) is an add-in tool to clean up and style ggplot2 code, and it is very useful to tidy up a single sentence when writing R...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 125 Super ggformat | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 126 Super ggformat | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Zihan Wang  125.1 Introduction ggformat (https://github.com/jtr13/ggformat) is an add-in tool to clean up and style ggplot2 code, and it is very useful to tidy up a single sentence when writing R...">
+<meta property="og:description" content="Zihan Wang  126.1 Introduction ggformat (https://github.com/jtr13/ggformat) is an add-in tool to clean up and style ggplot2 code, and it is very useful to tidy up a single sentence when writing R...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 125 Super ggformat | EDAV Fall 2021 Tues/Thurs Community Contributions">
-<meta name="twitter:description" content="Zihan Wang  125.1 Introduction ggformat (https://github.com/jtr13/ggformat) is an add-in tool to clean up and style ggplot2 code, and it is very useful to tidy up a single sentence when writing R...">
+<meta name="twitter:title" content="Chapter 126 Super ggformat | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Zihan Wang  126.1 Introduction ggformat (https://github.com/jtr13/ggformat) is an add-in tool to clean up and style ggplot2 code, and it is very useful to tidy up a single sentence when writing R...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -174,11 +174,12 @@
 <li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">122</span> Base r vs. ggplot2 visualization</a></li>
 <li><a class="" href="improved-density-estimation.html"><span class="header-section-number">123</span> Improved density estimation</a></li>
 <li><a class="" href="plotting-theme-for-columbia.html"><span class="header-section-number">124</span> Plotting theme for Columbia</a></li>
+<li><a class="" href="geospatial-data-visualization.html"><span class="header-section-number">125</span> Geospatial Data Visualization</a></li>
 <li class="book-part">Custom R Package</li>
-<li><a class="active" href="super-ggformat.html"><span class="header-section-number">125</span> Super ggformat</a></li>
+<li><a class="active" href="super-ggformat.html"><span class="header-section-number">126</span> Super ggformat</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">126</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">127</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">127</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">128</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -188,28 +189,28 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="super-ggformat" class="section level1">
 <h1>
-<span class="header-section-number">125</span> Super ggformat<a class="anchor" aria-label="anchor" href="#super-ggformat"><i class="fas fa-link"></i></a>
+<span class="header-section-number">126</span> Super ggformat<a class="anchor" aria-label="anchor" href="#super-ggformat"><i class="fas fa-link"></i></a>
 </h1>
 <p>Zihan Wang</p>
 <div id="introduction-28" class="section level2">
 <h2>
-<span class="header-section-number">125.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-28"><i class="fas fa-link"></i></a>
+<span class="header-section-number">126.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-28"><i class="fas fa-link"></i></a>
 </h2>
 <p><code>ggformat</code> (<a href="https://github.com/jtr13/ggformat" class="uri">https://github.com/jtr13/ggformat</a>) is an add-in tool to clean up and style ggplot2 code, and it is very useful to tidy up a single sentence when writing <code>R</code> code.</p>
 <p>However, <code>ggformat</code> is not perfect – although it works well for a single <code>ggplot2</code> sentence, it’s power is limited because it cannot handle multiple sentences, long sentences and comments. Therefore, I propose <code>ggformat++</code> that can solve the aforementioned drawbacks of <code>ggformat</code>. The Github Repo of <code>ggformat++</code> is: (<a href="https://github.com/hannawong/super_ggformat" class="uri">https://github.com/hannawong/super_ggformat</a>)</p>
 </div>
 <div id="how-it-differs-from-ggformat" class="section level2">
 <h2>
-<span class="header-section-number">125.2</span> How it differs from <code>ggformat</code><a class="anchor" aria-label="anchor" href="#how-it-differs-from-ggformat"><i class="fas fa-link"></i></a>
+<span class="header-section-number">126.2</span> How it differs from <code>ggformat</code><a class="anchor" aria-label="anchor" href="#how-it-differs-from-ggformat"><i class="fas fa-link"></i></a>
 </h2>
 <div id="handle-multiple-sentences" class="section level3">
 <h3>
-<span class="header-section-number">125.2.1</span> Handle Multiple Sentences<a class="anchor" aria-label="anchor" href="#handle-multiple-sentences"><i class="fas fa-link"></i></a>
+<span class="header-section-number">126.2.1</span> Handle Multiple Sentences<a class="anchor" aria-label="anchor" href="#handle-multiple-sentences"><i class="fas fa-link"></i></a>
 </h3>
 <p>The most salient difference from <code>ggformat</code> is that <code>ggformat++</code>deals with multiple sentences.</p>
 <p>The original <code>ggformat</code> fails to generate correct code when used on multiple sentences:</p>
 <p>Before:</p>
-<div class="sourceCode" id="cb1672"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1684"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># BEFORE</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/timelyportfolio/parcoords">parcoords</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wch/webshot/">webshot</a></span><span class="op">)</span>
@@ -217,13 +218,13 @@
 <span class="va">sel_df_</span><span class="op">&lt;-</span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span> <span class="op">==</span> <span class="fl">2020</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">County</span>,<span class="va">Region</span>,<span class="va">Murder</span>,<span class="va">Rape</span>,<span class="va">Robbery</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">County</span>,<span class="va">Region</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/parcoords/man/parcoords.html">parcoords</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">sel_df_</span>,brushMode <span class="op">=</span> <span class="st">'1D-axes'</span>,color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>colorBy <span class="op">=</span> <span class="st">"Region"</span><span class="op">)</span>,queue <span class="op">=</span> <span class="cn">TRUE</span>,withD3 <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>There are 5 “sentences” in the code block above – the first three sentences imports libraries, and the fourth sentence modifies dataframe <code>df</code>, the last sentence draw a plot using <code>parcoords</code>. However, <code>ggformat</code> clearly cannot differentiate those sentences and would result in wrong answer by simply stacking all these sentences together:</p>
-<div class="sourceCode" id="cb1673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1673-1"><a href="super-ggformat.html#cb1673-1"></a><span class="co">##After using ggformat</span></span>
-<span id="cb1673-2"><a href="super-ggformat.html#cb1673-2"></a><span class="kw">library</span>(parcoords)<span class="kw">library</span>(webshot)<span class="kw">library</span>(d3r)sel_df_&lt;-df <span class="op">%&gt;%</span></span>
-<span id="cb1673-3"><a href="super-ggformat.html#cb1673-3"></a><span class="st">  </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2020</span>) <span class="op">%&gt;%</span></span>
-<span id="cb1673-4"><a href="super-ggformat.html#cb1673-4"></a><span class="st">  </span><span class="kw">select</span>(County,Region,Murder,Rape,Robbery)<span class="op">%&gt;%</span></span>
-<span id="cb1673-5"><a href="super-ggformat.html#cb1673-5"></a><span class="st">  </span><span class="kw">group_by</span>(County,Region)<span class="kw">parcoords</span>(<span class="dt">data =</span> sel_df_,<span class="dt">brushMode =</span> <span class="st">'1D-axes'</span>,<span class="dt">color =</span> <span class="kw">list</span>(<span class="dt">colorBy =</span> <span class="st">"Region"</span>),<span class="dt">queue =</span> <span class="ot">TRUE</span>,<span class="dt">withD3 =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1685-1"><a href="super-ggformat.html#cb1685-1"></a><span class="co">##After using ggformat</span></span>
+<span id="cb1685-2"><a href="super-ggformat.html#cb1685-2"></a><span class="kw">library</span>(parcoords)<span class="kw">library</span>(webshot)<span class="kw">library</span>(d3r)sel_df_&lt;-df <span class="op">%&gt;%</span></span>
+<span id="cb1685-3"><a href="super-ggformat.html#cb1685-3"></a><span class="st">  </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2020</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1685-4"><a href="super-ggformat.html#cb1685-4"></a><span class="st">  </span><span class="kw">select</span>(County,Region,Murder,Rape,Robbery)<span class="op">%&gt;%</span></span>
+<span id="cb1685-5"><a href="super-ggformat.html#cb1685-5"></a><span class="st">  </span><span class="kw">group_by</span>(County,Region)<span class="kw">parcoords</span>(<span class="dt">data =</span> sel_df_,<span class="dt">brushMode =</span> <span class="st">'1D-axes'</span>,<span class="dt">color =</span> <span class="kw">list</span>(<span class="dt">colorBy =</span> <span class="st">"Region"</span>),<span class="dt">queue =</span> <span class="ot">TRUE</span>,<span class="dt">withD3 =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>However, <code>ggformat++</code> developed by me can identify different “sentences” and split them, <code>ggformat++</code> also moves <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> import sentence to the top of a code block. The output of <code>ggformat++</code> is shown below, and each “sentence” is split by a new line.</p>
-<div class="sourceCode" id="cb1674"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1686"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## AFTER USING GGFORMAT++</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/timelyportfolio/d3r">d3r</a></span><span class="op">)</span>
 
@@ -241,16 +242,16 @@
 </div>
 <div id="handle-comments" class="section level3">
 <h3>
-<span class="header-section-number">125.2.2</span> Handle Comments<a class="anchor" aria-label="anchor" href="#handle-comments"><i class="fas fa-link"></i></a>
+<span class="header-section-number">126.2.2</span> Handle Comments<a class="anchor" aria-label="anchor" href="#handle-comments"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>ggformat</code> has trouble handling comments, for example:</p>
-<div class="sourceCode" id="cb1675"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1687"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">##BEFORE</span>
 <span class="va">dt</span> <span class="op">&lt;-</span> <span class="va">seattlepets</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">###aaaaa</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span> <span class="va">target</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">animal_name</span>, <span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co">####bbbb</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>There are two comments in the code above: <code>"###aaaaa"</code> and <code>"####bbbb"</code>, however, <code>ggformat</code> gives the wrong answer by mistakening codes as comments:</p>
-<div class="sourceCode" id="cb1676"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1688"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">##AFTER USING GGFORMAT</span>
 <span class="va">dt</span> <span class="op">&lt;-</span> <span class="va">seattlepets</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="co">###aaaaa  filter(species %in% target) %&gt;%</span>
@@ -260,7 +261,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>I fixed this problem in <code>ggplot++</code> by identifying comments:</p>
-<div class="sourceCode" id="cb1677"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1689"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">##AFTER USING GGFORMAT++</span>
 <span class="va">dt</span><span class="op">&lt;-</span><span class="va">seattlepets</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="co">###aaaaa</span>
     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span><span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span><span class="va">target</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
@@ -272,11 +273,11 @@
 </div>
 <div id="wrapping-long-sentences" class="section level3">
 <h3>
-<span class="header-section-number">125.2.3</span> Wrapping Long Sentences<a class="anchor" aria-label="anchor" href="#wrapping-long-sentences"><i class="fas fa-link"></i></a>
+<span class="header-section-number">126.2.3</span> Wrapping Long Sentences<a class="anchor" aria-label="anchor" href="#wrapping-long-sentences"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the github of <code>ggformat</code>, it says that <code>ggformat</code> has trouble wrapping long sentences.</p>
 <p>I implement function <code>def wrap_long_sentences(sent)</code> in <code>ggformat++</code> to split long sentence by comma, and the example mentioned above can be perfectly formatted by <code>ggformat++</code>:</p>
-<div class="sourceCode" id="cb1678"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1690"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">##BEFORE</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_ribbon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ribbon</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">min</span>, ymax <span class="op">=</span> <span class="va">max</span>, x <span class="op">=</span> <span class="va">x.ribbon</span>, fill <span class="op">=</span> <span class="st">'lightgreen'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -286,7 +287,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">'the colour'</span>, values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'black'</span> <span class="op">=</span> <span class="st">'black'</span>, <span class="st">'red'</span> <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'c2'</span>, <span class="st">'c1'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">'x'</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">'density'</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb1679"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1691"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## AFTER USING GGFORMAT++</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_ribbon</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">ribbon</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin<span class="op">=</span><span class="va">min</span>,ymax<span class="op">=</span><span class="va">max</span>,x<span class="op">=</span><span class="va">x.ribbon</span>,fill<span class="op">=</span><span class="st">'lightgreen'</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
@@ -298,7 +299,7 @@
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">'x'</span><span class="op">)</span><span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">'density'</span><span class="op">)</span></code></pre></div>
 <p>ggformat++` can also deal with extremely long sentences by wrapping it multiple times. For example, an extremely long sentence like this:</p>
-<div class="sourceCode" id="cb1680"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1692"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## BEFORE</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_ribbon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ribbon</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">min</span>, ymax <span class="op">=</span> <span class="va">max</span>, x <span class="op">=</span> <span class="va">x.ribbon</span>, fill <span class="op">=</span> <span class="st">'lightgreen'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -310,7 +311,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">'x'</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">'density'</span><span class="op">)</span></code></pre></div>
 <p><code>ggformat++</code> wraps the long sentence mentioned above for four times:</p>
-<div class="sourceCode" id="cb1681"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1693"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">##AFTER USING GGFORMAT++</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html">geom_ribbon</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">ribbon</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin<span class="op">=</span><span class="va">min</span>,ymax<span class="op">=</span><span class="va">max</span>,x<span class="op">=</span><span class="va">x.ribbon</span>,fill<span class="op">=</span><span class="st">'lightgreen'</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
@@ -327,7 +328,7 @@
 </div>
 <div id="ways-to-improve-ggformat" class="section level2">
 <h2>
-<span class="header-section-number">125.3</span> Ways to improve <code>ggformat++</code><a class="anchor" aria-label="anchor" href="#ways-to-improve-ggformat"><i class="fas fa-link"></i></a>
+<span class="header-section-number">126.3</span> Ways to improve <code>ggformat++</code><a class="anchor" aria-label="anchor" href="#ways-to-improve-ggformat"><i class="fas fa-link"></i></a>
 </h2>
 <p>Only using hand-crafted rules would definitely results in some bad cases. The most reliable way to format code is to build a compiler, with which we could know the roles of each token (e.g. identifier, function, operators, comments…). Therefore, the code can format themselves according to their roles.</p>
 <p>I have developed a compiler based on <code>minidecaf</code> and <code>antlr</code> a year ago, but it is for <code>C++</code>. I once thought about reusing the code to build a compiler for <code>R</code>, but finally give up because the workload of designing a context-free language that describe the full grammar of <code>R</code> is intimidating. However, I believe that the developers of <code>R</code> should consider adding a format module in the compiler of <code>R</code>, which will give much more reliable result than <code>ggformat</code> and <code>ggformat++</code>.</p>
@@ -339,21 +340,21 @@
 
 
 <div class="chapter-nav">
-<div class="prev"><a href="plotting-theme-for-columbia.html"><span class="header-section-number">124</span> Plotting theme for Columbia</a></div>
-<div class="next"><a href="github-initial-setup.html"><span class="header-section-number">126</span> Github initial setup</a></div>
+<div class="prev"><a href="geospatial-data-visualization.html"><span class="header-section-number">125</span> Geospatial Data Visualization</a></div>
+<div class="next"><a href="github-initial-setup.html"><span class="header-section-number">127</span> Github initial setup</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#super-ggformat"><span class="header-section-number">125</span> Super ggformat</a></li>
-<li><a class="nav-link" href="#introduction-28"><span class="header-section-number">125.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#super-ggformat"><span class="header-section-number">126</span> Super ggformat</a></li>
+<li><a class="nav-link" href="#introduction-28"><span class="header-section-number">126.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#how-it-differs-from-ggformat"><span class="header-section-number">125.2</span> How it differs from ggformat</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#handle-multiple-sentences"><span class="header-section-number">125.2.1</span> Handle Multiple Sentences</a></li>
-<li><a class="nav-link" href="#handle-comments"><span class="header-section-number">125.2.2</span> Handle Comments</a></li>
-<li><a class="nav-link" href="#wrapping-long-sentences"><span class="header-section-number">125.2.3</span> Wrapping Long Sentences</a></li>
+<a class="nav-link" href="#how-it-differs-from-ggformat"><span class="header-section-number">126.2</span> How it differs from ggformat</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#handle-multiple-sentences"><span class="header-section-number">126.2.1</span> Handle Multiple Sentences</a></li>
+<li><a class="nav-link" href="#handle-comments"><span class="header-section-number">126.2.2</span> Handle Comments</a></li>
+<li><a class="nav-link" href="#wrapping-long-sentences"><span class="header-section-number">126.2.3</span> Wrapping Long Sentences</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#ways-to-improve-ggformat"><span class="header-section-number">125.3</span> Ways to improve ggformat++</a></li>
+<li><a class="nav-link" href="#ways-to-improve-ggformat"><span class="header-section-number">126.3</span> Ways to improve ggformat++</a></li>
 </ul>
 
       <div class="book-extra">
@@ -375,7 +376,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-24.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

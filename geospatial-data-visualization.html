@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 125 Geospatial Data Visualization | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Nitya Krishna Kumar and Binny Manojkumar Naik Maps are a great way to showcase data to tell a story. They are a powerful way of depicting and comparing events that occur in different locations and...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 125 Geospatial Data Visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Nitya Krishna Kumar and Binny Manojkumar Naik Maps are a great way to showcase data to tell a story. They are a powerful way of depicting and comparing events that occur in different locations and...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 125 Geospatial Data Visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Nitya Krishna Kumar and Binny Manojkumar Naik Maps are a great way to showcase data to tell a story. They are a powerful way of depicting and comparing events that occur in different locations and...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
+<li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
+<li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
+<li><a class="" href="ggalluvial-cheatsheet.html"><span class="header-section-number">33</span> ggalluvial Cheatsheet</a></li>
+<li><a class="" href="a-cheatsheet-from-pandas-to-base-r-and-tidyverse.html"><span class="header-section-number">34</span> A cheatsheet from pandas to base r and tidyverse</a></li>
+<li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">35</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
+<li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">36</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">37</span> Base R String Operations Cheatsheet</a></li>
+<li><a class="" href="data-manipulation-in-r.html"><span class="header-section-number">38</span> Data manipulation in R</a></li>
+<li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">39</span> ggplot_matplotlib_cheatsheet</a></li>
+<li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">40</span> Introduction to Log-transformation</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">41</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">42</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">43</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">44</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">45</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">46</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">47</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">48</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">49</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">50</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">51</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">52</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">53</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">54</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">55</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">56</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">57</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">58</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">59</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">60</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">61</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">62</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">63</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">64</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">65</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">66</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">67</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">68</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">69</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">70</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">71</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">72</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">73</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">74</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">75</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">76</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">77</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">78</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">79</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">80</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">81</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">82</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">83</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">84</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">85</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">86</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">87</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">88</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">89</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">90</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">91</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">92</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">93</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">94</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">95</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">96</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">97</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">98</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">99</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">100</span> How to animate your plots</a></li>
+<li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">101</span> Dataframe operations tutorial</a></li>
+<li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">102</span> A brief instruction for the half semester of EDAV5702</a></li>
+<li><a class="" href="anova-tutorial.html"><span class="header-section-number">103</span> ANOVA tutorial</a></li>
+<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">104</span> ggplot2 in python</a></li>
+<li><a class="" href="predictive-analytics-using-data-visualization-in-r.html"><span class="header-section-number">105</span> Predictive Analytics using Data Visualization in R</a></li>
+<li><a class="" href="color-selection-for-ggplot-graphs.html"><span class="header-section-number">106</span> Color selection for ggplot graphs</a></li>
+<li><a class="" href="useful-resources-for-r-beginners.html"><span class="header-section-number">107</span> Useful resources for R beginners</a></li>
+<li><a class="" href="tutorial-on-using-mongodb-with-r.html"><span class="header-section-number">108</span> Tutorial on Using MongoDB with R</a></li>
+<li><a class="" href="plotting-graph-with-r-v.s.-python.html"><span class="header-section-number">109</span> Plotting graph with R v.s. Python</a></li>
+<li><a class="" href="rdoc---an-alfred-worflow-to-search-r-documentation.html"><span class="header-section-number">110</span> rdoc - An Alfred Worflow to Search R Documentation</a></li>
+<li><a class="" href="data-frame-reshape.html"><span class="header-section-number">111</span> Data Frame Reshape</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">112</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">113</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">114</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">115</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">116</span> RGL Package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">117</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">118</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">119</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">120</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">121</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">122</span> Base r vs. ggplot2 visualization</a></li>
+<li><a class="" href="improved-density-estimation.html"><span class="header-section-number">123</span> Improved density estimation</a></li>
+<li><a class="" href="plotting-theme-for-columbia.html"><span class="header-section-number">124</span> Plotting theme for Columbia</a></li>
+<li><a class="active" href="geospatial-data-visualization.html"><span class="header-section-number">125</span> Geospatial Data Visualization</a></li>
+<li class="book-part">Custom R Package</li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">126</span> Super ggformat</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">127</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">128</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="geospatial-data-visualization" class="section level1">
+<h1>
+<span class="header-section-number">125</span> Geospatial Data Visualization<a class="anchor" aria-label="anchor" href="#geospatial-data-visualization"><i class="fas fa-link"></i></a>
+</h1>
+<p>Nitya Krishna Kumar and Binny Manojkumar Naik</p>
+<p>Maps are a great way to showcase data to tell a story. They are a powerful way of depicting and comparing events that occur in different locations and time. For the general public, they are also an intuitive and engaging way of understanding otherwise complicated data.</p>
+<p>Maps in R is a very good way of visualizing the Geospatial Data while revealing underlying features and connections between different locations. Visualizing geospatial data aids to communicate how different variables correlate to geographical locations by layering these variables over maps. In general, we could plot maps when we want to study geographic locations based on their shape, size, distances between places, or based on specific important features of the geographic location.</p>
+<div id="geospatial-data" class="section level3">
+<h3>
+<span class="header-section-number">125.0.1</span> Geospatial Data<a class="anchor" aria-label="anchor" href="#geospatial-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Geospatial data that is used to build map visualizations typically contain the following information:<br>
+- Location (Latitude and Longitude)<br>
+- Some Attribute (Name of location, population, event data, etc)<br>
+In some occasions they may also contain temporal data.<br></p>
+<hr>
+</div>
+<div id="types-of-maps" class="section level2">
+<h2>
+<span class="header-section-number">125.1</span> Types of Maps<a class="anchor" aria-label="anchor" href="#types-of-maps"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are many different types of maps that can be created using R which are listed as follows:<br>
+i) Background Map<br>
+ii) Choropleth<br>
+iii) Hexbin map<br>
+iv) Cartogram<br>
+v) Connection<br>
+vi) Bubble map<br><br></p>
+<p>In this tutorial, we will concentrate on three very useful and common maps:<br>
+i) Chloropleth Map.<br>
+ii) Bubble Map.<br>
+iii) Connection Map.<br></p>
+<div id="getting-the-data" class="section level3">
+<h3>
+<span class="header-section-number">125.1.1</span> Getting the Data<a class="anchor" aria-label="anchor" href="#getting-the-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Packages needed:</p>
+<div class="sourceCode" id="cb1672"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> <span class="co"># to visualize the map</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">maps</span><span class="op">)</span> <span class="co"># boundaries of common places such as continents, countries, states, and counties</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sjmgarnier.github.io/viridis/">viridis</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">geosphere</span><span class="op">)</span></code></pre></div>
+<p>Let’s use the <code>USArrests</code> dataset in R to create a chloropleth and bubble map. More information about this dataset can be found here: <a href="https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/USArrests" class="uri">https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/USArrests</a></p>
+<div class="sourceCode" id="cb1673"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">USArrests</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<p>This dataset provides us with various attributes but there is a lack of coordinate information. To include this, we have merged the <code>USArrests</code> dataset with the <code>state</code> subset from the <code>map_data</code> function in <code>ggplot2</code>. Specific countries and regions can be specified in <code>map_data</code>. Some examples include <code>map_data("world")</code>, <code>map_data("county")</code>, <code>map_data("UK")</code>.</p>
+<p>More information about the <code>map_data</code> function can be found here: <a href="https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5/topics/map_data" class="uri">https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5/topics/map_data</a></p>
+<div class="sourceCode" id="cb1674"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">states_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/map_data.html">map_data</a></span><span class="op">(</span><span class="st">"state"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">states_map</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<p>For the purpose of this tutorial, we will use the state data from <code>map_data</code>. It has the following important attributes:<br>
+- coordinates: <code>long</code> and <code>lat</code> to depict state boundaries (like (x,y) points).<br>
+- group: denotes whether two adjacent points should be connected with a line.<br>
+- order: order in which to connect the points.<br>
+- region: name of the state the point belongs to.<br></p>
+<p>Let’s merge the state data with the <code>USArrests</code> data.</p>
+<div class="sourceCode" id="cb1675"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">crimes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>state <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span><span class="op">)</span>, <span class="va">USArrests</span><span class="op">)</span>
+<span class="va">crime_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/merge.html">merge</a></span><span class="op">(</span><span class="va">states_map</span>, <span class="va">crimes</span>, by.x <span class="op">=</span> <span class="st">"region"</span>, by.y <span class="op">=</span> <span class="st">"state"</span><span class="op">)</span>
+<span class="va">crime_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">crime_map</span>, <span class="va">group</span>, <span class="va">order</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">crime_map</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<p>The <code>maps</code> package can be used to plot, however we will concentrate on using <code>ggplot2</code>.</p>
+</div>
+<div id="chloropleth" class="section level3">
+<h3>
+<span class="header-section-number">125.1.2</span> Chloropleth<a class="anchor" aria-label="anchor" href="#chloropleth"><i class="fas fa-link"></i></a>
+</h3>
+<p>Chloropleth Maps are great for showing depicting trends based on numeric attribute through color. In addition to the numeric data, Chloropleth maps require a geospatial object that provides geographic region boundaries. They are visually pleasing and intuitive. The following map compares number of rape cases across the states. Note that Alaska and Hawaii are not included here as including those regions would make the overall map look too compressed and thus difficult to read.</p>
+<div class="sourceCode" id="cb1676"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">crime1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">crime_map</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>, y <span class="op">=</span> <span class="va">lat</span>, group <span class="op">=</span> <span class="va">group</span>, fill <span class="op">=</span> <span class="va">Rape</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map</a></span><span class="op">(</span><span class="st">"mercator"</span><span class="op">)</span>
+<span class="va">crime1</span></code></pre></div>
+<p>Let’s look at the important aspects:<br>
+- <code>geom_polygon</code> is useful for: drawing the USA map with specified geographic boundary conditions.<br>
+- <code>coord_map("mercator")</code> specifies the use of the common mercator map projection.<br></p>
+<p>More information about <code><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map()</a></code> can be found here: <a href="https://ggplot2.tidyverse.org/reference/coord_map.html" class="uri">https://ggplot2.tidyverse.org/reference/coord_map.html</a>.<br>
+More information about the mercator projection can be found here: <a href="https://desktop.arcgis.com/en/arcmap/latest/map/projections/mercator.htm" class="uri">https://desktop.arcgis.com/en/arcmap/latest/map/projections/mercator.htm</a></p>
+<p>The above graph uses the default color scheme which is slightly unintuitive. Let’s change the fill:</p>
+<div class="sourceCode" id="cb1677"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">crime_p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">crimes</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>map_id <span class="op">=</span> <span class="va">state</span>, fill <span class="op">=</span> <span class="va">Rape</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_map.html">geom_map</a></span><span class="op">(</span>map <span class="op">=</span> <span class="va">states_map</span>, colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expand_limits.html">expand_limits</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">states_map</span><span class="op">$</span><span class="va">long</span>, y <span class="op">=</span> <span class="va">states_map</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map</a></span><span class="op">(</span><span class="st">"mercator"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"long"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"lat"</span><span class="op">)</span>
+
+<span class="va">crime_p</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"yellow"</span>, mid <span class="op">=</span> <span class="st">"thistle1"</span>, high <span class="op">=</span> <span class="st">"red4"</span>,
+                       midpoint <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">crimes</span><span class="op">$</span><span class="va">Rape</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Advantages of Chloropleth Maps:<br>
+i) The most obvious advantage of Chloropleth Maps is that they are widely popular and frequantly in use when we want to plot value levels and indicate the average values of some numeric variable in any global or local geographic areas based on a graduated color scale.<br></p>
+<p>Disadvantages of Chloropleth Maps:<br>
+i) Because they work on average values, we cannot get detailed information about any internal conditions of the features.<br>
+ii) It is difficult to interpret the changing conditions at the boundaries of the plots based on insignificant color changes.<br>
+iii) Choropleth maps works on a constant density within the areas of interest. If the real object density varies, the expressiveness of the map gets distorted.<br></p>
+</div>
+<div id="bubble-maps" class="section level3">
+<h3>
+<span class="header-section-number">125.1.3</span> Bubble Maps<a class="anchor" aria-label="anchor" href="#bubble-maps"><i class="fas fa-link"></i></a>
+</h3>
+<p>The same way a choloropleth map uses color to depict a numeric attribute/value pertaining to a region, a bubble map uses circles of varying sizes. Theses circles can be plotted in two ways:<br>
+- one bubble for each geographic coordinate<br>
+- one bubble per region<br></p>
+<p>In the latter case, it is required that we find the center of each region to plot the circle.
+This can be done in the following manner:</p>
+<div class="sourceCode" id="cb1678"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">state_centroids</span> <span class="op">&lt;-</span> <span class="va">crime_map</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>long <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">long</span><span class="op">)</span><span class="op">)</span>, 
+            lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">lat</span><span class="op">)</span><span class="op">)</span>, 
+            rape <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">Rape</span><span class="op">)</span><span class="op">)</span>,
+            assault <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">Assault</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/raster/man/names.html">names</a></span><span class="op">(</span><span class="va">state_centroids</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"state"</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">state_centroids</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<p>Once we have our center, lets plot the circles on the map.</p>
+<div class="sourceCode" id="cb1679"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">bubble</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">crimes</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>map_id <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_map.html">geom_map</a></span><span class="op">(</span>map <span class="op">=</span> <span class="va">states_map</span>, colour <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">state_centroids</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">long</span>, y<span class="op">=</span><span class="va">lat</span>, size<span class="op">=</span><span class="va">rape</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"salmon"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expand_limits.html">expand_limits</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">states_map</span><span class="op">$</span><span class="va">long</span>, y <span class="op">=</span> <span class="va">states_map</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html">scale_size_continuous</a></span><span class="op">(</span>range<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co">#scale_color_viridis(trans="log", direction = -1) +</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">25</span>,<span class="fl">50</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">125</span>, <span class="op">-</span><span class="fl">70</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map</a></span><span class="op">(</span><span class="st">"mercator"</span><span class="op">)</span> 
+
+<span class="va">bubble</span></code></pre></div>
+<p>Bubble maps are an easy way to compare two attributes as well. This can be done by adding a color scale to the circles. Let’s compare assault cases to rape cases.</p>
+<div class="sourceCode" id="cb1680"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">bubble</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">crimes</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>map_id <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_map.html">geom_map</a></span><span class="op">(</span>map <span class="op">=</span> <span class="va">states_map</span>, colour <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">state_centroids</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">long</span>, y<span class="op">=</span><span class="va">lat</span>, size<span class="op">=</span><span class="va">rape</span>, color<span class="op">=</span><span class="va">assault</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expand_limits.html">expand_limits</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">states_map</span><span class="op">$</span><span class="va">long</span>, y <span class="op">=</span> <span class="va">states_map</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html">scale_size_continuous</a></span><span class="op">(</span>range<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://sjmgarnier.github.io/viridis/reference/scale_viridis.html">scale_color_viridis</a></span><span class="op">(</span>trans<span class="op">=</span><span class="st">"log"</span>, direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">25</span>,<span class="fl">50</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">125</span>, <span class="op">-</span><span class="fl">70</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map</a></span><span class="op">(</span><span class="st">"mercator"</span><span class="op">)</span> 
+
+<span class="va">bubble</span></code></pre></div>
+<p>Advantages of Bubble Maps:<br>
+i) They are useful in rendering relative comparisons among the numeric variable of interest.<br></p>
+<p>Disadvantages of Bubble Maps:<br>
+i) It is very difficult to estimate the actual values just based on the circle sizes.<br>
+ii) They cannot be used for larger datasets as it becomes difficult to read overlapping circles and draw any kind of meaningful insights.<br></p>
+</div>
+<div id="connection-map" class="section level3">
+<h3>
+<span class="header-section-number">125.1.4</span> Connection Map<a class="anchor" aria-label="anchor" href="#connection-map"><i class="fas fa-link"></i></a>
+</h3>
+<p>A connection Map is a great way to show the connections(route) between several positions on a map. The points on the map shows all the possible locations of our interest and the lines that connect the points depicts that a route exists between the two points.</p>
+<p>In this tutorial, we will make use of the gcIntermediate() function from the geosphere package which works to draw the shortest routes between two locations instead of just making straight lines.</p>
+<p>To explain the use of Connection Maps, we will make use of the USA Flights dataset. More information about the dataset can be found here: <a href="https://www.kaggle.com/flashgordon/usa-airport-dataset" class="uri">https://www.kaggle.com/flashgordon/usa-airport-dataset</a></p>
+<div class="sourceCode" id="cb1681"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"Airports2.csv"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<p>This dataset contains information about the number of flights, number of passenger, and number of seats that were associated with the flights that flew from different origin airports of the USA to some other destination airports. It also provides the longitude and latitude values of the origin, destination airports and cities.</p>
+<div class="sourceCode" id="cb1682"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#map showing the number of flights that flew from JFK airport to different locations on 1st December 2009.</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="va">cc</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#DF536B"</span>,<span class="st">"#61D04F"</span>,<span class="st">"#2297E6"</span>,<span class="st">"#28E2E5"</span>,<span class="st">"#CD0BBC"</span>,<span class="st">"#F5C710"</span>,<span class="st">"gray62"</span> <span class="op">)</span>
+<span class="fu">maps</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/maps/man/map.html">map</a></span><span class="op">(</span><span class="st">'state'</span>, fill <span class="op">=</span> <span class="cn">TRUE</span>,col <span class="op">=</span> <span class="va">cc</span>, bg <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span>
+
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">df</span><span class="op">$</span><span class="va">Origin_airport</span> <span class="op">==</span> <span class="st">"JFK"</span> <span class="op">)</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">df</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dest_airport_long"</span>, <span class="st">"Dest_airport_lat"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">df</span><span class="op">$</span><span class="va">Dest_airport_long</span>, y <span class="op">=</span> <span class="va">df</span><span class="op">$</span><span class="va">Dest_airport_lat</span>, col<span class="op">=</span><span class="st">"black"</span>, cex<span class="op">=</span><span class="fl">0.8</span>, pch<span class="op">=</span><span class="fl">20</span><span class="op">)</span>
+
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">df</span><span class="op">$</span><span class="va">Fly_date</span> <span class="op">==</span> <span class="st">"2009-12-01"</span><span class="op">)</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">df</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"ATL"</span> <span class="op">|</span> 
+                 <span class="va">df</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"BGR"</span> <span class="op">|</span> 
+                 <span class="va">df</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"BOS"</span> <span class="op">|</span> 
+                 <span class="va">df</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"CAK"</span> <span class="op">|</span> 
+                 <span class="va">df</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"DFW"</span> <span class="op">|</span> 
+                 <span class="va">df</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"DOV"</span> <span class="op">|</span>
+                 <span class="va">df</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"MIA"</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">df</span><span class="op">$</span><span class="va">Org_airport_long</span>, y <span class="op">=</span> <span class="va">df</span><span class="op">$</span><span class="va">Org_airport_lat</span>, col<span class="op">=</span><span class="st">"red"</span>, cex<span class="op">=</span><span class="fl">2</span>, pch<span class="op">=</span><span class="fl">20</span><span class="op">)</span>
+
+<span class="va">don</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbind</a></span><span class="op">(</span>JFK<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">73.8</span>, <span class="fl">40.6</span><span class="op">)</span>,ATL<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">84.4281</span>, <span class="fl">33.6367</span><span class="op">)</span>,DOV<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">75.466</span>, <span class="fl">39.1295</span><span class="op">)</span>,MIA<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">80.2906</span>, <span class="fl">25.7932</span><span class="op">)</span>,BOS<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">71.0052</span>, <span class="fl">42.3643</span><span class="op">)</span>,BGR<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">68.8281</span>, <span class="fl">44.8074</span><span class="op">)</span>,DFW<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">97.038</span>, <span class="fl">32.8968</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">don</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"long"</span>,<span class="st">"lat"</span><span class="op">)</span>
+
+<span class="va">JFK</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">73.8</span>, <span class="fl">40.6</span><span class="op">)</span>
+<span class="va">ATL</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">84.4281</span>, <span class="fl">33.6367</span><span class="op">)</span>
+<span class="va">DOV</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">75.466</span>, <span class="fl">39.1295</span><span class="op">)</span>
+<span class="va">MIA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">80.2906</span>, <span class="fl">25.7932</span><span class="op">)</span>
+<span class="va">BOS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">71.0052</span>, <span class="fl">42.3643</span><span class="op">)</span>
+<span class="va">BGR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">68.8281</span>, <span class="fl">44.8074</span><span class="op">)</span>
+<span class="va">DFW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">97.038</span>, <span class="fl">32.8968</span><span class="op">)</span>
+
+<span class="va">inter1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">DOV</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">MIA</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">BOS</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">BGR</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">DFW</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">ATL</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter1</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter2</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter3</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter4</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter5</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter6</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames</a></span><span class="op">(</span><span class="va">don</span><span class="op">)</span>,x<span class="op">=</span><span class="va">don</span><span class="op">$</span><span class="va">long</span>,y<span class="op">=</span><span class="va">don</span><span class="op">$</span><span class="va">lat</span>,col<span class="op">=</span><span class="st">"white"</span>,cex<span class="op">=</span><span class="fl">0.8</span>,pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1683"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"Airports2.csv"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="va">cc</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#DF536B"</span>,<span class="st">"#61D04F"</span>,<span class="st">"#2297E6"</span>,<span class="st">"#28E2E5"</span>,<span class="st">"#CD0BBC"</span>,<span class="st">"#F5C710"</span>,<span class="st">"gray62"</span> <span class="op">)</span>
+<span class="fu">maps</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/maps/man/map.html">map</a></span><span class="op">(</span><span class="st">'state'</span>, fill <span class="op">=</span> <span class="cn">TRUE</span>,col <span class="op">=</span> <span class="va">cc</span>, bg <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span>
+
+<span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df1</span>, <span class="va">df1</span><span class="op">$</span><span class="va">Origin_airport</span> <span class="op">==</span> <span class="st">"JFK"</span> <span class="op">)</span>
+<span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">df1</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dest_airport_long"</span>, <span class="st">"Dest_airport_lat"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">df1</span><span class="op">$</span><span class="va">Dest_airport_long</span>, y <span class="op">=</span> <span class="va">df1</span><span class="op">$</span><span class="va">Dest_airport_lat</span>, col<span class="op">=</span><span class="st">"black"</span>, cex<span class="op">=</span><span class="fl">0.8</span>, pch<span class="op">=</span><span class="fl">20</span><span class="op">)</span>
+
+<span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df1</span>, <span class="va">df1</span><span class="op">$</span><span class="va">Fly_date</span> <span class="op">==</span> <span class="st">"1990-01-01"</span><span class="op">)</span>
+<span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df1</span>, <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"ATL"</span> <span class="op">|</span> 
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"BOS"</span> <span class="op">|</span> 
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"BUF"</span> <span class="op">|</span> 
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"CPR"</span> <span class="op">|</span>
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"DAY"</span> <span class="op">|</span> 
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"DFW"</span> <span class="op">|</span> 
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"DTW"</span> <span class="op">|</span>
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"HOU"</span> <span class="op">|</span> 
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"IAH"</span> <span class="op">|</span> 
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"MIA"</span> <span class="op">|</span>
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"ORD"</span> <span class="op">|</span> 
+               <span class="va">df1</span><span class="op">$</span><span class="va">Destination_airport</span> <span class="op">==</span> <span class="st">"TPA"</span> 
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">df1</span><span class="op">$</span><span class="va">Org_airport_long</span>, y <span class="op">=</span> <span class="va">df1</span><span class="op">$</span><span class="va">Org_airport_lat</span>, col<span class="op">=</span><span class="st">"red"</span>, cex<span class="op">=</span><span class="fl">2</span>, pch<span class="op">=</span><span class="fl">20</span><span class="op">)</span>
+
+<span class="va">don1</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbind</a></span><span class="op">(</span>ATL<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">84.4281</span>, <span class="fl">33.6367</span><span class="op">)</span>,BOS<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">71.0052</span>, <span class="fl">42.3643</span><span class="op">)</span>,BUF<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">78.7322</span>, <span class="fl">42.9405</span><span class="op">)</span>,CPR<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">106.464</span>, <span class="fl">42.908</span><span class="op">)</span>,DAY<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">84.2194</span>, <span class="fl">39.9024</span><span class="op">)</span>,DFW<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">97.038</span>, <span class="fl">32.8968</span><span class="op">)</span>,DTW<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">83.3534</span>, <span class="fl">42.2124</span><span class="op">)</span>, HOU<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.2789</span>, <span class="fl">29.6465</span><span class="op">)</span>, IAH<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.3414</span>, <span class="fl">29.9844</span><span class="op">)</span>, MIA<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">80.2906</span>, <span class="fl">25.7932</span><span class="op">)</span>, ORD<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">87.9048</span>, <span class="fl">41.9786</span><span class="op">)</span>, TPA<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">82.5332</span>, <span class="fl">27.9755</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">don1</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"long"</span>,<span class="st">"lat"</span><span class="op">)</span>
+
+<span class="va">ATL</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">84.4281</span>, <span class="fl">33.6367</span><span class="op">)</span>
+<span class="va">BOS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">71.0052</span>, <span class="fl">42.3643</span><span class="op">)</span>
+<span class="va">BUF</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">78.7322</span>, <span class="fl">42.9405</span><span class="op">)</span>
+<span class="va">CPR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">106.464</span>, <span class="fl">42.908</span><span class="op">)</span>
+<span class="va">DAY</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">84.2194</span>, <span class="fl">39.9024</span><span class="op">)</span>
+<span class="va">DFW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">97.038</span>, <span class="fl">32.8968</span><span class="op">)</span>
+<span class="va">DTW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">83.3534</span>, <span class="fl">42.2124</span><span class="op">)</span>
+<span class="va">HOU</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.2789</span>, <span class="fl">29.6465</span><span class="op">)</span>
+<span class="va">IAH</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">95.3414</span>, <span class="fl">29.9844</span><span class="op">)</span>
+<span class="va">MIA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">80.2906</span>, <span class="fl">25.7932</span><span class="op">)</span>
+<span class="va">ORD</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">87.9048</span>, <span class="fl">41.9786</span><span class="op">)</span>
+<span class="va">TPA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">82.5332</span>, <span class="fl">27.9755</span><span class="op">)</span>
+
+<span class="va">inter1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">ATL</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">BOS</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">BUF</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">CPR</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">BOS</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">DAY</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">DFW</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter8</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">DTW</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter9</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">HOU</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter10</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">IAH</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter11</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">MIA</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">ORD</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+<span class="va">inter13</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/intermediate.html">gcIntermediate</a></span><span class="op">(</span><span class="va">JFK</span>, <span class="va">TPA</span>, n<span class="op">=</span><span class="fl">50</span>, addStartEnd<span class="op">=</span><span class="cn">TRUE</span>, breakAtDateLine<span class="op">=</span><span class="cn">F</span><span class="op">)</span> 
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter1</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter2</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter3</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter4</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter5</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter6</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter7</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter8</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter9</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter10</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter11</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter12</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">inter13</span>, col<span class="op">=</span><span class="st">"pink"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames</a></span><span class="op">(</span><span class="va">don1</span><span class="op">)</span>,x<span class="op">=</span><span class="va">don1</span><span class="op">$</span><span class="va">long</span>,y<span class="op">=</span><span class="va">don1</span><span class="op">$</span><span class="va">lat</span>,col<span class="op">=</span><span class="st">"white"</span>,cex<span class="op">=</span><span class="fl">0.8</span>,pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<p>For comparison purposes, we plotted the above map to dsiplay all the possible locations (in the form of points), to where the flights from JFK airport New York throughout the given dataset fly to. Moreover, the lines depicts the actual flights that were scheduled from JFK airport New York to different locations on 1st December 2009 (which is the very last date available in the dataset)</p>
+<p>Overall, we plotted the background of the USA map using the map() function and gave the customized color palette to make individual states more distinctly visible. Moreover, we filtered the dataset to have the only the locations to where flights from JFK are scheduled to throughout the years given in the dataset. Next, we cleaned the data to remove any NAN values from the longitude and latitude. Furthermore, we used the points() function to plot all the destination airports on the map in black color.</p>
+<p>Now, specific to two different dates we filtered the data based on the fly date of the flights and also filtered on the actual destination airports to which the flights from JFK flew on those particular dates. All of these filtering is done using the filter() function. The points() function was then again used to plot the origin airport JFK in red color. The rbind() function is used to bind the rows that contains the data for the destination airports for particular dates of interest. Eventually, the dataframe that we get using this is utilized to label the destination airports on the maps.</p>
+<p>After all the points are plotted, the next task is to establish the lines showing the routes between the airports. For this purpose, we use gcIntermediate() to establish the link between the origin and destination airports. Finally, the links are drawn in form of lines using the lines() function.</p>
+<p>Advantages of Connection Maps:<br>
+i) They are very efficient in visualizing geospatial data where connections between different locations is need to be interpreted.<br>
+ii) Allows to track the path between different location sets.<br></p>
+<p>Disadvantages of Connection Maps:<br>
+i) It becomes difficult to read and understand the paths which have overlapping lines showing the route.<br>
+ii) For larger data points, the overall connection plot becomes too clumsy and crowded with points and lines that it gets difficult to interpret any obvious details as well.<br><br></p>
+<hr>
+</div>
+</div>
+<div id="references-13" class="section level2">
+<h2>
+<span class="header-section-number">125.2</span> References<a class="anchor" aria-label="anchor" href="#references-13"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="https://www.sciencedirect.com/topics/computer-science/geospatial-data" class="uri">https://www.sciencedirect.com/topics/computer-science/geospatial-data</a><br>
+</li>
+<li><a href="https://www.r-graph-gallery.com/map.html" class="uri">https://www.r-graph-gallery.com/map.html</a></li>
+</ul>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="plotting-theme-for-columbia.html"><span class="header-section-number">124</span> Plotting theme for Columbia</a></div>
+<div class="next"><a href="super-ggformat.html"><span class="header-section-number">126</span> Super ggformat</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li>
+<a class="nav-link" href="#geospatial-data-visualization"><span class="header-section-number">125</span> Geospatial Data Visualization</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#geospatial-data"><span class="header-section-number">125.0.1</span> Geospatial Data</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#types-of-maps"><span class="header-section-number">125.1</span> Types of Maps</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#getting-the-data"><span class="header-section-number">125.1.1</span> Getting the Data</a></li>
+<li><a class="nav-link" href="#chloropleth"><span class="header-section-number">125.1.2</span> Chloropleth</a></li>
+<li><a class="nav-link" href="#bubble-maps"><span class="header-section-number">125.1.3</span> Bubble Maps</a></li>
+<li><a class="nav-link" href="#connection-map"><span class="header-section-number">125.1.4</span> Connection Map</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#references-13"><span class="header-section-number">125.2</span> References</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/geospatial_data_visualization.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/geospatial_data_visualization.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-29.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

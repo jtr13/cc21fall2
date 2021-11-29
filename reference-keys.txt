@@ -1142,6 +1142,14 @@ real-data-without-repetitions
 conclussion
 references-12
 plotting-theme-for-columbia
+geospatial-data-visualization
+geospatial-data
+types-of-maps
+getting-the-data
+chloropleth
+bubble-maps
+connection-map
+references-13
 super-ggformat
 introduction-28
 how-it-differs-from-ggformat

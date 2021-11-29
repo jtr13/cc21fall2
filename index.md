@@ -1,6 +1,6 @@
 ---
 title: "EDAV Fall 2021 Tues/Thurs Community Contributions"
-date: "2021-11-24"
+date: "2021-11-29"
 site: bookdown::bookdown_site
 github-repo: jtr13/cc21fall2
 description: "This book contains community contributions for Fall 2021 EDAV Tues/Thurs class at Columbia University."
