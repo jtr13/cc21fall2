@@ -146,6 +146,7 @@ rmd_files: [
   'ggplot_base_r_graph_analysis.Rmd',
   'improved_density_estimation.Rmd',
   'theme_columbia.Rmd',
+  'geospatial_data_visualization.Rmd',
   
   # Part: Custom R packages
   'super_ggformat_project.Rmd', # contains PART header
