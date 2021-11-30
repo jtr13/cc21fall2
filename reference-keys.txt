@@ -1084,6 +1084,7 @@ method-1-use-melt-in-package-reshape2
 method-2-use-gather-in-tidyr
 convert-long-format-data-to-wide-format-data
 method-2-use-spread-in-package-tidyr
+using-python-in-r
 introduction-to-analytics-consulting-at-accenture
 map-of-the-r-world
 alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r

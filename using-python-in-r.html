@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 112 Using python in r | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Xingyu Lu 1. Background R and python are two of the most popular programming languages for data scientists. Sometimes it might be hard to decide which one to use, especially for beginners....">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 112 Using python in r | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Xingyu Lu 1. Background R and python are two of the most popular programming languages for data scientists. Sometimes it might be hard to decide which one to use, especially for beginners....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 112 Using python in r | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Xingyu Lu 1. Background R and python are two of the most popular programming languages for data scientists. Sometimes it might be hard to decide which one to use, especially for beginners....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
+<li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
+<li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
+<li><a class="" href="ggalluvial-cheatsheet.html"><span class="header-section-number">33</span> ggalluvial Cheatsheet</a></li>
+<li><a class="" href="a-cheatsheet-from-pandas-to-base-r-and-tidyverse.html"><span class="header-section-number">34</span> A cheatsheet from pandas to base r and tidyverse</a></li>
+<li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">35</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
+<li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">36</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">37</span> Base R String Operations Cheatsheet</a></li>
+<li><a class="" href="data-manipulation-in-r.html"><span class="header-section-number">38</span> Data manipulation in R</a></li>
+<li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">39</span> ggplot_matplotlib_cheatsheet</a></li>
+<li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">40</span> Introduction to Log-transformation</a></li>
+<li class="book-part">Tutorials</li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">41</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">42</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">43</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">44</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">45</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">46</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">47</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">48</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">49</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">50</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">51</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">52</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">53</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">54</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">55</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">56</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">57</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">58</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">59</span> Neural network tools in R</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">60</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">61</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">62</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">63</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">64</span> Base R Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">65</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">66</span> R to python easy plot</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">67</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">68</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">69</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">70</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">71</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">72</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">73</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">74</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">75</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">76</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">77</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">78</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">79</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">80</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">81</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">82</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">83</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">84</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">85</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">86</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">87</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">88</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">89</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">90</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">91</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">92</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">93</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">94</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">95</span> pygal tutorial</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">96</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">97</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">98</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">99</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">100</span> How to animate your plots</a></li>
+<li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">101</span> Dataframe operations tutorial</a></li>
+<li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">102</span> A brief instruction for the half semester of EDAV5702</a></li>
+<li><a class="" href="anova-tutorial.html"><span class="header-section-number">103</span> ANOVA tutorial</a></li>
+<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">104</span> ggplot2 in python</a></li>
+<li><a class="" href="predictive-analytics-using-data-visualization-in-r.html"><span class="header-section-number">105</span> Predictive Analytics using Data Visualization in R</a></li>
+<li><a class="" href="color-selection-for-ggplot-graphs.html"><span class="header-section-number">106</span> Color selection for ggplot graphs</a></li>
+<li><a class="" href="useful-resources-for-r-beginners.html"><span class="header-section-number">107</span> Useful resources for R beginners</a></li>
+<li><a class="" href="tutorial-on-using-mongodb-with-r.html"><span class="header-section-number">108</span> Tutorial on Using MongoDB with R</a></li>
+<li><a class="" href="plotting-graph-with-r-v.s.-python.html"><span class="header-section-number">109</span> Plotting graph with R v.s. Python</a></li>
+<li><a class="" href="rdoc---an-alfred-worflow-to-search-r-documentation.html"><span class="header-section-number">110</span> rdoc - An Alfred Worflow to Search R Documentation</a></li>
+<li><a class="" href="data-frame-reshape.html"><span class="header-section-number">111</span> Data Frame Reshape</a></li>
+<li><a class="active" href="using-python-in-r.html"><span class="header-section-number">112</span> Using python in r</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">113</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">114</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">115</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">116</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">117</span> RGL Package</a></li>
+<li class="book-part">Data Visualization</li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">118</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">119</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">120</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">121</span> R and Python visualization</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">122</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">123</span> Base r vs. ggplot2 visualization</a></li>
+<li><a class="" href="improved-density-estimation.html"><span class="header-section-number">124</span> Improved density estimation</a></li>
+<li><a class="" href="plotting-theme-for-columbia.html"><span class="header-section-number">125</span> Plotting theme for Columbia</a></li>
+<li><a class="" href="geospatial-data-visualization.html"><span class="header-section-number">126</span> Geospatial Data Visualization</a></li>
+<li class="book-part">Custom R Package</li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">127</span> Super ggformat</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">128</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">129</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="using-python-in-r" class="section level1">
+<h1>
+<span class="header-section-number">112</span> Using python in r<a class="anchor" aria-label="anchor" href="#using-python-in-r"><i class="fas fa-link"></i></a>
+</h1>
+<p>Xingyu Lu</p>
+<p><strong>1. Background</strong><br>
+R and python are two of the most popular programming languages for data scientists. Sometimes it might be hard to decide which one to use, especially for beginners.</p>
+<p>However, it’s easy for us to compare these languages. One languages isn’t better than another for all cases. For example, R is almost the best language to do exploratory data analysis and python is more readable and can be integrated to any part of your workflow easily. <strong>The following figure is a comparison screenshot from resource 1</strong></p>
+<div class="inline-figure"><img src="resources/use_python_in_r/pythonvsr.png"></div>
+<p>As a beginner in R, I enjoyed the beautiful plots R can make, and also suffered from the obscure data processing functions and limited online resources and documentations.</p>
+<p>And then, <em>reticulate</em> package that can allow using python in R becomes a life saver for R beginners that is already familiar with python.</p>
+<p><strong>2. <em>reticulate</em> package</strong><br><em>reticulate</em> package allows users to use python modules, classes and functions in R. Although it CANNOT guarantee all the benefits of python, it can at least give you some convenience.</p>
+<p><em>(a) Setup</em><br>
+Surprisingly, it’s quite easy to set up python in R Markdown. The only thing you need is to include the following block:</p>
+<div class="sourceCode" id="cb1589"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">path</span> <span class="op">&lt;-</span> <span class="st">'/usr/local/opt/python@3.7/bin/python3'</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/reticulate">reticulate</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/use_python.html">use_python</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></code></pre></div>
+<p>The <code>path</code> variable is the path pointing to the python you are using. To find the path, you can do the following:</p>
+<ul>
+<li>Windows: use the following code in cmd<br>
+</li>
+</ul>
+<pre><code>python -c "import os, sys; print(os.path.dirname(sys.executable))"</code></pre>
+<ul>
+<li>MacOS: use the follwing code in terminal<br>
+</li>
+</ul>
+<pre><code>which python</code></pre>
+<p><em>(b) Usage</em></p>
+<p>After the setup, you can use the python block normally just as r blocks in R Markdown files: wrap your python code with ```{python} ``` just like what you will do for your R code.<br>
+For example, if you want to load the wait list data in HW3 Q3, you could</p>
+<div class="sourceCode" id="cb1592"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1592-1"><a href="using-python-in-r.html#cb1592-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1592-2"><a href="using-python-in-r.html#cb1592-2"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'stats_wl.csv'</span>)</span>
+<span id="cb1592-3"><a href="using-python-in-r.html#cb1592-3"></a>df.head()</span></code></pre></div>
+<p>You can manipulate the data in Python, which is easier than R.</p>
+<p><strong>Note: a useful function: py_install(some python package)</strong></p>
+<p><em>(c) Plot using Python packages</em></p>
+<p>It’s also possible to make plots using python packages like <em>matplotlib</em> and <em>seaborn</em>.<br>
+For example, I want to see the distribution of final status of all the students.</p>
+<div class="sourceCode" id="cb1593"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1593-1"><a href="using-python-in-r.html#cb1593-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1593-2"><a href="using-python-in-r.html#cb1593-2"></a>df_status <span class="op">=</span> df[[<span class="st">'Name'</span>, <span class="st">'Status'</span>]].drop_duplicates()</span>
+<span id="cb1593-3"><a href="using-python-in-r.html#cb1593-3"></a><span class="bu">print</span>(df_status.shape)</span>
+<span id="cb1593-4"><a href="using-python-in-r.html#cb1593-4"></a>sns.<span class="bu">set</span>(font_scale<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb1593-5"><a href="using-python-in-r.html#cb1593-5"></a>sns.countplot(y<span class="op">=</span><span class="st">'Status'</span>, data<span class="op">=</span>df_status).set_title(<span class="st">'Countplot for Final Status of all Students'</span>)</span></code></pre></div>
+<p><em>(d) Integrate into R</em></p>
+<p>Upto now, we are only using Python functions. It’s like we are just treating RStudio as another editor for Python. And how can we integrate python into R, to enjoy the coding experience in Python and the nice plots of R at the same time?</p>
+<p>Well, it’s quite simple.</p>
+<p><em>(d-1) What’s happening to the Python block in R Markdown?</em><br>
+After running the above blocks in RStudio, you should observe the following messages in your Console:</p>
+<div class="inline-figure"><img src="resources/use_python_in_r/console.png"></div>
+<p>This means your console is currently in python mode, and you could run python code in the console just like all other IDEs. Off course, you can’t use R codes here unless you exit the REPL and return to R, just as the message states.<br>
+Also, in the Environment, you should also observe the following data and variables:</p>
+<div class="inline-figure"><img src="resources/use_python_in_r/env.png"></div>
+<p>Notice that you would no longer observe those variables in the Environment window once you exit the REPL mode in the console.</p>
+<div class="inline-figure"><img src="resources/use_python_in_r/envr.png"></div>
+<p><em>(d-2) Load variable in REPL mode to R mode</em></p>
+<p>Then how to pass the preprocessed variable, <code>df_status</code> back to your R mode? Actually there will be a variable called <code>py</code> in your R environment, which can access all the variables in the REPL mode via <code>$</code> operator. So</p>
+<div class="sourceCode" id="cb1594"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">py</span><span class="op">$</span><span class="va">df_status</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
+<p>which loads the preprocessed data to R mode.</p>
+<p><em>(d-3) Specific example</em></p>
+<p>Recall Q3 in HW3. To make the plot, I suffered a lot in preprocessing data in R, and the code I used in my homework is as follows:</p>
+<div class="sourceCode" id="cb1595"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://corybrunson.github.io/ggalluvial/">ggalluvial</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">'resources/use_python_in_r/stats_wl.csv'</span><span class="op">)</span>
+
+<span class="va">df_W</span> <span class="op">&lt;-</span> 
+<span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Date</span>, values_from <span class="op">=</span> <span class="va">Priority</span><span class="op">)</span>
+<span class="va">head</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_W</span><span class="op">)</span>
+<span class="va">df_W</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">df_W</span>, <span class="va">as.character</span><span class="op">)</span>, stringsAsFactors<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/raster/man/names.html">names</a></span><span class="op">(</span><span class="va">df_W</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">head</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">r</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">df_W</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">present</span> <span class="op">&lt;-</span> <span class="cn">FALSE</span>
+  <span class="kw">for</span> <span class="op">(</span><span class="va">c</span> <span class="kw">in</span> <span class="fl">3</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">ncol</a></span><span class="op">(</span><span class="va">df_W</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="va">present</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_W</span><span class="op">[</span><span class="va">r</span>,<span class="va">c</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+      <span class="va">present</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span>
+    <span class="op">}</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="va">present</span><span class="op">)</span><span class="op">{</span>
+      <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_W</span><span class="op">[</span><span class="va">r</span>,<span class="va">c</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+        <span class="va">status</span> <span class="op">&lt;-</span> <span class="va">df_W</span><span class="op">[</span><span class="va">r</span>, <span class="fl">2</span><span class="op">]</span>
+        <span class="va">df_W</span><span class="op">[</span><span class="va">r</span>,<span class="va">c</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">status</span><span class="op">==</span><span class="st">'Registered'</span>, <span class="st">'R'</span>, <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">status</span><span class="op">==</span><span class="st">'Dropped Class'</span>, <span class="st">'D'</span>, <span class="st">'L'</span><span class="op">)</span><span class="op">)</span>
+      <span class="op">}</span>
+      <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">df_W</span><span class="op">[</span><span class="va">r</span>, <span class="va">c</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'R'</span>, <span class="st">'D'</span>, <span class="st">'L'</span><span class="op">)</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">df_W</span><span class="op">[</span><span class="va">r</span>,<span class="va">c</span><span class="op">]</span><span class="op">)</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span>
+        <span class="va">df_W</span><span class="op">[</span><span class="va">r</span>, <span class="va">c</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">'0'</span>, <span class="va">df_W</span><span class="op">[</span><span class="va">r</span>, <span class="va">c</span><span class="op">]</span>, sep<span class="op">=</span><span class="st">''</span><span class="op">)</span>
+      <span class="op">}</span>
+    <span class="op">}</span>
+  <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="va">df_W</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="http://corybrunson.github.io/ggalluvial/reference/alluvial-data.html">to_lodes_form</a></span><span class="op">(</span>axis <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/subset.data.table.html">subset</a></span><span class="op">(</span><span class="va">x</span> <span class="op">!=</span> <span class="st">'Status'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>status<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">==</span><span class="st">'R'</span>, <span class="st">'Registered'</span>, <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">==</span><span class="st">'L'</span>, <span class="st">'Left List'</span>, <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">==</span><span class="st">'D'</span>, <span class="st">'Dropped Class'</span>, <span class="st">'Joined'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>alluvium <span class="op">=</span> <span class="va">alluvium</span>, x <span class="op">=</span> <span class="va">x</span>, stratum <span class="op">=</span> <span class="va">stratum</span>, y <span class="op">=</span> <span class="fl">1</span>, fill<span class="op">=</span><span class="va">status</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="http://corybrunson.github.io/ggalluvial/reference/geom_alluvium.html">geom_alluvium</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="http://corybrunson.github.io/ggalluvial/reference/geom_stratum.html">geom_stratum</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"stratum"</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'Data'</span>, y<span class="op">=</span><span class="st">'Student'</span><span class="op">)</span></code></pre></div>
+<p>So the data used to plot the figure is actually the <code>df_W</code>. There are a lot of preprocessing steps like handling the data type, filling the missing value etc. There must be some fancy and powerful functions in R that allows me to accomplish the task easily. However, it would largely increase my productivity if I could take advantage of my experience in Python. So, I if I could use Python to redo the process, it would be</p>
+<div class="sourceCode" id="cb1596"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1596-1"><a href="using-python-in-r.html#cb1596-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'resources/use_python_in_r/stats_wl.csv'</span>)</span>
+<span id="cb1596-2"><a href="using-python-in-r.html#cb1596-2"></a>students <span class="op">=</span> <span class="bu">set</span>(df[<span class="st">'Name'</span>])</span>
+<span id="cb1596-3"><a href="using-python-in-r.html#cb1596-3"></a>dates <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(df[<span class="st">'Date'</span>]))</span>
+<span id="cb1596-4"><a href="using-python-in-r.html#cb1596-4"></a>dates.sort()</span>
+<span id="cb1596-5"><a href="using-python-in-r.html#cb1596-5"></a>name_priority_map <span class="op">=</span> {}</span>
+<span id="cb1596-6"><a href="using-python-in-r.html#cb1596-6"></a><span class="cf">for</span> e <span class="kw">in</span> df.values:</span>
+<span id="cb1596-7"><a href="using-python-in-r.html#cb1596-7"></a>  name, date, priority <span class="op">=</span> e[<span class="dv">0</span>], e[<span class="dv">1</span>], e[<span class="dv">2</span>]</span>
+<span id="cb1596-8"><a href="using-python-in-r.html#cb1596-8"></a>  <span class="cf">if</span> name <span class="kw">not</span> <span class="kw">in</span> name_priority_map:</span>
+<span id="cb1596-9"><a href="using-python-in-r.html#cb1596-9"></a>    name_priority_map[name] <span class="op">=</span> {}</span>
+<span id="cb1596-10"><a href="using-python-in-r.html#cb1596-10"></a>  name_priority_map[name][date] <span class="op">=</span> <span class="bu">str</span>(priority).zfill(<span class="dv">2</span>)</span>
+<span id="cb1596-11"><a href="using-python-in-r.html#cb1596-11"></a>name_status_map <span class="op">=</span> {e[<span class="dv">0</span>]: e[<span class="dv">1</span>][<span class="dv">0</span>] <span class="cf">for</span> e <span class="kw">in</span> df_status.values}</span>
+<span id="cb1596-12"><a href="using-python-in-r.html#cb1596-12"></a>processed <span class="op">=</span> []</span>
+<span id="cb1596-13"><a href="using-python-in-r.html#cb1596-13"></a><span class="cf">for</span> s, m <span class="kw">in</span> name_priority_map.items():</span>
+<span id="cb1596-14"><a href="using-python-in-r.html#cb1596-14"></a>  entry <span class="op">=</span> []</span>
+<span id="cb1596-15"><a href="using-python-in-r.html#cb1596-15"></a>  appear <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1596-16"><a href="using-python-in-r.html#cb1596-16"></a>  <span class="cf">for</span> d <span class="kw">in</span> dates:</span>
+<span id="cb1596-17"><a href="using-python-in-r.html#cb1596-17"></a>    <span class="cf">if</span> d <span class="kw">in</span> m:</span>
+<span id="cb1596-18"><a href="using-python-in-r.html#cb1596-18"></a>      appear <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1596-19"><a href="using-python-in-r.html#cb1596-19"></a>    <span class="cf">if</span> <span class="kw">not</span> appear:</span>
+<span id="cb1596-20"><a href="using-python-in-r.html#cb1596-20"></a>      entry.append(<span class="st">'Unseen'</span>)</span>
+<span id="cb1596-21"><a href="using-python-in-r.html#cb1596-21"></a>    <span class="cf">elif</span> d <span class="kw">in</span> m:</span>
+<span id="cb1596-22"><a href="using-python-in-r.html#cb1596-22"></a>      entry.append(m[d])</span>
+<span id="cb1596-23"><a href="using-python-in-r.html#cb1596-23"></a>    <span class="cf">else</span>:</span>
+<span id="cb1596-24"><a href="using-python-in-r.html#cb1596-24"></a>      entry.append(name_status_map[s])</span>
+<span id="cb1596-25"><a href="using-python-in-r.html#cb1596-25"></a>  processed.append([s] <span class="op">+</span> entry)</span>
+<span id="cb1596-26"><a href="using-python-in-r.html#cb1596-26"></a>df_processed <span class="op">=</span> pd.DataFrame(processed, columns<span class="op">=</span>[<span class="st">'Name'</span>] <span class="op">+</span> dates)</span></code></pre></div>
+<p>which finishes the preprocessing and then</p>
+<div class="sourceCode" id="cb1597"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span>
+<span class="va">df_p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">py</span><span class="op">$</span><span class="va">df_processed</span><span class="op">)</span>
+<span class="va">df_p</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/naniar/man/replace_with_na_all.html">replace_with_na_all</a></span><span class="op">(</span>condition <span class="op">=</span> <span class="op">~</span><span class="va">.</span> <span class="op">==</span> <span class="st">'Unseen'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="http://corybrunson.github.io/ggalluvial/reference/alluvial-data.html">to_lodes_form</a></span><span class="op">(</span>axis <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">14</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>status<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">==</span><span class="st">'R'</span>, <span class="st">'Registered'</span>, <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">==</span><span class="st">'L'</span>, <span class="st">'Left List'</span>, <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">==</span><span class="st">'D'</span>, <span class="st">'Dropped Class'</span>, <span class="st">'Joined'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>alluvium <span class="op">=</span> <span class="va">alluvium</span>, x <span class="op">=</span> <span class="va">x</span>, stratum <span class="op">=</span> <span class="va">stratum</span>, y <span class="op">=</span> <span class="fl">1</span>, fill<span class="op">=</span><span class="va">status</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="http://corybrunson.github.io/ggalluvial/reference/geom_alluvium.html">geom_alluvium</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="http://corybrunson.github.io/ggalluvial/reference/geom_stratum.html">geom_stratum</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"stratum"</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">stratum</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'Data'</span>, y<span class="op">=</span><span class="st">'Student'</span><span class="op">)</span></code></pre></div>
+<p>Which yields the same plot. The code simplicity didn’t change a lot. However, the productivity increased: it takes me around 5 hours to preprocess the data in R while only 20 minutes in Python.</p>
+<p><strong>3. Conclusion</strong><br>
+Although it might be unnecessary for an R expert to use Python in R Markdown, it is really useful for R beginners to do a little bit of set up and take the advantage of using Python in R.</p>
+<p><strong>4. Resources</strong><br>
+1. <a href="https://www.datacamp.com/community/tutorials/r-or-python-for-data-analysis?utm_source=adwords_ppc&amp;utm_campaignid=12492439679&amp;utm_adgroupid=122563407961&amp;utm_device=c&amp;utm_keyword=python%20r&amp;utm_matchtype=b&amp;utm_network=g&amp;utm_adpostion=&amp;utm_creative=504158803093&amp;utm_targetid=dsa-296652664266&amp;utm_loc_interest_ms=&amp;utm_loc_physical_ms=9073479&amp;gclid=CjwKCAjwq9mLBhB2EiwAuYdMtVLKk_tdQSa2uN-sVjFzkaIiqZYLKwE7Qcd2iYZHHmpqd0EaXKOksBoCTLIQAvD_BwE" class="uri">https://www.datacamp.com/community/tutorials/r-or-python-for-data-analysis?utm_source=adwords_ppc&amp;utm_campaignid=12492439679&amp;utm_adgroupid=122563407961&amp;utm_device=c&amp;utm_keyword=python%20r&amp;utm_matchtype=b&amp;utm_network=g&amp;utm_adpostion=&amp;utm_creative=504158803093&amp;utm_targetid=dsa-296652664266&amp;utm_loc_interest_ms=&amp;utm_loc_physical_ms=9073479&amp;gclid=CjwKCAjwq9mLBhB2EiwAuYdMtVLKk_tdQSa2uN-sVjFzkaIiqZYLKwE7Qcd2iYZHHmpqd0EaXKOksBoCTLIQAvD_BwE</a><br>
+2. <a href="https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html" class="uri">https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html</a><br>
+3. <a href="https://stackoverflow.com/questions/647515/how-can-i-find-where-python-is-installed-on-windows" class="uri">https://stackoverflow.com/questions/647515/how-can-i-find-where-python-is-installed-on-windows</a><br>
+4. <a href="https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html" class="uri">https://cran.r-project.org/web/packages/reticulate/vignettes/r_markdown.html</a></p>
+
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="data-frame-reshape.html"><span class="header-section-number">111</span> Data Frame Reshape</a></div>
+<div class="next"><a href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">113</span> Introduction to analytics consulting at Accenture</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#using-python-in-r"><span class="header-section-number">112</span> Using python in r</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/using_python_in_r.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/using_python_in_r.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-11-30.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
