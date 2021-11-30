@@ -3,7 +3,7 @@
 Xingyu Lu
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE, eval = FALSE, cache = FALSE, message = FALSE)
 ```
 
 **1. Background**  
