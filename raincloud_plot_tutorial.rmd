@@ -500,7 +500,7 @@ Isn’t the data itself is talking in this graph? I know the code is a little bi
 
 ## More Examples
 
-In this section, I organized codes from some of my previous work to provide you more examples! You can select one as a template to create your own! Typically, you can use raincloud plot if you have:
+n this section, I organized codes from some of my previous work to provide you more examples! You can select one as a template to create your own! Typically, you can use raincloud plot if you have:
 
 - 1 categorical variable, and 1 numerical variable (We already did that!)
 
