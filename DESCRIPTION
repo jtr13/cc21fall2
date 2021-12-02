@@ -22,7 +22,6 @@ Imports:
     DescTools,
     devtools,
     dlookr,
-    DMwR,
     doParallel,
     dplyr,
     DT,
