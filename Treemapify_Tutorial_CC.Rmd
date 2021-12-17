@@ -4,7 +4,7 @@
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 1. Download treemapify
+## Download treemapify
 
 In August 2017, R language has added new geometric objects supporting ggplot2 dendrograms. From then, there is no need to resort to the assistance of third-party packages. And it can be downloaded either using "install.package("treemapify")" or "devtools::install_github("wilkox/treemapify")".
 
@@ -17,7 +17,7 @@ library("treemapify")
 library("RColorBrewer")
 ```
 
-## 2. Basic Visualization of Treemap
+## Basic Visualization of Treemap
 Before we give example using treemapify package to draw treemap figure, we can first get to know this kind of figures:
 
 In the tree diagram, the numerical variables are converted into rectangular area sizes, and the types of variables are distinguished by labels.
@@ -51,7 +51,7 @@ treemap(data, index=c("group","subgroup"), vSize="value",
   title="TreemapExample") 
 ```
 
-## 3. Visualization using treemapify package
+## Visualization using treemapify package
 
 We will have an example using the data set G20 included in treemapfiy package. We can first have a preview of this data set:
 ```{r}
@@ -62,7 +62,7 @@ This data set describes the economic indicators of the 20 countries participatin
 
 The tree diagram is a special type of graph without an explicit coordinate system. Relying on the square algorithm, the sample population square is divided into a single rectangular box according to the actual observation value accounted for in the population. Therefore, it needs at least one numeric variable as an input parameter.
 
-### 3.1 Plot a simple Treemap figure
+### Plot a simple Treemap figure
 ```{r}
 ggplot(G20, aes(area = gdp_mil_usd)) + 
  geom_treemap()
@@ -80,7 +80,7 @@ ggplot(G20, aes(area = gdp_mil_usd, fill = hdi)) +
  scale_fill_distiller(palette="Blues")
 ```
 
-### 3.2 Add labels onto the treemap
+### Add labels onto the treemap
 The author of the package wrote an optimized text label function geom_treemap_text for the ggplot treemap (Because treemap exceeds the category of the three traditional coordinate systems. There is no explicit coordinate system. The algorithm is relatively special and one cannot use Geom_text() to add tags).
 
 The **place** parameter controls the position of the label in each box relative to the surroundings, and grow (which is set default to be True) controls whether the label is adaptive to the box size (largely scaled up and down) 
@@ -93,7 +93,7 @@ The **place** parameter controls the position of the label in each box relative 
   scale_fill_distiller(palette="Blues")
 ```
 
-### 3.3 Subgroups
+### Subgroups
 This package supports sub-groups, which is extensively applied in practical application scenarios. For example, while observing the size of national indicators, we also want to obtain the overall indicators of the region to which the country belongs. By adding sub-groups, We can obtain information in two dimensions. By setting the subgroup parameter (a categorical variable) in the aesthetic mapping, the function can automatically complete the variable aggregation calculation of the subgroup within the function, and use a frame to show the size of the subcategory in the graph formation.
 
 The **reflow** parameter is used to control whether the label adapts to the size of the rectangular block. If the original size exceeds the rectangular block, it will be automatically displayed in a new line.
@@ -130,6 +130,6 @@ When you feel that using sub-group cannot achieve a good visualization, geom_tre
         plot.caption=element_text(hjust=0)) 
 ```
 
-## 4. Source
+## Source
 1. https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html\
 2. https://github.com/wilkox/treemapify
