@@ -18,14 +18,16 @@ There are mainly two approaches that are commonly used.
 ```{r}
 library(ggplot2)
 library(ggExtra)
+library(RColorBrewer)
+library(cowplot)
+library(ggpubr)
 ```
 
-### 1. Traditional Scatter Plot
+### Traditional Scatter Plot
 
 Here is some sample code that draws simple 2D scatter plot. We assign a color to each species in the following plot.
 
 ```{r}
-library(RColorBrewer)
 p <- ggplot(iris) +
   geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species), alpha = 0.6, shape = 16) +  
   scale_color_brewer(palette = "Dark2") + 
@@ -39,28 +41,28 @@ Using `ggExtra` and `ggplot2` literally take one line of code to generate margin
 
 With this method, you can choose from several methods to display marginal distribution, provided by `ggExtra` and `ggplot2`. We recommend 5 types:
 
-### 2. Plot Marginal Density Function
+### Plot Marginal Density Function
 
 ```{r}
 ggMarginal(p, type = "density", groupColour = TRUE, groupFill = TRUE)
 ```
-### 3. Plot Marginal Histogram
+### Plot Marginal Histogram
 
 ```{r}
 ggMarginal(p, type = "histogram", groupColour = TRUE, groupFill = TRUE)
 ```
-### 4. Plot Marginal Box Plot
+### Plot Marginal Box Plot
 
 ```{r}
 ggMarginal(p, type = "boxplot", groupColour = TRUE, groupFill = TRUE)
 ```
 
-### 5. Plot Marginal Violin Plot
+### Plot Marginal Violin Plot
 
 ```{r}
 ggMarginal(p, type = "violin", groupColour = TRUE, groupFill = TRUE)
 ```
-### 6. Plot Marginal Density Function and Histogram 
+### Plot Marginal Density Function and Histogram 
 
 ```{r}
 ggMarginal(p, type = "densigram", groupColour = TRUE, groupFill = TRUE)
@@ -74,11 +76,9 @@ You can come up with some original designs and implement them with `ggExtra` and
 
 Same as the previous approach, let's start with a scatter plot with no marginal distribution. Then we figure out how to add marginal distribution to it. If you want to use `cowplot` and `ggpubr`, we would recommend start your scatter plot with function `ggscatter` in this case, instead of `ggplot`.
 
-### 1. Plot Another Kind of Scatter Plot
+### Plot Another Kind of Scatter Plot
 
 ```{r}
-library(cowplot)
-library(ggpubr)
 sp <- ggscatter(iris, x = "Sepal.Length", y = "Sepal.Width",
                 color = "Species", palette = "Accent",
                 size = 3, alpha = 0.6) +
@@ -88,9 +88,9 @@ sp
 ```
 Same as before, we assign each species with a color. According colors will be shown in marginal distribution.
 
-### 2. Gapped Marginal Plot
+### Gapped Marginal Plot
 
-#### 2.1 Marginal Density Plot
+#### Marginal Density Plot
 
 The process is like plotting 3 subplots: the horizontal margin, vertical margin and the  scatter plot itself.
 
@@ -124,7 +124,7 @@ A little tip: remove the legends before puting subplots together. Legends will d
 
 Let's revise the whole process, and challenge ourselves by applying the procedure to   draw boxplot as marginal distribution.
 
-#### 2.2 Uncompressed Marginal Box Plot
+#### Uncompressed Marginal Box Plot
 
 ```{r}
 # Marginal boxplot of x (top panel) and y (right panel)
@@ -147,7 +147,7 @@ plot_grid(xplot, NULL, sp, yplot, ncol = 2, align = "hv",
 
 There are so many customizations you can decide during the process, that's why `cowplot` and `ggpubr` is your idea solution for creating a original, non-standard marginal distribution. If your boss rediculously asks you to make the horizaontal margin to be a density map, and vertical margin to be a density map, now you should be confident to make that happen.
 
-### 3. Connect Marginal Plot
+### Connect Marginal Plot
 
 We know some people may dislike the gaps between the scatter plot and its margin distributions. Unfortunately, if you want to get rid of it, `plot_grid` has to be replaced. You should use another function, `axis_canvas` to combine the marginal distribution with axis while creating the margin. Then, the libraries provide a really use function for you to use: `insert_xaxis_grob`. This function does same the job as `plot_grid` in the previod example.
 
