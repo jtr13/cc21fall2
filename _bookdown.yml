@@ -7,6 +7,7 @@ language:
     chapter_name: "Chapter "
 
 
+
 # Chapter ordering
 
 
@@ -148,6 +149,7 @@ rmd_files: [
   'improved_density_estimation.Rmd',
   'theme_columbia.Rmd',
   'geospatial_data_visualization.Rmd',
+  'comunity_contribution.Rmd',
   
   # Part: Custom R packages
   'super_ggformat_project.Rmd', # contains PART header
