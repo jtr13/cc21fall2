@@ -1,0 +1,340 @@
+# Geospatial Data Visualization
+
+Nitya Krishna Kumar and Binny Manojkumar Naik
+
+Maps are a great way to showcase data to tell a story. They are a powerful way of depicting and comparing events that occur in different locations and time. For the general public, they are also an intuitive and engaging way of understanding otherwise complicated data.
+
+Maps in R is a very good way of visualizing the Geospatial Data while revealing underlying features and connections between different locations. Visualizing geospatial data aids to communicate how different variables correlate to geographical locations by layering these variables over maps. In general, we could plot maps when we want to study geographic locations based on their shape, size, distances between places, or based on specific important features of the geographic location.
+
+### Geospatial Data
+Geospatial data that is used to build map visualizations typically contain the following information:<br />
+- Location (Latitude and Longitude)<br />
+- Some Attribute (Name of location, population, event data, etc)<br />
+In some occasions they may also contain temporal data.<br />
+
+***
+## Types of Maps
+There are many different types of maps that can be created using R which are listed as follows:<br />
+i) Background Map<br />
+ii) Choropleth<br />
+iii) Hexbin map<br />
+iv) Cartogram<br />
+v) Connection<br />
+vi) Bubble map<br /><br />
+
+In this tutorial, we will concentrate on three very useful and common maps:<br />
+i) Chloropleth Map.<br />
+ii) Bubble Map.<br />
+iii) Connection Map.<br />
+
+### Getting the Data
+
+Packages needed:
+
+```{r, eval = FALSE}
+library(ggplot2) # to visualize the map
+library(dplyr)
+library(tidyverse)
+library(maps) # boundaries of common places such as continents, countries, states, and counties
+library(viridis)
+library(geosphere)
+```
+
+Let's use the `USArrests` dataset in R to create a chloropleth and bubble map. More information about this dataset can be found here: https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/USArrests
+
+```{r,eval = FALSE}
+head(USArrests, 10)
+```
+
+
+This dataset provides us with various attributes but there is a lack of coordinate information. To include this, we have merged the `USArrests` dataset with the `state` subset from the `map_data` function in `ggplot2`. Specific countries and regions can be specified in `map_data`. Some examples include `map_data("world")`, `map_data("county")`, `map_data("UK")`.
+
+More information about the `map_data` function can be found here: https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5/topics/map_data
+
+```{r,eval = FALSE}
+states_map <- map_data("state")
+head(states_map, 10)
+```
+
+For the purpose of this tutorial, we will use the state data from `map_data`. It has the following important attributes:<br />
+- coordinates: `long` and `lat` to depict state boundaries (like (x,y) points).<br />
+- group: denotes whether two adjacent points should be connected with a line.<br />
+- order: order in which to connect the points.<br />
+- region: name of the state the point belongs to.<br />
+
+Let's merge the state data with the `USArrests` data.
+
+```{r,eval = FALSE}
+crimes <- data.frame(state = tolower(rownames(USArrests)), USArrests)
+crime_map <- merge(states_map, crimes, by.x = "region", by.y = "state")
+crime_map <- arrange(crime_map, group, order)
+head(crime_map, 10)
+```
+
+The `maps` package can be used to plot, however we will concentrate on using `ggplot2`.
+
+
+### Chloropleth 
+Chloropleth Maps are great for showing depicting trends based on numeric attribute through color. In addition to the numeric data, Chloropleth maps require a geospatial object that provides geographic region boundaries. They are visually pleasing and intuitive. The following map compares number of rape cases across the states. Note that Alaska and Hawaii are not included here as including those regions would make the overall map look too compressed and thus difficult to read.
+
+```{r,eval = FALSE}
+crime1 <- ggplot(crime_map, aes(x = long, y = lat, group = group, fill = Rape)) +
+  geom_polygon(colour = "black") +
+  coord_map("mercator")
+crime1
+```
+
+Let's look at the important aspects:<br />
+- `geom_polygon` is useful for: drawing the USA map with specified geographic boundary conditions.<br />
+- `coord_map("mercator")` specifies the use of the common mercator map projection.<br />
+
+More information about `coord_map()` can be found here: https://ggplot2.tidyverse.org/reference/coord_map.html.<br />
+More information about the mercator projection can be found here: https://desktop.arcgis.com/en/arcmap/latest/map/projections/mercator.htm
+
+
+The above graph uses the default color scheme which is slightly unintuitive. Let's change the fill:
+
+```{r,eval = FALSE}
+crime_p <- ggplot(crimes, aes(map_id = state, fill = Rape)) +
+  geom_map(map = states_map, colour = "black") +
+  expand_limits(x = states_map$long, y = states_map$lat) +
+  coord_map("mercator") + xlab("long") + ylab("lat")
+
+crime_p +
+  scale_fill_gradient2(low = "yellow", mid = "thistle1", high = "red4",
+                       midpoint = median(crimes$Rape))
+```
+
+
+Advantages of Chloropleth Maps:<br />
+i) The most obvious advantage of Chloropleth Maps is that they are widely popular and frequantly in use when we want to plot value levels and indicate the average values of some numeric variable in any global or local geographic areas based on a graduated color scale.<br />
+
+Disadvantages of Chloropleth Maps:<br />
+i) Because they work on average values, we cannot get detailed information about any internal conditions of the features.<br />
+ii) It is difficult to interpret the changing conditions at the boundaries of the plots based on insignificant color changes.<br />
+iii) Choropleth maps works on a constant density within the areas of interest. If the real object density varies, the expressiveness of the map gets distorted.<br />
+
+### Bubble Maps
+
+The same way a choloropleth map uses color to depict a numeric attribute/value pertaining to a region, a bubble map uses circles of varying sizes. Theses circles can be plotted in two ways:<br />
+- one bubble for each geographic coordinate<br />
+- one bubble per region<br />
+
+In the latter case, it is required that we find the center of each region to plot the circle.
+This can be done in the following manner:
+
+```{r,eval = FALSE}
+state_centroids <- crime_map %>%
+  group_by(region) %>%
+  summarize(long = mean(range(long)), 
+            lat = mean(range(lat)), 
+            rape = mean(range(Rape)),
+            assault = mean(range(Assault)))
+names(state_centroids)[1] <- "state"
+head(state_centroids, 10)
+```
+
+Once we have our center, lets plot the circles on the map.
+
+```{r fig.width = 10, fig.height = 5,eval = FALSE}
+
+bubble <- ggplot(crimes, aes(map_id = state)) +
+  geom_map(map = states_map, colour = "white") +
+  geom_point(data = state_centroids, aes(x=long, y=lat, size=rape), color="salmon") +
+  expand_limits(x = states_map$long, y = states_map$lat) +
+  scale_size_continuous(range=c(1,10)) +
+  #scale_color_viridis(trans="log", direction = -1) +
+  ylim(25,50) +
+  xlim(-125, -70) +
+  coord_map("mercator") 
+
+bubble
+```
+
+Bubble maps are an easy way to compare two attributes as well. This can be done by adding a color scale to the circles. Let's compare assault cases to rape cases. 
+
+```{r fig.width = 10, fig.height = 5,eval = FALSE}
+
+bubble <- ggplot(crimes, aes(map_id = state)) +
+  geom_map(map = states_map, colour = "white") +
+  geom_point(data = state_centroids, aes(x=long, y=lat, size=rape, color=assault)) +
+  expand_limits(x = states_map$long, y = states_map$lat) +
+  scale_size_continuous(range=c(1,10)) +
+  scale_color_viridis(trans="log", direction = -1) +
+  ylim(25,50) +
+  xlim(-125, -70) +
+  coord_map("mercator") 
+
+bubble
+```
+
+Advantages of Bubble Maps:<br />
+i) They are useful in rendering relative comparisons among the numeric variable of interest.<br />
+
+Disadvantages of Bubble Maps:<br />
+i) It is very difficult to estimate the actual values just based on the circle sizes.<br />
+ii) They cannot be used for larger datasets as it becomes difficult to read overlapping circles and draw any kind of meaningful insights.<br />
+
+### Connection Map
+
+A connection Map is a great way to show the connections(route) between several positions on a map. The points on the map shows all the possible locations of our interest and the lines that connect the points depicts that a route exists between the two points. 
+
+In this tutorial, we will make use of the gcIntermediate() function from the geosphere package which works to draw the shortest routes between two locations instead of just making straight lines.
+
+To explain the use of Connection Maps, we will make use of the USA Flights dataset. More information about the dataset can be found here: https://www.kaggle.com/flashgordon/usa-airport-dataset
+
+```{r,eval = FALSE}
+df <- read_csv("Airports2.csv")
+head(df, 10)
+```
+
+
+This dataset contains information about the number of flights, number of passenger, and number of seats that were associated with the flights that flew from different origin airports of the USA to some other destination airports. It also provides the longitude and latitude values of the origin, destination airports and cities.
+
+
+```{r,eval = FALSE}
+#map showing the number of flights that flew from JFK airport to different locations on 1st December 2009.
+par(mar=c(0,0,0,0))
+cc<-c("#DF536B","#61D04F","#2297E6","#28E2E5","#CD0BBC","#F5C710","gray62" )
+maps::map('state', fill = TRUE,col = cc, bg = "grey")
+
+df <- filter(df, df$Origin_airport == "JFK" )
+df <- na.omit(df, cols = c("Dest_airport_long", "Dest_airport_lat"))
+
+points(x = df$Dest_airport_long, y = df$Dest_airport_lat, col="black", cex=0.8, pch=20)
+
+df <- filter(df, df$Fly_date == "2009-12-01")
+df <- filter(df, df$Destination_airport == "ATL" | 
+                 df$Destination_airport == "BGR" | 
+                 df$Destination_airport == "BOS" | 
+                 df$Destination_airport == "CAK" | 
+                 df$Destination_airport == "DFW" | 
+                 df$Destination_airport == "DOV" |
+                 df$Destination_airport == "MIA"
+)
+points(x = df$Org_airport_long, y = df$Org_airport_lat, col="red", cex=2, pch=20)
+
+don = rbind(JFK=c(-73.8, 40.6),ATL=c(-84.4281, 33.6367),DOV=c(-75.466, 39.1295),MIA=c(-80.2906, 25.7932),BOS=c(-71.0052, 42.3643),BGR=c(-68.8281, 44.8074),DFW=c(-97.038, 32.8968)) %>% as.data.frame()
+colnames(don) = c("long","lat")
+
+JFK <- c(-73.8, 40.6)
+ATL <- c(-84.4281, 33.6367)
+DOV <- c(-75.466, 39.1295)
+MIA <- c(-80.2906, 25.7932)
+BOS <- c(-71.0052, 42.3643)
+BGR <- c(-68.8281, 44.8074)
+DFW <- c(-97.038, 32.8968)
+
+inter1 <- gcIntermediate(JFK, DOV, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter2 <- gcIntermediate(JFK, MIA, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter3 <- gcIntermediate(JFK, BOS, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter4 <- gcIntermediate(JFK, BGR, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter5 <- gcIntermediate(JFK, DFW, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter6 <- gcIntermediate(JFK, ATL, n=50, addStartEnd=TRUE, breakAtDateLine=F)
+
+lines(inter1, col="pink", lwd=2)
+lines(inter2, col="pink", lwd=2)
+lines(inter3, col="pink", lwd=2)
+lines(inter4, col="pink", lwd=2)
+lines(inter5, col="pink", lwd=2)
+lines(inter6, col="pink", lwd=2)
+
+text(rownames(don),x=don$long,y=don$lat,col="white",cex=0.8,pos=2)
+```
+
+```{r,eval = FALSE}
+df1 <- read_csv("Airports2.csv")
+
+par(mar=c(0,0,0,0))
+cc<-c("#DF536B","#61D04F","#2297E6","#28E2E5","#CD0BBC","#F5C710","gray62" )
+maps::map('state', fill = TRUE,col = cc, bg = "grey")
+
+df1 <- filter(df1, df1$Origin_airport == "JFK" )
+df1 <- na.omit(df1, cols = c("Dest_airport_long", "Dest_airport_lat"))
+
+points(x = df1$Dest_airport_long, y = df1$Dest_airport_lat, col="black", cex=0.8, pch=20)
+
+df1 <- filter(df1, df1$Fly_date == "1990-01-01")
+df1 <- filter(df1, df1$Destination_airport == "ATL" | 
+               df1$Destination_airport == "BOS" | 
+               df1$Destination_airport == "BUF" | 
+               df1$Destination_airport == "CPR" |
+               df1$Destination_airport == "DAY" | 
+               df1$Destination_airport == "DFW" | 
+               df1$Destination_airport == "DTW" |
+               df1$Destination_airport == "HOU" | 
+               df1$Destination_airport == "IAH" | 
+               df1$Destination_airport == "MIA" |
+               df1$Destination_airport == "ORD" | 
+               df1$Destination_airport == "TPA" 
+)
+points(x = df1$Org_airport_long, y = df1$Org_airport_lat, col="red", cex=2, pch=20)
+
+don1 = rbind(ATL=c(-84.4281, 33.6367),BOS=c(-71.0052, 42.3643),BUF=c(-78.7322, 42.9405),CPR=c(-106.464, 42.908),DAY=c(-84.2194, 39.9024),DFW=c(-97.038, 32.8968),DTW=c(-83.3534, 42.2124), HOU=c(-95.2789, 29.6465), IAH=c(-95.3414, 29.9844), MIA=c(-80.2906, 25.7932), ORD=c(-87.9048, 41.9786), TPA=c(-82.5332, 27.9755)) %>% as.data.frame()
+colnames(don1) = c("long","lat")
+
+ATL <- c(-84.4281, 33.6367)
+BOS <- c(-71.0052, 42.3643)
+BUF <- c(-78.7322, 42.9405)
+CPR <- c(-106.464, 42.908)
+DAY <- c(-84.2194, 39.9024)
+DFW <- c(-97.038, 32.8968)
+DTW <- c(-83.3534, 42.2124)
+HOU<- c(-95.2789, 29.6465)
+IAH <- c(-95.3414, 29.9844)
+MIA <- c(-80.2906, 25.7932)
+ORD <- c(-87.9048, 41.9786)
+TPA <- c(-82.5332, 27.9755)
+
+inter1 <- gcIntermediate(JFK, ATL, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter2 <- gcIntermediate(JFK, BOS, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter3 <- gcIntermediate(JFK, BUF, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter4 <- gcIntermediate(JFK, CPR, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter5 <- gcIntermediate(JFK, BOS, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter6 <- gcIntermediate(JFK, DAY, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter7 <- gcIntermediate(JFK, DFW, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter8 <- gcIntermediate(JFK, DTW, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter9 <- gcIntermediate(JFK, HOU, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter10 <- gcIntermediate(JFK, IAH, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter11<- gcIntermediate(JFK, MIA, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter12 <- gcIntermediate(JFK, ORD, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+inter13 <- gcIntermediate(JFK, TPA, n=50, addStartEnd=TRUE, breakAtDateLine=F) 
+
+lines(inter1, col="pink", lwd=2)
+lines(inter2, col="pink", lwd=2)
+lines(inter3, col="pink", lwd=2)
+lines(inter4, col="pink", lwd=2)
+lines(inter5, col="pink", lwd=2)
+lines(inter6, col="pink", lwd=2)
+lines(inter7, col="pink", lwd=2)
+lines(inter8, col="pink", lwd=2)
+lines(inter9, col="pink", lwd=2)
+lines(inter10, col="pink", lwd=2)
+lines(inter11, col="pink", lwd=2)
+lines(inter12, col="pink", lwd=2)
+lines(inter13, col="pink", lwd=2)
+
+text(rownames(don1),x=don1$long,y=don1$lat,col="white",cex=0.8,pos=2)
+```
+
+For comparison purposes, we plotted the above map to dsiplay all the possible locations (in the form of points), to where the flights from JFK airport New York throughout the given dataset fly to. Moreover, the lines depicts the actual flights that were scheduled from JFK airport New York to different locations on 1st December 2009 (which is the very last date available in the dataset)
+
+Overall, we plotted the background of the USA map using the map() function and gave the customized color palette to make individual states more distinctly visible. Moreover, we filtered the dataset to have the only the locations to where flights from JFK are scheduled to throughout the years given in the dataset. Next, we cleaned the data to remove any NAN values from the longitude and latitude. Furthermore, we used the points() function to plot all the destination airports on the map in black color. 
+
+Now, specific to two different dates we filtered the data based on the fly date of the flights and also filtered on the actual destination airports to which the flights from JFK flew on those particular dates. All of these filtering is done using the filter() function. The points() function was then again used to plot the origin airport JFK in red color. The rbind() function is used to bind the rows that contains the data for the destination airports for particular dates of interest. Eventually, the dataframe that we get using this is utilized to label the destination airports on the maps.
+
+After all the points are plotted, the next task is to establish the lines showing the routes between the airports. For this purpose, we use gcIntermediate() to establish the link between the origin and destination airports. Finally, the links are drawn in form of lines using the lines() function.
+
+Advantages of Connection Maps:<br />
+i) They are very efficient in visualizing geospatial data where connections between different locations is need to be interpreted.<br />
+ii) Allows to track the path between different location sets.<br />
+
+Disadvantages of Connection Maps:<br />
+i) It becomes difficult to read and understand the paths which have overlapping lines showing the route.<br />
+ii) For larger data points, the overall connection plot becomes too clumsy and crowded with points and lines that it gets difficult to interpret any obvious details as well.<br />
+<br>
+
+***
+## References
+- https://www.sciencedirect.com/topics/computer-science/geospatial-data<br />
+- https://www.r-graph-gallery.com/map.html

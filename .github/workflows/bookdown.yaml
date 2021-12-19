@@ -13,6 +13,10 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+      
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
 
       - uses: r-lib/actions/setup-pandoc@v1
 
@@ -32,6 +36,8 @@ jobs:
           restore-keys: bookdown-      
 
       - name: Build site
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}
         run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
 
       - name: Deploy to GitHub pages 🚀

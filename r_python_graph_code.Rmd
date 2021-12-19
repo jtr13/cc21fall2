@@ -1,0 +1,431 @@
+# Plotting graph with R v.s. Python
+
+Qi Meng
+
+```{r, include=FALSE, cache = FALSE}
+library(reticulate)
+knitr::opts_chunk$set(eval = FALSE, cache = FALSE, warning = FALSE, message = FALSE)
+knitr::knit_engines$set(python = reticulate::eng_python)
+```
+
+
+```{r}
+library(reticulate)
+library(tidyverse)
+library(ggridges)
+library(openintro)
+library(GGally)
+library(parcoords)
+library(vcd)
+```
+
+In this document, I'll try to summerize some basic plots that we've learned in the course of `STAT GR5702 Exploratory Data Analysis and Visualization` and try to match the R codes with the corresponding Python codes. The examples provided in the document would be relatively simple. And I will introduce/use only some of the commonly used parameters in the examples. Hope the document can help people get some insights about which python packages/function to use if they want to create the plots. 
+
+The plots that I introduce in this document include `Histogram`, `Boxplot`, `Density Curve`, `Ridgeline Plot`, `QQ Plot`, `Scatter Plot`, `Heatmap`, `Parallel Coordinate Plots` and `Mosaic Plot`.
+
+In this document, I referred to some codes used in the lecture and the problem sets. There are also some python codes that I referred online have been cited at the bottom of each section.
+
+## Histogram
+
+
+### R
+
+We discussed two ways to create histogram in R, one uses the base R method and the other one uses the `ggplot2`.
+
+#### Base R
+
+*   The input data can be a column.
+*   `border`: the color of histogram border.
+*   `col`: the color to be filled in the histogram.
+*   `right`: `TRUE/FALSE` value. `TRUE` stands for right-closed intervals, vise versa.
+*   `main`: plot title.
+*   `xlab`: label of x-axis.
+
+```{r, fig.width=5, fig.height=5}
+x <- c(1, 5, 10, 20, 40, 50, 51, 53, 55, 56, 60, 65, 65, 68)
+hist(x, border="blue", col = "lightblue", right = FALSE, main = 'Base R Histogram', xlab="data")
+```
+
+#### ggplot2
+
+*   The input data should be a data frame. The column to be used in the histogram is specified in `aes`
+*   `geom_histogram` is the one plotting histogram.
+    *   `color`: the color of histogram border.
+    *   `fill`: the color to be filled in the histogram.
+    *   `binwidth`: set the width of bin.
+    *   `center`: set the number to be a number that you want one of the column center on.
+*   `scale_x_continuous`: set the scale of x-axis by setting its min value, max value and the interval value.
+*   `labs`: set the labels and title for the plot
+    *   `title`: plot title.
+    *   `x`: label of x-axis.
+    *   `y`: label of y-axis.
+
+```{r, fig.width=5, fig.height=5}
+x <- c(1, 5, 10, 20, 40, 50, 51, 53, 55, 56, 60, 65, 65, 68)
+df <- data.frame(x)
+ggplot(df, aes(x)) +
+  geom_histogram(color = "blue", fill = "lightblue", binwidth = 10, center = 5) +
+  scale_x_continuous(breaks = seq(0, 70, by = 5)) +
+  labs(title = "ggplot Histogram", x = "data", y = "frequency")
+```
+
+### Python
+
+There are a few options/packages to plot histogram in python. I'll use `matplotlib.pyplot` to plot the histogram in this example. 
+
+*   `plt.subplot`: a wrapper to create a fig and the axes for the plots to fit in.
+*   `plt.hist`: the function to plot the histogram.
+    *   `x`: the data to be plotted.
+    *   `bins`: number of bins.
+    *   `edgecolor`: color of the border.
+    *   `color`: color filled in the histogram.
+*   `plt.set_title`: plot title (subplot).
+*   `plt.set_xlable`: label of x-axis (subplot).
+*   `plt.set_ylable`: label of y-axis (subplot).
+    
+
+```{python, include=TRUE, results="hide"}
+import matplotlib.pyplot as plt
+import numpy as np
+x = [1, 5, 10, 20, 40, 50, 51, 53, 55, 56, 60, 65, 65, 68]
+df = np.array(x)
+fig,ax = plt.subplots(1, 1, figsize=(5,5));
+ax.hist(x=df, bins=7, edgecolor='blue', color='lightblue')
+ax.set_title("Python Histogram")
+ax.set_xlabel("data")
+ax.set_ylabel("frequency")
+plt.show()
+```
+
+
+## Boxplot
+
+
+### R
+
+We discussed two ways to create boxplot in R, one uses the base R method and the other one uses the `ggplot2`.
+
+#### Base R
+
+*   The input data can be a column.
+*   `main`: plot title.
+*   `xlab`: label of x-axis.
+*   `ylab`: label of y-axis.
+*   `border`: the color of boxplot border.
+*   `col`: the color to be filled in the boxplot
+
+```{r, fig.width=5, fig.height=5}
+x <- c(25, 50, 51, 53, 55, 56, 60, 65, 65, 68)
+boxplot(x, main="Base R Boxplot", xlab="x label", ylab="y label", border="blue", col="lightblue")
+```
+
+#### ggplot2
+
+*   The input data should be a data frame. The column to be used in the boxplot is specified in `aes`
+*   `geom_boxplot` is the one plotting boxplot
+    *   `color`: the color of boxplot border.
+    *   `fill`: the color to be filled in the boxplot.
+*   `coord_flip`: Flip cartesian coordinates.
+
+```{r, fig.width=5, fig.height=5}
+x <- c(25, 50, 51, 53, 55, 56, 60, 65, 65, 68)
+df <- data.frame(x)
+ggplot(df, aes(x)) +
+  geom_boxplot(color = 'blue', fill = 'lightblue') +
+  coord_flip() +
+  labs(title = "ggplot Boxplot", x = "x label", y = "y label")
+```
+
+
+### Python
+There are a few options/packages to plot boxplot in python. I'll use `matplotlib.pyplot` to plot the boxplot in this example. 
+
+*   `plt.boxplot`: the function to plot the boxplot.
+    *   `x`: the data to be plotted.
+    *   `vert`: decide if we want a vertical boxplot.
+    
+```{python, include=TRUE, results="hide"}
+x = [25, 50, 51, 53, 55, 56, 60, 65, 65, 68]
+df = np.array(x)
+fig,ax = plt.subplots(1, 1, figsize=(5,5));
+ax.boxplot(x=df, vert=False)
+ax.set_title("Python Boxplot")
+ax.set_xlabel("x label")
+ax.set_ylabel("y label")
+plt.show()
+```
+
+
+## Density Curve
+
+
+### R
+
+I plot the density curve using `ggplot2`.
+
+*   The input data should be a data frame. The column to be used in the density curve is specified in `aes`
+*   `geom_density` is the one plotting density curve.
+    *   `color`: the color of density curve border.
+    *   `fill`: the color to be filled in the density curve
+    *   `adjust`: a multiplicate bandwidth adjustment, `adjust=.5` means using half of the default bandwidth.
+    *   `bw`: the smoothing bandwidth to be used.
+    *   `alpha`: set the transparency for the plot.
+
+```{r, fig.width=5, fig.height=5}
+x <- c(1, 5, 10, 20, 40, 50, 51, 53, 55, 56, 60, 65, 65, 68)
+df <- data.frame(x)
+ggplot(df, aes(x)) +
+  geom_density(color='blue', fill="lightblue", adjust=.5, bw=5, alpha=.5) +
+  labs(title = "ggplot Density Plot", x = "x label", y = "y label")
+```
+
+
+### Python
+There are a few options/packages to plot density curve in python. I'll use `seaborn` to plot the density curve in this example. 
+
+*   `plt.boxplot`: the function to plot the density curve
+    *   `x`: the data to be plotted.
+    *   `bw_adjust`: a multiplicate bandwidth adjustment. Increasing the value would make the curve smoother.
+    *   `fill`: decide if fill the area under the curve with color.
+    *   `ax`: choose which ax to plot on. Can use the axes created by `plt`
+    
+```{python, include=TRUE, results="hide"}
+import seaborn as sns
+x = [1, 5, 10, 20, 40, 50, 51, 53, 55, 56, 60, 65, 65, 68]
+df = np.array(x)
+fig,ax = plt.subplots(1, 1, figsize=(5,5));
+sns.kdeplot(x, bw_adjust=.5, fill=True, ax=ax)
+ax.set_title("Python Density Curve")
+ax.set_xlabel("x label")
+ax.set_ylabel("y label")
+plt.show()
+```
+
+
+## Ridgeline Plot
+
+
+### R
+I plot the ridgeline plots using `ggplot2`.
+
+*   The input data should be a data frame. The columns to be used in the ridgeline plots is specified in `aes`.
+    *   `reorder`: the function can be used to reorder the columns based on some values, such as `median` in the example below.
+*   `geom_density_ridges` is the one plotting ridgeline plot.
+    *   `color`: the color of ridgeline plot border.
+    *   `fill`: the color to be filled in the ridgeline plot.
+    *   `alpha`: set the transparency for the plot.
+
+```{r, fig.width=5, fig.height=5}
+ggplot(loans_full_schema, aes(x = loan_amount, y = reorder(loan_purpose, loan_amount, median))) +
+  geom_density_ridges(color='blue', fill="lightblue", alpha=.5) +
+  labs(title = "ggplot Density Plot", x = "x label", y = "y label")
+```
+
+### Python
+I'll use `joypy` package to plot the ridgeline plot in this example. And I'll use the preset `iris` dataset for displaying
+
+*   `joypy.joyplot`: the function to plot the ridgeline plot
+    *   `x`: the data to be plotted.
+    *   `by`: when passing a column name to `by`, we will get a density plot for each value in the grouped column.
+    
+```{python, include=TRUE, results="hide"}
+import joypy
+import pandas as pd
+iris = sns.load_dataset('iris')
+fig, axes = joypy.joyplot(data=iris, by = 'species')
+ax = plt.gca()
+plt. show()
+```
+
+source: https://deepnote.com/@deepnote/Joyplot-Introduction-RmbhozJJRC6alCu8xcsbHQ
+
+## QQ Plot
+
+
+### R
+I plot the QQ Plot plots using `qqline`. I'll create 200 exponential data for displaying
+
+*   `qqnorm`: produces a normal QQ plot of the values `y` passed in.
+*   `qqline` is the one plotting QQ line
+    *   `y`: the data to be used to plot QQ line.
+    *   `color`: the color of QQ line.
+
+```{r, fig.width=5, fig.height=5}
+y <- rexp(200, 5)
+qqnorm(y=y)
+qqline(y=y, col = "red")
+```
+
+### Python
+I'll use `scipy.stats` package to plot the QQ plot in this example. I'll create 200 exponential data for displaying
+
+*   `stats.probplot`: the function to plot the QQ plot
+    *   `x`: the data to be plotted.
+    *   `dist`: distribution or distribution function name
+    *   `plot`: plots the quantiles if given
+    
+```{python, include=TRUE, results="hide"}
+import scipy.stats as stats
+y = np.random.exponential(scale = 5, size=200)
+stats.probplot(x=y, dist="norm", plot=plt)
+plt.show()
+```
+
+
+## Scatter Plot
+
+
+### R
+I plot the scatter plot using `ggplot2`. In the example below, we used the `ames` dataset from `openintro` library. The dependent variable would be `area` and the independent variable is `price`.
+
+*   The input data should be a data frame. The columns(x/y) to be used in the scatter plot are specified in `aes`.
+*   `geom_point` is the one plotting scatter plot.
+    *   `size`: the size of dot in the plot.
+    *   `alpha`: set the transparency for the plot.
+
+```{r, fig.width=5, fig.height=5}
+data(ames)
+ggplot(ames, aes(x = area, y = price)) + geom_point(size = 0.6, alpha = 0.2)
+```
+
+### Python
+There are a few options/packages to plot scatter plot in python. I'll use `matplotlib.pyplot` to plot the scatter plot in this example. And I'll generate 1000 random (x,y) data for displaying
+
+*   `plt.scatter`: the function to plot the scatter plot
+    *   `x`: the data on x-axis to be plotted.
+    *   `y`: the data on y-axis to be plotted.
+    *   `alpha`: set the transparency for the plot.
+    
+```{python, include=TRUE, results="hide"}
+x = np.random.rand(1000)
+y = np.random.rand(1000)
+fig,ax = plt.subplots(1, 1, figsize=(5,5));
+ax.scatter(x, y, alpha=0.5)
+ax.set_title("Scatter Plot")
+ax.set_xlabel("x label")
+ax.set_ylabel("y label")
+plt.show()
+```
+
+## Heatmap
+
+
+### R
+I plot the heatmap using `ggplot2`. In the example below, we used the `ames` dataset from `openintro` library. The dependent variable would be `area` and the independent variable is `price`.
+
+*   The input data should be a data frame. The columns(x/y) to be used in the heatmap are specified in `aes`.
+*   `geom_bin_2d` is the one plotting heatmap.
+    *   `bins`: number of bins in both vertical and horizontal directions
+
+```{r, fig.width=5, fig.height=5}
+data(ames)
+ggplot(ames, aes(x = area, y = price)) + 
+  geom_bin_2d(bins = 50)
+```
+
+### Python
+There are a few options/packages to plot heatmap in python. I'll use `seaborn` to plot the heatmap in this example. And for the example below, I will use a preset dataset `flights` to display the heatmap in Python.
+*   `sns.heatmap`: the function to plot the heatmap
+    *   `data`: a 2D dataset that can be coerced in to an ndarray.
+    *   `ax`: the ax that the heatmap would be plotted on.
+    
+```{python, include=TRUE, results="hide"}
+fig,ax = plt.subplots(1, 1, figsize=(5,5));
+df = sns.load_dataset("flights")
+df = df.pivot("month", "year", "passengers")
+sns.heatmap(data=df, ax=ax)
+ax.set_title("Scatter Plot")
+ax.set_xlabel("x label")
+ax.set_ylabel("y label")
+plt.show()
+```
+
+source: https://seaborn.pydata.org/generated/seaborn.heatmap.html
+
+## Parallel Coordinate Plots
+
+
+### R
+In the lecture, we learned two type of R methods to plot the parallel coordinate plots. One uses `ggparcoord` which produces a static plot, while the other one uses `parcoords` to produce a interactive plot. 
+
+#### ggparcoord
+I plot the parallel poordinate plots using `ggparcoord`. In the example below, we used the `iris` dataset. All the numerical columns are used below.
+
+*   `data`: the dataset to plot.
+*   `column`: the columns of the dataset to be used in the plot.
+*   `scale`: method used to scale the variables. Some commonly used option is `uniminmax` and `globalminmax`.
+*   `title`: the title of the graph.
+*   `alphaLines`: the transparency of the line.
+*   `splineFactor`: indicating whether spline interpolation should be used. The number will be multiplied by the number of columns.
+
+```{r, fig.width=5, fig.height=5}
+ggparcoord(data=iris, column = 1:4, scale = 'globalminmax', title ="ggparcoord Parallel Coordinate Plots", alphaLines = 0.2, splineFactor = 10)
+```
+
+#### parcoords
+I plot the parallel poordinate plots using `parcoords`. In the example below, we used the `iris` dataset. All the numerical columns are used below.
+
+*   `data`: the dataset to plot.
+*   `rowname``: the columns of the dataset to be used in the plot.
+*   `color`: should include the list{colorScale=`name of d3-scale`, colorBy=`the column that is used to determine the color`, colorScheme=`the color scheme to be used`}.
+*   `alpha`: the thickness of the line.
+*   `brushMode`: the desired brush behavior.
+*   `withD3`: whether or not include `d3.js`
+```{r, fig.width=5, fig.height=5}
+parcoords(data=iris, rowname=F, color=list(colorScale="scaleOrdinal", colorBy="Species", colorScheme="schemeCategory10"), alpha=0.5, brushMode='1d', withD3=TRUE)
+```
+
+### Python
+There are a few options/packages to plot parallel poordinate plots in python. I'll use `pandas` to plot the parallel poordinate plots in this example. And for the example below, I will use a preset dataset `iris` to display the parallel poordinate plots in Python.
+*   `pd.plotting.parallel_coordinates`: the function to plot the heatmap
+    *   `frame`: the dataset to plot
+    *   `class_column`: the column that is used to determine the color.
+    *   `color`: the colors to be used in the plot.
+    
+```{python, include=TRUE, results="hide"}
+fig,ax = plt.subplots(1, 1, figsize=(5,5));
+iris = sns.load_dataset("iris")
+pd.plotting.parallel_coordinates(frame=iris, class_column="species", color=('#556270', '#4ECDC4', '#C7F464'))
+ax.set_title("Parallel Poordinate Plots with Python")
+ax.set_xlabel("x label")
+ax.set_ylabel("y label")
+plt.show()
+```
+
+source: https://pandas.pydata.org/docs/reference/api/pandas.plotting.parallel_coordinates.html
+
+## Mosaic Plot
+
+
+### R
+In the lecture, we used `vcd::mosaic` to plot the mosaic plot. And I will show a simple mosaic plot with two variables only. The dataset I will used below is `mpg`.
+
+*   `formula`:  indicating the variables in `data` used to create a contingency table.
+*   `direction`: indicating the direction of each variable
+*   `data`: the dataset to plot.
+*   `highlighting_fill`: the color to be filled in the tiles.
+
+```{r, fig.width=8, fig.height=8}
+data(mpg)
+vcd::mosaic(formula=drv~class, direction = c("v", "h"), data=mpg, highlighting_fill = c("lightblue", "lightpink", "lightyellow"))
+```
+
+### Python
+There are a few options/packages to plot mosaic plot in python. I'll use `statsmodels.graphics.mosaicplot` to plot the mosaic plot in this example. And for the example below, I will use a preset dataset `mpg` to display the parallel poordinate plots in Python.
+
+*   `statsmodels.graphics.mosaicplot`: the function to plot the mosaic plot
+    *   `data`: the dataset to plot.
+    *   `index`: indicating which variables/columns to be plotted.
+    
+```{python, include=TRUE, results="hide"}
+from statsmodels.graphics.mosaicplot import mosaic
+fig,ax = plt.subplots(1, 1, figsize=(5,5));
+mpg = r.mpg
+mosaic(data=mpg, index=['class', 'drv'])
+ax.set_title("Parallel Poordinate Plots with Python")
+ax.set_xlabel("x label")
+ax.set_ylabel("y label")
+plt.show()
+```
+
+source: https://data-science-master.github.io/lectures/09_python/09_matplotlib.html
