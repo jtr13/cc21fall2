@@ -1,5 +1,5 @@
-
 # Using PostgreSQL Databse in R with MacOS Environment
+
 Wei Luo
 
 ### Requirements
