@@ -131,6 +131,7 @@ rmd_files: [
   'rdoc_alfred_workflow.Rmd',
   'data_frame_reshape.Rmd',
   'using_python_in_r.Rmd',
+  'using_postgresql_in_r.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header

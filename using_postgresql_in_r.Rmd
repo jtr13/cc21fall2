@@ -1,0 +1,125 @@
+# Using PostgreSQL Databse in R with MacOS Environment
+
+Wei Luo
+
+### Requirements
+
+The required tools and packages are:
+
+            1. R installation (assumed)
+            2. PostgreSQL Database installation
+            3. RMariaDB package
+            
+### PostgreSQL installation guide with HomeBrew
+
+
+Open a terminal in your laptop and run the following command:
+
+    1. /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+This will install homebrew service to your mac.(You will see a Updating Homebrew message after running this command. If it went too long, you can press Crtl + c to stop.)
+
+After successfully installed homebrew:
+
+    2. sudo brew install postgresql
+
+To confirm that Postgres was installed correctly, run the following command and make sure that it outputs version information (not an error message):
+
+    3. psql --version
+    
+    
+### PostgreSQL setup 
+    
+To start the psql server:
+
+    1. pg_ctl -D /usr/local/var/postgres start
+    
+To start postgres, type the command in terminal: 
+
+    2. psql postgres
+    
+You can create a new Database with PostgreSQl using command:
+
+    3. CREATE DATABASE name_of_your_choice;
+
+### Connect to PostGreSQL Database in R Studio
+
+Required R packages:
+
+    1. odbc
+    2. DBI
+    3. dplyr
+    4. pool
+
+In order to Connect to a PostgreSQL database, run the following command in R studio:
+
+```{r}
+
+library(DBI)
+library(dplyr)
+library(ggplot2)
+
+# SQLite database
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+#copy_to(con, nycflights13::flights, "FLIGHTS")
+
+# ODBC databases (requires a live database connection)
+#con <- dbConnect(odbc::odbc(), "SQL Server")
+#con <- dbConnect(odbc::odbc(), "Snowflake")
+
+
+```
+
+You can also run SQL queries with R studio after connecting to PostgreSQL Database:
+```{r}
+    #data <- dbSendQuery(con, "your query")
+    #dbBind(data, list("col A", "MSY"))
+    #dbFetch(airport)
+```
+Then all the data fetched from the PostgreSQL will be in data. You can do any data visualization with the dataset using R. 
+
+### Walking through an example.
+
+In this section, we are going to use a simple csv file as our initial dataset, upload it to the PostgreSQL database and then fetch it using R in R studio.
+
+In the attachment, you will find an example csv file called "part.csv"
+
+Create a file called "loaddata.sql":
+
+    BEGIN;
+    COPY part FROM 'change it to your absolute path/part.csv' WITH (FORMAT csv, DELIMITER '|');
+    COMMIT;
+
+Then create a file called "ddl.sql":
+
+    DROP TABLE IF EXISTS part CASCADE;
+
+    CREATE TABLE  part ( p_partkey integer, p_1 integer,  p_2 integer, p_3 integer, p_4 integer, p_5 integer, p_6 integer, p_7 integer, p_8 integer, primary key (p_partkey));
+    
+Create a file called "setup.sh":
+
+    CUR_PATH=`pwd`
+
+    psql yourdatabase < ${CUR_PATH}/ddl.sql
+    echo "Created tables"
+
+    psql yourdatabase < ${CUR_PATH}/loaddata.sql
+    echo "Loaded data into tables"
+
+Before you run setup.sh, please change corresponding path in loaddata.sql.
+
+Run setup.sh by ./setup.sh or bash setup.sh, then your PostgreSQL should fill with the form called "part".
+
+Configure your DB connection details:
+
+```{r}
+#con <- DBI::dbConnect(odbc::odbc(),
+#                      Driver   = "[your driver's name]",
+#                      Server   = "[your server's path]",
+#                      Database = "[your database's name]",
+#                      UID      = rstudioapi::askForPassword("Database user"),
+#                      PWD      = rstudioapi::askForPassword("Database #password"),
+#                      Port     = 5432)
+```
+
+Then you can connect to database and use SQL queries to find whatever you want!
