@@ -156,6 +156,7 @@ Imports:
     tmap,
     torch,
     torchvision,
+    transformr,
     tree,
     tseries,
     twitteR,
