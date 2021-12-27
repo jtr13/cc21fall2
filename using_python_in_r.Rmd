@@ -3,9 +3,11 @@
 
 Xingyu Lu
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```{r, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, eval=FALSE)
 ```
+
+Note: all chunks have been set to `eval=FALSE` since we are not set up to run Python.
 
 **1. Background**  
 R and python are two of the most popular programming languages for data scientists. Sometimes it might be hard to decide which one to use, especially for beginners. 
