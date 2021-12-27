@@ -283,7 +283,7 @@ Now, you can not only see the density shape from the ridges, statistics from the
 
 Without further ado, lets break it down and see how it is created!
 
-##Components of raincloud plot.
+## Components of raincloud plot.
 
 In this section, I will use the variable `verified_income` with less cardinality to demonstrate one way to generate raincloud plot:
 
@@ -500,7 +500,7 @@ Isn’t the data itself is talking in this graph? I know the code is a little bi
 
 ## More Examples
 
-n this section, I organized codes from some of my previous work to provide you more examples! You can select one as a template to create your own! Typically, you can use raincloud plot if you have:
+In this section, I organized codes from some of my previous work to provide you more examples! You can select one as a template to create your own! Typically, you can use raincloud plot if you have:
 
 - 1 categorical variable, and 1 numerical variable (We already did that!)
 
