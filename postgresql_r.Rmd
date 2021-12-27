@@ -125,7 +125,7 @@ predict(db_model, X_test)
 
 Make sure to clean up your connections once you are finished working with your database.
 
-``` {r, cleanup, eval=FALSE}
+``` {r, eval=FALSE}
 # disconnect once you are finished
 dbDisconnect(con)
 dbUnloadDriver(drv)
@@ -263,7 +263,7 @@ predict(db_model, X_test)
 
 Make sure to clean up your connections once you are finished working with your database.
 
-``` {r, cleanup, eval=FALSE}
+``` {r, eval=FALSE}
 # disconnect once you are finished
 dbDisconnect(con)
 dbUnloadDriver(drv)
