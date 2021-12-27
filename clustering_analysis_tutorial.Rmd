@@ -1,3 +1,273 @@
+# (PART) Tutorials {-}
+
+# Tutorial on Cluster Analysis
+
+Jannik Wiedenhaupt
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tibble)
+library(tidyverse)
+library(corrplot)
+library(NbClust)
+library(reshape2)
+library(pheatmap)
+library(factoextra)
+```
+
+## What is Clustering Analysis?
+Clustering Analysis is a data exploration method and one of the most popular classification techniques. Clustering works by segregating data points into different groups based on the similarity and dissimiliarity of attributes. That means data is clustered such that the homogeneity inside the clusters is maximized and the heterogeneity between the clusters maximized. For any concept that is novel to human understanding, clustering or grouping elements based on their likeness is important.  
+
+Likewise in data science and machine learning, clustering algorithms carry out the task of labeling unlabelled data inputs which further helps in data interpretation and establishing patterns for predictive purposes.
+
+To understand the idea of clustering, let's look at the following picures where the points are customer who rated their personal importance of price and quality.
+
+
+<div align="center">
+<p align="center"><strong>Can we identify any groups of data points in this graph?</strong></p>
+<p align="center"><img src="resources/clustering_analysis_tutorial/Clustering0.jpg" alt="Cluster0" width="300" align="middle"/>
+<p align="center"><strong>Should we cluster the data like this?</strong></p>
+<p align="center"><img src="resources/clustering_analysis_tutorial/Clustering1.jpg" alt="Cluster1" width="300" align="middle"/></p>
+<p align="center"><strong>Or like this?</strong></p>
+<p align="center"><img src="resources/clustering_analysis_tutorial/Clustering2.jpg" alt="Cluster2" width="300" align="middle"/></p>
+</div>
+
+From the visual representation (which are also only two-dimensional), we can already not clearly decide how to cluster the data points. To cluster data points properly, we need clustering algorithms.
+
+## What Types of Clustering Analysis Exist?
+There are many different types of clustering algorithms that are particularly useful for different situations.
+
+The four most common types are:
+
+### Centroid-based Algorithms
+Centroid-based algorithm separate data points based on multiple so-called centroids in the data. Each data point is assigned to a cluster based on its squared distance from the centroid. This is the most commonly used type of clustering.
+
+### Hierarchical Algorithms
+Hierarchical algorithms differ from centroid-based algorithms in that they constract a hierarchy among all data points. From this hierarchy, one can choose different sized clusters based on the granularity required for the task at hand. This is normally used on hierarchical data structures like company databases or a taxonomy of animal species.
+There are two main types of hierarchical algorithms:
+
+1. Agglomerative clustering - all observations are considered invdividually and then merged into everbigger clusters
+2. Divisive cluster - all observations are considered together and then split up int eversmaller clusters
+
+### Distribution-based Algorithms
+Distribution-based clustering assumes data is composed of distributions. Therefore, all data points are considered parts of a cluster based on the probability that they belong to a given cluster. As distance from the center of a cluster increases, the probability that the data point belongs to that cluster decreases. This algorithm is only recommended when you know the distribution of your data.
+
+### Density-based Algorithms
+Density-based clustering works by detecting regions in which factors are focused and in which they're separated via means of regions that might be empty or sparse. Points that are not a part of a cluster are categorized as noise. Outliers are not assigned to clusters and therefore ignored in these algorithms.
+
+## How Does Cluster Analysis Work on Paper?
+The following process should be followed when approaching a cluster analysis.
+
+1. **Variable selection:** Select the variables, called *bases*, that will be used to cluster the observations. If you want to make any decisions based on the classification, for example in targeting different groups of customers, you most likely also want to have additional variables, called *descriptors*, that help you understand the found clusters.
+2. **Similarity/Dissimilarity calculation:** Choose a suitable measures of proximity between the different observations. Based on the type of the bases, you need to choose a *distance function* or a *similarity function*. The variables are compared individually first. Then, they are summed up to calculate the total similarity/distance between two observations. Comparing all observations with each other yields a *proximity or distance matrix*.
+3. **Cluster creation:** Choose a suitable clustering method from the ones mentioned above and if needed also an objective functions to decide when clusters are merged or split up.
+
+**Additional steps (not always required):**
+1. Determine the number of clusters. This can be either done based on a thorough understanding of the problem's domain, the planned interpretation, or a statistical procedure. This is for example required for centroid-based algorithms.
+2. Interpretation of the clusters.
+3. Test the strength of the clustering results. Test the internal homogeneity and external homogeneity of the clusters.
+
+
+## How Does Cluster Analysis Work in R?
+
+### Data Preparation
+First, we load in the dataset. In this tutorial, we use the *states* dataset to cluster US states. 
+```{r}
+df <- datasets::state.x77%>%data.frame()
+```
+
+Second, we will also use the *factoextra* package and particularly the *eclust* function to simplify the analysis and visualization.
+
+Third, we check that the data has the following form:
+
+1. Rows are observations and columns are variables
+2. Missing values are removed or estimated
+3. Data must be standardized
+4. Avoid double-weighting of underlying constructs by avoiding multicollinearity
+
+```{r}
+head(df, 3)
+```
+
+```{r, fig.width=10}
+# Delete NA values
+df <- na.omit(df)
+
+# Save non-scaled version for later
+df_original <- df
+
+# Standardize variables
+df <- df %>% mutate_all(~(scale(.) %>% as.vector))
+
+cor_matrix <- cor(df)
+corrplot(cor_matrix, method = "number", type = "lower", tl.pos = 'd')
+# Because murder and life expectancy are strongly correlated, we remove murder
+df <- subset(df, select = -c(Murder))
+```
+
+### Centroid-based Algorithms
+The classic centroid-based algorithm is called "k-means" and will be used here. K-means takes data points as input and groups them into *k*  clusters through the following process.
+
+1. Select inputs
+2. Select *k* cluster centers
+3. Assign cases to closest center
+4. Update cluster centers
+5. Reassign cases
+6. Repeat steps 4 and 5 until convergence
+
+Going through this process in R is very simple as it only requires one function.
+The parameters are the following
+
+* **FUNcluster:** Clustering function. Here, k-means.
+* **hc_metric:** Metric to be used for calculating dissimilarities between observations. Here, euclidean distance.
+* **k:** Number of clusters. Here 5 is guessed because of the lack of further exploration of the dataset. 
+
+```{r, fig.width=10}
+res.km <- eclust(df, FUNcluster = "kmeans", k = 5, hc_metric = "euclidean")
+```
+
+#### Choosing the Number of Clusters
+Alternatively to setting the number of clusters *k* ourselves, we can also resort to different statistics:
+
+**1. Gap Statistic**
+```{r, fig.width=10}
+res.km <- eclust(df, FUNcluster = "kmeans", hc_metric = "euclidean", graph = FALSE)
+fviz_gap_stat(res.km$gap_stat)
+```
+
+**2. Silhouette Plot**
+```{r,  fig.width=10}
+fviz_silhouette(res.km)
+```
+
+**3. Elbow Method**
+The elbow method is a visual method, where we determine the cluster based on spotting an elbow in the graph.
+```{r, fig.width=10}
+fviz_nbclust(df, FUNcluster = kmeans, method = "wss") + labs(subtitle = "Elbow method") 
+```
+
+There are weak (not very pronounced) elbows at 2 and 6.
+
+
+**4. Other Indices**
+Use the package *NbClust* to experiment with different clustering methods, distances, and indices. 
+```{r}
+cat("C-Index:\n", NbClust(data=df, method = "kmeans", distance = "euclidean", index="cindex")$Best.nc)
+cat("Dunn-Index:\n", NbClust(data=df, method = "kmeans", distance = "euclidean", index="dunn")$Best.nc)
+cat("McClain-Index:\n", NbClust(data=df, method = "kmeans", distance = "euclidean", index="mcclain")$Best.nc)
+```
+
+### Hierarchial Algorithms
+There are two fundamental methods of hierarchical clustering - agglomerative and divisive clustering. We will explain both.
+In hierarchical clustering you do not need to define or calculate the number of clusters before running the algorithm. Moreover, hierarchical clustering results in a comprehensible tree-like structure called a *Dendrogram* that allows us to find the number of clusters that is most interpretable.
+
+#### Divisive Hierarchical Clustering
+1. All objects or points in the dataset belong to one single cluster
+2. Partition the single cluster into the two least similar clusters
+3. Repeat step 2 until each observation is a single cluster
+
+The parameters are the following
+
+* **FUNcluster:** "hclust" for divisive clustering.
+* **hc_metric:** "euclidean" for euclidean distance.
+
+```{r, fig.width=10, warning=FALSE}
+res.hclust <- eclust(df, FUNcluster = "hclust", hc_metric = "euclidean")
+fviz_dend(res.hclust, rect = TRUE)
+```
+
+```{r, fig.width=10}
+fviz_cluster(res.hclust, labelsize = 10)
+```
+
+Here, we see a discrepancy to k-means clustering. While the gap-statistic yielded 4 optimal clusters, the hierarchical clustering identifies 2 major cluster.
+
+#### Agglomerative Hierarchical Clustering
+
+1. Each observation is a single cluster
+2. Every two observations that are closest to each other according to the distance measure, are clustered
+3. Repeat step 2 until all observations are one cluster
+
+It is important to notice that agglomerative clustering requires a agglomeration method to be specified. There are different agglomeration methods on which you can read up here: https://en.wikipedia.org/wiki/Hierarchical_clustering#Linkage_criteria.
+We choose the commonly used ward.D2 measure that minimized total within-cluster variance.
+
+The parameters are the following
+
+* **FUNcluster:** "agnes" for agglomerative nesting.
+* **hc_method:** Agglomeration method. Here, ward.D2.
+* **hc_metric:** "euclidean" for euclidean distance.
+```{r, fig.width=10, warning=FALSE}
+res.aclust <- eclust(df, FUNcluster = "hclust", hc_metric = "euclidean", hc_method = "ward.D2")
+fviz_dend(res.aclust, rect = TRUE)
+```
+
+```{r, fig.width=10, warning=FALSE}
+fviz_cluster(res.aclust, labelsize = 10)
+```
+
+While it is possible to see differences between agglomerative and diviseve clustering, the two methods come to the same result in this example.
+
+### Distribution-based Algorithms
+For an explanation and very good R-tutorial on distribution-based algorithms, please visit (Note: Distribution-based algorithms are called model-based algorithms here): https://www.datanovia.com/en/lessons/model-based-clustering-essentials/
+
+### Density-based Algorithms
+For an explanation and very good R-tutorial on density-based algorithms, please visit: https://www.datanovia.com/en/lessons/dbscan-density-based-clustering-essentials/
+
+## Using Clustering for Further Analysis
+After clustering your observations, we want to understand what the clusters mean. To do this, we will visualize the average strenght of each variable in each cluster.
+
+First, assign the clusters to the dataframe.
+```{r}
+df_clusters <- res.km$centers
+```
+
+(Output of res.km is the following)
+```{r}
+res.km
+```
+
+Second, visualize the strength of the variables using a heatmap to describe the different clusters.
+```{r, fig.width=10, fig.height=4}
+melt_df <- melt(df_clusters)
+
+heatmap <- ggplot(melt_df, aes(Var2, Var1)) +
+  scale_fill_continuous(type = "viridis", direction = -1) +
+  geom_tile(aes(fill = value)) +
+  geom_text(aes(label = round(value, 1))) +
+  theme_bw() +
+  ggtitle("Strength of Each of the Variables in the Clusters") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x="Variable", y="Cluster")
+heatmap
+```
+
+The clustering of the variables shows that cluster 4 has the largest area and above average income. However, it comprises only one observation and is thus less interpretable. Cluster 3 has below average income, life expectancy and highschool graduation, but above average illiteracy. This cluster can be seen as one of worse performing states in these developmental areas. Cluster 2 and 1 are relatively similar with mostly average characteristics. The most meaningful difference is the population. Therefore, we could call cluster 2 "Low-populated average states" and cluster 2 "High-populated average states". 
+
+Here we see the final classification results again:
+```{r}
+df_original["Cluster"] <- res.km$cluster
+df_out <- df_original[order(-df_original$Cluster), ]
+knitr::kable(df_out)
+```
+
+**I hope that this tutorial was helpful to you! Good luck with your next clustering analysis!**
+
+## Sources
+Giordani, P., Ferraro, M. B., & Martella, F. (2020). Introduction to Clustering. https://doi.org/10.1007/978-981-13-0553-5_1
+
+Sultana, S. (2020, December 21). How the Hierarchical Clustering Algorithm Works. Retrieved October 24, 2021, from https://dataaspirant.com/hierarchical-clustering-algorithm/#t-1608531820434
+
+Rawat, S. (2021, June 25). 6 Types of Clustering Algorithms in Machine Learning | Analytics Steps. Retrieved October 23, 2021, from https://www.analyticssteps.com/blogs/6-types-clustering-algorithms-machine-learning
+
+Datanovia. (n.d.). Agglomerative Hierarchical Clustering - Datanovia. Retrieved October 24, 2021, from https://www.datanovia.com/en/lessons/agglomerative-hierarchical-clustering/
+
+TechVidvan. (n.d.). Cluster Analysis in R - Complete Guide on Clustering in R - TechVidvan. Retrieved October 24, 2021, from https://techvidvan.com/tutorials/cluster-analysis-in-r/
+
+R Bloggers. (2019, July). Customer Segmentation using RFM Analysis - Rsquared Academy Blog - Explore Discover Learn. Retrieved October 24, 2021, from https://blog.rsquaredacademy.com/customer-segmentation-using-rfm-analysis/
+
+
+=======
 
 # Tutorial on Cluster Analysis
 

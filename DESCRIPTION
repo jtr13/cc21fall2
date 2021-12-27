@@ -172,7 +172,7 @@ Suggests:
     bookdown,
     bslib,
     downlit,
-    xml2    
+    xml2 
 Remotes:
     cran/DMwR,
     ricardo-bion/ggradar,
