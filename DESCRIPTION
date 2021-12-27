@@ -111,6 +111,7 @@ Imports:
     quantmod,
     r2d3,
     randomForest,
+    ranger,
     raster,
     rCharts,
     RColorBrewer,
