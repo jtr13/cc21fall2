@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 115 Tutorial for scatter plot with marginal distribution | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<meta name="description" content="Ziyu Fang This tutorial introduces how to draw and customize scatter plots with marginal distribution map on the boundaries, including marginal histogram and marginal density plot. There are...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 115 Tutorial for scatter plot with marginal distribution | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Ziyu Fang This tutorial introduces how to draw and customize scatter plots with marginal distribution map on the boundaries, including marginal histogram and marginal density plot. There are...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 115 Tutorial for scatter plot with marginal distribution | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:description" content="Ziyu Fang This tutorial introduces how to draw and customize scatter plots with marginal distribution map on the boundaries, including marginal histogram and marginal density plot. There are...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
+<script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EDAV Fall 2021 Tues/Thurs Community Contributions</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="" href="community-contribution.html"><span class="header-section-number">2</span> Community Contribution</a></li>
+<li><a class="" href="github-submission-instructions.html"><span class="header-section-number">3</span> GitHub submission instructions</a></li>
+<li><a class="" href="sample-project.html"><span class="header-section-number">4</span> Sample project</a></li>
+<li class="book-part">Cheatsheets</li>
+<li><a class="" href="statistics-in-r-vs-python.html"><span class="header-section-number">5</span> Statistics in R vs Python</a></li>
+<li><a class="" href="data-visualization-with-seaborn.html"><span class="header-section-number">6</span> Data Visualization with Seaborn</a></li>
+<li><a class="" href="how-to-make-your-own-r-package.html"><span class="header-section-number">7</span> How to Make Your Own R package</a></li>
+<li><a class="" href="rchess-package-cheatsheet.html"><span class="header-section-number">8</span> RChess package cheatsheet</a></li>
+<li><a class="" href="hypothesis-testing-cheatsheet.html"><span class="header-section-number">9</span> Hypothesis testing cheatsheet</a></li>
+<li><a class="" href="interactive-web-visualizations-for-r-cheatsheet.html"><span class="header-section-number">10</span> Interactive web visualizations for R cheatsheet"</a></li>
+<li><a class="" href="ggforce.html"><span class="header-section-number">11</span> ggforce</a></li>
+<li><a class="" href="gganimate-cheatsheet.html"><span class="header-section-number">12</span> GGanimate cheatsheet</a></li>
+<li><a class="" href="statistical-tests-and-parameter-estimations-in-r-cheatsheet.html"><span class="header-section-number">13</span> Statistical Tests and Parameter Estimations in R Cheatsheet</a></li>
+<li><a class="" href="ggalluvial-cheat-sheet.html"><span class="header-section-number">14</span> ggalluvial-cheat-sheet</a></li>
+<li><a class="" href="introduction-to-plotly.html"><span class="header-section-number">15</span> Introduction to plotly</a></li>
+<li><a class="" href="draw-graphs-using-python-and-r.html"><span class="header-section-number">16</span> draw graphs using python and R</a></li>
+<li><a class="" href="data-visualization-packages-in-r.html"><span class="header-section-number">17</span> Data Visualization Packages in R</a></li>
+<li><a class="" href="esquisse-cheat-sheet.html"><span class="header-section-number">18</span> Esquisse Cheat sheet</a></li>
+<li><a class="" href="review-sheet-for-r-code-and-data-transformation.html"><span class="header-section-number">19</span> review sheet for r code and data transformation</a></li>
+<li><a class="" href="scrape-twitter-data-using-r.html"><span class="header-section-number">20</span> Scrape Twitter data using R</a></li>
+<li><a class="" href="r-note-and-mathematics-in-rmd-cheatsheet.html"><span class="header-section-number">21</span> R note and Mathematics in Rmd cheatsheet</a></li>
+<li><a class="" href="textbook-notes.html"><span class="header-section-number">22</span> Textbook Notes</a></li>
+<li><a class="" href="ggplot2-cheatsheet.html"><span class="header-section-number">23</span> ggplot2 cheatsheet</a></li>
+<li><a class="" href="rstudio-cheatsheet.html"><span class="header-section-number">24</span> RStudio Cheatsheet</a></li>
+<li><a class="" href="d3-visualization-in-r-cheatsheet.html"><span class="header-section-number">25</span> D3 Visualization in R Cheatsheet</a></li>
+<li><a class="" href="colors.html"><span class="header-section-number">26</span> Colors</a></li>
+<li><a class="" href="r-data-sets.html"><span class="header-section-number">27</span> R data sets</a></li>
+<li><a class="" href="introduction-to-plotly-1.html"><span class="header-section-number">28</span> “Introduction to Plotly”</a></li>
+<li><a class="" href="tidyverse-cheatsheet.html"><span class="header-section-number">29</span> Tidyverse Cheatsheet</a></li>
+<li><a class="" href="learning-sql-with-its-r-dplyr-translation.html"><span class="header-section-number">30</span> Learning SQL with Its R dplyr Translation</a></li>
+<li><a class="" href="animate-time-series-the-goyav-package.html"><span class="header-section-number">31</span> Animate Time Series : the goyav package</a></li>
+<li><a class="" href="string-manipulation-in-r.html"><span class="header-section-number">32</span> String Manipulation in R</a></li>
+<li><a class="" href="ggalluvial-cheatsheet.html"><span class="header-section-number">33</span> ggalluvial Cheatsheet</a></li>
+<li><a class="" href="a-cheatsheet-from-pandas-to-base-r-and-tidyverse.html"><span class="header-section-number">34</span> A cheatsheet from pandas to base r and tidyverse</a></li>
+<li><a class="" href="base-r-ggplot2-python-graphing-performances.html"><span class="header-section-number">35</span> Base R, ggplot2, &amp; Python Graphing Performances</a></li>
+<li><a class="" href="cheat-sheet-to-score-100-points.html"><span class="header-section-number">36</span> Cheat Sheet to Score 100 Points</a></li>
+<li><a class="" href="base-r-string-operations-cheatsheet.html"><span class="header-section-number">37</span> Base R String Operations Cheatsheet</a></li>
+<li><a class="" href="data-manipulation-in-r.html"><span class="header-section-number">38</span> Data manipulation in R</a></li>
+<li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">39</span> ggplot_matplotlib_cheatsheet</a></li>
+<li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">40</span> Introduction to Log-transformation</a></li>
+<li class="book-part">R Tutorials</li>
+<li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">41</span> How to Integrate R with PostgreSQL</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">42</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="tutorial-on-cluster-analysis-1.html"><span class="header-section-number">43</span> Tutorial on Cluster Analysis</a></li>
+<li><a class="" href="apply-function-in-r.html"><span class="header-section-number">44</span> Apply function in r</a></li>
+<li><a class="" href="introduction-to-interactive-graphs-in-r.html"><span class="header-section-number">45</span> Introduction to interactive graphs in R</a></li>
+<li><a class="" href="plot-and-analyze-stock-data-with-r.html"><span class="header-section-number">46</span> Plot and Analyze Stock Data with R</a></li>
+<li><a class="" href="data-visulization-ordering.html"><span class="header-section-number">47</span> Data Visulization Ordering</a></li>
+<li><a class="" href="tutorial-on-lattice-package-in-r.html"><span class="header-section-number">48</span> Tutorial on lattice package in R</a></li>
+<li><a class="" href="network-visualization-in-r.html"><span class="header-section-number">49</span> Network Visualization in R</a></li>
+<li><a class="" href="dplyr-tutorial-in-r.html"><span class="header-section-number">50</span> Dplyr tutorial in R</a></li>
+<li><a class="" href="downloading-files.html"><span class="header-section-number">51</span> Downloading files</a></li>
+<li><a class="" href="video-introduction-to-maps-with-ggmap.html"><span class="header-section-number">52</span> Video introduction to maps with ggmap</a></li>
+<li><a class="" href="comparison-among-base-r-tidyverse-and-datatable.html"><span class="header-section-number">53</span> Comparison among base R, tidyverse, and datatable</a></li>
+<li><a class="" href="raincloud-plot-101-density-plot-or-boxplotwhy-not-do-both.html"><span class="header-section-number">54</span> Raincloud plot 101: density plot or boxplot？Why not do both!</a></li>
+<li><a class="" href="an-introduction-to-dygraph-in-r.html"><span class="header-section-number">55</span> An Introduction to Dygraph in R</a></li>
+<li><a class="" href="streamlit-tutorial.html"><span class="header-section-number">56</span> Streamlit Tutorial</a></li>
+<li><a class="" href="hive-plots-with-the-ggraph-and-hiver-packages.html"><span class="header-section-number">57</span> Hive plots with the ggraph and hiver packages</a></li>
+<li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">58</span> Introduction to XAI (Explainable AI) in R</a></li>
+<li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">59</span> Tutorial for gg_cleveland</a></li>
+<li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">60</span> Neural network tools in R</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">61</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">62</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">63</span> Base R Tutorial</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">64</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">65</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">66</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">67</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">68</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">69</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">70</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">71</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">72</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">73</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">74</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">75</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">76</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">77</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">78</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">79</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">80</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">81</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">82</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">83</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">84</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">85</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">86</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">87</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">88</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">89</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">90</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">91</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">92</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">93</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">94</span> How to animate your plots</a></li>
+<li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">95</span> Dataframe operations tutorial</a></li>
+<li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">96</span> A brief instruction for the half semester of EDAV5702</a></li>
+<li><a class="" href="anova-tutorial.html"><span class="header-section-number">97</span> ANOVA tutorial</a></li>
+<li><a class="" href="predictive-analytics-using-data-visualization-in-r.html"><span class="header-section-number">98</span> Predictive Analytics using Data Visualization in R</a></li>
+<li><a class="" href="color-selection-for-ggplot-graphs.html"><span class="header-section-number">99</span> Color selection for ggplot graphs</a></li>
+<li><a class="" href="useful-resources-for-r-beginners.html"><span class="header-section-number">100</span> Useful resources for R beginners</a></li>
+<li><a class="" href="tutorial-on-using-mongodb-with-r.html"><span class="header-section-number">101</span> Tutorial on Using MongoDB with R</a></li>
+<li><a class="" href="rdoc---an-alfred-worflow-to-search-r-documentation.html"><span class="header-section-number">102</span> rdoc - An Alfred Worflow to Search R Documentation</a></li>
+<li><a class="" href="data-frame-reshape.html"><span class="header-section-number">103</span> Data Frame Reshape</a></li>
+<li><a class="" href="using-postgresql-databse-in-r-with-macos-environment.html"><span class="header-section-number">104</span> Using PostgreSQL Databse in R with MacOS Environment</a></li>
+<li><a class="" href="spark-tutorial-in-r.html"><span class="header-section-number">105</span> Spark Tutorial In R</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">106</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">107</span> Base r vs. ggplot2 visualization</a></li>
+<li><a class="" href="improved-density-estimation.html"><span class="header-section-number">108</span> Improved density estimation</a></li>
+<li><a class="" href="plotting-theme-for-columbia.html"><span class="header-section-number">109</span> Plotting theme for Columbia</a></li>
+<li><a class="" href="geospatial-data-visualization.html"><span class="header-section-number">110</span> Geospatial Data Visualization</a></li>
+<li><a class="" href="neo4j-python-implementation.html"><span class="header-section-number">111</span> Neo4j python implementation</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">112</span> Super ggformat</a></li>
+<li><a class="" href="data_composition_plot.html"><span class="header-section-number">113</span> Data_Composition_Plot</a></li>
+<li><a class="" href="ggplot2_treemapify.html"><span class="header-section-number">114</span> ggplot2_treemapify</a></li>
+<li><a class="active" href="tutorial-for-scatter-plot-with-marginal-distribution.html"><span class="header-section-number">115</span> Tutorial for scatter plot with marginal distribution</a></li>
+<li class="book-part">R Tutorials</li>
+<li><a class="" href="d-data-and-potential-relationship-visualization.html"><span class="header-section-number">116</span> 3D data and potential relationship visualization</a></li>
+<li><a class="" href="using-python-in-r.html"><span class="header-section-number">117</span> Using python in r</a></li>
+<li><a class="" href="plotting-graph-with-r-v.s.-python.html"><span class="header-section-number">118</span> Plotting graph with R v.s. Python</a></li>
+<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">119</span> ggplot2 in python</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">120</span> pygal tutorial</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">121</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">122</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">123</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">124</span> R to python easy plot</a></li>
+<li><a class="" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">125</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">126</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">127</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">128</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">129</span> R and Python visualization</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">130</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="python-visualization-tutorial-1.html"><span class="header-section-number">131</span> Python Visualization Tutorial</a></li>
+<li class="book-part">Project &amp; Workshops</li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">132</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">133</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">134</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">135</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">136</span> RGL Package</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">137</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">138</span> Tutorial for pull request mergers</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jtr13/cc21fall2">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tutorial-for-scatter-plot-with-marginal-distribution" class="section level1">
+<h1>
+<span class="header-section-number">115</span> Tutorial for scatter plot with marginal distribution<a class="anchor" aria-label="anchor" href="#tutorial-for-scatter-plot-with-marginal-distribution"><i class="fas fa-link"></i></a>
+</h1>
+<p>Ziyu Fang</p>
+<p>This tutorial introduces how to draw and customize scatter plots with marginal distribution map on the boundaries, including marginal histogram and marginal density plot.</p>
+<p>There are mainly two approaches that are commonly used.</p>
+<ol style="list-style-type: decimal">
+<li>The simple method: using two R libraries, <code>ggExtra</code> and <code>ggplot2</code>. In this way, we can generate marginal distribution map easily.</li>
+<li>The advanced method: using two R libraries. <code>cowplot</code> and <code>ggpubr</code>. This approach allows users to have more flexiblity in designing and drawing plots.</li>
+</ol>
+<div id="using-ggextra-with-ggplot2" class="section level2">
+<h2>
+<span class="header-section-number">115.1</span> Using ggExtra with ggplot2<a class="anchor" aria-label="anchor" href="#using-ggextra-with-ggplot2"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb1609"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/daattali/ggExtra">ggExtra</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></code></pre></div>
+<div id="traditional-scatter-plot" class="section level3">
+<h3>
+<span class="header-section-number">115.1.1</span> Traditional Scatter Plot<a class="anchor" aria-label="anchor" href="#traditional-scatter-plot"><i class="fas fa-link"></i></a>
+</h3>
+<p>Here is some sample code that draws simple 2D scatter plot. We assign a color to each species in the following plot.</p>
+<div class="sourceCode" id="cb1610"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>, y <span class="op">=</span> <span class="va">Sepal.Width</span>, color <span class="op">=</span> <span class="va">Species</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.6</span>, shape <span class="op">=</span> <span class="fl">16</span><span class="op">)</span> <span class="op">+</span>  
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Dark2"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Sepal Length"</span>, y <span class="op">=</span> <span class="st">"Sepal Width"</span><span class="op">)</span> 
+<span class="va">p</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>Using <code>ggExtra</code> and <code>ggplot2</code> literally take one line of code to generate marginal histogram or density map. If you want to overlap the marginal dsitributions with the assigned colors, you can choose to set <code>groupColour</code> as <code>TRUE</code>, which we recommend to use. This parameter passes the assigned colors in the above code to marginal distribution. Also remember to set <code>groupFill</code> as <code>TRUE</code>. This parameter is quite self-explanatory, it fill the marginal distribution with color assigned by <code>groupColour</code>.</p>
+<p>With this method, you can choose from several methods to display marginal distribution, provided by <code>ggExtra</code> and <code>ggplot2</code>. We recommend 5 types:</p>
+</div>
+<div id="plot-marginal-density-function" class="section level3">
+<h3>
+<span class="header-section-number">115.1.2</span> Plot Marginal Density Function<a class="anchor" aria-label="anchor" href="#plot-marginal-density-function"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb1611"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggExtra/man/ggMarginal.html">ggMarginal</a></span><span class="op">(</span><span class="va">p</span>, type <span class="op">=</span> <span class="st">"density"</span>, groupColour <span class="op">=</span> <span class="cn">TRUE</span>, groupFill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure">
+<img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;">
+### Plot Marginal Histogram</div>
+<div class="sourceCode" id="cb1612"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggExtra/man/ggMarginal.html">ggMarginal</a></span><span class="op">(</span><span class="va">p</span>, type <span class="op">=</span> <span class="st">"histogram"</span>, groupColour <span class="op">=</span> <span class="cn">TRUE</span>, groupFill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure">
+<img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;">
+### Plot Marginal Box Plot</div>
+<div class="sourceCode" id="cb1613"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggExtra/man/ggMarginal.html">ggMarginal</a></span><span class="op">(</span><span class="va">p</span>, type <span class="op">=</span> <span class="st">"boxplot"</span>, groupColour <span class="op">=</span> <span class="cn">TRUE</span>, groupFill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
+</div>
+<div id="plot-marginal-violin-plot" class="section level3">
+<h3>
+<span class="header-section-number">115.1.3</span> Plot Marginal Violin Plot<a class="anchor" aria-label="anchor" href="#plot-marginal-violin-plot"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb1614"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggExtra/man/ggMarginal.html">ggMarginal</a></span><span class="op">(</span><span class="va">p</span>, type <span class="op">=</span> <span class="st">"violin"</span>, groupColour <span class="op">=</span> <span class="cn">TRUE</span>, groupFill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure">
+<img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;">
+### Plot Marginal Density Function and Histogram</div>
+<div class="sourceCode" id="cb1615"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggExtra/man/ggMarginal.html">ggMarginal</a></span><span class="op">(</span><span class="va">p</span>, type <span class="op">=</span> <span class="st">"densigram"</span>, groupColour <span class="op">=</span> <span class="cn">TRUE</span>, groupFill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p><img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"><code>ggExtra</code> and <code>ggplot2</code> does provide some flexibility, which allows to your customise your marginal distribution. But we believe that’s not what their designer want you to do. The whole point of these libraries is to wrap up the whole complicated mechanism and let you quicklt draw a standard scatter plot with marginal distributions.</p>
+<p>You can come up with some original designs and implement them with <code>ggExtra</code> and <code>ggplot2</code>. But believe me, it will be a unideal process. For users who like to design their own marginal distribution, we would recommend the next method.</p>
+</div>
+</div>
+<div id="using-cowplot-and-ggpubr" class="section level2">
+<h2>
+<span class="header-section-number">115.2</span> Using cowplot and ggpubr<a class="anchor" aria-label="anchor" href="#using-cowplot-and-ggpubr"><i class="fas fa-link"></i></a>
+</h2>
+<p>Same as the previous approach, let’s start with a scatter plot with no marginal distribution. Then we figure out how to add marginal distribution to it. If you want to use <code>cowplot</code> and <code>ggpubr</code>, we would recommend start your scatter plot with function <code>ggscatter</code> in this case, instead of <code>ggplot</code>.</p>
+<div id="plot-another-kind-of-scatter-plot" class="section level3">
+<h3>
+<span class="header-section-number">115.2.1</span> Plot Another Kind of Scatter Plot<a class="anchor" aria-label="anchor" href="#plot-another-kind-of-scatter-plot"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb1616"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">iris</span>, x <span class="op">=</span> <span class="st">"Sepal.Length"</span>, y <span class="op">=</span> <span class="st">"Sepal.Width"</span>,
+                color <span class="op">=</span> <span class="st">"Species"</span>, palette <span class="op">=</span> <span class="st">"Accent"</span>,
+                size <span class="op">=</span> <span class="fl">3</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/border.html">border</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span>
+<span class="va">sp</span></code></pre></div>
+<div class="inline-figure">
+<img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;">
+Same as before, we assign each species with a color. According colors will be shown in marginal distribution.</div>
+</div>
+<div id="gapped-marginal-plot" class="section level3">
+<h3>
+<span class="header-section-number">115.2.2</span> Gapped Marginal Plot<a class="anchor" aria-label="anchor" href="#gapped-marginal-plot"><i class="fas fa-link"></i></a>
+</h3>
+<div id="marginal-density-plot" class="section level4">
+<h4>
+<span class="header-section-number">115.2.2.1</span> Marginal Density Plot<a class="anchor" aria-label="anchor" href="#marginal-density-plot"><i class="fas fa-link"></i></a>
+</h4>
+<p>The process is like plotting 3 subplots: the horizontal margin, vertical margin and the scatter plot itself.</p>
+<p>Since we already have the scatter plot, our first step is to generate the two plot: horizontal margin and vertical margin.</p>
+<div class="sourceCode" id="cb1617"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Marginal density plot of x (top panel) and y (right panel)</span>
+<span class="va">xplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdensity.html">ggdensity</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Sepal.Length"</span>, fill <span class="op">=</span> <span class="st">"Species"</span>,
+                   palette <span class="op">=</span> <span class="st">"Accent"</span><span class="op">)</span>
+<span class="va">yplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdensity.html">ggdensity</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Sepal.Width"</span>, fill <span class="op">=</span> <span class="st">"Species"</span>, 
+                   palette <span class="op">=</span> <span class="st">"Accent"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rotate.html">rotate</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Notice that <code>tplot</code> is vertical because we rotate it by 90 degree. Now you can see we are really designing and customising each module by ourselves.</p>
+<p>After that, we need to put them together using <code>plot_grid</code>, which you might feel familiar with. You can adjust its width, height, aligning method, and so many other options by manipulating built-in parameters of <code>plot_grid</code>.</p>
+<div class="sourceCode" id="cb1618"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Cleaning the plots</span>
+<span class="va">sp</span> <span class="op">&lt;-</span> <span class="va">sp</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"legend"</span><span class="op">)</span>
+<span class="va">yplot</span> <span class="op">&lt;-</span> <span class="va">yplot</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">clean_theme</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"legend"</span><span class="op">)</span>
+<span class="va">xplot</span> <span class="op">&lt;-</span> <span class="va">xplot</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">clean_theme</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"legend"</span><span class="op">)</span>
+<span class="co"># Arranging the plot using cowplot</span>
+<span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">xplot</span>, <span class="cn">NULL</span>, <span class="va">sp</span>, <span class="va">yplot</span>, ncol <span class="op">=</span> <span class="fl">2</span>, align <span class="op">=</span> <span class="st">"hv"</span>, 
+          rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>A little tip: remove the legends before puting subplots together. Legends will destroy your pretty layout.</p>
+<p>Let’s revise the whole process, and challenge ourselves by applying the procedure to draw boxplot as marginal distribution.</p>
+</div>
+<div id="uncompressed-marginal-box-plot" class="section level4">
+<h4>
+<span class="header-section-number">115.2.2.2</span> Uncompressed Marginal Box Plot<a class="anchor" aria-label="anchor" href="#uncompressed-marginal-box-plot"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb1619"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Marginal boxplot of x (top panel) and y (right panel)</span>
+<span class="va">xplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span><span class="va">iris</span>, x <span class="op">=</span> <span class="st">"Species"</span>, y <span class="op">=</span> <span class="st">"Sepal.Length"</span>, 
+                   color <span class="op">=</span> <span class="st">"Species"</span>, fill <span class="op">=</span> <span class="st">"Species"</span>, palette <span class="op">=</span> <span class="st">"Accent"</span>,
+                   alpha <span class="op">=</span> <span class="fl">0.5</span>, ggtheme <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rotate.html">rotate</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">yplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span><span class="va">iris</span>, x <span class="op">=</span> <span class="st">"Species"</span>, y <span class="op">=</span> <span class="st">"Sepal.Width"</span>,
+                   color <span class="op">=</span> <span class="st">"Species"</span>, fill <span class="op">=</span> <span class="st">"Species"</span>, palette <span class="op">=</span> <span class="st">"Accent"</span>,
+                   alpha <span class="op">=</span> <span class="fl">0.5</span>, ggtheme <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="co"># Cleaning the plots</span>
+<span class="va">sp</span> <span class="op">&lt;-</span> <span class="va">sp</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"legend"</span><span class="op">)</span>
+<span class="va">yplot</span> <span class="op">&lt;-</span> <span class="va">yplot</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">clean_theme</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"legend"</span><span class="op">)</span>
+<span class="va">xplot</span> <span class="op">&lt;-</span> <span class="va">xplot</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">clean_theme</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/rremove.html">rremove</a></span><span class="op">(</span><span class="st">"legend"</span><span class="op">)</span>
+<span class="co"># Arranging the plot using cowplot</span>
+<span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">xplot</span>, <span class="cn">NULL</span>, <span class="va">sp</span>, <span class="va">yplot</span>, ncol <span class="op">=</span> <span class="fl">2</span>, align <span class="op">=</span> <span class="st">"hv"</span>, 
+          rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>There are so many customizations you can decide during the process, that’s why <code>cowplot</code> and <code>ggpubr</code> is your idea solution for creating a original, non-standard marginal distribution. If your boss rediculously asks you to make the horizaontal margin to be a density map, and vertical margin to be a density map, now you should be confident to make that happen.</p>
+</div>
+</div>
+<div id="connect-marginal-plot" class="section level3">
+<h3>
+<span class="header-section-number">115.2.3</span> Connect Marginal Plot<a class="anchor" aria-label="anchor" href="#connect-marginal-plot"><i class="fas fa-link"></i></a>
+</h3>
+<p>We know some people may dislike the gaps between the scatter plot and its margin distributions. Unfortunately, if you want to get rid of it, <code>plot_grid</code> has to be replaced. You should use another function, <code>axis_canvas</code> to combine the marginal distribution with axis while creating the margin. Then, the libraries provide a really use function for you to use: <code>insert_xaxis_grob</code>. This function does same the job as <code>plot_grid</code> in the previod example.</p>
+<div class="sourceCode" id="cb1620"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Main plot</span>
+<span class="va">pmain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>, y <span class="op">=</span> <span class="va">Sepal.Width</span>, color <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/set_palette.html">color_palette</a></span><span class="op">(</span><span class="st">"Accent"</span><span class="op">)</span>
+<span class="co"># Marginal densities along x axis</span>
+<span class="va">xdens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/axis_canvas.html">axis_canvas</a></span><span class="op">(</span><span class="va">pmain</span>, axis <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>, fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span>,
+               alpha <span class="op">=</span> <span class="fl">0.7</span>, size <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/set_palette.html">fill_palette</a></span><span class="op">(</span><span class="st">"Accent"</span><span class="op">)</span>
+<span class="co"># Marginal densities along y axis</span>
+<span class="co"># Need to set coord_flip = TRUE, if you plan to use coord_flip()</span>
+<span class="va">ydens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/axis_canvas.html">axis_canvas</a></span><span class="op">(</span><span class="va">pmain</span>, axis <span class="op">=</span> <span class="st">"y"</span>, coord_flip <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Width</span>, fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span>,
+               alpha <span class="op">=</span> <span class="fl">0.7</span>, size <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/set_palette.html">fill_palette</a></span><span class="op">(</span><span class="st">"Accent"</span><span class="op">)</span>
+<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/insert_xaxis_grob.html">insert_xaxis_grob</a></span><span class="op">(</span><span class="va">pmain</span>, <span class="va">xdens</span>, <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">.2</span>, <span class="st">"null"</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span>
+<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/insert_xaxis_grob.html">insert_yaxis_grob</a></span><span class="op">(</span><span class="va">p1</span>, <span class="va">ydens</span>, <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">.2</span>, <span class="st">"null"</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span>
+<span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html">ggdraw</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="tutorial_for_scatter_plot_with_marginal_distribution_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>Have a clsoe at the code, you will find that it follows the same process as the previous example: creating 3 subplots and then connecting them together. This process just uses some different, yet similar functions. Similarly, you should know how to customize it.</p>
+</div>
+</div>
+<div id="sources-7" class="section level2">
+<h2>
+<span class="header-section-number">115.3</span> Sources<a class="anchor" aria-label="anchor" href="#sources-7"><i class="fas fa-link"></i></a>
+</h2>
+<p><a href="https://cran.r-project.org/web/packages/ggExtra/index.html" class="uri">https://cran.r-project.org/web/packages/ggExtra/index.html</a></p>
+<p><a href="https://exts.ggplot2.tidyverse.org/ggExtra.html" class="uri">https://exts.ggplot2.tidyverse.org/ggExtra.html</a></p>
+<p><a href="https://deanattali.com/2015/03/29/ggExtra-r-package/" class="uri">https://deanattali.com/2015/03/29/ggExtra-r-package/</a></p>
+<p><a href="https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html" class="uri">https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html</a></p>
+<p><a href="https://cran.r-project.org/web/packages/cowplot/index.html" class="uri">https://cran.r-project.org/web/packages/cowplot/index.html</a></p>
+<p><a href="https://rpkgs.datanovia.com/ggpubr/" class="uri">https://rpkgs.datanovia.com/ggpubr/</a></p>
+
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="ggplot2_treemapify.html"><span class="header-section-number">114</span> ggplot2_treemapify</a></div>
+<div class="next"><a href="d-data-and-potential-relationship-visualization.html"><span class="header-section-number">116</span> 3D data and potential relationship visualization</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tutorial-for-scatter-plot-with-marginal-distribution"><span class="header-section-number">115</span> Tutorial for scatter plot with marginal distribution</a></li>
+<li>
+<a class="nav-link" href="#using-ggextra-with-ggplot2"><span class="header-section-number">115.1</span> Using ggExtra with ggplot2</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#traditional-scatter-plot"><span class="header-section-number">115.1.1</span> Traditional Scatter Plot</a></li>
+<li><a class="nav-link" href="#plot-marginal-density-function"><span class="header-section-number">115.1.2</span> Plot Marginal Density Function</a></li>
+<li><a class="nav-link" href="#plot-marginal-violin-plot"><span class="header-section-number">115.1.3</span> Plot Marginal Violin Plot</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#using-cowplot-and-ggpubr"><span class="header-section-number">115.2</span> Using cowplot and ggpubr</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#plot-another-kind-of-scatter-plot"><span class="header-section-number">115.2.1</span> Plot Another Kind of Scatter Plot</a></li>
+<li><a class="nav-link" href="#gapped-marginal-plot"><span class="header-section-number">115.2.2</span> Gapped Marginal Plot</a></li>
+<li><a class="nav-link" href="#connect-marginal-plot"><span class="header-section-number">115.2.3</span> Connect Marginal Plot</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#sources-7"><span class="header-section-number">115.3</span> Sources</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jtr13/cc21fall2/blob/main/tutorial_for_scatter_plot_with_marginal_distribution.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jtr13/cc21fall2/edit/main/tutorial_for_scatter_plot_with_marginal_distribution.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

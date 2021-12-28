@@ -1,4 +1,4 @@
-# (PART) Tutorials {-}
+# (PART) R Tutorials{-}
 
 # How to Integrate R with PostgreSQL
 

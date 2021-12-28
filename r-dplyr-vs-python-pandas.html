@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 61 R Dplyr vs Python Pandas | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
+<title>Chapter 125 R Dplyr vs Python Pandas | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Yujia Xie # install.packages('reticulate') library(reticulate) library(tidyverse) Dplyr for R and Pandas for Python are the two most popular libraries for working with tabular/structured data for...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 61 R Dplyr vs Python Pandas | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta property="og:title" content="Chapter 125 R Dplyr vs Python Pandas | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Yujia Xie # install.packages('reticulate') library(reticulate) library(tidyverse) Dplyr for R and Pandas for Python are the two most popular libraries for working with tabular/structured data for...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 61 R Dplyr vs Python Pandas | EDAV Fall 2021 Tues/Thurs Community Contributions">
+<meta name="twitter:title" content="Chapter 125 R Dplyr vs Python Pandas | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta name="twitter:description" content="Yujia Xie # install.packages('reticulate') library(reticulate) library(tidyverse) Dplyr for R and Pandas for Python are the two most popular libraries for working with tabular/structured data for...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -87,9 +87,8 @@
 <li><a class="" href="data-manipulation-in-r.html"><span class="header-section-number">38</span> Data manipulation in R</a></li>
 <li><a class="" href="ggplot_matplotlib_cheatsheet.html"><span class="header-section-number">39</span> ggplot_matplotlib_cheatsheet</a></li>
 <li><a class="" href="introduction-to-log-transformation.html"><span class="header-section-number">40</span> Introduction to Log-transformation</a></li>
-<li class="book-part">Tutorials</li>
+<li class="book-part">R Tutorials</li>
 <li><a class="" href="how-to-integrate-r-with-postgresql.html"><span class="header-section-number">41</span> How to Integrate R with PostgreSQL</a></li>
-<li class="book-part">Tutorials</li>
 <li><a class="" href="tutorial-on-cluster-analysis.html"><span class="header-section-number">42</span> Tutorial on Cluster Analysis</a></li>
 <li><a class="" href="tutorial-on-cluster-analysis-1.html"><span class="header-section-number">43</span> Tutorial on Cluster Analysis</a></li>
 <li><a class="" href="apply-function-in-r.html"><span class="header-section-number">44</span> Apply function in r</a></li>
@@ -109,83 +108,87 @@
 <li><a class="" href="introduction-to-xai-explainable-ai-in-r.html"><span class="header-section-number">58</span> Introduction to XAI (Explainable AI) in R</a></li>
 <li><a class="" href="tutorial-for-gg_cleveland.html"><span class="header-section-number">59</span> Tutorial for gg_cleveland</a></li>
 <li><a class="" href="neural-network-tools-in-r.html"><span class="header-section-number">60</span> Neural network tools in R</a></li>
-<li><a class="active" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">61</span> R Dplyr vs Python Pandas</a></li>
-<li><a class="" href="readable-plots.html"><span class="header-section-number">62</span> Readable Plots</a></li>
-<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">63</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
-<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">64</span> Data Visualization in Python vs R</a></li>
-<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">65</span> Base R Tutorial</a></li>
-<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">66</span> Python Altair Visualization Method Tutorial</a></li>
-<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">67</span> R to python easy plot</a></li>
-<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">68</span> Introduction to models and prediction evaluation</a></li>
-<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">69</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
-<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">70</span> Integrate R with Python</a></li>
-<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">71</span> Python Visualization Tutorial</a></li>
-<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">72</span> Gganimate Tutorial</a></li>
-<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">73</span> Get NBA dataset in R</a></li>
-<li><a class="" href="mtemplates.html"><span class="header-section-number">74</span> Mtemplates</a></li>
-<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">75</span> Introduction to Time Series Analysis in R</a></li>
-<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">76</span> Storytelling with Data</a></li>
-<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">77</span> Tutorial on R torch package</a></li>
-<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">78</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
-<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">79</span> Recursive codes and self-organized map with R</a></li>
-<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">80</span> Tutorial of three ggplot2 based packages</a></li>
-<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">81</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
-<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">82</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
-<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">83</span> Feature selection in r</a></li>
-<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">84</span> Debugging in Rstudio</a></li>
-<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">85</span> R tutorial cheatsheet</a></li>
-<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">86</span> Brief Introduction of ggpubr</a></li>
-<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">87</span> R based data organization and visualization</a></li>
-<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">88</span> R packages for map Visualization</a></li>
-<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">89</span> Common git command lines tutorial when working on studio</a></li>
-<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">90</span> Tutorial of radar chart</a></li>
-<li><a class="" href="interactive-radar.html"><span class="header-section-number">91</span> Interactive Radar</a></li>
-<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">92</span> R shiny tutorial</a></li>
-<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">93</span> Tutorial on R Markdown</a></li>
-<li><a class="" href="dlookr-package.html"><span class="header-section-number">94</span> Dlookr package</a></li>
-<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">95</span> Urca: Unit Root Test and Cointegration Test</a></li>
-<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">96</span> pygal tutorial</a></li>
-<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">97</span> Comparing Excel Chart Making with R’s</a></li>
-<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">98</span> Joining and reshaping in R</a></li>
-<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">99</span> Running Sql Queries on Dataframes</a></li>
-<li><a class="" href="tidyverse.html"><span class="header-section-number">100</span> TidyVerse</a></li>
-<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">101</span> How to animate your plots</a></li>
-<li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">102</span> Dataframe operations tutorial</a></li>
-<li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">103</span> A brief instruction for the half semester of EDAV5702</a></li>
-<li><a class="" href="anova-tutorial.html"><span class="header-section-number">104</span> ANOVA tutorial</a></li>
-<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">105</span> ggplot2 in python</a></li>
-<li><a class="" href="predictive-analytics-using-data-visualization-in-r.html"><span class="header-section-number">106</span> Predictive Analytics using Data Visualization in R</a></li>
-<li><a class="" href="color-selection-for-ggplot-graphs.html"><span class="header-section-number">107</span> Color selection for ggplot graphs</a></li>
-<li><a class="" href="useful-resources-for-r-beginners.html"><span class="header-section-number">108</span> Useful resources for R beginners</a></li>
-<li><a class="" href="tutorial-on-using-mongodb-with-r.html"><span class="header-section-number">109</span> Tutorial on Using MongoDB with R</a></li>
-<li><a class="" href="plotting-graph-with-r-v.s.-python.html"><span class="header-section-number">110</span> Plotting graph with R v.s. Python</a></li>
-<li><a class="" href="rdoc---an-alfred-worflow-to-search-r-documentation.html"><span class="header-section-number">111</span> rdoc - An Alfred Worflow to Search R Documentation</a></li>
-<li><a class="" href="data-frame-reshape.html"><span class="header-section-number">112</span> Data Frame Reshape</a></li>
-<li><a class="" href="using-python-in-r.html"><span class="header-section-number">113</span> Using python in r</a></li>
-<li><a class="" href="using-postgresql-databse-in-r-with-macos-environment.html"><span class="header-section-number">114</span> Using PostgreSQL Databse in R with MacOS Environment</a></li>
-<li><a class="" href="spark-tutorial-in-r.html"><span class="header-section-number">115</span> Spark Tutorial In R</a></li>
+<li><a class="" href="readable-plots.html"><span class="header-section-number">61</span> Readable Plots</a></li>
+<li><a class="" href="introduction-to-exploratory-spatial-data-analysis-and-visualization-using-qgis.html"><span class="header-section-number">62</span> Introduction to exploratory spatial data analysis and visualization using QGIS</a></li>
+<li><a class="" href="base-r-tutorial.html"><span class="header-section-number">63</span> Base R Tutorial</a></li>
+<li><a class="" href="introduction-to-models-and-prediction-evaluation.html"><span class="header-section-number">64</span> Introduction to models and prediction evaluation</a></li>
+<li><a class="" href="introduction-to-interactive-time-series-visualizations-with-dygraphs-in-r.html"><span class="header-section-number">65</span> Introduction to Interactive Time Series Visualizations with dygraphs in R</a></li>
+<li><a class="" href="gganimate-tutorial.html"><span class="header-section-number">66</span> Gganimate Tutorial</a></li>
+<li><a class="" href="get-nba-dataset-in-r.html"><span class="header-section-number">67</span> Get NBA dataset in R</a></li>
+<li><a class="" href="mtemplates.html"><span class="header-section-number">68</span> Mtemplates</a></li>
+<li><a class="" href="introduction-to-time-series-analysis-in-r.html"><span class="header-section-number">69</span> Introduction to Time Series Analysis in R</a></li>
+<li><a class="" href="storytelling-with-data.html"><span class="header-section-number">70</span> Storytelling with Data</a></li>
+<li><a class="" href="tutorial-on-r-torch-package.html"><span class="header-section-number">71</span> Tutorial on R torch package</a></li>
+<li><a class="" href="edav-tutorials-correlogram-calendar-heatmap-and-slopegram.html"><span class="header-section-number">72</span> EDAV Tutorials: Correlogram, Calendar Heatmap and Slopegram</a></li>
+<li><a class="" href="recursive-codes-and-self-organized-map-with-r.html"><span class="header-section-number">73</span> Recursive codes and self-organized map with R</a></li>
+<li><a class="" href="tutorial-of-three-ggplot2-based-packages.html"><span class="header-section-number">74</span> Tutorial of three ggplot2 based packages</a></li>
+<li><a class="" href="a-step-by-step-tutorial-for-natural-language-processing-in-r.html"><span class="header-section-number">75</span> A Step by Step Tutorial for Natural Language Processing in R</a></li>
+<li><a class="" href="tutorial-for-ggvis-and-its-comparison-with-ggplot2.html"><span class="header-section-number">76</span> Tutorial for ggvis and its Comparison with ggplot2</a></li>
+<li><a class="" href="feature-selection-in-r.html"><span class="header-section-number">77</span> Feature selection in r</a></li>
+<li><a class="" href="debugging-in-rstudio.html"><span class="header-section-number">78</span> Debugging in Rstudio</a></li>
+<li><a class="" href="r-tutorial-cheatsheet.html"><span class="header-section-number">79</span> R tutorial cheatsheet</a></li>
+<li><a class="" href="brief-introduction-of-ggpubr.html"><span class="header-section-number">80</span> Brief Introduction of ggpubr</a></li>
+<li><a class="" href="r-based-data-organization-and-visualization.html"><span class="header-section-number">81</span> R based data organization and visualization</a></li>
+<li><a class="" href="r-packages-for-map-visualization.html"><span class="header-section-number">82</span> R packages for map Visualization</a></li>
+<li><a class="" href="common-git-command-lines-tutorial-when-working-on-studio.html"><span class="header-section-number">83</span> Common git command lines tutorial when working on studio</a></li>
+<li><a class="" href="tutorial-of-radar-chart.html"><span class="header-section-number">84</span> Tutorial of radar chart</a></li>
+<li><a class="" href="interactive-radar.html"><span class="header-section-number">85</span> Interactive Radar</a></li>
+<li><a class="" href="r-shiny-tutorial.html"><span class="header-section-number">86</span> R shiny tutorial</a></li>
+<li><a class="" href="tutorial-on-r-markdown.html"><span class="header-section-number">87</span> Tutorial on R Markdown</a></li>
+<li><a class="" href="dlookr-package.html"><span class="header-section-number">88</span> Dlookr package</a></li>
+<li><a class="" href="urca-unit-root-test-and-cointegration-test.html"><span class="header-section-number">89</span> Urca: Unit Root Test and Cointegration Test</a></li>
+<li><a class="" href="comparing-excel-chart-making-with-rs.html"><span class="header-section-number">90</span> Comparing Excel Chart Making with R’s</a></li>
+<li><a class="" href="joining-and-reshaping-in-r.html"><span class="header-section-number">91</span> Joining and reshaping in R</a></li>
+<li><a class="" href="running-sql-queries-on-dataframes.html"><span class="header-section-number">92</span> Running Sql Queries on Dataframes</a></li>
+<li><a class="" href="tidyverse.html"><span class="header-section-number">93</span> TidyVerse</a></li>
+<li><a class="" href="how-to-animate-your-plots.html"><span class="header-section-number">94</span> How to animate your plots</a></li>
+<li><a class="" href="dataframe-operations-tutorial.html"><span class="header-section-number">95</span> Dataframe operations tutorial</a></li>
+<li><a class="" href="a-brief-instruction-for-the-half-semester-of-edav5702.html"><span class="header-section-number">96</span> A brief instruction for the half semester of EDAV5702</a></li>
+<li><a class="" href="anova-tutorial.html"><span class="header-section-number">97</span> ANOVA tutorial</a></li>
+<li><a class="" href="predictive-analytics-using-data-visualization-in-r.html"><span class="header-section-number">98</span> Predictive Analytics using Data Visualization in R</a></li>
+<li><a class="" href="color-selection-for-ggplot-graphs.html"><span class="header-section-number">99</span> Color selection for ggplot graphs</a></li>
+<li><a class="" href="useful-resources-for-r-beginners.html"><span class="header-section-number">100</span> Useful resources for R beginners</a></li>
+<li><a class="" href="tutorial-on-using-mongodb-with-r.html"><span class="header-section-number">101</span> Tutorial on Using MongoDB with R</a></li>
+<li><a class="" href="rdoc---an-alfred-worflow-to-search-r-documentation.html"><span class="header-section-number">102</span> rdoc - An Alfred Worflow to Search R Documentation</a></li>
+<li><a class="" href="data-frame-reshape.html"><span class="header-section-number">103</span> Data Frame Reshape</a></li>
+<li><a class="" href="using-postgresql-databse-in-r-with-macos-environment.html"><span class="header-section-number">104</span> Using PostgreSQL Databse in R with MacOS Environment</a></li>
+<li><a class="" href="spark-tutorial-in-r.html"><span class="header-section-number">105</span> Spark Tutorial In R</a></li>
+<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">106</span> 3D Visualization with rgl and scatterplot3d</a></li>
+<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">107</span> Base r vs. ggplot2 visualization</a></li>
+<li><a class="" href="improved-density-estimation.html"><span class="header-section-number">108</span> Improved density estimation</a></li>
+<li><a class="" href="plotting-theme-for-columbia.html"><span class="header-section-number">109</span> Plotting theme for Columbia</a></li>
+<li><a class="" href="geospatial-data-visualization.html"><span class="header-section-number">110</span> Geospatial Data Visualization</a></li>
+<li><a class="" href="neo4j-python-implementation.html"><span class="header-section-number">111</span> Neo4j python implementation</a></li>
+<li><a class="" href="super-ggformat.html"><span class="header-section-number">112</span> Super ggformat</a></li>
+<li><a class="" href="data_composition_plot.html"><span class="header-section-number">113</span> Data_Composition_Plot</a></li>
+<li><a class="" href="ggplot2_treemapify.html"><span class="header-section-number">114</span> ggplot2_treemapify</a></li>
+<li><a class="" href="tutorial-for-scatter-plot-with-marginal-distribution.html"><span class="header-section-number">115</span> Tutorial for scatter plot with marginal distribution</a></li>
+<li class="book-part">R Tutorials</li>
+<li><a class="" href="d-data-and-potential-relationship-visualization.html"><span class="header-section-number">116</span> 3D data and potential relationship visualization</a></li>
+<li><a class="" href="using-python-in-r.html"><span class="header-section-number">117</span> Using python in r</a></li>
+<li><a class="" href="plotting-graph-with-r-v.s.-python.html"><span class="header-section-number">118</span> Plotting graph with R v.s. Python</a></li>
+<li><a class="" href="ggplot2-in-python.html"><span class="header-section-number">119</span> ggplot2 in python</a></li>
+<li><a class="" href="pygal-tutorial.html"><span class="header-section-number">120</span> pygal tutorial</a></li>
+<li><a class="" href="integrate-r-with-python.html"><span class="header-section-number">121</span> Integrate R with Python</a></li>
+<li><a class="" href="python-visualization-tutorial.html"><span class="header-section-number">122</span> Python Visualization Tutorial</a></li>
+<li><a class="" href="python-altair-visualization-method-tutorial.html"><span class="header-section-number">123</span> Python Altair Visualization Method Tutorial</a></li>
+<li><a class="" href="r-to-python-easy-plot.html"><span class="header-section-number">124</span> R to python easy plot</a></li>
+<li><a class="active" href="r-dplyr-vs-python-pandas.html"><span class="header-section-number">125</span> R Dplyr vs Python Pandas</a></li>
+<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">126</span> An introduction to pyecharts package in Python</a></li>
+<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">127</span> Visualization in R v.s. Python</a></li>
+<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">128</span> Understand data with plots</a></li>
+<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">129</span> R and Python visualization</a></li>
+<li><a class="" href="data-visualization-in-python-vs-r.html"><span class="header-section-number">130</span> Data Visualization in Python vs R</a></li>
+<li><a class="" href="python-visualization-tutorial-1.html"><span class="header-section-number">131</span> Python Visualization Tutorial</a></li>
 <li class="book-part">Project &amp; Workshops</li>
-<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">116</span> Introduction to analytics consulting at Accenture</a></li>
-<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">117</span> Map of the R world</a></li>
-<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">118</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
-<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">119</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
-<li><a class="" href="rgl-package.html"><span class="header-section-number">120</span> RGL Package</a></li>
-<li class="book-part">Data Visualization</li>
-<li><a class="" href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">121</span> An introduction to pyecharts package in Python</a></li>
-<li><a class="" href="visualization-in-r-v.s.-python.html"><span class="header-section-number">122</span> Visualization in R v.s. Python</a></li>
-<li><a class="" href="understand-data-with-plots.html"><span class="header-section-number">123</span> Understand data with plots</a></li>
-<li><a class="" href="r-and-python-visualization.html"><span class="header-section-number">124</span> R and Python visualization</a></li>
-<li><a class="" href="d-visualization-with-rgl-and-scatterplot3d.html"><span class="header-section-number">125</span> 3D Visualization with rgl and scatterplot3d</a></li>
-<li><a class="" href="base-r-vs.-ggplot2-visualization.html"><span class="header-section-number">126</span> Base r vs. ggplot2 visualization</a></li>
-<li><a class="" href="improved-density-estimation.html"><span class="header-section-number">127</span> Improved density estimation</a></li>
-<li><a class="" href="plotting-theme-for-columbia.html"><span class="header-section-number">128</span> Plotting theme for Columbia</a></li>
-<li><a class="" href="geospatial-data-visualization.html"><span class="header-section-number">129</span> Geospatial Data Visualization</a></li>
-<li><a class="" href="neo4j-python-implementation.html"><span class="header-section-number">130</span> Neo4j python implementation</a></li>
-<li class="book-part">Custom R Package</li>
-<li><a class="" href="super-ggformat.html"><span class="header-section-number">131</span> Super ggformat</a></li>
+<li><a class="" href="introduction-to-analytics-consulting-at-accenture.html"><span class="header-section-number">132</span> Introduction to analytics consulting at Accenture</a></li>
+<li><a class="" href="map-of-the-r-world.html"><span class="header-section-number">133</span> Map of the R world</a></li>
+<li><a class="" href="alluvial-diagrams-and-their-implementation-using-ggalluvial-in-r.html"><span class="header-section-number">134</span> Alluvial diagrams and their implementation using GGalluvial in R</a></li>
+<li><a class="" href="building-a-dashboard-in-r-for-data-analysis-and-visualization-using-shiny-package.html"><span class="header-section-number">135</span> Building a Dashboard in R for Data Analysis and Visualization using shiny package</a></li>
+<li><a class="" href="rgl-package.html"><span class="header-section-number">136</span> RGL Package</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="github-initial-setup.html"><span class="header-section-number">132</span> Github initial setup</a></li>
-<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">133</span> Tutorial for pull request mergers</a></li>
+<li><a class="" href="github-initial-setup.html"><span class="header-section-number">137</span> Github initial setup</a></li>
+<li><a class="" href="tutorial-for-pull-request-mergers.html"><span class="header-section-number">138</span> Tutorial for pull request mergers</a></li>
 </ul>
 
         <div class="book-extra">
@@ -195,10 +198,10 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-dplyr-vs-python-pandas" class="section level1">
 <h1>
-<span class="header-section-number">61</span> R Dplyr vs Python Pandas<a class="anchor" aria-label="anchor" href="#r-dplyr-vs-python-pandas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125</span> R Dplyr vs Python Pandas<a class="anchor" aria-label="anchor" href="#r-dplyr-vs-python-pandas"><i class="fas fa-link"></i></a>
 </h1>
 <p>Yujia Xie<br><br></p>
-<div class="sourceCode" id="cb787"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1675"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages('reticulate')</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/reticulate">reticulate</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
@@ -212,7 +215,7 @@ This document:</p>
 <p> </p>
 <div id="dplyr-for-r-quick-overview" class="section level3">
 <h3>
-<span class="header-section-number">61.0.1</span> Dplyr for R Quick Overview<a class="anchor" aria-label="anchor" href="#dplyr-for-r-quick-overview"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.0.1</span> Dplyr for R Quick Overview<a class="anchor" aria-label="anchor" href="#dplyr-for-r-quick-overview"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure"><img src="resources/yujia_resources/dplyr.jpeg"></div>
 <p>As one of the core packages of the tidyverse in the R programming language, dplyr is primarily a set of functions designed to enable dataframe manipulation in an intuitive, user-friendly way. While dplyr actually includes several dozen functions that enable various forms of data manipulation, the package features five primary verbs:</p>
@@ -229,7 +232,7 @@ Sources: <a href="https://r4ds.had.co.nz/transform.html#missing-values-1" class=
 </div>
 <div id="pandas-for-python-quick-overview" class="section level3">
 <h3>
-<span class="header-section-number">61.0.2</span> Pandas for Python Quick Overview<a class="anchor" aria-label="anchor" href="#pandas-for-python-quick-overview"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.0.2</span> Pandas for Python Quick Overview<a class="anchor" aria-label="anchor" href="#pandas-for-python-quick-overview"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure"><img src="resources/yujia_resources/pandas.png"></div>
 <p>Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. Its offers data structures and operations for manipulating numerical tables and time series. Pandas allows various data manipulation operations such as merging, reshaping, selecting as well as data cleaning, and data wrangling features.<br>
@@ -245,7 +248,7 @@ Pandas is an open source, BSD-licensed library providing:</p>
 </div>
 <div id="write-python-in-r-studio" class="section level3">
 <h3>
-<span class="header-section-number">61.0.3</span> Write Python in R Studio<a class="anchor" aria-label="anchor" href="#write-python-in-r-studio"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.0.3</span> Write Python in R Studio<a class="anchor" aria-label="anchor" href="#write-python-in-r-studio"><i class="fas fa-link"></i></a>
 </h3>
 <p>Before we begin:<br>
 Have your Python version of choice installed.<br>
@@ -254,19 +257,19 @@ Install/update the R reticulate package then load the library.<br><br>
 Secondly, we point to the correct version of Python.<br>
 You may have multiple versions of Python installed. If you’re using Mac, you will have a version of Python 2 installed by default as the OS uses. Typing <code>which -a python python3</code> into your terminal (Mac OS) and will give you a list of the paths of all the versions of Python on your machine.</p>
 <p>In the below R chunk, we tell R to use my Python 3 interpreter, import the sys Python module and find out what version of Python that R is using.</p>
-<div class="sourceCode" id="cb788"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1676"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/use_python.html">use_python</a></span><span class="op">(</span><span class="st">"/usr/local/bin/python3"</span>, required <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
 <span class="va">sys</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/import.html">import</a></span><span class="op">(</span><span class="st">"sys"</span><span class="op">)</span>
 <span class="va">sys</span><span class="op">$</span><span class="va">version</span></code></pre></div>
 <p>Now we are ready to write Python code by creating a Python chunk.</p>
-<div class="sourceCode" id="cb789"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb789-1"><a href="r-dplyr-vs-python-pandas.html#cb789-1"></a><span class="co"># Python in a Python chunk</span></span>
-<span id="cb789-2"><a href="r-dplyr-vs-python-pandas.html#cb789-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb789-3"><a href="r-dplyr-vs-python-pandas.html#cb789-3"></a><span class="bu">print</span>(<span class="st">"We are calling Python from R in a Python Chunk!"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1677"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1677-1"><a href="r-dplyr-vs-python-pandas.html#cb1677-1"></a><span class="co"># Python in a Python chunk</span></span>
+<span id="cb1677-2"><a href="r-dplyr-vs-python-pandas.html#cb1677-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1677-3"><a href="r-dplyr-vs-python-pandas.html#cb1677-3"></a><span class="bu">print</span>(<span class="st">"We are calling Python from R in a Python Chunk!"</span>)</span></code></pre></div>
 <p>Source: <a href="https://rpubs.com/onduuuu/python_in_r" class="uri">https://rpubs.com/onduuuu/python_in_r</a><br><br></p>
 </div>
 <div id="dataset-1" class="section level2">
 <h2>
-<span class="header-section-number">61.1</span> Dataset<a class="anchor" aria-label="anchor" href="#dataset-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.1</span> Dataset<a class="anchor" aria-label="anchor" href="#dataset-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>We will use a 1000 random sample from Records of Yellowcab Taxi trips from January 2017.<br>
 More info: <a href="https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page" class="uri">https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page</a><br><br>
@@ -293,71 +296,71 @@ Features:</p>
 </div>
 <div id="the-tutorial-and-reference-sheet" class="section level2">
 <h2>
-<span class="header-section-number">61.2</span> The Tutorial and Reference Sheet<a class="anchor" aria-label="anchor" href="#the-tutorial-and-reference-sheet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.2</span> The Tutorial and Reference Sheet<a class="anchor" aria-label="anchor" href="#the-tutorial-and-reference-sheet"><i class="fas fa-link"></i></a>
 </h2>
 </div>
 <div id="load-data" class="section level2">
 <h2>
-<span class="header-section-number">61.3</span> Load Data<a class="anchor" aria-label="anchor" href="#load-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.3</span> Load Data<a class="anchor" aria-label="anchor" href="#load-data"><i class="fas fa-link"></i></a>
 </h2>
-<div id="dplyr" class="section level3">
+<div id="dplyr-1" class="section level3">
 <h3>
-<span class="header-section-number">61.3.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.3.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code></p>
-<div class="sourceCode" id="cb790"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1678"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"resources/yujia_resources/yellowcab.csv"</span>, 
                  skip <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co">#second line is the column names</span></code></pre></div>
 </div>
 <div id="pandas" class="section level3">
 <h3>
-<span class="header-section-number">61.3.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.3.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use <code>pd.read_csv()</code></p>
-<div class="sourceCode" id="cb791"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb791-1"><a href="r-dplyr-vs-python-pandas.html#cb791-1"></a>pd_df <span class="op">=</span> pd.read_csv(<span class="st">'resources/yujia_resources/yellowcab.csv'</span>,</span>
-<span id="cb791-2"><a href="r-dplyr-vs-python-pandas.html#cb791-2"></a>                 sep<span class="op">=</span><span class="st">','</span>,</span>
-<span id="cb791-3"><a href="r-dplyr-vs-python-pandas.html#cb791-3"></a>                 header<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb791-4"><a href="r-dplyr-vs-python-pandas.html#cb791-4"></a>                 parse_dates<span class="op">=</span>[<span class="st">'pickup_datetime'</span>,<span class="st">'dropoff_datetime'</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1679"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1679-1"><a href="r-dplyr-vs-python-pandas.html#cb1679-1"></a>pd_df <span class="op">=</span> pd.read_csv(<span class="st">'resources/yujia_resources/yellowcab.csv'</span>,</span>
+<span id="cb1679-2"><a href="r-dplyr-vs-python-pandas.html#cb1679-2"></a>                 sep<span class="op">=</span><span class="st">','</span>,</span>
+<span id="cb1679-3"><a href="r-dplyr-vs-python-pandas.html#cb1679-3"></a>                 header<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb1679-4"><a href="r-dplyr-vs-python-pandas.html#cb1679-4"></a>                 parse_dates<span class="op">=</span>[<span class="st">'pickup_datetime'</span>,<span class="st">'dropoff_datetime'</span>])</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="get-summary-info-for-dataframe" class="section level2">
 <h2>
-<span class="header-section-number">61.4</span> Get Summary Info for DataFrame<a class="anchor" aria-label="anchor" href="#get-summary-info-for-dataframe"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.4</span> Get Summary Info for DataFrame<a class="anchor" aria-label="anchor" href="#get-summary-info-for-dataframe"><i class="fas fa-link"></i></a>
 </h2>
-<div id="dplyr-1" class="section level3">
+<div id="dplyr-2" class="section level3">
 <h3>
-<span class="header-section-number">61.4.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.4.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb792"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1680"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-1" class="section level3">
 <h3>
-<span class="header-section-number">61.4.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.4.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb793"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb793-1"><a href="r-dplyr-vs-python-pandas.html#cb793-1"></a>pd_df.info()</span></code></pre></div>
+<div class="sourceCode" id="cb1681"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1681-1"><a href="r-dplyr-vs-python-pandas.html#cb1681-1"></a>pd_df.info()</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="selecting-columns" class="section level2">
 <h2>
-<span class="header-section-number">61.5</span> Selecting columns<a class="anchor" aria-label="anchor" href="#selecting-columns"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.5</span> Selecting columns<a class="anchor" aria-label="anchor" href="#selecting-columns"><i class="fas fa-link"></i></a>
 </h2>
 <p>It is very common that datasets have hundreds or even thousands of variables. We would like to narrow in on the variables we are really interested in.<br></p>
-<div id="dplyr-2" class="section level3">
+<div id="dplyr-3" class="section level3">
 <h3>
-<span class="header-section-number">61.5.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.5.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-3"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> can help us zoom in on a useful subset using operations based on the names of the variables.<br><br>
 Select columns by column name</p>
-<div class="sourceCode" id="cb794"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1682"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pickup_datetime</span>, <span class="va">fare_amount</span>, <span class="va">is_weekend</span><span class="op">)</span></code></pre></div>
 <p>Select all columns between <code>fare_amount</code> and <code>day_of_week</code> (inclusive)</p>
-<div class="sourceCode" id="cb795"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1683"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">fare_amount</span><span class="op">:</span><span class="va">day_of_week</span><span class="op">)</span></code></pre></div>
 <p>Select all columns except those from <code>fare_amount</code> to <code>day_of_week</code> (inclusive)</p>
-<div class="sourceCode" id="cb796"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1684"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">fare_amount</span><span class="op">:</span><span class="va">day_of_week</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>There are a number of helper functions you can use within select():</p>
 <ul>
@@ -368,22 +371,22 @@ Select columns by column name</p>
 <li><p><code>num_range("x", 1:3)</code>: matches x1, x2 and x3.</p></li>
 </ul>
 <p>Select columns end with ‘datetime’</p>
-<div class="sourceCode" id="cb797"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1685"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"datetime"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> can be used in conjunction with the <code><a href="https://tidyselect.r-lib.org/reference/everything.html">everything()</a></code> helper. This is useful if you have a handful of variables you’d like to move to the start of the data frame.</p>
-<div class="sourceCode" id="cb798"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1686"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">is_weekend</span>, <span class="va">trip_distance</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Source: <a href="https://r4ds.had.co.nz/transform.html#missing-values-1" class="uri">https://r4ds.had.co.nz/transform.html#missing-values-1</a></p>
 </div>
 <div id="pandas-2" class="section level3">
 <h3>
-<span class="header-section-number">61.5.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.5.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Pass columns as list</p>
-<div class="sourceCode" id="cb799"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb799-1"><a href="r-dplyr-vs-python-pandas.html#cb799-1"></a>pd_df[[<span class="st">'trip_distance'</span>, <span class="st">'is_weekend'</span>]]</span>
-<span id="cb799-2"><a href="r-dplyr-vs-python-pandas.html#cb799-2"></a>pd_df.loc[:, [<span class="st">'trip_distance'</span>, <span class="st">'is_weekend'</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1687"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1687-1"><a href="r-dplyr-vs-python-pandas.html#cb1687-1"></a>pd_df[[<span class="st">'trip_distance'</span>, <span class="st">'is_weekend'</span>]]</span>
+<span id="cb1687-2"><a href="r-dplyr-vs-python-pandas.html#cb1687-2"></a>pd_df.loc[:, [<span class="st">'trip_distance'</span>, <span class="st">'is_weekend'</span>]]</span></code></pre></div>
 <p>Use Filter Function</p>
-<div class="sourceCode" id="cb800"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb800-1"><a href="r-dplyr-vs-python-pandas.html#cb800-1"></a>pd_df.<span class="bu">filter</span>(items<span class="op">=</span>[<span class="st">'trip_distance'</span>, <span class="st">'is_weekend'</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1688-1"><a href="r-dplyr-vs-python-pandas.html#cb1688-1"></a>pd_df.<span class="bu">filter</span>(items<span class="op">=</span>[<span class="st">'trip_distance'</span>, <span class="st">'is_weekend'</span>])</span></code></pre></div>
 <p>Select all columns between fare_amount and day_of_week (inclusive).<br></p>
 <ul>
 <li>
@@ -397,10 +400,10 @@ Select columns by column name</p>
 </li>
 <li>Before <code>,</code> represents row; After <code>,</code> represents columns</li>
 </ul>
-<div class="sourceCode" id="cb801"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb801-1"><a href="r-dplyr-vs-python-pandas.html#cb801-1"></a>pd_df.loc[:, <span class="st">'fare_amount'</span>:<span class="st">'day_of_week'</span>]</span>
-<span id="cb801-2"><a href="r-dplyr-vs-python-pandas.html#cb801-2"></a>pd_df.iloc[:, <span class="dv">3</span>:<span class="dv">7</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1689"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1689-1"><a href="r-dplyr-vs-python-pandas.html#cb1689-1"></a>pd_df.loc[:, <span class="st">'fare_amount'</span>:<span class="st">'day_of_week'</span>]</span>
+<span id="cb1689-2"><a href="r-dplyr-vs-python-pandas.html#cb1689-2"></a>pd_df.iloc[:, <span class="dv">3</span>:<span class="dv">7</span>]</span></code></pre></div>
 <p>Select all columns except those from <code>fare_amount</code> to <code>day_of_week</code> (inclusive)</p>
-<div class="sourceCode" id="cb802"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb802-1"><a href="r-dplyr-vs-python-pandas.html#cb802-1"></a>pd_df.loc[:, <span class="op">~</span>pd_df.columns.isin(pd_df.columns[<span class="dv">3</span>:<span class="dv">7</span>])]</span></code></pre></div>
+<div class="sourceCode" id="cb1690"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1690-1"><a href="r-dplyr-vs-python-pandas.html#cb1690-1"></a>pd_df.loc[:, <span class="op">~</span>pd_df.columns.isin(pd_df.columns[<span class="dv">3</span>:<span class="dv">7</span>])]</span></code></pre></div>
 <p>To select columns end with <code>datetime</code> in python.</p>
 <ul>
 <li>Use either regular expression with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function; More info about regular expression: <a href="https://docs.python.org/3/library/re.html" class="uri">https://docs.python.org/3/library/re.html</a>
@@ -408,14 +411,14 @@ Select columns by column name</p>
 <li>Or use <code>.loc</code> with function <code>str.endswith()</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb803"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb803-1"><a href="r-dplyr-vs-python-pandas.html#cb803-1"></a>pd_df.<span class="bu">filter</span>(regex<span class="op">=</span><span class="st">'datetime$'</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb803-2"><a href="r-dplyr-vs-python-pandas.html#cb803-2"></a>pd_df.loc[:, pd_df.columns.<span class="bu">str</span>.endswith(<span class="st">"datetime"</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb1691"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1691-1"><a href="r-dplyr-vs-python-pandas.html#cb1691-1"></a>pd_df.<span class="bu">filter</span>(regex<span class="op">=</span><span class="st">'datetime$'</span>,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1691-2"><a href="r-dplyr-vs-python-pandas.html#cb1691-2"></a>pd_df.loc[:, pd_df.columns.<span class="bu">str</span>.endswith(<span class="st">"datetime"</span>)]</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="selecting-rows" class="section level2">
 <h2>
-<span class="header-section-number">61.6</span> Selecting Rows<a class="anchor" aria-label="anchor" href="#selecting-rows"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.6</span> Selecting Rows<a class="anchor" aria-label="anchor" href="#selecting-rows"><i class="fas fa-link"></i></a>
 </h2>
 <p>Subset observations based on their values.<br>
 Logical Operator:<br></p>
@@ -430,134 +433,134 @@ Logical Operator:<br></p>
 <code>!</code> is “not”.<br>
 </li>
 </ul>
-<div id="dplyr-3" class="section level3">
+<div id="dplyr-4" class="section level3">
 <h3>
-<span class="header-section-number">61.6.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.6.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>Mainly use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> for subsetting rows.<br></p>
 <p>Only want to observe trips happened during weekends.</p>
-<div class="sourceCode" id="cb804"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1692"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">is_weekend</span><span class="op">==</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Only want to observe trips happened during weekends and trip_distance is greater than 2 miles.</p>
-<div class="sourceCode" id="cb805"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1693"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">is_weekend</span><span class="op">==</span><span class="cn">TRUE</span> <span class="op">&amp;</span> <span class="va">trip_distance</span> <span class="op">&gt;</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p>Only want to observe trips happened during weekdays and trip_distance is less than or equal to 2 miles.</p>
-<div class="sourceCode" id="cb806"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1694"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">is_weekend</span><span class="op">==</span><span class="cn">TRUE</span> <span class="op">|</span> <span class="va">trip_distance</span> <span class="op">&gt;</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
 <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">is_weekend</span><span class="op">==</span><span class="cn">FALSE</span>, <span class="va">trip_distance</span> <span class="op">&lt;=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p>A useful short-hand for is <code>x %in% y</code>. This will select every row where <code>x</code> is one of the values in <code>y</code></p>
-<div class="sourceCode" id="cb807"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">pickup_datetime</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2017-01-15'</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2017-01-16'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<div class="sourceCode" id="cb1695"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="va">pickup_datetime</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/raster/man/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="st">'2017-01-15'</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="st">'2017-01-16'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># same as</span>
-<span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">pickup_datetime</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2017-01-15'</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">pickup_datetime</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2017-01-16'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="va">pickup_datetime</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="st">'2017-01-15'</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="va">pickup_datetime</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="st">'2017-01-16'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Source: <a href="https://r4ds.had.co.nz/transform.html#missing-values-1" class="uri">https://r4ds.had.co.nz/transform.html#missing-values-1</a></p>
 </div>
 <div id="pandas-3" class="section level3">
 <h3>
-<span class="header-section-number">61.6.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.6.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>In Pandas we can either use the indexing approach</p>
-<div class="sourceCode" id="cb808"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb808-1"><a href="r-dplyr-vs-python-pandas.html#cb808-1"></a>pd_df[(pd_df.is_weekend<span class="op">==</span><span class="va">True</span>) <span class="op">&amp;</span> (pd_df.trip_distance <span class="op">&gt;</span> <span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb1696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1696-1"><a href="r-dplyr-vs-python-pandas.html#cb1696-1"></a>pd_df[(pd_df.is_weekend<span class="op">==</span><span class="va">True</span>) <span class="op">&amp;</span> (pd_df.trip_distance <span class="op">&gt;</span> <span class="dv">2</span>)]</span></code></pre></div>
 <p>Or try out the handy query API</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb809-1"><a href="r-dplyr-vs-python-pandas.html#cb809-1"></a>pd_df.query(<span class="st">"is_weekend==True &amp; trip_distance &gt; 2"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1697"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1697-1"><a href="r-dplyr-vs-python-pandas.html#cb1697-1"></a>pd_df.query(<span class="st">"is_weekend==True &amp; trip_distance &gt; 2"</span>)</span></code></pre></div>
 <p>Show trips that have <code>pickup_datetime</code> in Jan 15th and Jan 16th</p>
-<div class="sourceCode" id="cb810"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb810-1"><a href="r-dplyr-vs-python-pandas.html#cb810-1"></a>pd_df.loc[(pd_df[<span class="st">'pickup_datetime'</span>] <span class="op">&gt;=</span> <span class="st">'2017-01-15'</span>) <span class="op">&amp;</span> (pd_df[<span class="st">'pickup_datetime'</span>] <span class="op">&lt;</span> <span class="st">'2017-01-17'</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb1698"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1698-1"><a href="r-dplyr-vs-python-pandas.html#cb1698-1"></a>pd_df.loc[(pd_df[<span class="st">'pickup_datetime'</span>] <span class="op">&gt;=</span> <span class="st">'2017-01-15'</span>) <span class="op">&amp;</span> (pd_df[<span class="st">'pickup_datetime'</span>] <span class="op">&lt;</span> <span class="st">'2017-01-17'</span>)]</span></code></pre></div>
 <p><code>.isin()</code>:</p>
 <ul>
 <li>For “IN” use: something.isin(somewhere).</li>
 <li>For “NOT IN”: ~something.isin(somewhere).</li>
 </ul>
 <p>Show trips that not happened in the 3rd, 5th, and 6th of the week.</p>
-<div class="sourceCode" id="cb811"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb811-1"><a href="r-dplyr-vs-python-pandas.html#cb811-1"></a>pd_df.loc[<span class="op">~</span>pd_df.day_of_week.isin([<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>])]</span></code></pre></div>
+<div class="sourceCode" id="cb1699"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1699-1"><a href="r-dplyr-vs-python-pandas.html#cb1699-1"></a>pd_df.loc[<span class="op">~</span>pd_df.day_of_week.isin([<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>])]</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="delete-add-columns" class="section level2">
 <h2>
-<span class="header-section-number">61.7</span> Delete / Add column(s)<a class="anchor" aria-label="anchor" href="#delete-add-columns"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.7</span> Delete / Add column(s)<a class="anchor" aria-label="anchor" href="#delete-add-columns"><i class="fas fa-link"></i></a>
 </h2>
 <p>Sometimes we would like to vertically subset the dataframe or add new columns to the dataframe</p>
-<div id="dplyr-4" class="section level3">
+<div id="dplyr-5" class="section level3">
 <h3>
-<span class="header-section-number">61.7.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.7.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-5"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the the function <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> to add column(s).<br>
 Lets say we want to add a column named <code>total_payment</code> which is the sum of <code>fare_amount</code> and <code>tip_amount</code> and a new column <code>total_payment_per_mile</code> which is <code>total_payment</code> divided by <code>trip_distance</code>.</p>
-<div class="sourceCode" id="cb812"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1700"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op">&lt;-</span> <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>total_payment <span class="op">=</span> <span class="va">fare_amount</span> <span class="op">+</span> <span class="va">tip_amount</span>,
                         total_payment_per_mile <span class="op">=</span> <span class="va">total_payment</span> <span class="op">/</span> <span class="va">trip_distance</span><span class="op">)</span></code></pre></div>
 <p>We use the the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to drop column(s).<br>
 Drop the newly added two columns<code>is_weekend</code> and <code>pickup_datetime</code></p>
-<div class="sourceCode" id="cb813"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1701"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op">&lt;-</span> <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">total_payment</span>, <span class="va">total_payment_per_mile</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-4" class="section level3">
 <h3>
-<span class="header-section-number">61.7.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.7.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>Add column(s)</p>
-<div class="sourceCode" id="cb814"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb814-1"><a href="r-dplyr-vs-python-pandas.html#cb814-1"></a>pd_df[<span class="st">'total_payment'</span>] <span class="op">=</span> pd_df.fare_amount <span class="op">+</span> pd_df.tip_amount</span>
-<span id="cb814-2"><a href="r-dplyr-vs-python-pandas.html#cb814-2"></a>pd_df[<span class="st">'total_payment_per_mile'</span>] <span class="op">=</span> pd_df.total_payment <span class="op">/</span> pd_df.trip_distance</span></code></pre></div>
+<div class="sourceCode" id="cb1702"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1702-1"><a href="r-dplyr-vs-python-pandas.html#cb1702-1"></a>pd_df[<span class="st">'total_payment'</span>] <span class="op">=</span> pd_df.fare_amount <span class="op">+</span> pd_df.tip_amount</span>
+<span id="cb1702-2"><a href="r-dplyr-vs-python-pandas.html#cb1702-2"></a>pd_df[<span class="st">'total_payment_per_mile'</span>] <span class="op">=</span> pd_df.total_payment <span class="op">/</span> pd_df.trip_distance</span></code></pre></div>
 <p>Drop column(s) in Pandas use <code><a href="https://rdrr.io/r/base/drop.html">drop()</a></code>. <code>axis=1</code> is used to indicate column-wise operations. Set <code>inplace=True</code> to overwrite the current dataframe.</p>
-<div class="sourceCode" id="cb815"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb815-1"><a href="r-dplyr-vs-python-pandas.html#cb815-1"></a>pd_df.drop([<span class="st">'total_payment'</span>, <span class="st">'total_payment_per_mile'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1703"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1703-1"><a href="r-dplyr-vs-python-pandas.html#cb1703-1"></a>pd_df.drop([<span class="st">'total_payment'</span>, <span class="st">'total_payment_per_mile'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="rename-columns" class="section level2">
 <h2>
-<span class="header-section-number">61.8</span> Rename Columns<a class="anchor" aria-label="anchor" href="#rename-columns"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.8</span> Rename Columns<a class="anchor" aria-label="anchor" href="#rename-columns"><i class="fas fa-link"></i></a>
 </h2>
 <p>If we want to rename two features; one from <code>trip_distance</code> to <code>trip_dist</code> and the other from <code>fare_amount</code> to <code>fare_amt</code>. In Pandas we supply a dictionary that says <code>{'trip_distance': 'trip_dist', 'fare_amount': 'fare_amt'}</code> and in Dplyr it is the exact opposite way <code>trip_dist=trip_distance</code> and <code>fare_amt = fare_amount</code>.<br></p>
-<div id="dplyr-5" class="section level3">
+<div id="dplyr-6" class="section level3">
 <h3>
-<span class="header-section-number">61.8.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.8.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-6"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the function <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> in dplyr</p>
-<div class="sourceCode" id="cb816"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1704"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op">&lt;-</span> <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>trip_dist <span class="op">=</span> <span class="va">trip_distance</span>, fare_amt <span class="op">=</span> <span class="va">fare_amount</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-5" class="section level3">
 <h3>
-<span class="header-section-number">61.8.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.8.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-5"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the function <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> in pandas</p>
-<div class="sourceCode" id="cb817"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb817-1"><a href="r-dplyr-vs-python-pandas.html#cb817-1"></a>pd_df.rename(columns <span class="op">=</span> {<span class="st">'trip_distance'</span>: <span class="st">'trip_dist'</span>, <span class="st">'fare_amount'</span>: <span class="st">'fare_amt'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1705"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1705-1"><a href="r-dplyr-vs-python-pandas.html#cb1705-1"></a>pd_df.rename(columns <span class="op">=</span> {<span class="st">'trip_distance'</span>: <span class="st">'trip_dist'</span>, <span class="st">'fare_amount'</span>: <span class="st">'fare_amt'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="change-order-of-columns" class="section level2">
 <h2>
-<span class="header-section-number">61.9</span> Change order of columns<a class="anchor" aria-label="anchor" href="#change-order-of-columns"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.9</span> Change order of columns<a class="anchor" aria-label="anchor" href="#change-order-of-columns"><i class="fas fa-link"></i></a>
 </h2>
-<div id="dplyr-6" class="section level3">
+<div id="dplyr-7" class="section level3">
 <h3>
-<span class="header-section-number">61.9.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.9.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the function <code><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate()</a></code>, and <code>.before</code> or <code>.after</code> to place a column before or after another specified column.<br>
 Move the column <code>day_of_week</code> after <code>dropoff_datetime</code></p>
-<div class="sourceCode" id="cb818"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1706"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op">&lt;-</span> <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">day_of_week</span>, .after <span class="op">=</span> <span class="va">dropoff_datetime</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-6" class="section level3">
 <h3>
-<span class="header-section-number">61.9.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.9.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use the function <code>reindex()</code> to change order of columns in pandas</p>
-<div class="sourceCode" id="cb819"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb819-1"><a href="r-dplyr-vs-python-pandas.html#cb819-1"></a>pd_df.reindex([<span class="st">'pickup_datetime'</span>,<span class="st">'dropoff_datetime'</span>,<span class="st">'day_of_week'</span>,<span class="st">'trip_distance'</span>,<span class="st">'fare_amount'</span>,<span class="st">'tip_amount'</span>,<span class="st">'payment_type'</span>, <span class="st">'is_weekend'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1707"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1707-1"><a href="r-dplyr-vs-python-pandas.html#cb1707-1"></a>pd_df.reindex([<span class="st">'pickup_datetime'</span>,<span class="st">'dropoff_datetime'</span>,<span class="st">'day_of_week'</span>,<span class="st">'trip_distance'</span>,<span class="st">'fare_amount'</span>,<span class="st">'tip_amount'</span>,<span class="st">'payment_type'</span>, <span class="st">'is_weekend'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="change-cell-based-on-conditions" class="section level2">
 <h2>
-<span class="header-section-number">61.10</span> Change cell based on conditions<a class="anchor" aria-label="anchor" href="#change-cell-based-on-conditions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.10</span> Change cell based on conditions<a class="anchor" aria-label="anchor" href="#change-cell-based-on-conditions"><i class="fas fa-link"></i></a>
 </h2>
 <p>We want to change <code>fare_amount</code> based on the <code>trip_distance</code>. Let’s say if <code>trip_distance &lt; 2</code>, then <code>fare_amount*1.2</code>; if <code>2 &lt;= trip_distance &lt; 5</code>, then <code>fare_amount*1.5</code>; if <code>5 &lt;= trip_distance &lt; 10</code>, then <code>fare_amount*1.7</code>; else <code>fare_amount*2</code></p>
-<div id="dplyr-7" class="section level3">
+<div id="dplyr-8" class="section level3">
 <h3>
-<span class="header-section-number">61.10.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-7"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.10.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the the function <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> along with the function <code>case_when</code></p>
-<div class="sourceCode" id="cb820"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1708"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op">&lt;-</span> <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>fare_amount <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">trip_distance</span> <span class="op">&lt;</span> <span class="fl">2</span> <span class="op">~</span> <span class="va">fare_amount</span><span class="op">*</span><span class="fl">1.2</span>,
                                                 <span class="va">trip_distance</span> <span class="op">&gt;=</span> <span class="fl">2</span> <span class="op">&amp;</span> <span class="va">trip_distance</span> <span class="op">&lt;</span> <span class="fl">5</span> <span class="op">~</span> <span class="va">fare_amount</span><span class="op">*</span><span class="fl">1.5</span>,
                                                 <span class="va">trip_distance</span> <span class="op">&gt;=</span> <span class="fl">5</span> <span class="op">&amp;</span> <span class="va">trip_distance</span> <span class="op">&lt;</span> <span class="fl">10</span> <span class="op">~</span> <span class="va">fare_amount</span><span class="op">*</span><span class="fl">1.7</span>,
@@ -565,209 +568,209 @@ Move the column <code>day_of_week</code> after <code>dropoff_datetime</code></p>
 </div>
 <div id="pandas-7" class="section level3">
 <h3>
-<span class="header-section-number">61.10.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-7"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.10.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>The way we do python requires more work.
 Each <code>mask</code> represents one condition, and we change cell values based on conditions.</p>
-<div class="sourceCode" id="cb821"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb821-1"><a href="r-dplyr-vs-python-pandas.html#cb821-1"></a>mask1 <span class="op">=</span> pd_df.trip_distance <span class="op">&lt;</span> <span class="dv">2</span></span>
-<span id="cb821-2"><a href="r-dplyr-vs-python-pandas.html#cb821-2"></a>mask2 <span class="op">=</span> (pd_df.trip_distance <span class="op">&gt;=</span> <span class="dv">2</span>) <span class="op">&amp;</span> (pd_df.trip_distance <span class="op">&lt;</span> <span class="dv">5</span>)</span>
-<span id="cb821-3"><a href="r-dplyr-vs-python-pandas.html#cb821-3"></a>mask3 <span class="op">=</span> (pd_df.trip_distance <span class="op">&gt;=</span> <span class="dv">5</span>) <span class="op">&amp;</span> (pd_df.trip_distance <span class="op">&lt;</span> <span class="dv">10</span>)</span>
-<span id="cb821-4"><a href="r-dplyr-vs-python-pandas.html#cb821-4"></a>mask4 <span class="op">=</span> pd_df.trip_distance <span class="op">&gt;=</span> <span class="dv">10</span></span>
-<span id="cb821-5"><a href="r-dplyr-vs-python-pandas.html#cb821-5"></a>pd_df.fare_amount[mask1] <span class="op">=</span> (pd_df.fare_amount[mask1])<span class="op">*</span><span class="fl">1.2</span></span>
-<span id="cb821-6"><a href="r-dplyr-vs-python-pandas.html#cb821-6"></a>pd_df.fare_amount[mask2] <span class="op">=</span> (pd_df.fare_amount[mask2])<span class="op">*</span><span class="fl">1.5</span></span>
-<span id="cb821-7"><a href="r-dplyr-vs-python-pandas.html#cb821-7"></a>pd_df.fare_amount[mask3] <span class="op">=</span> (pd_df.fare_amount[mask3])<span class="op">*</span><span class="fl">1.7</span></span>
-<span id="cb821-8"><a href="r-dplyr-vs-python-pandas.html#cb821-8"></a>pd_df.fare_amount[mask4] <span class="op">=</span> (pd_df.fare_amount[mask4])<span class="op">*</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb1709"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1709-1"><a href="r-dplyr-vs-python-pandas.html#cb1709-1"></a>mask1 <span class="op">=</span> pd_df.trip_distance <span class="op">&lt;</span> <span class="dv">2</span></span>
+<span id="cb1709-2"><a href="r-dplyr-vs-python-pandas.html#cb1709-2"></a>mask2 <span class="op">=</span> (pd_df.trip_distance <span class="op">&gt;=</span> <span class="dv">2</span>) <span class="op">&amp;</span> (pd_df.trip_distance <span class="op">&lt;</span> <span class="dv">5</span>)</span>
+<span id="cb1709-3"><a href="r-dplyr-vs-python-pandas.html#cb1709-3"></a>mask3 <span class="op">=</span> (pd_df.trip_distance <span class="op">&gt;=</span> <span class="dv">5</span>) <span class="op">&amp;</span> (pd_df.trip_distance <span class="op">&lt;</span> <span class="dv">10</span>)</span>
+<span id="cb1709-4"><a href="r-dplyr-vs-python-pandas.html#cb1709-4"></a>mask4 <span class="op">=</span> pd_df.trip_distance <span class="op">&gt;=</span> <span class="dv">10</span></span>
+<span id="cb1709-5"><a href="r-dplyr-vs-python-pandas.html#cb1709-5"></a>pd_df.fare_amount[mask1] <span class="op">=</span> (pd_df.fare_amount[mask1])<span class="op">*</span><span class="fl">1.2</span></span>
+<span id="cb1709-6"><a href="r-dplyr-vs-python-pandas.html#cb1709-6"></a>pd_df.fare_amount[mask2] <span class="op">=</span> (pd_df.fare_amount[mask2])<span class="op">*</span><span class="fl">1.5</span></span>
+<span id="cb1709-7"><a href="r-dplyr-vs-python-pandas.html#cb1709-7"></a>pd_df.fare_amount[mask3] <span class="op">=</span> (pd_df.fare_amount[mask3])<span class="op">*</span><span class="fl">1.7</span></span>
+<span id="cb1709-8"><a href="r-dplyr-vs-python-pandas.html#cb1709-8"></a>pd_df.fare_amount[mask4] <span class="op">=</span> (pd_df.fare_amount[mask4])<span class="op">*</span><span class="dv">2</span></span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="distinct-values-per-column" class="section level2">
 <h2>
-<span class="header-section-number">61.11</span> Distinct values per column<a class="anchor" aria-label="anchor" href="#distinct-values-per-column"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.11</span> Distinct values per column<a class="anchor" aria-label="anchor" href="#distinct-values-per-column"><i class="fas fa-link"></i></a>
 </h2>
 <p>Find distinct/unique values in a column.</p>
-<div id="dplyr-8" class="section level3">
+<div id="dplyr-9" class="section level3">
 <h3>
-<span class="header-section-number">61.11.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.11.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-9"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the the function <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code></p>
-<div class="sourceCode" id="cb822"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1710"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">day_of_week</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-8" class="section level3">
 <h3>
-<span class="header-section-number">61.11.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.11.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the <code><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique()</a></code> method</p>
-<div class="sourceCode" id="cb823"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb823-1"><a href="r-dplyr-vs-python-pandas.html#cb823-1"></a>pd_df.day_of_week.unique()</span></code></pre></div>
+<div class="sourceCode" id="cb1711"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1711-1"><a href="r-dplyr-vs-python-pandas.html#cb1711-1"></a>pd_df.day_of_week.unique()</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="sort-by-values" class="section level2">
 <h2>
-<span class="header-section-number">61.12</span> Sort by values<a class="anchor" aria-label="anchor" href="#sort-by-values"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.12</span> Sort by values<a class="anchor" aria-label="anchor" href="#sort-by-values"><i class="fas fa-link"></i></a>
 </h2>
 <p>Sort the dataframe by certain feature. The default for both Dplyr and Pandas is in ascending order.</p>
-<div id="dplyr-9" class="section level3">
+<div id="dplyr-10" class="section level3">
 <h3>
-<span class="header-section-number">61.12.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.12.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-10"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the the function <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>.<br>
 Sort the dataframe by <code>tip_amount</code> in descending order.</p>
-<div class="sourceCode" id="cb824"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1712"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">tip_amount</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-9" class="section level3">
 <h3>
-<span class="header-section-number">61.12.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.12.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-9"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the <code>sort_values()</code> method.</p>
-<div class="sourceCode" id="cb825"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb825-1"><a href="r-dplyr-vs-python-pandas.html#cb825-1"></a>pd_df.sort_values(<span class="st">'tip_amount'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1713"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1713-1"><a href="r-dplyr-vs-python-pandas.html#cb1713-1"></a>pd_df.sort_values(<span class="st">'tip_amount'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="count-number-of-records-per-group" class="section level2">
 <h2>
-<span class="header-section-number">61.13</span> Count number of records per group<a class="anchor" aria-label="anchor" href="#count-number-of-records-per-group"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.13</span> Count number of records per group<a class="anchor" aria-label="anchor" href="#count-number-of-records-per-group"><i class="fas fa-link"></i></a>
 </h2>
 <p>Finding count for number of entries for certain groups</p>
-<div id="dplyr-10" class="section level3">
+<div id="dplyr-11" class="section level3">
 <h3>
-<span class="header-section-number">61.13.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-10"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.13.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-11"><i class="fas fa-link"></i></a>
 </h3>
 <p>We first use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and then count entries using <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/count.html">tally()</a></code></p>
-<div class="sourceCode" id="cb826"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1714"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">day_of_week</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">day_of_week</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">tally</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">day_of_week</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-10" class="section level3">
 <h3>
-<span class="header-section-number">61.13.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-10"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.13.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-10"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use the <code>value_counts()</code> method</p>
-<div class="sourceCode" id="cb827"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb827-1"><a href="r-dplyr-vs-python-pandas.html#cb827-1"></a>pd_df.value_counts(<span class="st">'day_of_week'</span>)</span>
-<span id="cb827-2"><a href="r-dplyr-vs-python-pandas.html#cb827-2"></a>pd_df.day_of_week.value_counts()</span></code></pre></div>
+<div class="sourceCode" id="cb1715"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1715-1"><a href="r-dplyr-vs-python-pandas.html#cb1715-1"></a>pd_df.value_counts(<span class="st">'day_of_week'</span>)</span>
+<span id="cb1715-2"><a href="r-dplyr-vs-python-pandas.html#cb1715-2"></a>pd_df.day_of_week.value_counts()</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="summarize-aggregate" class="section level2">
 <h2>
-<span class="header-section-number">61.14</span> Summarize / Aggregate<a class="anchor" aria-label="anchor" href="#summarize-aggregate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.14</span> Summarize / Aggregate<a class="anchor" aria-label="anchor" href="#summarize-aggregate"><i class="fas fa-link"></i></a>
 </h2>
 <p>A groupby operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups.</p>
-<div id="dplyr-11" class="section level3">
+<div id="dplyr-12" class="section level3">
 <h3>
-<span class="header-section-number">61.14.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.14.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-12"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Aggregate over entire columns</strong> when we want to create descriptive statistics for one or multiple columns. We use <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code></p>
-<div class="sourceCode" id="cb828"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1716"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span>
 <span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">min</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Summarize / Aggregate by group when we want to have aggregate statistics for certain groups. We use the function <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> along with <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_all()</a></code>.<br><br><strong>Aggregate by group for all columns.</strong><br>
 Find all mean and max values for every features for each day of the week. Remove NA during calculation since otherwise we may get NA as the result which is not meaningful.</p>
-<div class="sourceCode" id="cb829"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1717"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">day_of_week</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">mean</span>, <span class="va">max</span><span class="op">)</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><strong>Aggregate by group for a specific column.</strong><br>
 Find mean and max values for <code>trip_distance</code> for each day of the week.<br>
 It will be a good idea for always setting <code>na.rm=TRUE</code> if we do not know whether we have NA values in the column that we want to find mean/max/min/… In our case we do not really need <code>na.rm=TRUE</code> because there is no NA value under feature <code>trip_distance</code>.</p>
-<div class="sourceCode" id="cb830"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1718"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">day_of_week</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">trip_distance</span><span class="op">)</span>, max<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">trip_distance</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-11" class="section level3">
 <h3>
-<span class="header-section-number">61.14.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.14.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-11"><i class="fas fa-link"></i></a>
 </h3>
 <p>Get mean and min for each column</p>
-<div class="sourceCode" id="cb831"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb831-1"><a href="r-dplyr-vs-python-pandas.html#cb831-1"></a>pd_df.agg([<span class="st">'mean'</span>, <span class="st">'min'</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1719"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1719-1"><a href="r-dplyr-vs-python-pandas.html#cb1719-1"></a>pd_df.agg([<span class="st">'mean'</span>, <span class="st">'min'</span>])</span></code></pre></div>
 <p>Aggregate by group for all columns. We use <code>groupby()</code> along with <code>agg()</code></p>
-<div class="sourceCode" id="cb832"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb832-1"><a href="r-dplyr-vs-python-pandas.html#cb832-1"></a>pd_df.groupby([<span class="st">'day_of_week'</span>]).agg([<span class="st">'mean'</span>, <span class="st">'max'</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1720"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1720-1"><a href="r-dplyr-vs-python-pandas.html#cb1720-1"></a>pd_df.groupby([<span class="st">'day_of_week'</span>]).agg([<span class="st">'mean'</span>, <span class="st">'max'</span>])</span></code></pre></div>
 <p>Aggregate by group for specific column. We use <code>groupby()</code> along with <code>agg()</code></p>
-<div class="sourceCode" id="cb833"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb833-1"><a href="r-dplyr-vs-python-pandas.html#cb833-1"></a>pd_df.groupby([<span class="st">'day_of_week'</span>]).agg({<span class="st">'trip_distance'</span>:[<span class="st">'mean'</span>, <span class="st">'max'</span>]})</span></code></pre></div>
+<div class="sourceCode" id="cb1721"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1721-1"><a href="r-dplyr-vs-python-pandas.html#cb1721-1"></a>pd_df.groupby([<span class="st">'day_of_week'</span>]).agg({<span class="st">'trip_distance'</span>:[<span class="st">'mean'</span>, <span class="st">'max'</span>]})</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="slicing" class="section level2">
 <h2>
-<span class="header-section-number">61.15</span> Slicing<a class="anchor" aria-label="anchor" href="#slicing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.15</span> Slicing<a class="anchor" aria-label="anchor" href="#slicing"><i class="fas fa-link"></i></a>
 </h2>
 <p>Indexing in Python starts at 0 and in R at 1.</p>
-<div id="dplyr-12" class="section level3">
+<div id="dplyr-13" class="section level3">
 <h3>
-<span class="header-section-number">61.15.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-12"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.15.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-13"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Slicing by row</strong> when we know the exact row number you want to extract.<br>
 Select 20th row to 25th row (inclusive)</p>
-<div class="sourceCode" id="cb834"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1722"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span><span class="op">:</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Find the first 3 records using the function <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head()</a></code></p>
-<div class="sourceCode" id="cb835"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1723"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <p>Find the the last 1% of total records using the function <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_tail()</a></code></p>
-<div class="sourceCode" id="cb836"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1724"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_tail</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span></code></pre></div>
 <p><strong>Slicing top and bottom records by value</strong><br></p>
 <p>Find the 5 records with the highest <code>tip_amount</code> using the function <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max()</a></code></p>
-<div class="sourceCode" id="cb837"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1725"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max</a></span><span class="op">(</span><span class="va">tip_amount</span>, n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <p>Find the 1% of total records with the lowest <code>tip_amount</code> using the function <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_min()</a></code></p>
-<div class="sourceCode" id="cb838"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1726"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_min</a></span><span class="op">(</span><span class="va">tip_amount</span>, prop <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span></code></pre></div>
 <p><strong>Slicing top and bottom records by value and group</strong><br></p>
 <p>Find the 2 records with the highest <code>tip_amount</code> per <code>day_of_week</code> using the function <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max()</a></code> along with <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>.<br><code>with_ties</code> specify if records with equal values should be included or not.</p>
-<div class="sourceCode" id="cb839"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1727"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">day_of_week</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max</a></span><span class="op">(</span><span class="va">tip_amount</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p>Find the 1% of total records with lowest the <code>tip_amount</code> per <code>day_of_week</code> using the function <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_min()</a></code> along with <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code></p>
-<div class="sourceCode" id="cb840"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1728"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">day_of_week</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_min</a></span><span class="op">(</span><span class="va">tip_amount</span>, prop <span class="op">=</span> <span class="fl">0.01</span>, with_ties <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <p><strong>Sampling-Slicing random records (per group)</strong><br>
 Sampling can be done on the entire dataset or equally distributed based on a group.<br></p>
 <p>Use the function <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample()</a></code> by specifying <code>n</code> for a fixed amount or <code>prop</code> for a proportion of records. By default, <code>replace = FALSE</code><br></p>
 <p>Return 20 random samples without replacement</p>
-<div class="sourceCode" id="cb841"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1729"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></code></pre></div>
 <p>Return 10% of total records with replacement</p>
-<div class="sourceCode" id="cb842"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1730"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.1</span>, replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Return 10% of total records split by group with replacement</p>
-<div class="sourceCode" id="cb843"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1731"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">r_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">is_weekend</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.1</span>, replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-12" class="section level3">
 <h3>
-<span class="header-section-number">61.15.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-12"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.15.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-12"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>Slicing by row</strong> by using <code>.iloc</code>
 Select 20th row to 25th row (inclusive). Note that Python index start at 0.</p>
-<div class="sourceCode" id="cb844"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb844-1"><a href="r-dplyr-vs-python-pandas.html#cb844-1"></a>pd_df.iloc[<span class="bu">range</span>(<span class="dv">19</span>, <span class="dv">25</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb1732"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1732-1"><a href="r-dplyr-vs-python-pandas.html#cb1732-1"></a>pd_df.iloc[<span class="bu">range</span>(<span class="dv">19</span>, <span class="dv">25</span>)]</span></code></pre></div>
 <p>Use <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> or <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> to get a fixed amount of records from top or bottom of the dataframe. Unlike dplyr, we have to do some computations if we want to extract a proportion</p>
-<div class="sourceCode" id="cb845"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb845-1"><a href="r-dplyr-vs-python-pandas.html#cb845-1"></a>pd_df.head(n <span class="op">=</span> <span class="dv">5</span>)</span>
-<span id="cb845-2"><a href="r-dplyr-vs-python-pandas.html#cb845-2"></a>pd_df.tail(n <span class="op">=</span> <span class="bu">len</span>(pd_df)<span class="op">*</span><span class="fl">0.01</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1733"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1733-1"><a href="r-dplyr-vs-python-pandas.html#cb1733-1"></a>pd_df.head(n <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb1733-2"><a href="r-dplyr-vs-python-pandas.html#cb1733-2"></a>pd_df.tail(n <span class="op">=</span> <span class="bu">len</span>(pd_df)<span class="op">*</span><span class="fl">0.01</span>)</span></code></pre></div>
 <p><strong>Slicing top and bottom records by value</strong> using <code>nlargest()</code> or <code>nsmallest()</code>.Unlike dplyr, we first sort the column and then do some computations if we want to extract a proportion</p>
-<div class="sourceCode" id="cb846"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb846-1"><a href="r-dplyr-vs-python-pandas.html#cb846-1"></a>pd_df.nlargest(<span class="dv">5</span>, <span class="st">'tip_amount'</span>)</span>
-<span id="cb846-2"><a href="r-dplyr-vs-python-pandas.html#cb846-2"></a>pd_df.sort_values(<span class="st">'tip_amount'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="bu">int</span>(<span class="bu">len</span>(pd_df)<span class="op">*</span><span class="fl">0.01</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1734"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1734-1"><a href="r-dplyr-vs-python-pandas.html#cb1734-1"></a>pd_df.nlargest(<span class="dv">5</span>, <span class="st">'tip_amount'</span>)</span>
+<span id="cb1734-2"><a href="r-dplyr-vs-python-pandas.html#cb1734-2"></a>pd_df.sort_values(<span class="st">'tip_amount'</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="bu">int</span>(<span class="bu">len</span>(pd_df)<span class="op">*</span><span class="fl">0.01</span>))</span></code></pre></div>
 <p><strong>Slicing top and bottom records by value and group</strong> using <code>groupby()</code>, <code>nlargest()</code> or <code>nsmallest()</code>, and <code>lambda</code> function.<br>
 Find the 2 records with the highest <code>tip_amount</code> per <code>day_of_week</code></p>
-<div class="sourceCode" id="cb847"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb847-1"><a href="r-dplyr-vs-python-pandas.html#cb847-1"></a>pd_df.groupby(<span class="st">'day_of_week'</span>,group_keys<span class="op">=</span><span class="va">False</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.nlargest(<span class="dv">2</span>, <span class="st">'tip_amount'</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1735"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1735-1"><a href="r-dplyr-vs-python-pandas.html#cb1735-1"></a>pd_df.groupby(<span class="st">'day_of_week'</span>,group_keys<span class="op">=</span><span class="va">False</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.nlargest(<span class="dv">2</span>, <span class="st">'tip_amount'</span>))</span></code></pre></div>
 <p>Find the 1% of total records with lowest the <code>tip_amount</code> per <code>day_of_week</code></p>
-<div class="sourceCode" id="cb848"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb848-1"><a href="r-dplyr-vs-python-pandas.html#cb848-1"></a>pd_df.groupby(<span class="st">'day_of_week'</span>,group_keys<span class="op">=</span><span class="va">False</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.nsmallest(<span class="bu">int</span>(<span class="bu">len</span>(x) <span class="op">*</span> <span class="fl">0.01</span>), <span class="st">'tip_amount'</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1736"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1736-1"><a href="r-dplyr-vs-python-pandas.html#cb1736-1"></a>pd_df.groupby(<span class="st">'day_of_week'</span>,group_keys<span class="op">=</span><span class="va">False</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.nsmallest(<span class="bu">int</span>(<span class="bu">len</span>(x) <span class="op">*</span> <span class="fl">0.01</span>), <span class="st">'tip_amount'</span>))</span></code></pre></div>
 <p><strong>Sampling-Slicing random records (per group)</strong></p>
-<div class="sourceCode" id="cb849"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb849-1"><a href="r-dplyr-vs-python-pandas.html#cb849-1"></a>pd_df.sample(n<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb849-2"><a href="r-dplyr-vs-python-pandas.html#cb849-2"></a>pd_df.sample(frac<span class="op">=</span><span class="fl">0.1</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb849-3"><a href="r-dplyr-vs-python-pandas.html#cb849-3"></a>pd_df.groupby(<span class="st">'is_weekend'</span>).sample(frac<span class="op">=</span><span class="fl">0.1</span>, replace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1737"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1737-1"><a href="r-dplyr-vs-python-pandas.html#cb1737-1"></a>pd_df.sample(n<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb1737-2"><a href="r-dplyr-vs-python-pandas.html#cb1737-2"></a>pd_df.sample(frac<span class="op">=</span><span class="fl">0.1</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1737-3"><a href="r-dplyr-vs-python-pandas.html#cb1737-3"></a>pd_df.groupby(<span class="st">'is_weekend'</span>).sample(frac<span class="op">=</span><span class="fl">0.1</span>, replace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
-<div id="join-two-tables" class="section level2">
+<div id="join-two-tables-1" class="section level2">
 <h2>
-<span class="header-section-number">61.16</span> Join two tables<a class="anchor" aria-label="anchor" href="#join-two-tables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.16</span> Join two tables<a class="anchor" aria-label="anchor" href="#join-two-tables-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Suppose we now have 2 dataframes <code>A</code> and <code>B</code>, both have common column called <code>key</code></p>
-<div id="dplyr-13" class="section level3">
+<div id="dplyr-14" class="section level3">
 <h3>
-<span class="header-section-number">61.16.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.16.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-14"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code></p>
-<div class="sourceCode" id="cb850"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1738"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">A</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">B</span>, by<span class="op">=</span><span class="st">"key"</span><span class="op">)</span>
 <span class="va">A</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">B</span>, by<span class="op">=</span><span class="st">"key"</span><span class="op">)</span>
 <span class="va">A</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">B</span>, by<span class="op">=</span><span class="st">"key"</span><span class="op">)</span>
@@ -775,146 +778,146 @@ Find the 2 records with the highest <code>tip_amount</code> per <code>day_of_wee
 </div>
 <div id="pandas-13" class="section level3">
 <h3>
-<span class="header-section-number">61.16.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.16.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-13"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>merge</code> function can perform all join operations by specifying how (outer, inner, left, right) and on which key</p>
-<div class="sourceCode" id="cb851"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb851-1"><a href="r-dplyr-vs-python-pandas.html#cb851-1"></a>pd.merge(A, B, how<span class="op">=</span><span class="st">"inner"</span>, on<span class="op">=</span><span class="st">"key"</span>)</span>
-<span id="cb851-2"><a href="r-dplyr-vs-python-pandas.html#cb851-2"></a>pd.merge(A, B, how<span class="op">=</span><span class="st">"left"</span>, on<span class="op">=</span><span class="st">"key"</span>)</span>
-<span id="cb851-3"><a href="r-dplyr-vs-python-pandas.html#cb851-3"></a>pd.merge(A, B, how<span class="op">=</span><span class="st">"right"</span>, on<span class="op">=</span><span class="st">"key"</span>)</span>
-<span id="cb851-4"><a href="r-dplyr-vs-python-pandas.html#cb851-4"></a>pd.merge(A, B, how<span class="op">=</span><span class="st">"outer"</span>, on<span class="op">=</span><span class="st">"key"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1739"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1739-1"><a href="r-dplyr-vs-python-pandas.html#cb1739-1"></a>pd.merge(A, B, how<span class="op">=</span><span class="st">"inner"</span>, on<span class="op">=</span><span class="st">"key"</span>)</span>
+<span id="cb1739-2"><a href="r-dplyr-vs-python-pandas.html#cb1739-2"></a>pd.merge(A, B, how<span class="op">=</span><span class="st">"left"</span>, on<span class="op">=</span><span class="st">"key"</span>)</span>
+<span id="cb1739-3"><a href="r-dplyr-vs-python-pandas.html#cb1739-3"></a>pd.merge(A, B, how<span class="op">=</span><span class="st">"right"</span>, on<span class="op">=</span><span class="st">"key"</span>)</span>
+<span id="cb1739-4"><a href="r-dplyr-vs-python-pandas.html#cb1739-4"></a>pd.merge(A, B, how<span class="op">=</span><span class="st">"outer"</span>, on<span class="op">=</span><span class="st">"key"</span>)</span></code></pre></div>
 <p><br><br></p>
 </div>
 </div>
 <div id="bind-rows-and-columns" class="section level2">
 <h2>
-<span class="header-section-number">61.17</span> Bind Rows and Columns<a class="anchor" aria-label="anchor" href="#bind-rows-and-columns"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.17</span> Bind Rows and Columns<a class="anchor" aria-label="anchor" href="#bind-rows-and-columns"><i class="fas fa-link"></i></a>
 </h2>
 <p>Suppose we now have 2 dataframes <code>A</code> and <code>B</code></p>
-<div id="dplyr-14" class="section level3">
+<div id="dplyr-15" class="section level3">
 <h3>
-<span class="header-section-number">61.17.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-14"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.17.1</span> Dplyr<a class="anchor" aria-label="anchor" href="#dplyr-15"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code> and <code>bind_columns()</code>.
 Automatically filled NA if values don’t appear in one of the dataframes.</p>
-<div class="sourceCode" id="cb852"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1740"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">A</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">B</span><span class="op">)</span>
 <span class="va">A</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">bind_columns</span><span class="op">(</span><span class="va">B</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="pandas-14" class="section level3">
 <h3>
-<span class="header-section-number">61.17.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-14"><i class="fas fa-link"></i></a>
+<span class="header-section-number">125.17.2</span> Pandas<a class="anchor" aria-label="anchor" href="#pandas-14"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>concat()</code> method can concatenates dataframes by rows (default <code>axis = 0</code>) or by columns (<code>axis = 1</code>).
 Automatically filled NA if values don’t appear in one of the dataframes.</p>
-<div class="sourceCode" id="cb853"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb853-1"><a href="r-dplyr-vs-python-pandas.html#cb853-1"></a>pd.concat([A,B], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1741"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1741-1"><a href="r-dplyr-vs-python-pandas.html#cb1741-1"></a>pd.concat([A,B], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><br><br></p>
 
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="neural-network-tools-in-r.html"><span class="header-section-number">60</span> Neural network tools in R</a></div>
-<div class="next"><a href="readable-plots.html"><span class="header-section-number">62</span> Readable Plots</a></div>
+<div class="prev"><a href="r-to-python-easy-plot.html"><span class="header-section-number">124</span> R to python easy plot</a></div>
+<div class="next"><a href="an-introduction-to-pyecharts-package-in-python.html"><span class="header-section-number">126</span> An introduction to pyecharts package in Python</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li>
-<a class="nav-link" href="#r-dplyr-vs-python-pandas"><span class="header-section-number">61</span> R Dplyr vs Python Pandas</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-for-r-quick-overview"><span class="header-section-number">61.0.1</span> Dplyr for R Quick Overview</a></li>
-<li><a class="nav-link" href="#pandas-for-python-quick-overview"><span class="header-section-number">61.0.2</span> Pandas for Python Quick Overview</a></li>
-<li><a class="nav-link" href="#write-python-in-r-studio"><span class="header-section-number">61.0.3</span> Write Python in R Studio</a></li>
+<a class="nav-link" href="#r-dplyr-vs-python-pandas"><span class="header-section-number">125</span> R Dplyr vs Python Pandas</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-for-r-quick-overview"><span class="header-section-number">125.0.1</span> Dplyr for R Quick Overview</a></li>
+<li><a class="nav-link" href="#pandas-for-python-quick-overview"><span class="header-section-number">125.0.2</span> Pandas for Python Quick Overview</a></li>
+<li><a class="nav-link" href="#write-python-in-r-studio"><span class="header-section-number">125.0.3</span> Write Python in R Studio</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#dataset-1"><span class="header-section-number">61.1</span> Dataset</a></li>
-<li><a class="nav-link" href="#the-tutorial-and-reference-sheet"><span class="header-section-number">61.2</span> The Tutorial and Reference Sheet</a></li>
+<li><a class="nav-link" href="#dataset-1"><span class="header-section-number">125.1</span> Dataset</a></li>
+<li><a class="nav-link" href="#the-tutorial-and-reference-sheet"><span class="header-section-number">125.2</span> The Tutorial and Reference Sheet</a></li>
 <li>
-<a class="nav-link" href="#load-data"><span class="header-section-number">61.3</span> Load Data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr"><span class="header-section-number">61.3.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas"><span class="header-section-number">61.3.2</span> Pandas</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#get-summary-info-for-dataframe"><span class="header-section-number">61.4</span> Get Summary Info for DataFrame</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-1"><span class="header-section-number">61.4.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-1"><span class="header-section-number">61.4.2</span> Pandas</a></li>
+<a class="nav-link" href="#load-data"><span class="header-section-number">125.3</span> Load Data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-1"><span class="header-section-number">125.3.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas"><span class="header-section-number">125.3.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#selecting-columns"><span class="header-section-number">61.5</span> Selecting columns</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-2"><span class="header-section-number">61.5.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-2"><span class="header-section-number">61.5.2</span> Pandas</a></li>
+<a class="nav-link" href="#get-summary-info-for-dataframe"><span class="header-section-number">125.4</span> Get Summary Info for DataFrame</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-2"><span class="header-section-number">125.4.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-1"><span class="header-section-number">125.4.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#selecting-rows"><span class="header-section-number">61.6</span> Selecting Rows</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-3"><span class="header-section-number">61.6.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-3"><span class="header-section-number">61.6.2</span> Pandas</a></li>
+<a class="nav-link" href="#selecting-columns"><span class="header-section-number">125.5</span> Selecting columns</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-3"><span class="header-section-number">125.5.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-2"><span class="header-section-number">125.5.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#delete-add-columns"><span class="header-section-number">61.7</span> Delete / Add column(s)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-4"><span class="header-section-number">61.7.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-4"><span class="header-section-number">61.7.2</span> Pandas</a></li>
+<a class="nav-link" href="#selecting-rows"><span class="header-section-number">125.6</span> Selecting Rows</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-4"><span class="header-section-number">125.6.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-3"><span class="header-section-number">125.6.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#rename-columns"><span class="header-section-number">61.8</span> Rename Columns</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-5"><span class="header-section-number">61.8.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-5"><span class="header-section-number">61.8.2</span> Pandas</a></li>
+<a class="nav-link" href="#delete-add-columns"><span class="header-section-number">125.7</span> Delete / Add column(s)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-5"><span class="header-section-number">125.7.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-4"><span class="header-section-number">125.7.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#change-order-of-columns"><span class="header-section-number">61.9</span> Change order of columns</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-6"><span class="header-section-number">61.9.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-6"><span class="header-section-number">61.9.2</span> Pandas</a></li>
+<a class="nav-link" href="#rename-columns"><span class="header-section-number">125.8</span> Rename Columns</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-6"><span class="header-section-number">125.8.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-5"><span class="header-section-number">125.8.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#change-cell-based-on-conditions"><span class="header-section-number">61.10</span> Change cell based on conditions</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-7"><span class="header-section-number">61.10.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-7"><span class="header-section-number">61.10.2</span> Pandas</a></li>
+<a class="nav-link" href="#change-order-of-columns"><span class="header-section-number">125.9</span> Change order of columns</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-7"><span class="header-section-number">125.9.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-6"><span class="header-section-number">125.9.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#distinct-values-per-column"><span class="header-section-number">61.11</span> Distinct values per column</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-8"><span class="header-section-number">61.11.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-8"><span class="header-section-number">61.11.2</span> Pandas</a></li>
+<a class="nav-link" href="#change-cell-based-on-conditions"><span class="header-section-number">125.10</span> Change cell based on conditions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-8"><span class="header-section-number">125.10.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-7"><span class="header-section-number">125.10.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#sort-by-values"><span class="header-section-number">61.12</span> Sort by values</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-9"><span class="header-section-number">61.12.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-9"><span class="header-section-number">61.12.2</span> Pandas</a></li>
+<a class="nav-link" href="#distinct-values-per-column"><span class="header-section-number">125.11</span> Distinct values per column</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-9"><span class="header-section-number">125.11.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-8"><span class="header-section-number">125.11.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#count-number-of-records-per-group"><span class="header-section-number">61.13</span> Count number of records per group</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-10"><span class="header-section-number">61.13.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-10"><span class="header-section-number">61.13.2</span> Pandas</a></li>
+<a class="nav-link" href="#sort-by-values"><span class="header-section-number">125.12</span> Sort by values</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-10"><span class="header-section-number">125.12.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-9"><span class="header-section-number">125.12.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#summarize-aggregate"><span class="header-section-number">61.14</span> Summarize / Aggregate</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-11"><span class="header-section-number">61.14.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-11"><span class="header-section-number">61.14.2</span> Pandas</a></li>
+<a class="nav-link" href="#count-number-of-records-per-group"><span class="header-section-number">125.13</span> Count number of records per group</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-11"><span class="header-section-number">125.13.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-10"><span class="header-section-number">125.13.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#slicing"><span class="header-section-number">61.15</span> Slicing</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-12"><span class="header-section-number">61.15.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-12"><span class="header-section-number">61.15.2</span> Pandas</a></li>
+<a class="nav-link" href="#summarize-aggregate"><span class="header-section-number">125.14</span> Summarize / Aggregate</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-12"><span class="header-section-number">125.14.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-11"><span class="header-section-number">125.14.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#join-two-tables"><span class="header-section-number">61.16</span> Join two tables</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-13"><span class="header-section-number">61.16.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-13"><span class="header-section-number">61.16.2</span> Pandas</a></li>
+<a class="nav-link" href="#slicing"><span class="header-section-number">125.15</span> Slicing</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-13"><span class="header-section-number">125.15.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-12"><span class="header-section-number">125.15.2</span> Pandas</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#bind-rows-and-columns"><span class="header-section-number">61.17</span> Bind Rows and Columns</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr-14"><span class="header-section-number">61.17.1</span> Dplyr</a></li>
-<li><a class="nav-link" href="#pandas-14"><span class="header-section-number">61.17.2</span> Pandas</a></li>
+<a class="nav-link" href="#join-two-tables-1"><span class="header-section-number">125.16</span> Join two tables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-14"><span class="header-section-number">125.16.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-13"><span class="header-section-number">125.16.2</span> Pandas</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#bind-rows-and-columns"><span class="header-section-number">125.17</span> Bind Rows and Columns</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dplyr-15"><span class="header-section-number">125.17.1</span> Dplyr</a></li>
+<li><a class="nav-link" href="#pandas-14"><span class="header-section-number">125.17.2</span> Pandas</a></li>
 </ul>
 </li>
 </ul>

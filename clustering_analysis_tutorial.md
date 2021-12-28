@@ -1,5 +1,3 @@
-# (PART) Tutorials {-}
-
 # Tutorial on Cluster Analysis
 
 Jannik Wiedenhaupt
