@@ -45,6 +45,7 @@ Imports:
     gganimate,
     ggcleveland,
     ggcorrplot,
+    ggExtra,
     ggforce,
     ggmap,
     ggmosaic,
