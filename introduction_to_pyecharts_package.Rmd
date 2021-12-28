@@ -1,5 +1,3 @@
-# (PART) Data Visualization {-}
-
 # An introduction to pyecharts package in Python
 
 Zihao (Wayne) Zhang

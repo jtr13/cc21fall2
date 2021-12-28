@@ -1,5 +1,3 @@
-# (PART) Custom R Package {-}
-
 # Super ggformat
 
 Zihan Wang

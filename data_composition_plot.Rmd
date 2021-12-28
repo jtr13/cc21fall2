@@ -7,12 +7,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r package}
-library(ggplot2)
-library(dplyr)
 library(viridis)
 library(hrbrthemes)
 library(waterfalls)
-library(ggplot2)
 library(tidyverse)
 ```
 

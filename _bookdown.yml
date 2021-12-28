@@ -76,17 +76,11 @@ rmd_files: [
   'introduction_to_xai_in_r.Rmd',
   'tutorial_gg_cleveland.Rmd',
   'neuralnet_r_tutorial.Rmd',
-  'from_dplyr_to_pandas_and_back.Rmd',
   'readable_plots.Rmd',
   'spatial_data_analysis.Rmd',
-  'python_vs_r_graph.Rmd',
   'base_r_tutorial.Rmd',
-  'python_altair_tutorial.Rmd',
-  'r_to_python_plot_tutorial.Rmd',
   'models_and_prediction_evaluation.Rmd',
   'interactive_dygraphs.Rmd',
-  'r_with_python.Rmd',
-  'python_visualization_tutorial.Rmd',
   'intro_to_gganimate.Rmd',
   'nbastatr_tutorial.Rmd',
   'mtemplates_mj3038.rmd',
@@ -110,28 +104,53 @@ rmd_files: [
   'introduce_rmarkdown.Rmd',
   'dlookr.Rmd',
   'urca_unitroottest_cointegrationtest.Rmd',
-  'pygal_tutorial.Rmd',
   'comparing_excel_and_r.Rmd',
   'joining_and_reshaping_in_r.Rmd',
   'running_sql_queries_on_dataframes.Rmd',
   'tidyver_help.Rmd',
   'animate_your_plots.Rmd',
-  'raincloud_plot_tutorial.rmd',
   'dataframe_operation_tutorial.Rmd',
   'cc_instruction_for_new.Rmd',
-  'anova_tutorial_revised.Rmd',#commented out as file missing
-  'ggplot2_in_python.Rmd',
+  'anova_tutorial_revised.Rmd',
   'predictive-analytics-r.Rmd',
   'color_selection_ggplot.Rmd',
   'data_vis_for_ranking.Rmd',
   'self_learning.Rmd',
   'mongodb_and_r.Rmd',
-  'r_python_graph_code.Rmd',
   'rdoc_alfred_workflow.Rmd',
   'data_frame_reshape.Rmd',
-  'using_python_in_r.Rmd',
   'using_postgresql_in_r.Rmd',
   'spark_tutorial_in_r.Rmd',
+  'r_3d_visualization.Rmd',
+  'ggplot_base_r_graph_analysis.Rmd',
+  'improved_density_estimation.Rmd',
+  'theme_columbia.Rmd',
+  'geospatial_data_visualization.Rmd',
+  'comunity_contribution.Rmd',
+  'super_ggformat_project.Rmd',   
+  'data_composition_plot.Rmd',
+  'r_torch_tutorial.Rmd',
+  'Treemapify_Tutorial_CC.Rmd'
+  'tutorial_for_scatter_plot_with_marginal_distribution.Rmd',
+  
+  # Part: Python Tutorials
+  '3D_data_and_potential_relationship_visualization.Rmd', # contains PART header
+  'using_python_in_r.Rmd',
+  'r_python_graph_code.Rmd',
+  'ggplot2_in_python.Rmd',
+  'pygal_tutorial.Rmd',
+  'r_with_python.Rmd',
+  'python_visualization_tutorial.Rmd',
+  'python_altair_tutorial.Rmd',
+  'r_to_python_plot_tutorial.Rmd',  
+  'from_dplyr_to_pandas_and_back.Rmd',
+  'introduction_to_pyecharts_package.Rmd', 
+  'r_vs_python_plots.Rmd',
+  'plots_python_seaborn_matplotlib.Rmd',
+  'r_and_python_visualization.Rmd',  
+  'python_vs_r_graph.Rmd',
+  'python_seaborn_cheatsheet.Rmd',
+  'python_visualization_tutorial2.Rmd',
   
   # Part: Projects & Workshops
   'analytics_consulting_intro.Rmd', # contains PART header
@@ -139,21 +158,6 @@ rmd_files: [
   'alluvial_diagrams_and_their_implementation_in_r.Rmd',
   'data_visualization_r_shiny.Rmd',
   'rgl_package.Rmd',
-  
-  # Part: Data visualizations
-  'introduction_to_pyecharts_package.Rmd', # contains PART header
-  'r_vs_python_plots.Rmd',
-  'plots_python_seaborn_matplotlib.Rmd',
-  'r_and_python_visualization.Rmd',
-  'r_3d_visualization.Rmd',
-  'ggplot_base_r_graph_analysis.Rmd',
-  'improved_density_estimation.Rmd',
-  'theme_columbia.Rmd',
-  'geospatial_data_visualization.Rmd',
-  'comunity_contribution.Rmd',
-  
-  # Part: Custom R packages
-  'super_ggformat_project.Rmd', # contains PART header
 
   # Part: Appendices
   'appendix_initial_setup.Rmd', # contains PART header
