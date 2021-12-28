@@ -185,9 +185,7 @@ ggplot(data = gapminder, aes(x = continent, y = pop, colour = country)) +
   theme_classic()
 ```
 
-```
-## NULL
-```
+<img src="tutorial_of_three_ggplot2_based_packages_files/figure-html/unnamed-chunk-12-1.gif" style="display: block; margin: auto;" />
 
 To optimize the animation, we could add "little tails" for our data points to reflect the direction of changing in the following animation with "shadow_wake(wake_length = 0.1, alpha = FALSE)".
  
@@ -201,9 +199,7 @@ ggplot(data = gapminder, aes(x = continent, y = pop, colour = country)) +
   theme_classic()
 ```
 
-```
-## NULL
-```
+<img src="tutorial_of_three_ggplot2_based_packages_files/figure-html/unnamed-chunk-13-1.gif" style="display: block; margin: auto;" />
 
 ## ggpubr
 

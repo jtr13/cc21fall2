@@ -83,6 +83,8 @@ transition_states(Species, transition_length = 3, state_length = 1)
 animate(anim)
 ```
 
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-2-1.gif" style="display: block; margin: auto;" />
+
 #### transition_filter
 Transition between different filters
 
@@ -98,6 +100,8 @@ Wide = Petal.Width>2)
 animate(anim)
 ```
 
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-3-1.gif" style="display: block; margin: auto;" />
+
 #### transition_layers
 Build up plot layer by layer
 
@@ -111,9 +115,7 @@ from_blank = FALSE, layer_order = c(3, 1, 2)) +
 enter_fade() + enter_grow()
 ```
 
-```
-## NULL
-```
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-4-1.gif" style="display: block; margin: auto;" />
 
 #### transition_reveal&transition_time
 
@@ -126,12 +128,16 @@ transition_reveal(Day)
 animate(anim)
 ```
 
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-5-1.gif" style="display: block; margin: auto;" />
+
 ```r
 anim<-ggplot(airquality,aes(Day,Temp))+
 geom_point(aes(colour=factor(Month)))+
 transition_time(Day)
 animate(anim)
 ```
+
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-6-1.gif" style="display: block; margin: auto;" />
 
 
 ### Shadow
@@ -146,6 +152,8 @@ anim1<-anim+shadow_mark(colour='black',size = 0.75,past = TRUE, future = FALSE)
 animate(anim1)
 ```
 
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-7-1.gif" style="display: block; margin: auto;" />
+
 #### shadow_trail
 A trail of evenly spaced old frames
 
@@ -155,6 +163,8 @@ shadow_trail(distance=0.4,alpha = 0.3, shape = 2)
 animate(anim2)
 ```
 
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-8-1.gif" style="display: block; margin: auto;" />
+
 #### shadow_weak
 Show preceding frames with gradual falloff
 
@@ -162,6 +172,8 @@ Show preceding frames with gradual falloff
 anim3<-anim+shadow_wake(wake_length=0.1,size=2,alpha =FALSE,colour='grey92')
 animate(anim3)
 ```
+
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-9-1.gif" style="display: block; margin: auto;" />
 
 ### View
 #### view_follow
@@ -184,11 +196,15 @@ fixed_y=c(2,NA))
 animate(anim1)
 ```
 
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-11-1.gif" style="display: block; margin: auto;" />
+
 
 
 ```r
 animate(anim2)
 ```
+
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-12-1.gif" style="display: block; margin: auto;" />
 
 #### view_step
 Follow the data in steps.
@@ -203,6 +219,8 @@ view_step(pause_length=2,step_length=1,
 nsteps =3,pause_first=TRUE)
 animate(anim)
 ```
+
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-13-1.gif" style="display: block; margin: auto;" />
 
 ### Animation
 ```
@@ -226,9 +244,7 @@ exit_shrink() +
 ease_aes('sine-in-out')
 ```
 
-```
-## NULL
-```
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-14-1.gif" style="display: block; margin: auto;" />
 
 
 ```r
@@ -245,9 +261,7 @@ transition_time(year) +
 ease_aes('linear')
 ```
 
-```
-## NULL
-```
+<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-15-1.gif" style="display: block; margin: auto;" />
 
 ## References
 

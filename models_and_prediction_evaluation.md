@@ -364,8 +364,8 @@ roc(Default.test$default,Default.pred,plot=T)
 ## Call:
 ## roc.default(response = Default.test$default, predictor = Default.pred,     plot = T)
 ## 
-## Data: Default.pred in 3871 controls (Default.test$default No) < 129 cases (Default.test$default Yes).
-## Area under the curve: 0.9484
+## Data: Default.pred in 3874 controls (Default.test$default No) < 126 cases (Default.test$default Yes).
+## Area under the curve: 0.9574
 ```
 
 ```r
@@ -532,8 +532,8 @@ roc(Default.test$default,tree.test.pred[,2],plot=T)
 ## Call:
 ## roc.default(response = Default.test$default, predictor = tree.test.pred[,     2], plot = T)
 ## 
-## Data: tree.test.pred[, 2] in 3871 controls (Default.test$default No) < 129 cases (Default.test$default Yes).
-## Area under the curve: 0.9149
+## Data: tree.test.pred[, 2] in 3874 controls (Default.test$default No) < 126 cases (Default.test$default Yes).
+## Area under the curve: 0.9534
 ```
 
 ```r
@@ -548,8 +548,8 @@ print(roc.rpart.default.pred)
 ## Call:
 ## roc.default(response = Default.test$default, predictor = rpart.test.pred[,     2])
 ## 
-## Data: rpart.test.pred[, 2] in 3871 controls (Default.test$default No) < 129 cases (Default.test$default Yes).
-## Area under the curve: 0.704
+## Data: rpart.test.pred[, 2] in 3874 controls (Default.test$default No) < 126 cases (Default.test$default Yes).
+## Area under the curve: 0.7961
 ```
 
 ```r
@@ -569,8 +569,8 @@ print(rf.roc.pred)
 ## Call:
 ## roc.default(response = Default.test$default, predictor = Default.rf.test.pred[,     2])
 ## 
-## Data: Default.rf.test.pred[, 2] in 3871 controls (Default.test$default No) < 129 cases (Default.test$default Yes).
-## Area under the curve: 0.8097
+## Data: Default.rf.test.pred[, 2] in 3874 controls (Default.test$default No) < 126 cases (Default.test$default Yes).
+## Area under the curve: 0.828
 ```
 We can compare the models and evaluate the predictions both from the ROC Area Under the Curve and the plot. \
 ROC AUC for the tree model is 0.9297, ROC AUC for the rpart model is 0.7479, and ROC AUC for the random forest model is 0.8172. 0.9297 > 0.8172 > 0.7479, so the tree model performs the best, while the rpart model performs the worst. \

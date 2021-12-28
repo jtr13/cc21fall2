@@ -138,3 +138,4 @@ dbUnloadDriver(drv)
 ## Sources
 - https://www.datacareer.de/blog/connect-to-postgresql-with-r-a-step-by-step-example/
 - https://stackoverflow.com/questions/1395115/storing-r-objects-in-a-relational-database
+

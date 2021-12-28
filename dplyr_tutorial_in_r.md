@@ -202,9 +202,9 @@ head(pseudo_car_data,,n = 3)
 
 ```
 ##   obs cabin_length door_length wind_shield_length  color
-## 1   1     5.888524    2.332473           5.374240 yellow
-## 2   2     5.929073    1.223836           5.936480  green
-## 3   3     6.816316    2.020962           4.808456  green
+## 1   1     5.632943    2.321677           5.253965 yellow
+## 2   2     6.418753    2.584403           5.945934 yellow
+## 3   3     6.058065    2.688777           4.891338   blue
 ```
 Now, we can use the $contains()$ function to select those names that contain the string "length".
 
@@ -214,9 +214,9 @@ head(select(pseudo_car_data, contains("length")),n = 3)
 
 ```
 ##   cabin_length door_length wind_shield_length
-## 1     5.888524    2.332473           5.374240
-## 2     5.929073    1.223836           5.936480
-## 3     6.816316    2.020962           4.808456
+## 1     5.632943    2.321677           5.253965
+## 2     6.418753    2.584403           5.945934
+## 3     6.058065    2.688777           4.891338
 ```
 
 ### Filter
@@ -478,9 +478,9 @@ pseudo_missing_data
 
 ```
 ##     name age
-## 1    Tom  42
-## 2    Jay  65
-## 3  Marry  43
+## 1    Tom  47
+## 2    Jay  45
+## 3  Marry  41
 ## 4   Lexa  NA
 ## 5 Garcia  NA
 ```
@@ -493,12 +493,12 @@ imputed_data
 ```
 
 ```
-##     name age
-## 1    Tom  42
-## 2    Jay  65
-## 3  Marry  43
-## 4   Lexa  50
-## 5 Garcia  50
+##     name      age
+## 1    Tom 47.00000
+## 2    Jay 45.00000
+## 3  Marry 41.00000
+## 4   Lexa 44.33333
+## 5 Garcia 44.33333
 ```
 
 #### Imputation -- Removing Observations
@@ -510,9 +510,9 @@ na.omit(pseudo_missing_data)
 
 ```
 ##    name age
-## 1   Tom  42
-## 2   Jay  65
-## 3 Marry  43
+## 1   Tom  47
+## 2   Jay  45
+## 3 Marry  41
 ```
 We can see that the latter two rows (i.e. observations of Lexa and Garcia) are completely removed!
 

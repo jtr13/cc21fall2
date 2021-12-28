@@ -55,7 +55,7 @@ dateDownloaded
 ```
 
 ```
-## [1] "Sat Nov  6 04:04:20 2021"
+## [1] "Tue Dec 28 04:24:37 2021"
 ```
 
 ## Reading Local Files
@@ -238,8 +238,8 @@ results
 ```
 
 ```
-## [1] "Low: 55 °F"  "High: 64 °F" "Low: 50 °F"  "High: 62 °F" "Low: 48 °F" 
-## [6] "High: 60 °F" "Low: 52 °F"  "High: 64 °F" "Low: 54 °F"
+## [1] "Low: 43 °F"  "High: 49 °F" "Low: 44 °F"  "High: 50 °F" "Low: 40 °F" 
+## [6] "High: 52 °F" "Low: 41 °F"  "High: 52 °F" "Low: 39 °F"
 ```
 
 It is hard to read, One way to deal with that is to, as we've seen before is to use the XML package. So again, we could use this same URL. Use the XML package, and parse the HTML again, using the InternalNodes to get the complete structure out. 
@@ -627,7 +627,7 @@ tbl(db, sql("SELECT year, species_id, plot_id FROM surveys"))
 
 ```
 ## # Source:   SQL [?? x 3]
-## # Database: sqlite 3.36.0
+## # Database: sqlite 3.37.0
 ## #   [/home/runner/work/cc21fall2/cc21fall2/resources/downloading_files/db_sql.sqlite]
 ##     year species_id plot_id
 ##    <int> <chr>        <int>
@@ -656,7 +656,7 @@ surveys %>% select(year, species_id, plot_id)
 
 ```
 ## # Source:   lazy query [?? x 3]
-## # Database: sqlite 3.36.0
+## # Database: sqlite 3.37.0
 ## #   [/home/runner/work/cc21fall2/cc21fall2/resources/downloading_files/db_sql.sqlite]
 ##     year species_id plot_id
 ##    <int> <chr>        <int>

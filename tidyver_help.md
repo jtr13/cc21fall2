@@ -51,10 +51,10 @@ bind_rows(
 ```
 ## Rows: 30
 ## Columns: 5
-## $ Sepal.Length <dbl> 5.6, 6.3, 6.2, 7.7, 6.4, 4.6, 4.6, 5.0, 5.9, 6.2, 5.4, 4.…
-## $ Sepal.Width  <dbl> 2.8, 2.8, 2.2, 2.6, 2.7, 3.6, 3.4, 3.4, 3.0, 2.9, 3.7, 3.…
-## $ Petal.Length <dbl> 4.9, 5.1, 4.5, 6.9, 5.3, 1.0, 1.4, 1.6, 5.1, 4.3, 1.5, 1.…
-## $ Petal.Width  <dbl> 2.0, 1.5, 1.5, 2.3, 1.9, 0.2, 0.3, 0.4, 1.8, 1.3, 0.2, 0.…
+## $ Sepal.Length <dbl> 5.1, 6.0, 4.4, 5.7, 6.3, 5.1, 4.4, 5.7, 4.8, 7.2, 4.9, 5.…
+## $ Sepal.Width  <dbl> 3.5, 2.7, 3.2, 3.8, 2.7, 3.8, 2.9, 2.5, 3.1, 3.6, 2.4, 2.…
+## $ Petal.Length <dbl> 1.4, 5.1, 1.3, 1.7, 4.9, 1.5, 1.4, 5.0, 1.6, 6.1, 3.3, 4.…
+## $ Petal.Width  <dbl> 0.3, 1.6, 0.2, 0.3, 1.8, 0.3, 0.2, 2.0, 0.2, 2.5, 1.0, 1.…
 ## $ Species      <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
 ```
 
@@ -69,21 +69,21 @@ bind_cols(
 ```
 ## Rows: 10
 ## Columns: 15
-## $ Sepal.Length...1  <dbl> 4.6, 5.5, 6.5, 5.0, 5.6, 5.1, 6.5, 4.9, 7.7, 7.7
-## $ Sepal.Width...2   <dbl> 3.2, 4.2, 3.2, 3.5, 3.0, 2.5, 3.0, 3.1, 2.6, 3.8
-## $ Petal.Length...3  <dbl> 1.4, 1.4, 5.1, 1.6, 4.5, 3.0, 5.2, 1.5, 6.9, 6.7
-## $ Petal.Width...4   <dbl> 0.2, 0.2, 2.0, 0.6, 1.5, 1.1, 2.0, 0.2, 2.3, 2.2
-## $ Species...5       <fct> setosa, setosa, virginica, setosa, versicolor, versi…
-## $ Sepal.Length...6  <dbl> 5.4, 4.4, 5.4, 7.2, 6.4, 4.8, 5.8, 5.8, 4.8, 6.9
-## $ Sepal.Width...7   <dbl> 3.9, 3.2, 3.9, 3.6, 2.8, 3.1, 2.7, 2.8, 3.0, 3.1
-## $ Petal.Length...8  <dbl> 1.3, 1.3, 1.7, 6.1, 5.6, 1.6, 5.1, 5.1, 1.4, 5.4
-## $ Petal.Width...9   <dbl> 0.4, 0.2, 0.4, 2.5, 2.1, 0.2, 1.9, 2.4, 0.1, 2.1
-## $ Species...10      <fct> setosa, setosa, setosa, virginica, virginica, setosa…
-## $ Sepal.Length...11 <dbl> 6.1, 6.3, 5.1, 5.0, 4.7, 5.6, 5.7, 6.6, 7.7, 5.3
-## $ Sepal.Width...12  <dbl> 3.0, 2.3, 3.4, 3.0, 3.2, 3.0, 3.0, 2.9, 3.8, 3.7
-## $ Petal.Length...13 <dbl> 4.6, 4.4, 1.5, 1.6, 1.6, 4.5, 4.2, 4.6, 6.7, 1.5
-## $ Petal.Width...14  <dbl> 1.4, 1.3, 0.2, 0.2, 0.2, 1.5, 1.2, 1.3, 2.2, 0.2
-## $ Species...15      <fct> versicolor, versicolor, setosa, setosa, setosa, vers…
+## $ Sepal.Length...1  <dbl> 6.7, 4.4, 6.1, 5.2, 4.6, 4.8, 7.1, 5.7, 6.4, 5.2
+## $ Sepal.Width...2   <dbl> 2.5, 3.0, 2.9, 2.7, 3.1, 3.4, 3.0, 2.9, 3.1, 4.1
+## $ Petal.Length...3  <dbl> 5.8, 1.3, 4.7, 3.9, 1.5, 1.6, 5.9, 4.2, 5.5, 1.5
+## $ Petal.Width...4   <dbl> 1.8, 0.2, 1.4, 1.4, 0.2, 0.2, 2.1, 1.3, 1.8, 0.1
+## $ Species...5       <fct> virginica, setosa, versicolor, versicolor, setosa, s…
+## $ Sepal.Length...6  <dbl> 5.5, 6.3, 6.0, 5.0, 5.1, 6.1, 6.1, 6.4, 5.1, 5.7
+## $ Sepal.Width...7   <dbl> 2.6, 3.4, 2.7, 3.4, 3.4, 3.0, 2.8, 3.1, 3.8, 2.6
+## $ Petal.Length...8  <dbl> 4.4, 5.6, 5.1, 1.5, 1.5, 4.6, 4.0, 5.5, 1.9, 3.5
+## $ Petal.Width...9   <dbl> 1.2, 2.4, 1.6, 0.2, 0.2, 1.4, 1.3, 1.8, 0.4, 1.0
+## $ Species...10      <fct> versicolor, virginica, versicolor, setosa, setosa, v…
+## $ Sepal.Length...11 <dbl> 5.7, 6.9, 6.1, 5.8, 6.4, 5.4, 5.4, 5.0, 7.0, 6.7
+## $ Sepal.Width...12  <dbl> 3.0, 3.1, 2.8, 2.6, 2.7, 3.4, 3.0, 3.5, 3.2, 3.3
+## $ Petal.Length...13 <dbl> 4.2, 5.4, 4.0, 4.0, 5.3, 1.5, 4.5, 1.3, 4.7, 5.7
+## $ Petal.Width...14  <dbl> 1.2, 2.1, 1.3, 1.2, 1.9, 0.4, 1.5, 0.3, 1.4, 2.1
+## $ Species...15      <fct> versicolor, virginica, versicolor, versicolor, virgi…
 ```
 
 ### combime two datasets by value: join

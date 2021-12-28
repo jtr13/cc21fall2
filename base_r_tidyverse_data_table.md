@@ -30,7 +30,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 1.295147 secs
+## Time difference of 1.393508 secs
 ```
 
 ### Tibble
@@ -46,7 +46,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.8497355 secs
+## Time difference of 1.306566 secs
 ```
 
 ### Data.Table
@@ -62,7 +62,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.1946497 secs
+## Time difference of 0.1866136 secs
 ```
 
 As we can see, `data.table` can read a csv file super fast, especially when the file is large. `tibble` in `tidyverse` is slightly faster than `data.frame` in base R, but is still much slower than `data.table`.
@@ -82,7 +82,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.00269413 secs
+## Time difference of 0.003000736 secs
 ```
 
 ```r
@@ -93,7 +93,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.01958704 secs
+## Time difference of 0.01958561 secs
 ```
 
 ```r
@@ -104,7 +104,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.01444721 secs
+## Time difference of 0.01274943 secs
 ```
 
 ### Filtering row(s)
@@ -118,7 +118,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.02132368 secs
+## Time difference of 0.0188098 secs
 ```
 
 ```r
@@ -129,7 +129,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.01430535 secs
+## Time difference of 0.01417279 secs
 ```
 
 ```r
@@ -140,7 +140,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.003150463 secs
+## Time difference of 0.003746748 secs
 ```
 
 ### Sorting the table
@@ -153,7 +153,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.01976466 secs
+## Time difference of 0.0241971 secs
 ```
 
 ```r
@@ -164,7 +164,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.03271651 secs
+## Time difference of 0.03213501 secs
 ```
 
 ```r
@@ -175,7 +175,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.1771774 secs
+## Time difference of 0.1593106 secs
 ```
 
 ### Summarizing columns by group
@@ -188,7 +188,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.007216692 secs
+## Time difference of 0.006551743 secs
 ```
 
 ```r
@@ -199,7 +199,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.02284217 secs
+## Time difference of 0.02136064 secs
 ```
 
 ```r
@@ -210,7 +210,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.004267931 secs
+## Time difference of 0.003964424 secs
 ```
 
 ### Pivoting longer
@@ -227,7 +227,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 17.64273 secs
+## Time difference of 20.04066 secs
 ```
 
 ```r
@@ -242,7 +242,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 1.070366 secs
+## Time difference of 0.9417338 secs
 ```
 
 ```r
@@ -257,7 +257,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 1.012232 secs
+## Time difference of 1.149003 secs
 ```
 
 ### Joining tables
@@ -270,7 +270,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 25.52823 secs
+## Time difference of 26.6534 secs
 ```
 
 ```r
@@ -281,7 +281,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 1.356773 secs
+## Time difference of 1.152521 secs
 ```
 
 ```r
@@ -292,7 +292,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 1.044259 secs
+## Time difference of 0.7259252 secs
 ```
 
 ### Chaining structures
@@ -313,7 +313,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.03047562 secs
+## Time difference of 0.03045535 secs
 ```
 
 ```r
@@ -325,7 +325,7 @@ print(end - start)
 ```
 
 ```
-## Time difference of 0.006450891 secs
+## Time difference of 0.005479336 secs
 ```
 
 From all the above, we can see that when doing simple operations such as selecting, filtering and sorting, Base R can finish very fast. However, when doing complex operations such as pivoting and joining, Base R will cost huge amount of time. Comparing `tidyverse` and `data.table`, we can see that `data.table` have slightly faster speed than `tidyverse` in almost every task. Especially, when using chaining structure, `data.table` finishes much faster than `tidyverse`. This is probably because `data.table` includes many different operations together in one bracketed operation. In the above example, it use one bracketed operation to do the `group_by`, `summarise` and `arrange` task in `tidyverse`. On the other hand, since `tidyverse` does only one task in each function, and what task a function will do is easy to understand through its name, the code in `tidyverse` is more readable than in `data.table`.

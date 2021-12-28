@@ -358,7 +358,7 @@ loans_full_schema %>%
 p
 ```
 
-<img src="raincloud_plot_tutorial_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" />
+<img src="raincloud_plot_tutorial_files/figure-html/unnamed-chunk-13-1.png" width="912" style="display: block; margin: auto;" />
 
 Looks good right? Now we get the full picture of this dataset by:
 
@@ -374,7 +374,7 @@ Isn’t the data itself is talking in this graph? I know the code is a little bi
 
 ## More Examples
 
-n this section, I organized codes from some of my previous work to provide you more examples! You can select one as a template to create your own! Typically, you can use raincloud plot if you have:
+In this section, I organized codes from some of my previous work to provide you more examples! You can select one as a template to create your own! Typically, you can use raincloud plot if you have:
 
 - 1 categorical variable, and 1 numerical variable (We already did that!)
 
