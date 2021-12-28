@@ -130,7 +130,7 @@ rmd_files: [
   'super_ggformat_project.Rmd',   
   'data_composition_plot.Rmd',
   'r_torch_tutorial.Rmd',
-  'Treemapify_Tutorial_CC.Rmd'
+  'Treemapify_Tutorial_CC.Rmd',
   'tutorial_for_scatter_plot_with_marginal_distribution.Rmd',
   
   # Part: Python Tutorials
