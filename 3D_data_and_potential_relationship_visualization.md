@@ -1,7 +1,7 @@
 
 
 
-# (PART) R Tutorials{-}
+# (PART) Python Tutorials{-}
 
 # 3D data and potential relationship visualization
 
