@@ -1,7 +1,6 @@
 # Neo4j python implementation
 
 Yuxin Cui
-```{r, include = FALSE}}
-```
+
 Github Link:
 https://github.com/yc4007/5702
