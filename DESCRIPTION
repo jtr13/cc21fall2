@@ -160,6 +160,7 @@ Imports:
     torchvision,
     transformr,
     tree,
+    treemapify,
     tseries,
     twitteR,
     urca,
