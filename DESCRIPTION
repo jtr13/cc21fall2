@@ -58,6 +58,7 @@ Imports:
     ggridges,
     ggthemes,
     ggvis,
+    gifski,
     glmnet,
     goyav,
     gplots,
@@ -187,4 +188,5 @@ Remotes:
     madlogos/recharts,
     jbryer/makeR,
     timelyportfolio/parcoords,
-    saraswatmks/superml
+    saraswatmks/superml,
+    r-rust/gifski
