@@ -189,4 +189,5 @@ Remotes:
     jbryer/makeR,
     timelyportfolio/parcoords,
     saraswatmks/superml,
-    r-rust/gifski
+    r-rust/gifski,
+    thomasp85/gganimate
