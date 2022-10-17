@@ -188,6 +188,4 @@ Remotes:
     madlogos/recharts,
     jbryer/makeR,
     timelyportfolio/parcoords,
-    saraswatmks/superml,
-    r-rust/gifski,
-    thomasp85/gganimate
+    saraswatmks/superml
