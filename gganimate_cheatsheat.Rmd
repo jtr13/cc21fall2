@@ -73,7 +73,7 @@ save an animation to a file.
 ### Transition
 #### transition_states
 Transition between several distinct stages of the data
-```{r waring=FALSE}
+```{r warning=FALSE}
 anim<-ggplot(iris, aes(Sepal.Width, Petal.Width)) +
 geom_point() +
 labs(title = "{closest_state}") +
