@@ -97,7 +97,7 @@ animate(anim)
 
 #### transition_layers
 Build up plot layer by layer
-```{r warning=FALSE}
+```{r warning=FALSE, eval=FALSE}
 ggplot(mtcars, aes(mpg, disp)) +
 geom_point() +
 geom_smooth(colour = 'grey', se = FALSE) +
