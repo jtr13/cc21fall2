@@ -212,7 +212,7 @@ Now, we will introduce a new useful package trying to plot the correlation graph
 We will firstly choose the list of stocks that we would like to find the correlation and get their stock price data since 2015 from Yahoo Finance. Here we store the price of each stock as one column in a dataframe, called tickerPrices. For each row, it shows the closing price of the stock in particular trading day. Here is how the tickerPrice looks like.
 
 ```{r}
-tickers <- c("PFE","MRNA","JNJ","SVA","^GSPC","AAPL","AMZN","FB","GS","JPM")
+tickers <- c("PFE","MRNA","JNJ","SVA","^GSPC","AAPL","AMZN","META","GS","JPM")
 
 tickerPrices <- NULL
 for (ticker in tickers)
