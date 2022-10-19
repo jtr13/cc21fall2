@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 93 TidyVerse | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Zhisen Cai Sometimes we may forget the way to use Tidyverse. Therefore, I create this for help. People can finish most of the basic part of tidyverse by using this. I separate it into 4 parts,...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 93 TidyVerse | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Zhisen Cai Sometimes we may forget the way to use Tidyverse. Therefore, I create this for help. People can finish most of the basic part of tidyverse by using this. I separate it into 4 parts,...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Zhisen Cai Sometimes we may forget the way to use Tidyverse. Therefore, I create this for help. People can finish most of the basic part of tidyverse by using this. I separate it into 4 parts,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -202,20 +205,20 @@
 </h1>
 <p>Zhisen Cai</p>
 <p>Sometimes we may forget the way to use Tidyverse. Therefore, I create this for help. People can finish most of the basic part of tidyverse by using this. I separate it into 4 parts, manipulation between two datasets, manipulation on rows, manipulation on columns and group_by. With the examples of each function, people can know how to use the function and how the function works.</p>
-<div class="sourceCode" id="cb1237"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1232"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <p>Magrittr use pipeline to convey the data. (%&gt;%) We have to use a dot to represent the thing we convey if it is not used in the first parameter.</p>
-<div class="sourceCode" id="cb1238"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># we can omit '.'</span>
-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># we can omit '.'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 3.25</code></pre>
-<div class="sourceCode" id="cb1240"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span>na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  </code></pre></div>
+<div class="sourceCode" id="cb1235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span>na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  </span></code></pre></div>
 <pre><code>## [1] 3.25</code></pre>
-<div class="sourceCode" id="cb1242"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># we can not omit '.' in the second parameter</span>
-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span><span class="va">.</span>, main<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">.</span>, collapse<span class="op">=</span><span class="st">", "</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/urca/man/plot-methods.html">plot</a></span><span class="op">(</span>main<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">.</span>, collapse<span class="op">=</span><span class="st">", "</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1237"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># we can not omit '.' in the second parameter</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">.</span>, main<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">.</span>, collapse<span class="op">=</span><span class="st">", "</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span>main<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">.</span>, collapse<span class="op">=</span><span class="st">", "</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tidyver_help_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
 <div id="connection-bewtween-two-datasets" class="section level3">
 <h3>
@@ -224,71 +227,71 @@
 <p>Efficiently bind multiple data frames by row and column
 bind_rows() and bind_cols() return the same type as the first input, either a data frame, tbl_df, or grouped_df
 code: bind_rows(…, .id = NULL) bind_cols(…)</p>
-<div class="sourceCode" id="cb1243"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span>
-<span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,
-<span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,
-<span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1238"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span></span>
+<span><span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,</span>
+<span><span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,</span>
+<span><span class="op">+</span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 30
 ## Columns: 5
-## $ Sepal.Length &lt;dbl&gt; 5.1, 6.0, 4.4, 5.7, 6.3, 5.1, 4.4, 5.7, 4.8, 7.2, 4.9, 5.…
-## $ Sepal.Width  &lt;dbl&gt; 3.5, 2.7, 3.2, 3.8, 2.7, 3.8, 2.9, 2.5, 3.1, 3.6, 2.4, 2.…
-## $ Petal.Length &lt;dbl&gt; 1.4, 5.1, 1.3, 1.7, 4.9, 1.5, 1.4, 5.0, 1.6, 6.1, 3.3, 4.…
-## $ Petal.Width  &lt;dbl&gt; 0.3, 1.6, 0.2, 0.3, 1.8, 0.3, 0.2, 2.0, 0.2, 2.5, 1.0, 1.…
+## $ Sepal.Length &lt;dbl&gt; 6.0, 4.8, 5.0, 6.4, 4.7, 5.8, 4.4, 7.7, 6.4, 4.5, 4.8, 5.…
+## $ Sepal.Width  &lt;dbl&gt; 2.2, 3.4, 3.2, 2.8, 3.2, 2.7, 3.2, 2.6, 3.1, 2.3, 3.0, 2.…
+## $ Petal.Length &lt;dbl&gt; 5.0, 1.6, 1.2, 5.6, 1.6, 5.1, 1.3, 6.9, 5.5, 1.3, 1.4, 4.…
+## $ Petal.Width  &lt;dbl&gt; 1.5, 0.2, 0.2, 2.1, 0.2, 1.9, 0.2, 2.3, 1.8, 0.3, 0.3, 2.…
 ## $ Species      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</code></pre>
-<div class="sourceCode" id="cb1245"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>
-<span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1240"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 10
 ## Columns: 15
-## $ Sepal.Length...1  &lt;dbl&gt; 6.7, 4.4, 6.1, 5.2, 4.6, 4.8, 7.1, 5.7, 6.4, 5.2
-## $ Sepal.Width...2   &lt;dbl&gt; 2.5, 3.0, 2.9, 2.7, 3.1, 3.4, 3.0, 2.9, 3.1, 4.1
-## $ Petal.Length...3  &lt;dbl&gt; 5.8, 1.3, 4.7, 3.9, 1.5, 1.6, 5.9, 4.2, 5.5, 1.5
-## $ Petal.Width...4   &lt;dbl&gt; 1.8, 0.2, 1.4, 1.4, 0.2, 0.2, 2.1, 1.3, 1.8, 0.1
-## $ Species...5       &lt;fct&gt; virginica, setosa, versicolor, versicolor, setosa, s…
-## $ Sepal.Length...6  &lt;dbl&gt; 5.5, 6.3, 6.0, 5.0, 5.1, 6.1, 6.1, 6.4, 5.1, 5.7
-## $ Sepal.Width...7   &lt;dbl&gt; 2.6, 3.4, 2.7, 3.4, 3.4, 3.0, 2.8, 3.1, 3.8, 2.6
-## $ Petal.Length...8  &lt;dbl&gt; 4.4, 5.6, 5.1, 1.5, 1.5, 4.6, 4.0, 5.5, 1.9, 3.5
-## $ Petal.Width...9   &lt;dbl&gt; 1.2, 2.4, 1.6, 0.2, 0.2, 1.4, 1.3, 1.8, 0.4, 1.0
-## $ Species...10      &lt;fct&gt; versicolor, virginica, versicolor, setosa, setosa, v…
-## $ Sepal.Length...11 &lt;dbl&gt; 5.7, 6.9, 6.1, 5.8, 6.4, 5.4, 5.4, 5.0, 7.0, 6.7
-## $ Sepal.Width...12  &lt;dbl&gt; 3.0, 3.1, 2.8, 2.6, 2.7, 3.4, 3.0, 3.5, 3.2, 3.3
-## $ Petal.Length...13 &lt;dbl&gt; 4.2, 5.4, 4.0, 4.0, 5.3, 1.5, 4.5, 1.3, 4.7, 5.7
-## $ Petal.Width...14  &lt;dbl&gt; 1.2, 2.1, 1.3, 1.2, 1.9, 0.4, 1.5, 0.3, 1.4, 2.1
-## $ Species...15      &lt;fct&gt; versicolor, virginica, versicolor, versicolor, virgi…</code></pre>
+## $ Sepal.Length...1  &lt;dbl&gt; 6.1, 5.0, 7.7, 4.8, 5.1, 6.1, 6.0, 5.5, 5.2, 7.6
+## $ Sepal.Width...2   &lt;dbl&gt; 3.0, 3.5, 3.0, 3.0, 3.4, 2.8, 3.4, 2.4, 3.5, 3.0
+## $ Petal.Length...3  &lt;dbl&gt; 4.6, 1.6, 6.1, 1.4, 1.5, 4.0, 4.5, 3.7, 1.5, 6.6
+## $ Petal.Width...4   &lt;dbl&gt; 1.4, 0.6, 2.3, 0.3, 0.2, 1.3, 1.6, 1.0, 0.2, 2.1
+## $ Species...5       &lt;fct&gt; versicolor, setosa, virginica, setosa, setosa, versi…
+## $ Sepal.Length...6  &lt;dbl&gt; 6.0, 6.2, 6.3, 5.8, 6.6, 5.2, 6.4, 5.5, 5.6, 6.4
+## $ Sepal.Width...7   &lt;dbl&gt; 2.9, 2.9, 2.7, 2.8, 3.0, 2.7, 2.9, 2.4, 2.5, 3.2
+## $ Petal.Length...8  &lt;dbl&gt; 4.5, 4.3, 4.9, 5.1, 4.4, 3.9, 4.3, 3.7, 3.9, 4.5
+## $ Petal.Width...9   &lt;dbl&gt; 1.5, 1.3, 1.8, 2.4, 1.4, 1.4, 1.3, 1.0, 1.1, 1.5
+## $ Species...10      &lt;fct&gt; versicolor, versicolor, virginica, virginica, versic…
+## $ Sepal.Length...11 &lt;dbl&gt; 6.1, 6.6, 5.4, 6.5, 5.9, 7.7, 6.1, 5.5, 5.4, 5.1
+## $ Sepal.Width...12  &lt;dbl&gt; 3.0, 3.0, 3.4, 3.0, 3.2, 2.8, 2.8, 2.4, 3.4, 3.5
+## $ Petal.Length...13 &lt;dbl&gt; 4.6, 4.4, 1.5, 5.8, 4.8, 6.7, 4.7, 3.7, 1.7, 1.4
+## $ Petal.Width...14  &lt;dbl&gt; 1.4, 1.4, 0.4, 2.2, 1.8, 2.0, 1.2, 1.0, 0.2, 0.2
+## $ Species...15      &lt;fct&gt; versicolor, versicolor, setosa, virginica, versicolo…</code></pre>
 </div>
 <div id="combime-two-datasets-by-value-join" class="section level3">
 <h3>
 <span class="header-section-number">93.0.2</span> combime two datasets by value: join<a class="anchor" aria-label="anchor" href="#combime-two-datasets-by-value-join"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1247"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># prepare data </span>
-<span class="va">superheroes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
-  <span class="op">~</span><span class="va">name</span>,      <span class="op">~</span><span class="va">alignment</span>,  <span class="op">~</span><span class="va">gender</span>,   <span class="op">~</span><span class="va">publisher</span>,
-  <span class="st">"Magneto"</span>,  <span class="st">"bad"</span>,       <span class="st">"male"</span>,    <span class="st">"Marvel"</span>,
-  <span class="st">"Storm"</span>,    <span class="st">"good"</span>,      <span class="st">"female"</span>,  <span class="st">"Marvel"</span>,
-  <span class="st">"Mystique"</span>, <span class="st">"bad"</span>,       <span class="st">"female"</span>,  <span class="st">"Marvel"</span>,
-  <span class="st">"Batman"</span>,   <span class="st">"good"</span>,      <span class="st">"male"</span>,    <span class="st">"DC"</span>,
-  <span class="st">"Joker"</span>,    <span class="st">"bad"</span>,       <span class="st">"male"</span>,    <span class="st">"DC"</span>,
-  <span class="st">"Catwoman"</span>, <span class="st">"bad"</span>,       <span class="st">"female"</span>,  <span class="st">"DC"</span>,
-  <span class="st">"Hellboy"</span>,  <span class="st">"good"</span>,      <span class="st">"male"</span>,    <span class="st">"Dark Horse Comics"</span>
-<span class="op">)</span>
-<span class="va">publishers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span>
-  <span class="op">~</span><span class="va">publisher</span>, <span class="op">~</span><span class="va">yr_founded</span>,
-  <span class="st">"DC"</span>,       <span class="fl">1934L</span>,
-  <span class="st">"Marvel"</span>,   <span class="fl">1939L</span>,
-  <span class="st">"Image"</span>,    <span class="fl">1992L</span>
-<span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># prepare data </span></span>
+<span><span class="va">superheroes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
+<span>  <span class="op">~</span><span class="va">name</span>,      <span class="op">~</span><span class="va">alignment</span>,  <span class="op">~</span><span class="va">gender</span>,   <span class="op">~</span><span class="va">publisher</span>,</span>
+<span>  <span class="st">"Magneto"</span>,  <span class="st">"bad"</span>,       <span class="st">"male"</span>,    <span class="st">"Marvel"</span>,</span>
+<span>  <span class="st">"Storm"</span>,    <span class="st">"good"</span>,      <span class="st">"female"</span>,  <span class="st">"Marvel"</span>,</span>
+<span>  <span class="st">"Mystique"</span>, <span class="st">"bad"</span>,       <span class="st">"female"</span>,  <span class="st">"Marvel"</span>,</span>
+<span>  <span class="st">"Batman"</span>,   <span class="st">"good"</span>,      <span class="st">"male"</span>,    <span class="st">"DC"</span>,</span>
+<span>  <span class="st">"Joker"</span>,    <span class="st">"bad"</span>,       <span class="st">"male"</span>,    <span class="st">"DC"</span>,</span>
+<span>  <span class="st">"Catwoman"</span>, <span class="st">"bad"</span>,       <span class="st">"female"</span>,  <span class="st">"DC"</span>,</span>
+<span>  <span class="st">"Hellboy"</span>,  <span class="st">"good"</span>,      <span class="st">"male"</span>,    <span class="st">"Dark Horse Comics"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">publishers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span></span>
+<span>  <span class="op">~</span><span class="va">publisher</span>, <span class="op">~</span><span class="va">yr_founded</span>,</span>
+<span>  <span class="st">"DC"</span>,       <span class="fl">1934L</span>,</span>
+<span>  <span class="st">"Marvel"</span>,   <span class="fl">1939L</span>,</span>
+<span>  <span class="st">"Image"</span>,    <span class="fl">1992L</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>left_join
 A left join in R is a merge operation between two data frames where the merge returns all of the rows from one table (the left side) and any matching rows from the second table. A left join in R will NOT return values of the second table which do not already exist in the first table.
 left_join(a_tibble, another_tibble, by = …)</p>
-<div class="sourceCode" id="cb1248"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1243"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 7 × 5
 ##   name     alignment gender publisher         yr_founded
 ##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                  &lt;int&gt;
@@ -302,8 +305,8 @@ left_join(a_tibble, another_tibble, by = …)</p>
 <p>inner join:
 he inner_join keyword selects records that have matching values in both tables.It will not return unmatched rows. Therefore, we do not see the last row shown in the left_join.
 code: inner_join(a_tibble, another_tibble, by = …)</p>
-<div class="sourceCode" id="cb1250"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">superheroes</span>, <span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1245"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">superheroes</span>, <span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 5
 ##   name     alignment gender publisher yr_founded
 ##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;          &lt;int&gt;
@@ -315,9 +318,9 @@ code: inner_join(a_tibble, another_tibble, by = …)</p>
 ## 6 Catwoman bad       female DC              1934</code></pre>
 <p>anti join:
 An anti join returns the rows of the first table where it cannot find a match in the second table.</p>
-<div class="sourceCode" id="cb1252"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1247"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">anti_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 1 × 4
 ##   name    alignment gender publisher        
 ##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            
@@ -326,9 +329,9 @@ An anti join returns the rows of the first table where it cannot find a match in
 Semi joins are the opposite of anti joins: an anti-anti join, if you like.
 A semi join returns the rows of the first table where it can find a match in the second table.
 code: semi_join(a_tibble, another_tibble, by = …)</p>
-<div class="sourceCode" id="cb1254"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1249"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">superheroes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html">semi_join</a></span><span class="op">(</span><span class="va">publishers</span>, by<span class="op">=</span><span class="st">"publisher"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   name     alignment gender publisher
 ##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    
@@ -350,14 +353,14 @@ ends_with() : end with a literal string
 matches(): match a regular expression
 num_range(): are part of a numercial range
 everything(): selects all columns</p>
-<div class="sourceCode" id="cb1256"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1251"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"</code></pre>
-<div class="sourceCode" id="cb1258"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> 
-<span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Petal"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1253"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> </span>
+<span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"Petal"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    Petal.Length Petal.Width
 ##           &lt;dbl&gt;       &lt;dbl&gt;
@@ -371,10 +374,10 @@ everything(): selects all columns</p>
 ##  8          1.5         0.2
 ##  9          1.4         0.2
 ## 10          1.5         0.1</code></pre>
-<div class="sourceCode" id="cb1260"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1255"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    Sepal.Length Petal.Length
 ##           &lt;dbl&gt;        &lt;dbl&gt;
@@ -388,10 +391,10 @@ everything(): selects all columns</p>
 ##  8          5            1.5
 ##  9          4.4          1.4
 ## 10          4.9          1.5</code></pre>
-<div class="sourceCode" id="cb1262"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1257"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 4
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
@@ -407,10 +410,10 @@ everything(): selects all columns</p>
 ## 10          4.9         3.1          1.5         0.1</code></pre>
 <p>select_if
 we can use select_if to choose column with logical condition or any function return true or false.</p>
-<div class="sourceCode" id="cb1264"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1259"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 3
 ##    height  mass birth_year
 ##     &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -424,13 +427,13 @@ we can use select_if to choose column with logical condition or any function ret
 ##  8     97    32       NA  
 ##  9    183    84       24  
 ## 10    182    77       57</code></pre>
-<div class="sourceCode" id="cb1266"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">less_than_500</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">500</span>
-<span class="op">}</span>
-<span class="va">iris</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">less_than_500</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1261"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">less_than_500</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">500</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">iris</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">less_than_500</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    Sepal.Width Petal.Width
 ##          &lt;dbl&gt;       &lt;dbl&gt;
@@ -445,10 +448,10 @@ we can use select_if to choose column with logical condition or any function ret
 ##  9         2.9         0.2
 ## 10         3.1         0.1</code></pre>
 <p>!!!! we can use ~ to represent anonymous function</p>
-<div class="sourceCode" id="cb1268"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">500</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1263"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">500</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    Sepal.Width Petal.Width
 ##          &lt;dbl&gt;       &lt;dbl&gt;
@@ -463,10 +466,10 @@ we can use select_if to choose column with logical condition or any function ret
 ##  9         2.9         0.2
 ## 10         3.1         0.1</code></pre>
 <p>We can select the data by deleting columns using minus sign.</p>
-<div class="sourceCode" id="cb1270"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Species</span>, <span class="op">-</span><span class="va">Petal.Length</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1265"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Species</span>, <span class="op">-</span><span class="va">Petal.Length</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 3
 ##    Sepal.Length Sepal.Width Petal.Width
 ##           &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
@@ -480,10 +483,10 @@ we can use select_if to choose column with logical condition or any function ret
 ##  8          5           3.4         0.2
 ##  9          4.4         2.9         0.2
 ## 10          4.9         3.1         0.1</code></pre>
-<div class="sourceCode" id="cb1272"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Species</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1267"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Species</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 3
 ##    Species Sepal.Width Petal.Width
 ##    &lt;fct&gt;         &lt;dbl&gt;       &lt;dbl&gt;
@@ -498,82 +501,85 @@ we can use select_if to choose column with logical condition or any function ret
 ##  9 setosa          2.9         0.2
 ## 10 setosa          3.1         0.1</code></pre>
 <p>rename the column</p>
-<div class="sourceCode" id="cb1274"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>sep_len<span class="op">=</span><span class="va">Sepal.Length</span>, sep_wid<span class="op">=</span><span class="va">Sepal.Width</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/names.html">names</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1269"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>sep_len<span class="op">=</span><span class="va">Sepal.Length</span>, sep_wid<span class="op">=</span><span class="va">Sepal.Width</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "sep_len"      "sep_wid"      "Petal.Length" "Petal.Width"  "Species"</code></pre>
 </div>
 <div id="manipulation-on-row" class="section level3">
 <h3>
 <span class="header-section-number">93.0.4</span> manipulation on row<a class="anchor" aria-label="anchor" href="#manipulation-on-row"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1276"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># prepare data</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">896</span><span class="op">)</span>
-<span class="va">sw_dup</span> <span class="op">&lt;-</span>
-  <span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">films</span><span class="op">:</span><span class="va">starships</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="fl">100</span>, replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">sw_dup</span>,<span class="fl">10</span><span class="op">)</span> </code></pre></div>
+<div class="sourceCode" id="cb1271"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># prepare data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">896</span><span class="op">)</span></span>
+<span><span class="va">sw_dup</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">films</span><span class="op">:</span><span class="va">starships</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="fl">100</span>, replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sw_dup</span>,<span class="fl">10</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
-##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-##  1 Sly Moo…    178    48 none       pale       white             NA &lt;NA&gt;  &lt;NA&gt;  
-##  2 Mon Mot…    150    NA auburn     fair       blue              48 fema… femin…
-##  3 Finn         NA    NA black      dark       dark              NA male  mascu…
-##  4 Roos Ta…    224    82 none       grey       orange            NA male  mascu…
-##  5 Arvel C…     NA    NA brown      fair       brown             NA male  mascu…
-##  6 BB8          NA    NA none       none       black             NA none  mascu…
-##  7 Saesee …    188    NA none       pale       orange            NA male  mascu…
-##  8 IG-88       200   140 none       metal      red               15 none  mascu…
-##  9 Yarael …    264    NA none       white      yellow            NA male  mascu…
-## 10 Jek Ton…    180   110 brown      fair       blue              NA male  mascu…
-## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+##  1 Sly Moore      178    48 none    pale    white        NA &lt;NA&gt;  &lt;NA&gt;   Umbara 
+##  2 Mon Mothma     150    NA auburn  fair    blue         48 fema… femin… Chandr…
+##  3 Finn            NA    NA black   dark    dark         NA male  mascu… &lt;NA&gt;   
+##  4 Roos Tarpa…    224    82 none    grey    orange       NA male  mascu… Naboo  
+##  5 Arvel Cryn…     NA    NA brown   fair    brown        NA male  mascu… &lt;NA&gt;   
+##  6 BB8             NA    NA none    none    black        NA none  mascu… &lt;NA&gt;   
+##  7 Saesee Tiin    188    NA none    pale    orange       NA male  mascu… Iktotch
+##  8 IG-88          200   140 none    metal   red          15 none  mascu… &lt;NA&gt;   
+##  9 Yarael Poof    264    NA none    white   yellow       NA male  mascu… Quermia
+## 10 Jek Tono P…    180   110 brown   fair    blue         NA male  mascu… Bestin…
+## # … with 1 more variable: species &lt;chr&gt;, and abbreviated variable names
+## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
 <p>Use arrange() to reorder the rows.</p>
-<div class="sourceCode" id="cb1278"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">gender</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1273"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">gender</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    name    height  mass hair_color skin_color  eye_color birth_year sex   gender
-##    &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-##  1 Adi Ga…    184    50 none       dark        blue              NA fema… femin…
-##  2 Arvel …     NA    NA brown      fair        brown             NA male  mascu…
-##  3 Bail P…    191    NA black      tan         brown             67 male  mascu…
-##  4 BB8         NA    NA none       none        black             NA none  mascu…
-##  5 BB8         NA    NA none       none        black             NA none  mascu…
-##  6 Ben Qu…    163    65 none       grey, gree… orange            NA male  mascu…
-##  7 Ben Qu…    163    65 none       grey, gree… orange            NA male  mascu…
-##  8 Beru W…    165    75 brown      light       blue              47 fema… femin…
-##  9 Beru W…    165    75 brown      light       blue              47 fema… femin…
-## 10 Bossk      190   113 none       green       red               53 male  mascu…
-## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+##  1 Adi Gallia     184    50 none    dark    blue         NA fema… femin… Corusc…
+##  2 Arvel Cryn…     NA    NA brown   fair    brown        NA male  mascu… &lt;NA&gt;   
+##  3 Bail Prest…    191    NA black   tan     brown        67 male  mascu… Aldera…
+##  4 BB8             NA    NA none    none    black        NA none  mascu… &lt;NA&gt;   
+##  5 BB8             NA    NA none    none    black        NA none  mascu… &lt;NA&gt;   
+##  6 Ben Quadin…    163    65 none    grey, … orange       NA male  mascu… Tund   
+##  7 Ben Quadin…    163    65 none    grey, … orange       NA male  mascu… Tund   
+##  8 Beru White…    165    75 brown   light   blue         47 fema… femin… Tatooi…
+##  9 Beru White…    165    75 brown   light   blue         47 fema… femin… Tatooi…
+## 10 Bossk          190   113 none    green   red          53 male  mascu… Trando…
+## # … with 1 more variable: species &lt;chr&gt;, and abbreviated variable names
+## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
 <p>using desc() for decreasing order</p>
-<div class="sourceCode" id="cb1280"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mass</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1275"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mass</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
-##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-##  1 IG-88       200   140 none       metal      red               15 none  mascu…
-##  2 Tarfful     234   136 brown      brown      blue              NA male  mascu…
-##  3 Bossk       190   113 none       green      red               53 male  mascu…
-##  4 Jek Ton…    180   110 brown      fair       blue              NA male  mascu…
-##  5 Jek Ton…    180   110 brown      fair       blue              NA male  mascu…
-##  6 Jek Ton…    180   110 brown      fair       blue              NA male  mascu…
-##  7 Dexter …    198   102 none       brown      yellow            NA male  mascu…
-##  8 Dexter …    198   102 none       brown      yellow            NA male  mascu…
-##  9 Qui-Gon…    193    89 brown      fair       blue              92 male  mascu…
-## 10 Kit Fis…    196    87 none       green      black             NA male  mascu…
-## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+##  1 IG-88          200   140 none    metal   red          15 none  mascu… &lt;NA&gt;   
+##  2 Tarfful        234   136 brown   brown   blue         NA male  mascu… Kashyy…
+##  3 Bossk          190   113 none    green   red          53 male  mascu… Trando…
+##  4 Jek Tono P…    180   110 brown   fair    blue         NA male  mascu… Bestin…
+##  5 Jek Tono P…    180   110 brown   fair    blue         NA male  mascu… Bestin…
+##  6 Jek Tono P…    180   110 brown   fair    blue         NA male  mascu… Bestin…
+##  7 Dexter Jet…    198   102 none    brown   yellow       NA male  mascu… Ojom   
+##  8 Dexter Jet…    198   102 none    brown   yellow       NA male  mascu… Ojom   
+##  9 Qui-Gon Ji…    193    89 brown   fair    blue         92 male  mascu… &lt;NA&gt;   
+## 10 Kit Fisto      196    87 none    green   black        NA male  mascu… Glee A…
+## # … with 1 more variable: species &lt;chr&gt;, and abbreviated variable names
+## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
 <p>use distinct() to remove the duplicated rows</p>
-<div class="sourceCode" id="cb1282"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">anyDuplicated</a></span><span class="op">(</span><span class="op">)</span>  </code></pre></div>
+<div class="sourceCode" id="cb1277"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">anyDuplicated</a></span><span class="op">(</span><span class="op">)</span>  </span></code></pre></div>
 <pre><code>## Rows: 57
 ## Columns: 11
 ## $ name       &lt;chr&gt; "Sly Moore", "Mon Mothma", "Finn", "Roos Tarpals", "Arvel C…
@@ -589,11 +595,11 @@ we can use select_if to choose column with logical condition or any function ret
 ## $ species    &lt;chr&gt; NA, "Human", "Human", "Gungan", "Human", "Droid", "Iktotchi…</code></pre>
 <pre><code>## [1] 0</code></pre>
 <p>use drop_na() to remove all the rows including NA</p>
-<div class="sourceCode" id="cb1285"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/base/NA.html">anyNA</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1280"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/NA.html">anyNA</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 30
 ## Columns: 11
 ## $ name       &lt;chr&gt; "Mace Windu", "Beru Whitesun lars", "Padmé Amidala", "Mace …
@@ -609,11 +615,11 @@ we can use select_if to choose column with logical condition or any function ret
 ## $ species    &lt;chr&gt; "Human", "Human", "Human", "Human", "Human", "Zabrak", "Hum…</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>or can only drop na with specific rows</p>
-<div class="sourceCode" id="cb1288"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">gender</span><span class="op">:</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/base/NA.html">anyNA</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1283"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">gender</span><span class="op">:</span><span class="va">species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/NA.html">anyNA</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Rows: 83
 ## Columns: 11
 ## $ name       &lt;chr&gt; "Mon Mothma", "Roos Tarpals", "Saesee Tiin", "Yarael Poof",…
@@ -629,29 +635,30 @@ we can use select_if to choose column with logical condition or any function ret
 ## $ species    &lt;chr&gt; "Human", "Gungan", "Iktotchi", "Quermian", "Human", "Toong"…</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <p>use filter to select rows</p>
-<div class="sourceCode" id="cb1291"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">mass</span><span class="op">)</span> <span class="op">|</span> <span class="va">height</span> <span class="op">&gt;</span> <span class="fl">180</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1286"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Human"</span>, <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">mass</span><span class="op">)</span> <span class="op">|</span> <span class="va">height</span> <span class="op">&gt;</span> <span class="fl">180</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    name    height  mass hair_color skin_color eye_color birth_year sex    gender
-##    &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; 
-##  1 Mon Mo…    150    NA auburn     fair       blue              48 female femin…
-##  2 Finn        NA    NA black      dark       dark              NA male   mascu…
-##  3 Arvel …     NA    NA brown      fair       brown             NA male   mascu…
-##  4 Mace W…    188    84 none       dark       brown             72 male   mascu…
-##  5 Mace W…    188    84 none       dark       brown             72 male   mascu…
-##  6 Qui-Go…    193    89 brown      fair       blue              92 male   mascu…
-##  7 Cliegg…    183    NA brown      fair       blue              82 male   mascu…
-##  8 Cliegg…    183    NA brown      fair       blue              82 male   mascu…
-##  9 Mon Mo…    150    NA auburn     fair       blue              48 female femin…
-## 10 Cliegg…    183    NA brown      fair       blue              82 male   mascu…
-## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+##  1 Mon Mothma     150    NA auburn  fair    blue         48 fema… femin… Chandr…
+##  2 Finn            NA    NA black   dark    dark         NA male  mascu… &lt;NA&gt;   
+##  3 Arvel Cryn…     NA    NA brown   fair    brown        NA male  mascu… &lt;NA&gt;   
+##  4 Mace Windu     188    84 none    dark    brown        72 male  mascu… Haruun…
+##  5 Mace Windu     188    84 none    dark    brown        72 male  mascu… Haruun…
+##  6 Qui-Gon Ji…    193    89 brown   fair    blue         92 male  mascu… &lt;NA&gt;   
+##  7 Cliegg Lars    183    NA brown   fair    blue         82 male  mascu… Tatooi…
+##  8 Cliegg Lars    183    NA brown   fair    blue         82 male  mascu… Tatooi…
+##  9 Mon Mothma     150    NA auburn  fair    blue         48 fema… femin… Chandr…
+## 10 Cliegg Lars    183    NA brown   fair    blue         82 male  mascu… Tatooi…
+## # … with 1 more variable: species &lt;chr&gt;, and abbreviated variable names
+## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
 <p>use filter_all() to choose rows in all the columns</p>
-<div class="sourceCode" id="cb1293"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_all</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="va">.</span> <span class="op">&gt;</span> <span class="fl">7.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1288"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_all</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="va">.</span> <span class="op">&gt;</span> <span class="fl">7.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width
 ##          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
@@ -662,43 +669,44 @@ we can use select_if to choose column with logical condition or any function ret
 ## 5          7.9         3.8          6.4         2  
 ## 6          7.7         3            6.1         2.3</code></pre>
 <p>use filter_if() to choose rows</p>
-<div class="sourceCode" id="cb1295"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_if</a></span><span class="op">(</span><span class="va">is.character</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1290"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sw_dup</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_if</a></span><span class="op">(</span><span class="va">is.character</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 19 × 11
-##    name    height  mass hair_color skin_color  eye_color birth_year sex   gender
-##    &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-##  1 Sly Mo…    178    48 none       pale        white             NA &lt;NA&gt;  &lt;NA&gt;  
-##  2 Finn        NA    NA black      dark        dark              NA male  mascu…
-##  3 Arvel …     NA    NA brown      fair        brown             NA male  mascu…
-##  4 BB8         NA    NA none       none        black             NA none  mascu…
-##  5 IG-88      200   140 none       metal       red               15 none  mascu…
-##  6 Qui-Go…    193    89 brown      fair        blue              92 male  mascu…
-##  7 R2-D2       96    32 &lt;NA&gt;       white, blue red               33 none  mascu…
-##  8 R5-D4       97    32 &lt;NA&gt;       white, red  red               NA none  mascu…
-##  9 Captai…     NA    NA unknown    unknown     unknown           NA &lt;NA&gt;  &lt;NA&gt;  
-## 10 Ric Ol…    183    NA brown      fair        blue              NA &lt;NA&gt;  &lt;NA&gt;  
-## 11 Poe Da…     NA    NA brown      light       brown             NA male  mascu…
-## 12 BB8         NA    NA none       none        black             NA none  mascu…
-## 13 Yoda        66    17 white      green       brown            896 male  mascu…
-## 14 Yoda        66    17 white      green       brown            896 male  mascu…
-## 15 Ric Ol…    183    NA brown      fair        blue              NA &lt;NA&gt;  &lt;NA&gt;  
-## 16 Finn        NA    NA black      dark        dark              NA male  mascu…
-## 17 Rey         NA    NA brown      light       hazel             NA fema… femin…
-## 18 Finn        NA    NA black      dark        dark              NA male  mascu…
-## 19 Rey         NA    NA brown      light       hazel             NA fema… femin…
-## # … with 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+##    name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+##    &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+##  1 Sly Moore      178    48 none    pale    white        NA &lt;NA&gt;  &lt;NA&gt;   Umbara 
+##  2 Finn            NA    NA black   dark    dark         NA male  mascu… &lt;NA&gt;   
+##  3 Arvel Cryn…     NA    NA brown   fair    brown        NA male  mascu… &lt;NA&gt;   
+##  4 BB8             NA    NA none    none    black        NA none  mascu… &lt;NA&gt;   
+##  5 IG-88          200   140 none    metal   red          15 none  mascu… &lt;NA&gt;   
+##  6 Qui-Gon Ji…    193    89 brown   fair    blue         92 male  mascu… &lt;NA&gt;   
+##  7 R2-D2           96    32 &lt;NA&gt;    white,… red          33 none  mascu… Naboo  
+##  8 R5-D4           97    32 &lt;NA&gt;    white,… red          NA none  mascu… Tatooi…
+##  9 Captain Ph…     NA    NA unknown unknown unknown      NA &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;   
+## 10 Ric Olié       183    NA brown   fair    blue         NA &lt;NA&gt;  &lt;NA&gt;   Naboo  
+## 11 Poe Dameron     NA    NA brown   light   brown        NA male  mascu… &lt;NA&gt;   
+## 12 BB8             NA    NA none    none    black        NA none  mascu… &lt;NA&gt;   
+## 13 Yoda            66    17 white   green   brown       896 male  mascu… &lt;NA&gt;   
+## 14 Yoda            66    17 white   green   brown       896 male  mascu… &lt;NA&gt;   
+## 15 Ric Olié       183    NA brown   fair    blue         NA &lt;NA&gt;  &lt;NA&gt;   Naboo  
+## 16 Finn            NA    NA black   dark    dark         NA male  mascu… &lt;NA&gt;   
+## 17 Rey             NA    NA brown   light   hazel        NA fema… femin… &lt;NA&gt;   
+## 18 Finn            NA    NA black   dark    dark         NA male  mascu… &lt;NA&gt;   
+## 19 Rey             NA    NA brown   light   hazel        NA fema… femin… &lt;NA&gt;   
+## # … with 1 more variable: species &lt;chr&gt;, and abbreviated variable names
+## #   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
 </div>
 <div id="build-new-column-or-mutate-column" class="section level3">
 <h3>
 <span class="header-section-number">93.0.5</span> build new column or mutate column<a class="anchor" aria-label="anchor" href="#build-new-column-or-mutate-column"><i class="fas fa-link"></i></a>
 </h3>
 <p>use mutate to create rows or columns</p>
-<div class="sourceCode" id="cb1297"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>add_all <span class="op">=</span> <span class="va">Sepal.Length</span> <span class="op">+</span> <span class="va">Sepal.Width</span> <span class="op">+</span> <span class="va">Petal.Length</span> <span class="op">+</span> <span class="va">Petal.Width</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1292"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>add_all <span class="op">=</span> <span class="va">Sepal.Length</span> <span class="op">+</span> <span class="va">Sepal.Width</span> <span class="op">+</span> <span class="va">Petal.Length</span> <span class="op">+</span> <span class="va">Petal.Width</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 6
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species add_all
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;     &lt;dbl&gt;
@@ -712,13 +720,13 @@ we can use select_if to choose column with logical condition or any function ret
 ##  8          5           3.4          1.5         0.2 setosa     10.1
 ##  9          4.4         2.9          1.4         0.2 setosa      8.9
 ## 10          4.9         3.1          1.5         0.1 setosa      9.6</code></pre>
-<div class="sourceCode" id="cb1299"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>median_petal_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Petal.Length</span><span class="op">)</span>,
-         has_long_petals <span class="op">=</span> <span class="va">Petal.Length</span> <span class="op">&gt;</span> <span class="va">median_petal_length</span>,
-         has_long_petals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">has_long_petals</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Petal.Length</span>, <span class="va">median_petal_length</span>, <span class="va">has_long_petals</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1294"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>median_petal_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Petal.Length</span><span class="op">)</span>,</span>
+<span>         has_long_petals <span class="op">=</span> <span class="va">Petal.Length</span> <span class="op">&gt;</span> <span class="va">median_petal_length</span>,</span>
+<span>         has_long_petals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">has_long_petals</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Petal.Length</span>, <span class="va">median_petal_length</span>, <span class="va">has_long_petals</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 150 × 3
 ##    Petal.Length median_petal_length has_long_petals
 ##           &lt;dbl&gt;               &lt;dbl&gt;           &lt;dbl&gt;
@@ -734,28 +742,29 @@ we can use select_if to choose column with logical condition or any function ret
 ## 10          1.5                4.35               0
 ## # … with 140 more rows</code></pre>
 <p>use mutate_all to apply function to all the rows and columns</p>
-<div class="sourceCode" id="cb1301"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">msleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="va">tolower</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1296"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">msleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="va">tolower</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 83 × 11
-##    name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake
-##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;
-##  1 cheet… acin… carni carn… lc           12.1        &lt;NA&gt;      &lt;NA&gt;        11.9 
-##  2 owl m… aotus omni  prim… &lt;NA&gt;         17          1.8       &lt;NA&gt;        7    
-##  3 mount… aplo… herbi rode… nt           14.4        2.4       &lt;NA&gt;        9.6  
-##  4 great… blar… omni  sori… lc           14.9        2.3       0.133333333 9.1  
-##  5 cow    bos   herbi arti… domesticated 4           0.7       0.666666667 20   
-##  6 three… brad… herbi pilo… &lt;NA&gt;         14.4        2.2       0.766666667 9.6  
-##  7 north… call… carni carn… vu           8.7         1.4       0.383333333 15.3 
-##  8 vespe… calo… &lt;NA&gt;  rode… &lt;NA&gt;         7           &lt;NA&gt;      &lt;NA&gt;        17   
-##  9 dog    canis carni carn… domesticated 10.1        2.9       0.333333333 13.9 
-## 10 roe d… capr… herbi arti… lc           3           &lt;NA&gt;      &lt;NA&gt;        21   
-## # … with 73 more rows, and 2 more variables: brainwt &lt;chr&gt;, bodywt &lt;chr&gt;</code></pre>
+##    name   genus vore  order conse…¹ sleep…² sleep…³ sleep…⁴ awake brainwt bodywt
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+##  1 cheet… acin… carni carn… lc      12.1    &lt;NA&gt;    &lt;NA&gt;    11.9  &lt;NA&gt;    50    
+##  2 owl m… aotus omni  prim… &lt;NA&gt;    17      1.8     &lt;NA&gt;    7     0.0155  0.48  
+##  3 mount… aplo… herbi rode… nt      14.4    2.4     &lt;NA&gt;    9.6   &lt;NA&gt;    1.35  
+##  4 great… blar… omni  sori… lc      14.9    2.3     0.1333… 9.1   0.00029 0.019 
+##  5 cow    bos   herbi arti… domest… 4       0.7     0.6666… 20    0.423   600   
+##  6 three… brad… herbi pilo… &lt;NA&gt;    14.4    2.2     0.7666… 9.6   &lt;NA&gt;    3.85  
+##  7 north… call… carni carn… vu      8.7     1.4     0.3833… 15.3  &lt;NA&gt;    20.49 
+##  8 vespe… calo… &lt;NA&gt;  rode… &lt;NA&gt;    7       &lt;NA&gt;    &lt;NA&gt;    17    &lt;NA&gt;    0.045 
+##  9 dog    canis carni carn… domest… 10.1    2.9     0.3333… 13.9  0.07    14    
+## 10 roe d… capr… herbi arti… lc      3       &lt;NA&gt;    &lt;NA&gt;    21    0.0982  14.8  
+## # … with 73 more rows, and abbreviated variable names ¹​conservation,
+## #   ²​sleep_total, ³​sleep_rem, ⁴​sleep_cycle</code></pre>
 <p>use mutate_if to apply function to specific row and column which satisfied some conditions</p>
-<div class="sourceCode" id="cb1303"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span><span class="op">(</span><span class="va">is.double</span>, <span class="va">as.integer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1298"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span><span class="op">(</span><span class="va">is.double</span>, <span class="va">as.integer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;int&gt;       &lt;int&gt;        &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  
@@ -770,11 +779,11 @@ we can use select_if to choose column with logical condition or any function ret
 ##  9            4           2            1           0 setosa 
 ## 10            4           3            1           0 setosa</code></pre>
 <p>use mutate_at to apply function to specific row and column</p>
-<div class="sourceCode" id="cb1305"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"Width"</span><span class="op">)</span><span class="op">)</span>, <span class="op">~</span> <span class="va">.</span><span class="op">*</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1300"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"Length"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"Width"</span><span class="op">)</span><span class="op">)</span>, <span class="op">~</span> <span class="va">.</span><span class="op">*</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 5
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
@@ -790,12 +799,12 @@ we can use select_if to choose column with logical condition or any function ret
 ## 10           49          31           15           1 setosa</code></pre>
 <p>We can use if_else() and case_when() to decide how to change the value
 if_else(condition, if true:—, if false: —-)</p>
-<div class="sourceCode" id="cb1307"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">warpbreaks</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>breed <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">wool</span> <span class="op">==</span> <span class="st">"A"</span>,
-                         true <span class="op">=</span> <span class="st">"Merino"</span>,
-                         false <span class="op">=</span> <span class="st">"Corriedale"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1302"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">warpbreaks</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>breed <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">wool</span> <span class="op">==</span> <span class="st">"A"</span>,</span>
+<span>                         true <span class="op">=</span> <span class="st">"Merino"</span>,</span>
+<span>                         false <span class="op">=</span> <span class="st">"Corriedale"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   breaks wool tension      breed
 ## 1     41    B       L Corriedale
 ## 2     54    A       L     Merino
@@ -810,13 +819,13 @@ condition2 ~ class2,
 condition3 ~ class3,
 ……
 )</p>
-<div class="sourceCode" id="cb1309"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">warpbreaks</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>tension<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">tension</span> <span class="op">==</span> <span class="st">"H"</span> <span class="op">~</span> <span class="st">"High"</span>,
-                           <span class="va">tension</span> <span class="op">==</span> <span class="st">"M"</span> <span class="op">~</span> <span class="st">"Medium"</span>,
-                           <span class="va">tension</span> <span class="op">==</span> <span class="st">"L"</span> <span class="op">~</span> <span class="st">"Low"</span>,
-                           <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA_character_</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1304"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">warpbreaks</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>tension<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">tension</span> <span class="op">==</span> <span class="st">"H"</span> <span class="op">~</span> <span class="st">"High"</span>,</span>
+<span>                           <span class="va">tension</span> <span class="op">==</span> <span class="st">"M"</span> <span class="op">~</span> <span class="st">"Medium"</span>,</span>
+<span>                           <span class="va">tension</span> <span class="op">==</span> <span class="st">"L"</span> <span class="op">~</span> <span class="st">"Low"</span>,</span>
+<span>                           <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA_character_</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.15</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   breaks wool tension
 ## 1     29    B  Medium
 ## 2     28    B    High
@@ -835,12 +844,12 @@ condition3 ~ class3,
 use summarize() to find out the properties of the group
 n() :count the frequency
 sum(var),max(var),min(var),mean(var),median(var),sd(var)</p>
-<div class="sourceCode" id="cb1311"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,
-            avg_len <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Petal.Length</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>,
-            med_len <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Petal.Length</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1306"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>            avg_len <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Petal.Length</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>            med_len <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Petal.Length</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##   Species        n avg_len med_len
 ##   &lt;fct&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -848,22 +857,23 @@ sum(var),max(var),min(var),mean(var),median(var),sd(var)</p>
 ## 2 versicolor    50    4.26    4.35
 ## 3 virginica     50    5.55    5.55</code></pre>
 <p>We can also use summarize_if,summarize_all</p>
-<div class="sourceCode" id="cb1313"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_if</a></span><span class="op">(</span><span class="va">is.numeric</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">dat</span></code></pre></div>
+<div class="sourceCode" id="cb1308"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_if</a></span><span class="op">(</span><span class="va">is.numeric</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">dat</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 17
-##   Species    Sepal.Length_me… Sepal.Width_mean Petal.Length_me… Petal.Width_mean
-##   &lt;fct&gt;                 &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-## 1 setosa                 5.01             3.43             1.46            0.246
-## 2 versicolor             5.94             2.77             4.26            1.33 
-## 3 virginica              6.59             2.97             5.55            2.03 
-## # … with 12 more variables: Sepal.Length_median &lt;dbl&gt;,
-## #   Sepal.Width_median &lt;dbl&gt;, Petal.Length_median &lt;dbl&gt;,
-## #   Petal.Width_median &lt;dbl&gt;, Sepal.Length_min &lt;dbl&gt;, Sepal.Width_min &lt;dbl&gt;,
+##   Species    Sepal.Len…¹ Sepal…² Petal…³ Petal…⁴ Sepal…⁵ Sepal…⁶ Petal…⁷ Petal…⁸
+##   &lt;fct&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 setosa            5.01    3.43    1.46   0.246     5       3.4    1.5      0.2
+## 2 versicolor        5.94    2.77    4.26   1.33      5.9     2.8    4.35     1.3
+## 3 virginica         6.59    2.97    5.55   2.03      6.5     3      5.55     2  
+## # … with 8 more variables: Sepal.Length_min &lt;dbl&gt;, Sepal.Width_min &lt;dbl&gt;,
 ## #   Petal.Length_min &lt;dbl&gt;, Petal.Width_min &lt;dbl&gt;, Sepal.Length_max &lt;dbl&gt;,
-## #   Sepal.Width_max &lt;dbl&gt;, Petal.Length_max &lt;dbl&gt;, Petal.Width_max &lt;dbl&gt;</code></pre>
+## #   Sepal.Width_max &lt;dbl&gt;, Petal.Length_max &lt;dbl&gt;, Petal.Width_max &lt;dbl&gt;, and
+## #   abbreviated variable names ¹​Sepal.Length_mean, ²​Sepal.Width_mean,
+## #   ³​Petal.Length_mean, ⁴​Petal.Width_mean, ⁵​Sepal.Length_median,
+## #   ⁶​Sepal.Width_median, ⁷​Petal.Length_median, ⁸​Petal.Width_median</code></pre>
 
 </div>
 </div>
@@ -898,7 +908,7 @@ sum(var),max(var),min(var),mean(var),median(var),sd(var)</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -911,7 +921,7 @@ sum(var),max(var),min(var),mean(var),median(var),sd(var)</p>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

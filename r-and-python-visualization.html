@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 129 R and Python visualization | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Gilberto Garcia Perez These are the R libraries that we will be using for plotting and intermediate tasks. # Required R packages library(tidyverse) library(ggplot2) library(vcd)...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 129 R and Python visualization | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Gilberto Garcia Perez These are the R libraries that we will be using for plotting and intermediate tasks. # Required R packages library(tidyverse) library(ggplot2) library(vcd)...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Gilberto Garcia Perez These are the R libraries that we will be using for plotting and intermediate tasks. # Required R packages library(tidyverse) library(ggplot2) library(vcd)...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -202,19 +205,19 @@
 </h1>
 <p>Gilberto Garcia Perez</p>
 <p>These are the R libraries that we will be using for plotting and intermediate tasks.</p>
-<div class="sourceCode" id="cb1754"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Required R packages</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">vcd</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1749"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Required R packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">vcd</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span></span></code></pre></div>
 <p>Correspondingly, these are the Python packages that we will use for plotting and intermediate tasks.</p>
-<div class="sourceCode" id="cb1755"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1755-1"><a href="r-and-python-visualization.html#cb1755-1"></a><span class="co"># Required Python libraries</span></span>
-<span id="cb1755-2"><a href="r-and-python-visualization.html#cb1755-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1755-3"><a href="r-and-python-visualization.html#cb1755-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1755-4"><a href="r-and-python-visualization.html#cb1755-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1755-5"><a href="r-and-python-visualization.html#cb1755-5"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code></pre></div>
+<div class="sourceCode" id="cb1750"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1750-1"><a href="r-and-python-visualization.html#cb1750-1"></a><span class="co"># Required Python libraries</span></span>
+<span id="cb1750-2"><a href="r-and-python-visualization.html#cb1750-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1750-3"><a href="r-and-python-visualization.html#cb1750-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1750-4"><a href="r-and-python-visualization.html#cb1750-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1750-5"><a href="r-and-python-visualization.html#cb1750-5"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code></pre></div>
 <div id="introduction-28" class="section level2">
 <h2>
 <span class="header-section-number">129.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-28"><i class="fas fa-link"></i></a>
@@ -227,236 +230,236 @@
 <h3>
 <span class="header-section-number">129.1.1</span> Histograms<a class="anchor" aria-label="anchor" href="#histograms-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1756"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="co"># set seed for reproducibility purposes</span>
-
-<span class="co"># We generate a normal random sample</span>
-<span class="va">normal_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e3</span>, mean<span class="op">=</span><span class="fl">10</span>, sd<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'x'</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">normal_sample</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, closed<span class="op">=</span><span class="st">'left'</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'Normal random sample'</span>,
-       y<span class="op">=</span><span class="st">'Count'</span>,
-       title<span class="op">=</span><span class="st">'Example of histogram'</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="co"># Centers title</span></code></pre></div>
+<div class="sourceCode" id="cb1751"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="co"># set seed for reproducibility purposes</span></span>
+<span></span>
+<span><span class="co"># We generate a normal random sample</span></span>
+<span><span class="va">normal_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e3</span>, mean<span class="op">=</span><span class="fl">10</span>, sd<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'x'</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">normal_sample</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, closed<span class="op">=</span><span class="st">'left'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'Normal random sample'</span>,</span>
+<span>       y<span class="op">=</span><span class="st">'Count'</span>,</span>
+<span>       title<span class="op">=</span><span class="st">'Example of histogram'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="co"># Centers title</span></span></code></pre></div>
 <p>It is worth noting that we can call variables from R to Python and viceversa, a functionality that we will be exploiting to generate the plots in both environments with the same data.</p>
-<div class="sourceCode" id="cb1757"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1757-1"><a href="r-and-python-visualization.html#cb1757-1"></a><span class="co"># Python code</span></span>
-<span id="cb1757-2"><a href="r-and-python-visualization.html#cb1757-2"></a>normal_sample <span class="op">=</span> r.normal_sample <span class="co"># converts R dataframe to Python dataframe</span></span>
-<span id="cb1757-3"><a href="r-and-python-visualization.html#cb1757-3"></a>sns.reset_orig()</span>
-<span id="cb1757-4"><a href="r-and-python-visualization.html#cb1757-4"></a>plt.clf()</span>
-<span id="cb1757-5"><a href="r-and-python-visualization.html#cb1757-5"></a>plt.hist(normal_sample[<span class="st">'x'</span>], bins<span class="op">=</span><span class="dv">30</span>)<span class="op">;</span></span>
-<span id="cb1757-6"><a href="r-and-python-visualization.html#cb1757-6"></a>plt.xlabel(<span class="st">'Normal random sample'</span>)</span>
-<span id="cb1757-7"><a href="r-and-python-visualization.html#cb1757-7"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
-<span id="cb1757-8"><a href="r-and-python-visualization.html#cb1757-8"></a>plt.title(<span class="st">'Example of histogram'</span>)</span>
-<span id="cb1757-9"><a href="r-and-python-visualization.html#cb1757-9"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1752"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1752-1"><a href="r-and-python-visualization.html#cb1752-1"></a><span class="co"># Python code</span></span>
+<span id="cb1752-2"><a href="r-and-python-visualization.html#cb1752-2"></a>normal_sample <span class="op">=</span> r.normal_sample <span class="co"># converts R dataframe to Python dataframe</span></span>
+<span id="cb1752-3"><a href="r-and-python-visualization.html#cb1752-3"></a>sns.reset_orig()</span>
+<span id="cb1752-4"><a href="r-and-python-visualization.html#cb1752-4"></a>plt.clf()</span>
+<span id="cb1752-5"><a href="r-and-python-visualization.html#cb1752-5"></a>plt.hist(normal_sample[<span class="st">'x'</span>], bins<span class="op">=</span><span class="dv">30</span>)<span class="op">;</span></span>
+<span id="cb1752-6"><a href="r-and-python-visualization.html#cb1752-6"></a>plt.xlabel(<span class="st">'Normal random sample'</span>)</span>
+<span id="cb1752-7"><a href="r-and-python-visualization.html#cb1752-7"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb1752-8"><a href="r-and-python-visualization.html#cb1752-8"></a>plt.title(<span class="st">'Example of histogram'</span>)</span>
+<span id="cb1752-9"><a href="r-and-python-visualization.html#cb1752-9"></a>plt.show()</span></code></pre></div>
 </div>
 <div id="boxplots" class="section level3">
 <h3>
 <span class="header-section-number">129.1.2</span> Boxplots<a class="anchor" aria-label="anchor" href="#boxplots"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1758"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
-
-<span class="va">mtcars</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/factor.html">as.factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span>, y<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'cyl'</span>,
-         y<span class="op">=</span><span class="st">'mpg'</span>,
-         title<span class="op">=</span><span class="st">'Example of boxplots'</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb1759"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1759-1"><a href="r-and-python-visualization.html#cb1759-1"></a><span class="co"># Python code</span></span>
-<span id="cb1759-2"><a href="r-and-python-visualization.html#cb1759-2"></a>mtcars <span class="op">=</span> r.mtcars</span>
-<span id="cb1759-3"><a href="r-and-python-visualization.html#cb1759-3"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
-<span id="cb1759-4"><a href="r-and-python-visualization.html#cb1759-4"></a>plt.clf()</span>
-<span id="cb1759-5"><a href="r-and-python-visualization.html#cb1759-5"></a>sns.boxplot(x<span class="op">=</span><span class="st">"cyl"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, data<span class="op">=</span>mtcars)</span>
-<span id="cb1759-6"><a href="r-and-python-visualization.html#cb1759-6"></a>plt.xlabel(<span class="st">'cyl'</span>)</span>
-<span id="cb1759-7"><a href="r-and-python-visualization.html#cb1759-7"></a>plt.ylabel(<span class="st">'mpg'</span>)</span>
-<span id="cb1759-8"><a href="r-and-python-visualization.html#cb1759-8"></a>plt.title(<span class="st">'Example of boxplots'</span>)</span>
-<span id="cb1759-9"><a href="r-and-python-visualization.html#cb1759-9"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1753"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span>, y<span class="op">=</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">'cyl'</span>,</span>
+<span>         y<span class="op">=</span><span class="st">'mpg'</span>,</span>
+<span>         title<span class="op">=</span><span class="st">'Example of boxplots'</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1754"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1754-1"><a href="r-and-python-visualization.html#cb1754-1"></a><span class="co"># Python code</span></span>
+<span id="cb1754-2"><a href="r-and-python-visualization.html#cb1754-2"></a>mtcars <span class="op">=</span> r.mtcars</span>
+<span id="cb1754-3"><a href="r-and-python-visualization.html#cb1754-3"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
+<span id="cb1754-4"><a href="r-and-python-visualization.html#cb1754-4"></a>plt.clf()</span>
+<span id="cb1754-5"><a href="r-and-python-visualization.html#cb1754-5"></a>sns.boxplot(x<span class="op">=</span><span class="st">"cyl"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, data<span class="op">=</span>mtcars)</span>
+<span id="cb1754-6"><a href="r-and-python-visualization.html#cb1754-6"></a>plt.xlabel(<span class="st">'cyl'</span>)</span>
+<span id="cb1754-7"><a href="r-and-python-visualization.html#cb1754-7"></a>plt.ylabel(<span class="st">'mpg'</span>)</span>
+<span id="cb1754-8"><a href="r-and-python-visualization.html#cb1754-8"></a>plt.title(<span class="st">'Example of boxplots'</span>)</span>
+<span id="cb1754-9"><a href="r-and-python-visualization.html#cb1754-9"></a>plt.show()</span></code></pre></div>
 </div>
 <div id="q-q-plots" class="section level3">
 <h3>
 <span class="header-section-number">129.1.3</span> Q-Q plots<a class="anchor" aria-label="anchor" href="#q-q-plots"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1760"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="va">normal_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e3</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">normal_sample</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">normal_sample</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb1761"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1761-1"><a href="r-and-python-visualization.html#cb1761-1"></a><span class="co"># Python code</span></span>
-<span id="cb1761-2"><a href="r-and-python-visualization.html#cb1761-2"></a>normal_sample <span class="op">=</span> np.array(r.normal_sample) <span class="co"># Converts it to numpy array</span></span>
-<span id="cb1761-3"><a href="r-and-python-visualization.html#cb1761-3"></a>sns.reset_orig()</span>
-<span id="cb1761-4"><a href="r-and-python-visualization.html#cb1761-4"></a>plt.clf()</span>
-<span id="cb1761-5"><a href="r-and-python-visualization.html#cb1761-5"></a>sm.qqplot(normal_sample, fit<span class="op">=</span><span class="va">True</span>, line<span class="op">=</span><span class="st">"45"</span>)</span>
-<span id="cb1761-6"><a href="r-and-python-visualization.html#cb1761-6"></a>plt.title(<span class="st">'Normal Q-Q Plot'</span>)</span>
-<span id="cb1761-7"><a href="r-and-python-visualization.html#cb1761-7"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1755"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="va">normal_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e3</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">normal_sample</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">normal_sample</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1756"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1756-1"><a href="r-and-python-visualization.html#cb1756-1"></a><span class="co"># Python code</span></span>
+<span id="cb1756-2"><a href="r-and-python-visualization.html#cb1756-2"></a>normal_sample <span class="op">=</span> np.array(r.normal_sample) <span class="co"># Converts it to numpy array</span></span>
+<span id="cb1756-3"><a href="r-and-python-visualization.html#cb1756-3"></a>sns.reset_orig()</span>
+<span id="cb1756-4"><a href="r-and-python-visualization.html#cb1756-4"></a>plt.clf()</span>
+<span id="cb1756-5"><a href="r-and-python-visualization.html#cb1756-5"></a>sm.qqplot(normal_sample, fit<span class="op">=</span><span class="va">True</span>, line<span class="op">=</span><span class="st">"45"</span>)</span>
+<span id="cb1756-6"><a href="r-and-python-visualization.html#cb1756-6"></a>plt.title(<span class="st">'Normal Q-Q Plot'</span>)</span>
+<span id="cb1756-7"><a href="r-and-python-visualization.html#cb1756-7"></a>plt.show()</span></code></pre></div>
 </div>
 <div id="bar-plots" class="section level3">
 <h3>
 <span class="header-section-number">129.1.4</span> Bar plots<a class="anchor" aria-label="anchor" href="#bar-plots"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1762"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"Titanic"</span><span class="op">)</span>
-<span class="va">titanic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">Titanic</span><span class="op">)</span>
-
-<span class="va">titanic</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Class</span>, y <span class="op">=</span> <span class="va">Freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">'Example of bar plot'</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="co"># Centers title</span></code></pre></div>
+<div class="sourceCode" id="cb1757"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"Titanic"</span><span class="op">)</span></span>
+<span><span class="va">titanic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">Titanic</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">titanic</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Class</span>, y <span class="op">=</span> <span class="va">Freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">'Example of bar plot'</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="co"># Centers title</span></span></code></pre></div>
 <p>For the Python plot, we have to summarize the data before because the R routine does it automatically.</p>
-<div class="sourceCode" id="cb1763"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1763-1"><a href="r-and-python-visualization.html#cb1763-1"></a><span class="co"># Python code</span></span>
-<span id="cb1763-2"><a href="r-and-python-visualization.html#cb1763-2"></a>titanic <span class="op">=</span> r.titanic</span>
-<span id="cb1763-3"><a href="r-and-python-visualization.html#cb1763-3"></a>titanic_sum <span class="op">=</span> titanic.groupby(<span class="st">'Class'</span>).<span class="bu">sum</span>().reset_index()</span>
-<span id="cb1763-4"><a href="r-and-python-visualization.html#cb1763-4"></a></span>
-<span id="cb1763-5"><a href="r-and-python-visualization.html#cb1763-5"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
-<span id="cb1763-6"><a href="r-and-python-visualization.html#cb1763-6"></a>plt.clf()</span>
-<span id="cb1763-7"><a href="r-and-python-visualization.html#cb1763-7"></a>sns.barplot(x<span class="op">=</span><span class="st">"Class"</span>, y<span class="op">=</span><span class="st">"Freq"</span>, data<span class="op">=</span>titanic_sum, ci<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb1763-8"><a href="r-and-python-visualization.html#cb1763-8"></a>plt.title(<span class="st">'Example of bar plot'</span>)</span>
-<span id="cb1763-9"><a href="r-and-python-visualization.html#cb1763-9"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1758"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1758-1"><a href="r-and-python-visualization.html#cb1758-1"></a><span class="co"># Python code</span></span>
+<span id="cb1758-2"><a href="r-and-python-visualization.html#cb1758-2"></a>titanic <span class="op">=</span> r.titanic</span>
+<span id="cb1758-3"><a href="r-and-python-visualization.html#cb1758-3"></a>titanic_sum <span class="op">=</span> titanic.groupby(<span class="st">'Class'</span>).<span class="bu">sum</span>().reset_index()</span>
+<span id="cb1758-4"><a href="r-and-python-visualization.html#cb1758-4"></a></span>
+<span id="cb1758-5"><a href="r-and-python-visualization.html#cb1758-5"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
+<span id="cb1758-6"><a href="r-and-python-visualization.html#cb1758-6"></a>plt.clf()</span>
+<span id="cb1758-7"><a href="r-and-python-visualization.html#cb1758-7"></a>sns.barplot(x<span class="op">=</span><span class="st">"Class"</span>, y<span class="op">=</span><span class="st">"Freq"</span>, data<span class="op">=</span>titanic_sum, ci<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb1758-8"><a href="r-and-python-visualization.html#cb1758-8"></a>plt.title(<span class="st">'Example of bar plot'</span>)</span>
+<span id="cb1758-9"><a href="r-and-python-visualization.html#cb1758-9"></a>plt.show()</span></code></pre></div>
 </div>
 <div id="cleveland-dot-plots-1" class="section level3">
 <h3>
 <span class="header-section-number">129.1.5</span> Cleveland dot plots<a class="anchor" aria-label="anchor" href="#cleveland-dot-plots-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1764"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">seattlepets</span>, package <span class="op">=</span> <span class="st">"openintro"</span><span class="op">)</span>
-<span class="va">seattlepets</span> <span class="op">&lt;-</span> <span class="va">seattlepets</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>species <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Dog"</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>freq <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/top_n.html">top_n</a></span><span class="op">(</span><span class="va">freq</span>, n<span class="op">=</span><span class="fl">20</span><span class="op">)</span> <span class="op"><a href="https://ggobi.github.io/ggally/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">seattlepets</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">freq</span>, y <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">animal_name</span>, <span class="va">freq</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"SteelBlue"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Count"</span>,
-       y <span class="op">=</span> <span class="st">"Name"</span>,
-       title<span class="op">=</span><span class="st">"Example of Cleveland dot plot"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-        panel.grid.minor.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1759"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">seattlepets</span>, package <span class="op">=</span> <span class="st">"openintro"</span><span class="op">)</span></span>
+<span><span class="va">seattlepets</span> <span class="op">&lt;-</span> <span class="va">seattlepets</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>species <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Dog"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">animal_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>freq <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/top_n.html">top_n</a></span><span class="op">(</span><span class="va">freq</span>, n<span class="op">=</span><span class="fl">20</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">seattlepets</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">freq</span>, y <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_reorder.html">fct_reorder</a></span><span class="op">(</span><span class="va">animal_name</span>, <span class="va">freq</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"SteelBlue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Count"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Name"</span>,</span>
+<span>       title<span class="op">=</span><span class="st">"Example of Cleveland dot plot"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>To my knowledge, there does not exist a package in the Python universe that generates the Cleveland dot plots just as <code>geom_point</code> does. Fortunately, we can modify the dataframe and use another function of the <code>seaborn</code> package to create the same plots.</p>
-<div class="sourceCode" id="cb1765"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1765-1"><a href="r-and-python-visualization.html#cb1765-1"></a><span class="co"># Python code</span></span>
-<span id="cb1765-2"><a href="r-and-python-visualization.html#cb1765-2"></a>seattlepets <span class="op">=</span> r.seattlepets</span>
-<span id="cb1765-3"><a href="r-and-python-visualization.html#cb1765-3"></a>seattlepets.sort_values(by<span class="op">=</span><span class="st">'freq'</span>, ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1765-4"><a href="r-and-python-visualization.html#cb1765-4"></a></span>
-<span id="cb1765-5"><a href="r-and-python-visualization.html#cb1765-5"></a>plt.clf()</span>
-<span id="cb1765-6"><a href="r-and-python-visualization.html#cb1765-6"></a>ax <span class="op">=</span> sns.catplot(x<span class="op">=</span><span class="st">"freq"</span>, y<span class="op">=</span><span class="st">"animal_name"</span>, data<span class="op">=</span>seattlepets, color<span class="op">=</span><span class="st">'b'</span>)</span>
-<span id="cb1765-7"><a href="r-and-python-visualization.html#cb1765-7"></a>plt.title(<span class="st">'Example of Cleveland dot plot'</span>)</span>
-<span id="cb1765-8"><a href="r-and-python-visualization.html#cb1765-8"></a>axes <span class="op">=</span> plt.gca()</span>
-<span id="cb1765-9"><a href="r-and-python-visualization.html#cb1765-9"></a>axes.yaxis.grid(<span class="va">True</span>)</span>
-<span id="cb1765-10"><a href="r-and-python-visualization.html#cb1765-10"></a>axes.xaxis.grid(<span class="va">False</span>)</span>
-<span id="cb1765-11"><a href="r-and-python-visualization.html#cb1765-11"></a>plt.tight_layout()</span>
-<span id="cb1765-12"><a href="r-and-python-visualization.html#cb1765-12"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1760"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1760-1"><a href="r-and-python-visualization.html#cb1760-1"></a><span class="co"># Python code</span></span>
+<span id="cb1760-2"><a href="r-and-python-visualization.html#cb1760-2"></a>seattlepets <span class="op">=</span> r.seattlepets</span>
+<span id="cb1760-3"><a href="r-and-python-visualization.html#cb1760-3"></a>seattlepets.sort_values(by<span class="op">=</span><span class="st">'freq'</span>, ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1760-4"><a href="r-and-python-visualization.html#cb1760-4"></a></span>
+<span id="cb1760-5"><a href="r-and-python-visualization.html#cb1760-5"></a>plt.clf()</span>
+<span id="cb1760-6"><a href="r-and-python-visualization.html#cb1760-6"></a>ax <span class="op">=</span> sns.catplot(x<span class="op">=</span><span class="st">"freq"</span>, y<span class="op">=</span><span class="st">"animal_name"</span>, data<span class="op">=</span>seattlepets, color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb1760-7"><a href="r-and-python-visualization.html#cb1760-7"></a>plt.title(<span class="st">'Example of Cleveland dot plot'</span>)</span>
+<span id="cb1760-8"><a href="r-and-python-visualization.html#cb1760-8"></a>axes <span class="op">=</span> plt.gca()</span>
+<span id="cb1760-9"><a href="r-and-python-visualization.html#cb1760-9"></a>axes.yaxis.grid(<span class="va">True</span>)</span>
+<span id="cb1760-10"><a href="r-and-python-visualization.html#cb1760-10"></a>axes.xaxis.grid(<span class="va">False</span>)</span>
+<span id="cb1760-11"><a href="r-and-python-visualization.html#cb1760-11"></a>plt.tight_layout()</span>
+<span id="cb1760-12"><a href="r-and-python-visualization.html#cb1760-12"></a>plt.show()</span></code></pre></div>
 </div>
 <div id="scatter-plot-3" class="section level3">
 <h3>
 <span class="header-section-number">129.1.6</span> Scatter plot<a class="anchor" aria-label="anchor" href="#scatter-plot-3"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1766"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"iris"</span><span class="op">)</span>
-
-<span class="va">scatter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>, y <span class="op">=</span> <span class="va">Sepal.Width</span><span class="op">)</span><span class="op">)</span> 
-<span class="va">scatter</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Sepal Length"</span><span class="op">)</span> <span class="op">+</span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Sepal Width"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb1767"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1767-1"><a href="r-and-python-visualization.html#cb1767-1"></a><span class="co"># Python code</span></span>
-<span id="cb1767-2"><a href="r-and-python-visualization.html#cb1767-2"></a>iris <span class="op">=</span> r.iris</span>
-<span id="cb1767-3"><a href="r-and-python-visualization.html#cb1767-3"></a></span>
-<span id="cb1767-4"><a href="r-and-python-visualization.html#cb1767-4"></a>plt.clf()</span>
-<span id="cb1767-5"><a href="r-and-python-visualization.html#cb1767-5"></a>sns.scatterplot(data<span class="op">=</span>iris, x<span class="op">=</span><span class="st">"Sepal.Length"</span>, y<span class="op">=</span><span class="st">"Sepal.Width"</span>, hue<span class="op">=</span><span class="st">"Species"</span>)</span>
-<span id="cb1767-6"><a href="r-and-python-visualization.html#cb1767-6"></a>plt.title(<span class="st">'Example of scatter plot'</span>)</span>
-<span id="cb1767-7"><a href="r-and-python-visualization.html#cb1767-7"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1761"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"iris"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">scatter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>, y <span class="op">=</span> <span class="va">Sepal.Width</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="va">scatter</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color<span class="op">=</span><span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Sepal Length"</span><span class="op">)</span> <span class="op">+</span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Sepal Width"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1762"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1762-1"><a href="r-and-python-visualization.html#cb1762-1"></a><span class="co"># Python code</span></span>
+<span id="cb1762-2"><a href="r-and-python-visualization.html#cb1762-2"></a>iris <span class="op">=</span> r.iris</span>
+<span id="cb1762-3"><a href="r-and-python-visualization.html#cb1762-3"></a></span>
+<span id="cb1762-4"><a href="r-and-python-visualization.html#cb1762-4"></a>plt.clf()</span>
+<span id="cb1762-5"><a href="r-and-python-visualization.html#cb1762-5"></a>sns.scatterplot(data<span class="op">=</span>iris, x<span class="op">=</span><span class="st">"Sepal.Length"</span>, y<span class="op">=</span><span class="st">"Sepal.Width"</span>, hue<span class="op">=</span><span class="st">"Species"</span>)</span>
+<span id="cb1762-6"><a href="r-and-python-visualization.html#cb1762-6"></a>plt.title(<span class="st">'Example of scatter plot'</span>)</span>
+<span id="cb1762-7"><a href="r-and-python-visualization.html#cb1762-7"></a>plt.show()</span></code></pre></div>
 <div id="scatter-plot-with-kernel-density-estimation" class="section level4">
 <h4>
 <span class="header-section-number">129.1.6.1</span> Scatter plot with kernel density estimation<a class="anchor" aria-label="anchor" href="#scatter-plot-with-kernel-density-estimation"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb1768"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"faithful"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">eruptions</span>, y <span class="op">=</span> <span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">geom_density_2d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">110</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot with contour lines"</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb1769"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1769-1"><a href="r-and-python-visualization.html#cb1769-1"></a><span class="co"># Python code</span></span>
-<span id="cb1769-2"><a href="r-and-python-visualization.html#cb1769-2"></a>faithful <span class="op">=</span> r.faithful</span>
-<span id="cb1769-3"><a href="r-and-python-visualization.html#cb1769-3"></a></span>
-<span id="cb1769-4"><a href="r-and-python-visualization.html#cb1769-4"></a>plt.clf()</span>
-<span id="cb1769-5"><a href="r-and-python-visualization.html#cb1769-5"></a>sns.kdeplot(data<span class="op">=</span>faithful, x<span class="op">=</span><span class="st">"eruptions"</span>, y<span class="op">=</span><span class="st">"waiting"</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb1769-6"><a href="r-and-python-visualization.html#cb1769-6"></a>plt.scatter(data<span class="op">=</span>faithful, x<span class="op">=</span><span class="st">"eruptions"</span>, y<span class="op">=</span><span class="st">"waiting"</span>)</span>
-<span id="cb1769-7"><a href="r-and-python-visualization.html#cb1769-7"></a>plt.title(<span class="st">'Example of scatter plot with contour lines'</span>)</span>
-<span id="cb1769-8"><a href="r-and-python-visualization.html#cb1769-8"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1763"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"faithful"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">eruptions</span>, y <span class="op">=</span> <span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density_2d.html">geom_density_2d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">110</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot with contour lines"</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1764"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1764-1"><a href="r-and-python-visualization.html#cb1764-1"></a><span class="co"># Python code</span></span>
+<span id="cb1764-2"><a href="r-and-python-visualization.html#cb1764-2"></a>faithful <span class="op">=</span> r.faithful</span>
+<span id="cb1764-3"><a href="r-and-python-visualization.html#cb1764-3"></a></span>
+<span id="cb1764-4"><a href="r-and-python-visualization.html#cb1764-4"></a>plt.clf()</span>
+<span id="cb1764-5"><a href="r-and-python-visualization.html#cb1764-5"></a>sns.kdeplot(data<span class="op">=</span>faithful, x<span class="op">=</span><span class="st">"eruptions"</span>, y<span class="op">=</span><span class="st">"waiting"</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb1764-6"><a href="r-and-python-visualization.html#cb1764-6"></a>plt.scatter(data<span class="op">=</span>faithful, x<span class="op">=</span><span class="st">"eruptions"</span>, y<span class="op">=</span><span class="st">"waiting"</span>)</span>
+<span id="cb1764-7"><a href="r-and-python-visualization.html#cb1764-7"></a>plt.title(<span class="st">'Example of scatter plot with contour lines'</span>)</span>
+<span id="cb1764-8"><a href="r-and-python-visualization.html#cb1764-8"></a>plt.show()</span></code></pre></div>
 </div>
 <div id="scatter-plot-with-hex-heatmap" class="section level4">
 <h4>
 <span class="header-section-number">129.1.6.2</span> Scatter plot with hex heatmap<a class="anchor" aria-label="anchor" href="#scatter-plot-with-hex-heatmap"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb1770"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"faithful"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">eruptions</span>, y <span class="op">=</span> <span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradientn</a></span><span class="op">(</span>colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">3</span>,<span class="st">"Blues"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot with hex heatmaps"</span><span class="op">)</span> <span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb1771"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1771-1"><a href="r-and-python-visualization.html#cb1771-1"></a><span class="co"># Python code</span></span>
-<span id="cb1771-2"><a href="r-and-python-visualization.html#cb1771-2"></a>sns.reset_orig()</span>
-<span id="cb1771-3"><a href="r-and-python-visualization.html#cb1771-3"></a>plt.clf()</span>
-<span id="cb1771-4"><a href="r-and-python-visualization.html#cb1771-4"></a>plt.hexbin(faithful[<span class="st">'eruptions'</span>], faithful[<span class="st">'waiting'</span>], gridsize<span class="op">=</span>(<span class="dv">25</span>,<span class="dv">25</span>), cmap<span class="op">=</span>plt.cm.Blues)</span>
-<span id="cb1771-5"><a href="r-and-python-visualization.html#cb1771-5"></a>plt.xlabel(<span class="st">'eruptions'</span>)</span>
-<span id="cb1771-6"><a href="r-and-python-visualization.html#cb1771-6"></a>plt.ylabel(<span class="st">'waiting'</span>)</span>
-<span id="cb1771-7"><a href="r-and-python-visualization.html#cb1771-7"></a>plt.title(<span class="st">'Example of scatter plot with hex heatmaps'</span>)</span>
-<span id="cb1771-8"><a href="r-and-python-visualization.html#cb1771-8"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1765"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"faithful"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">eruptions</span>, y <span class="op">=</span> <span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html">geom_hex</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradientn</a></span><span class="op">(</span>colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">3</span>,<span class="st">"Blues"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Example of scatter plot with hex heatmaps"</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1766"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1766-1"><a href="r-and-python-visualization.html#cb1766-1"></a><span class="co"># Python code</span></span>
+<span id="cb1766-2"><a href="r-and-python-visualization.html#cb1766-2"></a>sns.reset_orig()</span>
+<span id="cb1766-3"><a href="r-and-python-visualization.html#cb1766-3"></a>plt.clf()</span>
+<span id="cb1766-4"><a href="r-and-python-visualization.html#cb1766-4"></a>plt.hexbin(faithful[<span class="st">'eruptions'</span>], faithful[<span class="st">'waiting'</span>], gridsize<span class="op">=</span>(<span class="dv">25</span>,<span class="dv">25</span>), cmap<span class="op">=</span>plt.cm.Blues)</span>
+<span id="cb1766-5"><a href="r-and-python-visualization.html#cb1766-5"></a>plt.xlabel(<span class="st">'eruptions'</span>)</span>
+<span id="cb1766-6"><a href="r-and-python-visualization.html#cb1766-6"></a>plt.ylabel(<span class="st">'waiting'</span>)</span>
+<span id="cb1766-7"><a href="r-and-python-visualization.html#cb1766-7"></a>plt.title(<span class="st">'Example of scatter plot with hex heatmaps'</span>)</span>
+<span id="cb1766-8"><a href="r-and-python-visualization.html#cb1766-8"></a>plt.show()</span></code></pre></div>
 </div>
 </div>
 <div id="scatter-matrix" class="section level3">
 <h3>
 <span class="header-section-number">129.1.7</span> Scatter matrix<a class="anchor" aria-label="anchor" href="#scatter-matrix"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1772"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># R code</span>
-<span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb1773"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1773-1"><a href="r-and-python-visualization.html#cb1773-1"></a><span class="co"># Python code</span></span>
-<span id="cb1773-2"><a href="r-and-python-visualization.html#cb1773-2"></a>plt.clf()</span>
-<span id="cb1773-3"><a href="r-and-python-visualization.html#cb1773-3"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
-<span id="cb1773-4"><a href="r-and-python-visualization.html#cb1773-4"></a>g <span class="op">=</span> sns.PairGrid(iris, diag_sharey<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
-<span id="cb1773-5"><a href="r-and-python-visualization.html#cb1773-5"></a>g.map_lower(sns.scatterplot)<span class="op">;</span></span>
-<span id="cb1773-6"><a href="r-and-python-visualization.html#cb1773-6"></a>g.map_upper(sns.kdeplot)<span class="op">;</span></span>
-<span id="cb1773-7"><a href="r-and-python-visualization.html#cb1773-7"></a>g.map_diag(sns.kdeplot)<span class="op">;</span></span>
-<span id="cb1773-8"><a href="r-and-python-visualization.html#cb1773-8"></a>plt.tight_layout()</span>
-<span id="cb1773-9"><a href="r-and-python-visualization.html#cb1773-9"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1767"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R code</span></span>
+<span><span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1768"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1768-1"><a href="r-and-python-visualization.html#cb1768-1"></a><span class="co"># Python code</span></span>
+<span id="cb1768-2"><a href="r-and-python-visualization.html#cb1768-2"></a>plt.clf()</span>
+<span id="cb1768-3"><a href="r-and-python-visualization.html#cb1768-3"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
+<span id="cb1768-4"><a href="r-and-python-visualization.html#cb1768-4"></a>g <span class="op">=</span> sns.PairGrid(iris, diag_sharey<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
+<span id="cb1768-5"><a href="r-and-python-visualization.html#cb1768-5"></a>g.map_lower(sns.scatterplot)<span class="op">;</span></span>
+<span id="cb1768-6"><a href="r-and-python-visualization.html#cb1768-6"></a>g.map_upper(sns.kdeplot)<span class="op">;</span></span>
+<span id="cb1768-7"><a href="r-and-python-visualization.html#cb1768-7"></a>g.map_diag(sns.kdeplot)<span class="op">;</span></span>
+<span id="cb1768-8"><a href="r-and-python-visualization.html#cb1768-8"></a>plt.tight_layout()</span>
+<span id="cb1768-9"><a href="r-and-python-visualization.html#cb1768-9"></a>plt.show()</span></code></pre></div>
 </div>
 <div id="heatmaps-1" class="section level3">
 <h3>
 <span class="header-section-number">129.1.8</span> Heatmaps<a class="anchor" aria-label="anchor" href="#heatmaps-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1774"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/heatmap.html">heatmap</a></span><span class="op">(</span><span class="va">data</span>, Colv <span class="op">=</span> <span class="cn">NA</span>, Rowv <span class="op">=</span> <span class="cn">NA</span>, scale<span class="op">=</span><span class="st">"column"</span>,
-        col<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">10</span>, <span class="st">"Blues"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1769"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/heatmap.html">heatmap</a></span><span class="op">(</span><span class="va">data</span>, Colv <span class="op">=</span> <span class="cn">NA</span>, Rowv <span class="op">=</span> <span class="cn">NA</span>, scale<span class="op">=</span><span class="st">"column"</span>,</span>
+<span>        col<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">10</span>, <span class="st">"Blues"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">(</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The Python function does not include an option to appropriately re-scale the data. Therefore, we are forced to make the changes directly in the dataframe. Additionally, I chose similar colormaps, but not identical, something that is clear from the different coloring of the maps. We can also observe that the Python routine inverted the labels in the y-axis.</p>
-<div class="sourceCode" id="cb1775"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1775-1"><a href="r-and-python-visualization.html#cb1775-1"></a>plt.clf()</span>
-<span id="cb1775-2"><a href="r-and-python-visualization.html#cb1775-2"></a>mtcars_norm <span class="op">=</span> (mtcars <span class="op">-</span> mtcars.<span class="bu">min</span>())<span class="op">/</span>(mtcars.<span class="bu">max</span>() <span class="op">-</span> mtcars.<span class="bu">min</span>())</span>
-<span id="cb1775-3"><a href="r-and-python-visualization.html#cb1775-3"></a>sns.heatmap(mtcars_norm, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
-<span id="cb1775-4"><a href="r-and-python-visualization.html#cb1775-4"></a>plt.tight_layout()</span>
-<span id="cb1775-5"><a href="r-and-python-visualization.html#cb1775-5"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1770"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1770-1"><a href="r-and-python-visualization.html#cb1770-1"></a>plt.clf()</span>
+<span id="cb1770-2"><a href="r-and-python-visualization.html#cb1770-2"></a>mtcars_norm <span class="op">=</span> (mtcars <span class="op">-</span> mtcars.<span class="bu">min</span>())<span class="op">/</span>(mtcars.<span class="bu">max</span>() <span class="op">-</span> mtcars.<span class="bu">min</span>())</span>
+<span id="cb1770-3"><a href="r-and-python-visualization.html#cb1770-3"></a>sns.heatmap(mtcars_norm, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
+<span id="cb1770-4"><a href="r-and-python-visualization.html#cb1770-4"></a>plt.tight_layout()</span>
+<span id="cb1770-5"><a href="r-and-python-visualization.html#cb1770-5"></a>plt.show()</span></code></pre></div>
 </div>
 </div>
 <div id="final-thoughts" class="section level2">
@@ -506,7 +509,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -519,7 +522,7 @@
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

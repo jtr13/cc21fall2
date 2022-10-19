@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 60 Neural network tools in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content='Yuan Wang #install.packages("NeuralNetTools") #install.packages("nnet") #install.packages("RSNNS") #install.packages("neuralnet") library("NeuralNetTools") library("RSNNS") library("nnet")...'>
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 60 Neural network tools in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content='Yuan Wang #install.packages("NeuralNetTools") #install.packages("nnet") #install.packages("RSNNS") #install.packages("neuralnet") library("NeuralNetTools") library("RSNNS") library("nnet")...'>
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content='Yuan Wang #install.packages("NeuralNetTools") #install.packages("nnet") #install.packages("RSNNS") #install.packages("neuralnet") library("NeuralNetTools") library("RSNNS") library("nnet")...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -202,15 +205,15 @@
 </h1>
 <p>Yuan Wang</p>
 <div class="sourceCode" id="cb760"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#install.packages("NeuralNetTools")</span>
-<span class="co">#install.packages("nnet")</span>
-<span class="co">#install.packages("RSNNS")</span>
-<span class="co">#install.packages("neuralnet")</span>
-
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"NeuralNetTools"</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/cbergmeir/RSNNS">"RSNNS"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">"nnet"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/bips-hb/neuralnet">"neuralnet"</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#install.packages("NeuralNetTools")</span></span>
+<span><span class="co">#install.packages("nnet")</span></span>
+<span><span class="co">#install.packages("RSNNS")</span></span>
+<span><span class="co">#install.packages("neuralnet")</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"NeuralNetTools"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/cbergmeir/RSNNS">"RSNNS"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">"nnet"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/bips-hb/neuralnet">"neuralnet"</a></span><span class="op">)</span></span></code></pre></div>
 <div id="introduction-9" class="section level2">
 <h2>
 <span class="header-section-number">60.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-9"><i class="fas fa-link"></i></a>
@@ -350,16 +353,16 @@ columns of two response variables (Y1 and Y2)</p>
 <p>(Note: if package loading Rcpp error occurs, try update.packages() to
 update packages in your r environment)</p>
 <div class="sourceCode" id="cb761"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
-
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="va">neuraldat</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X1"</span>, <span class="st">"X2"</span>, <span class="st">"X3"</span><span class="op">)</span><span class="op">]</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="va">neuraldat</span><span class="op">[</span>, <span class="st">"Y1"</span><span class="op">]</span>
-
-<span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/mlp.html">mlp</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-
-<span class="va">mod2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/neuralnet/man/neuralnet.html">neuralnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, hidden <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-
-<span class="va">mod3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">neuraldat</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X1"</span>, <span class="st">"X2"</span>, <span class="st">"X3"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">neuraldat</span><span class="op">[</span>, <span class="st">"Y1"</span><span class="op">]</span></span>
+<span></span>
+<span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/mlp.html">mlp</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mod2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/neuralnet/man/neuralnet.html">neuralnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, hidden <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mod3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # weights:  26
 ## initial  value 102.608189 
 ## iter  10 value 0.420687
@@ -376,13 +379,13 @@ update packages in your r environment)</p>
 ## stopped after 100 iterations</code></pre>
 <p>We can then plot NIDs of the models above using plotnet:</p>
 <div class="sourceCode" id="cb763"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb764"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-4-2.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb765"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-4-3.png" width="672" style="display: block; margin: auto;"></div>
 <p>Notice that if you run the models several time, each run will give you a
 different result and thus a different NID plot. The difference is in the
@@ -403,7 +406,7 @@ it stops.</p>
 <p>2. it reaches the maximum number of iterations allowed.</p>
 <p>We can customize the two by specifying tolerance and maxit in nnet().</p>
 <div class="sourceCode" id="cb766"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, size <span class="op">=</span> <span class="fl">5</span>, maxit<span class="op">=</span><span class="fl">200</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, size <span class="op">=</span> <span class="fl">5</span>, maxit<span class="op">=</span><span class="fl">200</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # weights:  26
 ## initial  value 74.693524 
 ## iter  10 value 0.458543
@@ -429,7 +432,7 @@ it stops.</p>
 ## final  value 0.001654 
 ## stopped after 200 iterations</code></pre>
 <div class="sourceCode" id="cb768"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, size <span class="op">=</span> <span class="fl">5</span>, maxit<span class="op">=</span><span class="fl">300</span>, abstol<span class="op">=</span><span class="fl">0.01</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, size <span class="op">=</span> <span class="fl">5</span>, maxit<span class="op">=</span><span class="fl">300</span>, abstol<span class="op">=</span><span class="fl">0.01</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # weights:  26
 ## initial  value 95.238709 
 ## iter  10 value 0.639464
@@ -481,9 +484,9 @@ hidden layer.</li>
 1st layer has 5 units and the 2nd layer has 6 units.</li>
 </ul>
 <div class="sourceCode" id="cb770"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/mlp.html">mlp</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span>
-<span class="co"># visualize the model using plotnet</span>
-<span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod6</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/mlp.html">mlp</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># visualize the model using plotnet</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod6</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
 </li>
 </ul>
@@ -503,9 +506,9 @@ between layers</li>
 <p>Using neuralnet for multilayer:</p>
 <p>Ex. three hidden layers with 3 units, 5 units and 7 units respectively.</p>
 <div class="sourceCode" id="cb771"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/neuralnet/man/neuralnet.html">neuralnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, hidden <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span>
-<span class="co"># visualize the model using plotnet</span>
-<span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod7</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mod7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/neuralnet/man/neuralnet.html">neuralnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, hidden <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># visualize the model using plotnet</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod7</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
 <ol start="3" style="list-style-type: decimal">
 <li>“nnet(x, …)”</li>
@@ -679,8 +682,8 @@ it reduces the number of estimations of wieghts.</li>
 </ul>
 <p>Code:</p>
 <div class="sourceCode" id="cb772"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># skip</span>
-<span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># skip</span></span>
+<span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/nnet/man/nnet.html">nnet</a></span><span class="op">(</span><span class="va">Y1</span> <span class="op">~</span> <span class="va">X1</span> <span class="op">+</span> <span class="va">X2</span> <span class="op">+</span> <span class="va">X3</span>, data <span class="op">=</span> <span class="va">neuraldat</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # weights:  26
 ## initial  value 37.536429 
 ## iter  10 value 3.473930
@@ -696,26 +699,26 @@ it reduces the number of estimations of wieghts.</li>
 ## final  value 0.006579 
 ## stopped after 100 iterations</code></pre>
 <div class="sourceCode" id="cb774"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod1</span>, skip <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod1</span>, skip <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb775"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># prune</span>
-<span class="co"># pruned model using code from RSSNS pruning demo</span>
-<span class="va">pruneFuncParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>max_pr_error_increase <span class="op">=</span> <span class="fl">10.0</span>,
-                        pr_accepted_error <span class="op">=</span> <span class="fl">1.0</span>,
-                        no_of_pr_retrain_cycles <span class="op">=</span> <span class="fl">1000</span>,
-                        min_error_to_stop <span class="op">=</span> <span class="fl">0.01</span>, 
-                        init_matrix_value <span class="op">=</span> <span class="fl">1e-6</span>,
-                        input_pruning <span class="op">=</span> <span class="cn">TRUE</span>, 
-                        hidden_pruning <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/mlp.html">mlp</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, size <span class="op">=</span> <span class="fl">5</span>, pruneFunc <span class="op">=</span> <span class="st">"OptimalBrainSurgeon"</span>,
-           pruneFuncParams <span class="op">=</span> <span class="va">pruneFuncParams</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod</span>, rel_rsc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># prune</span></span>
+<span><span class="co"># pruned model using code from RSSNS pruning demo</span></span>
+<span><span class="va">pruneFuncParams</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>max_pr_error_increase <span class="op">=</span> <span class="fl">10.0</span>,</span>
+<span>                        pr_accepted_error <span class="op">=</span> <span class="fl">1.0</span>,</span>
+<span>                        no_of_pr_retrain_cycles <span class="op">=</span> <span class="fl">1000</span>,</span>
+<span>                        min_error_to_stop <span class="op">=</span> <span class="fl">0.01</span>, </span>
+<span>                        init_matrix_value <span class="op">=</span> <span class="fl">1e-6</span>,</span>
+<span>                        input_pruning <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                        hidden_pruning <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RSNNS/man/mlp.html">mlp</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, size <span class="op">=</span> <span class="fl">5</span>, pruneFunc <span class="op">=</span> <span class="st">"OptimalBrainSurgeon"</span>,</span>
+<span>           pruneFuncParams <span class="op">=</span> <span class="va">pruneFuncParams</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod</span>, rel_rsc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-8-2.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb776"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod</span>, prune_col <span class="op">=</span> <span class="st">"lightblue"</span>, rel_rsc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/plotnet.html">plotnet</a></span><span class="op">(</span><span class="va">mod</span>, prune_col <span class="op">=</span> <span class="st">"lightblue"</span>, rel_rsc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-8-3.png" width="672" style="display: block; margin: auto;"></div>
 <p>RSNNSs provides several prune functions, including MagPruning,
 OptimalBrainSurgeon, OptimalBrainDamage, Noncontributing_Units, and
@@ -814,22 +817,22 @@ connections of an node is maintained.</li>
 </li>
 </ol>
 <div class="sourceCode" id="cb777"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/garson.html">garson</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/garson.html">garson</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb778"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/garson.html">garson</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/garson.html">garson</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-9-2.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb779"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/garson.html">garson</a></span><span class="op">(</span><span class="va">mod5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/garson.html">garson</a></span><span class="op">(</span><span class="va">mod5</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-9-3.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb780"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/olden.html">olden</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/olden.html">olden</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-9-4.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb781"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/olden.html">olden</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/olden.html">olden</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-9-5.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb782"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/olden.html">olden</a></span><span class="op">(</span><span class="va">mod5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/olden.html">olden</a></span><span class="op">(</span><span class="va">mod5</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-9-6.png" width="672" style="display: block; margin: auto;"></div>
 <p>These bar chars of the importance of each input variable provides a
 straightforward visual presentation of <strong>how influential each variable
@@ -880,16 +883,16 @@ variables is returned instead.</td>
 </tbody>
 </table></div>
 <div class="sourceCode" id="cb783"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/lekprofile.html">lekprofile</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/lekprofile.html">lekprofile</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb784"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/lekprofile.html">lekprofile</a></span><span class="op">(</span><span class="va">mod3</span>, group_show <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/lekprofile.html">lekprofile</a></span><span class="op">(</span><span class="va">mod3</span>, group_show <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb785"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/lekprofile.html">lekprofile</a></span><span class="op">(</span><span class="va">mod3</span>, group_vals <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/lekprofile.html">lekprofile</a></span><span class="op">(</span><span class="va">mod3</span>, group_vals <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-10-3.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb786"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/lekprofile.html">lekprofile</a></span><span class="op">(</span><span class="va">mod3</span>, group_vals <span class="op">=</span> <span class="fl">6</span>, group_show <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/NeuralNetTools/man/lekprofile.html">lekprofile</a></span><span class="op">(</span><span class="va">mod3</span>, group_vals <span class="op">=</span> <span class="fl">6</span>, group_show <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="neuralnet_r_tutorial_files/figure-html/unnamed-chunk-10-4.png" width="672" style="display: block; margin: auto;"></div>
 <p>These plots show the influence of varying each input variable at
 different quantiles to the value of response outputs, while holding
@@ -1001,7 +1004,7 @@ group in Lek Profile method.</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -1014,7 +1017,7 @@ group in Lek Profile method.</p></li>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

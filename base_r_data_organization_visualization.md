@@ -267,20 +267,20 @@ df
 
 ```
 ## # A tibble: 35,181 × 7
-##    license_issue_date license_number animal_name species primary_breed          
-##    <date>             <chr>          <chr>       <chr>   <chr>                  
-##  1 2018-11-16         8002756        Wall-E      Dog     Mixed Breed, Medium (u…
-##  2 2018-11-11         S124529        Andre       Dog     Terrier, Jack Russell  
-##  3 2018-11-21         903793         Mac         Dog     Retriever, Labrador    
-##  4 2018-12-16         S138529        Cody        Dog     Retriever, Labrador    
-##  5 2017-10-04         580652         Millie      Dog     Terrier, Boston        
-##  6 2018-12-23         961052         Sabre       Dog     Terrier                
-##  7 2018-12-07         S125461        Thomas      Dog     Chihuahua, Short Coat  
-##  8 2018-11-07         8002543        Lulu        Dog     Vizsla, Smooth Haired  
-##  9 2018-12-15         S138838        Milo        Dog     Boxer                  
-## 10 2018-11-27         S123980        Anubis      Dog     Poodle, Standard       
-## # … with 35,171 more rows, and 2 more variables: secondary_breed <chr>,
-## #   zip_code <chr>
+##    license_issue_date license_number animal_name species prima…¹ secon…² zip_c…³
+##    <date>             <chr>          <chr>       <chr>   <chr>   <chr>   <chr>  
+##  1 2018-11-16         8002756        Wall-E      Dog     Mixed … Mix     98108  
+##  2 2018-11-11         S124529        Andre       Dog     Terrie… Dachsh… 98117  
+##  3 2018-11-21         903793         Mac         Dog     Retrie… <NA>    98136  
+##  4 2018-12-16         S138529        Cody        Dog     Retrie… <NA>    98103  
+##  5 2017-10-04         580652         Millie      Dog     Terrie… <NA>    98115  
+##  6 2018-12-23         961052         Sabre       Dog     Terrier <NA>    98126  
+##  7 2018-12-07         S125461        Thomas      Dog     Chihua… Mix     98177  
+##  8 2018-11-07         8002543        Lulu        Dog     Vizsla… Mix     98105  
+##  9 2018-12-15         S138838        Milo        Dog     Boxer   Retrie… 98109  
+## 10 2018-11-27         S123980        Anubis      Dog     Poodle… <NA>    98112  
+## # … with 35,171 more rows, and abbreviated variable names ¹​primary_breed,
+## #   ²​secondary_breed, ³​zip_code
 ```
 ### group_by()
 group_by()function allow us to group the data by some variables.
@@ -293,23 +293,24 @@ df %>% filter(Year == 2020) %>% group_by(County, Region)
 ```
 
 ```
-## # A tibble: 624 × 15
+## # A tibble: 628 × 15
 ## # Groups:   County, Region [62]
-##    County Agency     Year Months.Reported Index.Total Violent.Total Murder  Rape
-##    <chr>  <chr>     <int>           <int>       <int>         <int>  <int> <int>
-##  1 Albany Albany C…  2020              12        3547           875     18    61
-##  2 Albany Albany C…  2020              12           2             0      0     0
-##  3 Albany Albany C…  2020              12         127            12      0     4
-##  4 Albany Albany C…  2020              12         103            26      0    18
-##  5 Albany Altamont…  2020              12           6             2      0     0
-##  6 Albany Bethlehe…  2020              12         407            25      1     7
-##  7 Albany Coeymans…  2020              12          49             8      0     0
-##  8 Albany Cohoes C…  2020              12         134            23      0     3
-##  9 Albany Colonie …  2020              12        1936            83      0     4
-## 10 Albany County T…  2020              NA        7412          1115     19   109
-## # … with 614 more rows, and 7 more variables: Robbery <int>,
-## #   Aggravated.Assault <int>, Property.Total <int>, Burglary <int>,
-## #   Larceny <int>, Motor.Vehicle.Theft <int>, Region <chr>
+##    County Agency       Year Month…¹ Index…² Viole…³ Murder  Rape Robbery Aggra…⁴
+##    <chr>  <chr>       <int>   <int>   <int>   <int>  <int> <int>   <int>   <int>
+##  1 Albany Albany Cit…  2020      12    3571     881     18    61     166     636
+##  2 Albany Albany Cou…  2020      12       2       0      0     0       0       0
+##  3 Albany Albany Cou…  2020      12     131      13      0     4       0       9
+##  4 Albany Albany Cou…  2020      12     103      26      0    18       2       6
+##  5 Albany Altamont V…  2020      12       6       2      0     0       0       2
+##  6 Albany Bethlehem …  2020      12     407      25      1     7       3      14
+##  7 Albany Coeymans T…  2020      12      49       8      0     0       1       7
+##  8 Albany Cohoes Cit…  2020      12     138      26      0     3       4      19
+##  9 Albany Colonie To…  2020      12    1936      83      0     4      28      51
+## 10 Albany County Tot…  2020      NA    7450    1127     19   109     215     784
+## # … with 618 more rows, 5 more variables: Property.Total <int>, Burglary <int>,
+## #   Larceny <int>, Motor.Vehicle.Theft <int>, Region <chr>, and abbreviated
+## #   variable names ¹​Months.Reported, ²​Index.Total, ³​Violent.Total,
+## #   ⁴​Aggravated.Assault
 ```
 ### summarise()
 We can use summarise() to measure some value for a certain group. For example, in data set ames from openintro, we want to know the average price and area for each Neighborhood, we can do this:
@@ -354,18 +355,18 @@ df2020 %>%
 
 ```
 ## # A tibble: 62 × 8
-##    County      Murder_sum Rape_sum Robbery_sum Aggravated.Assault_… Burglary_sum
-##    <chr>            <int>    <int>       <int>                <int>        <int>
-##  1 Albany              38      218         426                 1548         1416
-##  2 Allegany             6       76           6                   58          172
-##  3 Bronx              111      523        3519                 8976         2230
-##  4 Broome              10      252         156                  902         1336
-##  5 Cattaraugus          2       74          12                  162          274
-##  6 Cayuga               4      126          32                  236          290
-##  7 Chautauqua           2      164          66                  552         1080
-##  8 Chemung              4       64          56                  220          262
-##  9 Chenango             2      104          14                  106          292
-## 10 Clinton              2      118           6                  130          246
-## # … with 52 more rows, and 2 more variables: Larceny_sum <int>,
-## #   Motor.Vehicle.Theft_sum <int>
+##    County      Murder_sum Rape_sum Robbery_sum Aggrava…¹ Burgl…² Larce…³ Motor…⁴
+##    <chr>            <int>    <int>       <int>     <int>   <int>   <int>   <int>
+##  1 Albany              38      218         430      1568    1446   10338     862
+##  2 Allegany             6       76           6        58     172     430      56
+##  3 Bronx              111      523        3519      8976    2230   18728    2130
+##  4 Broome              10      252         156       902    1338    7268     434
+##  5 Cattaraugus          2       76          12       162     274    1112     112
+##  6 Cayuga               4      136          36       250     334    1706     124
+##  7 Chautauqua           2      166          72       556    1084    3838     154
+##  8 Chemung              4       64          56       220     262    2266     134
+##  9 Chenango             2      104          14       106     292    1002      50
+## 10 Clinton              2      118           6       132     246    1724      52
+## # … with 52 more rows, and abbreviated variable names ¹​Aggravated.Assault_sum,
+## #   ²​Burglary_sum, ³​Larceny_sum, ⁴​Motor.Vehicle.Theft_sum
 ```

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 78 Debugging in Rstudio | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Tianxiang Li  78.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 78 Debugging in Rstudio | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Tianxiang Li  78.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Tianxiang Li  78.1 Introduction In the first assignment we were asked to find out how hist() in baseR determines the number of bins. Many students including me got confused because the return of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -206,11 +209,11 @@
 <span class="header-section-number">78.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-14"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the first assignment we were asked to find out how <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> in baseR determines the number of bins. Many students including me got confused because the return of the function is not the same as described in its documentation. I’d like to share how I solved the problem.</p>
-<p>The tutorial mainly consists of three parts: how to use <code>help()</code>, how to find the source code of a function using <code><a href="https://rdrr.io/r/utils/methods.html">methods()</a></code>, and how to debug in RStudio. Hopefully this can help other people like me when they encounter similar problems in the future.</p>
+<p>The tutorial mainly consists of three parts: how to use <code><a href="https://rdrr.io/r/utils/help.html">help()</a></code>, how to find the source code of a function using <code><a href="https://rdrr.io/r/utils/methods.html">methods()</a></code>, and how to debug in RStudio. Hopefully this can help other people like me when they encounter similar problems in the future.</p>
 <div class="sourceCode" id="cb995"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://openintrostat.github.io/openintro/">'openintro'</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">'tidyverse'</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://openintrostat.github.io/openintro/">'openintro'</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">'tidyverse'</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="first-choice-help" class="section level2">
 <h2>
@@ -220,9 +223,9 @@
 <h3>
 <span class="header-section-number">78.2.1</span> how to use help()<a class="anchor" aria-label="anchor" href="#how-to-use-help"><i class="fas fa-link"></i></a>
 </h3>
-<p>When you want to find out how a new function works, trying <code>help()</code> is always the first step. It will returns the official documentation of the function. Usually a detailed documentation will answer most of your questions. Take <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> for example:</p>
+<p>When you want to find out how a new function works, trying <code><a href="https://rdrr.io/r/utils/help.html">help()</a></code> is always the first step. It will returns the official documentation of the function. Usually a detailed documentation will answer most of your questions. Take <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> for example:</p>
 <div class="sourceCode" id="cb996"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">hist</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">hist</span><span class="op">)</span></span></code></pre></div>
 <p>This will show you the documentation of <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function. Here is a summarization:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/1.png" width="60%" style="display: block; margin: auto;"></div>
 <p><strong>Note</strong>: The input of help() should be the name of the function, so you should use <code><a href="https://rdrr.io/r/graphics/hist.html">help(hist)</a></code> instead of <code>help(hist())</code>.</p>
@@ -234,8 +237,8 @@
 </h3>
 <p>The R documentation typically consists of several parts: <em>Description</em>, <em>Usage</em>, <em>Arguments</em>, <em>Details</em>, <em>Value</em>, <em>Examples</em> and so on. In <em>Usage</em> you can find the arguments and their default values. In <em>Arguments</em> there are explanations of these arguments. <em>Value</em> is the return value of the function. For example, <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> returns an object that has 6 attributes:</p>
 <div class="sourceCode" id="cb997"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span>, plot<span class="op">=</span><span class="cn">F</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span>, plot<span class="op">=</span><span class="cn">F</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## List of 6
 ##  $ breaks  : num [1:10] 1.7 1.8 1.9 2 2.1 2.2 2.3 2.4 2.5 2.6
 ##  $ counts  : int [1:9] 2 4 7 6 6 4 2 2 2
@@ -253,7 +256,7 @@
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/2.png" width="60%" style="display: block; margin: auto;"></div>
 <p>With this description, we still do not understand how it works: how to use the result of <em>Sturges’ algorithm</em> as a suggestion to <code><a href="https://rdrr.io/r/base/pretty.html">pretty()</a></code>. If we use <code><a href="https://rdrr.io/r/base/pretty.html">pretty()</a></code> directly, the results are clearly not the same as the results of <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code>:</p>
 <div class="sourceCode" id="cb999"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1.6 1.8 2.0 2.2 2.4 2.6</code></pre>
 <p>To totally understand how a function works, the best way is to read</p>
 </div>
@@ -267,14 +270,14 @@
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/3.png" width="60%" style="display: block; margin: auto;"></div>
 <p>Unfortunately, when you try it on <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code>, this happens:</p>
 <div class="sourceCode" id="cb1001"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">hist</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">hist</span></span></code></pre></div>
 <pre><code>## function (x, ...) 
 ## UseMethod("hist")
-## &lt;bytecode: 0x561bb6b54b28&gt;
+## &lt;bytecode: 0x5577d8d72ed0&gt;
 ## &lt;environment: namespace:graphics&gt;</code></pre>
 <p>This is because that it is a generic function (more specifically, it’s a S3 generic function). We can use <code><a href="https://rdrr.io/r/utils/methods.html">methods()</a></code>, it will list all available methods for a S3 or S4 generic function:</p>
 <div class="sourceCode" id="cb1003"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">hist</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html">methods</a></span><span class="op">(</span><span class="va">hist</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] hist.Date*   hist.default hist.POSIXt*
 ## see '?methods' for accessing help and source code</code></pre>
 <p><code>hist.default</code> is what we are looking for. Now we successfully get the source code of <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code>.</p>
@@ -318,12 +321,12 @@
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/9.png" width="80%" style="display: block; margin: auto;"></div>
 <p>We can clearly see that the value of variable <code>breaks</code> is “Sturges” and the code goes into <code>if</code> instead of <code>else if</code>. And we can see that in the next two steps this will happen:</p>
 <div class="sourceCode" id="cb1005"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/nclass.html">nclass.Sturges</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/nclass.html">nclass.Sturges</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
 <p>Now we get this:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/10.png" width="80%" style="display: block; margin: auto;"></div>
 <p>The value of <code>breaks</code> is 7 and in the next step it will execute</p>
 <div class="sourceCode" id="cb1006"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">7</span>, min.n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">7</span>, min.n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p>Finally we get the result of <code>breaks</code>:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/11.png" width="80%" style="display: block; margin: auto;"></div>
 </div>
@@ -333,8 +336,8 @@
 </h3>
 <p>After we debug the script, we can understand how <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> determines breaks:</p>
 <div class="sourceCode" id="cb1007"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span>, n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/nclass.html">nclass.Sturges</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span>, min.n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="va">breaks</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span>, n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/nclass.html">nclass.Sturges</a></span><span class="op">(</span><span class="va">mtl</span><span class="op">$</span><span class="va">asubic</span><span class="op">)</span>, min.n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">breaks</span></span></code></pre></div>
 <pre><code>##  [1] 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6</code></pre>
 <p>Now you may want know how <code><a href="https://rdrr.io/r/base/pretty.html">pretty()</a></code> works. Using debugging tools introduced above, you will find this:</p>
 <div class="inline-figure"><img src="resources/debugging_in_rstudio/12.png" width="80%" style="display: block; margin: auto;"></div>
@@ -384,7 +387,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -397,7 +400,7 @@
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

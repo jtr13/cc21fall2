@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 121 Integrate R with Python | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Weiwei Jiang  121.1 Introduction Python and R are important tools in Data Science. Sometimes you may be more familiar with a problem solution in one tool rather than the other. Sometimes you may...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 121 Integrate R with Python | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Weiwei Jiang  121.1 Introduction Python and R are important tools in Data Science. Sometimes you may be more familiar with a problem solution in one tool rather than the other. Sometimes you may...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Weiwei Jiang  121.1 Introduction Python and R are important tools in Data Science. Sometimes you may be more familiar with a problem solution in one tool rather than the other. Sometimes you may...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -217,9 +220,9 @@
 <span class="header-section-number">121.2.1</span> Installation<a class="anchor" aria-label="anchor" href="#installation-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>“reticualte” is included in CRAN, so you can simply install and use the package as follows.</p>
-<div class="sourceCode" id="cb1661"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#install.packages("reticulate")</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/reticulate">reticulate</a></span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1656"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#install.packages("reticulate")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/">reticulate</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="python-version" class="section level3">
 <h3>
@@ -230,42 +233,42 @@
 <p>There are three function in <em>reticulate</em> to help you to change python versions.</p>
 <ol style="list-style-type: decimal">
 <li>
-<code><a href="https://rdrr.io/pkg/reticulate/man/use_python.html">use_python()</a></code> : specify the path of certain version of <em>Python</em>
+<code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_python()</a></code> : specify the path of certain version of <em>Python</em>
 </li>
 <li>
-<code><a href="https://rdrr.io/pkg/reticulate/man/use_python.html">use_virtualenv()</a></code>: specify the direction containing a <em>Python</em> virtualenv.</li>
+<code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_virtualenv()</a></code>: specify the direction containing a <em>Python</em> virtualenv.</li>
 <li>
-<code><a href="https://rdrr.io/pkg/reticulate/man/use_python.html">use_condaenv()</a></code> specify the name of a Conda Env.</li>
+<code><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_condaenv()</a></code> specify the name of a Conda Env.</li>
 </ol>
 <p>Example:</p>
-<div class="sourceCode" id="cb1662"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/use_python.html">use_python</a></span><span class="op">(</span> <span class="st">"~/anaconda3/bin/python"</span><span class="op">)</span></code></pre></div>
-<p>There also exists a function called <code><a href="https://rdrr.io/pkg/reticulate/man/py_config.html">py_config()</a></code> to show the current <em>Python</em> version and other <em>Python</em> version discovered from this system.</p>
-<div class="sourceCode" id="cb1663"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_config.html">py_config</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1657"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/use_python.html">use_python</a></span><span class="op">(</span> <span class="st">"~/anaconda3/bin/python"</span><span class="op">)</span></span></code></pre></div>
+<p>There also exists a function called <code><a href="https://rstudio.github.io/reticulate/reference/py_config.html">py_config()</a></code> to show the current <em>Python</em> version and other <em>Python</em> version discovered from this system.</p>
+<div class="sourceCode" id="cb1658"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_config.html">py_config</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="data-transformation-between-r-and-python" class="section level3">
 <h3>
 <span class="header-section-number">121.2.3</span> Data Transformation Between R and Python<a class="anchor" aria-label="anchor" href="#data-transformation-between-r-and-python"><i class="fas fa-link"></i></a>
 </h3>
 <p>One important thing you need to bear in mind is the data type consistence when you calling another programming language in current programming environment. Luckily, the <em>reticluate</em> package automatically convert the python data types to their equivalent R data types when you calling <em>Python</em> in <em>R</em>. You can convert Between <em>Python</em> and <em>R</em> data by calling <code>py_to_r</code> or <code>r_to_py</code>. Here is a simple example.</p>
-<div class="sourceCode" id="cb1664"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/reticulate">reticulate</a></span><span class="op">)</span>
-<span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span>, convert<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
-<span class="va">pd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/import.html">import</a></span><span class="op">(</span><span class="st">"pandas"</span>,convert <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">np</span><span class="op">$</span><span class="fu">arange</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">$</span><span class="fu">reshape</span><span class="op">(</span><span class="fl">2L</span>, <span class="fl">2L</span><span class="op">)</span><span class="op">)</span>
-
-<span class="op">(</span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/r-py-conversion.html">py_to_r</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>
-
-<span class="op">(</span><span class="va">UCB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">UCBAdmissions</span><span class="op">)</span><span class="op">)</span>
-<span class="va">UCB_py</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="va">UCB</span><span class="op">)</span>
-<span class="op">(</span><span class="va">pd</span><span class="op">$</span><span class="fu">DataFrame</span><span class="op">(</span><span class="va">UCB_py</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1659"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/">reticulate</a></span><span class="op">)</span></span>
+<span><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span>, convert<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">pd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"pandas"</span>,convert <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">np</span><span class="op">$</span><span class="fu">arange</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span><span class="op">)</span><span class="op">$</span><span class="fu">reshape</span><span class="op">(</span><span class="fl">2L</span>, <span class="fl">2L</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">(</span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">py_to_r</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">(</span><span class="va">UCB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">UCBAdmissions</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">UCB_py</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">r_to_py</a></span><span class="op">(</span><span class="va">UCB</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">pd</span><span class="op">$</span><span class="fu">DataFrame</span><span class="op">(</span><span class="va">UCB_py</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The default data transformation format is listed below:</p>
 <p>One important thing you need to bear in mind is that Arrays in R and Python are stored in different order. Arrays are stored in Column-major order in R while Row-major order in Python. So the representation of a n-dimension array might look differently between R forms and Python forms but they are the same data. Python tend to show data by the first dimension while R tend to use the last dimension. Here is the example.</p>
-<div class="sourceCode" id="cb1665"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">np</span><span class="op">$</span><span class="fu">arange</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">9</span><span class="op">)</span><span class="op">$</span><span class="fu">reshape</span><span class="op">(</span><span class="fl">2L</span>, <span class="fl">2L</span>,<span class="fl">2L</span><span class="op">)</span><span class="op">)</span>
-
-<span class="op">(</span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/r-py-conversion.html">py_to_r</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1660"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">np</span><span class="op">$</span><span class="fu">arange</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">9</span><span class="op">)</span><span class="op">$</span><span class="fu">reshape</span><span class="op">(</span><span class="fl">2L</span>, <span class="fl">2L</span>,<span class="fl">2L</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">(</span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/r-py-conversion.html">py_to_r</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="running-python-in-r" class="section level3">
 <h3>
@@ -277,60 +280,60 @@
 </li>
 <li>Source exists Python scripts</li>
 <li>Executing python code with functions.</li>
-<li>Create an interaction Python console in R by Calling <code><a href="https://rdrr.io/pkg/reticulate/man/repl_python.html">repl_python()</a></code> function.</li>
+<li>Create an interaction Python console in R by Calling <code><a href="https://rstudio.github.io/reticulate/reference/repl_python.html">repl_python()</a></code> function.</li>
 </ol>
 <div id="running-in-r-markdown-cells" class="section level4">
 <h4>
 <span class="header-section-number">121.2.4.1</span> Running in R Markdown cells<a class="anchor" aria-label="anchor" href="#running-in-r-markdown-cells"><i class="fas fa-link"></i></a>
 </h4>
 <p>The reticulate packages includes a Python engine for R Markdown. Thus, you can simply write your python code in R Markdown.</p>
-<div class="sourceCode" id="cb1666"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1666-1"><a href="integrate-r-with-python.html#cb1666-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1666-2"><a href="integrate-r-with-python.html#cb1666-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1666-3"><a href="integrate-r-with-python.html#cb1666-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
-<span id="cb1666-4"><a href="integrate-r-with-python.html#cb1666-4"></a></span>
-<span id="cb1666-5"><a href="integrate-r-with-python.html#cb1666-5"></a>fig, (ax1) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb1666-6"><a href="integrate-r-with-python.html#cb1666-6"></a><span class="co"># make a little extra space between the subplots</span></span>
-<span id="cb1666-7"><a href="integrate-r-with-python.html#cb1666-7"></a></span>
-<span id="cb1666-8"><a href="integrate-r-with-python.html#cb1666-8"></a>dt <span class="op">=</span> <span class="fl">0.01</span></span>
-<span id="cb1666-9"><a href="integrate-r-with-python.html#cb1666-9"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">30</span>, dt)</span>
-<span id="cb1666-10"><a href="integrate-r-with-python.html#cb1666-10"></a></span>
-<span id="cb1666-11"><a href="integrate-r-with-python.html#cb1666-11"></a><span class="co"># Fixing random state for reproducibility</span></span>
-<span id="cb1666-12"><a href="integrate-r-with-python.html#cb1666-12"></a>np.random.seed(<span class="dv">19680801</span>)</span>
-<span id="cb1666-13"><a href="integrate-r-with-python.html#cb1666-13"></a></span>
-<span id="cb1666-14"><a href="integrate-r-with-python.html#cb1666-14"></a></span>
-<span id="cb1666-15"><a href="integrate-r-with-python.html#cb1666-15"></a>nse1 <span class="op">=</span> np.random.randn(<span class="bu">len</span>(t))                 <span class="co"># white noise 1</span></span>
-<span id="cb1666-16"><a href="integrate-r-with-python.html#cb1666-16"></a>nse2 <span class="op">=</span> np.random.randn(<span class="bu">len</span>(t))                 <span class="co"># white noise 2</span></span>
-<span id="cb1666-17"><a href="integrate-r-with-python.html#cb1666-17"></a>rp <span class="op">=</span> np.exp(<span class="op">-</span>t <span class="op">/</span> <span class="fl">0.05</span>)</span>
-<span id="cb1666-18"><a href="integrate-r-with-python.html#cb1666-18"></a></span>
-<span id="cb1666-19"><a href="integrate-r-with-python.html#cb1666-19"></a>cnse1 <span class="op">=</span> np.convolve(nse1, rp, mode<span class="op">=</span><span class="st">'same'</span>) <span class="op">*</span> dt   <span class="co"># colored noise 1</span></span>
-<span id="cb1666-20"><a href="integrate-r-with-python.html#cb1666-20"></a>cnse2 <span class="op">=</span> np.convolve(nse2, rp, mode<span class="op">=</span><span class="st">'same'</span>) <span class="op">*</span> dt   <span class="co"># colored noise 2</span></span>
-<span id="cb1666-21"><a href="integrate-r-with-python.html#cb1666-21"></a></span>
-<span id="cb1666-22"><a href="integrate-r-with-python.html#cb1666-22"></a><span class="co"># two signals with a coherent part and a random part</span></span>
-<span id="cb1666-23"><a href="integrate-r-with-python.html#cb1666-23"></a>s1 <span class="op">=</span> <span class="fl">0.01</span> <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">10</span> <span class="op">*</span> t) <span class="op">+</span> cnse1</span>
-<span id="cb1666-24"><a href="integrate-r-with-python.html#cb1666-24"></a>s2 <span class="op">=</span> <span class="fl">0.01</span> <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">10</span> <span class="op">*</span> t) <span class="op">+</span> cnse2</span>
-<span id="cb1666-25"><a href="integrate-r-with-python.html#cb1666-25"></a></span>
-<span id="cb1666-26"><a href="integrate-r-with-python.html#cb1666-26"></a>df <span class="op">=</span> pd.DataFrame({ <span class="st">"t"</span>:t,</span>
-<span id="cb1666-27"><a href="integrate-r-with-python.html#cb1666-27"></a>                    <span class="st">"s1"</span>:s1,</span>
-<span id="cb1666-28"><a href="integrate-r-with-python.html#cb1666-28"></a>                    <span class="st">"s2"</span>:s2})</span>
-<span id="cb1666-29"><a href="integrate-r-with-python.html#cb1666-29"></a>ax1.plot(t, s1, t, s2)</span>
-<span id="cb1666-30"><a href="integrate-r-with-python.html#cb1666-30"></a>ax1.set_xlim(<span class="dv">0</span>, <span class="dv">5</span>)</span>
-<span id="cb1666-31"><a href="integrate-r-with-python.html#cb1666-31"></a>ax1.set_xlabel(<span class="st">'time'</span>)</span>
-<span id="cb1666-32"><a href="integrate-r-with-python.html#cb1666-32"></a>ax1.set_ylabel(<span class="st">'s1 and s2'</span>)</span>
-<span id="cb1666-33"><a href="integrate-r-with-python.html#cb1666-33"></a>ax1.grid(<span class="va">True</span>)</span>
-<span id="cb1666-34"><a href="integrate-r-with-python.html#cb1666-34"></a>plt.show()</span></code></pre></div>
-<div class="sourceCode" id="cb1667"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/reticulate">reticulate</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">py</span><span class="op">$</span><span class="va">df</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">t</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">s1</span><span class="op">)</span>,color<span class="op">=</span><span class="st">"dark blue"</span><span class="op">)</span> <span class="op">+</span>
-                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">s2</span><span class="op">)</span>,color <span class="op">=</span> <span class="st">"dark orange"</span><span class="op">)</span> <span class="op">+</span> 
-                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">5</span><span class="op">)</span> <span class="op">+</span>
-                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span><span class="st">"Drawing with data From Python Enviroment"</span>,
-                              y <span class="op">=</span> <span class="st">"s1 and s2"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1661"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1661-1"><a href="integrate-r-with-python.html#cb1661-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1661-2"><a href="integrate-r-with-python.html#cb1661-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1661-3"><a href="integrate-r-with-python.html#cb1661-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1661-4"><a href="integrate-r-with-python.html#cb1661-4"></a></span>
+<span id="cb1661-5"><a href="integrate-r-with-python.html#cb1661-5"></a>fig, (ax1) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb1661-6"><a href="integrate-r-with-python.html#cb1661-6"></a><span class="co"># make a little extra space between the subplots</span></span>
+<span id="cb1661-7"><a href="integrate-r-with-python.html#cb1661-7"></a></span>
+<span id="cb1661-8"><a href="integrate-r-with-python.html#cb1661-8"></a>dt <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb1661-9"><a href="integrate-r-with-python.html#cb1661-9"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">30</span>, dt)</span>
+<span id="cb1661-10"><a href="integrate-r-with-python.html#cb1661-10"></a></span>
+<span id="cb1661-11"><a href="integrate-r-with-python.html#cb1661-11"></a><span class="co"># Fixing random state for reproducibility</span></span>
+<span id="cb1661-12"><a href="integrate-r-with-python.html#cb1661-12"></a>np.random.seed(<span class="dv">19680801</span>)</span>
+<span id="cb1661-13"><a href="integrate-r-with-python.html#cb1661-13"></a></span>
+<span id="cb1661-14"><a href="integrate-r-with-python.html#cb1661-14"></a></span>
+<span id="cb1661-15"><a href="integrate-r-with-python.html#cb1661-15"></a>nse1 <span class="op">=</span> np.random.randn(<span class="bu">len</span>(t))                 <span class="co"># white noise 1</span></span>
+<span id="cb1661-16"><a href="integrate-r-with-python.html#cb1661-16"></a>nse2 <span class="op">=</span> np.random.randn(<span class="bu">len</span>(t))                 <span class="co"># white noise 2</span></span>
+<span id="cb1661-17"><a href="integrate-r-with-python.html#cb1661-17"></a>rp <span class="op">=</span> np.exp(<span class="op">-</span>t <span class="op">/</span> <span class="fl">0.05</span>)</span>
+<span id="cb1661-18"><a href="integrate-r-with-python.html#cb1661-18"></a></span>
+<span id="cb1661-19"><a href="integrate-r-with-python.html#cb1661-19"></a>cnse1 <span class="op">=</span> np.convolve(nse1, rp, mode<span class="op">=</span><span class="st">'same'</span>) <span class="op">*</span> dt   <span class="co"># colored noise 1</span></span>
+<span id="cb1661-20"><a href="integrate-r-with-python.html#cb1661-20"></a>cnse2 <span class="op">=</span> np.convolve(nse2, rp, mode<span class="op">=</span><span class="st">'same'</span>) <span class="op">*</span> dt   <span class="co"># colored noise 2</span></span>
+<span id="cb1661-21"><a href="integrate-r-with-python.html#cb1661-21"></a></span>
+<span id="cb1661-22"><a href="integrate-r-with-python.html#cb1661-22"></a><span class="co"># two signals with a coherent part and a random part</span></span>
+<span id="cb1661-23"><a href="integrate-r-with-python.html#cb1661-23"></a>s1 <span class="op">=</span> <span class="fl">0.01</span> <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">10</span> <span class="op">*</span> t) <span class="op">+</span> cnse1</span>
+<span id="cb1661-24"><a href="integrate-r-with-python.html#cb1661-24"></a>s2 <span class="op">=</span> <span class="fl">0.01</span> <span class="op">*</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">10</span> <span class="op">*</span> t) <span class="op">+</span> cnse2</span>
+<span id="cb1661-25"><a href="integrate-r-with-python.html#cb1661-25"></a></span>
+<span id="cb1661-26"><a href="integrate-r-with-python.html#cb1661-26"></a>df <span class="op">=</span> pd.DataFrame({ <span class="st">"t"</span>:t,</span>
+<span id="cb1661-27"><a href="integrate-r-with-python.html#cb1661-27"></a>                    <span class="st">"s1"</span>:s1,</span>
+<span id="cb1661-28"><a href="integrate-r-with-python.html#cb1661-28"></a>                    <span class="st">"s2"</span>:s2})</span>
+<span id="cb1661-29"><a href="integrate-r-with-python.html#cb1661-29"></a>ax1.plot(t, s1, t, s2)</span>
+<span id="cb1661-30"><a href="integrate-r-with-python.html#cb1661-30"></a>ax1.set_xlim(<span class="dv">0</span>, <span class="dv">5</span>)</span>
+<span id="cb1661-31"><a href="integrate-r-with-python.html#cb1661-31"></a>ax1.set_xlabel(<span class="st">'time'</span>)</span>
+<span id="cb1661-32"><a href="integrate-r-with-python.html#cb1661-32"></a>ax1.set_ylabel(<span class="st">'s1 and s2'</span>)</span>
+<span id="cb1661-33"><a href="integrate-r-with-python.html#cb1661-33"></a>ax1.grid(<span class="va">True</span>)</span>
+<span id="cb1661-34"><a href="integrate-r-with-python.html#cb1661-34"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1662"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/reticulate/">reticulate</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">py</span><span class="op">$</span><span class="va">df</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">t</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">s1</span><span class="op">)</span>,color<span class="op">=</span><span class="st">"dark blue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">s2</span><span class="op">)</span>,color <span class="op">=</span> <span class="st">"dark orange"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>                         <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span><span class="st">"Drawing with data From Python Enviroment"</span>,</span>
+<span>                              y <span class="op">=</span> <span class="st">"s1 and s2"</span><span class="op">)</span></span></code></pre></div>
 <p>you can also easily reach the variable in r by using <code>r.</code> when you running in python environment. Here is an example. But one thing you should be extreme careful is that <code>r</code> is an interface object in python. If you assign any other value to the name <code>r</code> then you will lose this interface object in your python environment. So pay attention to your variable name in Python environment.</p>
-<div class="sourceCode" id="cb1668"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">ames</span>,package <span class="op">=</span> <span class="st">"openintro"</span> <span class="op">)</span>
-<span class="va">ames</span></code></pre></div>
-<div class="sourceCode" id="cb1669"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1669-1"><a href="integrate-r-with-python.html#cb1669-1"></a><span class="bu">print</span>(r.ames.head())</span></code></pre></div>
+<div class="sourceCode" id="cb1663"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">ames</span>,package <span class="op">=</span> <span class="st">"openintro"</span> <span class="op">)</span></span>
+<span><span class="va">ames</span></span></code></pre></div>
+<div class="sourceCode" id="cb1664"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1664-1"><a href="integrate-r-with-python.html#cb1664-1"></a><span class="bu">print</span>(r.ames.head())</span></code></pre></div>
 </div>
 <div id="source-exists-python-scripts" class="section level4">
 <h4>
@@ -353,10 +356,10 @@ def plot_with_image(x,y):
     fig.figimage(im, 10, 10, zorder=3, alpha=.5)
 
     plt.show()</code></pre>
-<p>Then you use the <code><a href="https://rdrr.io/pkg/reticulate/man/source_python.html">source_python()</a></code> function to source this script and then you can use the defined Python function in R cells.</p>
-<div class="sourceCode" id="cb1671"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/source_python.html">source_python</a></span><span class="op">(</span><span class="st">"resources/r_with_python/plot.py"</span><span class="op">)</span>
-<span class="fu">plot_with_image</span><span class="op">(</span><span class="va">ames</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span><span class="op">$</span><span class="va">area</span>, <span class="va">ames</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span><span class="op">$</span><span class="va">price</span><span class="op">)</span></code></pre></div>
+<p>Then you use the <code><a href="https://rstudio.github.io/reticulate/reference/source_python.html">source_python()</a></code> function to source this script and then you can use the defined Python function in R cells.</p>
+<div class="sourceCode" id="cb1666"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/source_python.html">source_python</a></span><span class="op">(</span><span class="st">"resources/r_with_python/plot.py"</span><span class="op">)</span></span>
+<span><span class="fu">plot_with_image</span><span class="op">(</span><span class="va">ames</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span><span class="op">$</span><span class="va">area</span>, <span class="va">ames</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="op">]</span><span class="op">$</span><span class="va">price</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="resources/r_with_python/Rplot.png"></div>
 </div>
 </div>
@@ -364,25 +367,25 @@ def plot_with_image(x,y):
 <h3>
 <span class="header-section-number">121.2.5</span> Executing python code with functions.<a class="anchor" aria-label="anchor" href="#executing-python-code-with-functions."><i class="fas fa-link"></i></a>
 </h3>
-<p>There are two functions called <code>py_run_file</code> and <code><a href="https://rdrr.io/pkg/reticulate/man/py_run.html">py_run_string()</a></code>. These two functions can help you to execute python in R scripts. Here is an example</p>
-<div class="sourceCode" id="cb1672"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_run.html">py_run_string</a></span><span class="op">(</span><span class="st">"print('Hello, world! This is a message from Python')"</span><span class="op">)</span></code></pre></div>
+<p>There are two functions called <code>py_run_file</code> and <code><a href="https://rstudio.github.io/reticulate/reference/py_run.html">py_run_string()</a></code>. These two functions can help you to execute python in R scripts. Here is an example</p>
+<div class="sourceCode" id="cb1667"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_run.html">py_run_string</a></span><span class="op">(</span><span class="st">"print('Hello, world! This is a message from Python')"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="resources/r_with_python/console1.png"></div>
-<div class="sourceCode" id="cb1673"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#  Content of Hello.py : print('This is a message from Python')</span>
-<span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_run.html">py_run_file</a></span><span class="op">(</span><span class="st">"resources/r_with_python/Hello.py"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1668"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#  Content of Hello.py : print('This is a message from Python')</span></span>
+<span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_run.html">py_run_file</a></span><span class="op">(</span><span class="st">"resources/r_with_python/Hello.py"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="resources/r_with_python/console2.png"></div>
 <p>Or you can simply import the Python package in R and use them in the format of R. Here is a simple example.</p>
-<div class="sourceCode" id="cb1674"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span>, convert <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">np1</span> <span class="op">&lt;-</span> <span class="va">np</span><span class="op">$</span><span class="fu">array</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span>
-<span class="va">np1</span></code></pre></div>
+<div class="sourceCode" id="cb1669"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">np</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span><span class="st">"numpy"</span>, convert <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">np1</span> <span class="op">&lt;-</span> <span class="va">np</span><span class="op">$</span><span class="fu">array</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">np1</span></span></code></pre></div>
 </div>
 <div id="executing-python-code-with-functions.-1" class="section level3">
 <h3>
 <span class="header-section-number">121.2.6</span> Executing python code with functions.<a class="anchor" aria-label="anchor" href="#executing-python-code-with-functions.-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>Create an interaction Python console in R by Calling <code><a href="https://rdrr.io/pkg/reticulate/man/repl_python.html">repl_python()</a></code> function. If you wish to write your python code in the console, you can call the <code><a href="https://rdrr.io/pkg/reticulate/man/repl_python.html">repl_python()</a></code> function. The the console of RStudio will change to Python engine. You can reach your python variable simply by adding the prefix <code>py$</code>.</p>
+<p>Create an interaction Python console in R by Calling <code><a href="https://rstudio.github.io/reticulate/reference/repl_python.html">repl_python()</a></code> function. If you wish to write your python code in the console, you can call the <code><a href="https://rstudio.github.io/reticulate/reference/repl_python.html">repl_python()</a></code> function. The the console of RStudio will change to Python engine. You can reach your python variable simply by adding the prefix <code>py$</code>.</p>
 </div>
 </div>
 <div id="reference-7" class="section level2">
@@ -431,7 +434,7 @@ def plot_with_image(x,y):
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -444,7 +447,7 @@ def plot_with_image(x,y):
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -28,21 +28,22 @@ fastfood
 
 ```
 ## # A tibble: 515 × 17
-##    restaurant item      calories cal_fat total_fat sat_fat trans_fat cholesterol
-##    <chr>      <chr>        <dbl>   <dbl>     <dbl>   <dbl>     <dbl>       <dbl>
-##  1 Mcdonalds  Artisan …      380      60         7       2       0            95
-##  2 Mcdonalds  Single B…      840     410        45      17       1.5         130
-##  3 Mcdonalds  Double B…     1130     600        67      27       3           220
-##  4 Mcdonalds  Grilled …      750     280        31      10       0.5         155
-##  5 Mcdonalds  Crispy B…      920     410        45      12       0.5         120
-##  6 Mcdonalds  Big Mac        540     250        28      10       1            80
-##  7 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
-##  8 Mcdonalds  Classic …      510     210        24       4       0            65
-##  9 Mcdonalds  Double C…      430     190        21      11       1            85
-## 10 Mcdonalds  Double Q…      770     400        45      21       2.5         175
-## # … with 505 more rows, and 9 more variables: sodium <dbl>, total_carb <dbl>,
-## #   fiber <dbl>, sugar <dbl>, protein <dbl>, vit_a <dbl>, vit_c <dbl>,
-## #   calcium <dbl>, salad <chr>
+##    restau…¹ item  calor…² cal_fat total…³ sat_fat trans…⁴ chole…⁵ sodium total…⁶
+##    <chr>    <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>  <dbl>   <dbl>
+##  1 Mcdonal… Arti…     380      60       7       2     0        95   1110      44
+##  2 Mcdonal… Sing…     840     410      45      17     1.5     130   1580      62
+##  3 Mcdonal… Doub…    1130     600      67      27     3       220   1920      63
+##  4 Mcdonal… Gril…     750     280      31      10     0.5     155   1940      62
+##  5 Mcdonal… Cris…     920     410      45      12     0.5     120   1980      81
+##  6 Mcdonal… Big …     540     250      28      10     1        80    950      46
+##  7 Mcdonal… Chee…     300     100      12       5     0.5      40    680      33
+##  8 Mcdonal… Clas…     510     210      24       4     0        65   1040      49
+##  9 Mcdonal… Doub…     430     190      21      11     1        85   1040      35
+## 10 Mcdonal… Doub…     770     400      45      21     2.5     175   1290      42
+## # … with 505 more rows, 7 more variables: fiber <dbl>, sugar <dbl>,
+## #   protein <dbl>, vit_a <dbl>, vit_c <dbl>, calcium <dbl>, salad <chr>, and
+## #   abbreviated variable names ¹​restaurant, ²​calories, ³​total_fat, ⁴​trans_fat,
+## #   ⁵​cholesterol, ⁶​total_carb
 ```
 If there are other dataset called fastfood, to avoid confusion, we can specify it clearly with the package name
 
@@ -52,21 +53,22 @@ openintro::fastfood
 
 ```
 ## # A tibble: 515 × 17
-##    restaurant item      calories cal_fat total_fat sat_fat trans_fat cholesterol
-##    <chr>      <chr>        <dbl>   <dbl>     <dbl>   <dbl>     <dbl>       <dbl>
-##  1 Mcdonalds  Artisan …      380      60         7       2       0            95
-##  2 Mcdonalds  Single B…      840     410        45      17       1.5         130
-##  3 Mcdonalds  Double B…     1130     600        67      27       3           220
-##  4 Mcdonalds  Grilled …      750     280        31      10       0.5         155
-##  5 Mcdonalds  Crispy B…      920     410        45      12       0.5         120
-##  6 Mcdonalds  Big Mac        540     250        28      10       1            80
-##  7 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
-##  8 Mcdonalds  Classic …      510     210        24       4       0            65
-##  9 Mcdonalds  Double C…      430     190        21      11       1            85
-## 10 Mcdonalds  Double Q…      770     400        45      21       2.5         175
-## # … with 505 more rows, and 9 more variables: sodium <dbl>, total_carb <dbl>,
-## #   fiber <dbl>, sugar <dbl>, protein <dbl>, vit_a <dbl>, vit_c <dbl>,
-## #   calcium <dbl>, salad <chr>
+##    restau…¹ item  calor…² cal_fat total…³ sat_fat trans…⁴ chole…⁵ sodium total…⁶
+##    <chr>    <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>  <dbl>   <dbl>
+##  1 Mcdonal… Arti…     380      60       7       2     0        95   1110      44
+##  2 Mcdonal… Sing…     840     410      45      17     1.5     130   1580      62
+##  3 Mcdonal… Doub…    1130     600      67      27     3       220   1920      63
+##  4 Mcdonal… Gril…     750     280      31      10     0.5     155   1940      62
+##  5 Mcdonal… Cris…     920     410      45      12     0.5     120   1980      81
+##  6 Mcdonal… Big …     540     250      28      10     1        80    950      46
+##  7 Mcdonal… Chee…     300     100      12       5     0.5      40    680      33
+##  8 Mcdonal… Clas…     510     210      24       4     0        65   1040      49
+##  9 Mcdonal… Doub…     430     190      21      11     1        85   1040      35
+## 10 Mcdonal… Doub…     770     400      45      21     2.5     175   1290      42
+## # … with 505 more rows, 7 more variables: fiber <dbl>, sugar <dbl>,
+## #   protein <dbl>, vit_a <dbl>, vit_c <dbl>, calcium <dbl>, salad <chr>, and
+## #   abbreviated variable names ¹​restaurant, ²​calories, ³​total_fat, ⁴​trans_fat,
+## #   ⁵​cholesterol, ⁶​total_carb
 ```
 
 #### Import Using URL
@@ -78,22 +80,23 @@ read_csv("https://data.ny.gov/api/views/ca8h-8gjq/rows.csv")
 ```
 
 ```
-## # A tibble: 21,228 × 15
-##    County Agency      Year `Months Reporte… `Index Total` `Violent Total` Murder
-##    <chr>  <chr>      <dbl>            <dbl>         <dbl>           <dbl>  <dbl>
-##  1 Albany Albany Ci…  1990               NA          6635            1052      9
-##  2 Albany Albany Ci…  1991               NA          7569            1201     11
-##  3 Albany Albany Ci…  1992               NA          7791            1150      8
-##  4 Albany Albany Ci…  1993               NA          7802            1238      6
-##  5 Albany Albany Ci…  1994               NA          8648            1380     13
-##  6 Albany Albany Ci…  1995               NA          8329            1227      7
-##  7 Albany Albany Ci…  1996               NA          8130            1132     11
-##  8 Albany Albany Ci…  1997               NA          7354            1035      7
-##  9 Albany Albany Ci…  1998               NA          7320             995      2
-## 10 Albany Albany Ci…  1999               NA          7475             897     12
-## # … with 21,218 more rows, and 8 more variables: Rape <dbl>, Robbery <dbl>,
-## #   Aggravated Assault <dbl>, Property Total <dbl>, Burglary <dbl>,
-## #   Larceny <dbl>, Motor Vehicle Theft <dbl>, Region <chr>
+## # A tibble: 21,823 × 15
+##    County Agency       Year Month…¹ Index…² Viole…³ Murder  Rape Robbery Aggra…⁴
+##    <chr>  <chr>       <dbl>   <dbl>   <dbl>   <dbl>  <dbl> <dbl>   <dbl>   <dbl>
+##  1 Albany Albany Cit…  1990      NA    6635    1052      9    82     386     575
+##  2 Albany Albany Cit…  1991      NA    7569    1201     11    71     487     632
+##  3 Albany Albany Cit…  1992      NA    7791    1150      8    77     467     598
+##  4 Albany Albany Cit…  1993      NA    7802    1238      6    59     481     692
+##  5 Albany Albany Cit…  1994      NA    8648    1380     13    79     542     746
+##  6 Albany Albany Cit…  1995      NA    8329    1227      7    61     548     611
+##  7 Albany Albany Cit…  1996      NA    8130    1132     11    46     491     584
+##  8 Albany Albany Cit…  1997      NA    7354    1035      7    66     429     533
+##  9 Albany Albany Cit…  1998      NA    7320     995      2    74     387     532
+## 10 Albany Albany Cit…  1999      NA    7475     897     12    46     376     463
+## # … with 21,813 more rows, 5 more variables: `Property Total` <dbl>,
+## #   Burglary <dbl>, Larceny <dbl>, `Motor Vehicle Theft` <dbl>, Region <chr>,
+## #   and abbreviated variable names ¹​`Months Reported`, ²​`Index Total`,
+## #   ³​`Violent Total`, ⁴​`Aggravated Assault`
 ```
 (b) We can alsp import dataset direcly from the github.\
 1.Go to the github repository link where you have the CSV file\
@@ -107,21 +110,22 @@ read_csv("https://raw.githubusercontent.com/curran/data/gh-pages/dataSoup/datase
 
 ```
 ## # A tibble: 57 × 12
-##    `Dataset Name`  `Person Adding` `Date Added` `Dataset Link`  `Most Recent Ye…
-##    <chr>           <chr>           <chr>        <chr>           <chr>           
-##  1 2008 Election … EJ              11/7/2012    https://docs.g… 2008            
-##  2 Occupy Oakland… EJ              11/7/2012    https://docs.g… 2012            
-##  3 NYPD Stop-and-… EJ              11/7/2012    http://api.occ… 2011            
-##  4 Presidential S… Kai             11/7/2012    http://millerc… 2012            
-##  5 USDA National … Kai             11/7/2012    http://www.ars… 2012            
-##  6 US Foreign Aid  Kai             11/7/2012    https://explor… 2010            
-##  7 US Potato Stat… Kai             11/7/2012    https://explor… 2007            
-##  8 Livestock and … Kai             11/7/2012    https://explor… 2011            
-##  9 Mine Accidents… Kai             11/7/2012    http://www.msh… 2012            
-## 10 Sloan Digital … Kai             11/7/2012    http://www.sds… 2011            
-## # … with 47 more rows, and 7 more variables: Earliest Year In Data <dbl>,
-## #   Status <chr>, Dataset Type <chr>, Documentation <chr>, Existing Work <chr>,
-## #   Tags <chr>, Active <chr>
+##    `Dataset Name` Perso…¹ Date …² Datas…³ Most …⁴ Earli…⁵ Status Datas…⁶ Docum…⁷
+##    <chr>          <chr>   <chr>   <chr>   <chr>     <dbl> <chr>  <chr>   <chr>  
+##  1 2008 Election… EJ      11/7/2… https:… 2008         NA Unused Dataset <NA>   
+##  2 Occupy Oaklan… EJ      11/7/2… https:… 2012         NA Unused Dataset <NA>   
+##  3 NYPD Stop-and… EJ      11/7/2… http:/… 2011       2003 Unused API     https:…
+##  4 Presidential … Kai     11/7/2… http:/… 2012       1789 Unused Dataset <NA>   
+##  5 USDA National… Kai     11/7/2… http:/… 2012       1996 Unused Dataset http:/…
+##  6 US Foreign Aid Kai     11/7/2… https:… 2010       1946 Unused Dataset http:/…
+##  7 US Potato Sta… Kai     11/7/2… https:… 2007       1960 Unused Dataset <NA>   
+##  8 Livestock and… Kai     11/7/2… https:… 2011       1989 Unused <NA>    <NA>   
+##  9 Mine Accident… Kai     11/7/2… http:/… 2012       2000 Unused <NA>    <NA>   
+## 10 Sloan Digital… Kai     11/7/2… http:/… 2011       2000 Unused Multip… <NA>   
+## # … with 47 more rows, 3 more variables: `Existing Work` <chr>, Tags <chr>,
+## #   Active <chr>, and abbreviated variable names ¹​`Person Adding`,
+## #   ²​`Date Added`, ³​`Dataset Link`, ⁴​`Most Recent Year in Data`,
+## #   ⁵​`Earliest Year In Data`, ⁶​`Dataset Type`, ⁷​Documentation
 ```
 
 #### Import from the local computer

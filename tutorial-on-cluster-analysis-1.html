@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 43 Tutorial on Cluster Analysis | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Jannik Wiedenhaupt  43.1 What is Clustering Analysis? Clustering Analysis is a data exploration method and one of the most popular classification techniques. Clustering works by segregating data...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 43 Tutorial on Cluster Analysis | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Jannik Wiedenhaupt  43.1 What is Clustering Analysis? Clustering Analysis is a data exploration method and one of the most popular classification techniques. Clustering works by segregating data...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Jannik Wiedenhaupt  43.1 What is Clustering Analysis? Clustering Analysis is a data exploration method and one of the most popular classification techniques. Clustering works by segregating data...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -294,7 +297,7 @@ There are two main types of hierarchical algorithms:</p>
 </h3>
 <p>First, we load in the dataset. In this tutorial, we use the <em>states</em> dataset to cluster US states.</p>
 <div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/state.html">state.x77</a></span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/state.html">state.x77</a></span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Second, we will also use the <em>factoextra</em> package and particularly the <em>eclust</em> function to simplify the analysis and visualization.</p>
 <p>Third, we check that the data has the following form:</p>
 <ol style="list-style-type: decimal">
@@ -304,27 +307,27 @@ There are two main types of hierarchical algorithms:</p>
 <li>Avoid double-weighting of underlying constructs by avoiding multicollinearity</li>
 </ol>
 <div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>, <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>, <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##         Population Income Illiteracy Life.Exp Murder HS.Grad Frost   Area
 ## Alabama       3615   3624        2.1    69.05   15.1    41.3    20  50708
 ## Alaska         365   6315        1.5    69.31   11.3    66.7   152 566432
 ## Arizona       2212   4530        1.8    70.55    7.8    58.1    15 113417</code></pre>
 <div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Delete NA values</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-
-<span class="co"># Save non-scaled version for later</span>
-<span class="va">df_original</span> <span class="op">&lt;-</span> <span class="va">df</span>
-
-<span class="co"># Standardize variables</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="op">~</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">as.vector</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">cor_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="fu">corrplot</span><span class="op">(</span><span class="va">cor_matrix</span>, method <span class="op">=</span> <span class="st">"number"</span>, type <span class="op">=</span> <span class="st">"lower"</span>, tl.pos <span class="op">=</span> <span class="st">'d'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Delete NA values</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Save non-scaled version for later</span></span>
+<span><span class="va">df_original</span> <span class="op">&lt;-</span> <span class="va">df</span></span>
+<span></span>
+<span><span class="co"># Standardize variables</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="op">~</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">as.vector</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cor_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="fu">corrplot</span><span class="op">(</span><span class="va">cor_matrix</span>, method <span class="op">=</span> <span class="st">"number"</span>, type <span class="op">=</span> <span class="st">"lower"</span>, tl.pos <span class="op">=</span> <span class="st">'d'</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-21-1.png" width="960" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Because murder and life expectancy are strongly correlated, we remove murder</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">df</span>, select <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Murder</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Because murder and life expectancy are strongly correlated, we remove murder</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">df</span>, select <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Murder</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="centroid-based-algorithms-3" class="section level3">
 <h3>
@@ -350,7 +353,7 @@ The parameters are the following</p>
 <strong>k:</strong> Number of clusters. Here 5 is guessed because of the lack of further exploration of the dataset.</li>
 </ul>
 <div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">res.km</span> <span class="op">&lt;-</span> <span class="fu">eclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="st">"kmeans"</span>, k <span class="op">=</span> <span class="fl">5</span>, hc_metric <span class="op">=</span> <span class="st">"euclidean"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">res.km</span> <span class="op">&lt;-</span> <span class="fu">eclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="st">"kmeans"</span>, k <span class="op">=</span> <span class="fl">5</span>, hc_metric <span class="op">=</span> <span class="st">"euclidean"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-22-1.png" width="960" style="display: block; margin: auto;"></div>
 <div id="choosing-the-number-of-clusters-1" class="section level4">
 <h4>
@@ -359,12 +362,12 @@ The parameters are the following</p>
 <p>Alternatively to setting the number of clusters <em>k</em> ourselves, we can also resort to different statistics:</p>
 <p><strong>1. Gap Statistic</strong></p>
 <div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">res.km</span> <span class="op">&lt;-</span> <span class="fu">eclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="st">"kmeans"</span>, hc_metric <span class="op">=</span> <span class="st">"euclidean"</span>, graph <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu">fviz_gap_stat</span><span class="op">(</span><span class="va">res.km</span><span class="op">$</span><span class="va">gap_stat</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">res.km</span> <span class="op">&lt;-</span> <span class="fu">eclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="st">"kmeans"</span>, hc_metric <span class="op">=</span> <span class="st">"euclidean"</span>, graph <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu">fviz_gap_stat</span><span class="op">(</span><span class="va">res.km</span><span class="op">$</span><span class="va">gap_stat</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-23-1.png" width="960" style="display: block; margin: auto;"></div>
 <p><strong>2. Silhouette Plot</strong></p>
 <div class="sourceCode" id="cb346"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">fviz_silhouette</span><span class="op">(</span><span class="va">res.km</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">fviz_silhouette</span><span class="op">(</span><span class="va">res.km</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   cluster size ave.sil.width
 ## 1       1   15          0.08
 ## 2       2   23          0.36
@@ -374,21 +377,21 @@ The parameters are the following</p>
 <p><strong>3. Elbow Method</strong>
 The elbow method is a visual method, where we determine the cluster based on spotting an elbow in the graph.</p>
 <div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">fviz_nbclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="va">kmeans</span>, method <span class="op">=</span> <span class="st">"wss"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"Elbow method"</span><span class="op">)</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="fu">fviz_nbclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="va">kmeans</span>, method <span class="op">=</span> <span class="st">"wss"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"Elbow method"</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-25-1.png" width="960" style="display: block; margin: auto;"></div>
 <p>There are weak (not very pronounced) elbows at 2 and 6.</p>
 <p><strong>4. Other Indices</strong>
 Use the package <em>NbClust</em> to experiment with different clustering methods, distances, and indices.</p>
 <div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"C-Index:\n"</span>, <span class="fu">NbClust</span><span class="op">(</span>data<span class="op">=</span><span class="va">df</span>, method <span class="op">=</span> <span class="st">"kmeans"</span>, distance <span class="op">=</span> <span class="st">"euclidean"</span>, index<span class="op">=</span><span class="st">"cindex"</span><span class="op">)</span><span class="op">$</span><span class="va">Best.nc</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"C-Index:\n"</span>, <span class="fu">NbClust</span><span class="op">(</span>data<span class="op">=</span><span class="va">df</span>, method <span class="op">=</span> <span class="st">"kmeans"</span>, distance <span class="op">=</span> <span class="st">"euclidean"</span>, index<span class="op">=</span><span class="st">"cindex"</span><span class="op">)</span><span class="op">$</span><span class="va">Best.nc</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## C-Index:
 ##  3 0.2594</code></pre>
 <div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Dunn-Index:\n"</span>, <span class="fu">NbClust</span><span class="op">(</span>data<span class="op">=</span><span class="va">df</span>, method <span class="op">=</span> <span class="st">"kmeans"</span>, distance <span class="op">=</span> <span class="st">"euclidean"</span>, index<span class="op">=</span><span class="st">"dunn"</span><span class="op">)</span><span class="op">$</span><span class="va">Best.nc</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Dunn-Index:\n"</span>, <span class="fu">NbClust</span><span class="op">(</span>data<span class="op">=</span><span class="va">df</span>, method <span class="op">=</span> <span class="st">"kmeans"</span>, distance <span class="op">=</span> <span class="st">"euclidean"</span>, index<span class="op">=</span><span class="st">"dunn"</span><span class="op">)</span><span class="op">$</span><span class="va">Best.nc</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Dunn-Index:
 ##  15 0.3403</code></pre>
 <div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"McClain-Index:\n"</span>, <span class="fu">NbClust</span><span class="op">(</span>data<span class="op">=</span><span class="va">df</span>, method <span class="op">=</span> <span class="st">"kmeans"</span>, distance <span class="op">=</span> <span class="st">"euclidean"</span>, index<span class="op">=</span><span class="st">"mcclain"</span><span class="op">)</span><span class="op">$</span><span class="va">Best.nc</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"McClain-Index:\n"</span>, <span class="fu">NbClust</span><span class="op">(</span>data<span class="op">=</span><span class="va">df</span>, method <span class="op">=</span> <span class="st">"kmeans"</span>, distance <span class="op">=</span> <span class="st">"euclidean"</span>, index<span class="op">=</span><span class="st">"mcclain"</span><span class="op">)</span><span class="op">$</span><span class="va">Best.nc</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## McClain-Index:
 ##  2 0.3932</code></pre>
 </div>
@@ -416,11 +419,11 @@ In hierarchical clustering you do not need to define or calculate the number of 
 <strong>hc_metric:</strong> “euclidean” for euclidean distance.</li>
 </ul>
 <div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">res.hclust</span> <span class="op">&lt;-</span> <span class="fu">eclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="st">"hclust"</span>, hc_metric <span class="op">=</span> <span class="st">"euclidean"</span><span class="op">)</span>
-<span class="fu">fviz_dend</span><span class="op">(</span><span class="va">res.hclust</span>, rect <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">res.hclust</span> <span class="op">&lt;-</span> <span class="fu">eclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="st">"hclust"</span>, hc_metric <span class="op">=</span> <span class="st">"euclidean"</span><span class="op">)</span></span>
+<span><span class="fu">fviz_dend</span><span class="op">(</span><span class="va">res.hclust</span>, rect <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-27-1.png" width="960" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb356"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">fviz_cluster</span><span class="op">(</span><span class="va">res.hclust</span>, labelsize <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">fviz_cluster</span><span class="op">(</span><span class="va">res.hclust</span>, labelsize <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-28-1.png" width="960" style="display: block; margin: auto;"></div>
 <p>Here, we see a discrepancy to k-means clustering. While the gap-statistic yielded 4 optimal clusters, the hierarchical clustering identifies 2 major cluster.</p>
 </div>
@@ -445,11 +448,11 @@ We choose the commonly used ward.D2 measure that minimized total within-cluster 
 <strong>hc_metric:</strong> “euclidean” for euclidean distance.</li>
 </ul>
 <div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">res.aclust</span> <span class="op">&lt;-</span> <span class="fu">eclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="st">"hclust"</span>, hc_metric <span class="op">=</span> <span class="st">"euclidean"</span>, hc_method <span class="op">=</span> <span class="st">"ward.D2"</span><span class="op">)</span>
-<span class="fu">fviz_dend</span><span class="op">(</span><span class="va">res.aclust</span>, rect <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">res.aclust</span> <span class="op">&lt;-</span> <span class="fu">eclust</span><span class="op">(</span><span class="va">df</span>, FUNcluster <span class="op">=</span> <span class="st">"hclust"</span>, hc_metric <span class="op">=</span> <span class="st">"euclidean"</span>, hc_method <span class="op">=</span> <span class="st">"ward.D2"</span><span class="op">)</span></span>
+<span><span class="fu">fviz_dend</span><span class="op">(</span><span class="va">res.aclust</span>, rect <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-29-1.png" width="960" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb358"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">fviz_cluster</span><span class="op">(</span><span class="va">res.aclust</span>, labelsize <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">fviz_cluster</span><span class="op">(</span><span class="va">res.aclust</span>, labelsize <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-30-1.png" width="960" style="display: block; margin: auto;"></div>
 <p>While it is possible to see differences between agglomerative and diviseve clustering, the two methods come to the same result in this example.</p>
 </div>
@@ -474,10 +477,10 @@ We choose the commonly used ward.D2 measure that minimized total within-cluster 
 <p>After clustering your observations, we want to understand what the clusters mean. To do this, we will visualize the average strenght of each variable in each cluster.</p>
 <p>First, assign the clusters to the dataframe.</p>
 <div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df_clusters</span> <span class="op">&lt;-</span> <span class="va">res.km</span><span class="op">$</span><span class="va">centers</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_clusters</span> <span class="op">&lt;-</span> <span class="va">res.km</span><span class="op">$</span><span class="va">centers</span></span></code></pre></div>
 <p>(Output of res.km is the following)</p>
 <div class="sourceCode" id="cb360"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">res.km</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">res.km</span></span></code></pre></div>
 <pre><code>## K-means clustering with 4 clusters of sizes 15, 23, 11, 1
 ## 
 ## Cluster means:
@@ -525,24 +528,24 @@ We choose the commonly used ward.D2 measure that minimized total within-cluster 
 ## [11] "nbclust"      "data"         "gap_stat"</code></pre>
 <p>Second, visualize the strength of the variables using a heatmap to describe the different clusters.</p>
 <div class="sourceCode" id="cb362"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">melt_df</span> <span class="op">&lt;-</span> <span class="fu">melt</span><span class="op">(</span><span class="va">df_clusters</span><span class="op">)</span>
-
-<span class="va">heatmap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">melt_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">Var2</span>, <span class="va">Var1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html">scale_fill_continuous</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"viridis"</span>, direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Strength of Each of the Variables in the Clusters"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Variable"</span>, y<span class="op">=</span><span class="st">"Cluster"</span><span class="op">)</span>
-<span class="va">heatmap</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">melt_df</span> <span class="op">&lt;-</span> <span class="fu">melt</span><span class="op">(</span><span class="va">df_clusters</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">heatmap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">melt_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">Var2</span>, <span class="va">Var1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html">scale_fill_continuous</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"viridis"</span>, direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Strength of Each of the Variables in the Clusters"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Variable"</span>, y<span class="op">=</span><span class="st">"Cluster"</span><span class="op">)</span></span>
+<span><span class="va">heatmap</span></span></code></pre></div>
 <div class="inline-figure"><img src="clustering_analysis_tutorial_files/figure-html/unnamed-chunk-33-1.png" width="960" style="display: block; margin: auto;"></div>
 <p>The clustering of the variables shows that cluster 4 has the largest area and above average income. However, it comprises only one observation and is thus less interpretable. Cluster 3 has below average income, life expectancy and highschool graduation, but above average illiteracy. This cluster can be seen as one of worse performing states in these developmental areas. Cluster 2 and 1 are relatively similar with mostly average characteristics. The most meaningful difference is the population. Therefore, we could call cluster 2 “Low-populated average states” and cluster 2 “High-populated average states”.</p>
 <p>Here we see the final classification results again:</p>
 <div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df_original</span><span class="op">[</span><span class="st">"Cluster"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">res.km</span><span class="op">$</span><span class="va">cluster</span>
-<span class="va">df_out</span> <span class="op">&lt;-</span> <span class="va">df_original</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">df_original</span><span class="op">$</span><span class="va">Cluster</span><span class="op">)</span>, <span class="op">]</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">df_out</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_original</span><span class="op">[</span><span class="st">"Cluster"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">res.km</span><span class="op">$</span><span class="va">cluster</span></span>
+<span><span class="va">df_out</span> <span class="op">&lt;-</span> <span class="va">df_original</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">df_original</span><span class="op">$</span><span class="va">Cluster</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">df_out</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left"></th>
@@ -1219,7 +1222,7 @@ We choose the commonly used ward.D2 measure that minimized total within-cluster 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -1232,7 +1235,7 @@ We choose the commonly used ward.D2 measure that minimized total within-cluster 
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

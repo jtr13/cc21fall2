@@ -115,8 +115,6 @@ from_blank = FALSE, layer_order = c(3, 1, 2)) +
 enter_fade() + enter_grow()
 ```
 
-<img src="gganimate_cheatsheat_files/figure-html/unnamed-chunk-4-1.gif" style="display: block; margin: auto;" />
-
 #### transition_reveal&transition_time
 
 ```r

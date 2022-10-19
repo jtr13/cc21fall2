@@ -47,21 +47,22 @@ equal_count(df=fastfood, vble=calories, n_int=10, frac=0)
 ## 
 ## $df_long
 ## # A tibble: 567 × 19
-##    restaurant item      calories cal_fat total_fat sat_fat trans_fat cholesterol
-##    <chr>      <chr>        <dbl>   <dbl>     <dbl>   <dbl>     <dbl>       <dbl>
-##  1 Mcdonalds  Artisan …      380      60         7       2       0            95
-##  2 Mcdonalds  Single B…      840     410        45      17       1.5         130
-##  3 Mcdonalds  Double B…     1130     600        67      27       3           220
-##  4 Mcdonalds  Grilled …      750     280        31      10       0.5         155
-##  5 Mcdonalds  Crispy B…      920     410        45      12       0.5         120
-##  6 Mcdonalds  Big Mac        540     250        28      10       1            80
-##  7 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
-##  8 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
-##  9 Mcdonalds  Classic …      510     210        24       4       0            65
-## 10 Mcdonalds  Double C…      430     190        21      11       1            85
-## # … with 557 more rows, and 11 more variables: sodium <dbl>, total_carb <dbl>,
-## #   fiber <dbl>, sugar <dbl>, protein <dbl>, vit_a <dbl>, vit_c <dbl>,
-## #   calcium <dbl>, salad <chr>, id <int>, interval <fct>
+##    restau…¹ item  calor…² cal_fat total…³ sat_fat trans…⁴ chole…⁵ sodium total…⁶
+##    <chr>    <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>  <dbl>   <dbl>
+##  1 Mcdonal… Arti…     380      60       7       2     0        95   1110      44
+##  2 Mcdonal… Sing…     840     410      45      17     1.5     130   1580      62
+##  3 Mcdonal… Doub…    1130     600      67      27     3       220   1920      63
+##  4 Mcdonal… Gril…     750     280      31      10     0.5     155   1940      62
+##  5 Mcdonal… Cris…     920     410      45      12     0.5     120   1980      81
+##  6 Mcdonal… Big …     540     250      28      10     1        80    950      46
+##  7 Mcdonal… Chee…     300     100      12       5     0.5      40    680      33
+##  8 Mcdonal… Chee…     300     100      12       5     0.5      40    680      33
+##  9 Mcdonal… Clas…     510     210      24       4     0        65   1040      49
+## 10 Mcdonal… Doub…     430     190      21      11     1        85   1040      35
+## # … with 557 more rows, 9 more variables: fiber <dbl>, sugar <dbl>,
+## #   protein <dbl>, vit_a <dbl>, vit_c <dbl>, calcium <dbl>, salad <chr>,
+## #   id <int>, interval <fct>, and abbreviated variable names ¹​restaurant,
+## #   ²​calories, ³​total_fat, ⁴​trans_fat, ⁵​cholesterol, ⁶​total_carb
 ```
 <p>
 Inputs: df: dataframe, vble: variable in df that need to be divided, n_int: number of intervals in result, frac: overlapping fraction required in result.

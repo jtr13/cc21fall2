@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 29 Tidyverse Cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Huaizhi Ge library(tidyverse)  29.1 Introduction Usually, before we plot the data, we need to preprocess the data first. And we use tidyverse to process data commonly. And I find myself can not...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 29 Tidyverse Cheatsheet | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Huaizhi Ge library(tidyverse)  29.1 Introduction Usually, before we plot the data, we need to preprocess the data first. And we use tidyverse to process data commonly. And I find myself can not...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Huaizhi Ge library(tidyverse)  29.1 Introduction Usually, before we plot the data, we need to preprocess the data first. And we use tidyverse to process data commonly. And I find myself can not...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -202,7 +205,7 @@
 </h1>
 <p>Huaizhi Ge</p>
 <div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <div id="introduction-2" class="section level2">
 <h2>
 <span class="header-section-number">29.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-2"><i class="fas fa-link"></i></a>
@@ -219,8 +222,8 @@
 <p>To select some columns in the data, we only need to add the names of columns to the Select() function.
 (Use dataset “mpg” as an example dataset.)</p>
 <div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span>,<span class="va">manufacturer</span>,<span class="va">model</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span>,<span class="va">manufacturer</span>,<span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 3
 ##     year manufacturer model     
 ##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;     
@@ -237,8 +240,8 @@
 ## # … with 224 more rows</code></pre>
 <p>Also, we can use start_col:end_col.</p>
 <div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span><span class="op">:</span><span class="va">drv</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span><span class="op">:</span><span class="va">drv</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 4
 ##     year   cyl trans      drv  
 ##    &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;
@@ -255,8 +258,8 @@
 ## # … with 224 more rows</code></pre>
 <p>We can select columns that have the same structure using starts_with(),end_with() or contains().</p>
 <div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"m"</span><span class="op">)</span>,<span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"c"</span><span class="op">)</span>,<span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"y"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"m"</span><span class="op">)</span>,<span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"c"</span><span class="op">)</span>,<span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">ends_with</a></span><span class="op">(</span><span class="st">"y"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 6
 ##    manufacturer model        cyl   cty class     hwy
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;int&gt;
@@ -273,8 +276,8 @@
 ## # … with 224 more rows</code></pre>
 <p>select_if() can be used to select columns that have a specific data type. For example, select_if(is.character) can select all the character type columns. Similarly, we can use is.numeric, is.integer, is.factor and so on.</p>
 <div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 5
 ##    displ  year   cyl   cty   hwy
 ##    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -291,8 +294,8 @@
 ## # … with 224 more rows</code></pre>
 <p>select_if() can select the columns that meet some conditions.</p>
 <div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">&lt;</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">&lt;</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 4
 ##    displ   cyl   cty   hwy
 ##    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -314,61 +317,61 @@
 </h2>
 <p>We can use filter() to choose certain rows.</p>
 <div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span><span class="op">==</span><span class="fl">1999</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span><span class="op">==</span><span class="fl">1999</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 117 × 11
-##    manufacturer model     displ  year   cyl trans  drv     cty   hwy fl    class
-##    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 audi         a4          1.8  1999     4 auto(… f        18    29 p     comp…
-##  2 audi         a4          1.8  1999     4 manua… f        21    29 p     comp…
-##  3 audi         a4          2.8  1999     6 auto(… f        16    26 p     comp…
-##  4 audi         a4          2.8  1999     6 manua… f        18    26 p     comp…
-##  5 audi         a4 quatt…   1.8  1999     4 manua… 4        18    26 p     comp…
-##  6 audi         a4 quatt…   1.8  1999     4 auto(… 4        16    25 p     comp…
-##  7 audi         a4 quatt…   2.8  1999     6 auto(… 4        15    25 p     comp…
-##  8 audi         a4 quatt…   2.8  1999     6 manua… 4        17    25 p     comp…
-##  9 audi         a6 quatt…   2.8  1999     6 auto(… 4        15    24 p     mids…
-## 10 chevrolet    c1500 su…   5.7  1999     8 auto(… r        13    17 r     suv  
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
+##  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
+##  3 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
+##  4 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
+##  5 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
+##  6 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
+##  7 audi         a4 quattro   2.8  1999     6 auto… 4        15    25 p     comp…
+##  8 audi         a4 quattro   2.8  1999     6 manu… 4        17    25 p     comp…
+##  9 audi         a6 quattro   2.8  1999     6 auto… 4        15    24 p     mids…
+## 10 chevrolet    c1500 sub…   5.7  1999     8 auto… r        13    17 r     suv  
 ## # … with 107 more rows</code></pre>
 <div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span><span class="op">!=</span><span class="fl">1999</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span><span class="op">!=</span><span class="fl">1999</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 117 × 11
-##    manufacturer model     displ  year   cyl trans  drv     cty   hwy fl    class
-##    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 audi         a4          2    2008     4 manua… f        20    31 p     comp…
-##  2 audi         a4          2    2008     4 auto(… f        21    30 p     comp…
-##  3 audi         a4          3.1  2008     6 auto(… f        18    27 p     comp…
-##  4 audi         a4 quatt…   2    2008     4 manua… 4        20    28 p     comp…
-##  5 audi         a4 quatt…   2    2008     4 auto(… 4        19    27 p     comp…
-##  6 audi         a4 quatt…   3.1  2008     6 auto(… 4        17    25 p     comp…
-##  7 audi         a4 quatt…   3.1  2008     6 manua… 4        15    25 p     comp…
-##  8 audi         a6 quatt…   3.1  2008     6 auto(… 4        17    25 p     mids…
-##  9 audi         a6 quatt…   4.2  2008     8 auto(… 4        16    23 p     mids…
-## 10 chevrolet    c1500 su…   5.3  2008     8 auto(… r        14    20 r     suv  
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           2    2008     4 manu… f        20    31 p     comp…
+##  2 audi         a4           2    2008     4 auto… f        21    30 p     comp…
+##  3 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
+##  4 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
+##  5 audi         a4 quattro   2    2008     4 auto… 4        19    27 p     comp…
+##  6 audi         a4 quattro   3.1  2008     6 auto… 4        17    25 p     comp…
+##  7 audi         a4 quattro   3.1  2008     6 manu… 4        15    25 p     comp…
+##  8 audi         a6 quattro   3.1  2008     6 auto… 4        17    25 p     mids…
+##  9 audi         a6 quattro   4.2  2008     8 auto… 4        16    23 p     mids…
+## 10 chevrolet    c1500 sub…   5.3  2008     8 auto… r        14    20 r     suv  
 ## # … with 107 more rows</code></pre>
 <p>filter(condition1,condition2) will return the rows that meet the two conditions.</p>
 <div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span><span class="op">==</span><span class="fl">1999</span>,<span class="va">cyl</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span><span class="op">==</span><span class="fl">1999</span>,<span class="va">cyl</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 45 × 11
-##    manufacturer model   displ  year   cyl trans   drv     cty   hwy fl    class 
-##    &lt;chr&gt;        &lt;chr&gt;   &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
-##  1 audi         a4        1.8  1999     4 auto(l… f        18    29 p     compa…
-##  2 audi         a4        1.8  1999     4 manual… f        21    29 p     compa…
-##  3 audi         a4 qua…   1.8  1999     4 manual… 4        18    26 p     compa…
-##  4 audi         a4 qua…   1.8  1999     4 auto(l… 4        16    25 p     compa…
-##  5 chevrolet    malibu    2.4  1999     4 auto(l… f        19    27 r     midsi…
-##  6 dodge        carava…   2.4  1999     4 auto(l… f        18    24 r     miniv…
-##  7 honda        civic     1.6  1999     4 manual… f        28    33 r     subco…
-##  8 honda        civic     1.6  1999     4 auto(l… f        24    32 r     subco…
-##  9 honda        civic     1.6  1999     4 manual… f        25    32 r     subco…
-## 10 honda        civic     1.6  1999     4 manual… f        23    29 p     subco…
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
+##  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
+##  3 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
+##  4 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
+##  5 chevrolet    malibu       2.4  1999     4 auto… f        19    27 r     mids…
+##  6 dodge        caravan 2…   2.4  1999     4 auto… f        18    24 r     mini…
+##  7 honda        civic        1.6  1999     4 manu… f        28    33 r     subc…
+##  8 honda        civic        1.6  1999     4 auto… f        24    32 r     subc…
+##  9 honda        civic        1.6  1999     4 manu… f        25    32 r     subc…
+## 10 honda        civic        1.6  1999     4 manu… f        23    29 p     subc…
 ## # … with 35 more rows</code></pre>
 <p>filter(condition1|condition2) will return the rows that meet condition1 or condition2.</p>
 <div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span><span class="op">==</span><span class="fl">1999</span><span class="op">|</span><span class="va">cyl</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span><span class="op">==</span><span class="fl">1999</span><span class="op">|</span><span class="va">cyl</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 153 × 11
 ##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -385,26 +388,26 @@
 ## # … with 143 more rows</code></pre>
 <p>filter(xor(condition1,condition2)) will return rows that only meet one condition.</p>
 <div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Logic.html">xor</a></span><span class="op">(</span><span class="va">year</span><span class="op">==</span><span class="fl">1999</span>,<span class="va">cyl</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Logic.html">xor</a></span><span class="op">(</span><span class="va">year</span><span class="op">==</span><span class="fl">1999</span>,<span class="va">cyl</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 108 × 11
-##    manufacturer model     displ  year   cyl trans  drv     cty   hwy fl    class
-##    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 audi         a4          2    2008     4 manua… f        20    31 p     comp…
-##  2 audi         a4          2    2008     4 auto(… f        21    30 p     comp…
-##  3 audi         a4          2.8  1999     6 auto(… f        16    26 p     comp…
-##  4 audi         a4          2.8  1999     6 manua… f        18    26 p     comp…
-##  5 audi         a4 quatt…   2    2008     4 manua… 4        20    28 p     comp…
-##  6 audi         a4 quatt…   2    2008     4 auto(… 4        19    27 p     comp…
-##  7 audi         a4 quatt…   2.8  1999     6 auto(… 4        15    25 p     comp…
-##  8 audi         a4 quatt…   2.8  1999     6 manua… 4        17    25 p     comp…
-##  9 audi         a6 quatt…   2.8  1999     6 auto(… 4        15    24 p     mids…
-## 10 chevrolet    c1500 su…   5.7  1999     8 auto(… r        13    17 r     suv  
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           2    2008     4 manu… f        20    31 p     comp…
+##  2 audi         a4           2    2008     4 auto… f        21    30 p     comp…
+##  3 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
+##  4 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
+##  5 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
+##  6 audi         a4 quattro   2    2008     4 auto… 4        19    27 p     comp…
+##  7 audi         a4 quattro   2.8  1999     6 auto… 4        15    25 p     comp…
+##  8 audi         a4 quattro   2.8  1999     6 manu… 4        17    25 p     comp…
+##  9 audi         a6 quattro   2.8  1999     6 auto… 4        15    24 p     mids…
+## 10 chevrolet    c1500 sub…   5.7  1999     8 auto… r        13    17 r     suv  
 ## # … with 98 more rows</code></pre>
 <p>filter_all() will filter all the columns.</p>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_all</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="va">.</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_all</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="va">.</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 164 × 11
 ##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -421,8 +424,8 @@
 ## # … with 154 more rows</code></pre>
 <p>filter_if() first find the columns that meet some condition then filter.</p>
 <div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_if</a></span><span class="op">(</span><span class="va">is.character</span>,<span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="va">.</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_if</a></span><span class="op">(</span><span class="va">is.character</span>,<span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">any_vars</a></span><span class="op">(</span><span class="va">.</span><span class="op">==</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 103 × 11
 ##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -439,21 +442,21 @@
 ## # … with 93 more rows</code></pre>
 <p>filter_at() need to select columns in vars().</p>
 <div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span>,<span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">all_vars</a></span><span class="op">(</span><span class="va">.</span><span class="op">&gt;</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter_all.html">filter_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span>,<span class="fu"><a href="https://dplyr.tidyverse.org/reference/all_vars.html">all_vars</a></span><span class="op">(</span><span class="va">.</span><span class="op">&gt;</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 126 × 11
-##    manufacturer model     displ  year   cyl trans  drv     cty   hwy fl    class
-##    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 audi         a4          3.1  2008     6 auto(… f        18    27 p     comp…
-##  2 audi         a4 quatt…   3.1  2008     6 auto(… 4        17    25 p     comp…
-##  3 audi         a4 quatt…   3.1  2008     6 manua… 4        15    25 p     comp…
-##  4 audi         a6 quatt…   3.1  2008     6 auto(… 4        17    25 p     mids…
-##  5 audi         a6 quatt…   4.2  2008     8 auto(… 4        16    23 p     mids…
-##  6 chevrolet    c1500 su…   5.3  2008     8 auto(… r        14    20 r     suv  
-##  7 chevrolet    c1500 su…   5.3  2008     8 auto(… r        11    15 e     suv  
-##  8 chevrolet    c1500 su…   5.3  2008     8 auto(… r        14    20 r     suv  
-##  9 chevrolet    c1500 su…   5.7  1999     8 auto(… r        13    17 r     suv  
-## 10 chevrolet    c1500 su…   6    2008     8 auto(… r        12    17 r     suv  
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
+##  2 audi         a4 quattro   3.1  2008     6 auto… 4        17    25 p     comp…
+##  3 audi         a4 quattro   3.1  2008     6 manu… 4        15    25 p     comp…
+##  4 audi         a6 quattro   3.1  2008     6 auto… 4        17    25 p     mids…
+##  5 audi         a6 quattro   4.2  2008     8 auto… 4        16    23 p     mids…
+##  6 chevrolet    c1500 sub…   5.3  2008     8 auto… r        14    20 r     suv  
+##  7 chevrolet    c1500 sub…   5.3  2008     8 auto… r        11    15 e     suv  
+##  8 chevrolet    c1500 sub…   5.3  2008     8 auto… r        14    20 r     suv  
+##  9 chevrolet    c1500 sub…   5.7  1999     8 auto… r        13    17 r     suv  
+## 10 chevrolet    c1500 sub…   6    2008     8 auto… r        12    17 r     suv  
 ## # … with 116 more rows</code></pre>
 </div>
 <div id="mutate" class="section level2">
@@ -462,9 +465,9 @@
 </h2>
 <p>mutate() can add a new column based on the existing column.</p>
 <div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">manufacturer</span>,<span class="va">model</span>,<span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year2<span class="op">=</span><span class="va">year</span><span class="op">-</span><span class="fl">2000</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">manufacturer</span>,<span class="va">model</span>,<span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year2<span class="op">=</span><span class="va">year</span><span class="op">-</span><span class="fl">2000</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 4
 ##    manufacturer model       year year2
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt;
@@ -481,9 +484,9 @@
 ## # … with 224 more rows</code></pre>
 <p>We can use ifelse() to choose data.</p>
 <div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">manufacturer</span>,<span class="va">model</span>,<span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year2<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">year</span><span class="op">&gt;</span><span class="fl">2000</span>,<span class="fl">0</span>,<span class="cn">NA</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">manufacturer</span>,<span class="va">model</span>,<span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year2<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">year</span><span class="op">&gt;</span><span class="fl">2000</span>,<span class="fl">0</span>,<span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 4
 ##    manufacturer model       year year2
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt;
@@ -500,8 +503,8 @@
 ## # … with 224 more rows</code></pre>
 <p>mutate_all() can change all the columns.</p>
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="va">toupper</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="va">toupper</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
 ##    manufacturer model      displ year  cyl   trans drv   cty   hwy   fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -518,8 +521,8 @@
 ## # … with 224 more rows</code></pre>
 <p>mutate_if() can select certain columns and mutate.</p>
 <div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span><span class="op">(</span><span class="va">is.numeric</span>,<span class="va">round</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span><span class="op">(</span><span class="va">is.numeric</span>,<span class="va">round</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
 ##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
@@ -536,9 +539,9 @@
 ## # … with 224 more rows</code></pre>
 <p>mutate_at() need to select columns in vars().</p>
 <div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">manufacturer</span>,<span class="va">model</span>,<span class="va">displ</span>,<span class="va">cyl</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">displ</span>,<span class="va">cyl</span><span class="op">)</span>,<span class="op">~</span><span class="op">(</span><span class="va">.</span><span class="op">*</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">manufacturer</span>,<span class="va">model</span>,<span class="va">displ</span>,<span class="va">cyl</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">displ</span>,<span class="va">cyl</span><span class="op">)</span>,<span class="op">~</span><span class="op">(</span><span class="va">.</span><span class="op">*</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 4
 ##    manufacturer model      displ   cyl
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
@@ -555,13 +558,13 @@
 ## # … with 224 more rows</code></pre>
 <p>case_when() can create categorical data.</p>
 <div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">manufacturer</span>,<span class="va">model</span>,<span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year2<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
-    <span class="va">year</span><span class="op">&lt;</span><span class="fl">2000</span><span class="op">~</span><span class="st">"very old"</span>,
-    <span class="va">year</span><span class="op">&lt;</span><span class="fl">2005</span><span class="op">~</span><span class="st">"old"</span>,
-    <span class="cn">TRUE</span><span class="op">~</span><span class="st">"new"</span>
-  <span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">manufacturer</span>,<span class="va">model</span>,<span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year2<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">year</span><span class="op">&lt;</span><span class="fl">2000</span><span class="op">~</span><span class="st">"very old"</span>,</span>
+<span>    <span class="va">year</span><span class="op">&lt;</span><span class="fl">2005</span><span class="op">~</span><span class="st">"old"</span>,</span>
+<span>    <span class="cn">TRUE</span><span class="op">~</span><span class="st">"new"</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 4
 ##    manufacturer model       year year2   
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;int&gt; &lt;chr&gt;   
@@ -583,10 +586,10 @@
 </h2>
 <p>rowwise() can process data by row.</p>
 <div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html">c_across</a></span><span class="op">(</span><span class="va">displ</span><span class="op">:</span><span class="va">hwy</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html">c_across</a></span><span class="op">(</span><span class="va">displ</span><span class="op">:</span><span class="va">hwy</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 6
 ## # Rowwise: 
 ##    displ  year   cyl   cty   hwy  mean
@@ -604,44 +607,44 @@
 ## # … with 224 more rows</code></pre>
 <p>Or, we can do this by another way.</p>
 <div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowMeans</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowMeans</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 12
 ## # Rowwise: 
-##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
-##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
-##  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
-##  3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
-##  4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
-##  5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
-##  6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
-##  7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
-##  8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
-##  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
-## 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
-## # … with 224 more rows, and 1 more variable: mean &lt;dbl&gt;</code></pre>
+##    manufactu…¹ model displ  year   cyl trans drv     cty   hwy fl    class  mean
+##    &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
+##  1 audi        a4      1.8  1999     4 auto… f        18    29 p     comp…  410.
+##  2 audi        a4      1.8  1999     4 manu… f        21    29 p     comp…  411.
+##  3 audi        a4      2    2008     4 manu… f        20    31 p     comp…  413 
+##  4 audi        a4      2    2008     4 auto… f        21    30 p     comp…  413 
+##  5 audi        a4      2.8  1999     6 auto… f        16    26 p     comp…  410.
+##  6 audi        a4      2.8  1999     6 manu… f        18    26 p     comp…  410.
+##  7 audi        a4      3.1  2008     6 auto… f        18    27 p     comp…  412.
+##  8 audi        a4 q…   1.8  1999     4 manu… 4        18    26 p     comp…  410.
+##  9 audi        a4 q…   1.8  1999     4 auto… 4        16    25 p     comp…  409.
+## 10 audi        a4 q…   2    2008     4 manu… 4        20    28 p     comp…  412.
+## # … with 224 more rows, and abbreviated variable name ¹​manufacturer</code></pre>
 <p>We can use rowwise() to get the max/min/sum/sd too.</p>
 <div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sum<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sum<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 12
 ## # Rowwise: 
-##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
-##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
-##  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
-##  3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
-##  4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
-##  5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
-##  6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
-##  7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
-##  8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
-##  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
-## 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
-## # … with 224 more rows, and 1 more variable: sum &lt;dbl&gt;</code></pre>
+##    manufactu…¹ model displ  year   cyl trans drv     cty   hwy fl    class   sum
+##    &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
+##  1 audi        a4      1.8  1999     4 auto… f        18    29 p     comp… 2052.
+##  2 audi        a4      1.8  1999     4 manu… f        21    29 p     comp… 2055.
+##  3 audi        a4      2    2008     4 manu… f        20    31 p     comp… 2065 
+##  4 audi        a4      2    2008     4 auto… f        21    30 p     comp… 2065 
+##  5 audi        a4      2.8  1999     6 auto… f        16    26 p     comp… 2050.
+##  6 audi        a4      2.8  1999     6 manu… f        18    26 p     comp… 2052.
+##  7 audi        a4      3.1  2008     6 auto… f        18    27 p     comp… 2062.
+##  8 audi        a4 q…   1.8  1999     4 manu… 4        18    26 p     comp… 2049.
+##  9 audi        a4 q…   1.8  1999     4 auto… 4        16    25 p     comp… 2046.
+## 10 audi        a4 q…   2    2008     4 manu… 4        20    28 p     comp… 2062 
+## # … with 224 more rows, and abbreviated variable name ¹​manufacturer</code></pre>
 </div>
 <div id="arrange" class="section level2">
 <h2>
@@ -649,8 +652,8 @@
 </h2>
 <p>arrange() can sort the data.</p>
 <div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
 ##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -667,21 +670,21 @@
 ## # … with 224 more rows</code></pre>
 <p>desc() can help sort data by descending order.</p>
 <div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
-##    manufacturer model     displ  year   cyl trans  drv     cty   hwy fl    class
-##    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 chevrolet    corvette    7    2008     8 manua… r        15    24 p     2sea…
-##  2 chevrolet    k1500 ta…   6.5  1999     8 auto(… 4        14    17 d     suv  
-##  3 chevrolet    corvette    6.2  2008     8 manua… r        16    26 p     2sea…
-##  4 chevrolet    corvette    6.2  2008     8 auto(… r        15    25 p     2sea…
-##  5 jeep         grand ch…   6.1  2008     8 auto(… 4        11    14 p     suv  
-##  6 chevrolet    c1500 su…   6    2008     8 auto(… r        12    17 r     suv  
-##  7 dodge        durango …   5.9  1999     8 auto(… 4        11    15 r     suv  
-##  8 dodge        ram 1500…   5.9  1999     8 auto(… 4        11    15 r     pick…
-##  9 chevrolet    c1500 su…   5.7  1999     8 auto(… r        13    17 r     suv  
-## 10 chevrolet    corvette    5.7  1999     8 manua… r        16    26 p     2sea…
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 chevrolet    corvette     7    2008     8 manu… r        15    24 p     2sea…
+##  2 chevrolet    k1500 tah…   6.5  1999     8 auto… 4        14    17 d     suv  
+##  3 chevrolet    corvette     6.2  2008     8 manu… r        16    26 p     2sea…
+##  4 chevrolet    corvette     6.2  2008     8 auto… r        15    25 p     2sea…
+##  5 jeep         grand che…   6.1  2008     8 auto… 4        11    14 p     suv  
+##  6 chevrolet    c1500 sub…   6    2008     8 auto… r        12    17 r     suv  
+##  7 dodge        durango 4…   5.9  1999     8 auto… 4        11    15 r     suv  
+##  8 dodge        ram 1500 …   5.9  1999     8 auto… 4        11    15 r     pick…
+##  9 chevrolet    c1500 sub…   5.7  1999     8 auto… r        13    17 r     suv  
+## 10 chevrolet    corvette     5.7  1999     8 manu… r        16    26 p     2sea…
 ## # … with 224 more rows</code></pre>
 </div>
 <div id="distinct" class="section level2">
@@ -690,26 +693,30 @@
 </h2>
 <p>distinct() can help delete the duplicate rows.</p>
 <div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
-  x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">20</span>,rep<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>,
-  y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">20</span>,rep<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 11 × 2
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">20</span>,rep<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">20</span>,rep<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 15 × 2
 ##        x     y
 ##    &lt;int&gt; &lt;int&gt;
-##  1     5     1
-##  2     1     4
-##  3     3     3
-##  4     2     3
-##  5     4     2
-##  6     5     4
+##  1     4     2
+##  2     3     3
+##  3     2     1
+##  4     3     4
+##  5     4     5
+##  6     4     4
 ##  7     4     3
-##  8     1     3
-##  9     1     5
-## 10     5     2
-## 11     3     5</code></pre>
+##  8     1     4
+##  9     4     1
+## 10     2     2
+## 11     2     4
+## 12     2     3
+## 13     3     1
+## 14     5     4
+## 15     5     3</code></pre>
 </div>
 <div id="rename" class="section level2">
 <h2>
@@ -717,8 +724,8 @@
 </h2>
 <p>rename() can change the column name.</p>
 <div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>YEAR<span class="op">=</span><span class="va">year</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>YEAR<span class="op">=</span><span class="va">year</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
 ##    manufacturer model      displ  YEAR   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -740,8 +747,8 @@
 </h2>
 <p>relocate() can help change the order of the columns.</p>
 <div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
 ##     year manufacturer model      displ   cyl trans drv     cty   hwy fl    class
 ##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -757,8 +764,8 @@
 ## 10  2008 audi         a4 quattro   2       4 manu… 4        20    28 p     comp…
 ## # … with 224 more rows</code></pre>
 <div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">year</span>,.after <span class="op">=</span> <span class="va">manufacturer</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">year</span>,.after <span class="op">=</span> <span class="va">manufacturer</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
 ##    manufacturer  year model      displ   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -774,8 +781,8 @@
 ## 10 audi          2008 a4 quattro   2       4 manu… 4        20    28 p     comp…
 ## # … with 224 more rows</code></pre>
 <div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">year</span>,.before <span class="op">=</span> <span class="va">displ</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">year</span>,.before <span class="op">=</span> <span class="va">displ</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
 ##    manufacturer model       year displ   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -797,12 +804,12 @@
 </h2>
 <p>drop_na can help drop the missing value.</p>
 <div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
-  x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="cn">NA</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>,
-  y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">5</span>,<span class="cn">NA</span>,<span class="fl">6</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="cn">NA</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>,</span>
+<span>  y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">5</span>,<span class="cn">NA</span>,<span class="fl">6</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##       x     y
 ##   &lt;dbl&gt; &lt;dbl&gt;
@@ -815,8 +822,8 @@
 </h2>
 <p>pull() can help get a single column.</p>
 <div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   [1] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 2008 1999 1999 2008 2008
 ##  [16] 1999 2008 2008 2008 2008 2008 1999 2008 1999 1999 2008 2008 2008 2008 2008
 ##  [31] 1999 1999 1999 2008 1999 2008 2008 1999 1999 1999 1999 2008 2008 2008 1999
@@ -840,10 +847,10 @@
 </h2>
 <p>unite() can help unite the columns.</p>
 <div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a></span><span class="op">(</span>col<span class="op">=</span><span class="st">"newcolumn"</span>,<span class="va">manufacturer</span><span class="op">:</span><span class="va">model</span>,sep<span class="op">=</span><span class="st">","</span><span class="op">)</span><span class="op">-&gt;</span><span class="va">newdf</span>
-
-<span class="va">newdf</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html">unite</a></span><span class="op">(</span>col<span class="op">=</span><span class="st">"newcolumn"</span>,<span class="va">manufacturer</span><span class="op">:</span><span class="va">model</span>,sep<span class="op">=</span><span class="st">","</span><span class="op">)</span><span class="op">-&gt;</span><span class="va">newdf</span></span>
+<span></span>
+<span><span class="va">newdf</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 10
 ##    newcolumn       displ  year   cyl trans      drv     cty   hwy fl    class  
 ##    &lt;chr&gt;           &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  
@@ -865,8 +872,8 @@
 </h2>
 <p>separate() can help separate one column to several columns.</p>
 <div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">newdf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="st">"newcolumn"</span>,into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"manufacturer"</span>,<span class="st">"model"</span><span class="op">)</span>,sep<span class="op">=</span><span class="st">","</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">newdf</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="st">"newcolumn"</span>,into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"manufacturer"</span>,<span class="st">"model"</span><span class="op">)</span>,sep<span class="op">=</span><span class="st">","</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 234 × 11
 ##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
 ##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
@@ -888,17 +895,17 @@
 </h2>
 <p>pivot_longer() “lengthens” data, increasing the number of rows and decreasing the number of columns.</p>
 <div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'a'</span>,<span class="st">'b'</span><span class="op">)</span>,y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'c'</span>,<span class="st">'d'</span><span class="op">)</span>,z<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'e'</span>,<span class="st">'f'</span><span class="op">)</span><span class="op">)</span>
-<span class="va">df</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'a'</span>,<span class="st">'b'</span><span class="op">)</span>,y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'c'</span>,<span class="st">'d'</span><span class="op">)</span>,z<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'e'</span>,<span class="st">'f'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df</span></span></code></pre></div>
 <pre><code>## # A tibble: 2 × 4
 ##   index x     y     z    
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
 ## 1     1 a     c     e    
 ## 2     2 b     d     f</code></pre>
 <div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df2</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols<span class="op">=</span><span class="op">!</span><span class="va">index</span>,names_to<span class="op">=</span><span class="st">"key"</span>,values_to<span class="op">=</span><span class="st">"val"</span><span class="op">)</span>
-<span class="va">df2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df2</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols<span class="op">=</span><span class="op">!</span><span class="va">index</span>,names_to<span class="op">=</span><span class="st">"key"</span>,values_to<span class="op">=</span><span class="st">"val"</span><span class="op">)</span></span>
+<span><span class="va">df2</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   index key   val  
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
@@ -915,8 +922,8 @@
 </h2>
 <p>pivot_wider() “widens” data, increasing the number of columns and decreasing the number of rows.</p>
 <div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from<span class="op">=</span><span class="va">key</span>,values_from<span class="op">=</span><span class="va">val</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from<span class="op">=</span><span class="va">key</span>,values_from<span class="op">=</span><span class="va">val</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 2 × 4
 ##   index x     y     z    
 ##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -929,8 +936,8 @@
 </h2>
 <p>count() can count the number of occurences.</p>
 <div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">model</span>,sort<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">model</span>,sort<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 38 × 2
 ##    model                   n
 ##    &lt;chr&gt;               &lt;int&gt;
@@ -952,9 +959,9 @@
 </h2>
 <p>summarise() is typically used on grouped data created by group_by(). The output will have one row for each group.</p>
 <div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>count<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,averagedispl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span>,maxdispl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>count<span class="op">=</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,averagedispl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span>,maxdispl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">displ</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 38 × 4
 ##    model              count averagedispl maxdispl
 ##    &lt;chr&gt;              &lt;int&gt;        &lt;dbl&gt;    &lt;dbl&gt;
@@ -971,10 +978,10 @@
 ## # … with 28 more rows</code></pre>
 <p>summarise_all() applies the functions to all (non-grouping) columns.</p>
 <div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_all</a></span><span class="op">(</span><span class="va">mean</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select_all.html">select_if</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_all</a></span><span class="op">(</span><span class="va">mean</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 38 × 6
 ##    model              displ  year   cyl   cty   hwy
 ##    &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -991,9 +998,9 @@
 ## # … with 28 more rows</code></pre>
 <p>summarise_if() operate on columns for which a predicate returns TRUE.</p>
 <div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_if</a></span><span class="op">(</span><span class="va">is.numeric</span>,<span class="va">mean</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_if</a></span><span class="op">(</span><span class="va">is.numeric</span>,<span class="va">mean</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 38 × 6
 ##    model              displ  year   cyl   cty   hwy
 ##    &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1010,9 +1017,9 @@
 ## # … with 28 more rows</code></pre>
 <p>summarise_at() allow you to select columns.</p>
 <div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">displ</span>,<span class="va">cyl</span><span class="op">)</span>,<span class="va">mean</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">displ</span>,<span class="va">cyl</span><span class="op">)</span>,<span class="va">mean</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 38 × 3
 ##    model              displ   cyl
 ##    &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;
@@ -1071,7 +1078,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -1084,7 +1091,7 @@
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

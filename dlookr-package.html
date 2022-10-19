@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 88 Dlookr package | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Mridul Gupta  88.1 Introduction In this tutorial, we are going to learn about the basics of `dlookr’ package, how to use it on a dataset and why it is an important and relevant package for all he...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 88 Dlookr package | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Mridul Gupta  88.1 Introduction In this tutorial, we are going to learn about the basics of `dlookr’ package, how to use it on a dataset and why it is an important and relevant package for all he...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Mridul Gupta  88.1 Introduction In this tutorial, we are going to learn about the basics of `dlookr’ package, how to use it on a dataset and why it is an important and relevant package for all he...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -231,9 +234,9 @@
 <p>To help us understand its use, let us use a dataset. I am using Rolling sales data for Manhattan.
 <a href="https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page" class="uri">https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page</a></p>
 <div class="sourceCode" id="cb1132"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#Reading data</span>
-<span class="va">manhattan</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"rollingsales_manhattan.xlsx"</span>, skip <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/dimensions.html">dim</a></span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#Reading data</span></span>
+<span><span class="va">manhattan</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"rollingsales_manhattan.xlsx"</span>, skip <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 19354    21</code></pre>
 <div id="data-diagnosis" class="section level3">
 <h3>
@@ -244,45 +247,47 @@
 <span class="header-section-number">88.4.1.1</span> Overall Diagnosis<a class="anchor" aria-label="anchor" href="#overall-diagnosis"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb1134"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Get missing and unique count for each column</span>
-<span class="fu">diagnose</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Get missing and unique count for each column</span></span>
+<span><span class="fu">diagnose</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 21 × 6
-##    variables       types  missing_count missing_percent unique_count unique_rate
-##    &lt;chr&gt;           &lt;chr&gt;          &lt;int&gt;           &lt;dbl&gt;        &lt;int&gt;       &lt;dbl&gt;
-##  1 BOROUGH         chara…             0          0                 1   0.0000517
-##  2 NEIGHBORHOOD    chara…             0          0                39   0.00202  
-##  3 BUILDING_CLASS… chara…             0          0                39   0.00202  
-##  4 TAX_CLASS_AT_P… chara…            18          0.0930            9   0.000465 
-##  5 BLOCK           numer…             0          0              1341   0.0693   
-##  6 LOT             numer…             0          0              1662   0.0859   
-##  7 EASEMENT        logic…         19354        100                 1   0.0000517
-##  8 BUILDING_CLASS… chara…            18          0.0930          112   0.00579  
-##  9 ADDRESS         chara…             0          0             19010   0.982    
-## 10 APARTMENT_NUMB… chara…         10204         52.7            2630   0.136    
-## # … with 11 more rows</code></pre>
+##    variables                 types     missing_count missing_p…¹ uniqu…² uniqu…³
+##    &lt;chr&gt;                     &lt;chr&gt;             &lt;int&gt;       &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;
+##  1 BOROUGH                   character             0      0            1 5.17e-5
+##  2 NEIGHBORHOOD              character             0      0           39 2.02e-3
+##  3 BUILDING_CLASS_CATEGORY   character             0      0           39 2.02e-3
+##  4 TAX_CLASS_AT_PRESENT      character            18      0.0930       9 4.65e-4
+##  5 BLOCK                     numeric               0      0         1341 6.93e-2
+##  6 LOT                       numeric               0      0         1662 8.59e-2
+##  7 EASEMENT                  logical           19354    100            1 5.17e-5
+##  8 BUILDING_CLASS_AT_PRESENT character            18      0.0930     112 5.79e-3
+##  9 ADDRESS                   character             0      0        19010 9.82e-1
+## 10 APARTMENT_NUMBER          character         10204     52.7       2630 1.36e-1
+## # … with 11 more rows, and abbreviated variable names ¹​missing_percent,
+## #   ²​unique_count, ³​unique_rate</code></pre>
 <div class="sourceCode" id="cb1136"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Using with dplyr and finding columns with missing data</span>
-<span class="fu">diagnose</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Using with dplyr and finding columns with missing data</span></span>
+<span><span class="fu">diagnose</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 21 × 6
-##    variables       types  missing_count missing_percent unique_count unique_rate
-##    &lt;chr&gt;           &lt;chr&gt;          &lt;int&gt;           &lt;dbl&gt;        &lt;int&gt;       &lt;dbl&gt;
-##  1 BOROUGH         chara…             0          0                 1   0.0000517
-##  2 NEIGHBORHOOD    chara…             0          0                39   0.00202  
-##  3 BUILDING_CLASS… chara…             0          0                39   0.00202  
-##  4 TAX_CLASS_AT_P… chara…            18          0.0930            9   0.000465 
-##  5 BLOCK           numer…             0          0              1341   0.0693   
-##  6 LOT             numer…             0          0              1662   0.0859   
-##  7 EASEMENT        logic…         19354        100                 1   0.0000517
-##  8 BUILDING_CLASS… chara…            18          0.0930          112   0.00579  
-##  9 ADDRESS         chara…             0          0             19010   0.982    
-## 10 APARTMENT_NUMB… chara…         10204         52.7            2630   0.136    
-## # … with 11 more rows</code></pre>
+##    variables                 types     missing_count missing_p…¹ uniqu…² uniqu…³
+##    &lt;chr&gt;                     &lt;chr&gt;             &lt;int&gt;       &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;
+##  1 BOROUGH                   character             0      0            1 5.17e-5
+##  2 NEIGHBORHOOD              character             0      0           39 2.02e-3
+##  3 BUILDING_CLASS_CATEGORY   character             0      0           39 2.02e-3
+##  4 TAX_CLASS_AT_PRESENT      character            18      0.0930       9 4.65e-4
+##  5 BLOCK                     numeric               0      0         1341 6.93e-2
+##  6 LOT                       numeric               0      0         1662 8.59e-2
+##  7 EASEMENT                  logical           19354    100            1 5.17e-5
+##  8 BUILDING_CLASS_AT_PRESENT character            18      0.0930     112 5.79e-3
+##  9 ADDRESS                   character             0      0        19010 9.82e-1
+## 10 APARTMENT_NUMBER          character         10204     52.7       2630 1.36e-1
+## # … with 11 more rows, and abbreviated variable names ¹​missing_percent,
+## #   ²​unique_count, ³​unique_rate</code></pre>
 <div class="sourceCode" id="cb1138"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">manhattan</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">diagnose</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">unique_count</span>, <span class="op">-</span><span class="va">unique_rate</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">missing_count</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">missing_count</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">manhattan</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">diagnose</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">unique_count</span>, <span class="op">-</span><span class="va">unique_rate</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">missing_count</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">missing_count</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 4
 ##    variables                 types     missing_count missing_percent
 ##    &lt;chr&gt;                     &lt;chr&gt;             &lt;int&gt;           &lt;dbl&gt;
@@ -304,26 +309,26 @@
 <span class="header-section-number">88.4.1.2</span> Numerical data diagnosis<a class="anchor" aria-label="anchor" href="#numerical-data-diagnosis"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb1140"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at numerical data</span>
-<span class="fu">diagnose_numeric</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at numerical data</span></span>
+<span><span class="fu">diagnose_numeric</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 10
-##    variables       min     Q1     mean median     Q3     max  zero minus outlier
-##    &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;
-##  1 BLOCK            10    738   1.10e3   1162 1.45e3  2.25e3     0     0       0
-##  2 LOT               1     29   7.52e2   1003 1.20e3  9.11e3     0     0     451
-##  3 ZIP_CODE      10001  10013   1.00e4  10022 1.00e4  1.05e4     0     0    2601
-##  4 RESIDENTIAL_…     0      1   2.68e0      1 1   e0  4.9 e2   300     0    1257
-##  5 COMMERCIAL_U…     0      0   2.09e0      1 1   e0  2.39e2   870     0     192
-##  6 TOTAL_UNITS       0      1   2.93e0      1 1   e0  4.92e2    88     0    1228
-##  7 LAND_SQUARE_…     0   1749   6.02e3   2313 4.25e3  6.59e5     8     0     191
-##  8 GROSS_SQUARE…     0   3756   3.35e4   6681 1.38e4  2.4 e6    83     0     230
-##  9 YEAR_BUILT     1800   1922   1.95e3   1957 1.99e3  2.02e3     0     0       3
-## 10 SALE_PRICE        0 430000   2.42e6 925000 2.00e6  8.10e8  3136     0    1873</code></pre>
+##    variables          min     Q1   mean median     Q3    max  zero minus outlier
+##    &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;
+##  1 BLOCK               10    738 1.10e3   1162 1.45e3 2.25e3     0     0       0
+##  2 LOT                  1     29 7.52e2   1003 1.20e3 9.11e3     0     0     451
+##  3 ZIP_CODE         10001  10013 1.00e4  10022 1.00e4 1.05e4     0     0    2601
+##  4 RESIDENTIAL_UNI…     0      1 2.68e0      1 1   e0 4.9 e2   300     0    1257
+##  5 COMMERCIAL_UNITS     0      0 2.09e0      1 1   e0 2.39e2   870     0     192
+##  6 TOTAL_UNITS          0      1 2.93e0      1 1   e0 4.92e2    88     0    1228
+##  7 LAND_SQUARE_FEET     0   1749 6.02e3   2313 4.25e3 6.59e5     8     0     191
+##  8 GROSS_SQUARE_FE…     0   3756 3.35e4   6681 1.38e4 2.4 e6    83     0     230
+##  9 YEAR_BUILT        1800   1922 1.95e3   1957 1.99e3 2.02e3     0     0       3
+## 10 SALE_PRICE           0 430000 2.42e6 925000 2.00e6 8.10e8  3136     0    1873</code></pre>
 <p>One function directly gives quantiles,mean, zeros, negative values and outliers for all the numeric values.</p>
 <div class="sourceCode" id="cb1142"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Using with dplyr and finding colums with zero values</span>
-<span class="fu">diagnose_numeric</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">zero</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Using with dplyr and finding colums with zero values</span></span>
+<span><span class="fu">diagnose_numeric</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">zero</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## # A tibble: 6 × 10
 ##   variables           min     Q1   mean median     Q3    max  zero minus outlier
 ##   &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;
@@ -339,8 +344,8 @@
 <span class="header-section-number">88.4.1.3</span> Categorical data diagnosis<a class="anchor" aria-label="anchor" href="#categorical-data-diagnosis"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb1144"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at categorical data</span>
-<span class="fu">diagnose_category</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at categorical data</span></span>
+<span><span class="fu">diagnose_category</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 83 × 6
 ##    variables    levels                        N  freq  ratio  rank
 ##    &lt;chr&gt;        &lt;chr&gt;                     &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;int&gt;
@@ -357,10 +362,10 @@
 ## # … with 73 more rows</code></pre>
 <p>This directly gives us all the levels for all the categorical columns and their frequency as well.</p>
 <div class="sourceCode" id="cb1146"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Filtering categories with NA levels</span>
-
-<span class="fu">diagnose_category</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">levels</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Filtering categories with NA levels</span></span>
+<span></span>
+<span><span class="fu">diagnose_category</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">levels</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 2 × 6
 ##   variables            levels     N  freq   ratio  rank
 ##   &lt;chr&gt;                &lt;chr&gt;  &lt;int&gt; &lt;int&gt;   &lt;dbl&gt; &lt;int&gt;
@@ -372,31 +377,32 @@
 <span class="header-section-number">88.4.1.4</span> Outlier diagnosis<a class="anchor" aria-label="anchor" href="#outlier-diagnosis"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb1148"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Diagnose outlier for each numerical column/feature</span>
-
-<span class="fu">diagnose_outlier</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Diagnose outlier for each numerical column/feature</span></span>
+<span></span>
+<span><span class="fu">diagnose_outlier</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## # A tibble: 10 × 6
-##    variables    outliers_cnt outliers_ratio outliers_mean with_mean without_mean
-##    &lt;chr&gt;               &lt;int&gt;          &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
-##  1 BLOCK                   0         0              NaN      1.10e3     1097.   
-##  2 LOT                   451         2.33          4598.     7.52e2      660.   
-##  3 ZIP_CODE             2601        13.4          10103.     1.00e4    10019.   
-##  4 RESIDENTIAL…         1257         6.49            14.4    2.68e0        1    
-##  5 COMMERCIAL_…          192         0.992           16.5    2.09e0        0.613
-##  6 TOTAL_UNITS          1228         6.34            17.7    2.93e0        1    
-##  7 LAND_SQUARE…          191         0.987        28980.     6.02e3     2588.   
-##  8 GROSS_SQUAR…          230         1.19        175727.     3.35e4     7072.   
-##  9 YEAR_BUILT              3         0.0155        1800      1.95e3     1954.   
-## 10 SALE_PRICE           1873         9.68      14915667.     2.42e6  1081708.</code></pre>
+##    variables         outliers_cnt outliers_ratio outliers_mean with_mean witho…¹
+##    &lt;chr&gt;                    &lt;int&gt;          &lt;dbl&gt;         &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+##  1 BLOCK                        0         0              NaN      1.10e3 1.10e+3
+##  2 LOT                        451         2.33          4598.     7.52e2 6.60e+2
+##  3 ZIP_CODE                  2601        13.4          10103.     1.00e4 1.00e+4
+##  4 RESIDENTIAL_UNITS         1257         6.49            14.4    2.68e0 1   e+0
+##  5 COMMERCIAL_UNITS           192         0.992           16.5    2.09e0 6.13e-1
+##  6 TOTAL_UNITS               1228         6.34            17.7    2.93e0 1   e+0
+##  7 LAND_SQUARE_FEET           191         0.987        28980.     6.02e3 2.59e+3
+##  8 GROSS_SQUARE_FEET          230         1.19        175727.     3.35e4 7.07e+3
+##  9 YEAR_BUILT                   3         0.0155        1800      1.95e3 1.95e+3
+## 10 SALE_PRICE                1873         9.68      14915667.     2.42e6 1.08e+6
+## # … with abbreviated variable name ¹​without_mean</code></pre>
 <p>This tells us the number of outliers are there in each numerical column. If we look at with_mean and without_mean column it also helps us analyse the effect of outlier on data.We can even plot outliers:</p>
 <p>Here we use diagnose_outlier(), plot_outlier(), and dplyr packages to visualize all numerical variables with an outlier ratio of 0.5% or higher.</p>
 <div class="sourceCode" id="cb1150"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Diagnose outlier for each numerical column/feature</span>
-<span class="va">manhattan</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">plot_outlier</span><span class="op">(</span><span class="fu">diagnose_outlier</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-                 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">outliers_ratio</span> <span class="op">&gt;=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-                 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">variables</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-                 <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Diagnose outlier for each numerical column/feature</span></span>
+<span><span class="va">manhattan</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">plot_outlier</span><span class="op">(</span><span class="fu">diagnose_outlier</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>                 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">outliers_ratio</span> <span class="op">&gt;=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>                 <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">variables</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>                 <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dlookr_files/figure-html/Outlier%20Diagnosis%20dplyr-1.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Outlier%20Diagnosis%20dplyr-2.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Outlier%20Diagnosis%20dplyr-3.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Outlier%20Diagnosis%20dplyr-4.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Outlier%20Diagnosis%20dplyr-5.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Outlier%20Diagnosis%20dplyr-6.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Outlier%20Diagnosis%20dplyr-7.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Outlier%20Diagnosis%20dplyr-8.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -409,56 +415,57 @@
 <span class="header-section-number">88.4.2.1</span> Univariate Analysis<a class="anchor" aria-label="anchor" href="#univariate-analysis"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb1151"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu">describe</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu">describe</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 26
-##    variable       n    na    mean      sd se_mean    IQR skewness kurtosis   p00
-##    &lt;chr&gt;      &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
-##  1 BLOCK      19354     0  1.10e3  5.20e2 3.74e+0 7.09e2   -0.149   -0.464    10
-##  2 LOT        19354     0  7.52e2  8.86e2 6.37e+0 1.18e3    2.77    16.2       1
-##  3 ZIP_CODE   19354     0  1.00e4  3.61e1 2.60e-1 1.5 e1    4.14    25.4   10001
-##  4 RESIDENTI… 10026  9328  2.68e0  1.16e1 1.16e-1 0        16.6    448.        0
-##  5 COMMERCIA…  2062 17292  2.09e0  1.04e1 2.30e-1 1   e0   13.7    234.        0
-##  6 TOTAL_UNI… 10619  8735  2.93e0  1.24e1 1.20e-1 0        15.0    361.        0
-##  7 LAND_SQUA…  1469 17885  6.02e3  2.73e4 7.12e+2 2.50e3   20.4    467.        0
-##  8 GROSS_SQU…  1469 17885  3.35e4  1.34e5 3.49e+3 1.00e4   11.4    164.        0
-##  9 YEAR_BUILT 17297  2057  1.95e3  3.81e1 2.89e-1 6.4 e1    0.227   -1.11   1800
-## 10 SALE_PRICE 19354     0  2.42e6  1.03e7 7.37e+4 1.57e6   35.7   2249.        0
+##    described_v…¹     n    na   mean     sd se_mean    IQR skewn…² kurtosis   p00
+##    &lt;chr&gt;         &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1 BLOCK         19354     0 1.10e3 5.20e2 3.74e+0 7.09e2  -0.149   -0.464    10
+##  2 LOT           19354     0 7.52e2 8.86e2 6.37e+0 1.18e3   2.77    16.2       1
+##  3 ZIP_CODE      19354     0 1.00e4 3.61e1 2.60e-1 1.5 e1   4.14    25.4   10001
+##  4 RESIDENTIAL_… 10026  9328 2.68e0 1.16e1 1.16e-1 0       16.6    448.        0
+##  5 COMMERCIAL_U…  2062 17292 2.09e0 1.04e1 2.30e-1 1   e0  13.7    234.        0
+##  6 TOTAL_UNITS   10619  8735 2.93e0 1.24e1 1.20e-1 0       15.0    361.        0
+##  7 LAND_SQUARE_…  1469 17885 6.02e3 2.73e4 7.12e+2 2.50e3  20.4    467.        0
+##  8 GROSS_SQUARE…  1469 17885 3.35e4 1.34e5 3.49e+3 1.00e4  11.4    164.        0
+##  9 YEAR_BUILT    17297  2057 1.95e3 3.81e1 2.89e-1 6.4 e1   0.227   -1.11   1800
+## 10 SALE_PRICE    19354     0 2.42e6 1.03e7 7.37e+4 1.57e6  35.7   2249.        0
 ## # … with 16 more variables: p01 &lt;dbl&gt;, p05 &lt;dbl&gt;, p10 &lt;dbl&gt;, p20 &lt;dbl&gt;,
 ## #   p25 &lt;dbl&gt;, p30 &lt;dbl&gt;, p40 &lt;dbl&gt;, p50 &lt;dbl&gt;, p60 &lt;dbl&gt;, p70 &lt;dbl&gt;,
-## #   p75 &lt;dbl&gt;, p80 &lt;dbl&gt;, p90 &lt;dbl&gt;, p95 &lt;dbl&gt;, p99 &lt;dbl&gt;, p100 &lt;dbl&gt;</code></pre>
+## #   p75 &lt;dbl&gt;, p80 &lt;dbl&gt;, p90 &lt;dbl&gt;, p95 &lt;dbl&gt;, p99 &lt;dbl&gt;, p100 &lt;dbl&gt;, and
+## #   abbreviated variable names ¹​described_variables, ²​skewness</code></pre>
 <p>This gives very detailed metrics regarding the distribution of numerical variables. Along with basic metrics like mean, standard deviation it also gives metrics like skewness, kurtosis, percentiles, IQR etc.</p>
 <div class="sourceCode" id="cb1153"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu">normality</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu">normality</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 × 4
 ##    vars              statistic  p_value sample
 ##    &lt;chr&gt;                 &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-##  1 BLOCK                 0.982 6.39e-25   5000
-##  2 LOT                   0.696 8.76e-70   5000
-##  3 ZIP_CODE              0.576 1.28e-76   5000
-##  4 RESIDENTIAL_UNITS     0.171 7.44e-75   5000
-##  5 COMMERCIAL_UNITS      0.141 1.89e-44   5000
-##  6 TOTAL_UNITS           0.171 2.92e-76   5000
-##  7 LAND_SQUARE_FEET      0.493 3.19e-32   5000
-##  8 GROSS_SQUARE_FEET     0.349 2.33e-35   5000
-##  9 YEAR_BUILT            0.937 6.87e-40   5000
-## 10 SALE_PRICE            0.223 5.76e-90   5000</code></pre>
+##  1 BLOCK                 0.983 5.13e-24   5000
+##  2 LOT                   0.712 1.07e-68   5000
+##  3 ZIP_CODE              0.580 1.99e-76   5000
+##  4 RESIDENTIAL_UNITS     0.149 6.77e-75   5000
+##  5 COMMERCIAL_UNITS      0.171 5.30e-42   5000
+##  6 TOTAL_UNITS           0.159 4.63e-76   5000
+##  7 LAND_SQUARE_FEET      0.482 1.86e-30   5000
+##  8 GROSS_SQUARE_FEET     0.359 5.21e-33   5000
+##  9 YEAR_BUILT            0.938 8.49e-40   5000
+## 10 SALE_PRICE            0.239 1.74e-89   5000</code></pre>
 <div class="sourceCode" id="cb1155"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu">plot_normality</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu">plot_normality</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dlookr_files/figure-html/plot%20normality-1.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-2.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-3.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-4.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-5.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-6.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-7.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-8.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-9.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality-10.png" width="672" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb1156"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="va">manhattan</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NEIGHBORHOOD</span> <span class="op">==</span> <span class="st">"MIDTOWN EAST"</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">`ZIP_CODE`</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">plot_normality</span><span class="op">(</span><span class="va">`SALE_PRICE`</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="va">manhattan</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NEIGHBORHOOD</span> <span class="op">==</span> <span class="st">"MIDTOWN EAST"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">`ZIP_CODE`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">plot_normality</span><span class="op">(</span><span class="va">`SALE_PRICE`</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dlookr_files/figure-html/plot%20normality%20dplyr-1.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality%20dplyr-2.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality%20dplyr-3.png" width="672" style="display: block; margin: auto;"></p>
 <p>###Bivariate Analysis</p>
 <div class="sourceCode" id="cb1157"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu">correlate</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu">correlate</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 90 × 3
 ##    var1              var2  coef_corr
 ##    &lt;fct&gt;             &lt;fct&gt;     &lt;dbl&gt;
@@ -474,8 +481,8 @@
 ## 10 BLOCK             LOT    -0.185  
 ## # … with 80 more rows</code></pre>
 <div class="sourceCode" id="cb1159"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu">correlate</span><span class="op">(</span><span class="va">manhattan</span>, <span class="va">`SALE_PRICE`</span>,<span class="va">`YEAR_BUILT`</span>,<span class="va">`LAND_SQUARE_FEET`</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu">correlate</span><span class="op">(</span><span class="va">manhattan</span>, <span class="va">`SALE_PRICE`</span>,<span class="va">`YEAR_BUILT`</span>,<span class="va">`LAND_SQUARE_FEET`</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 27 × 3
 ##    var1             var2              coef_corr
 ##    &lt;fct&gt;            &lt;fct&gt;                 &lt;dbl&gt;
@@ -491,12 +498,12 @@
 ## 10 LAND_SQUARE_FEET RESIDENTIAL_UNITS   0.114  
 ## # … with 17 more rows</code></pre>
 <div class="sourceCode" id="cb1161"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu">plot_correlate</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu">plot_correlate</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="dlookr_files/figure-html/plot%20Correlate-1.png" width="768" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1162"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu">plot_correlate</span><span class="op">(</span><span class="va">manhattan</span>, <span class="va">`SALE_PRICE`</span>,<span class="va">`YEAR_BUILT`</span>,<span class="va">`LAND_SQUARE_FEET`</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu">plot_correlate</span><span class="op">(</span><span class="va">manhattan</span>, <span class="va">`SALE_PRICE`</span>,<span class="va">`YEAR_BUILT`</span>,<span class="va">`LAND_SQUARE_FEET`</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="dlookr_files/figure-html/plot%20Correlate%20specific%20columns-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
@@ -505,10 +512,10 @@
 <span class="header-section-number">88.4.3</span> EDA on Target Variable<a class="anchor" aria-label="anchor" href="#eda-on-target-variable"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb1163"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing Tax class at time of sale column</span>
-<span class="va">num</span> <span class="op">&lt;-</span> <span class="fu">target_by</span><span class="op">(</span><span class="va">manhattan</span>,<span class="va">`SALE_PRICE`</span><span class="op">)</span>
-<span class="va">num_num</span> <span class="op">&lt;-</span> <span class="fu">relate</span><span class="op">(</span><span class="va">num</span>,<span class="va">`LAND_SQUARE_FEET`</span><span class="op">)</span>
-<span class="va">num_num</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing Tax class at time of sale column</span></span>
+<span><span class="va">num</span> <span class="op">&lt;-</span> <span class="fu">target_by</span><span class="op">(</span><span class="va">manhattan</span>,<span class="va">`SALE_PRICE`</span><span class="op">)</span></span>
+<span><span class="va">num_num</span> <span class="op">&lt;-</span> <span class="fu">relate</span><span class="op">(</span><span class="va">num</span>,<span class="va">`LAND_SQUARE_FEET`</span><span class="op">)</span></span>
+<span><span class="va">num_num</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = formula_str, data = data)
@@ -517,8 +524,8 @@
 ##      (Intercept)  LAND_SQUARE_FEET  
 ##        7574327.3             102.1</code></pre>
 <div class="sourceCode" id="cb1165"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing Tax class at time of sale column</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">num_num</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing Tax class at time of sale column</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">num_num</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = formula_str, data = data)
@@ -539,8 +546,8 @@
 ## Multiple R-squared:  0.008092,   Adjusted R-squared:  0.007416 
 ## F-statistic: 11.97 on 1 and 1467 DF,  p-value: 0.0005566</code></pre>
 <div class="sourceCode" id="cb1167"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing Tax class at time of sale column</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">num_num</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing Tax class at time of sale column</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">num_num</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="dlookr_files/figure-html/plot_EDA_Target_variable-1.png" width="960" style="display: block; margin: auto;"></div>
 </div>
 <div id="data-transformation" class="section level3">
@@ -552,8 +559,8 @@
 <span class="header-section-number">88.4.4.1</span> Missing value Imputation<a class="anchor" aria-label="anchor" href="#missing-value-imputation"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb1168"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing Tax class at time of sale column</span>
-<span class="va">land_square_feet</span> <span class="op">&lt;-</span> <span class="fu">imputate_na</span><span class="op">(</span><span class="va">manhattan</span>,<span class="va">`LAND_SQUARE_FEET`</span>,<span class="va">SALE_PRICE</span>, method <span class="op">=</span> <span class="st">"mice"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing Tax class at time of sale column</span></span>
+<span><span class="va">land_square_feet</span> <span class="op">&lt;-</span> <span class="fu">imputate_na</span><span class="op">(</span><span class="va">manhattan</span>,<span class="va">`LAND_SQUARE_FEET`</span>,<span class="va">SALE_PRICE</span>, method <span class="op">=</span> <span class="st">"mice"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  iter imp variable
 ##   1   1  RESIDENTIAL_UNITS  COMMERCIAL_UNITS  TOTAL_UNITS  LAND_SQUARE_FEET  GROSS_SQUARE_FEET  YEAR_BUILT
@@ -582,98 +589,100 @@
 ##   5   4  RESIDENTIAL_UNITS  COMMERCIAL_UNITS  TOTAL_UNITS  LAND_SQUARE_FEET  GROSS_SQUARE_FEET  YEAR_BUILT
 ##   5   5  RESIDENTIAL_UNITS  COMMERCIAL_UNITS  TOTAL_UNITS  LAND_SQUARE_FEET  GROSS_SQUARE_FEET  YEAR_BUILT</code></pre>
 <div class="sourceCode" id="cb1170"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing outliers in zip code</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">land_square_feet</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing outliers in zip code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">land_square_feet</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## * Impute missing values based on Multivariate Imputation by Chained Equations
 ##  - method : mice
-##  - random seed : 61454
+##  - random seed : 83850
 ## 
 ## * Information of Imputation (before vs after)
-##              Original   Imputation
-## n          1469.00000  19354.00000
-## na        17885.00000      0.00000
-## mean       6019.76378  14981.84693
-## sd        27286.48687  22630.55203
-## se_mean     711.92907    162.67087
-## IQR        2502.00000  16708.75000
-## skewness     20.44256      7.42966
-## kurtosis    467.37765    111.16625
-## p00           0.00000      0.00000
-## p01          46.36000   1100.63600
-## p05        1084.60000   1710.79000
-## p10        1386.80000   2013.00000
-## p20        1659.40000   2735.52000
-## p25        1749.00000   3242.85000
-## p30        1862.00000   3901.96000
-## p40        2013.00000   5684.12000
-## p50        2313.00000   9002.90000
-## p60        2523.00000  12836.80000
-## p70        3679.20000  16147.56000
-## p75        4251.00000  19951.60000
-## p80        5046.00000  23612.84000
-## p90       10294.00000  33393.42000
-## p95       16066.00000  38319.14000
-## p99       55862.00000 136548.44400
-## p100     659375.00000 659375.00000</code></pre>
+##                     Original    Imputation 
+## described_variables "value"     "value"    
+## n                   " 1469"     "19354"    
+## na                  "17885"     "    0"    
+## mean                " 6019.764" "14560.463"
+## sd                  "27286.49"  "21917.31" 
+## se_mean             "711.9291"  "157.5440" 
+## IQR                 " 2502.00"  "15614.75" 
+## skewness            "20.442561" " 7.116475"
+## kurtosis            "467.3776"  "112.3919" 
+## p00                 "0"         "0"        
+## p01                 "  46.36"   "1050.00"  
+## p05                 "1084.6"    "1673.0"   
+## p10                 "1386.8"    "1981.8"   
+## p20                 "1659.4"    "2579.6"   
+## p25                 "1749.00"   "3023.25"  
+## p30                 "1862.0"    "3611.5"   
+## p40                 "2013.00"   "5185.52"  
+## p50                 "2313.0"    "7649.2"   
+## p60                 " 2523.00"  "12108.28" 
+## p70                 " 3679.20"  "15444.76" 
+## p75                 " 4251"     "18638"    
+## p80                 " 5046.00"  "23496.68" 
+## p90                 "10294.0"   "33925.8"  
+## p95                 "16066.0"   "40517.3"  
+## p99                 " 55862.0"  "135788.9" 
+## p100                "659375"    "659375"</code></pre>
 <div class="sourceCode" id="cb1172"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing outliers in zip code</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">land_square_feet</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing outliers in zip code</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">land_square_feet</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="dlookr_files/figure-html/Data_imputation_plot-1.png" width="672" style="display: block; margin: auto;">
 #### Outlier value Imputation</div>
 <div class="sourceCode" id="cb1173"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing outliers in year built</span>
-<span class="va">year_built</span> <span class="op">&lt;-</span> <span class="fu">imputate_outlier</span><span class="op">(</span><span class="va">manhattan</span>, <span class="va">YEAR_BUILT</span>, method <span class="op">=</span> <span class="st">"capping"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing outliers in year built</span></span>
+<span><span class="va">year_built</span> <span class="op">&lt;-</span> <span class="fu">imputate_outlier</span><span class="op">(</span><span class="va">manhattan</span>, <span class="va">YEAR_BUILT</span>, method <span class="op">=</span> <span class="st">"capping"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb1174"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing outliers in year built</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">year_built</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing outliers in year built</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">year_built</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Impute outliers with capping
 ## 
 ## * Information of Imputation (before vs after)
-##               Original    Imputation
-## n        17297.0000000 17297.0000000
-## na        2057.0000000  2057.0000000
-## mean      1954.4412326  1954.4585766
-## sd          38.0661067    38.0184836
-## se_mean      0.2894363     0.2890742
-## IQR         64.0000000    64.0000000
-## skewness     0.2269967     0.2376013
-## kurtosis    -1.1091423    -1.1466029
-## p00       1800.0000000  1840.0000000
-## p01       1899.0000000  1899.0000000
-## p05       1900.0000000  1900.0000000
-## p10       1910.0000000  1910.0000000
-## p20       1920.0000000  1920.0000000
-## p25       1922.0000000  1922.0000000
-## p30       1926.0000000  1926.0000000
-## p40       1931.0000000  1931.0000000
-## p50       1957.0000000  1957.0000000
-## p60       1963.0000000  1963.0000000
-## p70       1974.0000000  1974.0000000
-## p75       1986.0000000  1986.0000000
-## p80       2000.0000000  2000.0000000
-## p90       2014.0000000  2014.0000000
-## p95       2017.0000000  2017.0000000
-## p99       2019.0000000  2019.0000000
-## p100      2021.0000000  2021.0000000</code></pre>
+##                     Original    Imputation 
+## described_variables "value"     "value"    
+## n                   "17297"     "17297"    
+## na                  "2057"      "2057"     
+## mean                "1954.441"  "1954.459" 
+## sd                  "38.06611"  "38.01848" 
+## se_mean             "0.2894363" "0.2890742"
+## IQR                 "64"        "64"       
+## skewness            "0.2269967" "0.2376013"
+## kurtosis            "-1.109142" "-1.146603"
+## p00                 "1800"      "1840"     
+## p01                 "1899"      "1899"     
+## p05                 "1900"      "1900"     
+## p10                 "1910"      "1910"     
+## p20                 "1920"      "1920"     
+## p25                 "1922"      "1922"     
+## p30                 "1926"      "1926"     
+## p40                 "1931"      "1931"     
+## p50                 "1957"      "1957"     
+## p60                 "1963"      "1963"     
+## p70                 "1974"      "1974"     
+## p75                 "1986"      "1986"     
+## p80                 "2000"      "2000"     
+## p90                 "2014"      "2014"     
+## p95                 "2017"      "2017"     
+## p99                 "2019"      "2019"     
+## p100                "2021"      "2021"</code></pre>
 <div class="sourceCode" id="cb1176"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing outliers in year built</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">year_built</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing outliers in year built</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">year_built</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot1-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1177"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Imputing outliers in zip code</span>
-
-<span class="fu">plot_outlier</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Imputing outliers in zip code</span></span>
+<span></span>
+<span><span class="fu">plot_outlier</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-1.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-2.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-3.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-4.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-5.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-6.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-7.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-8.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-9.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/Data_imputation_outlier_plot-10.png" width="672" style="display: block; margin: auto;">
 #### Standardization and Resolving Skewness</p>
 <div class="sourceCode" id="cb1178"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">manhattan</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>SALE_PRICE_MINMAX <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/transform.data.table.html">transform</a></span><span class="op">(</span><span class="va">manhattan</span><span class="op">$</span><span class="va">SALE_PRICE</span>, method <span class="op">=</span> <span class="st">"minmax"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">SALE_PRICE_MINMAX</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/boxplot.html">boxplot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">manhattan</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>SALE_PRICE_MINMAX <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/transform.html">transform</a></span><span class="op">(</span><span class="va">manhattan</span><span class="op">$</span><span class="va">SALE_PRICE</span>, method <span class="op">=</span> <span class="st">"minmax"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">SALE_PRICE_MINMAX</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="dlookr_files/figure-html/standardization-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1179"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">find_skewness</span><span class="op">(</span><span class="va">manhattan</span>, value <span class="op">=</span> <span class="cn">TRUE</span>, thres <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">find_skewness</span><span class="op">(</span><span class="va">manhattan</span>, value <span class="op">=</span> <span class="cn">TRUE</span>, thres <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##             BLOCK               LOT          ZIP_CODE RESIDENTIAL_UNITS 
 ##            -0.149             2.775             4.143            16.631 
 ##  COMMERCIAL_UNITS       TOTAL_UNITS  LAND_SQUARE_FEET GROSS_SQUARE_FEET 
@@ -681,13 +690,13 @@
 ##        YEAR_BUILT        SALE_PRICE 
 ##             0.227            35.721</code></pre>
 <div class="sourceCode" id="cb1181"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu">plot_normality</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu">plot_normality</span><span class="op">(</span><span class="va">manhattan</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dlookr_files/figure-html/plot%20normality1-1.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-2.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-3.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-4.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-5.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-6.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-7.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-8.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-9.png" width="672" style="display: block; margin: auto;"><img src="dlookr_files/figure-html/plot%20normality1-10.png" width="672" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb1182"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="va">gross_square_feet_log</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/transform.data.table.html">transform</a></span><span class="op">(</span><span class="va">manhattan</span><span class="op">$</span><span class="va">GROSS_SQUARE_FEET</span>, method <span class="op">=</span> <span class="st">"log"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">gross_square_feet_log</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="va">gross_square_feet_log</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/transform.html">transform</a></span><span class="op">(</span><span class="va">manhattan</span><span class="op">$</span><span class="va">GROSS_SQUARE_FEET</span>, method <span class="op">=</span> <span class="st">"log"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">gross_square_feet_log</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## * Resolving Skewness with log
 ## 
 ## * Information of Transformation (before vs after)
@@ -718,8 +727,8 @@
 ## p99       458473.72000      13.034214
 ## p100     2400000.00000      14.690979</code></pre>
 <div class="sourceCode" id="cb1184"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Looking at the numerical data</span>
-<span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">gross_square_feet_log</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Looking at the numerical data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">gross_square_feet_log</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="dlookr_files/figure-html/transform_skewed_plot-1.png" width="672" style="display: block; margin: auto;">
 ### Reporting tools</div>
@@ -729,15 +738,15 @@
 <span class="header-section-number">88.4.4.2</span> Diagnosis report<a class="anchor" aria-label="anchor" href="#diagnosis-report"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb1185"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># NOT RUN</span>
-<span class="va">manhattan</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">diagnose_web_report</span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"manhattan"</span>, output_dir <span class="op">=</span> <span class="st">"./"</span>, 
-                      output_file <span class="op">=</span> <span class="st">"Diagn.html"</span>, theme <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># NOT RUN</span></span>
+<span><span class="va">manhattan</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">diagnose_web_report</span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"manhattan"</span>, output_dir <span class="op">=</span> <span class="st">"./"</span>, </span>
+<span>                      output_file <span class="op">=</span> <span class="st">"Diagn.html"</span>, theme <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb1186"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># NOT RUN</span>
-<span class="va">manhattan</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">diagnose_paged_report</span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"manhattan"</span>, output_dir <span class="op">=</span> <span class="st">"./"</span>,
-                        output_file <span class="op">=</span> <span class="st">"Diagn.pdf"</span>, theme <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># NOT RUN</span></span>
+<span><span class="va">manhattan</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">diagnose_paged_report</span><span class="op">(</span>subtitle <span class="op">=</span> <span class="st">"manhattan"</span>, output_dir <span class="op">=</span> <span class="st">"./"</span>,</span>
+<span>                        output_file <span class="op">=</span> <span class="st">"Diagn.pdf"</span>, theme <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div id="references-7" class="section level3">
@@ -787,7 +796,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -800,7 +809,7 @@
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

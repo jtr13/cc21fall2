@@ -358,7 +358,7 @@ loans_full_schema %>%
 p
 ```
 
-<img src="raincloud_plot_tutorial_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" />
+<img src="raincloud_plot_tutorial_files/figure-html/unnamed-chunk-13-1.png" width="912" style="display: block; margin: auto;" />
 
 Looks good right? Now we get the full picture of this dataset by:
 

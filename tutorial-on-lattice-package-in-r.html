@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 48 Tutorial on lattice package in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content='Yunxiao Wang Install the lattice package #install.packages("lattice") load lattice library(lattice)  48.1 Overview The lattice package is a very powerful high-level graphing package written by...'>
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 48 Tutorial on lattice package in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content='Yunxiao Wang Install the lattice package #install.packages("lattice") load lattice library(lattice)  48.1 Overview The lattice package is a very powerful high-level graphing package written by...'>
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content='Yunxiao Wang Install the lattice package #install.packages("lattice") load lattice library(lattice)  48.1 Overview The lattice package is a very powerful high-level graphing package written by...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -203,10 +206,10 @@
 <p>Yunxiao Wang</p>
 <p><strong>Install the lattice package</strong></p>
 <div class="sourceCode" id="cb422"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#install.packages("lattice")</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#install.packages("lattice")</span></span></code></pre></div>
 <p><strong>load lattice</strong></p>
 <div class="sourceCode" id="cb423"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://lattice.r-forge.r-project.org/">lattice</a></span><span class="op">)</span></span></code></pre></div>
 <div id="overview-1" class="section level2">
 <h2>
 <span class="header-section-number">48.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview-1"><i class="fas fa-link"></i></a>
@@ -245,17 +248,17 @@ options:are comma separated parameters used to adjust the content, arrangement a
 <p>y~x|A*B represent given levels of A and B, plot the relationship of y and x</p>
 <p>For convenience, I use <code>mtcars</code> dataset in this tutorial to make examples.</p>
 <div class="sourceCode" id="cb424"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/attach.html">attach</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/attach.html">attach</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="scatter-plot-matrix" class="section level3">
 <h3>
 <span class="header-section-number">48.2.3</span> scatter plot matrix<a class="anchor" aria-label="anchor" href="#scatter-plot-matrix"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb425"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#Plot scatter matrix</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/splom.html">splom</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span><span class="op">]</span>, 
- main<span class="op">=</span><span class="st">"Scatter Plot Matrix for mtcars Data"</span><span class="op">)</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="co">#Plot scatter matrix</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/splom.html">splom</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span><span class="op">]</span>, </span>
+<span> main<span class="op">=</span><span class="st">"Scatter Plot Matrix for mtcars Data"</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="density-plot" class="section level3">
@@ -263,9 +266,9 @@ options:are comma separated parameters used to adjust the content, arrangement a
 <span class="header-section-number">48.2.4</span> Density Plot<a class="anchor" aria-label="anchor" href="#density-plot"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb426"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">wt</span>, 
- main<span class="op">=</span><span class="st">"Density Plot"</span>, 
- xlab<span class="op">=</span><span class="st">"wt"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">wt</span>, </span>
+<span> main<span class="op">=</span><span class="st">"Density Plot"</span>, </span>
+<span> xlab<span class="op">=</span><span class="st">"wt"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="density-plot-by-transmission" class="section level3">
@@ -273,13 +276,13 @@ options:are comma separated parameters used to adjust the content, arrangement a
 <span class="header-section-number">48.2.5</span> Density Plot by transmission<a class="anchor" aria-label="anchor" href="#density-plot-by-transmission"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb427"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#create new variable</span>
-<span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, 
- labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Automatic"</span>, <span class="st">"Manual"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#Density Plot by transmission</span>
-<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">mpg</span> <span class="op">|</span><span class="va">transmission</span> , data<span class="op">=</span><span class="va">mtcars</span>,
- main<span class="op">=</span><span class="st">"MPG Distribution by Transmission Type"</span>, 
- xlab<span class="op">=</span><span class="st">"Miles per Gallon"</span><span class="op">)</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="co">#create new variable</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span>
+<span> labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Automatic"</span>, <span class="st">"Manual"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#Density Plot by transmission</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">mpg</span> <span class="op">|</span><span class="va">transmission</span> , data<span class="op">=</span><span class="va">mtcars</span>,</span>
+<span> main<span class="op">=</span><span class="st">"MPG Distribution by Transmission Type"</span>, </span>
+<span> xlab<span class="op">=</span><span class="st">"Miles per Gallon"</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="xyplot" class="section level3">
@@ -288,9 +291,9 @@ options:are comma separated parameters used to adjust the content, arrangement a
 </h3>
 <p>xyplot is also a type of scatterplot.</p>
 <div class="sourceCode" id="cb428"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">|</span> <span class="va">transmission</span>, data<span class="op">=</span><span class="va">mtcars</span>,
- main<span class="op">=</span><span class="st">"Scatter Plots by transmission "</span>, 
- xlab<span class="op">=</span><span class="st">"Car Weight"</span>, ylab<span class="op">=</span><span class="st">"Miles per Gallon"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">|</span> <span class="va">transmission</span>, data<span class="op">=</span><span class="va">mtcars</span>,</span>
+<span> main<span class="op">=</span><span class="st">"Scatter Plots by transmission "</span>, </span>
+<span> xlab<span class="op">=</span><span class="st">"Car Weight"</span>, ylab<span class="op">=</span><span class="st">"Miles per Gallon"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="boxplot" class="section level3">
@@ -298,11 +301,11 @@ options:are comma separated parameters used to adjust the content, arrangement a
 <span class="header-section-number">48.2.7</span> boxplot<a class="anchor" aria-label="anchor" href="#boxplot"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb429"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#group by transmission</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">bwplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">mpg</span> <span class="op">|</span> <span class="va">transmission</span>, data<span class="op">=</span><span class="va">mtcars</span>,
- main<span class="op">=</span><span class="st">"Box Plots by transmission"</span>, 
- xlab<span class="op">=</span><span class="st">"Miles per Gallon"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#group by transmission</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">bwplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">mpg</span> <span class="op">|</span> <span class="va">transmission</span>, data<span class="op">=</span><span class="va">mtcars</span>,</span>
+<span> main<span class="op">=</span><span class="st">"Box Plots by transmission"</span>, </span>
+<span> xlab<span class="op">=</span><span class="st">"Miles per Gallon"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="kernel-density-estimation-with-grouped-variables-and-custom-legend" class="section level3">
@@ -311,39 +314,39 @@ options:are comma separated parameters used to adjust the content, arrangement a
 </h3>
 <p>I put many comments here to describe things that each line of the code does.</p>
 <div class="sourceCode" id="cb430"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#create new variable</span>
-<span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, 
- labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Automatic"</span>, <span class="st">"Manual"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#set color</span>
-<span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"green"</span><span class="op">)</span> 
-<span class="co">#set line type</span>
-<span class="va">lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span>
-<span class="co">#set point type</span>
-<span class="va">points</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>,<span class="fl">18</span><span class="op">)</span>
-
-<span class="co">#customize legend</span>
-<span class="va">key.trans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">"Transmission"</span>, 
- space<span class="op">=</span><span class="st">"bottom"</span>, columns<span class="op">=</span><span class="fl">2</span>, 
- text<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span><span class="op">)</span><span class="op">)</span>,
- points<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>pch<span class="op">=</span><span class="va">points</span>, col<span class="op">=</span><span class="va">colors</span><span class="op">)</span>, 
- lines<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col<span class="op">=</span><span class="va">colors</span>, lty<span class="op">=</span><span class="va">lines</span><span class="op">)</span>, 
- cex.title<span class="op">=</span><span class="fl">1</span>, cex<span class="op">=</span><span class="fl">.95</span><span class="op">)</span>
-
-
-<span class="co">#kernel density plot</span>
-<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">mpg</span>, data<span class="op">=</span><span class="va">mtcars</span>, 
-<span class="co">#set group by variable</span>
- group<span class="op">=</span><span class="va">transmission</span>, 
- <span class="co">#give title</span>
- main<span class="op">=</span><span class="st">"MPG Distribution by Transmission Type"</span>,
- 
- xlab<span class="op">=</span><span class="st">"Miles per Gallon"</span>, 
- <span class="co">#set type of point and line and set color</span>
- pch<span class="op">=</span><span class="va">points</span>, lty<span class="op">=</span><span class="va">lines</span>, col<span class="op">=</span><span class="va">colors</span>,
- <span class="co">#size</span>
- lwd<span class="op">=</span><span class="fl">2</span>, jitter<span class="op">=</span><span class="fl">.005</span>, 
- <span class="co">#draw legend as we customized above</span>
- key<span class="op">=</span><span class="va">key.trans</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#create new variable</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span>
+<span> labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Automatic"</span>, <span class="st">"Manual"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#set color</span></span>
+<span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"green"</span><span class="op">)</span> </span>
+<span><span class="co">#set line type</span></span>
+<span><span class="va">lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#set point type</span></span>
+<span><span class="va">points</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>,<span class="fl">18</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#customize legend</span></span>
+<span><span class="va">key.trans</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>title<span class="op">=</span><span class="st">"Transmission"</span>, </span>
+<span> space<span class="op">=</span><span class="st">"bottom"</span>, columns<span class="op">=</span><span class="fl">2</span>, </span>
+<span> text<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span><span class="op">)</span><span class="op">)</span>,</span>
+<span> points<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>pch<span class="op">=</span><span class="va">points</span>, col<span class="op">=</span><span class="va">colors</span><span class="op">)</span>, </span>
+<span> lines<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>col<span class="op">=</span><span class="va">colors</span>, lty<span class="op">=</span><span class="va">lines</span><span class="op">)</span>, </span>
+<span> cex.title<span class="op">=</span><span class="fl">1</span>, cex<span class="op">=</span><span class="fl">.95</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#kernel density plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">mpg</span>, data<span class="op">=</span><span class="va">mtcars</span>, </span>
+<span><span class="co">#set group by variable</span></span>
+<span> group<span class="op">=</span><span class="va">transmission</span>, </span>
+<span> <span class="co">#give title</span></span>
+<span> main<span class="op">=</span><span class="st">"MPG Distribution by Transmission Type"</span>,</span>
+<span> </span>
+<span> xlab<span class="op">=</span><span class="st">"Miles per Gallon"</span>, </span>
+<span> <span class="co">#set type of point and line and set color</span></span>
+<span> pch<span class="op">=</span><span class="va">points</span>, lty<span class="op">=</span><span class="va">lines</span>, col<span class="op">=</span><span class="va">colors</span>,</span>
+<span> <span class="co">#size</span></span>
+<span> lwd<span class="op">=</span><span class="fl">2</span>, jitter<span class="op">=</span><span class="fl">.005</span>, </span>
+<span> <span class="co">#draw legend as we customized above</span></span>
+<span> key<span class="op">=</span><span class="va">key.trans</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="adjust-variable" class="section level3">
@@ -356,12 +359,12 @@ Alternatively, the functions provided by the lattice package can also do this ef
 <p>The variable of is transformed into a data structure named shingle. Specifically, continuous variables are divided into a series of (possibly) overlapping ranges.</p>
 <p><code>disp</code> is original a continious variable，we divided it to three group as factor variable</p>
 <div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">displace</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/shingles.html">equal.count</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">disp</span>, number<span class="op">=</span><span class="fl">3</span>, overlap<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">displace</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/shingles.html">equal.count</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">disp</span>, number<span class="op">=</span><span class="fl">3</span>, overlap<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb432"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">~</span><span class="va">wt</span><span class="op">|</span><span class="va">displace</span>, data<span class="op">=</span><span class="va">mtcars</span>, 
- main <span class="op">=</span> <span class="st">"Miles per Gallon vs. Weight by Engine Displace"</span>, 
- xlab <span class="op">=</span> <span class="st">"Weight"</span>, ylab <span class="op">=</span> <span class="st">"Miles per Gallon"</span>, 
- layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, aspect<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">~</span><span class="va">wt</span><span class="op">|</span><span class="va">displace</span>, data<span class="op">=</span><span class="va">mtcars</span>, </span>
+<span> main <span class="op">=</span> <span class="st">"Miles per Gallon vs. Weight by Engine Displace"</span>, </span>
+<span> xlab <span class="op">=</span> <span class="st">"Weight"</span>, ylab <span class="op">=</span> <span class="st">"Miles per Gallon"</span>, </span>
+<span> layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, aspect<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="panel-function" class="section level3">
@@ -370,22 +373,22 @@ Alternatively, the functions provided by the lattice package can also do this ef
 </h3>
 <p>We can create our own panel functions to draw the plot in 7</p>
 <div class="sourceCode" id="cb433"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">displacement</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/shingles.html">equal.count</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">disp</span>, number<span class="op">=</span><span class="fl">3</span>, overlap<span class="op">=</span><span class="fl">0</span><span class="op">)</span> 
-<span class="co">#customize panel function, including plottype, layout, line color..etc.</span>
-<span class="va">mypanel</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span> 
- <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.xyplot.html">panel.xyplot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, pch<span class="op">=</span><span class="fl">15</span><span class="op">)</span> 
- <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.rug</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> 
- <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.grid</a></span><span class="op">(</span>h<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, v<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> 
- <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.lmline</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, col<span class="op">=</span><span class="st">"blue"</span>, lwd<span class="op">=</span><span class="fl">1</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> 
-<span class="op">}</span> 
-<span class="co">#draw grouped scatterplot</span>
-<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">~</span><span class="va">wt</span><span class="op">|</span><span class="va">displacement</span>, data<span class="op">=</span><span class="va">mtcars</span>, 
- layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, 
- aspect<span class="op">=</span><span class="fl">1.5</span>, 
- main <span class="op">=</span> <span class="st">"Miles per Gallon vs. Weight by Engine Displacement"</span>, 
- xlab <span class="op">=</span> <span class="st">"Weight"</span>, 
- ylab <span class="op">=</span> <span class="st">"Miles per Gallon"</span>, 
- panel <span class="op">=</span> <span class="va">mypanel</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">displacement</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/shingles.html">equal.count</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">disp</span>, number<span class="op">=</span><span class="fl">3</span>, overlap<span class="op">=</span><span class="fl">0</span><span class="op">)</span> </span>
+<span><span class="co">#customize panel function, including plottype, layout, line color..etc.</span></span>
+<span><span class="va">mypanel</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span> </span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.xyplot.html">panel.xyplot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, pch<span class="op">=</span><span class="fl">15</span><span class="op">)</span> </span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.rug</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> </span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.grid</a></span><span class="op">(</span>h<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, v<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> </span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.lmline</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, col<span class="op">=</span><span class="st">"blue"</span>, lwd<span class="op">=</span><span class="fl">1</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span><span class="op">}</span> </span>
+<span><span class="co">#draw grouped scatterplot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">~</span><span class="va">wt</span><span class="op">|</span><span class="va">displacement</span>, data<span class="op">=</span><span class="va">mtcars</span>, </span>
+<span> layout<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, </span>
+<span> aspect<span class="op">=</span><span class="fl">1.5</span>, </span>
+<span> main <span class="op">=</span> <span class="st">"Miles per Gallon vs. Weight by Engine Displacement"</span>, </span>
+<span> xlab <span class="op">=</span> <span class="st">"Weight"</span>, </span>
+<span> ylab <span class="op">=</span> <span class="st">"Miles per Gallon"</span>, </span>
+<span> panel <span class="op">=</span> <span class="va">mypanel</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="xyplot-for-customizing-panel-functions-and-additional-options" class="section level3">
@@ -393,21 +396,21 @@ Alternatively, the functions provided by the lattice package can also do this ef
 <span class="header-section-number">48.2.11</span> xyplot for customizing panel functions and additional options<a class="anchor" aria-label="anchor" href="#xyplot-for-customizing-panel-functions-and-additional-options"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb434"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, 
- labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Automatic"</span>, <span class="st">"Manual"</span><span class="op">)</span><span class="op">)</span> 
-<span class="va">panel.smoother</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span> 
- <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.grid</a></span><span class="op">(</span>h<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, v<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> 
- <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.xyplot.html">panel.xyplot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> 
- <span class="co">#panel. loess() give the nonparameter fitting line</span>
- <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.loess.html">panel.loess</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> 
- <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, lwd<span class="op">=</span><span class="fl">2</span>, lty<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> 
- <span class="op">}</span> 
-<span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">~</span><span class="va">disp</span><span class="op">|</span><span class="va">transmission</span>,data<span class="op">=</span><span class="va">mtcars</span>, 
- scales<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>cex<span class="op">=</span><span class="fl">.8</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span>, 
- panel<span class="op">=</span><span class="va">panel.smoother</span>, 
- xlab<span class="op">=</span><span class="st">"Displacement"</span>, ylab<span class="op">=</span><span class="st">"Miles per Gallon"</span>, 
- main<span class="op">=</span><span class="st">"MPG vs Displacement by Transmission Type"</span>, 
- sub <span class="op">=</span> <span class="st">"Dotted lines are Group Means"</span>, aspect<span class="op">=</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, </span>
+<span> labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Automatic"</span>, <span class="st">"Manual"</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="va">panel.smoother</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span> </span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.grid</a></span><span class="op">(</span>h<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, v<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> </span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.xyplot.html">panel.xyplot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> </span>
+<span> <span class="co">#panel. loess() give the nonparameter fitting line</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.loess.html">panel.loess</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> </span>
+<span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/panel.functions.html">panel.abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, lwd<span class="op">=</span><span class="fl">2</span>, lty<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> </span>
+<span> <span class="op">}</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lattice/man/xyplot.html">xyplot</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">~</span><span class="va">disp</span><span class="op">|</span><span class="va">transmission</span>,data<span class="op">=</span><span class="va">mtcars</span>, </span>
+<span> scales<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>cex<span class="op">=</span><span class="fl">.8</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span>, </span>
+<span> panel<span class="op">=</span><span class="va">panel.smoother</span>, </span>
+<span> xlab<span class="op">=</span><span class="st">"Displacement"</span>, ylab<span class="op">=</span><span class="st">"Miles per Gallon"</span>, </span>
+<span> main<span class="op">=</span><span class="st">"MPG vs Displacement by Transmission Type"</span>, </span>
+<span> sub <span class="op">=</span> <span class="st">"Dotted lines are Group Means"</span>, aspect<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="page-layout" class="section level3">
@@ -425,16 +428,16 @@ split=c(x, y, nx, ny)
 Put current plot at the xth row yth column cell in a nx*ny 2D array.
 origin is top left corner.</p>
 <div class="sourceCode" id="cb435"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#draw a histogram</span>
-<span class="va">graph1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">histogram</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span> <span class="op">|</span> <span class="va">voice.part</span>, data <span class="op">=</span> <span class="va">singer</span>, 
- main <span class="op">=</span> <span class="st">"Heights of Choral Singers by Voice Part"</span> <span class="op">)</span> 
-<span class="co">#draw a density plot</span>
-<span class="va">graph2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span><span class="op">|</span><span class="va">voice.part</span>, data <span class="op">=</span> <span class="va">singer</span><span class="op">)</span> 
-<span class="co">#whoe page is 1*2 matrix</span>
-<span class="co">#plot graph 2 at (1,1)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">graph1</span>, split <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> 
-<span class="co">#plot graph 2 at (1,2)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">graph2</span>, split <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, newpage <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#draw a histogram</span></span>
+<span><span class="va">graph1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">histogram</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span> <span class="op">|</span> <span class="va">voice.part</span>, data <span class="op">=</span> <span class="va">singer</span>, </span>
+<span> main <span class="op">=</span> <span class="st">"Heights of Choral Singers by Voice Part"</span> <span class="op">)</span> </span>
+<span><span class="co">#draw a density plot</span></span>
+<span><span class="va">graph2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span><span class="op">|</span><span class="va">voice.part</span>, data <span class="op">=</span> <span class="va">singer</span><span class="op">)</span> </span>
+<span><span class="co">#whoe page is 1*2 matrix</span></span>
+<span><span class="co">#plot graph 2 at (1,1)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">graph1</span>, split <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="co">#plot graph 2 at (1,2)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">graph2</span>, split <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, newpage <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="position" class="section level4">
@@ -447,11 +450,11 @@ The whole page is a 2D coordinate. x and y have a range(0,1).<br>
 (0,0) origin point at bottom left.
 We can arrage each plot size more precisely now.</p>
 <div class="sourceCode" id="cb436"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">graph1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">histogram</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span>, data <span class="op">=</span> <span class="va">singer</span> <span class="op">)</span> 
-
-<span class="va">graph2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span>, data <span class="op">=</span> <span class="va">singer</span><span class="op">)</span> 
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">graph1</span>, position<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">graph2</span>, position<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0.3</span>, <span class="fl">1</span><span class="op">)</span>, newpage<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">graph1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">histogram</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span>, data <span class="op">=</span> <span class="va">singer</span> <span class="op">)</span> </span>
+<span></span>
+<span><span class="va">graph2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lattice/man/histogram.html">densityplot</a></span><span class="op">(</span><span class="op">~</span><span class="va">height</span>, data <span class="op">=</span> <span class="va">singer</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">graph1</span>, position<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">graph2</span>, position<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0.3</span>, <span class="fl">1</span><span class="op">)</span>, newpage<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_lattice_tutorial_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
@@ -509,7 +512,7 @@ We can arrage each plot size more precisely now.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -522,7 +525,7 @@ We can arrage each plot size more precisely now.</p>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

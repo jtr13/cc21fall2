@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 97 ANOVA tutorial | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Xinrui Bai and Zewen Shi The main motivation for this community contribution project is to provide a tutorial of a few useful visualization tools in the process of the analysis of variances, a...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 97 ANOVA tutorial | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Xinrui Bai and Zewen Shi The main motivation for this community contribution project is to provide a tutorial of a few useful visualization tools in the process of the analysis of variances, a...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Xinrui Bai and Zewen Shi The main motivation for this community contribution project is to provide a tutorial of a few useful visualization tools in the process of the analysis of variances, a...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -202,17 +205,17 @@
 </h1>
 <p>Xinrui Bai and Zewen Shi</p>
 <p>The main <strong>motivation</strong> for this community contribution project is to provide a tutorial of a few useful visualization tools in the process of the analysis of variances, a common topic that statisticians deal with on a daily basis. This project will walk users through such tools of visualization and how they would be a complement to concrete test results by making them understandable even by audiences with little training in statistics. In the first part, the background for a typical problem of our choice will be provided and manipulations of the data will be carried out to obtain a model of best fit for later use. In the second part, diagnosis using visualization tools will be conducted and results will be analyzed.</p>
-<div class="sourceCode" id="cb1390"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#.libPaths("C:/Rpackage")</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glmnet.stanford.edu">glmnet</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
-<span class="co">#library(AICcmodavg)</span></code></pre></div>
+<div class="sourceCode" id="cb1385"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#.libPaths("C:/Rpackage")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glmnet.stanford.edu">glmnet</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span></span>
+<span><span class="co">#library(AICcmodavg)</span></span></code></pre></div>
 <div id="part-1-background-and-preliminary-data-manipulation" class="section level2">
 <h2>
 <span class="header-section-number">97.1</span> Part 1: Background and Preliminary Data Manipulation<a class="anchor" aria-label="anchor" href="#part-1-background-and-preliminary-data-manipulation"><i class="fas fa-link"></i></a>
@@ -222,10 +225,10 @@
 <h3>
 <span class="header-section-number">97.1.1</span> Step 1: taking a first look at the dataset:<a class="anchor" aria-label="anchor" href="#step-1-taking-a-first-look-at-the-dataset"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1391"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">crop.data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"resources/anova_tutorial/cropdata.csv"</span>, header <span class="op">=</span> <span class="cn">TRUE</span>, colClasses <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"factor"</span>, <span class="st">"factor"</span>, <span class="st">"factor"</span>, <span class="st">"numeric"</span><span class="op">)</span><span class="op">)</span> <span class="co"># if data is in the $home folder</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">crop.data</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1386"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">crop.data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"resources/anova_tutorial/cropdata.csv"</span>, header <span class="op">=</span> <span class="cn">TRUE</span>, colClasses <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"factor"</span>, <span class="st">"factor"</span>, <span class="st">"factor"</span>, <span class="st">"numeric"</span><span class="op">)</span><span class="op">)</span> <span class="co"># if data is in the $home folder</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">crop.data</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##  density block  fertilizer     yield      
 ##  1:48    1:24   1:32       Min.   :175.4  
 ##  2:48    2:24   2:32       1st Qu.:176.5  
@@ -239,10 +242,10 @@
 <h3>
 <span class="header-section-number">97.1.2</span> Step 2: one-way anova<a class="anchor" aria-label="anchor" href="#step-2-one-way-anova"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1393"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">anovaoneway</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span>
-<span class="co">#diaplay the results</span>
-<span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anovaoneway</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1388"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">anovaoneway</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span></span>
+<span><span class="co">#diaplay the results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anovaoneway</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
 ## fertilizer   2   6.07  3.0340   7.863  7e-04 ***
 ## Residuals   93  35.89  0.3859                   
@@ -255,11 +258,11 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.1.3</span> Step 3:two-way data<a class="anchor" aria-label="anchor" href="#step-3two-way-data"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1395"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#anova adjust for two independent variables</span>
-<span class="co">#start to generate the dataset for two x variables</span>
-<span class="va">anova2way</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span> <span class="op">+</span> <span class="va">density</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1390"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#anova adjust for two independent variables</span></span>
+<span><span class="co">#start to generate the dataset for two x variables</span></span>
+<span><span class="va">anova2way</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span> <span class="op">+</span> <span class="va">density</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## fertilizer   2  6.068   3.034   9.073 0.000253 ***
 ## density      1  5.122   5.122  15.316 0.000174 ***
@@ -272,11 +275,11 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.1.4</span> Step 4: adding interaction terms<a class="anchor" aria-label="anchor" href="#step-4-adding-interaction-terms"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1397"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#generate the anova for the data</span>
-<span class="va">anova_inter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span><span class="op">*</span><span class="va">density</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span>
-<span class="co">#display the results</span>
-<span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anova_inter</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1392"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#generate the anova for the data</span></span>
+<span><span class="va">anova_inter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span><span class="op">*</span><span class="va">density</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span></span>
+<span><span class="co">#display the results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anova_inter</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##                    Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## fertilizer          2  6.068   3.034   9.001 0.000273 ***
 ## density             1  5.122   5.122  15.195 0.000186 ***
@@ -290,11 +293,11 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.1.5</span> Step 5: blocking variable<a class="anchor" aria-label="anchor" href="#step-5-blocking-variable"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1399"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#generate the anova for the data</span>
-<span class="va">anova_block</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span> <span class="op">+</span> <span class="va">density</span> <span class="op">+</span> <span class="va">block</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span>
-<span class="co">#display the results</span>
-<span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anova_block</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1394"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#generate the anova for the data</span></span>
+<span><span class="va">anova_block</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span> <span class="op">+</span> <span class="va">density</span> <span class="op">+</span> <span class="va">block</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span></span>
+<span><span class="co">#display the results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anova_block</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## fertilizer   2  6.068   3.034   9.018 0.000269 ***
 ## density      1  5.122   5.122  15.224 0.000184 ***
@@ -308,13 +311,13 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.1.6</span> Step 6: obtaining the best-fitting model<a class="anchor" aria-label="anchor" href="#step-6-obtaining-the-best-fitting-model"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1401"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#library(AICcmodavg)</span>
-
-<span class="co">#allanovas &lt;- list(anovaoneway, anova2way, anova_inter, anova_block)</span>
-<span class="co">#allanovasnames &lt;- c("one way Anova", "two way Anova", "Anova wtih interaction term", "Anova with a blocking term")</span>
-
-<span class="co">#aictab(allanovas, modnames = allanovasnames)</span></code></pre></div>
+<div class="sourceCode" id="cb1396"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#library(AICcmodavg)</span></span>
+<span></span>
+<span><span class="co">#allanovas &lt;- list(anovaoneway, anova2way, anova_inter, anova_block)</span></span>
+<span><span class="co">#allanovasnames &lt;- c("one way Anova", "two way Anova", "Anova wtih interaction term", "Anova with a blocking term")</span></span>
+<span></span>
+<span><span class="co">#aictab(allanovas, modnames = allanovasnames)</span></span></code></pre></div>
 <p>We plan to use the aictab() function from the AICcmodavg plackage to obtain the best-fitting model among the four different ANOVA models.This function creates a model selection table based on one of the following information criteria: AIC, AICc, QAIC, QAICc. The table ranks the models based on the selected information criteria and also provides delta AIC and Akaike weights. But due to some version and software issues. The codes won’t work so we just display the process here. However it can work days ago so we can display the results.</p>
 <p>Since this step, we have exploited several measures to lock down potential combinations of variables to figure out what would be the best-fitting model for this dataset. We have finally chosen the two way model to be our best fitting model because it has the lowest AIC score. In the next part, we will run some diagnosis and tests on this model using both concrete tests and visualization tools.</p>
 </div>
@@ -327,20 +330,20 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.2.1</span> Step 1: homoskedasticity test<a class="anchor" aria-label="anchor" href="#step-1-homoskedasticity-test"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1402"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#Comprehensive test</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1397"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#Comprehensive test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1403"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co">#ggplot2 for Q-Q plot</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span><span class="op">)</span>;<span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span>, col <span class="op">=</span> <span class="fl">2</span>,lwd<span class="op">=</span><span class="fl">2</span>,lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1398"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#ggplot2 for Q-Q plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span><span class="op">)</span>;<span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span>, col <span class="op">=</span> <span class="fl">2</span>,lwd<span class="op">=</span><span class="fl">2</span>,lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-9-2.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1404"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#histogram</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1399"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#histogram</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-9-3.png" width="672" style="display: block; margin: auto;"></div>
 <p>In this step, the normal Q-Q plot gives us visual clues on how much the dataset deviates from normal distribution, which is not much, as confirmed by the shaprp-ratio test with a p-value of 0.8836&gt;0.05</p>
 <p>While interpreting the first set of graphs, it is usually important to know the red line represents the mean of residuals and it should be horizontal and scattered around the value 0 or 1 for the normality assumption to hold, otherwise there exists significant outliers that have bigger than normal influence on the model, causing unneccessary bias.</p>
@@ -350,11 +353,11 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.2.2</span> Step 2: parallelism test<a class="anchor" aria-label="anchor" href="#step-2-parallelism-test"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1405"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#check for parallelism</span>
-<span class="co">#two-way anova</span>
-<span class="va">anova_inter</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span><span class="op">*</span><span class="va">density</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anova_inter</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1400"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#check for parallelism</span></span>
+<span><span class="co">#two-way anova</span></span>
+<span><span class="va">anova_inter</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span><span class="op">*</span><span class="va">density</span>, data <span class="op">=</span> <span class="va">crop.data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">anova_inter</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##                    Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 ## fertilizer          2  6.068   3.034   9.001 0.000273 ***
 ## density             1  5.122   5.122  15.195 0.000186 ***
@@ -369,18 +372,18 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.2.3</span> Step 3: Unequal Variances test<a class="anchor" aria-label="anchor" href="#step-3-unequal-variances-test"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1407"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#bartlett test on data</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/bartlett.test.html">bartlett.test</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">crop.data</span><span class="op">$</span><span class="va">yield</span>,g<span class="op">=</span><span class="va">crop.data</span><span class="op">$</span><span class="va">density</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1402"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#bartlett test on data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/bartlett.test.html">bartlett.test</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">crop.data</span><span class="op">$</span><span class="va">yield</span>,g<span class="op">=</span><span class="va">crop.data</span><span class="op">$</span><span class="va">density</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Bartlett test of homogeneity of variances
 ## 
 ## data:  crop.data$yield and crop.data$density
 ## Bartlett's K-squared = 0.16171, df = 1, p-value = 0.6876</code></pre>
-<div class="sourceCode" id="cb1409"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#levene test on data</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/car/man/leveneTest.html">leveneTest</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">crop.data</span><span class="op">$</span><span class="va">yield</span>,group<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/factor.html">as.factor</a></span><span class="op">(</span><span class="va">crop.data</span><span class="op">$</span><span class="va">density</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1404"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#levene test on data</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/car/man/leveneTest.html">leveneTest</a></span><span class="op">(</span>y<span class="op">=</span><span class="va">crop.data</span><span class="op">$</span><span class="va">yield</span>,group<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">crop.data</span><span class="op">$</span><span class="va">density</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Levene's Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(&gt;F)
 ## group  1   0.152 0.6975
@@ -394,10 +397,10 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.2.4</span> Step 4: post-hoc test<a class="anchor" aria-label="anchor" href="#step-4-post-hoc-test"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1411"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tukeytest</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span>
-
-<span class="va">tukeytest</span></code></pre></div>
+<div class="sourceCode" id="cb1406"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tukeytest</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">anova2way</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tukeytest</span></span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -419,10 +422,10 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.2.5</span> Step 5: visualized test results<a class="anchor" aria-label="anchor" href="#step-5-visualized-test-results"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1413"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tukey_plot</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span><span class="op">:</span><span class="va">density</span>, data<span class="op">=</span><span class="va">crop.data</span><span class="op">)</span>
-<span class="va">tukey.plot</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">tukey_plot</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">tukey.plot</span>, las <span class="op">=</span> <span class="fl">1</span>,col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1408"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tukey_plot</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">yield</span> <span class="op">~</span> <span class="va">fertilizer</span><span class="op">:</span><span class="va">density</span>, data<span class="op">=</span><span class="va">crop.data</span><span class="op">)</span></span>
+<span><span class="va">tukey.plot</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">tukey_plot</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">tukey.plot</span>, las <span class="op">=</span> <span class="fl">1</span>,col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>As shown on the graph, if the confidence interval does not include zero, it means the p-value for the difference is smaller than 0.05, as evidence of significant differences.</p>
 </div>
@@ -430,20 +433,20 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 <h3>
 <span class="header-section-number">97.2.6</span> Step 6: creating a data frame with the group labels and more visualizations<a class="anchor" aria-label="anchor" href="#step-6-creating-a-data-frame-with-the-group-labels-and-more-visualizations"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1414"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">yielddata</span> <span class="op">&lt;-</span> <span class="va">crop.data</span> <span class="op"><a href="https://rpkgs.datanovia.com/ggpubr/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">fertilizer</span>, <span class="va">density</span><span class="op">)</span> <span class="op"><a href="https://rpkgs.datanovia.com/ggpubr/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>
-    yield <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">yield</span><span class="op">)</span>
-  <span class="op">)</span>
-
-
-<span class="co">#mergeDay18_meanData, weight ~ birthweight + Diet</span>
-
-
-<span class="va">yielddata</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"c"</span><span class="op">)</span>
-
-<span class="va">yielddata</span></code></pre></div>
+<div class="sourceCode" id="cb1409"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">yielddata</span> <span class="op">&lt;-</span> <span class="va">crop.data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">fertilizer</span>, <span class="va">density</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    yield <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">yield</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#mergeDay18_meanData, weight ~ birthweight + Diet</span></span>
+<span></span>
+<span></span>
+<span><span class="va">yielddata</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"b"</span>,<span class="st">"c"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">yielddata</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ## # Groups:   fertilizer [3]
 ##   fertilizer density yield group
@@ -454,53 +457,53 @@ In this one-way ANOVA setup, we test if fertilizer type has a significant impact
 ## 4 2          2        177. b    
 ## 5 3          1        177. b    
 ## 6 3          2        178. c</code></pre>
-<div class="sourceCode" id="cb1416"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">crop.data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">density</span>, y <span class="op">=</span> <span class="va">yield</span>, group<span class="op">=</span><span class="va">density</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="fl">15</span>,
-              color <span class="op">=</span> <span class="st">"steelblue"</span>,
-              position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html">position_jitter</a></span><span class="op">(</span><span class="fl">0.21</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Boxplot between different density of the crop data"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1411"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">crop.data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">density</span>, y <span class="op">=</span> <span class="va">yield</span>, group<span class="op">=</span><span class="va">density</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="fl">15</span>,</span>
+<span>              color <span class="op">=</span> <span class="st">"steelblue"</span>,</span>
+<span>              position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html">position_jitter</a></span><span class="op">(</span><span class="fl">0.21</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Boxplot between different density of the crop data"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;">
 The group labels work as follows: A 1:1, C 3:2, B: other intermediate combinations.</div>
-<div class="sourceCode" id="cb1417"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Twoway</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">crop.data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">density</span>, y <span class="op">=</span> <span class="va">yield</span>, group<span class="op">=</span><span class="va">fertilizer</span>, fill<span class="op">=</span><span class="va">fertilizer</span><span class="op">)</span>,color<span class="op">=</span><span class="st">'darkblue'</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>cex <span class="op">=</span> <span class="fl">1.5</span>, pch <span class="op">=</span> <span class="fl">1.0</span>,position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html">position_jitter</a></span><span class="op">(</span>w <span class="op">=</span> <span class="fl">0.1</span>, h <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Two way plot of the crop data based on fertilizer"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_color_gradientn</a></span><span class="op">(</span>colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">rainbow</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>
-<span class="va">Twoway</span></code></pre></div>
+<div class="sourceCode" id="cb1412"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Twoway</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">crop.data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">density</span>, y <span class="op">=</span> <span class="va">yield</span>, group<span class="op">=</span><span class="va">fertilizer</span>, fill<span class="op">=</span><span class="va">fertilizer</span><span class="op">)</span>,color<span class="op">=</span><span class="st">'darkblue'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>cex <span class="op">=</span> <span class="fl">1.5</span>, pch <span class="op">=</span> <span class="fl">1.0</span>,position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html">position_jitter</a></span><span class="op">(</span>w <span class="op">=</span> <span class="fl">0.1</span>, h <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Two way plot of the crop data based on fertilizer"</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_color_gradientn</a></span><span class="op">(</span>colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">rainbow</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Twoway</span></span></code></pre></div>
 <div class="inline-figure"><img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1418"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">plot1</span><span class="op">&lt;-</span> <span class="va">Twoway</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span><span class="op">(</span>fun.data <span class="op">=</span> <span class="st">'mean_se'</span>, geom <span class="op">=</span> <span class="st">'errorbar'</span>, width <span class="op">=</span> <span class="fl">0.2</span>,color<span class="op">=</span><span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span><span class="op">(</span>fun.data <span class="op">=</span> <span class="st">'mean_se'</span>, geom <span class="op">=</span> <span class="st">'pointrange'</span>,color<span class="op">=</span><span class="st">'red'</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">yielddata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">density</span>, y<span class="op">=</span><span class="va">yield</span>, fill<span class="op">=</span><span class="va">density</span><span class="op">)</span>,color<span class="op">=</span><span class="st">'green'</span><span class="op">)</span><span class="op">+</span>
-  
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Two way plot of the crop data with means"</span><span class="op">)</span>
-<span class="va">plot1</span></code></pre></div>
+<div class="sourceCode" id="cb1413"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">plot1</span><span class="op">&lt;-</span> <span class="va">Twoway</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span><span class="op">(</span>fun.data <span class="op">=</span> <span class="st">'mean_se'</span>, geom <span class="op">=</span> <span class="st">'errorbar'</span>, width <span class="op">=</span> <span class="fl">0.2</span>,color<span class="op">=</span><span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">stat_summary</a></span><span class="op">(</span>fun.data <span class="op">=</span> <span class="st">'mean_se'</span>, geom <span class="op">=</span> <span class="st">'pointrange'</span>,color<span class="op">=</span><span class="st">'red'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">yielddata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">density</span>, y<span class="op">=</span><span class="va">yield</span>, fill<span class="op">=</span><span class="va">density</span><span class="op">)</span>,color<span class="op">=</span><span class="st">'green'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Two way plot of the crop data with means"</span><span class="op">)</span></span>
+<span><span class="va">plot1</span></span></code></pre></div>
 <div class="inline-figure"><img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We have obtained a preliminary visualization but all the groups are stacked on top of each other, which makes it difficult to read. In the next step, we separate them.</p>
-<div class="sourceCode" id="cb1419"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">plot2</span> <span class="op">&lt;-</span> <span class="va">Twoway</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">yielddata</span>, label<span class="op">=</span><span class="va">yielddata</span><span class="op">$</span><span class="va">group</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">8</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">fertilizer</span><span class="op">)</span><span class="op">+</span>
-  
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Two way plot of the crop data with full separation"</span><span class="op">)</span>
-
-<span class="va">plot2</span></code></pre></div>
+<div class="sourceCode" id="cb1414"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">plot2</span> <span class="op">&lt;-</span> <span class="va">Twoway</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">yielddata</span>, label<span class="op">=</span><span class="va">yielddata</span><span class="op">$</span><span class="va">group</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">8</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">fertilizer</span><span class="op">)</span><span class="op">+</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Two way plot of the crop data with full separation"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plot2</span></span></code></pre></div>
 <div class="inline-figure"><img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1420"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">plot3</span> <span class="op">&lt;-</span> <span class="va">Twoway</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_classic2</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Crop yield with different kinds of fertilizer and planting density"</span>,
-       x <span class="op">=</span> <span class="st">"Planting density (0=low density, 1=high density)"</span>,
-       y <span class="op">=</span> <span class="st">"Yield (bushels)"</span><span class="op">)</span>
-
-<span class="va">plot3</span></code></pre></div>
+<div class="sourceCode" id="cb1415"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">plot3</span> <span class="op">&lt;-</span> <span class="va">Twoway</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_classic2</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Crop yield with different kinds of fertilizer and planting density"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Planting density (0=low density, 1=high density)"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Yield (bushels)"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plot3</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="anova_tutorial_revised_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;">
 With added labels, the final visualization looks like this.</div>
@@ -564,7 +567,7 @@ Stats and R:<a href="https://statsandr.com/blog/anova-in-r/" class="uri">https:/
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -577,7 +580,7 @@ Stats and R:<a href="https://statsandr.com/blog/anova-in-r/" class="uri">https:/
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -201,10 +201,10 @@ head(pseudo_car_data,,n = 3)
 ```
 
 ```
-##   obs cabin_length door_length wind_shield_length  color
-## 1   1     5.632943    2.321677           5.253965 yellow
-## 2   2     6.418753    2.584403           5.945934 yellow
-## 3   3     6.058065    2.688777           4.891338   blue
+##   obs cabin_length door_length wind_shield_length color
+## 1   1     6.274862    1.146336           5.500834 green
+## 2   2     5.153703    1.517312           4.992886   red
+## 3   3     7.241021    1.917732           5.349165  blue
 ```
 Now, we can use the $contains()$ function to select those names that contain the string "length".
 
@@ -214,9 +214,9 @@ head(select(pseudo_car_data, contains("length")),n = 3)
 
 ```
 ##   cabin_length door_length wind_shield_length
-## 1     5.632943    2.321677           5.253965
-## 2     6.418753    2.584403           5.945934
-## 3     6.058065    2.688777           4.891338
+## 1     6.274862    1.146336           5.500834
+## 2     5.153703    1.517312           4.992886
+## 3     7.241021    1.917732           5.349165
 ```
 
 ### Filter
@@ -458,11 +458,12 @@ head(mutate(diamonds, price_per_carat = price/carat),n = 3)
 
 ```
 ## # A tibble: 3 × 11
-##   carat cut    color clarity depth table price     x     y     z price_per_carat
-##   <dbl> <ord>  <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>           <dbl>
-## 1  0.23 Ideal  E     SI2      61.5    55   326  3.95  3.98  2.43           1417.
-## 2  0.21 Premi… E     SI1      59.8    61   326  3.89  3.84  2.31           1552.
-## 3  0.23 Good   E     VS1      56.9    65   327  4.05  4.07  2.31           1422.
+##   carat cut     color clarity depth table price     x     y     z price_per_ca…¹
+##   <dbl> <ord>   <ord> <ord>   <dbl> <dbl> <int> <dbl> <dbl> <dbl>          <dbl>
+## 1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43          1417.
+## 2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31          1552.
+## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31          1422.
+## # … with abbreviated variable name ¹​price_per_carat
 ```
 Notice that the mutated dataframe has one more column at the end titled "price_per_carat". The new column is calculated by dividing price by carat within each observation.
 
@@ -478,9 +479,9 @@ pseudo_missing_data
 
 ```
 ##     name age
-## 1    Tom  47
-## 2    Jay  45
-## 3  Marry  41
+## 1    Tom  56
+## 2    Jay  57
+## 3  Marry  62
 ## 4   Lexa  NA
 ## 5 Garcia  NA
 ```
@@ -494,11 +495,11 @@ imputed_data
 
 ```
 ##     name      age
-## 1    Tom 47.00000
-## 2    Jay 45.00000
-## 3  Marry 41.00000
-## 4   Lexa 44.33333
-## 5 Garcia 44.33333
+## 1    Tom 56.00000
+## 2    Jay 57.00000
+## 3  Marry 62.00000
+## 4   Lexa 58.33333
+## 5 Garcia 58.33333
 ```
 
 #### Imputation -- Removing Observations
@@ -510,9 +511,9 @@ na.omit(pseudo_missing_data)
 
 ```
 ##    name age
-## 1   Tom  47
-## 2   Jay  45
-## 3 Marry  41
+## 1   Tom  56
+## 2   Jay  57
+## 3 Marry  62
 ```
 We can see that the latter two rows (i.e. observations of Lexa and Garcia) are completely removed!
 

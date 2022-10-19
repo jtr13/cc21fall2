@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 73 Recursive codes and self-organized map with R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Yuki Ikeda library(tidyverse) library(kohonen) library(openintro) library(datasets) In this article, I introduce (A) how to develop recursive codes with R in order to use R for every phase of our...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 73 Recursive codes and self-organized map with R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Yuki Ikeda library(tidyverse) library(kohonen) library(openintro) library(datasets) In this article, I introduce (A) how to develop recursive codes with R in order to use R for every phase of our...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Yuki Ikeda library(tidyverse) library(kohonen) library(openintro) library(datasets) In this article, I introduce (A) how to develop recursive codes with R in order to use R for every phase of our...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -202,10 +205,10 @@
 </h1>
 <p>Yuki Ikeda</p>
 <div class="sourceCode" id="cb898"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">kohonen</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://openintrostat.github.io/openintro/">openintro</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">datasets</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">kohonen</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://openintrostat.github.io/openintro/">openintro</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">datasets</span><span class="op">)</span></span></code></pre></div>
 <p>In this article, I introduce (A) how to develop recursive codes with R in order to use R for every phase of our data analyses, (B) how to draw a self-organized map with R, a not well known but interesting way of 2D projection (dimension reduction) of (relatively) high dimensional data, and (C) the three most useful functions in ggplot in practice.</p>
 <div id="to-conduct-all-analyses-with-r-write-recursive-code-with-r" class="section level2">
 <h2>
@@ -236,30 +239,30 @@ In my past job, we used this distance to quantify the difference of words in two
 </h3>
 <p>One naive way to do so is just using “recall” function which orders to compute recursively:</p>
 <div class="sourceCode" id="cb899"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">LD_naive</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> <span class="op">{</span>
-  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
-    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">)</span>
-  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
-    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">)</span>
-  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span> <span class="op">(</span>
-      <span class="fu"><a href="https://rdrr.io/r/base/Recall.html">Recall</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-    <span class="op">)</span>
-  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
-    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span>
-      <span class="fl">1</span><span class="op">+</span>
-      <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span>
-        <span class="fu"><a href="https://rdrr.io/r/base/Recall.html">Recall</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,<span class="va">y</span><span class="op">)</span>,
-        <span class="fu"><a href="https://rdrr.io/r/base/Recall.html">Recall</a></span><span class="op">(</span><span class="va">x</span>,<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>,
-        <span class="fu"><a href="https://rdrr.io/r/base/Recall.html">Recall</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-      <span class="op">)</span>
-    <span class="op">)</span>
-  <span class="op">}</span>
-<span class="op">}</span>
-
-<span class="co">## Levenshtein distance between "kitten" and "sitting"</span>
-
-<span class="fu">LD_naive</span><span class="op">(</span><span class="st">"kitten"</span>,<span class="st">"sitting"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">LD_naive</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span> <span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/Recall.html">Recall</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span></span>
+<span>      <span class="fl">1</span><span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/Recall.html">Recall</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,<span class="va">y</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/Recall.html">Recall</a></span><span class="op">(</span><span class="va">x</span>,<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/Recall.html">Recall</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">## Levenshtein distance between "kitten" and "sitting"</span></span>
+<span></span>
+<span><span class="fu">LD_naive</span><span class="op">(</span><span class="st">"kitten"</span>,<span class="st">"sitting"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>However, this takes much time when the length between strings gets longer since it computes the value of the distance between the same partial strings of x and y again and again.</p>
 </div>
@@ -269,35 +272,35 @@ In my past job, we used this distance to quantify the difference of words in two
 </h3>
 <p>Therefore, a better coding would be to prepare the Dynamic Programming table to preserve the distance of all partial strings beginning at the first and ending at some point in x and y:</p>
 <div class="sourceCode" id="cb901"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">LD0</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> <span class="op">{</span>
-  
-  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
-  
-  <span class="va">M</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span>
-  
-  <span class="va">M</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span>
-  <span class="va">M</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">n</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span>
-
-  <span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">)</span><span class="op">{</span>
-    <span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">m</span><span class="op">)</span><span class="op">{</span>
-     
-      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">i</span>,<span class="va">i</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="va">j</span>,<span class="va">j</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-        <span class="va">M</span><span class="op">[</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span>,<span class="va">j</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span>
-      <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
-        <span class="va">M</span><span class="op">[</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span>,<span class="va">j</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span>,<span class="va">M</span><span class="op">[</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span>,<span class="va">j</span><span class="op">]</span>,<span class="va">M</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-      <span class="op">}</span>
-      
-    <span class="op">}</span>
-  <span class="op">}</span>
-  
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-  
-<span class="op">}</span>
-
-<span class="co">## Levenshtein distance between "kitten" and "sitting"</span>
-
-<span class="fu">LD0</span><span class="op">(</span><span class="st">"kitten"</span>,<span class="st">"sitting"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">LD0</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">M</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">M</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="va">M</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">n</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="kw">for</span><span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">m</span><span class="op">)</span><span class="op">{</span></span>
+<span>     </span>
+<span>      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">i</span>,<span class="va">i</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="va">j</span>,<span class="va">j</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>        <span class="va">M</span><span class="op">[</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span>,<span class="va">j</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span></span>
+<span>      <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>        <span class="va">M</span><span class="op">[</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span>,<span class="va">j</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">]</span>,<span class="va">M</span><span class="op">[</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span>,<span class="va">j</span><span class="op">]</span>,<span class="va">M</span><span class="op">[</span><span class="va">i</span>,<span class="va">j</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span>      <span class="op">}</span></span>
+<span>      </span>
+<span>    <span class="op">}</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">## Levenshtein distance between "kitten" and "sitting"</span></span>
+<span></span>
+<span><span class="fu">LD0</span><span class="op">(</span><span class="st">"kitten"</span>,<span class="st">"sitting"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>However, even if x and y are identical, this code computes the distance of every pair of partial strings beginning at the first and ending at some point in x and y. Clearly in such a case, we only need to compute <span class="math inline">\(LD(x[1:i],y[1:i])\)</span> for each <span class="math inline">\(i\)</span>. So, this code is a little redundant.</p>
 </div>
@@ -307,72 +310,72 @@ In my past job, we used this distance to quantify the difference of words in two
 </h3>
 <p>The next code is more efficient in the sense that it only computes distances they need.</p>
 <div class="sourceCode" id="cb903"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">LD</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> <span class="op">{</span>
-  
-  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
-  
-  <span class="va">M</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span>   <span class="co">##Global variable</span>
-
-  <span class="va">LDn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span>,<span class="va">m</span><span class="op">)</span> <span class="op">{</span>
-  
-    <span class="kw">if</span> <span class="op">(</span><span class="va">n</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>         
-      <span class="va">M</span><span class="op">[</span><span class="fl">1</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">m</span>   <span class="co">##use &lt;&lt;- when input into global variable</span>
-      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="va">m</span> <span class="op">)</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">m</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>
-      <span class="va">M</span><span class="op">[</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">n</span>
-      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="va">n</span> <span class="op">)</span>
-    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">n</span>,<span class="va">n</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="va">m</span>,<span class="va">m</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-    
-      <span class="co">## first get values from global variable</span>
-      <span class="va">itm1</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">]</span>
-    
-      <span class="co">## if global variable does not have the value,</span>
-      <span class="co">## then get instead from the function which we very define,</span>
-      <span class="co">## passing the value to global variable</span>
-      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">itm1</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-        <span class="va">itm1</span> <span class="op">&lt;-</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span><span class="op">-</span><span class="fl">1</span>,<span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>
-        <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">itm1</span>   <span class="co">##use &lt;&lt;- when input into global variable</span>
-      <span class="op">}</span>
-    
-      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span> <span class="op">(</span> <span class="va">itm1</span> <span class="op">)</span>
-    
-    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
-    
-      <span class="va">itm2</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span>
-      <span class="va">itm3</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">]</span>
-      <span class="va">itm4</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">]</span>
-    
-    
-      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">itm2</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-        <span class="va">itm2</span> <span class="op">&lt;-</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span><span class="op">-</span><span class="fl">1</span>,<span class="va">m</span><span class="op">)</span>
-        <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">itm2</span>   <span class="co">##use &lt;&lt;- when input into global variable</span>
-      <span class="op">}</span>
-
-    
-      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">itm3</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-        <span class="va">itm3</span> <span class="op">&lt;-</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span>,<span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>
-        <span class="va">M</span><span class="op">[</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">itm3</span>   <span class="co">##use &lt;&lt;- when input into global variable</span>
-      <span class="op">}</span>
-
-    
-      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">itm4</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
-        <span class="va">itm4</span> <span class="op">&lt;-</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span><span class="op">-</span><span class="fl">1</span>,<span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>
-        <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">itm4</span>   <span class="co">##use &lt;&lt;- when input into global variable</span>
-      <span class="op">}</span>
-        
-      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="fl">1</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span> <span class="va">itm2</span>, <span class="va">itm3</span>, <span class="va">itm4</span> <span class="op">)</span> <span class="op">)</span>
-    <span class="op">}</span>
-  
-  <span class="op">}</span>
-
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span>,<span class="va">m</span><span class="op">)</span> <span class="op">)</span>
-
-<span class="op">}</span>
-
-<span class="co">## Levenshtein distance between "kitten" and "sitting"</span>
-
-<span class="fu">LD</span><span class="op">(</span><span class="st">"kitten"</span>,<span class="st">"sitting"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">LD</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">M</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span>   <span class="co">##Global variable</span></span>
+<span></span>
+<span>  <span class="va">LDn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span>,<span class="va">m</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">n</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span>         </span>
+<span>      <span class="va">M</span><span class="op">[</span><span class="fl">1</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">m</span>   <span class="co">##use &lt;&lt;- when input into global variable</span></span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="va">m</span> <span class="op">)</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">m</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span><span class="op">{</span></span>
+<span>      <span class="va">M</span><span class="op">[</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">n</span></span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="va">n</span> <span class="op">)</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">n</span>,<span class="va">n</span><span class="op">)</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">y</span>,<span class="va">m</span>,<span class="va">m</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>    </span>
+<span>      <span class="co">## first get values from global variable</span></span>
+<span>      <span class="va">itm1</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">]</span></span>
+<span>    </span>
+<span>      <span class="co">## if global variable does not have the value,</span></span>
+<span>      <span class="co">## then get instead from the function which we very define,</span></span>
+<span>      <span class="co">## passing the value to global variable</span></span>
+<span>      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">itm1</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>        <span class="va">itm1</span> <span class="op">&lt;-</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span><span class="op">-</span><span class="fl">1</span>,<span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span>        <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">itm1</span>   <span class="co">##use &lt;&lt;- when input into global variable</span></span>
+<span>      <span class="op">}</span></span>
+<span>    </span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span> <span class="op">(</span> <span class="va">itm1</span> <span class="op">)</span></span>
+<span>    </span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    </span>
+<span>      <span class="va">itm2</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span></span>
+<span>      <span class="va">itm3</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">]</span></span>
+<span>      <span class="va">itm4</span> <span class="op">&lt;-</span> <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">]</span></span>
+<span>    </span>
+<span>    </span>
+<span>      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">itm2</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>        <span class="va">itm2</span> <span class="op">&lt;-</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span><span class="op">-</span><span class="fl">1</span>,<span class="va">m</span><span class="op">)</span></span>
+<span>        <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">+</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">itm2</span>   <span class="co">##use &lt;&lt;- when input into global variable</span></span>
+<span>      <span class="op">}</span></span>
+<span></span>
+<span>    </span>
+<span>      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">itm3</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>        <span class="va">itm3</span> <span class="op">&lt;-</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span>,<span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span>        <span class="va">M</span><span class="op">[</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="va">m</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">itm3</span>   <span class="co">##use &lt;&lt;- when input into global variable</span></span>
+<span>      <span class="op">}</span></span>
+<span></span>
+<span>    </span>
+<span>      <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">itm4</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>        <span class="va">itm4</span> <span class="op">&lt;-</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span><span class="op">-</span><span class="fl">1</span>,<span class="va">m</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span>        <span class="va">M</span><span class="op">[</span><span class="va">n</span>,<span class="va">m</span><span class="op">]</span> <span class="op">&lt;&lt;-</span> <span class="va">itm4</span>   <span class="co">##use &lt;&lt;- when input into global variable</span></span>
+<span>      <span class="op">}</span></span>
+<span>        </span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="fl">1</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span> <span class="va">itm2</span>, <span class="va">itm3</span>, <span class="va">itm4</span> <span class="op">)</span> <span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="op">}</span></span>
+<span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span> <span class="fu">LDn</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,<span class="va">n</span>,<span class="va">m</span><span class="op">)</span> <span class="op">)</span></span>
+<span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">## Levenshtein distance between "kitten" and "sitting"</span></span>
+<span></span>
+<span><span class="fu">LD</span><span class="op">(</span><span class="st">"kitten"</span>,<span class="st">"sitting"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Specifically, when the two strings are identical, it only computes the <span class="math inline">\(LD(x[1:i],y[1:i])\)</span> for each <span class="math inline">\(i\)</span>.</p>
 <p>As seen from this example, the key point is to prepare the global variable <span class="math inline">\(M\)</span> to preserve the distance between partial strings, and call it when computing the distance between longer strings by at most one character. Note that we need to use &lt;&lt;- when we input a value in a global variable.</p>
@@ -395,39 +398,39 @@ Hence, it is useful to somehow project the data points to a 2-dimensional plane.
 </h3>
 <p>The code below is the elementary tutorial to draw a self-organized map with R using the well-known iris data. We can see that (1) there is a group with large sepal width but small all other three lengths (setosa), (2) there is a group with small to medium all four lengths (versicolor) and (3) there is a group with large all four lengths (virginica).</p>
 <div class="sourceCode" id="cb905"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5702</span><span class="op">)</span>
-  
-  <span class="co">##"som" function needs to have matrix data (not data.frame) as data.</span>
-  <span class="va">iris.mx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>
-  
-  <span class="co">## We first have to specify the shape of the output layer</span>
-  <span class="co">## "topo" specifies the shape of 2D-output layer</span>
-  <span class="co">## "xdim" and "ydim" specifies the dimension of the output layer</span>
-  <span class="va">g1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html">somgrid</a></span><span class="op">(</span>topo<span class="op">=</span><span class="st">"hexagonal"</span>,xdim<span class="op">=</span><span class="fl">4</span>,ydim<span class="op">=</span><span class="fl">4</span><span class="op">)</span>
-  
-  <span class="co">## Then we train the self-organized map by our iris data</span>
-  <span class="co">## "rlen" specifies the number of iteration of the minimization of distances</span>
-  <span class="va">iris.som</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/supersom.html">som</a></span><span class="op">(</span><span class="va">iris.mx</span>,<span class="va">g1</span>,rlen<span class="op">=</span><span class="fl">200</span><span class="op">)</span>
-  
-  <span class="co">## When we visualize the distribution of values in some other column in each output unit, we have to make the column as integer. </span>
-  <span class="co">## Here, we take iris species as label.code (1=setosa,2=versicolor, and 3=virginica)</span>
-  <span class="va">label.code</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span>
-  
-  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> 
-  <span class="co">## plot the each unit and their typical relative value of each variable</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">iris.som</span>, type<span class="op">=</span><span class="st">'codes'</span><span class="op">)</span>  
-  <span class="co">## plot the distribution of iris species in each output unit </span>
-  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">iris.som</span>,type<span class="op">=</span><span class="st">"mapping"</span>,labels<span class="op">=</span><span class="va">label.code</span>,col<span class="op">=</span><span class="va">label.code</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5702</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co">##"som" function needs to have matrix data (not data.frame) as data.</span></span>
+<span>  <span class="va">iris.mx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co">## We first have to specify the shape of the output layer</span></span>
+<span>  <span class="co">## "topo" specifies the shape of 2D-output layer</span></span>
+<span>  <span class="co">## "xdim" and "ydim" specifies the dimension of the output layer</span></span>
+<span>  <span class="va">g1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html">somgrid</a></span><span class="op">(</span>topo<span class="op">=</span><span class="st">"hexagonal"</span>,xdim<span class="op">=</span><span class="fl">4</span>,ydim<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co">## Then we train the self-organized map by our iris data</span></span>
+<span>  <span class="co">## "rlen" specifies the number of iteration of the minimization of distances</span></span>
+<span>  <span class="va">iris.som</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/supersom.html">som</a></span><span class="op">(</span><span class="va">iris.mx</span>,<span class="va">g1</span>,rlen<span class="op">=</span><span class="fl">200</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co">## When we visualize the distribution of values in some other column in each output unit, we have to make the column as integer. </span></span>
+<span>  <span class="co">## Here, we take iris species as label.code (1=setosa,2=versicolor, and 3=virginica)</span></span>
+<span>  <span class="va">label.code</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> </span>
+<span>  <span class="co">## plot the each unit and their typical relative value of each variable</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">iris.som</span>, type<span class="op">=</span><span class="st">'codes'</span><span class="op">)</span>  </span>
+<span>  <span class="co">## plot the distribution of iris species in each output unit </span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">iris.som</span>,type<span class="op">=</span><span class="st">"mapping"</span>,labels<span class="op">=</span><span class="va">label.code</span>,col<span class="op">=</span><span class="va">label.code</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_recursive_codes_and_som_files/figure-html/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;"></div>
 <p>The plots clearly show simultaneously that (1) what kind of patterns of multiple variables appear in the data, or what kind of clusters (output layer) seem to be in the data set, and (2) how the characteristic of each cluster is related to the third variable, iris spices.
 Hence, it is helpful no matter we only understand the data visually or further proceed to train a classification model.</p>
 <p>We can check the convergence of the iteration of the minimization of distance by plotting the path of the average distance to the closest output layer unit.</p>
 <div class="sourceCode" id="cb906"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">iris.som</span>, type<span class="op">=</span><span class="st">'change'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">iris.som</span>, type<span class="op">=</span><span class="st">'change'</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_recursive_codes_and_som_files/figure-html/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;"></div>
 <p>We can also plot the counts of data points that belong to each output unit.</p>
 <div class="sourceCode" id="cb907"><pre class="downlit sourceCode r">
-<code class="sourceCode R">   <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">iris.som</span>, type<span class="op">=</span><span class="st">'counts'</span>, palette.name <span class="op">=</span> <span class="va">cm.colors</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>   <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">iris.som</span>, type<span class="op">=</span><span class="st">'counts'</span>, palette.name <span class="op">=</span> <span class="va">cm.colors</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_recursive_codes_and_som_files/figure-html/unnamed-chunk-8-1.png" width="960" style="display: block; margin: auto;"></div>
 </div>
 <div id="titanic-data" class="section level3">
@@ -437,27 +440,27 @@ Hence, it is helpful no matter we only understand the data visually or further p
 <p>This method can be applied to non-numeric data if we convert discrete variables into integers.
 The illustration below is for the Titanic data. It clearly shows that the most effective variable to predict the survival rate would be sex. Note that we set sex as 1:man, 2:woman, and survival as 1:survived and 2:not survived.</p>
 <div class="sourceCode" id="cb908"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5702</span><span class="op">)</span>
-
-  <span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">Titanic</span><span class="op">)</span>
-  
-  <span class="va">Tita</span> <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">d1</span><span class="op">)</span><span class="op">)</span>, <span class="va">d1</span><span class="op">$</span><span class="va">Freq</span><span class="op">)</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>
-  
-  <span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">Tita</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
-  
-  <span class="va">Tita_n</span> <span class="op">&lt;-</span> <span class="va">Tita</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>class_n<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Class</span><span class="op">==</span><span class="st">"3rd"</span>,<span class="fl">3</span>,<span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Class</span><span class="op">==</span><span class="st">"2nd"</span>,<span class="fl">2</span>,<span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Class</span><span class="op">==</span><span class="st">"1st"</span>,<span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sex_n<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Sex</span><span class="op">==</span><span class="st">"Male"</span>,<span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Age_n<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Age</span><span class="op">==</span><span class="st">"Adult"</span>,<span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Survived_n<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Survived</span><span class="op">==</span><span class="st">"Yes"</span>,<span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-  
-  <span class="va">g2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html">somgrid</a></span><span class="op">(</span>topo<span class="op">=</span><span class="st">"hexagonal"</span>,xdim<span class="op">=</span><span class="fl">5</span>,ydim<span class="op">=</span><span class="fl">5</span><span class="op">)</span>
-  
-  <span class="va">Tita.som</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/supersom.html">som</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">Tita_n</span><span class="op">[</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span><span class="op">)</span>,<span class="va">g2</span>,rlen<span class="op">=</span><span class="fl">500</span><span class="op">)</span>
-  
-  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">Tita.som</span>, type<span class="op">=</span><span class="st">'codes'</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">Tita.som</span>,type<span class="op">=</span><span class="st">"mapping"</span>,labels<span class="op">=</span><span class="va">Tita_n</span><span class="op">[</span>,<span class="fl">8</span><span class="op">]</span>,col<span class="op">=</span><span class="va">Tita_n</span><span class="op">[</span>,<span class="fl">8</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5702</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">d1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">Titanic</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">Tita</span> <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">d1</span><span class="op">)</span><span class="op">)</span>, <span class="va">d1</span><span class="op">$</span><span class="va">Freq</span><span class="op">)</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">Tita</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span>  </span>
+<span>  <span class="va">Tita_n</span> <span class="op">&lt;-</span> <span class="va">Tita</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>class_n<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Class</span><span class="op">==</span><span class="st">"3rd"</span>,<span class="fl">3</span>,<span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Class</span><span class="op">==</span><span class="st">"2nd"</span>,<span class="fl">2</span>,<span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Class</span><span class="op">==</span><span class="st">"1st"</span>,<span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sex_n<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Sex</span><span class="op">==</span><span class="st">"Male"</span>,<span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Age_n<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Age</span><span class="op">==</span><span class="st">"Adult"</span>,<span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Survived_n<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Survived</span><span class="op">==</span><span class="st">"Yes"</span>,<span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">g2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html">somgrid</a></span><span class="op">(</span>topo<span class="op">=</span><span class="st">"hexagonal"</span>,xdim<span class="op">=</span><span class="fl">5</span>,ydim<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">Tita.som</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/supersom.html">som</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">Tita_n</span><span class="op">[</span>,<span class="fl">5</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span><span class="op">)</span>,<span class="va">g2</span>,rlen<span class="op">=</span><span class="fl">500</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">Tita.som</span>, type<span class="op">=</span><span class="st">'codes'</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">Tita.som</span>,type<span class="op">=</span><span class="st">"mapping"</span>,labels<span class="op">=</span><span class="va">Tita_n</span><span class="op">[</span>,<span class="fl">8</span><span class="op">]</span>,col<span class="op">=</span><span class="va">Tita_n</span><span class="op">[</span>,<span class="fl">8</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_recursive_codes_and_som_files/figure-html/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;"></div>
 </div>
 <div id="limitation-in-mapping-plot" class="section level3">
@@ -466,18 +469,18 @@ The illustration below is for the Titanic data. It clearly shows that the most e
 </h3>
 <p>The third example is for lending data in <code>openintro</code> package. From the plots below, one can see as the sample size increases, the mapping plot becomes hard to see, which is a limit of package <code>kohonen</code>. For large sample data, We should randomly sample from the data first, and then plot the self-organized map.</p>
 <div class="sourceCode" id="cb909"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5702</span><span class="op">)</span>
-
-  <span class="va">Lend</span> <span class="op">&lt;-</span> <span class="va">loans_full_schema</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">annual_income</span>,<span class="va">total_credit_limit</span>,<span class="va">interest_rate</span>,<span class="va">balance</span>,<span class="va">num_historical_failed_to_pay</span><span class="op">)</span>
-
-  <span class="va">g3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html">somgrid</a></span><span class="op">(</span>topo<span class="op">=</span><span class="st">"hexagonal"</span>,xdim<span class="op">=</span><span class="fl">5</span>,ydim<span class="op">=</span><span class="fl">7</span><span class="op">)</span>
-  
-  <span class="va">Lend.som</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/supersom.html">som</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">Lend</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>,<span class="va">g3</span>,rlen<span class="op">=</span><span class="fl">2000</span><span class="op">)</span>
-  
-  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">Lend.som</span>, type<span class="op">=</span><span class="st">'codes'</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">Lend.som</span>,type<span class="op">=</span><span class="st">"mapping"</span>,labels<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">Lend</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span>,col<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">Lend</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5702</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">Lend</span> <span class="op">&lt;-</span> <span class="va">loans_full_schema</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">annual_income</span>,<span class="va">total_credit_limit</span>,<span class="va">interest_rate</span>,<span class="va">balance</span>,<span class="va">num_historical_failed_to_pay</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">g3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html">somgrid</a></span><span class="op">(</span>topo<span class="op">=</span><span class="st">"hexagonal"</span>,xdim<span class="op">=</span><span class="fl">5</span>,ydim<span class="op">=</span><span class="fl">7</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">Lend.som</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/supersom.html">som</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">Lend</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span>,<span class="va">g3</span>,rlen<span class="op">=</span><span class="fl">2000</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">Lend.som</span>, type<span class="op">=</span><span class="st">'codes'</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">Lend.som</span>,type<span class="op">=</span><span class="st">"mapping"</span>,labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">Lend</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span>,col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">Lend</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_recursive_codes_and_som_files/figure-html/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;"></div>
 </div>
 <div id="limitation-in-codes-plot" class="section level3">
@@ -487,17 +490,17 @@ The illustration below is for the Titanic data. It clearly shows that the most e
 <p>The last example is for data of fifty states in USA from <code>datasets</code> package.
 Generally, as the number of variables increases, the codes plot is also getting hard to see.</p>
 <div class="sourceCode" id="cb910"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5702</span><span class="op">)</span>
-
-  <span class="va">States</span> <span class="op">&lt;-</span> <span class="va">state.x77</span>
-
-  <span class="va">g4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html">somgrid</a></span><span class="op">(</span>topo<span class="op">=</span><span class="st">"hexagonal"</span>,xdim<span class="op">=</span><span class="fl">3</span>,ydim<span class="op">=</span><span class="fl">3</span><span class="op">)</span>
-  
-  <span class="va">Lend.som</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/supersom.html">som</a></span><span class="op">(</span><span class="va">States</span>,<span class="va">g4</span>,rlen<span class="op">=</span><span class="fl">200</span><span class="op">)</span>
-  
-  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">Lend.som</span>, type<span class="op">=</span><span class="st">'codes'</span>,palette.name <span class="op">=</span> <span class="va">rainbow</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot</a></span><span class="op">(</span><span class="va">Lend.som</span>,type<span class="op">=</span><span class="st">"mapping"</span>,labels<span class="op">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/as.matrix.html">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames</a></span><span class="op">(</span><span class="va">States</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5702</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">States</span> <span class="op">&lt;-</span> <span class="va">state.x77</span></span>
+<span></span>
+<span>  <span class="va">g4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html">somgrid</a></span><span class="op">(</span>topo<span class="op">=</span><span class="st">"hexagonal"</span>,xdim<span class="op">=</span><span class="fl">3</span>,ydim<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">Lend.som</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/kohonen/man/supersom.html">som</a></span><span class="op">(</span><span class="va">States</span>,<span class="va">g4</span>,rlen<span class="op">=</span><span class="fl">200</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">Lend.som</span>, type<span class="op">=</span><span class="st">'codes'</span>,palette.name <span class="op">=</span> <span class="va">rainbow</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">Lend.som</span>,type<span class="op">=</span><span class="st">"mapping"</span>,labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">States</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="r_recursive_codes_and_som_files/figure-html/unnamed-chunk-11-1.png" width="960" style="display: block; margin: auto;"></div>
 </div>
 </div>
@@ -608,7 +611,7 @@ Hence, in this point of view, I feel much possibilities of “ggplot” to sprea
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -621,7 +624,7 @@ Hence, in this point of view, I feel much possibilities of “ggplot” to sprea
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

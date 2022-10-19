@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 95 Dataframe operations tutorial | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Yunzhe Zhang library(dplyr)  95.0.1 Tutorial for being familiar with DataFrame in R This tutorial will introduce some basic ways to help some beginners be familiar with the dataframe in R. Since...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 95 Dataframe operations tutorial | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Yunzhe Zhang library(dplyr)  95.0.1 Tutorial for being familiar with DataFrame in R This tutorial will introduce some basic ways to help some beginners be familiar with the dataframe in R. Since...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Yunzhe Zhang library(dplyr)  95.0.1 Tutorial for being familiar with DataFrame in R This tutorial will introduce some basic ways to help some beginners be familiar with the dataframe in R. Since...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -201,8 +204,8 @@
 <span class="header-section-number">95</span> Dataframe operations tutorial<a class="anchor" aria-label="anchor" href="#dataframe-operations-tutorial"><i class="fas fa-link"></i></a>
 </h1>
 <p>Yunzhe Zhang</p>
-<div class="sourceCode" id="cb1321"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1316"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 <div id="tutorial-for-being-familiar-with-dataframe-in-r" class="section level3">
 <h3>
 <span class="header-section-number">95.0.1</span> Tutorial for being familiar with DataFrame in R<a class="anchor" aria-label="anchor" href="#tutorial-for-being-familiar-with-dataframe-in-r"><i class="fas fa-link"></i></a>
@@ -219,18 +222,18 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 3. The data stored in a data frame can be of numeric, factor or character type.<br>
 4. Each column should contain same number of data items.<br></p>
 <p>Next, I am going to introduce several basic operations for dataframe in R.</p>
-<div class="sourceCode" id="cb1322"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create a data frame.</span>
-<span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-   index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, 
-   names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rick"</span>,<span class="st">"Dan"</span>,<span class="st">"Michelle"</span>,<span class="st">"Ryan"</span>,<span class="st">"Gary"</span><span class="op">)</span>,
-   salary <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">623.3</span>,<span class="fl">515.2</span>,<span class="fl">611.0</span>,<span class="fl">729.0</span>,<span class="fl">843.25</span><span class="op">)</span>, 
-   sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"male"</span>, <span class="st">"male"</span>, <span class="st">"male"</span><span class="op">)</span>,
-   Date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2012-01-01"</span>, <span class="st">"2013-09-23"</span>, <span class="st">"2014-11-15"</span>, <span class="st">"2014-05-11"</span>,
-      <span class="st">"2015-03-27"</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="co"># display the data frame.           </span>
-<span class="va">temp</span> </code></pre></div>
+<div class="sourceCode" id="cb1317"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a data frame.</span></span>
+<span><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>   index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, </span>
+<span>   names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rick"</span>,<span class="st">"Dan"</span>,<span class="st">"Michelle"</span>,<span class="st">"Ryan"</span>,<span class="st">"Gary"</span><span class="op">)</span>,</span>
+<span>   salary <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">623.3</span>,<span class="fl">515.2</span>,<span class="fl">611.0</span>,<span class="fl">729.0</span>,<span class="fl">843.25</span><span class="op">)</span>, </span>
+<span>   sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"male"</span>, <span class="st">"male"</span>, <span class="st">"male"</span><span class="op">)</span>,</span>
+<span>   Date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2012-01-01"</span>, <span class="st">"2013-09-23"</span>, <span class="st">"2014-11-15"</span>, <span class="st">"2014-05-11"</span>,</span>
+<span>      <span class="st">"2015-03-27"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co"># display the data frame.           </span></span>
+<span><span class="va">temp</span> </span></code></pre></div>
 <pre><code>##   index    names salary    sex       Date
 ## 1     1     Rick 623.30   male 2012-01-01
 ## 2     2      Dan 515.20 female 2013-09-23
@@ -238,8 +241,8 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 4     4     Ryan 729.00   male 2014-05-11
 ## 5     5     Gary 843.25   male 2015-03-27</code></pre>
 <p>As you can see, the format to create a dataframe has been in the above code. We need to explicitly states the value for each row and the column name. If we want to get the structure of the data frame, we could use the str() function</p>
-<div class="sourceCode" id="cb1324"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1319"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 'data.frame':    5 obs. of  5 variables:
 ##  $ index : int  1 2 3 4 5
 ##  $ names : chr  "Rick" "Dan" "Michelle" "Ryan" ...
@@ -247,8 +250,8 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ##  $ sex   : chr  "male" "female" "male" "male" ...
 ##  $ Date  : Date, format: "2012-01-01" "2013-09-23" ...</code></pre>
 <p>As shown above, all the information about the dataframe has been shown belowe like the number of observations and the column names. When we begin to process the data, we could use the str() function to help us be familiar with the dataframe for the processing later. But we coudl also use summary function to also get the information of the dataframe.</p>
-<div class="sourceCode" id="cb1326"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1321"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/urca/man/summary-methods.html">summary</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##      index      names               salary          sex           
 ##  Min.   :1   Length:5           Min.   :515.2   Length:5          
 ##  1st Qu.:2   Class :character   1st Qu.:611.0   Class :character  
@@ -264,61 +267,61 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ##  3rd Qu.:2014-11-15  
 ##  Max.   :2015-03-27</code></pre>
 <p>We could use the following code to iterate the dataframe when you want to do some operations on the dataframe</p>
-<div class="sourceCode" id="cb1328"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="co"># row represent each row in the dataframe</span>
-    <span class="va">row</span> <span class="op">&lt;-</span> <span class="va">temp</span><span class="op">[</span><span class="va">i</span>,<span class="op">]</span>
-    <span class="co"># we could get specific column value by $, for example print the names for each row</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">row</span><span class="op">$</span><span class="va">names</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<div class="sourceCode" id="cb1323"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="co"># row represent each row in the dataframe</span></span>
+<span>    <span class="va">row</span> <span class="op">&lt;-</span> <span class="va">temp</span><span class="op">[</span><span class="va">i</span>,<span class="op">]</span></span>
+<span>    <span class="co"># we could get specific column value by $, for example print the names for each row</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">row</span><span class="op">$</span><span class="va">names</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <pre><code>## [1] "Rick"
 ## [1] "Dan"
 ## [1] "Michelle"
 ## [1] "Ryan"
 ## [1] "Gary"</code></pre>
 <p>However, when we deal with the dataframe, some times we want to create a empty dataframe. We could achieve this by the following code.</p>
-<div class="sourceCode" id="cb1330"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># A empty df with no column names and set the dimension of the dataframe to be 3*3</span>
-<span class="va">emptydf</span> <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">3</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
-<span class="co"># setting the column names</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"age"</span>, <span class="st">"gender"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">emptydf</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">x</span>
-<span class="va">emptydf</span></code></pre></div>
+<div class="sourceCode" id="cb1325"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># A empty df with no column names and set the dimension of the dataframe to be 3*3</span></span>
+<span><span class="va">emptydf</span> <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">3</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># setting the column names</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"age"</span>, <span class="st">"gender"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">emptydf</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">x</span></span>
+<span><span class="va">emptydf</span></span></code></pre></div>
 <pre><code>##   name age gender
 ## 1   NA  NA     NA
 ## 2   NA  NA     NA
 ## 3   NA  NA     NA</code></pre>
 <p>If we want to append rows into the empty dataframe by the following code</p>
-<div class="sourceCode" id="cb1332"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># append at the first row</span>
-<span class="va">emptydf</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"alex"</span>, <span class="fl">18</span>, <span class="st">"male"</span><span class="op">)</span>
-<span class="co"># append at the second row</span>
-<span class="va">emptydf</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tony"</span>, <span class="fl">21</span>, <span class="st">"male"</span><span class="op">)</span>
-<span class="co"># append at the last row</span>
-<span class="va">emptydf</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">emptydf</span><span class="op">)</span>,<span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ales"</span>, <span class="fl">25</span>, <span class="st">"female"</span><span class="op">)</span>
-<span class="va">emptydf</span></code></pre></div>
+<div class="sourceCode" id="cb1327"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># append at the first row</span></span>
+<span><span class="va">emptydf</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"alex"</span>, <span class="fl">18</span>, <span class="st">"male"</span><span class="op">)</span></span>
+<span><span class="co"># append at the second row</span></span>
+<span><span class="va">emptydf</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tony"</span>, <span class="fl">21</span>, <span class="st">"male"</span><span class="op">)</span></span>
+<span><span class="co"># append at the last row</span></span>
+<span><span class="va">emptydf</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">emptydf</span><span class="op">)</span>,<span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ales"</span>, <span class="fl">25</span>, <span class="st">"female"</span><span class="op">)</span></span>
+<span><span class="va">emptydf</span></span></code></pre></div>
 <pre><code>##   name age gender
 ## 1 alex  18   male
 ## 2 tony  21   male
 ## 3 Ales  25 female</code></pre>
 <p>We could also add whole columns in the dataframe by the following code.</p>
-<div class="sourceCode" id="cb1334"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">emptydf</span><span class="op">$</span><span class="va">race</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"White"</span>,<span class="st">"Black"</span>,<span class="st">"White"</span><span class="op">)</span>
-<span class="va">emptydf</span></code></pre></div>
+<div class="sourceCode" id="cb1329"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">emptydf</span><span class="op">$</span><span class="va">race</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"White"</span>,<span class="st">"Black"</span>,<span class="st">"White"</span><span class="op">)</span></span>
+<span><span class="va">emptydf</span></span></code></pre></div>
 <pre><code>##   name age gender  race
 ## 1 alex  18   male White
 ## 2 tony  21   male Black
 ## 3 Ales  25 female White</code></pre>
 <p>However, sometimes we want append all the values from another dataframe to the current dataframe. Then we could use the rbind function to append the second dataframe to the first dataframe.</p>
-<div class="sourceCode" id="cb1336"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>var1<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Derick"</span>, <span class="st">"James"</span>, <span class="st">"Molly"</span><span class="op">)</span>,
-                  var2<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">12</span>, <span class="fl">6</span><span class="op">)</span>,
-                  var3<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"male"</span>, <span class="st">"female"</span><span class="op">)</span>,
-                  var4<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"black"</span>, <span class="st">"Asian"</span><span class="op">)</span><span class="op">)</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"age"</span>, <span class="st">"gender"</span>, <span class="st">"race"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">x</span>
-<span class="va">df3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbind</a></span><span class="op">(</span><span class="va">emptydf</span>, <span class="va">df2</span><span class="op">)</span>
-<span class="va">df3</span></code></pre></div>
+<div class="sourceCode" id="cb1331"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>var1<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Derick"</span>, <span class="st">"James"</span>, <span class="st">"Molly"</span><span class="op">)</span>,</span>
+<span>                  var2<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">12</span>, <span class="fl">6</span><span class="op">)</span>,</span>
+<span>                  var3<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"male"</span>, <span class="st">"female"</span><span class="op">)</span>,</span>
+<span>                  var4<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"black"</span>, <span class="st">"Asian"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"age"</span>, <span class="st">"gender"</span>, <span class="st">"race"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">x</span></span>
+<span><span class="va">df3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">emptydf</span>, <span class="va">df2</span><span class="op">)</span></span>
+<span><span class="va">df3</span></span></code></pre></div>
 <pre><code>##     name age gender  race
 ## 1   alex  18   male White
 ## 2   tony  21   male Black
@@ -327,9 +330,9 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 5  James  12   male black
 ## 6  Molly   6 female Asian</code></pre>
 <p>We could also extract specific colunme by following operation.</p>
-<div class="sourceCode" id="cb1338"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">df3</span><span class="op">$</span><span class="va">gender</span>,<span class="va">df3</span><span class="op">$</span><span class="va">age</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1333"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">df3</span><span class="op">$</span><span class="va">gender</span>,<span class="va">df3</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   df3.gender df3.age
 ## 1       male      18
 ## 2       male      21
@@ -338,17 +341,17 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 5       male      12
 ## 6     female       6</code></pre>
 <p>Besides, there is a important operation for the dataframe in R which is the index slicing. The index slicing is quite similar with python but not totally the same. The index slicing in R has been represented as[all rows, all columns]. For example, df3[1:2, ] represents we take the first two rows and all the columns and [, 1:2] represent we take all the rows but only first two columns</p>
-<div class="sourceCode" id="cb1340"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># first case</span>
-<span class="va">temp1</span> <span class="op">&lt;-</span> <span class="va">df3</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>,<span class="op">]</span>
-<span class="va">temp1</span></code></pre></div>
+<div class="sourceCode" id="cb1335"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># first case</span></span>
+<span><span class="va">temp1</span> <span class="op">&lt;-</span> <span class="va">df3</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>,<span class="op">]</span></span>
+<span><span class="va">temp1</span></span></code></pre></div>
 <pre><code>##   name age gender  race
 ## 1 alex  18   male White
 ## 2 tony  21   male Black</code></pre>
-<div class="sourceCode" id="cb1342"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># second case</span>
-<span class="va">temp2</span> <span class="op">&lt;-</span> <span class="va">df3</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span>
-<span class="va">temp2</span></code></pre></div>
+<div class="sourceCode" id="cb1337"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># second case</span></span>
+<span><span class="va">temp2</span> <span class="op">&lt;-</span> <span class="va">df3</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span>
+<span><span class="va">temp2</span></span></code></pre></div>
 <pre><code>##     name age
 ## 1   alex  18
 ## 2   tony  21
@@ -357,17 +360,17 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 5  James  12
 ## 6  Molly   6</code></pre>
 <p>At the same time, we could also use the subset to do the filter some values and get the rows that you want. The subset function also supports the logical operators.</p>
-<div class="sourceCode" id="cb1344"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># first case</span>
-<span class="va">temp3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/subset.html">subset</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">names</span> <span class="op">==</span> <span class="st">"Dan"</span> <span class="op">|</span> <span class="va">salary</span> <span class="op">&gt;</span> <span class="fl">750</span><span class="op">)</span>
-<span class="va">temp3</span></code></pre></div>
+<div class="sourceCode" id="cb1339"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># first case</span></span>
+<span><span class="va">temp3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">names</span> <span class="op">==</span> <span class="st">"Dan"</span> <span class="op">|</span> <span class="va">salary</span> <span class="op">&gt;</span> <span class="fl">750</span><span class="op">)</span></span>
+<span><span class="va">temp3</span></span></code></pre></div>
 <pre><code>##   index names salary    sex       Date
 ## 2     2   Dan 515.20 female 2013-09-23
 ## 5     5  Gary 843.25   male 2015-03-27</code></pre>
-<div class="sourceCode" id="cb1346"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># second case</span>
-<span class="va">temp4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/subset.html">subset</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">salary</span> <span class="op">&lt;</span> <span class="fl">700</span> <span class="op">&amp;</span> <span class="va">sex</span> <span class="op">==</span> <span class="st">"male"</span><span class="op">)</span>
-<span class="va">temp4</span></code></pre></div>
+<div class="sourceCode" id="cb1341"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># second case</span></span>
+<span><span class="va">temp4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">salary</span> <span class="op">&lt;</span> <span class="fl">700</span> <span class="op">&amp;</span> <span class="va">sex</span> <span class="op">==</span> <span class="st">"male"</span><span class="op">)</span></span>
+<span><span class="va">temp4</span></span></code></pre></div>
 <pre><code>##   index    names salary  sex       Date
 ## 1     1     Rick  623.3 male 2012-01-01
 ## 3     3 Michelle  611.0 male 2014-11-15</code></pre>
@@ -385,12 +388,12 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 4. summarise() reduces multiple values down to a single summary.<br>
 5. arrange() changes the ordering of the rows.<br></p>
 <p>Then, first we need to run the installation for the Dplyr package and import it</p>
-<div class="sourceCode" id="cb1348"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#install.packages("dplyr")</span></code></pre></div>
+<div class="sourceCode" id="cb1343"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#install.packages("dplyr")</span></span></code></pre></div>
 <p>Next, we are going to use the stats_wl.csv as the example and import it using the read.csv function. Note, the csv file must be stored with same directory. Otherwise, you need to revise the path in order to import it.</p>
-<div class="sourceCode" id="cb1349"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"resources/Rayzyz_resources/data.csv"</span>, stringsAsFactors <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1344"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"resources/Rayzyz_resources/data.csv"</span>, stringsAsFactors <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   duration credit_amount     savings_status employment  property_magnitude age
 ## 1        6          1169 'no known savings'      '&gt;=7'       'real estate'  67
 ## 2       48          5951             '&lt;100'   '1&lt;=X&lt;4'       'real estate'  22
@@ -406,8 +409,8 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 5                 bad
 ## 6                good</code></pre>
 <p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>(and optionally rename) select variables in a data frame, using a concise mini-language that makes it easy to refer to variables based on their name.</p>
-<div class="sourceCode" id="cb1351"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">duration</span>, <span class="va">employment</span>, <span class="va">age</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1346"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">duration</span>, <span class="va">employment</span>, <span class="va">age</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    duration employment age
 ## 1         6      '&gt;=7'  67
 ## 2        48   '1&lt;=X&lt;4'  22
@@ -420,8 +423,8 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 9        12   '4&lt;=X&lt;7'  61
 ## 10       30 unemployed  28</code></pre>
 <p>We could also select the consecutive columns by the following code</p>
-<div class="sourceCode" id="cb1353"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">duration</span><span class="op">:</span><span class="va">age</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1348"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">duration</span><span class="op">:</span><span class="va">age</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    duration credit_amount     savings_status employment  property_magnitude age
 ## 1         6          1169 'no known savings'      '&gt;=7'       'real estate'  67
 ## 2        48          5951             '&lt;100'   '1&lt;=X&lt;4'       'real estate'  22
@@ -434,8 +437,8 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 9        12            NA           '&gt;=1000'   '4&lt;=X&lt;7'       'real estate'  61
 ## 10       30            NA             '&lt;100' unemployed                 car  28</code></pre>
 <p>We could also select all the other columns by specifing the column that you do not want</p>
-<div class="sourceCode" id="cb1355"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1350"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    duration credit_amount     savings_status employment  property_magnitude
 ## 1         6          1169 'no known savings'      '&gt;=7'       'real estate'
 ## 2        48          5951             '&lt;100'   '1&lt;=X&lt;4'       'real estate'
@@ -459,9 +462,9 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 9                 good
 ## 10                 bad</code></pre>
 <p>We could also use <code>start_with()</code> , <code>end_with()</code> , and <code><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains()</a></code> to match up some column names.</p>
-<div class="sourceCode" id="cb1357"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># starts_with</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"dura"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1352"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># starts_with</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"dura"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    duration
 ## 1         6
 ## 2        48
@@ -473,9 +476,9 @@ The data frame is a table or a two-dimensional array-like structure in which eac
 ## 8        36
 ## 9        12
 ## 10       30</code></pre>
-<div class="sourceCode" id="cb1359"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># contains</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"_"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1354"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># contains</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"_"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    credit_amount     savings_status  property_magnitude own_telephone
 ## 1           1169 'no known savings'       'real estate'              
 ## 2           5951             '&lt;100'       'real estate'              
@@ -493,9 +496,9 @@ There are many functions and operators that are useful when constructing the exp
 2. <code>&amp;</code>, <code>|</code>, <code>!</code>, xor().<br>
 3. <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>.<br>
 4. <code><a href="https://dplyr.tidyverse.org/reference/between.html">between()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/near.html">near()</a></code>.<br></p>
-<div class="sourceCode" id="cb1361"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># get rows whose duration is &gt; 20 and class is good.</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">duration</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">&amp;</span> <span class="va">class</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/as.character.html">as.character</a></span><span class="op">(</span><span class="st">"good"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1356"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># get rows whose duration is &gt; 20 and class is good.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">duration</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">&amp;</span> <span class="va">class</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="st">"good"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   duration credit_amount     savings_status employment  property_magnitude age
 ## 1       42          7882             '&lt;100'   '4&lt;=X&lt;7'    'life insurance'  45
 ## 2       36          9055 'no known savings'   '1&lt;=X&lt;4' 'no known property'  35
@@ -506,9 +509,9 @@ There are many functions and operators that are useful when constructing the exp
 ## 2                good
 ## 3                good
 ## 4                good</code></pre>
-<div class="sourceCode" id="cb1363"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># get rows whose duration is &gt; 20 or class is good.</span>
-<span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">duration</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">|</span> <span class="va">class</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/as.character.html">as.character</a></span><span class="op">(</span><span class="st">"good"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1358"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># get rows whose duration is &gt; 20 or class is good.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">duration</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">|</span> <span class="va">class</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="st">"good"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    duration credit_amount     savings_status employment  property_magnitude age
 ## 1         6          1169 'no known savings'      '&gt;=7'       'real estate'  67
 ## 2        48          5951             '&lt;100'   '1&lt;=X&lt;4'       'real estate'  22
@@ -532,8 +535,8 @@ There are many functions and operators that are useful when constructing the exp
 ## 9                 good
 ## 10                 bad</code></pre>
 <p>As you see in the above code, we could add various logical operations when filtering the dataframe even including the <code>xor</code>.</p>
-<div class="sourceCode" id="cb1365"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">duration</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">&amp;</span> <span class="va">class</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/as.character.html">as.character</a></span><span class="op">(</span><span class="st">"good"</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">credit_amount</span><span class="op">)</span> <span class="op">==</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1360"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">duration</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">&amp;</span> <span class="va">class</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="st">"good"</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">credit_amount</span><span class="op">)</span> <span class="op">==</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   duration credit_amount     savings_status employment  property_magnitude age
 ## 1       42          7882             '&lt;100'   '4&lt;=X&lt;7'    'life insurance'  45
 ## 2       36          9055 'no known savings'   '1&lt;=X&lt;4' 'no known property'  35
@@ -542,8 +545,8 @@ There are many functions and operators that are useful when constructing the exp
 ## 2                good</code></pre>
 <p>We could also use filter and is.na() to delete the rows whose credit_amount is NA. Thus, we could use filter to get the rows that you want based on your need.</p>
 <p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> adds new variables and preserves existing ones.</p>
-<div class="sourceCode" id="cb1367"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">duration</span>, <span class="va">class</span>, <span class="va">age</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>por_age <span class="op">=</span> <span class="va">age</span><span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+<div class="sourceCode" id="cb1362"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">duration</span>, <span class="va">class</span>, <span class="va">age</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>por_age <span class="op">=</span> <span class="va">age</span><span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## # A tibble: 10 × 4
 ## # Groups:   class [2]
 ##    duration class   age por_age
@@ -560,10 +563,10 @@ There are many functions and operators that are useful when constructing the exp
 ## 10       30 bad      28   0.816</code></pre>
 <p>We use the mutate to initialize a new column called the pro_age which is calculated by the age / mean(age)</p>
 <p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> creates a new data frame. It will have one (or more) rows for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarising all observations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified.</p>
-<div class="sourceCode" id="cb1369"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>, mean_duration <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">duration</span><span class="op">)</span>, count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1364"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>, mean_duration <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">duration</span><span class="op">)</span>, count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 2 × 4
 ##   class mean_age mean_duration count
 ##   &lt;chr&gt;    &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;
@@ -571,10 +574,10 @@ There are many functions and operators that are useful when constructing the exp
 ## 2 good      49.3            24     7</code></pre>
 <p>We use the <code>grou_by()</code> and <code>summarise</code> find out the mean age, mean duration and the total counts for the class good and class bad.</p>
 <p><code>arrange</code> orders the rows of a data frame by the values of selected columns.</p>
-<div class="sourceCode" id="cb1371"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">property_magnitude</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>, mean_duration <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">duration</span><span class="op">)</span>, count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mean_age</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1366"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>,<span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">property_magnitude</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>, mean_duration <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">duration</span><span class="op">)</span>, count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mean_age</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 4 × 4
 ##   property_magnitude  mean_age mean_duration count
 ##   &lt;chr&gt;                  &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;
@@ -590,13 +593,13 @@ There are many functions and operators that are useful when constructing the exp
 </h4>
 <p><img src="resources/Rayzyz_resources/333.jpeg" alt="Caption for the picture."><br></p>
 <p>There are four different type of when we join the table which are left join, right join, inner join, and full join. Then we first create two dataframe which are df1 and df2.</p>
-<div class="sourceCode" id="cb1373"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-   index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, 
-   State <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GA"</span>,<span class="st">"GA"</span>, <span class="st">"GA"</span>,<span class="st">"FL"</span>,<span class="st">"FL"</span>,<span class="st">"FL"</span>,<span class="st">"AL"</span>,<span class="st">"AL"</span>,<span class="st">"AL"</span>, <span class="st">"CA"</span><span class="op">)</span>, 
-   Limit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"50000"</span>, <span class="st">"50000"</span>, <span class="st">"40000"</span>, <span class="st">"30000"</span>, <span class="st">"75000"</span>,<span class="st">"75000"</span>, <span class="st">"85000"</span>, <span class="st">"90000"</span>, <span class="st">"45000"</span>, <span class="st">"125000"</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="va">df1</span></code></pre></div>
+<div class="sourceCode" id="cb1368"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>   index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>, </span>
+<span>   State <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GA"</span>,<span class="st">"GA"</span>, <span class="st">"GA"</span>,<span class="st">"FL"</span>,<span class="st">"FL"</span>,<span class="st">"FL"</span>,<span class="st">"AL"</span>,<span class="st">"AL"</span>,<span class="st">"AL"</span>, <span class="st">"CA"</span><span class="op">)</span>, </span>
+<span>   Limit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"50000"</span>, <span class="st">"50000"</span>, <span class="st">"40000"</span>, <span class="st">"30000"</span>, <span class="st">"75000"</span>,<span class="st">"75000"</span>, <span class="st">"85000"</span>, <span class="st">"90000"</span>, <span class="st">"45000"</span>, <span class="st">"125000"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">df1</span></span></code></pre></div>
 <pre><code>##    index State  Limit
 ## 1      1    GA  50000
 ## 2      2    GA  50000
@@ -608,21 +611,21 @@ There are many functions and operators that are useful when constructing the exp
 ## 8      8    AL  90000
 ## 9      9    AL  45000
 ## 10    10    CA 125000</code></pre>
-<div class="sourceCode" id="cb1375"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-   index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>, 
-   State <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GA"</span>,<span class="st">"FL"</span>, <span class="st">"AL"</span>, <span class="st">"OH"</span><span class="op">)</span>, 
-   regulatory_limit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"50000"</span>, <span class="st">"75000"</span>, <span class="st">"45000"</span>, <span class="st">"48000"</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="va">df2</span></code></pre></div>
+<div class="sourceCode" id="cb1370"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>   index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>, </span>
+<span>   State <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GA"</span>,<span class="st">"FL"</span>, <span class="st">"AL"</span>, <span class="st">"OH"</span><span class="op">)</span>, </span>
+<span>   regulatory_limit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"50000"</span>, <span class="st">"75000"</span>, <span class="st">"45000"</span>, <span class="st">"48000"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">df2</span></span></code></pre></div>
 <pre><code>##   index State regulatory_limit
 ## 1     1    GA            50000
 ## 2     2    FL            75000
 ## 3     3    AL            45000
 ## 4     4    OH            48000</code></pre>
 <p>Left Join will join the table based on the common values that df1 and df2 both have. If the values in df1 can not find in df2, then keep it but missing values for the corresponding column in df2 will be initialized to NA</p>
-<div class="sourceCode" id="cb1377"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">df2</span>, by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1372"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">df2</span>, by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    index.x State  Limit index.y regulatory_limit
 ## 1        1    GA  50000       1            50000
 ## 2        2    GA  50000       1            50000
@@ -635,8 +638,8 @@ There are many functions and operators that are useful when constructing the exp
 ## 9        9    AL  45000       3            45000
 ## 10      10    CA 125000      NA             &lt;NA&gt;</code></pre>
 <p>Right Join will join the table based on the common values that df1 and df2 both have. If the values in df2 can not find in df1, then keep it but missing values for the corresponding column in df1 will be initialized to NA</p>
-<div class="sourceCode" id="cb1379"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">df2</span>, by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1374"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">df2</span>, by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    index.x State Limit index.y regulatory_limit
 ## 1        1    GA 50000       1            50000
 ## 2        2    GA 50000       1            50000
@@ -649,8 +652,8 @@ There are many functions and operators that are useful when constructing the exp
 ## 9        9    AL 45000       3            45000
 ## 10      NA    OH  &lt;NA&gt;       4            48000</code></pre>
 <p>Inner Join will join two tables where all the values are shared by df1 and df2</p>
-<div class="sourceCode" id="cb1381"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">df2</span>, by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1376"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">df2</span>, by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   index.x State Limit index.y regulatory_limit
 ## 1       1    GA 50000       1            50000
 ## 2       2    GA 50000       1            50000
@@ -662,8 +665,8 @@ There are many functions and operators that are useful when constructing the exp
 ## 8       8    AL 90000       3            45000
 ## 9       9    AL 45000       3            45000</code></pre>
 <p>Full_join will concate all the values in df1 and df2 and leave NA for those values which can not be find in the other table.</p>
-<div class="sourceCode" id="cb1383"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">df2</span>, by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1378"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">df2</span>, by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    index.x State  Limit index.y regulatory_limit
 ## 1        1    GA  50000       1            50000
 ## 2        2    GA  50000       1            50000
@@ -704,7 +707,7 @@ There are many functions and operators that are useful when constructing the exp
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -717,7 +720,7 @@ There are many functions and operators that are useful when constructing the exp
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

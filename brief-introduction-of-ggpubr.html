@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 80 Brief Introduction of ggpubr | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Hanlin Yan  80.0.1 Introduction ggplot2, by Hadley Wickham, is an excellent and flexible package for elegant data visualization in R. However the default generated plots requires some formatting...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 80 Brief Introduction of ggpubr | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Hanlin Yan  80.0.1 Introduction ggplot2, by Hadley Wickham, is an excellent and flexible package for elegant data visualization in R. However the default generated plots requires some formatting...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Hanlin Yan  80.0.1 Introduction ggplot2, by Hadley Wickham, is an excellent and flexible package for elegant data visualization in R. However the default generated plots requires some formatting...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -219,15 +222,15 @@ Makes it easy to change grahical parameters such as colors and labels.</p>
 </h3>
 <p>From CRAN:</p>
 <div class="sourceCode" id="cb1009"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#install.packages("ggpubr")</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#install.packages("ggpubr")</span></span></code></pre></div>
 <p>From Github:</p>
 <div class="sourceCode" id="cb1010"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#if(!require(devtools)) install.packages("devtools")</span>
-<span class="co">#devtools::install_github("kassambara/ggpubr")</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#if(!require(devtools)) install.packages("devtools")</span></span>
+<span><span class="co">#devtools::install_github("kassambara/ggpubr")</span></span></code></pre></div>
 <p>Loading environment:</p>
 <div class="sourceCode" id="cb1011"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="histogram-2" class="section level3">
 <h3>
@@ -235,15 +238,15 @@ Makes it easy to change grahical parameters such as colors and labels.</p>
 </h3>
 <p>Create a dataset with attributes sex and height where there are 500 people for each sex and values of height are in inches.</p>
 <div class="sourceCode" id="cb1012"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2000</span><span class="op">)</span>
-<span class="va">heightdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-          sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span>, each<span class="op">=</span><span class="fl">500</span><span class="op">)</span><span class="op">)</span>,
-   height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">65</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">70</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2000</span><span class="op">)</span></span>
+<span><span class="va">heightdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>          sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span>, each<span class="op">=</span><span class="fl">500</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>   height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">65</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span>, <span class="fl">70</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Now we use heightdata to plot the corresponding histogram. Here we use the function gghistogram where we add mean lines showing mean values for each sex and marginal rug showing one-dimensional density plot on the axis.</p>
 <div class="sourceCode" id="cb1013"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/gghistogram.html">gghistogram</a></span><span class="op">(</span><span class="va">heightdata</span>, x <span class="op">=</span> <span class="st">"height"</span>,
-   add <span class="op">=</span> <span class="st">"mean"</span>, rug <span class="op">=</span> <span class="cn">TRUE</span>,
-   color <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">'sex'</span>, bins<span class="op">=</span> <span class="fl">15</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/gghistogram.html">gghistogram</a></span><span class="op">(</span><span class="va">heightdata</span>, x <span class="op">=</span> <span class="st">"height"</span>,</span>
+<span>   add <span class="op">=</span> <span class="st">"mean"</span>, rug <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>   color <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">'sex'</span>, bins<span class="op">=</span> <span class="fl">15</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="density-plot-2" class="section level3">
@@ -252,16 +255,16 @@ Makes it easy to change grahical parameters such as colors and labels.</p>
 </h3>
 <p>We still use the above data to plot the corresponding two-dimensional density plot. Here we add the mean lines and marginal rug.</p>
 <div class="sourceCode" id="cb1014"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdensity.html">ggdensity</a></span><span class="op">(</span><span class="va">heightdata</span>, x <span class="op">=</span> <span class="st">"height"</span>,
-   add <span class="op">=</span> <span class="st">"mean"</span>, rug <span class="op">=</span> <span class="cn">TRUE</span>,
-   color <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">"sex"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdensity.html">ggdensity</a></span><span class="op">(</span><span class="va">heightdata</span>, x <span class="op">=</span> <span class="st">"height"</span>,</span>
+<span>   add <span class="op">=</span> <span class="st">"mean"</span>, rug <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>   color <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">"sex"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Now We combine density plots with histogram.</p>
 <div class="sourceCode" id="cb1015"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/gghistogram.html">gghistogram</a></span><span class="op">(</span><span class="va">heightdata</span>, x <span class="op">=</span> <span class="st">"height"</span>,
-   add <span class="op">=</span> <span class="st">"mean"</span>, rug <span class="op">=</span> <span class="cn">TRUE</span>,
-   color <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">'sex'</span>, bins<span class="op">=</span> <span class="fl">15</span>,
-   add_density <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/gghistogram.html">gghistogram</a></span><span class="op">(</span><span class="va">heightdata</span>, x <span class="op">=</span> <span class="st">"height"</span>,</span>
+<span>   add <span class="op">=</span> <span class="st">"mean"</span>, rug <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>   color <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">'sex'</span>, bins<span class="op">=</span> <span class="fl">15</span>,</span>
+<span>   add_density <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="qq-plot" class="section level3">
@@ -270,12 +273,12 @@ Makes it easy to change grahical parameters such as colors and labels.</p>
 </h3>
 <p>Here is the qqplot example.</p>
 <div class="sourceCode" id="cb1016"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
-<span class="va">wdata</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-   sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>, each<span class="op">=</span><span class="fl">200</span><span class="op">)</span><span class="op">)</span>,
-   weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">55</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">58</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html">ggqqplot</a></span><span class="op">(</span><span class="va">wdata</span>, x <span class="op">=</span> <span class="st">"weight"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span></span>
+<span><span class="va">wdata</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>   sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"F"</span>, <span class="st">"M"</span><span class="op">)</span>, each<span class="op">=</span><span class="fl">200</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>   weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">55</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">58</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html">ggqqplot</a></span><span class="op">(</span><span class="va">wdata</span>, x <span class="op">=</span> <span class="st">"weight"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="line-plot-1" class="section level3">
@@ -284,12 +287,12 @@ Makes it easy to change grahical parameters such as colors and labels.</p>
 </h3>
 <p>Use ggline to create a line plot.</p>
 <div class="sourceCode" id="cb1017"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>supp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"VC"</span>, <span class="st">"OJ"</span><span class="op">)</span>, each<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,
-   dose<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"D0.5"</span>, <span class="st">"D1"</span>, <span class="st">"D2"</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span>,
-   len<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6.8</span>, <span class="fl">15</span>, <span class="fl">33</span>, <span class="fl">4.2</span>, <span class="fl">10</span>, <span class="fl">29.5</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggline.html">ggline</a></span><span class="op">(</span><span class="va">df2</span>, <span class="st">"dose"</span>, <span class="st">"len"</span>,
-  linetype <span class="op">=</span> <span class="st">"supp"</span>, shape <span class="op">=</span> <span class="st">"supp"</span>, color <span class="op">=</span>  <span class="st">"supp"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>supp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"VC"</span>, <span class="st">"OJ"</span><span class="op">)</span>, each<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,</span>
+<span>   dose<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"D0.5"</span>, <span class="st">"D1"</span>, <span class="st">"D2"</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span>,</span>
+<span>   len<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6.8</span>, <span class="fl">15</span>, <span class="fl">33</span>, <span class="fl">4.2</span>, <span class="fl">10</span>, <span class="fl">29.5</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggline.html">ggline</a></span><span class="op">(</span><span class="va">df2</span>, <span class="st">"dose"</span>, <span class="st">"len"</span>,</span>
+<span>  linetype <span class="op">=</span> <span class="st">"supp"</span>, shape <span class="op">=</span> <span class="st">"supp"</span>, color <span class="op">=</span>  <span class="st">"supp"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="pie-chart" class="section level3">
@@ -298,14 +301,14 @@ Makes it easy to change grahical parameters such as colors and labels.</p>
 </h3>
 <p>ggpie is the tool to make a pie plot.</p>
 <div class="sourceCode" id="cb1018"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
- group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Child"</span><span class="op">)</span>,
-  value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">25</span>, <span class="fl">50</span><span class="op">)</span><span class="op">)</span>
-<span class="va">labs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">group</span>, <span class="st">" ("</span>, <span class="va">df</span><span class="op">$</span><span class="va">value</span>, <span class="st">"%)"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggpie.html">ggpie</a></span><span class="op">(</span><span class="va">df</span>, <span class="st">"value"</span>, label <span class="op">=</span> <span class="va">labs</span>,
-   fill <span class="op">=</span> <span class="st">"group"</span>, color <span class="op">=</span> <span class="st">"white"</span>,
-   palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span> group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Child"</span><span class="op">)</span>,</span>
+<span>  value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">25</span>, <span class="fl">50</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">labs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">group</span>, <span class="st">" ("</span>, <span class="va">df</span><span class="op">$</span><span class="va">value</span>, <span class="st">"%)"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggpie.html">ggpie</a></span><span class="op">(</span><span class="va">df</span>, <span class="st">"value"</span>, label <span class="op">=</span> <span class="va">labs</span>,</span>
+<span>   fill <span class="op">=</span> <span class="st">"group"</span>, color <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>   palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="box-plot-1" class="section level3">
@@ -314,9 +317,9 @@ Makes it easy to change grahical parameters such as colors and labels.</p>
 </h3>
 <p>We use the ToothGrowth dataset to show the example of Box Plot.</p>
 <div class="sourceCode" id="cb1019"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"ToothGrowth"</span><span class="op">)</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="va">ToothGrowth</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"ToothGrowth"</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">ToothGrowth</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span>, <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##     len supp dose
 ## 1   4.2   VC  0.5
 ## 2  11.5   VC  0.5
@@ -329,17 +332,17 @@ Makes it easy to change grahical parameters such as colors and labels.</p>
 ## 9   5.2   VC  0.5
 ## 10  7.0   VC  0.5</code></pre>
 <div class="sourceCode" id="cb1021"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span><span class="va">df</span>, x <span class="op">=</span> <span class="st">"dose"</span>, y <span class="op">=</span> <span class="st">"len"</span>,
-                color <span class="op">=</span> <span class="st">"dose"</span>, palette <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span><span class="op">)</span>,
-                add <span class="op">=</span> <span class="st">"jitter"</span>, shape <span class="op">=</span> <span class="st">"dose"</span><span class="op">)</span>
-<span class="va">pbox</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">pbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span><span class="va">df</span>, x <span class="op">=</span> <span class="st">"dose"</span>, y <span class="op">=</span> <span class="st">"len"</span>,</span>
+<span>                color <span class="op">=</span> <span class="st">"dose"</span>, palette <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span><span class="op">)</span>,</span>
+<span>                add <span class="op">=</span> <span class="st">"jitter"</span>, shape <span class="op">=</span> <span class="st">"dose"</span><span class="op">)</span></span>
+<span><span class="va">pbox</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>This boxplot is different from what we have seen in geom_boxplot(). In this boxplot, we can see the distribution of all points within different groups of Sports. Also, we can change the color and shape very easily.
 We can set up customized comparison of mean between groups. And the result p-value of ANOVA can be added to the graph as well. The p-value of Kruskal-Wallis test can also be shown on the graph.</p>
 <div class="sourceCode" id="cb1022"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_comparisons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>, <span class="st">"1"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>, <span class="st">"2"</span><span class="op">)</span> <span class="op">)</span>
-<span class="va">pbox</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>comparisons <span class="op">=</span> <span class="va">my_comparisons</span><span class="op">)</span><span class="op">+</span> <span class="co"># Add pairwise comparisons p-value</span>
-  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>label.y <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>                   <span class="co"># Add global p-value</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">my_comparisons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>, <span class="st">"1"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.5"</span>, <span class="st">"2"</span><span class="op">)</span> <span class="op">)</span></span>
+<span><span class="va">pbox</span> <span class="op">+</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>comparisons <span class="op">=</span> <span class="va">my_comparisons</span><span class="op">)</span><span class="op">+</span> <span class="co"># Add pairwise comparisons p-value</span></span>
+<span>  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>label.y <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>                   <span class="co"># Add global p-value</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="violin-plot" class="section level3">
@@ -348,10 +351,10 @@ We can set up customized comparison of mean between groups. And the result p-val
 </h3>
 <p>We still use the first 100 rows of fastfood dataset. This time, we draw a violin plot regarding calories variable with boxplots inside. And we can also compare means with this plot. Just like the boxplot we have above, we can have the p-value of ANOVA on the violin plot as well.</p>
 <div class="sourceCode" id="cb1023"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html">ggviolin</a></span><span class="op">(</span><span class="va">df</span>, x <span class="op">=</span> <span class="st">"dose"</span>, y <span class="op">=</span> <span class="st">"len"</span>, fill <span class="op">=</span> <span class="st">"dose"</span>,
-         add <span class="op">=</span> <span class="st">"boxplot"</span>, add.params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-   <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>comparisons <span class="op">=</span> <span class="va">my_comparisons</span><span class="op">)</span><span class="op">+</span>
-   <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>label.y <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html">ggviolin</a></span><span class="op">(</span><span class="va">df</span>, x <span class="op">=</span> <span class="st">"dose"</span>, y <span class="op">=</span> <span class="st">"len"</span>, fill <span class="op">=</span> <span class="st">"dose"</span>,</span>
+<span>         add <span class="op">=</span> <span class="st">"boxplot"</span>, add.params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>comparisons <span class="op">=</span> <span class="va">my_comparisons</span><span class="op">)</span><span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html">stat_compare_means</a></span><span class="op">(</span>label.y <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="bar-plot" class="section level3">
@@ -360,11 +363,11 @@ We can set up customized comparison of mean between groups. And the result p-val
 </h3>
 <p>We use the mtcars dataset and convert the gear variable to a factor. And we add the name columns.</p>
 <div class="sourceCode" id="cb1024"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
-<span class="va">cars</span> <span class="op">&lt;-</span> <span class="va">mtcars</span>
-<span class="va">cars</span><span class="op">$</span><span class="va">gear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">gear</span><span class="op">)</span>
-<span class="va">cars</span><span class="op">$</span><span class="va">name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"wt"</span>, <span class="st">"hp"</span>,<span class="st">"gear"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="va">cars</span> <span class="op">&lt;-</span> <span class="va">mtcars</span></span>
+<span><span class="va">cars</span><span class="op">$</span><span class="va">gear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">gear</span><span class="op">)</span></span>
+<span><span class="va">cars</span><span class="op">$</span><span class="va">name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"wt"</span>, <span class="st">"hp"</span>,<span class="st">"gear"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##                                name    wt  hp gear
 ## Mazda RX4                 Mazda RX4 2.620 110    4
 ## Mazda RX4 Wag         Mazda RX4 Wag 2.875 110    4
@@ -374,37 +377,37 @@ We can set up customized comparison of mean between groups. And the result p-val
 ## Valiant                     Valiant 3.460 105    3</code></pre>
 <p>Now we draw a bar plot of hp variable and we change the fill color by grouping variable gear. Sorting will be done globally.</p>
 <div class="sourceCode" id="cb1026"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">cars</span>, x <span class="op">=</span> <span class="st">"name"</span>, y <span class="op">=</span> <span class="st">"hp"</span>,
-          fill <span class="op">=</span> <span class="st">"gear"</span>,               
-          color <span class="op">=</span> <span class="st">"white"</span>,
-          palette <span class="op">=</span> <span class="st">"jco"</span>,
-          sort.val <span class="op">=</span> <span class="st">"desc"</span>,  
-          sort.by.groups <span class="op">=</span> <span class="cn">FALSE</span>,
-          x.text.angle <span class="op">=</span> <span class="fl">60</span>,
-          ylab <span class="op">=</span> <span class="st">"Horse Power"</span>,
-          xlab <span class="op">=</span> <span class="cn">FALSE</span>,
-          legend.title<span class="op">=</span><span class="st">"Gear"</span>
-          <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">cars</span>, x <span class="op">=</span> <span class="st">"name"</span>, y <span class="op">=</span> <span class="st">"hp"</span>,</span>
+<span>          fill <span class="op">=</span> <span class="st">"gear"</span>,               </span>
+<span>          color <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>          palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
+<span>          sort.val <span class="op">=</span> <span class="st">"desc"</span>,  </span>
+<span>          sort.by.groups <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>          x.text.angle <span class="op">=</span> <span class="fl">60</span>,</span>
+<span>          ylab <span class="op">=</span> <span class="st">"Horse Power"</span>,</span>
+<span>          xlab <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>          legend.title<span class="op">=</span><span class="st">"Gear"</span></span>
+<span>          <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Then we sort bars inside each group.</p>
 <div class="sourceCode" id="cb1027"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">cars</span>, x <span class="op">=</span> <span class="st">"name"</span>, y <span class="op">=</span> <span class="st">"hp"</span>,
-          fill <span class="op">=</span> <span class="st">"gear"</span>,               
-          color <span class="op">=</span> <span class="st">"white"</span>,  
-          palette <span class="op">=</span> <span class="st">"jco"</span>,
-          sort.val <span class="op">=</span> <span class="st">"asc"</span>,  
-          sort.by.groups <span class="op">=</span> <span class="cn">TRUE</span>,
-          x.text.angle <span class="op">=</span> <span class="fl">60</span>,
-          ylab <span class="op">=</span> <span class="st">"Horsepower"</span>,
-          xlab <span class="op">=</span> <span class="cn">FALSE</span>,
-          legend.title<span class="op">=</span><span class="st">"Gear"</span>
-          <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">cars</span>, x <span class="op">=</span> <span class="st">"name"</span>, y <span class="op">=</span> <span class="st">"hp"</span>,</span>
+<span>          fill <span class="op">=</span> <span class="st">"gear"</span>,               </span>
+<span>          color <span class="op">=</span> <span class="st">"white"</span>,  </span>
+<span>          palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
+<span>          sort.val <span class="op">=</span> <span class="st">"asc"</span>,  </span>
+<span>          sort.by.groups <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>          x.text.angle <span class="op">=</span> <span class="fl">60</span>,</span>
+<span>          ylab <span class="op">=</span> <span class="st">"Horsepower"</span>,</span>
+<span>          xlab <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>          legend.title<span class="op">=</span><span class="st">"Gear"</span></span>
+<span>          <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can standarize the hp and compare each model with the mean.</p>
 <div class="sourceCode" id="cb1028"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cars</span><span class="op">$</span><span class="va">hp_z</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">hp</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">hp</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">hp</span><span class="op">)</span>
-<span class="va">cars</span><span class="op">$</span><span class="va">hp_grp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">hp_z</span><span class="op">&lt;</span><span class="fl">0</span>, <span class="st">"low"</span>,<span class="st">"high"</span><span class="op">)</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"high"</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"wt"</span>, <span class="st">"hp"</span>, <span class="st">"hp_grp"</span>, <span class="st">"gear"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">cars</span><span class="op">$</span><span class="va">hp_z</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">hp</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">hp</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">hp</span><span class="op">)</span></span>
+<span><span class="va">cars</span><span class="op">$</span><span class="va">hp_grp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">hp_z</span><span class="op">&lt;</span><span class="fl">0</span>, <span class="st">"low"</span>,<span class="st">"high"</span><span class="op">)</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"high"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"name"</span>, <span class="st">"wt"</span>, <span class="st">"hp"</span>, <span class="st">"hp_grp"</span>, <span class="st">"gear"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##                                name    wt  hp hp_grp gear
 ## Mazda RX4                 Mazda RX4 2.620 110    low    4
 ## Mazda RX4 Wag         Mazda RX4 Wag 2.875 110    low    4
@@ -413,32 +416,32 @@ We can set up customized comparison of mean between groups. And the result p-val
 ## Hornet Sportabout Hornet Sportabout 3.440 175   high    3
 ## Valiant                     Valiant 3.460 105    low    3</code></pre>
 <div class="sourceCode" id="cb1030"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">cars</span>, x<span class="op">=</span><span class="st">"name"</span>, y<span class="op">=</span><span class="st">"hp_z"</span>,
-          fill <span class="op">=</span> <span class="st">"hp_grp"</span>,
-          color <span class="op">=</span> <span class="st">"white"</span>,
-          palette <span class="op">=</span> <span class="st">"jco"</span>,
-          sort.val <span class="op">=</span> <span class="st">"asc"</span>,
-          sort.by.groups <span class="op">=</span> <span class="cn">FALSE</span>,
-          x.text.angle<span class="op">=</span><span class="fl">60</span>,
-          ylab <span class="op">=</span> <span class="st">"Horsepower z-scores"</span>,
-          xlab <span class="op">=</span> <span class="cn">FALSE</span>, 
-          legend.title<span class="op">=</span><span class="st">"Horsepower Group"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">cars</span>, x<span class="op">=</span><span class="st">"name"</span>, y<span class="op">=</span><span class="st">"hp_z"</span>,</span>
+<span>          fill <span class="op">=</span> <span class="st">"hp_grp"</span>,</span>
+<span>          color <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>          palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
+<span>          sort.val <span class="op">=</span> <span class="st">"asc"</span>,</span>
+<span>          sort.by.groups <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>          x.text.angle<span class="op">=</span><span class="fl">60</span>,</span>
+<span>          ylab <span class="op">=</span> <span class="st">"Horsepower z-scores"</span>,</span>
+<span>          xlab <span class="op">=</span> <span class="cn">FALSE</span>, </span>
+<span>          legend.title<span class="op">=</span><span class="st">"Horsepower Group"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Then rotate it with adding just one line of code:</p>
 <div class="sourceCode" id="cb1031"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">rotate</span><span class="op">=</span><span class="cn">TRUE</span>
-<span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">cars</span>, x<span class="op">=</span><span class="st">"name"</span>, y<span class="op">=</span><span class="st">"hp_z"</span>,
-          fill <span class="op">=</span> <span class="st">"hp_grp"</span>,
-          color <span class="op">=</span> <span class="st">"white"</span>,
-          palette <span class="op">=</span> <span class="st">"jco"</span>,
-          sort.val <span class="op">=</span> <span class="st">"asc"</span>,
-          sort.by.groups <span class="op">=</span> <span class="cn">FALSE</span>,
-          x.text.angle<span class="op">=</span><span class="fl">90</span>,
-          ylab <span class="op">=</span> <span class="st">"Horsepower z-scores"</span>,
-          xlab <span class="op">=</span> <span class="cn">FALSE</span>, 
-          legend.title<span class="op">=</span><span class="st">"Horsepower Group"</span>,
-          rotate<span class="op">=</span><span class="cn">TRUE</span>,
-          ggtheme <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">rotate</span><span class="op">=</span><span class="cn">TRUE</span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggbarplot.html">ggbarplot</a></span><span class="op">(</span><span class="va">cars</span>, x<span class="op">=</span><span class="st">"name"</span>, y<span class="op">=</span><span class="st">"hp_z"</span>,</span>
+<span>          fill <span class="op">=</span> <span class="st">"hp_grp"</span>,</span>
+<span>          color <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>          palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
+<span>          sort.val <span class="op">=</span> <span class="st">"asc"</span>,</span>
+<span>          sort.by.groups <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>          x.text.angle<span class="op">=</span><span class="fl">90</span>,</span>
+<span>          ylab <span class="op">=</span> <span class="st">"Horsepower z-scores"</span>,</span>
+<span>          xlab <span class="op">=</span> <span class="cn">FALSE</span>, </span>
+<span>          legend.title<span class="op">=</span><span class="st">"Horsepower Group"</span>,</span>
+<span>          rotate<span class="op">=</span><span class="cn">TRUE</span>,</span>
+<span>          ggtheme <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="cleveland-dot-plot-1" class="section level3">
@@ -447,30 +450,30 @@ We can set up customized comparison of mean between groups. And the result p-val
 </h3>
 <p>We still use mtcars dataset to draw a Cleveland dot plot.</p>
 <div class="sourceCode" id="cb1032"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">ggdotchart</a></span><span class="op">(</span><span class="va">cars</span>, x <span class="op">=</span> <span class="st">"name"</span>, y <span class="op">=</span> <span class="st">"hp"</span>,
-           color <span class="op">=</span> <span class="st">"gear"</span>, 
-           palette <span class="op">=</span> <span class="st">"jco"</span>,
-           sorting <span class="op">=</span> <span class="st">"descending"</span>,                 
-           rotate <span class="op">=</span> <span class="cn">TRUE</span>,                          
-           dot.size <span class="op">=</span> <span class="fl">2</span>,
-           ggtheme <span class="op">=</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_pubr</a></span><span class="op">(</span><span class="op">)</span>,
-           legend.title <span class="op">=</span> <span class="st">"Gear"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">theme_cleveland</a></span><span class="op">(</span><span class="op">)</span>                                </code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">ggdotchart</a></span><span class="op">(</span><span class="va">cars</span>, x <span class="op">=</span> <span class="st">"name"</span>, y <span class="op">=</span> <span class="st">"hp"</span>,</span>
+<span>           color <span class="op">=</span> <span class="st">"gear"</span>, </span>
+<span>           palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
+<span>           sorting <span class="op">=</span> <span class="st">"descending"</span>,                 </span>
+<span>           rotate <span class="op">=</span> <span class="cn">TRUE</span>,                          </span>
+<span>           dot.size <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>           ggtheme <span class="op">=</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_pubr</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>           legend.title <span class="op">=</span> <span class="st">"Gear"</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">theme_cleveland</a></span><span class="op">(</span><span class="op">)</span>                                </span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>It is more interesting to color y text by groups. All we need to add is:</p>
 <div class="sourceCode" id="cb1033"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">y.text.col</span><span class="op">=</span><span class="cn">TRUE</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">y.text.col</span><span class="op">=</span><span class="cn">TRUE</span></span></code></pre></div>
 <div class="sourceCode" id="cb1034"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">ggdotchart</a></span><span class="op">(</span><span class="va">cars</span>, x <span class="op">=</span> <span class="st">"name"</span>, y <span class="op">=</span> <span class="st">"hp"</span>,
-           color <span class="op">=</span> <span class="st">"gear"</span>, 
-           palette <span class="op">=</span> <span class="st">"jco"</span>,
-           sorting <span class="op">=</span> <span class="st">"descending"</span>,                 
-           rotate <span class="op">=</span> <span class="cn">TRUE</span>,                          
-           dot.size <span class="op">=</span> <span class="fl">2</span>,                           
-           ggtheme <span class="op">=</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_pubr</a></span><span class="op">(</span><span class="op">)</span>,
-           y.text.col<span class="op">=</span><span class="cn">TRUE</span>,
-           legend.title <span class="op">=</span> <span class="st">"Gear"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">theme_cleveland</a></span><span class="op">(</span><span class="op">)</span>      </code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">ggdotchart</a></span><span class="op">(</span><span class="va">cars</span>, x <span class="op">=</span> <span class="st">"name"</span>, y <span class="op">=</span> <span class="st">"hp"</span>,</span>
+<span>           color <span class="op">=</span> <span class="st">"gear"</span>, </span>
+<span>           palette <span class="op">=</span> <span class="st">"jco"</span>,</span>
+<span>           sorting <span class="op">=</span> <span class="st">"descending"</span>,                 </span>
+<span>           rotate <span class="op">=</span> <span class="cn">TRUE</span>,                          </span>
+<span>           dot.size <span class="op">=</span> <span class="fl">2</span>,                           </span>
+<span>           ggtheme <span class="op">=</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html">theme_pubr</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>           y.text.col<span class="op">=</span><span class="cn">TRUE</span>,</span>
+<span>           legend.title <span class="op">=</span> <span class="st">"Gear"</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotchart.html">theme_cleveland</a></span><span class="op">(</span><span class="op">)</span>      </span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="mix-multiple-graphs" class="section level3">
@@ -480,35 +483,35 @@ We can set up customized comparison of mean between groups. And the result p-val
 <p>To arrange multiple graphs on one single page, we’ll use the function ggarrange()[in ggpubr]. Compared to the standard function plot_grid(), ggarange() can arrange multiple ggplots over multiple pages.
 Create a box plot and a dot plot:</p>
 <div class="sourceCode" id="cb1035"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Box plot (bp)</span>
-<span class="va">bxp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span><span class="va">ToothGrowth</span>, x <span class="op">=</span> <span class="st">"dose"</span>, y <span class="op">=</span> <span class="st">"len"</span>,
-                 color <span class="op">=</span> <span class="st">"dose"</span>, palette <span class="op">=</span> <span class="st">"jco"</span><span class="op">)</span>
-<span class="va">bxp</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Box plot (bp)</span></span>
+<span><span class="va">bxp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span><span class="va">ToothGrowth</span>, x <span class="op">=</span> <span class="st">"dose"</span>, y <span class="op">=</span> <span class="st">"len"</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"dose"</span>, palette <span class="op">=</span> <span class="st">"jco"</span><span class="op">)</span></span>
+<span><span class="va">bxp</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1036"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Dot plot (dp)</span>
-<span class="va">dp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotplot.html">ggdotplot</a></span><span class="op">(</span><span class="va">ToothGrowth</span>, x <span class="op">=</span> <span class="st">"dose"</span>, y <span class="op">=</span> <span class="st">"len"</span>,
-                 color <span class="op">=</span> <span class="st">"dose"</span>, palette <span class="op">=</span> <span class="st">"jco"</span>, binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="va">dp</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Dot plot (dp)</span></span>
+<span><span class="va">dp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggdotplot.html">ggdotplot</a></span><span class="op">(</span><span class="va">ToothGrowth</span>, x <span class="op">=</span> <span class="st">"dose"</span>, y <span class="op">=</span> <span class="st">"len"</span>,</span>
+<span>                 color <span class="op">=</span> <span class="st">"dose"</span>, palette <span class="op">=</span> <span class="st">"jco"</span>, binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">dp</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-24-2.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1037"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># scatter plot (sp)</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">841.564927857936</span>, <span class="fl">841.564927857936</span>, <span class="fl">841.424690409534</span>, <span class="fl">841.284499691372</span>, 
-<span class="fl">420.782463928968</span>, <span class="fl">420.88768585043</span>, <span class="fl">420.432103842432</span>, <span class="fl">420.572177840048</span>, 
-<span class="fl">420.712345204767</span>, <span class="fl">420.782463928968</span>, <span class="fl">420.747401645497</span><span class="op">)</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">43692.05</span>, <span class="fl">51561</span>, <span class="fl">34637.8270288285</span>, <span class="fl">36198.5838053982</span>, <span class="fl">36909.925</span>, 
-<span class="fl">30733.6584146036</span>, <span class="fl">32350.3164029975</span>, <span class="fl">31906.371814093</span>, <span class="fl">30367.0638226962</span>, 
-<span class="fl">32410.975</span>, <span class="fl">31970.2108157654</span><span class="op">)</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span>
-<span class="va">sp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">df</span>, x <span class="op">=</span> <span class="st">'x'</span>, y <span class="op">=</span> <span class="st">'y'</span>, add <span class="op">=</span> <span class="st">"reg.line"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_cor.html">stat_cor</a></span><span class="op">(</span>label.x <span class="op">=</span> <span class="fl">3</span>, label.y <span class="op">=</span> <span class="fl">3000</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_regline_equation.html">stat_regline_equation</a></span><span class="op">(</span>label.x <span class="op">=</span> <span class="fl">3</span>, label.y <span class="op">=</span> <span class="fl">5000</span><span class="op">)</span>
-<span class="va">sp</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># scatter plot (sp)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">841.564927857936</span>, <span class="fl">841.564927857936</span>, <span class="fl">841.424690409534</span>, <span class="fl">841.284499691372</span>, </span>
+<span><span class="fl">420.782463928968</span>, <span class="fl">420.88768585043</span>, <span class="fl">420.432103842432</span>, <span class="fl">420.572177840048</span>, </span>
+<span><span class="fl">420.712345204767</span>, <span class="fl">420.782463928968</span>, <span class="fl">420.747401645497</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">43692.05</span>, <span class="fl">51561</span>, <span class="fl">34637.8270288285</span>, <span class="fl">36198.5838053982</span>, <span class="fl">36909.925</span>, </span>
+<span><span class="fl">30733.6584146036</span>, <span class="fl">32350.3164029975</span>, <span class="fl">31906.371814093</span>, <span class="fl">30367.0638226962</span>, </span>
+<span><span class="fl">32410.975</span>, <span class="fl">31970.2108157654</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span></span>
+<span><span class="va">sp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">df</span>, x <span class="op">=</span> <span class="st">'x'</span>, y <span class="op">=</span> <span class="st">'y'</span>, add <span class="op">=</span> <span class="st">"reg.line"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_cor.html">stat_cor</a></span><span class="op">(</span>label.x <span class="op">=</span> <span class="fl">3</span>, label.y <span class="op">=</span> <span class="fl">3000</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/stat_regline_equation.html">stat_regline_equation</a></span><span class="op">(</span>label.x <span class="op">=</span> <span class="fl">3</span>, label.y <span class="op">=</span> <span class="fl">5000</span><span class="op">)</span></span>
+<span><span class="va">sp</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-24-3.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1038"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html">ggarrange</a></span><span class="op">(</span><span class="va">bxp</span>, <span class="va">dp</span>, <span class="va">sp</span>,
-          labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>,
-          ncol <span class="op">=</span> <span class="fl">2</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggarrange.html">ggarrange</a></span><span class="op">(</span><span class="va">bxp</span>, <span class="va">dp</span>, <span class="va">sp</span>,</span>
+<span>          labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>,</span>
+<span>          ncol <span class="op">=</span> <span class="fl">2</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="brief_introduction_of_ggpubr_files/figure-html/unnamed-chunk-24-4.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="conclusion-4" class="section level3">
@@ -560,7 +563,7 @@ Create a box plot and a dot plot:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -573,7 +576,7 @@ Create a box plot and a dot plot:</p>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

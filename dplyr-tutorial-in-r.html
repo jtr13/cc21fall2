@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 50 Dplyr tutorial in R | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  50.1 Environment Setup In order to use dyplr...'>
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 50 Dplyr tutorial in R | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  50.1 Environment Setup In order to use dyplr...'>
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content='Pinyi Yang #install.packages("dplyr") #install.packages("ggplot2") #install.packages("stringr") library(dplyr) library(ggplot2) library(stringr)  50.1 Environment Setup In order to use dyplr...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -202,12 +205,12 @@
 </h1>
 <p>Pinyi Yang</p>
 <div class="sourceCode" id="cb472"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#install.packages("dplyr")</span>
-<span class="co">#install.packages("ggplot2")</span>
-<span class="co">#install.packages("stringr")</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#install.packages("dplyr")</span></span>
+<span><span class="co">#install.packages("ggplot2")</span></span>
+<span><span class="co">#install.packages("stringr")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></span></code></pre></div>
 <div id="environment-setup" class="section level2">
 <h2>
 <span class="header-section-number">50.1</span> Environment Setup<a class="anchor" aria-label="anchor" href="#environment-setup"><i class="fas fa-link"></i></a>
@@ -233,7 +236,7 @@ Besides the dplyr package, we will use two other packages for better demonstrati
 <p>One of the most widely used data for tutorial use purpose in R is the ‘diamond’ dataset. For more information on the ‘diamond’ dataset, please visit the following link: <a href="https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5/topics/diamonds" class="uri">https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5/topics/diamonds</a>.</p>
 <p>The following section showcases the attributes of the ‘diamond’ dataset to assist the understanding of further data manipulation using dplyr.</p>
 <div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## tibble [53,940 × 10] (S3: tbl_df/tbl/data.frame)
 ##  $ carat  : num [1:53940] 0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...
 ##  $ cut    : Ord.factor w/ 5 levels "Fair"&lt;"Good"&lt;..: 5 4 2 4 2 3 3 3 1 3 ...
@@ -246,7 +249,7 @@ Besides the dplyr package, we will use two other packages for better demonstrati
 ##  $ y      : num [1:53940] 3.98 3.84 4.07 4.23 4.35 3.96 3.98 4.11 3.78 4.05 ...
 ##  $ z      : num [1:53940] 2.43 2.31 2.31 2.63 2.75 2.48 2.47 2.53 2.49 2.39 ...</code></pre>
 <div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">diamonds</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">diamonds</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -254,7 +257,7 @@ Besides the dplyr package, we will use two other packages for better demonstrati
 ## 2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31
 ## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31</code></pre>
 <div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">[</span>,<span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"color"</span>, <span class="st">"clarity"</span>, <span class="st">"cut"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">[</span>,<span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"color"</span>, <span class="st">"clarity"</span>, <span class="st">"cut"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##      carat            depth           table           price      
 ##  Min.   :0.2000   Min.   :43.00   Min.   :43.00   Min.   :  326  
 ##  1st Qu.:0.4000   1st Qu.:61.00   1st Qu.:56.00   1st Qu.:  950  
@@ -282,9 +285,9 @@ The ‘select’ in dplyr package is used to select certain columns from the dat
 #### Column Selection
 In the following example, we are selecting three columns of observations only: ‘carat’, ‘clarity’, and ‘price’. Noted here that we can select by its name or by its position.</p>
 <div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#only keeping "carat", "clarity", and "price" columns</span>
-<span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">clarity</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#only keeping "carat", "clarity", and "price" columns</span></span>
+<span><span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">clarity</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   carat clarity price
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;int&gt;
@@ -292,9 +295,9 @@ In the following example, we are selecting three columns of observations only: �
 ## 2  0.21 SI1       326
 ## 3  0.23 VS1       327</code></pre>
 <div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># same result but use position</span>
-<span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># same result but use position</span></span>
+<span><span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   carat clarity price
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;int&gt;
@@ -302,9 +305,9 @@ In the following example, we are selecting three columns of observations only: �
 ## 2  0.21 SI1       326
 ## 3  0.23 VS1       327</code></pre>
 <div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># or use both column name and position, not recommended</span>
-<span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># or use both column name and position, not recommended</span></span>
+<span><span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   carat clarity price
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;int&gt;
@@ -317,9 +320,9 @@ In the following example, we are selecting three columns of observations only: �
 </h4>
 <p>We can also deselect certain columns, or a range of columns using the negate command <span class="math inline">\(!\)</span>. In the following example, we want to remove (i.e. deselect) columns from x to z.</p>
 <div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#deselecting columns from x to z</span>
-<span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="op">!</span><span class="op">(</span><span class="va">x</span><span class="op">:</span><span class="va">z</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#deselecting columns from x to z</span></span>
+<span><span class="va">select_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="op">!</span><span class="op">(</span><span class="va">x</span><span class="op">:</span><span class="va">z</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">select_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 7
 ##   carat cut     color clarity depth table price
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
@@ -347,7 +350,7 @@ In the following example, we are selecting three columns of observations only: �
 <p>As introduced above, the <span class="math inline">\(matches()\)</span> function can select columns with names that match a regular expression (regex). Regular expression is a way to represent certain string patterns, which is extensively used in natural language processing, linguistic analysis, etc. For details in regular expression, such as grammar, and its application, please visit the following link: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet" class="uri">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet</a>.</p>
 <p>For example, if we only want to keep columns with names that start with c, we can use the regular expression of “^c” in the <span class="math inline">\(matches()\)</span> function. (p.s. “^c” is a regular expression that defines strings that start with the letter lower-case c)</p>
 <div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">matches</a></span><span class="op">(</span><span class="st">"^c"</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">matches</a></span><span class="op">(</span><span class="st">"^c"</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##   carat cut     color clarity
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;  
@@ -362,24 +365,24 @@ In the following example, we are selecting three columns of observations only: �
 </h4>
 <p>For the sake of demonstration, we will create a pseudo-dataset with names specifically designed to include certain strings. In this case, multiple column names include the string “length”</p>
 <div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span><span class="op">)</span>
-<span class="va">pseudo_car_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>obs <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,
-                              cabin_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">7.5</span><span class="op">)</span>,
-                              door_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,
-                              wind_shield_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span>,
-                              color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">colors</span>, <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">pseudo_car_data</span>,,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
-<pre><code>##   obs cabin_length door_length wind_shield_length  color
-## 1   1     5.632943    2.321677           5.253965 yellow
-## 2   2     6.418753    2.584403           5.945934 yellow
-## 3   3     6.058065    2.688777           4.891338   blue</code></pre>
+<code class="sourceCode R"><span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span><span class="op">)</span></span>
+<span><span class="va">pseudo_car_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>obs <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,</span>
+<span>                              cabin_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">7.5</span><span class="op">)</span>,</span>
+<span>                              door_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>                              wind_shield_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span>,</span>
+<span>                              color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">colors</span>, <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">pseudo_car_data</span>,,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   obs cabin_length door_length wind_shield_length color
+## 1   1     6.274862    1.146336           5.500834 green
+## 2   2     5.153703    1.517312           4.992886   red
+## 3   3     7.241021    1.917732           5.349165  blue</code></pre>
 <p>Now, we can use the <span class="math inline">\(contains()\)</span> function to select those names that contain the string “length”.</p>
 <div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pseudo_car_data</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"length"</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pseudo_car_data</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"length"</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   cabin_length door_length wind_shield_length
-## 1     5.632943    2.321677           5.253965
-## 2     6.418753    2.584403           5.945934
-## 3     6.058065    2.688777           4.891338</code></pre>
+## 1     6.274862    1.146336           5.500834
+## 2     5.153703    1.517312           4.992886
+## 3     7.241021    1.917732           5.349165</code></pre>
 </div>
 <div id="filter-2" class="section level3">
 <h3>
@@ -394,13 +397,13 @@ In the following example, we are selecting three columns of observations only: �
 </h4>
 <p>The filter function can be used to filter both numerical and character type data. First, lets use the price parameter to demonstrate how to filter numerical values. We will filter out the observations that have diamond price over 500. In other words, we will only keep those rows of observations with <span class="math inline">\(price \leq 500\)</span>.</p>
 <div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#the range of prices for diamonds</span>
-<span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">price</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#the range of prices for diamonds</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">price</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1]   326 18823</code></pre>
 <div class="sourceCode" id="cb495"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#filter observations that have price less than or equal to 500</span>
-<span class="va">filter_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">price</span> <span class="op">&lt;=</span> <span class="fl">500</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">filter_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#filter observations that have price less than or equal to 500</span></span>
+<span><span class="va">filter_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">price</span> <span class="op">&lt;=</span> <span class="fl">500</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">filter_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -414,18 +417,18 @@ In the following example, we are selecting three columns of observations only: �
 </h4>
 <p>Now, we can filter by character type variables. For example, we can choose those observations that have “Fair” or “Good” cuts:</p>
 <div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#check levels of cuts</span>
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#check levels of cuts</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "Fair"      "Good"      "Very Good" "Premium"   "Ideal"</code></pre>
 <div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##      Fair      Good Very Good   Premium     Ideal 
 ##      1610      4906     12082     13791     21551</code></pre>
 <div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#filter by cut, keeping Fair and Good</span>
-<span class="va">filter_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fair"</span>, <span class="st">"Good"</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">filter_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#filter by cut, keeping Fair and Good</span></span>
+<span><span class="va">filter_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fair"</span>, <span class="st">"Good"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">filter_result</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut   color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -433,7 +436,7 @@ In the following example, we are selecting three columns of observations only: �
 ## 2  0.31 Good  J     SI2      63.3    58   335  4.34  4.35  2.75
 ## 3  0.22 Fair  E     VS2      65.1    61   337  3.87  3.78  2.49</code></pre>
 <div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">filter_result</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">filter_result</span><span class="op">$</span><span class="va">cut</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##      Fair      Good Very Good   Premium     Ideal 
 ##      1610      4906         0         0         0</code></pre>
@@ -448,9 +451,9 @@ In the following example, we are selecting three columns of observations only: �
 <p>The syntax for the slice function is as follow:
 <span class="math display">\[slice(data,  number\ to\ be\ sliced,... )\]</span></p>
 <div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#only get the first five observation of the data frame </span>
-<span class="va">slice_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>
-<span class="va">slice_result</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="co">#only get the first five observation of the data frame </span></span>
+<span><span class="va">slice_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">slice_result</span> </span></code></pre></div>
 <pre><code>## # A tibble: 5 × 10
 ##   carat cut     color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -462,9 +465,9 @@ In the following example, we are selecting three columns of observations only: �
 <p>There are also other wrapper functions for ‘slice’ that can be used to get the pieces of data with specified number/range of rows while also filtering with some conditions, such as slice_max,slice_min. The syntax for the slice function is as follow:
 <span class="math display">\[slice\_max(data, order\_by = column \ name, n =  number\ to\ be\ sliced )\]</span></p>
 <div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># only get the first five observation of the data frame with highest price</span>
-<span class="va">slice_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max</a></span><span class="op">(</span><span class="va">diamonds</span>, order_by <span class="op">=</span> <span class="va">price</span>, n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-<span class="va">slice_result</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># only get the first five observation of the data frame with highest price</span></span>
+<span><span class="va">slice_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max</a></span><span class="op">(</span><span class="va">diamonds</span>, order_by <span class="op">=</span> <span class="va">price</span>, n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">slice_result</span></span></code></pre></div>
 <pre><code>## # A tibble: 5 × 10
 ##   carat cut       color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -484,7 +487,7 @@ In the following example, we are selecting three columns of observations only: �
 We can use the ‘arrange’ function to arrange data, based on one parameter or multiple parameters, in an ascending order, using the following syntax:
 <span class="math display">\[arrange(data, column\ for\ arrangement, \dots)\]</span></p>
 <div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">price</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">price</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -498,7 +501,7 @@ We can use the ‘arrange’ function to arrange data, based on one parameter or
 <p>We can use the ‘desc’ function to arrange data, based on one or multiple parameters, in a descending order, using the following syntax:
 <span class="math display">\[arrange(data, desc(column\ for\ arrangement))\]</span></p>
 <div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut       color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -516,7 +519,7 @@ We can use the ‘arrange’ function to arrange data, based on one parameter or
 Grouping function in dplyr groups data based on the categories in the assigned column(s). The general syntax is:
 <span class="math display">\[group\_by(data, column\ used\ for\ grouping, \dots)\]</span></p>
 <div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ## # Groups:   cut [3]
 ##   carat cut     color clarity depth table price     x     y     z
@@ -525,7 +528,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 ## 2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31
 ## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31</code></pre>
 <div class="sourceCode" id="cb515"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">diamonds</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">diamonds</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -541,7 +544,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 <span class="math display">\[summarise(grouped\_data, new\_column\_name = function(column\ to\ be\ summarized), \dots)\]</span></p>
 <p>For example, here we are trying to get the mean price based on the cut of diamond type.</p>
 <div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span><span class="op">)</span>, mean_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="va">cut</span><span class="op">)</span>, mean_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   cut       mean_price
 ##   &lt;ord&gt;          &lt;dbl&gt;
@@ -574,13 +577,14 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </h4>
 <p>We can add a new parameter by performing operations on existing parameters. In the following example, we will calculate the price per carat diamond for each diamond listed in the dataset. To do so we can use the formula <span class="math inline">\(\frac{price}{carat}\)</span> for each row of observation.</p>
 <div class="sourceCode" id="cb519"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">diamonds</span>, price_per_carat <span class="op">=</span> <span class="va">price</span><span class="op">/</span><span class="va">carat</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">diamonds</span>, price_per_carat <span class="op">=</span> <span class="va">price</span><span class="op">/</span><span class="va">carat</span><span class="op">)</span>,n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
-##   carat cut    color clarity depth table price     x     y     z price_per_carat
-##   &lt;dbl&gt; &lt;ord&gt;  &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;
-## 1  0.23 Ideal  E     SI2      61.5    55   326  3.95  3.98  2.43           1417.
-## 2  0.21 Premi… E     SI1      59.8    61   326  3.89  3.84  2.31           1552.
-## 3  0.23 Good   E     VS1      56.9    65   327  4.05  4.07  2.31           1422.</code></pre>
+##   carat cut     color clarity depth table price     x     y     z price_per_ca…¹
+##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;          &lt;dbl&gt;
+## 1  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43          1417.
+## 2  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31          1552.
+## 3  0.23 Good    E     VS1      56.9    65   327  4.05  4.07  2.31          1422.
+## # … with abbreviated variable name ¹​price_per_carat</code></pre>
 <p>Notice that the mutated dataframe has one more column at the end titled “price_per_carat”. The new column is calculated by dividing price by carat within each observation.</p>
 </div>
 <div id="imputation-using-mean" class="section level4">
@@ -589,27 +593,27 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </h4>
 <p>For the sake of demonstration, we will create a pseudo-dataset that contains missing values to showcase the imputation power of the mutate function.</p>
 <div class="sourceCode" id="cb521"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#create new data</span>
-<span class="va">pseudo_missing_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tom"</span>, <span class="st">"Jay"</span>, <span class="st">"Marry"</span>, <span class="st">"Lexa"</span>, <span class="st">"Garcia"</span><span class="op">)</span>,
-                          age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">40</span><span class="op">:</span><span class="fl">80</span>, <span class="fl">3</span>, replace <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span>
-<span class="va">pseudo_missing_data</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#create new data</span></span>
+<span><span class="va">pseudo_missing_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tom"</span>, <span class="st">"Jay"</span>, <span class="st">"Marry"</span>, <span class="st">"Lexa"</span>, <span class="st">"Garcia"</span><span class="op">)</span>,</span>
+<span>                          age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">40</span><span class="op">:</span><span class="fl">80</span>, <span class="fl">3</span>, replace <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">pseudo_missing_data</span></span></code></pre></div>
 <pre><code>##     name age
-## 1    Tom  47
-## 2    Jay  45
-## 3  Marry  41
+## 1    Tom  56
+## 2    Jay  57
+## 3  Marry  62
 ## 4   Lexa  NA
 ## 5 Garcia  NA</code></pre>
 <p>In the example, we can see that Lexa and Garcia’s ages are missing. We will use mutate function to impute the missing values by using the mean of the rest of the ages (i.e. age of Tom, Jay, and Marry). The <span class="math inline">\(is.na()\)</span> function is used to check if the entry contain NA values.</p>
 <div class="sourceCode" id="cb523"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">imputed_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">pseudo_missing_data</span>,
-                       age <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>, <span class="va">age</span><span class="op">)</span><span class="op">)</span>
-<span class="va">imputed_data</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">imputed_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">pseudo_missing_data</span>,</span>
+<span>                       age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>, <span class="va">age</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">imputed_data</span></span></code></pre></div>
 <pre><code>##     name      age
-## 1    Tom 47.00000
-## 2    Jay 45.00000
-## 3  Marry 41.00000
-## 4   Lexa 44.33333
-## 5 Garcia 44.33333</code></pre>
+## 1    Tom 56.00000
+## 2    Jay 57.00000
+## 3  Marry 62.00000
+## 4   Lexa 58.33333
+## 5 Garcia 58.33333</code></pre>
 </div>
 <div id="imputation-removing-observations" class="section level4">
 <h4>
@@ -617,11 +621,11 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </h4>
 <p>Also, there is a more brutal way of cleaning the data – removing observations with NA values (i.e. removing the entire row if that row contain NA value). However, this type of cleaning technique is generally not recommended when there are large quantity of missing values, because it will severely depricate the integrity of the original dataset and lose important information. But the general way of removing observations with NA values is by calling the ‘na.omit’ function:</p>
 <div class="sourceCode" id="cb525"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/na.omit.data.table.html">na.omit</a></span><span class="op">(</span><span class="va">pseudo_missing_data</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">pseudo_missing_data</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##    name age
-## 1   Tom  47
-## 2   Jay  45
-## 3 Marry  41</code></pre>
+## 1   Tom  56
+## 2   Jay  57
+## 3 Marry  62</code></pre>
 <p>We can see that the latter two rows (i.e. observations of Lexa and Garcia) are completely removed!</p>
 </div>
 <div id="useful-helper-functions-for-mutate" class="section level4">
@@ -638,12 +642,12 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </ul>
 <p>example:</p>
 <div class="sourceCode" id="cb527"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">helper_example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">diamonds</span>,
-                         <span class="co">#use cummin to find the minimum value up to the current observation</span>
-                         cummin_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cummin</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,
-                         <span class="co">#use between to determine if the price is in range</span>
-                         in_range <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/between.html">between</a></span><span class="op">(</span><span class="va">price</span>, <span class="fl">330</span>, <span class="fl">340</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">helper_example</span><span class="op">)</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"price"</span>, <span class="st">"cummin_price"</span>, <span class="st">"in_range"</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">helper_example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">diamonds</span>,</span>
+<span>                         <span class="co">#use cummin to find the minimum value up to the current observation</span></span>
+<span>                         cummin_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cummin</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,</span>
+<span>                         <span class="co">#use between to determine if the price is in range</span></span>
+<span>                         in_range <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/between.html">between</a></span><span class="op">(</span><span class="va">price</span>, <span class="fl">330</span>, <span class="fl">340</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">helper_example</span><span class="op">)</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"price"</span>, <span class="st">"cummin_price"</span>, <span class="st">"in_range"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   price cummin_price in_range
 ##   &lt;int&gt;        &lt;int&gt; &lt;lgl&gt;   
@@ -662,8 +666,8 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 <p>The ‘distinct’ function is used to check if there is any duplicates in the data set. Because we wouldn’t want our data to have excessive duplicated observations. The distinct function can help us to delete the replicated rows and simplify the dataframe.
 <span class="math display">\[distinct(data, \dots)\]</span></p>
 <div class="sourceCode" id="cb529"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">repeated_diamonds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">diamonds</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>
-<span class="va">repeated_diamonds</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="va">repeated_diamonds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">diamonds</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">repeated_diamonds</span> </span></code></pre></div>
 <pre><code>## # A tibble: 5 × 10
 ##   carat cut     color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -673,7 +677,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 ## 4  0.23 Ideal   E     SI2      61.5    55   326  3.95  3.98  2.43
 ## 5  0.21 Premium E     SI1      59.8    61   326  3.89  3.84  2.31</code></pre>
 <div class="sourceCode" id="cb531"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">repeated_diamonds</span> <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">repeated_diamonds</span> <span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 10
 ##   carat cut     color clarity depth table price     x     y     z
 ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -689,17 +693,17 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 <p>Piping is an effective way to construct data processing pipelines, especially when the process involves multiple manipulation steps. The grammar used to pipe down commands is the ‘%&gt;%’. The direction where the arrow is pointing towards is the way that data processing proceeds.</p>
 <p>For example, we want to first filter out the observations that have ‘Good’ cut; then only keep the parameters that are numerical (i.e. ‘carat’, ‘price’, ‘depth’, ‘table’, ‘x’, ‘y’, ‘z’), as well as ‘clarity’; then, summarize the data by taking the mean of price grouping by ‘clarity’.</p>
 <div class="sourceCode" id="cb533"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#pass down to the next manipulation command using piping</span>
-<span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="co">#filter only those observations with Good cuts</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op">==</span> <span class="st">"Good"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="co">#select all columns except for cut and color</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">color</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="co">#summarize the price when grouping by clarity</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">clarity</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="co">#order the mean prices in descending order of clarity</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_price</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#pass down to the next manipulation command using piping</span></span>
+<span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co">#filter only those observations with Good cuts</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op">==</span> <span class="st">"Good"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co">#select all columns except for cut and color</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">color</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co">#summarize the price when grouping by clarity</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">clarity</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co">#order the mean prices in descending order of clarity</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mean_price</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## # A tibble: 8 × 2
 ##   clarity mean_price
 ##   &lt;ord&gt;        &lt;dbl&gt;
@@ -719,19 +723,19 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 </h2>
 <p>The essence of dplyr is to clean the data before it is used to perform model construction or data visualization. In this section, we will use a simple data visualization example that combines dplyr and ggplot2 and shows how we can tie the functions we have introduced above with graphic design using ggplot2.</p>
 <div class="sourceCode" id="cb535"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="co">#data manipulation using dplyr</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fair"</span>, <span class="st">"Good"</span>, <span class="st">"Very Good"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">carat</span>, <span class="va">color</span>, <span class="va">price</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">color</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,
-            mean_carat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="co">#data visualization using ggplot2</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mean_carat</span>, y <span class="op">=</span> <span class="va">mean_price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">color</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Mean Price"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Mean Carat"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Mean Price vs. Mean Carat of Diamonds"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">diamonds</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co">#data manipulation using dplyr</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cut</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fair"</span>, <span class="st">"Good"</span>, <span class="st">"Very Good"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">carat</span>, <span class="va">color</span>, <span class="va">price</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cut</span>, <span class="va">color</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>,</span>
+<span>            mean_carat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">carat</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co">#data visualization using ggplot2</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mean_carat</span>, y <span class="op">=</span> <span class="va">mean_price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">color</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Mean Price"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Mean Carat"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Mean Price vs. Mean Carat of Diamonds"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="dplyr_tutorial_in_r_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;"></div>
 
 </div>
@@ -781,7 +785,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -794,7 +798,7 @@ Grouping function in dplyr groups data based on the categories in the assigned c
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

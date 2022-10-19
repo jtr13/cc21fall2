@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 84 Tutorial of radar chart | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="Pengyu Zou and Nuanyu Shou  84.1 Overview Radar chart is a useful chart to display multivariate observations with an arbitrary number of variables. It consists of a sequence of equi-angular...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 84 Tutorial of radar chart | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Pengyu Zou and Nuanyu Shou  84.1 Overview Radar chart is a useful chart to display multivariate observations with an arbitrary number of variables. It consists of a sequence of equi-angular...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="Pengyu Zou and Nuanyu Shou  84.1 Overview Radar chart is a useful chart to display multivariate observations with an arbitrary number of variables. It consists of a sequence of equi-angular...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -299,15 +302,15 @@
 </h3>
 <p><code>ggradar</code> takes the first string column as group name and the rest numeric columns as different axes to plot. We take the columns from 6 to 10 in the <code>mtcars</code> dataset, and the first column as Group name.</p>
 <div class="sourceCode" id="cb1093"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#load data</span>
-<span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="va">mtcars</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span>rownames <span class="op">=</span> <span class="st">"group"</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="op">-</span><span class="va">group</span><span class="op">)</span>, <span class="va">rescale</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">tail</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://forcats.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>
-
-<span class="co">#check data type with std() function</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#load data</span></span>
+<span><span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span>rownames <span class="op">=</span> <span class="st">"group"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="op">-</span><span class="va">group</span><span class="op">)</span>, <span class="va">rescale</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#check data type with std() function</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## tibble [2 × 6] (S3: tbl_df/tbl/data.frame)
 ##  $ group: chr [1:2] "Maserati Bora" "Volvo 142E"
 ##  $ drat : num [1:2] 0.359 0.622
@@ -316,7 +319,7 @@
 ##  $ vs   : num [1:2] 0 1
 ##  $ am   : num [1:2] 1 1</code></pre>
 <div class="sourceCode" id="cb1095"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/p-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We can find that there are three circle lines in this radar chart, which stand for three bar values. Here are 0%, 50% and 100%. In addition, there are five axes corresponding to the five columns in the data. Each axis is connected with the inner layer with a solid line.</p>
 </div>
@@ -330,11 +333,11 @@
 </h4>
 <p><code>axis.label.size</code> is for the axis text.</p>
 <div class="sourceCode" id="cb1096"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,axis.label.size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,axis.label.size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
 <p><code>grid.label.size</code> is for the text of three grids.</p>
 <div class="sourceCode" id="cb1097"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,grid.label.size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,grid.label.size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="set-the-bar-value-for-each-grid" class="section level4">
@@ -343,10 +346,10 @@
 </h4>
 <p><code>values.radar</code> is for setting the value for each grid. It only takes three values. If provide more than three, only the first three will be taken.</p>
 <div class="sourceCode" id="cb1098"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,             
-            <span class="co"># "125%" will be ignore.</span>
-            values.radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"33%"</span>,<span class="st">"66%"</span>,<span class="st">"100%"</span>,<span class="st">"125%"</span><span class="op">)</span>
-        <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,             </span>
+<span>            <span class="co"># "125%" will be ignore.</span></span>
+<span>            values.radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"33%"</span>,<span class="st">"66%"</span>,<span class="st">"100%"</span>,<span class="st">"125%"</span><span class="op">)</span></span>
+<span>        <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="set-the-split-ratio-for-each-grid" class="section level4">
@@ -355,12 +358,12 @@
 </h4>
 <p>Three grids will split data by ratio according to <code>grid.max</code>, <code>grid.mid</code> and <code>grid.min</code>. This should be correspond to <code>values.radar</code>.</p>
 <div class="sourceCode" id="cb1099"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
-            values.radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0%"</span>,<span class="st">"55%"</span>,<span class="st">"100%"</span><span class="op">)</span>,
-            grid.max <span class="op">=</span> <span class="fl">1</span>,
-            grid.mid <span class="op">=</span> <span class="fl">0.6</span>,
-            grid.min <span class="op">=</span> <span class="fl">0</span>
-        <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,</span>
+<span>            values.radar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0%"</span>,<span class="st">"55%"</span>,<span class="st">"100%"</span><span class="op">)</span>,</span>
+<span>            grid.max <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>            grid.mid <span class="op">=</span> <span class="fl">0.6</span>,</span>
+<span>            grid.min <span class="op">=</span> <span class="fl">0</span></span>
+<span>        <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="legend-2" class="section level4">
@@ -369,12 +372,12 @@
 </h4>
 <p>If you want to get rid of the legend you can set <code>plot.legend = FALSE</code> or <code>legend.position = "none</code>.</p>
 <div class="sourceCode" id="cb1100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
-                plot.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,</span>
+<span>                plot.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1101"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
-                legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,</span>
+<span>                legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="background-and-styles-of-grid-lines." class="section level4">
@@ -383,12 +386,12 @@
 </h4>
 <p>Use <code>background.circle.colour</code> to set the background color of the chart. <code>gridline.max.colour</code>, <code>gridline.min.colour</code> and <code>gridline.max.colour</code> are for the colors of three grid lines. <code>gridline.min.linetype</code> can set style of grid line to solid or longdash.</p>
 <div class="sourceCode" id="cb1102"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>, 
-             background.circle.colour <span class="op">=</span> <span class="st">'yellow'</span>,
-             gridline.min.colour <span class="op">=</span> <span class="st">'red'</span>,
-             gridline.mid.colour <span class="op">=</span> <span class="st">'blue'</span>,
-             gridline.max.colour <span class="op">=</span> <span class="st">'green'</span>,
-             gridline.min.linetype <span class="op">=</span> <span class="st">'solid'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>, </span>
+<span>             background.circle.colour <span class="op">=</span> <span class="st">'yellow'</span>,</span>
+<span>             gridline.min.colour <span class="op">=</span> <span class="st">'red'</span>,</span>
+<span>             gridline.mid.colour <span class="op">=</span> <span class="st">'blue'</span>,</span>
+<span>             gridline.max.colour <span class="op">=</span> <span class="st">'green'</span>,</span>
+<span>             gridline.min.linetype <span class="op">=</span> <span class="st">'solid'</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="set-the-colors-of-axes." class="section level4">
@@ -397,8 +400,8 @@
 </h4>
 <p><code>group.colours</code> take a <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> of colors for each group.</p>
 <div class="sourceCode" id="cb1103"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
-                  group.colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'red'</span>,<span class="st">'blue'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,</span>
+<span>                  group.colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'red'</span>,<span class="st">'blue'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="set-the-size-of-point" class="section level4">
@@ -407,14 +410,14 @@
 </h4>
 <p><code>group.point.size</code> only take one value or values of the data size.</p>
 <div class="sourceCode" id="cb1104"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
-              group.point.size <span class="op">=</span> <span class="fl">8</span>
-        <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,</span>
+<span>              group.point.size <span class="op">=</span> <span class="fl">8</span></span>
+<span>        <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1105"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
-              group.point.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span>
-        <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,</span>
+<span>              group.point.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span></span>
+<span>        <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="set-the-width-of-line" class="section level4">
@@ -423,14 +426,14 @@
 </h4>
 <p><code>group.line.width</code> only take one value or values of the data size.</p>
 <div class="sourceCode" id="cb1106"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
-              group.line.width <span class="op">=</span> <span class="fl">3</span>
-        <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,</span>
+<span>              group.line.width <span class="op">=</span> <span class="fl">3</span></span>
+<span>        <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb1107"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,
-              group.line.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>
-        <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggradar</span><span class="op">(</span><span class="va">mtcars_radar</span>,</span>
+<span>              group.line.width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span></span>
+<span>        <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
@@ -453,16 +456,16 @@
 </h3>
 <p>By default, data frame must include maximum values as row 1 and minimum values as row 2 for each variables to create axis, and actual data should be given as row 3 and lower rows. So we should first modify the data and use <code><a href="https://rdrr.io/pkg/fmsb/man/radarchart.html">fmsb::radarchart</a></code> to draw the plot:</p>
 <div class="sourceCode" id="cb1109"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df_maxmin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-    drat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
-    wt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
-    qsec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
-    vs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,
-    am <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="va">mtcars_radar</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'drat'</span>,<span class="st">'wt'</span>,<span class="st">'qsec'</span>,<span class="st">'vs'</span>,<span class="st">'am'</span><span class="op">)</span><span class="op">]</span>
-<span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbind</a></span><span class="op">(</span><span class="va">df_maxmin</span>, <span class="va">mtcars_radar</span><span class="op">)</span>
-<span class="fu">fmsb</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/fmsb/man/radarchart.html">radarchart</a></span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">df_maxmin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>    drat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>    wt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>    qsec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>    vs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>    am <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="va">mtcars_radar</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'drat'</span>,<span class="st">'wt'</span>,<span class="st">'qsec'</span>,<span class="st">'vs'</span>,<span class="st">'am'</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="va">mtcars_radar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">df_maxmin</span>, <span class="va">mtcars_radar</span><span class="op">)</span></span>
+<span><span class="fu">fmsb</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/fmsb/man/radarchart.html">radarchart</a></span><span class="op">(</span><span class="va">mtcars_radar</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="parameters-usage-1" class="section level3">
@@ -483,11 +486,11 @@
 <li><p>5 – *.** format of axistype3</p></li>
 </ol>
 <div class="sourceCode" id="cb1110"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="change-axis-segments" class="section level4">
@@ -497,9 +500,9 @@
 <p>We can modify <code>seg</code> to change the number of segments for each axis.
 In the plot below, we can see we set the <code>seg</code> = 1 and then segments becomes less.</p>
 <div class="sourceCode" id="cb1111"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, seg <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, seg <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="set-points-symbol" class="section level4">
@@ -508,11 +511,11 @@ In the plot below, we can see we set the <code>seg</code> = 1 and then segments 
 </h4>
 <p>We can modify <code>pty</code> to change point symbol. If you don’t plot data points, it should be 32. And the default value is 16. Besides, there are some other symbol you can try.</p>
 <div class="sourceCode" id="cb1112"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># default</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">32</span><span class="op">)</span> <span class="co"># no points</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">24</span><span class="op">)</span> <span class="co"># triangle</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">18</span><span class="op">)</span> <span class="co"># square</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># default</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">32</span><span class="op">)</span> <span class="co"># no points</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">24</span><span class="op">)</span> <span class="co"># triangle</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, pty <span class="op">=</span> <span class="fl">18</span><span class="op">)</span> <span class="co"># square</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="modify-lines-apperance-colortypewidth" class="section level4">
@@ -528,11 +531,11 @@ In the plot below, we can see we set the <code>seg</code> = 1 and then segments 
 <code>plwd</code> : A vector of line widths for plot data</li>
 </ol>
 <div class="sourceCode" id="cb1113"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#7FBF3F'</span>, <span class="st">'#FFB602'</span><span class="op">)</span>, <span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, plty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, plwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#7FBF3F'</span>, <span class="st">'#FFB602'</span><span class="op">)</span>, <span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, plty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, plwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="modify-the-axislines-colortypewidth" class="section level4">
@@ -549,11 +552,11 @@ In the plot below, we can see we set the <code>seg</code> = 1 and then segments 
 <code>cglwd</code>:Line width for radar grids</li>
 </ol>
 <div class="sourceCode" id="cb1114"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span> 
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglcol <span class="op">=</span> <span class="st">'#7FBF3F'</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglwd <span class="op">=</span> <span class="fl">3</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span> </span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglcol <span class="op">=</span> <span class="st">'#7FBF3F'</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>, cglty <span class="op">=</span> <span class="fl">1</span>, cglwd <span class="op">=</span> <span class="fl">3</span>, cglcol <span class="op">=</span> <span class="st">'#000000'</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="filling-polygons" class="section level4">
@@ -570,11 +573,11 @@ In the plot below, we can see we set the <code>seg</code> = 1 and then segments 
 <code>pangle</code>: A vector of the angles of lines used as filling polygons</li>
 </ol>
 <div class="sourceCode" id="cb1115"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span>, pdensity<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>,<span class="fl">50</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span>, pdensity<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">10</span><span class="op">)</span>, pangle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, plty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="st">'#99999980'</span><span class="op">)</span>, cglty<span class="op">=</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span>, pdensity<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>,<span class="fl">50</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'#FFFF00'</span>,<span class="st">'#7FBF3F'</span><span class="op">)</span>, pdensity<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">10</span><span class="op">)</span>, pangle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, plty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">radarchart</span><span class="op">(</span><span class="va">mtcars_radar</span>, axistype <span class="op">=</span> <span class="fl">2</span>,  pfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="st">'#99999980'</span><span class="op">)</span>, cglty<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="tutorial_of_radar_chart_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
@@ -619,7 +622,7 @@ In the plot below, we can see we set the <code>seg</code> = 1 and then segments 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -632,7 +635,7 @@ In the plot below, we can see we set the <code>seg</code> = 1 and then segments 
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

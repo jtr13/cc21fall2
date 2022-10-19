@@ -55,7 +55,7 @@ dateDownloaded
 ```
 
 ```
-## [1] "Tue Dec 28 04:24:37 2021"
+## [1] "Wed Oct 19 14:20:15 2022"
 ```
 
 ## Reading Local Files
@@ -185,7 +185,7 @@ food_market[1,19]
 ```
 
 ```
-## [1] "GREENVILLE"
+## [1] "CHAFFEE"
 ```
 
 The `httr` package allows to connect to websites and to connect to APIs. It allows, when a `GET` request is made (a request to access the result of a search), to retrieve the result in the form of a text to be reworked. In general, a call to an API via `httr` is made as follows:
@@ -238,8 +238,8 @@ results
 ```
 
 ```
-## [1] "Low: 43 °F"  "High: 49 °F" "Low: 44 °F"  "High: 50 °F" "Low: 40 °F" 
-## [6] "High: 52 °F" "Low: 41 °F"  "High: 52 °F" "Low: 39 °F"
+## [1] "High: 84 °F" "Low: 57 °F"  "High: 74 °F" "Low: 54 °F"  "High: 67 °F"
+## [6] "Low: 56 °F"  "High: 65 °F" "Low: 53 °F"  "High: 66 °F"
 ```
 
 It is hard to read, One way to deal with that is to, as we've seen before is to use the XML package. So again, we could use this same URL. Use the XML package, and parse the HTML again, using the InternalNodes to get the complete structure out. 
@@ -627,8 +627,7 @@ tbl(db, sql("SELECT year, species_id, plot_id FROM surveys"))
 
 ```
 ## # Source:   SQL [?? x 3]
-## # Database: sqlite 3.37.0
-## #   [/home/runner/work/cc21fall2/cc21fall2/resources/downloading_files/db_sql.sqlite]
+## # Database: sqlite 3.39.4 [/home/runner/work/cc21fall2/cc21fall2/resources/downloading_files/db_sql.sqlite]
 ##     year species_id plot_id
 ##    <int> <chr>        <int>
 ##  1  1977 NL               2
@@ -655,9 +654,8 @@ surveys %>% select(year, species_id, plot_id)
 ```
 
 ```
-## # Source:   lazy query [?? x 3]
-## # Database: sqlite 3.37.0
-## #   [/home/runner/work/cc21fall2/cc21fall2/resources/downloading_files/db_sql.sqlite]
+## # Source:   SQL [?? x 3]
+## # Database: sqlite 3.39.4 [/home/runner/work/cc21fall2/cc21fall2/resources/downloading_files/db_sql.sqlite]
 ##     year species_id plot_id
 ##    <int> <chr>        <int>
 ##  1  1977 NL               2

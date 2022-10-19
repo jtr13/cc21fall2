@@ -2,6 +2,7 @@
 
 Zonghan Yue(zy2493), Alvin Pan (qp2134)
 
+**Note (2022-10-19): code not run since data files are no longer available.**
 
 
 
@@ -48,8 +49,6 @@ eth$time = as.POSIXlt(eth$time)
 plot(eth$time, eth$close, type="l", xlab = "Time", ylab = "price", main = "Unstationary: Eth Price")
 ```
 
-<img src="urca_unitroottest_cointegrationtest_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" />
-
 ```r
 time = eth$time[2:100000]
 pre_close = eth$close[1:99999]
@@ -57,8 +56,6 @@ next_close = eth$close[2:100000]
 close = next_close - pre_close
 plot(time, close, type="l", xlab = "Time", ylab = "price", main = "stationary: Eth Return")
 ```
-
-<img src="urca_unitroottest_cointegrationtest_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" />
 
 #### What is Unit Root?
  
@@ -133,41 +130,6 @@ urtest = ur.df(eth$close, type="none", lags = 1)
 summary(urtest)
 ```
 
-```
-## 
-## ############################################### 
-## # Augmented Dickey-Fuller Test Unit Root Test # 
-## ############################################### 
-## 
-## Test regression none 
-## 
-## 
-## Call:
-## lm(formula = z.diff ~ z.lag.1 - 1 + z.diff.lag)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -175.109   -2.053   -0.014    2.026  129.091 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)    
-## z.lag.1    7.198e-07  3.212e-06   0.224    0.823    
-## z.diff.lag 1.897e-02  1.985e-03   9.553   <2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 4.832 on 253595 degrees of freedom
-## Multiple R-squared:  0.00036,	Adjusted R-squared:  0.0003521 
-## F-statistic: 45.66 on 2 and 253595 DF,  p-value: < 2.2e-16
-## 
-## 
-## Value of test-statistic is: 0.2241 
-## 
-## Critical values for test statistics: 
-##       1pct  5pct 10pct
-## tau1 -2.58 -1.95 -1.62
-```
-
 **Interpretation**
 
 Value of test-statistic is 0.2241 and the Critical values for test statistics are: tau1 -2.58 -1.95 -1.62 for (1%, 5%, 10%). Thus, We reject the null, which means a unit root is present. The "z.lag1" is the $\gamma$ term, the coefficient for the lag term (y(t-1)), which is p=0.823, implies that gamma isn't statistically significant to this model. 
@@ -218,22 +180,6 @@ We reject the null hypothesis if the test statistics is greater than 5% confiden
 ```r
 urtest = ur.ers(eth$close, type="P-test", model="const", lag.max=6)
 summary(urtest)
-```
-
-```
-## 
-## ############################################### 
-## # Elliot, Rothenberg and Stock Unit Root Test # 
-## ############################################### 
-## 
-## Test of type P-test 
-## detrending of series with intercept 
-## 
-## Value of test-statistic is: 6.3283 
-## 
-## Critical values of P-test are:
-##                 1pct 5pct 10pct
-## critical values 1.99 3.26  4.48
 ```
 
 **Intepretation**
@@ -293,38 +239,6 @@ urtest = ur.sp(eth$close, type="tau", pol.deg=1, signif=0.05)
 summary(urtest)
 ```
 
-```
-## 
-## ################################### 
-## # Schmidt-Phillips Unit Root Test # 
-## ################################### 
-## 
-## 
-## Call:
-## lm(formula = sp.data)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -176.877   -2.054   -0.018    2.018  128.146 
-## 
-## Coefficients:
-##              Estimate Std. Error   t value Pr(>|t|)    
-## (Intercept) 6.962e-02  4.456e-02     1.562    0.118    
-## y.lagged    1.000e+00  1.640e-05 60984.887   <2e-16 ***
-## trend.exp1  2.150e-07  1.442e-07     1.491    0.136    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 4.833 on 253595 degrees of freedom
-## Multiple R-squared:  0.9999,	Adjusted R-squared:  0.9999 
-## F-statistic: 2.25e+09 on 2 and 253595 DF,  p-value: < 2.2e-16
-## 
-## 
-## Value of test-statistic is: -1.562 
-## Critical value for a significance level of 0.05 
-## is: -3.02
-```
-
 **Interpretation**
 From the t-test, test-statistic is: -1.562, Critical value for a significance level of 0.05 is: -3.02. Thus, we have to reject the null hypothesis. 
 
@@ -358,43 +272,6 @@ From the t-test, test-statistic is: -1.562, Critical value for a significance le
 ```r
 urtest = ur.za(eth$close[1:1000], model="intercept", lag=2)
 summary(urtest)
-```
-
-```
-## 
-## ################################ 
-## # Zivot-Andrews Unit Root Test # 
-## ################################ 
-## 
-## 
-## Call:
-## lm(formula = testmat)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -10.9326  -1.4341  -0.0814   1.4239  26.2689 
-## 
-## Coefficients:
-##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)  1.114e+02  1.990e+01   5.598 2.80e-08 ***
-## y.l1         9.597e-01  7.193e-03 133.431  < 2e-16 ***
-## trend        1.081e-03  4.467e-04   2.421   0.0156 *  
-## y.dl1       -2.652e-02  3.124e-02  -0.849   0.3961    
-## y.dl2       -1.065e-02  3.123e-02  -0.341   0.7331    
-## du           2.970e+00  5.658e-01   5.250 1.86e-07 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 2.733 on 991 degrees of freedom
-##   (3 observations deleted due to missingness)
-## Multiple R-squared:  0.9918,	Adjusted R-squared:  0.9918 
-## F-statistic: 2.397e+04 on 5 and 991 DF,  p-value: < 2.2e-16
-## 
-## 
-## Teststatistic: -5.6 
-## Critical values: 0.01= -5.34 0.05= -4.8 0.1= -4.58 
-## 
-## Potential break point at position: 116
 ```
 x, we have sufficient evidence to reject the null that the unit root has a unit root with a single break.
 
@@ -473,47 +350,12 @@ plot(xrp$time, xrp$close, type="l", xlab = "Time", ylab = "close", col="red", ma
 lines(eth$time, log(eth$close), col="blue")
 ```
 
-<img src="urca_unitroottest_cointegrationtest_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" />
-
 Now we do the modelling:
 
 ```r
 stock = data.frame(y = xrp$close, x = log(eth$close))
 coint = ca.jo(stock, type="trace", ecdet="trend", K=2, spec="longrun")
 summary(coint)
-```
-
-```
-## 
-## ###################### 
-## # Johansen-Procedure # 
-## ###################### 
-## 
-## Test type: trace statistic , with linear trend in cointegration 
-## 
-## Eigenvalues (lambda):
-## [1]  1.033152e-04  2.027439e-05 -6.352747e-21
-## 
-## Values of teststatistic and critical values of test:
-## 
-##           test 10pct  5pct  1pct
-## r <= 1 |  5.14 10.49 12.25 16.26
-## r = 0  | 31.34 22.76 25.32 30.45
-## 
-## Eigenvectors, normalised to first column:
-## (These are the cointegration relations)
-## 
-##                   y.l2          x.l2     trend.l2
-## y.l2      1.000000e+00  1.000000e+00 1.000000e+00
-## x.l2     -1.210520e+00 -8.299038e+00 1.805231e-01
-## trend.l2  1.438052e-06  1.884477e-05 9.576652e-06
-## 
-## Weights W:
-## (This is the loading matrix)
-## 
-##              y.l2         x.l2      trend.l2
-## y.d -1.237713e-04 5.093904e-06 -1.371860e-20
-## x.d  3.424685e-05 4.744542e-06 -1.730493e-21
 ```
 
 **Interpretation** 
@@ -527,8 +369,6 @@ The test statistics 31.34 is greater 30.45, which is the 1% confidence level val
 plot(xrp$time, stock$y, type="l", col = "red", xlab = "Time", ylab = "close", ylim = c(-10,2), main = "Stationary series")
 lines(xrp$time, -1.210520*stock$x, col = "blue")
 ```
-
-<img src="urca_unitroottest_cointegrationtest_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" />
 
 References:
 

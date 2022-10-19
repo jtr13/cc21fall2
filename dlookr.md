@@ -53,19 +53,20 @@ diagnose(manhattan)
 
 ```
 ## # A tibble: 21 × 6
-##    variables       types  missing_count missing_percent unique_count unique_rate
-##    <chr>           <chr>          <int>           <dbl>        <int>       <dbl>
-##  1 BOROUGH         chara…             0          0                 1   0.0000517
-##  2 NEIGHBORHOOD    chara…             0          0                39   0.00202  
-##  3 BUILDING_CLASS… chara…             0          0                39   0.00202  
-##  4 TAX_CLASS_AT_P… chara…            18          0.0930            9   0.000465 
-##  5 BLOCK           numer…             0          0              1341   0.0693   
-##  6 LOT             numer…             0          0              1662   0.0859   
-##  7 EASEMENT        logic…         19354        100                 1   0.0000517
-##  8 BUILDING_CLASS… chara…            18          0.0930          112   0.00579  
-##  9 ADDRESS         chara…             0          0             19010   0.982    
-## 10 APARTMENT_NUMB… chara…         10204         52.7            2630   0.136    
-## # … with 11 more rows
+##    variables                 types     missing_count missing_p…¹ uniqu…² uniqu…³
+##    <chr>                     <chr>             <int>       <dbl>   <int>   <dbl>
+##  1 BOROUGH                   character             0      0            1 5.17e-5
+##  2 NEIGHBORHOOD              character             0      0           39 2.02e-3
+##  3 BUILDING_CLASS_CATEGORY   character             0      0           39 2.02e-3
+##  4 TAX_CLASS_AT_PRESENT      character            18      0.0930       9 4.65e-4
+##  5 BLOCK                     numeric               0      0         1341 6.93e-2
+##  6 LOT                       numeric               0      0         1662 8.59e-2
+##  7 EASEMENT                  logical           19354    100            1 5.17e-5
+##  8 BUILDING_CLASS_AT_PRESENT character            18      0.0930     112 5.79e-3
+##  9 ADDRESS                   character             0      0        19010 9.82e-1
+## 10 APARTMENT_NUMBER          character         10204     52.7       2630 1.36e-1
+## # … with 11 more rows, and abbreviated variable names ¹​missing_percent,
+## #   ²​unique_count, ³​unique_rate
 ```
 
 ```r
@@ -75,19 +76,20 @@ diagnose(manhattan)
 
 ```
 ## # A tibble: 21 × 6
-##    variables       types  missing_count missing_percent unique_count unique_rate
-##    <chr>           <chr>          <int>           <dbl>        <int>       <dbl>
-##  1 BOROUGH         chara…             0          0                 1   0.0000517
-##  2 NEIGHBORHOOD    chara…             0          0                39   0.00202  
-##  3 BUILDING_CLASS… chara…             0          0                39   0.00202  
-##  4 TAX_CLASS_AT_P… chara…            18          0.0930            9   0.000465 
-##  5 BLOCK           numer…             0          0              1341   0.0693   
-##  6 LOT             numer…             0          0              1662   0.0859   
-##  7 EASEMENT        logic…         19354        100                 1   0.0000517
-##  8 BUILDING_CLASS… chara…            18          0.0930          112   0.00579  
-##  9 ADDRESS         chara…             0          0             19010   0.982    
-## 10 APARTMENT_NUMB… chara…         10204         52.7            2630   0.136    
-## # … with 11 more rows
+##    variables                 types     missing_count missing_p…¹ uniqu…² uniqu…³
+##    <chr>                     <chr>             <int>       <dbl>   <int>   <dbl>
+##  1 BOROUGH                   character             0      0            1 5.17e-5
+##  2 NEIGHBORHOOD              character             0      0           39 2.02e-3
+##  3 BUILDING_CLASS_CATEGORY   character             0      0           39 2.02e-3
+##  4 TAX_CLASS_AT_PRESENT      character            18      0.0930       9 4.65e-4
+##  5 BLOCK                     numeric               0      0         1341 6.93e-2
+##  6 LOT                       numeric               0      0         1662 8.59e-2
+##  7 EASEMENT                  logical           19354    100            1 5.17e-5
+##  8 BUILDING_CLASS_AT_PRESENT character            18      0.0930     112 5.79e-3
+##  9 ADDRESS                   character             0      0        19010 9.82e-1
+## 10 APARTMENT_NUMBER          character         10204     52.7       2630 1.36e-1
+## # … with 11 more rows, and abbreviated variable names ¹​missing_percent,
+## #   ²​unique_count, ³​unique_rate
 ```
 
 ```r
@@ -128,18 +130,18 @@ diagnose_numeric(manhattan)
 
 ```
 ## # A tibble: 10 × 10
-##    variables       min     Q1     mean median     Q3     max  zero minus outlier
-##    <chr>         <dbl>  <dbl>    <dbl>  <dbl>  <dbl>   <dbl> <int> <int>   <int>
-##  1 BLOCK            10    738   1.10e3   1162 1.45e3  2.25e3     0     0       0
-##  2 LOT               1     29   7.52e2   1003 1.20e3  9.11e3     0     0     451
-##  3 ZIP_CODE      10001  10013   1.00e4  10022 1.00e4  1.05e4     0     0    2601
-##  4 RESIDENTIAL_…     0      1   2.68e0      1 1   e0  4.9 e2   300     0    1257
-##  5 COMMERCIAL_U…     0      0   2.09e0      1 1   e0  2.39e2   870     0     192
-##  6 TOTAL_UNITS       0      1   2.93e0      1 1   e0  4.92e2    88     0    1228
-##  7 LAND_SQUARE_…     0   1749   6.02e3   2313 4.25e3  6.59e5     8     0     191
-##  8 GROSS_SQUARE…     0   3756   3.35e4   6681 1.38e4  2.4 e6    83     0     230
-##  9 YEAR_BUILT     1800   1922   1.95e3   1957 1.99e3  2.02e3     0     0       3
-## 10 SALE_PRICE        0 430000   2.42e6 925000 2.00e6  8.10e8  3136     0    1873
+##    variables          min     Q1   mean median     Q3    max  zero minus outlier
+##    <chr>            <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl> <int> <int>   <int>
+##  1 BLOCK               10    738 1.10e3   1162 1.45e3 2.25e3     0     0       0
+##  2 LOT                  1     29 7.52e2   1003 1.20e3 9.11e3     0     0     451
+##  3 ZIP_CODE         10001  10013 1.00e4  10022 1.00e4 1.05e4     0     0    2601
+##  4 RESIDENTIAL_UNI…     0      1 2.68e0      1 1   e0 4.9 e2   300     0    1257
+##  5 COMMERCIAL_UNITS     0      0 2.09e0      1 1   e0 2.39e2   870     0     192
+##  6 TOTAL_UNITS          0      1 2.93e0      1 1   e0 4.92e2    88     0    1228
+##  7 LAND_SQUARE_FEET     0   1749 6.02e3   2313 4.25e3 6.59e5     8     0     191
+##  8 GROSS_SQUARE_FE…     0   3756 3.35e4   6681 1.38e4 2.4 e6    83     0     230
+##  9 YEAR_BUILT        1800   1922 1.95e3   1957 1.99e3 2.02e3     0     0       3
+## 10 SALE_PRICE           0 430000 2.42e6 925000 2.00e6 8.10e8  3136     0    1873
 ```
 One function directly gives quantiles,mean, zeros, negative values and outliers for all the numeric values.
 
@@ -214,18 +216,19 @@ diagnose_outlier(manhattan)
 
 ```
 ## # A tibble: 10 × 6
-##    variables    outliers_cnt outliers_ratio outliers_mean with_mean without_mean
-##    <chr>               <int>          <dbl>         <dbl>     <dbl>        <dbl>
-##  1 BLOCK                   0         0              NaN      1.10e3     1097.   
-##  2 LOT                   451         2.33          4598.     7.52e2      660.   
-##  3 ZIP_CODE             2601        13.4          10103.     1.00e4    10019.   
-##  4 RESIDENTIAL…         1257         6.49            14.4    2.68e0        1    
-##  5 COMMERCIAL_…          192         0.992           16.5    2.09e0        0.613
-##  6 TOTAL_UNITS          1228         6.34            17.7    2.93e0        1    
-##  7 LAND_SQUARE…          191         0.987        28980.     6.02e3     2588.   
-##  8 GROSS_SQUAR…          230         1.19        175727.     3.35e4     7072.   
-##  9 YEAR_BUILT              3         0.0155        1800      1.95e3     1954.   
-## 10 SALE_PRICE           1873         9.68      14915667.     2.42e6  1081708.
+##    variables         outliers_cnt outliers_ratio outliers_mean with_mean witho…¹
+##    <chr>                    <int>          <dbl>         <dbl>     <dbl>   <dbl>
+##  1 BLOCK                        0         0              NaN      1.10e3 1.10e+3
+##  2 LOT                        451         2.33          4598.     7.52e2 6.60e+2
+##  3 ZIP_CODE                  2601        13.4          10103.     1.00e4 1.00e+4
+##  4 RESIDENTIAL_UNITS         1257         6.49            14.4    2.68e0 1   e+0
+##  5 COMMERCIAL_UNITS           192         0.992           16.5    2.09e0 6.13e-1
+##  6 TOTAL_UNITS               1228         6.34            17.7    2.93e0 1   e+0
+##  7 LAND_SQUARE_FEET           191         0.987        28980.     6.02e3 2.59e+3
+##  8 GROSS_SQUARE_FEET          230         1.19        175727.     3.35e4 7.07e+3
+##  9 YEAR_BUILT                   3         0.0155        1800      1.95e3 1.95e+3
+## 10 SALE_PRICE                1873         9.68      14915667.     2.42e6 1.08e+6
+## # … with abbreviated variable name ¹​without_mean
 ```
 This tells us the number of outliers are there in each numerical column. If we look at with_mean and without_mean column it also helps us analyse the effect of outlier on data.We can even plot outliers:
 
@@ -255,21 +258,22 @@ describe(manhattan)
 
 ```
 ## # A tibble: 10 × 26
-##    variable       n    na    mean      sd se_mean    IQR skewness kurtosis   p00
-##    <chr>      <int> <int>   <dbl>   <dbl>   <dbl>  <dbl>    <dbl>    <dbl> <dbl>
-##  1 BLOCK      19354     0  1.10e3  5.20e2 3.74e+0 7.09e2   -0.149   -0.464    10
-##  2 LOT        19354     0  7.52e2  8.86e2 6.37e+0 1.18e3    2.77    16.2       1
-##  3 ZIP_CODE   19354     0  1.00e4  3.61e1 2.60e-1 1.5 e1    4.14    25.4   10001
-##  4 RESIDENTI… 10026  9328  2.68e0  1.16e1 1.16e-1 0        16.6    448.        0
-##  5 COMMERCIA…  2062 17292  2.09e0  1.04e1 2.30e-1 1   e0   13.7    234.        0
-##  6 TOTAL_UNI… 10619  8735  2.93e0  1.24e1 1.20e-1 0        15.0    361.        0
-##  7 LAND_SQUA…  1469 17885  6.02e3  2.73e4 7.12e+2 2.50e3   20.4    467.        0
-##  8 GROSS_SQU…  1469 17885  3.35e4  1.34e5 3.49e+3 1.00e4   11.4    164.        0
-##  9 YEAR_BUILT 17297  2057  1.95e3  3.81e1 2.89e-1 6.4 e1    0.227   -1.11   1800
-## 10 SALE_PRICE 19354     0  2.42e6  1.03e7 7.37e+4 1.57e6   35.7   2249.        0
+##    described_v…¹     n    na   mean     sd se_mean    IQR skewn…² kurtosis   p00
+##    <chr>         <int> <int>  <dbl>  <dbl>   <dbl>  <dbl>   <dbl>    <dbl> <dbl>
+##  1 BLOCK         19354     0 1.10e3 5.20e2 3.74e+0 7.09e2  -0.149   -0.464    10
+##  2 LOT           19354     0 7.52e2 8.86e2 6.37e+0 1.18e3   2.77    16.2       1
+##  3 ZIP_CODE      19354     0 1.00e4 3.61e1 2.60e-1 1.5 e1   4.14    25.4   10001
+##  4 RESIDENTIAL_… 10026  9328 2.68e0 1.16e1 1.16e-1 0       16.6    448.        0
+##  5 COMMERCIAL_U…  2062 17292 2.09e0 1.04e1 2.30e-1 1   e0  13.7    234.        0
+##  6 TOTAL_UNITS   10619  8735 2.93e0 1.24e1 1.20e-1 0       15.0    361.        0
+##  7 LAND_SQUARE_…  1469 17885 6.02e3 2.73e4 7.12e+2 2.50e3  20.4    467.        0
+##  8 GROSS_SQUARE…  1469 17885 3.35e4 1.34e5 3.49e+3 1.00e4  11.4    164.        0
+##  9 YEAR_BUILT    17297  2057 1.95e3 3.81e1 2.89e-1 6.4 e1   0.227   -1.11   1800
+## 10 SALE_PRICE    19354     0 2.42e6 1.03e7 7.37e+4 1.57e6  35.7   2249.        0
 ## # … with 16 more variables: p01 <dbl>, p05 <dbl>, p10 <dbl>, p20 <dbl>,
 ## #   p25 <dbl>, p30 <dbl>, p40 <dbl>, p50 <dbl>, p60 <dbl>, p70 <dbl>,
-## #   p75 <dbl>, p80 <dbl>, p90 <dbl>, p95 <dbl>, p99 <dbl>, p100 <dbl>
+## #   p75 <dbl>, p80 <dbl>, p90 <dbl>, p95 <dbl>, p99 <dbl>, p100 <dbl>, and
+## #   abbreviated variable names ¹​described_variables, ²​skewness
 ```
 This gives very detailed metrics regarding the distribution of numerical variables. Along with basic metrics like mean, standard deviation it also gives metrics like skewness, kurtosis, percentiles, IQR etc.
 
@@ -283,16 +287,16 @@ normality(manhattan)
 ## # A tibble: 10 × 4
 ##    vars              statistic  p_value sample
 ##    <chr>                 <dbl>    <dbl>  <dbl>
-##  1 BLOCK                 0.982 6.39e-25   5000
-##  2 LOT                   0.696 8.76e-70   5000
-##  3 ZIP_CODE              0.576 1.28e-76   5000
-##  4 RESIDENTIAL_UNITS     0.171 7.44e-75   5000
-##  5 COMMERCIAL_UNITS      0.141 1.89e-44   5000
-##  6 TOTAL_UNITS           0.171 2.92e-76   5000
-##  7 LAND_SQUARE_FEET      0.493 3.19e-32   5000
-##  8 GROSS_SQUARE_FEET     0.349 2.33e-35   5000
-##  9 YEAR_BUILT            0.937 6.87e-40   5000
-## 10 SALE_PRICE            0.223 5.76e-90   5000
+##  1 BLOCK                 0.983 5.13e-24   5000
+##  2 LOT                   0.712 1.07e-68   5000
+##  3 ZIP_CODE              0.580 1.99e-76   5000
+##  4 RESIDENTIAL_UNITS     0.149 6.77e-75   5000
+##  5 COMMERCIAL_UNITS      0.171 5.30e-42   5000
+##  6 TOTAL_UNITS           0.159 4.63e-76   5000
+##  7 LAND_SQUARE_FEET      0.482 1.86e-30   5000
+##  8 GROSS_SQUARE_FEET     0.359 5.21e-33   5000
+##  9 YEAR_BUILT            0.938 8.49e-40   5000
+## 10 SALE_PRICE            0.239 1.74e-89   5000
 ```
 
 ```r
@@ -478,35 +482,36 @@ summary(land_square_feet)
 ```
 ## * Impute missing values based on Multivariate Imputation by Chained Equations
 ##  - method : mice
-##  - random seed : 61454
+##  - random seed : 83850
 ## 
 ## * Information of Imputation (before vs after)
-##              Original   Imputation
-## n          1469.00000  19354.00000
-## na        17885.00000      0.00000
-## mean       6019.76378  14981.84693
-## sd        27286.48687  22630.55203
-## se_mean     711.92907    162.67087
-## IQR        2502.00000  16708.75000
-## skewness     20.44256      7.42966
-## kurtosis    467.37765    111.16625
-## p00           0.00000      0.00000
-## p01          46.36000   1100.63600
-## p05        1084.60000   1710.79000
-## p10        1386.80000   2013.00000
-## p20        1659.40000   2735.52000
-## p25        1749.00000   3242.85000
-## p30        1862.00000   3901.96000
-## p40        2013.00000   5684.12000
-## p50        2313.00000   9002.90000
-## p60        2523.00000  12836.80000
-## p70        3679.20000  16147.56000
-## p75        4251.00000  19951.60000
-## p80        5046.00000  23612.84000
-## p90       10294.00000  33393.42000
-## p95       16066.00000  38319.14000
-## p99       55862.00000 136548.44400
-## p100     659375.00000 659375.00000
+##                     Original    Imputation 
+## described_variables "value"     "value"    
+## n                   " 1469"     "19354"    
+## na                  "17885"     "    0"    
+## mean                " 6019.764" "14560.463"
+## sd                  "27286.49"  "21917.31" 
+## se_mean             "711.9291"  "157.5440" 
+## IQR                 " 2502.00"  "15614.75" 
+## skewness            "20.442561" " 7.116475"
+## kurtosis            "467.3776"  "112.3919" 
+## p00                 "0"         "0"        
+## p01                 "  46.36"   "1050.00"  
+## p05                 "1084.6"    "1673.0"   
+## p10                 "1386.8"    "1981.8"   
+## p20                 "1659.4"    "2579.6"   
+## p25                 "1749.00"   "3023.25"  
+## p30                 "1862.0"    "3611.5"   
+## p40                 "2013.00"   "5185.52"  
+## p50                 "2313.0"    "7649.2"   
+## p60                 " 2523.00"  "12108.28" 
+## p70                 " 3679.20"  "15444.76" 
+## p75                 " 4251"     "18638"    
+## p80                 " 5046.00"  "23496.68" 
+## p90                 "10294.0"   "33925.8"  
+## p95                 "16066.0"   "40517.3"  
+## p99                 " 55862.0"  "135788.9" 
+## p100                "659375"    "659375"
 ```
 
 
@@ -534,32 +539,33 @@ summary(year_built)
 ## Impute outliers with capping
 ## 
 ## * Information of Imputation (before vs after)
-##               Original    Imputation
-## n        17297.0000000 17297.0000000
-## na        2057.0000000  2057.0000000
-## mean      1954.4412326  1954.4585766
-## sd          38.0661067    38.0184836
-## se_mean      0.2894363     0.2890742
-## IQR         64.0000000    64.0000000
-## skewness     0.2269967     0.2376013
-## kurtosis    -1.1091423    -1.1466029
-## p00       1800.0000000  1840.0000000
-## p01       1899.0000000  1899.0000000
-## p05       1900.0000000  1900.0000000
-## p10       1910.0000000  1910.0000000
-## p20       1920.0000000  1920.0000000
-## p25       1922.0000000  1922.0000000
-## p30       1926.0000000  1926.0000000
-## p40       1931.0000000  1931.0000000
-## p50       1957.0000000  1957.0000000
-## p60       1963.0000000  1963.0000000
-## p70       1974.0000000  1974.0000000
-## p75       1986.0000000  1986.0000000
-## p80       2000.0000000  2000.0000000
-## p90       2014.0000000  2014.0000000
-## p95       2017.0000000  2017.0000000
-## p99       2019.0000000  2019.0000000
-## p100      2021.0000000  2021.0000000
+##                     Original    Imputation 
+## described_variables "value"     "value"    
+## n                   "17297"     "17297"    
+## na                  "2057"      "2057"     
+## mean                "1954.441"  "1954.459" 
+## sd                  "38.06611"  "38.01848" 
+## se_mean             "0.2894363" "0.2890742"
+## IQR                 "64"        "64"       
+## skewness            "0.2269967" "0.2376013"
+## kurtosis            "-1.109142" "-1.146603"
+## p00                 "1800"      "1840"     
+## p01                 "1899"      "1899"     
+## p05                 "1900"      "1900"     
+## p10                 "1910"      "1910"     
+## p20                 "1920"      "1920"     
+## p25                 "1922"      "1922"     
+## p30                 "1926"      "1926"     
+## p40                 "1931"      "1931"     
+## p50                 "1957"      "1957"     
+## p60                 "1963"      "1963"     
+## p70                 "1974"      "1974"     
+## p75                 "1986"      "1986"     
+## p80                 "2000"      "2000"     
+## p90                 "2014"      "2014"     
+## p95                 "2017"      "2017"     
+## p99                 "2019"      "2019"     
+## p100                "2021"      "2021"
 ```
 
 

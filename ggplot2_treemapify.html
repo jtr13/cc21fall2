@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 114 ggplot2_treemapify | EDAV Fall 2021 Tues/Thurs Community Contributions</title>
 <meta name="description" content="114.1 Download treemapify In August 2017, R language has added new geometric objects supporting ggplot2 dendrograms. From then, there is no need to resort to the assistance of third-party...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 114 ggplot2_treemapify | EDAV Fall 2021 Tues/Thurs Community Contributions">
 <meta property="og:type" content="book">
 <meta property="og:description" content="114.1 Download treemapify In August 2017, R language has added new geometric objects supporting ggplot2 dendrograms. From then, there is no need to resort to the assistance of third-party...">
@@ -15,16 +15,19 @@
 <meta name="twitter:description" content="114.1 Download treemapify In August 2017, R language has added new geometric objects supporting ggplot2 dendrograms. From then, there is no need to resort to the assistance of third-party...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/d3-4.5.0/d3.min.js"></script><script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script><script src="libs/sankey-1/sankey.js"></script><script src="libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
-<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet">
-<script src="libs/highcharts-8.1.2/highcharts.js"></script><script src="libs/highcharts-8.1.2/highcharts-3d.js"></script><script src="libs/highcharts-8.1.2/highcharts-more.js"></script><script src="libs/highcharts-8.1.2/modules/stock.js"></script><script src="libs/highcharts-8.1.2/modules/map.js"></script><script src="libs/highcharts-8.1.2/modules/annotations.js"></script><script src="libs/highcharts-8.1.2/modules/data.js"></script><script src="libs/highcharts-8.1.2/modules/drilldown.js"></script><script src="libs/highcharts-8.1.2/modules/item-series.js"></script><script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script><script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-8.1.2/modules/exporting.js"></script><script src="libs/highcharts-8.1.2/modules/export-data.js"></script><script src="libs/highcharts-8.1.2/modules/funnel.js"></script><script src="libs/highcharts-8.1.2/modules/heatmap.js"></script><script src="libs/highcharts-8.1.2/modules/treemap.js"></script><script src="libs/highcharts-8.1.2/modules/sankey.js"></script><script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script><script src="libs/highcharts-8.1.2/modules/organization.js"></script><script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script><script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script><script src="libs/highcharts-8.1.2/modules/sunburst.js"></script><script src="libs/highcharts-8.1.2/modules/vector.js"></script><script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script><script src="libs/highcharts-8.1.2/modules/xrange.js"></script><script src="libs/highcharts-8.1.2/modules/tilemap.js"></script><script src="libs/highcharts-8.1.2/modules/venn.js"></script><script src="libs/highcharts-8.1.2/modules/gantt.js"></script><script src="libs/highcharts-8.1.2/modules/timeline.js"></script><script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script><script src="libs/highcharts-8.1.2/modules/bullet.js"></script><script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script><script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script><script src="libs/highcharts-8.1.2/modules/lollipop.js"></script><script src="libs/highcharts-8.1.2/modules/series-label.js"></script><script src="libs/highcharts-8.1.2/plugins/motion.js"></script><script src="libs/highcharts-8.1.2/custom/reset.js"></script><script src="libs/highcharts-8.1.2/modules/boost.js"></script><script src="libs/highchart-binding-0.8.2/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/proj4js-2.3.15/proj4.js"></script><link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="libs/highcharts-9.3.1/highcharts.js"></script><script src="libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="libs/highcharts-9.3.1/highcharts-more.js"></script><script src="libs/highcharts-9.3.1/modules/stock.js"></script><script src="libs/highcharts-9.3.1/modules/map.js"></script><script src="libs/highcharts-9.3.1/modules/data.js"></script><script src="libs/highcharts-9.3.1/modules/exporting.js"></script><script src="libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="libs/highcharts-9.3.1/modules/item-series.js"></script><script src="libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="libs/highcharts-9.3.1/modules/annotations.js"></script><script src="libs/highcharts-9.3.1/modules/export-data.js"></script><script src="libs/highcharts-9.3.1/modules/funnel.js"></script><script src="libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="libs/highcharts-9.3.1/modules/treemap.js"></script><script src="libs/highcharts-9.3.1/modules/sankey.js"></script><script src="libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="libs/highcharts-9.3.1/modules/organization.js"></script><script src="libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="libs/highcharts-9.3.1/modules/vector.js"></script><script src="libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="libs/highcharts-9.3.1/modules/xrange.js"></script><script src="libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="libs/highcharts-9.3.1/modules/venn.js"></script><script src="libs/highcharts-9.3.1/modules/gantt.js"></script><script src="libs/highcharts-9.3.1/modules/timeline.js"></script><script src="libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="libs/highcharts-9.3.1/modules/bullet.js"></script><script src="libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="libs/highcharts-9.3.1/modules/series-label.js"></script><script src="libs/highcharts-9.3.1/plugins/motion.js"></script><script src="libs/highcharts-9.3.1/custom/reset.js"></script><script src="libs/highcharts-9.3.1/modules/boost.js"></script><script src="libs/highchart-binding-0.9.4/highchart.js"></script><script src="libs/detect-resize-0.5.3/jquery.resize.js"></script><link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
 <script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script><script src="libs/vega-1.4.3/vega.min.js"></script><script src="libs/lodash-2.2.1/lodash.min.js"></script><script>var lodash = _.noConflict();</script><link href="libs/ggvis-0.4.7/css/ggvis.css" rel="stylesheet">
 <script src="libs/ggvis-0.4.7/js/ggvis.js"></script><link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
-<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script><script src="libs/wordcloud2-0.0.1/hover.js"></script><script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -206,11 +209,11 @@
 </h2>
 <p>In August 2017, R language has added new geometric objects supporting ggplot2 dendrograms. From then, there is no need to resort to the assistance of third-party packages. And it can be downloaded either using “install.package(”treemapify“)” or “devtools::install_github(”wilkox/treemapify“)”.</p>
 <p>After downloading this package, we will have an additional functon in our ggplot2 which is named “geom_treemap()”.</p>
-<div class="sourceCode" id="cb1595"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Load packages needed for this instruction</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org">"ggplot2"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://wilkox.org/treemapify/">"treemapify"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"RColorBrewer"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1590"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Load packages needed for this instruction</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org">"ggplot2"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://wilkox.org/treemapify/">"treemapify"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"RColorBrewer"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="basic-visualization-of-treemap" class="section level2">
 <h2>
@@ -218,36 +221,36 @@
 </h2>
 <p>Before we give example using treemapify package to draw treemap figure, we can first get to know this kind of figures:</p>
 <p>In the tree diagram, the numerical variables are converted into rectangular area sizes, and the types of variables are distinguished by labels.</p>
-<div class="sourceCode" id="cb1596"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">value</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">23</span>, <span class="fl">1300</span>, <span class="fl">1083</span>, <span class="fl">260</span>, <span class="fl">17</span>, <span class="fl">30</span><span class="op">)</span>,
-                      <span class="va">kind</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>,<span class="st">'D'</span>,<span class="st">'E'</span>,<span class="st">'F'</span>,<span class="st">'G'</span><span class="op">)</span><span class="op">)</span>
-<span class="va">example</span><span class="op">$</span><span class="va">kind</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/factor.html">as.factor</a></span><span class="op">(</span><span class="va">example</span><span class="op">$</span><span class="va">kind</span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">example</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area<span class="op">=</span><span class="va">value</span>,fill<span class="op">=</span><span class="va">kind</span>,label<span class="op">=</span><span class="va">kind</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_text.html">geom_treemap_text</a></span><span class="op">(</span>place<span class="op">=</span><span class="st">'center'</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1591"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">value</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">23</span>, <span class="fl">1300</span>, <span class="fl">1083</span>, <span class="fl">260</span>, <span class="fl">17</span>, <span class="fl">30</span><span class="op">)</span>,</span>
+<span>                      <span class="va">kind</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>,<span class="st">'D'</span>,<span class="st">'E'</span>,<span class="st">'F'</span>,<span class="st">'G'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">example</span><span class="op">$</span><span class="va">kind</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">example</span><span class="op">$</span><span class="va">kind</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">example</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area<span class="op">=</span><span class="va">value</span>,fill<span class="op">=</span><span class="va">kind</span>,label<span class="op">=</span><span class="va">kind</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_text.html">geom_treemap_text</a></span><span class="op">(</span>place<span class="op">=</span><span class="st">'center'</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;">
 We can also use the treemap() function in the treemap() package.</div>
-<div class="sourceCode" id="cb1597"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">treemap</span><span class="op">)</span>
-<span class="va">group</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"group-1"</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"group-2"</span>,<span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"group-3"</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span>
-<span class="va">subgroup</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"subgroup"</span> , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">"-"</span><span class="op">)</span>
-<span class="va">value</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">2</span>,<span class="fl">20</span><span class="op">)</span>
-<span class="va">data</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">group</span>,<span class="va">subgroup</span>,<span class="va">value</span><span class="op">)</span>
-
-<span class="co"># treemap</span>
-<span class="fu"><a href="https://rdrr.io/pkg/treemap/man/treemap.html">treemap</a></span><span class="op">(</span><span class="va">data</span>,
-        index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"group"</span>,<span class="st">"subgroup"</span><span class="op">)</span>,   <span class="co">#sub plots two groups</span>
-        vSize<span class="op">=</span><span class="st">"value"</span>,  <span class="co"># Sizes are allocated according to the numeric variable</span>
-        type<span class="op">=</span><span class="st">"index"</span><span class="op">)</span>  <span class="co"># Color according to the classification</span></code></pre></div>
+<div class="sourceCode" id="cb1592"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">treemap</span><span class="op">)</span></span>
+<span><span class="va">group</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"group-1"</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"group-2"</span>,<span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"group-3"</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">subgroup</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"subgroup"</span> , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">"-"</span><span class="op">)</span></span>
+<span><span class="va">value</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">2</span>,<span class="fl">20</span><span class="op">)</span></span>
+<span><span class="va">data</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">group</span>,<span class="va">subgroup</span>,<span class="va">value</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># treemap</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/treemap/man/treemap.html">treemap</a></span><span class="op">(</span><span class="va">data</span>,</span>
+<span>        index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"group"</span>,<span class="st">"subgroup"</span><span class="op">)</span>,   <span class="co">#sub plots two groups</span></span>
+<span>        vSize<span class="op">=</span><span class="st">"value"</span>,  <span class="co"># Sizes are allocated according to the numeric variable</span></span>
+<span>        type<span class="op">=</span><span class="st">"index"</span><span class="op">)</span>  <span class="co"># Color according to the classification</span></span></code></pre></div>
 <div class="inline-figure">
 <img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;">
 In this function, we can set color palette from the RColorBrewer presets or make our own</div>
-<div class="sourceCode" id="cb1598"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/treemap/man/treemap.html">treemap</a></span><span class="op">(</span><span class="va">data</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"group"</span>,<span class="st">"subgroup"</span><span class="op">)</span>, vSize<span class="op">=</span><span class="st">"value"</span>, 
-   type<span class="op">=</span><span class="st">"index"</span>,              
-   palette <span class="op">=</span> <span class="st">"Set3"</span>,
-  title<span class="op">=</span><span class="st">"TreemapExample"</span><span class="op">)</span> </code></pre></div>
+<div class="sourceCode" id="cb1593"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/treemap/man/treemap.html">treemap</a></span><span class="op">(</span><span class="va">data</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"group"</span>,<span class="st">"subgroup"</span><span class="op">)</span>, vSize<span class="op">=</span><span class="st">"value"</span>, </span>
+<span>   type<span class="op">=</span><span class="st">"index"</span>,              </span>
+<span>   palette <span class="op">=</span> <span class="st">"Set3"</span>,</span>
+<span>  title<span class="op">=</span><span class="st">"TreemapExample"</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="visualization-using-treemapify-package" class="section level2">
@@ -255,8 +258,8 @@ In this function, we can set color palette from the RColorBrewer presets or make
 <span class="header-section-number">114.3</span> Visualization using treemapify package<a class="anchor" aria-label="anchor" href="#visualization-using-treemapify-package"><i class="fas fa-link"></i></a>
 </h2>
 <p>We will have an example using the data set G20 included in treemapfiy package. We can first have a preview of this data set:</p>
-<div class="sourceCode" id="cb1599"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">G20</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1594"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">G20</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 'data.frame':    20 obs. of  6 variables:
 ##  $ region             : Factor w/ 8 levels "Africa","Asia",..: 1 6 6 6 8 8 2 2 2 2 ...
 ##  $ country            : Factor w/ 20 levels "Argentina","Australia",..: 16 20 4 13 3 1 5 12 17 9 ...
@@ -264,8 +267,8 @@ In this function, we can set color palette from the RColorBrewer presets or make
 ##  $ hdi                : num  0.629 0.937 0.911 0.775 0.73 0.811 0.699 0.912 0.909 0.554 ...
 ##  $ econ_classification: Factor w/ 2 levels "Advanced","Developing": 2 1 1 2 2 2 2 1 1 2 ...
 ##  $ hemisphere         : Factor w/ 2 levels "Northern","Southern": 2 1 1 1 2 2 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb1601"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">G20</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1596"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">G20</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##          region       country gdp_mil_usd   hdi econ_classification hemisphere
 ## 1        Africa  South Africa      384315 0.629          Developing   Southern
 ## 2 North America United States    15684750 0.937            Advanced   Northern
@@ -279,21 +282,21 @@ In this function, we can set color palette from the RColorBrewer presets or make
 <h3>
 <span class="header-section-number">114.3.1</span> Plot a simple Treemap figure<a class="anchor" aria-label="anchor" href="#plot-a-simple-treemap-figure"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb1603"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
- <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1598"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span> <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Because area only defines the square size of a numeric variable, the fill color can be defined separately. But color can often be used alone as a way of expressing a numerical metric.</p>
-<div class="sourceCode" id="cb1604"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Draw the plot with simple blue color</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
- <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span>fill<span class="op">=</span><span class="st">"light blue"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1599"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Draw the plot with simple blue color</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span> <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span>fill<span class="op">=</span><span class="st">"light blue"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
-<div class="sourceCode" id="cb1605"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Draw the plot using scale_fill_distiller with palette</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span>, fill <span class="op">=</span> <span class="va">hdi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
- <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
- <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_distiller</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Blues"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1600"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Draw the plot using scale_fill_distiller with palette</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span>, fill <span class="op">=</span> <span class="va">hdi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span> <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_distiller</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Blues"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-8-2.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="add-labels-onto-the-treemap" class="section level3">
@@ -302,13 +305,13 @@ In this function, we can set color palette from the RColorBrewer presets or make
 </h3>
 <p>The author of the package wrote an optimized text label function geom_treemap_text for the ggplot treemap (Because treemap exceeds the category of the three traditional coordinate systems. There is no explicit coordinate system. The algorithm is relatively special and one cannot use Geom_text() to add tags).</p>
 <p>The <strong>place</strong> parameter controls the position of the label in each box relative to the surroundings, and grow (which is set default to be True) controls whether the label is adaptive to the box size (largely scaled up and down)</p>
-<div class="sourceCode" id="cb1606"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span>, fill <span class="op">=</span> <span class="va">hdi</span>, label <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_text.html">geom_treemap_text</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"Blue"</span>, 
-                    grow <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co"># default value</span>
-                    place <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_distiller</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Blues"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1601"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span>, fill <span class="op">=</span> <span class="va">hdi</span>, label <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_text.html">geom_treemap_text</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"Blue"</span>, </span>
+<span>                    grow <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co"># default value</span></span>
+<span>                    place <span class="op">=</span> <span class="st">"center"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_distiller</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Blues"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 <div id="subgroups" class="section level3">
@@ -317,36 +320,36 @@ In this function, we can set color palette from the RColorBrewer presets or make
 </h3>
 <p>This package supports sub-groups, which is extensively applied in practical application scenarios. For example, while observing the size of national indicators, we also want to obtain the overall indicators of the region to which the country belongs. By adding sub-groups, We can obtain information in two dimensions. By setting the subgroup parameter (a categorical variable) in the aesthetic mapping, the function can automatically complete the variable aggregation calculation of the subgroup within the function, and use a frame to show the size of the subcategory in the graph formation.</p>
 <p>The <strong>reflow</strong> parameter is used to control whether the label adapts to the size of the rectangular block. If the original size exceeds the rectangular block, it will be automatically displayed in a new line.</p>
-<div class="sourceCode" id="cb1607"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span>, 
-                   fill <span class="op">=</span> <span class="va">hdi</span>, 
-                   label <span class="op">=</span> <span class="va">country</span>,
-                   subgroup <span class="op">=</span> <span class="va">region</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_subgroup_border.html">geom_treemap_subgroup_border</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_subgroup_text.html">geom_treemap_subgroup_text</a></span><span class="op">(</span>place <span class="op">=</span> <span class="st">"center"</span>, 
-                             alpha <span class="op">=</span> <span class="fl">0.3</span>, 
-                             colour <span class="op">=</span><span class="st">"black"</span>, 
-                             min.size <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_text.html">geom_treemap_text</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"Blue"</span>, 
-                    place <span class="op">=</span> <span class="st">"topleft"</span>, 
-                    reflow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_distiller</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Blues"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1602"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span>, </span>
+<span>                   fill <span class="op">=</span> <span class="va">hdi</span>, </span>
+<span>                   label <span class="op">=</span> <span class="va">country</span>,</span>
+<span>                   subgroup <span class="op">=</span> <span class="va">region</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_subgroup_border.html">geom_treemap_subgroup_border</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_subgroup_text.html">geom_treemap_subgroup_text</a></span><span class="op">(</span>place <span class="op">=</span> <span class="st">"center"</span>, </span>
+<span>                             alpha <span class="op">=</span> <span class="fl">0.3</span>, </span>
+<span>                             colour <span class="op">=</span><span class="st">"black"</span>, </span>
+<span>                             min.size <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_text.html">geom_treemap_text</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"Blue"</span>, </span>
+<span>                    place <span class="op">=</span> <span class="st">"topleft"</span>, </span>
+<span>                    reflow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_distiller</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Blues"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>When you feel that using sub-group cannot achieve a good visualization, geom_treemap also supports the facet_grid function in ggplot2. This is the benefit of all ggplot2 extension functions and can inherit the advanced graphics properties derived from ggplot2.</p>
-<div class="sourceCode" id="cb1608"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span>, 
-                   fill <span class="op">=</span> <span class="va">region</span>, 
-                   label <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_text.html">geom_treemap_text</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span> <span class="op">~</span> <span class="va">econ_classification</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Blues"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"The G-20 major economies by economic classification"</span>,
-       caption <span class="op">=</span> <span class="st">"The area of each country is proportional to its relative GDP within the economic group (advanced or developing)"</span>,
-       fill <span class="op">=</span> <span class="st">"Region"</span> <span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,
-        plot.caption<span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust<span class="op">=</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+<div class="sourceCode" id="cb1603"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">G20</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>area <span class="op">=</span> <span class="va">gdp_mil_usd</span>, </span>
+<span>                   fill <span class="op">=</span> <span class="va">region</span>, </span>
+<span>                   label <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap.html">geom_treemap</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://wilkox.org/treemapify/reference/geom_treemap_text.html">geom_treemap_text</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span> <span class="op">~</span> <span class="va">econ_classification</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Blues"</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"The G-20 major economies by economic classification"</span>,</span>
+<span>       caption <span class="op">=</span> <span class="st">"The area of each country is proportional to its relative GDP within the economic group (advanced or developing)"</span>,</span>
+<span>       fill <span class="op">=</span> <span class="st">"Region"</span> <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>        plot.caption<span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust<span class="op">=</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Treemapify_Tutorial_CC_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></div>
 </div>
 </div>
@@ -394,7 +397,7 @@ In this function, we can set color palette from the RColorBrewer presets or make
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2021-12-28.</p>
+    <p>"<strong>EDAV Fall 2021 Tues/Thurs Community Contributions</strong>" was written by . It was last built on 2022-10-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -407,7 +410,7 @@ In this function, we can set color palette from the RColorBrewer presets or make
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
