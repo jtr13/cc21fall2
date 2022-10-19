@@ -15,7 +15,7 @@ library(ggmap)
 ```
 
 ```{r, include=FALSE}
-# New API key added 2022-10-18
+# New API key added to repository secrets on 2022-10-18
 register_google(Sys.getenv("API_TOKEN"))
 ```
 
