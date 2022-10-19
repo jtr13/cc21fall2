@@ -15,7 +15,7 @@ library(ggmap)
 ```
 
 ```{r, include=FALSE}
-# Note that the below API key will be deactivated after the Fall 2021 semester!
+# New API key added 2022-10-18
 register_google(Sys.getenv("API_TOKEN"))
 ```
 
